@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Multiple tracebacks &mdash; friendly-traceback 0.3.142 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Everything about the friendly console" href="repl_api.html" />
+    <link rel="prev" title="Friendly object" href="friendly_object.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> friendly-traceback
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.142
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">friendly console</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html#everything-about-the-friendly-console">Everything about the friendly console</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multiple tracebacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-a-module-from-the-command-line">Running a module from the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-a-module">Importing a module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-about-the-friendly-interpreter">More about the friendly interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lines-suppressed-recursion-example">Lines suppressed: recursion example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.7.html">friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.9.html">friendly tracebacks - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">friendly-traceback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Multiple tracebacks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/multiple_tracebacks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="repl_api.html" class="btn btn-neutral float-right" title="Everything about the friendly console" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="friendly_object.html" class="btn btn-neutral float-left" title="Friendly object" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This project is being split into 3 separate projects:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.</p></li>
+</ul>
+<p>The documentation does not reflect this change.</p>
+<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code> until further notice.</p>
+</div>
+<div class="section" id="multiple-tracebacks">
+<span id="id1"></span><h1>Multiple tracebacks<a class="headerlink" href="#multiple-tracebacks" title="Permalink to this headline">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You might want to skip this section if it is the first time
+you read through this documentation.</p>
+</div>
+<p>In addition to providing additional information about the actual cause
+of an exception, compared with a traditional traceback, the traceback
+itself is formatted differently than a traditional Python traceback.
+You can choose to see three different tracebacks:
+<code class="docutils literal notranslate"><span class="pre">friendly_tb</span></code>, <code class="docutils literal notranslate"><span class="pre">python_tb</span></code>, <code class="docutils literal notranslate"><span class="pre">debug_tb</span></code>.
+Of these three, <code class="docutils literal notranslate"><span class="pre">python_tb</span></code> is designed to reproduce fairly accurately
+what would be seen if a program would be run without
+friendly. In a few cases, it will have some minor differences
+compared with a normal Python traceback.</p>
+<p>In this section, I compare these three tracebacks with the normal
+Python traceback in three different settings:</p>
+<ul class="simple">
+<li><p>Running a module from the command line.</p></li>
+<li><p>Importing a module.</p></li>
+<li><p>Writing code in the interpreter.</p></li>
+</ul>
+<p>For the first two, the module I will run contains the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">is_lowercase</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">lowercase</span>
+
+<span class="n">is_lowercase</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="running-a-module-from-the-command-line">
+<h2>Running a module from the command line<a class="headerlink" href="#running-a-module-from-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>First, I show the result of running a module containing
+the code shown above using Python.</p>
+<a class="reference internal image-reference" href="_images/tb_python1.png"><img alt="Screen capture showing a normal python traceback." src="_images/tb_python1.png" style="width: 433.5px; height: 113.0px;" /></a>
+<p>Next, I run the same module using friendly
+showing the <code class="docutils literal notranslate"><span class="pre">python_tb</span></code> case; this is done using <code class="docutils literal notranslate"><span class="pre">--include</span> <span class="pre">python_tb</span></code>
+as a command line option.
+In this particular case, the only difference with the
+normal Python traceback is the addition of an empty line preceding
+the traceback, with the goal of increasing readability.</p>
+<a class="reference internal image-reference" href="_images/python_tb1.png"><img alt="Screen capture showing a simulated python traceback." src="_images/python_tb1.png" style="width: 513.0px; height: 124.5px;" /></a>
+<p>With the <code class="docutils literal notranslate"><span class="pre">friendly_tb</span></code> option, you see a “hint” added to the traceback;
+in some instances, no such hint can be provided.</p>
+<a class="reference internal image-reference" href="_images/friendly_tb1.png"><img alt="Screen capture showing a friendly traceback." src="_images/friendly_tb1.png" style="width: 513.0px; height: 153.0px;" /></a>
+<p>Finally, I use the <code class="docutils literal notranslate"><span class="pre">debug_tb</span></code> to show the real traceback produced
+when running this example using friendly: it includes
+code from friendly itself.</p>
+<a class="reference internal image-reference" href="_images/debug_tb1.png"><img alt="Screen capture showing a the true traceback." src="_images/debug_tb1.png" style="width: 768.5px; height: 244.0px;" /></a>
+</div>
+<div class="section" id="importing-a-module">
+<h2>Importing a module<a class="headerlink" href="#importing-a-module" title="Permalink to this headline">¶</a></h2>
+<p>Let’s compare what happens if I import the same module instead
+from a console, starting with Python’s own.</p>
+<a class="reference internal image-reference" href="_images/tb_python2.png"><img alt="Screen capture showing a normal python traceback." src="_images/tb_python2.png" style="width: 603.5px; height: 119.5px;" /></a>
+<p>When doing the same with friendly, it is the <code class="docutils literal notranslate"><span class="pre">friendly_tb</span></code>
+that is shown by default. It has three differences compared with
+the normal Python traceback:</p>
+<ol class="arabic simple">
+<li><p>The name of the console is different (<code class="docutils literal notranslate"><span class="pre">&lt;friendly-console:...&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&lt;stdin&gt;</span></code>.)</p></li>
+<li><p>Paths are shortened (more about this below)</p></li>
+<li><p>As before, any “hint” available is automatically shown.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/friendly_tb2.png"><img alt="Screen capture showing a friendly traceback." src="_images/friendly_tb2.png" style="width: 438.5px; height: 183.0px;" /></a>
+<p>You can see the simulated Python traceback by entering <code class="docutils literal notranslate"><span class="pre">python_tb()</span></code>;
+as before, and except for the name of the console,
+the only difference with a normal Python traceback is the addition of
+an empty line preceding the traceback.</p>
+<a class="reference internal image-reference" href="_images/python_tb2.png"><img alt="Screen capture showing a simulated python traceback." src="_images/python_tb2.png" style="width: 603.0px; height: 150.5px;" /></a>
+<p>Finally, you can use <code class="docutils literal notranslate"><span class="pre">debug_tb()</span></code> to see the complete traceback.</p>
+<a class="reference internal image-reference" href="_images/debug_tb2.png"><img alt="Screen capture showing a the true traceback." src="_images/debug_tb2.png" style="width: 651.0px; height: 199.0px;" /></a>
+</div>
+<div class="section" id="more-about-the-friendly-interpreter">
+<h2>More about the friendly interpreter<a class="headerlink" href="#more-about-the-friendly-interpreter" title="Permalink to this headline">¶</a></h2>
+<p>When using a normal Python interpreter, the traceback generated
+includes only a list of “files” without including the actual
+content of the line that was executed.</p>
+<a class="reference internal image-reference" href="_images/tb_python3.png"><img alt="Screen capture showing a normal python traceback." src="_images/tb_python3.png" style="width: 432.0px; height: 147.5px;" /></a>
+<p>As before, when doing the same with friendly,
+it is the <code class="docutils literal notranslate"><span class="pre">friendly_tb</span></code> that is shown by default.
+It includes the line of code that was executed for each “file”.</p>
+<a class="reference internal image-reference" href="_images/friendly_tb3.png"><img alt="Screen capture showing a friendly traceback." src="_images/friendly_tb3.png" style="width: 435.5px; height: 227.5px;" /></a>
+<p>The same is true for the <code class="docutils literal notranslate"><span class="pre">python_tb()</span></code>; I could remove this information
+to make it more similar to a “true” Python traceback but I feel that
+the loss of information would not be helpful.</p>
+<a class="reference internal image-reference" href="_images/python_tb3.png"><img alt="Screen capture showing a simulated python traceback." src="_images/python_tb3.png" style="width: 430.0px; height: 138.5px;" /></a>
+<p>As before, I can use <code class="docutils literal notranslate"><span class="pre">debug_tb()</span></code> to see the complete traceback.</p>
+<a class="reference internal image-reference" href="_images/debug_tb3.png"><img alt="Screen capture showing a the true traceback." src="_images/debug_tb3.png" style="width: 645.0px; height: 170.5px;" /></a>
+<p>Since paths can be quite long, when showing information about an
+exception, friendly will attempt to reduce the length
+of the path shown. You’ve seen before an example where <code class="docutils literal notranslate"><span class="pre">FRIENDLY</span></code>
+was substituted for the name of the directory where <code class="docutils literal notranslate"><span class="pre">friendly</span></code>
+is located; this particular example will rarely be seen by an end-user.
+However, sometimes <code class="docutils literal notranslate"><span class="pre">HOME_DIR</span></code> will be shown instead of the full
+path to the user’s home directory.
+A much more significant reduction in length occurs when the path
+for a module from the Python standard library, as shown below.</p>
+<a class="reference internal image-reference" href="_images/shorter_path.png"><img alt="Screen capture showing the paths shortened by friendly" src="_images/shorter_path.png" style="width: 740.5px; height: 269.5px;" /></a>
+</div>
+<div class="section" id="lines-suppressed-recursion-example">
+<h2>Lines suppressed: recursion example<a class="headerlink" href="#lines-suppressed-recursion-example" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="n">b</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">()</span>
+
+<span class="n">a</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Try running this using Python. Not only will you get a
+<code class="docutils literal notranslate"><span class="pre">RecursionError</span></code> but you’ll get something like 2000 lines included.
+This is not exactly user friendly.  It is also what
+would be shown if I had used <code class="docutils literal notranslate"><span class="pre">debug_tb()</span></code>. Let’s skip this, and
+only look at the output from the other two tracebacks, starting
+with <code class="docutils literal notranslate"><span class="pre">friendly_tb()</span></code> which is shown by default.</p>
+<a class="reference internal image-reference" href="_images/recursion1.png"><img alt="Screen capture showing lines suppressed" src="_images/recursion1.png" style="width: 369.5px; height: 332.0px;" /></a>
+<p>As a rule, and <strong>not only</strong> for the <code class="docutils literal notranslate"><span class="pre">RecursionError</span></code> cases,
+the <code class="docutils literal notranslate"><span class="pre">friendly_tb()</span></code> default will only show a few intermediate lines
+of code, to avoid filling the screen with too much information.</p>
+<p>A similar, but not quite as extensive suppression is also done for
+<code class="docutils literal notranslate"><span class="pre">python_tb()</span></code> but <strong>only</strong> for <code class="docutils literal notranslate"><span class="pre">RecursionError</span></code> cases.</p>
+<a class="reference internal image-reference" href="_images/recursion2.png"><img alt="Screen capture showing lines suppressed" src="_images/recursion2.png" style="width: 369.0px; height: 330.0px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="repl_api.html" class="btn btn-neutral float-right" title="Everything about the friendly console" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="friendly_object.html" class="btn btn-neutral float-left" title="Friendly object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright André Roberge.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
