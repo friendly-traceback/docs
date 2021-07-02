@@ -1,0 +1,1012 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Generic information about various exceptions &mdash; friendly-traceback 0.3.142 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.6.html" />
+    <link rel="prev" title="Notes on translations - using gettext" href="translation_notes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> friendly-traceback
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.142
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html#everything-about-the-friendly-console">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generic information about various exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arithmeticerror">ArithmeticError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assertionerror">AssertionError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attributeerror">AttributeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#baseexception">BaseException</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blockingioerror">BlockingIOError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brokenpipeerror">BrokenPipeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffererror">BufferError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#childprocesserror">ChildProcessError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectionabortederror">ConnectionAbortedError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectionerror">ConnectionError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectionrefusederror">ConnectionRefusedError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectionreseterror">ConnectionResetError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eoferror">EOFError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environmenterror">EnvironmentError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exception">Exception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fileexistserror">FileExistsError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filenotfounderror">FileNotFoundError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#floatingpointerror">FloatingPointError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generatorexit">GeneratorExit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioerror">IOError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importerror">ImportError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indentationerror">IndentationError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexerror">IndexError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interruptederror">InterruptedError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isadirectoryerror">IsADirectoryError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyerror">KeyError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyboardinterrupt">KeyboardInterrupt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lookuperror">LookupError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memoryerror">MemoryError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nameerror">NameError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notadirectoryerror">NotADirectoryError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notimplementederror">NotImplementedError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oserror">OSError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overflowerror">OverflowError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permissionerror">PermissionError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processlookuperror">ProcessLookupError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursionerror">RecursionError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referenceerror">ReferenceError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#runtimeerror">RuntimeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stopasynciteration">StopAsyncIteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stopiteration">StopIteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntaxerror">SyntaxError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#systemerror">SystemError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#systemexit">SystemExit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#taberror">TabError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeouterror">TimeoutError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#typeerror">TypeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unboundlocalerror">UnboundLocalError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicodedecodeerror">UnicodeDecodeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicodeencodeerror">UnicodeEncodeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicodeerror">UnicodeError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicodetranslateerror">UnicodeTranslateError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valueerror">ValueError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windowserror">WindowsError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#warnings">Warnings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#byteswarning">BytesWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecationwarning">DeprecationWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#futurewarning">FutureWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importwarning">ImportWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pendingdeprecationwarning">PendingDeprecationWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resourcewarning">ResourceWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#runtimewarning">RuntimeWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntaxwarning">SyntaxWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicodewarning">UnicodeWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#userwarning">UserWarning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warning">Warning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.7.html">friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.9.html">friendly tracebacks - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">friendly-traceback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Generic information about various exceptions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/known.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="tracebacks_en_3.6.html" class="btn btn-neutral float-right" title="Friendly tracebacks - in English" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="translation_notes.html" class="btn btn-neutral float-left" title="Notes on translations - using gettext" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This project is being split into 3 separate projects:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.</p></li>
+</ul>
+<p>The documentation does not reflect this change.</p>
+<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code> until further notice.</p>
+</div>
+<div class="section" id="generic-information-about-various-exceptions">
+<h1>Generic information about various exceptions<a class="headerlink" href="#generic-information-about-various-exceptions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The content of this page is generated by running
+what.py located in the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.
+This needs to be done explicitly, independently of updating the
+documentation using Sphinx.</p>
+</div>
+<p>This file contains the generic information provided by
+Friendly-traceback about built-in exceptions.
+By “generic information” we mean the information provided using
+<code class="docutils literal notranslate"><span class="pre">what()</span></code> in a friendly console.</p>
+<p>Some exceptions will never be seen by users of Friendly-traceback.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> are never
+intercepted by Friendly-traceback. Furthermore, exceptions such as
+<code class="docutils literal notranslate"><span class="pre">GeneratorExit</span></code>, <code class="docutils literal notranslate"><span class="pre">FloatingPointError</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">StopAsyncIteration</span></code>, would likely never be seen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">FloatingPointError</span></code> is actually
+<a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#FloatingPointError">not used by Python</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BaseException</span></code>, <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, and <code class="docutils literal notranslate"><span class="pre">ArithmeticError</span></code> are base classes which
+are also not normally seen: some derived classes are normally used instead.</p>
+<p>Information compiled using Friendly version: 0.3.142,
+Python version: 3.8.10</p>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arithmeticerror">
+<h3>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`ArithmeticError` is the base class for those built-in exceptions
+that are raised for various arithmetic errors.
+It is unusual that you are seeing this exception;
+normally, a more specific exception should have been raised.
+</pre></div>
+</div>
+</div>
+<div class="section" id="assertionerror">
+<h3>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In Python, the keyword `assert` is used in statements of the form
+`assert condition`, to confirm that `condition` is not `False`,
+nor equivalent to `False` such as an empty list, etc.
+If `condition` is `False` or equivalent, an `AssertionError` is raised.
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributeerror">
+<h3>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `AttributeError` occurs when the code contains something like
+    `object.x`
+and `x` is not a method or attribute (variable) belonging to `object`.
+</pre></div>
+</div>
+</div>
+<div class="section" id="baseexception">
+<h3>BaseException<a class="headerlink" href="#baseexception" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="blockingioerror">
+<h3>BlockingIOError<a class="headerlink" href="#blockingioerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="brokenpipeerror">
+<h3>BrokenPipeError<a class="headerlink" href="#brokenpipeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="buffererror">
+<h3>BufferError<a class="headerlink" href="#buffererror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="childprocesserror">
+<h3>ChildProcessError<a class="headerlink" href="#childprocesserror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="connectionabortederror">
+<h3>ConnectionAbortedError<a class="headerlink" href="#connectionabortederror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="connectionerror">
+<h3>ConnectionError<a class="headerlink" href="#connectionerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="connectionrefusederror">
+<h3>ConnectionRefusedError<a class="headerlink" href="#connectionrefusederror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="connectionreseterror">
+<h3>ConnectionResetError<a class="headerlink" href="#connectionreseterror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="eoferror">
+<h3>EOFError<a class="headerlink" href="#eoferror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `EOFError` is raised when the `input()` function hits
+an end-of-file condition (EOF) without reading any data.
+</pre></div>
+</div>
+</div>
+<div class="section" id="environmenterror">
+<h3>EnvironmentError<a class="headerlink" href="#environmenterror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="exception">
+<h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="fileexistserror">
+<h3>FileExistsError<a class="headerlink" href="#fileexistserror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="filenotfounderror">
+<h3>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `FileNotFoundError` exception indicates that you
+are trying to open a file that cannot be found by Python.
+This could be because you misspelled the name of the file.
+</pre></div>
+</div>
+</div>
+<div class="section" id="floatingpointerror">
+<h3>FloatingPointError<a class="headerlink" href="#floatingpointerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="generatorexit">
+<h3>GeneratorExit<a class="headerlink" href="#generatorexit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="ioerror">
+<h3>IOError<a class="headerlink" href="#ioerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="importerror">
+<h3>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `ImportError` exception indicates that a certain object could not
+be imported from a module or package. Most often, this is
+because the name of the object is not spelled correctly.
+</pre></div>
+</div>
+</div>
+<div class="section" id="indentationerror">
+<h3>IndentationError<a class="headerlink" href="#indentationerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `IndentationError` occurs when a given line of code is
+not indented (aligned vertically with other lines) as expected.
+</pre></div>
+</div>
+</div>
+<div class="section" id="indexerror">
+<h3>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `IndexError` occurs when you try to get an item from a list,
+a tuple, or a similar object (sequence), and use an index which
+does not exist; typically, this happens because the index you give
+is greater than the length of the sequence.
+</pre></div>
+</div>
+</div>
+<div class="section" id="interruptederror">
+<h3>InterruptedError<a class="headerlink" href="#interruptederror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="isadirectoryerror">
+<h3>IsADirectoryError<a class="headerlink" href="#isadirectoryerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyerror">
+<h3>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `KeyError` is raised when a value is not found as a
+key in a Python dict or in a similar object.
+</pre></div>
+</div>
+</div>
+<div class="section" id="keyboardinterrupt">
+<h3>KeyboardInterrupt<a class="headerlink" href="#keyboardinterrupt" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="lookuperror">
+<h3>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`LookupError` is the base class for the exceptions that are raised
+when a key or index used on a mapping or sequence is invalid.
+It can also be raised directly by codecs.lookup().
+</pre></div>
+</div>
+</div>
+<div class="section" id="memoryerror">
+<h3>MemoryError<a class="headerlink" href="#memoryerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Like the name indicates, a `MemoryError` occurs when Python
+runs out of memory. This can happen if you create an object
+that is too big, like a list with too many items.
+</pre></div>
+</div>
+</div>
+<div class="section" id="modulenotfounderror">
+<h3>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ModuleNotFoundError` exception indicates that you
+are trying to import a module that cannot be found by Python.
+This could be because you misspelled the name of the module
+or because it is not installed on your computer.
+</pre></div>
+</div>
+</div>
+<div class="section" id="nameerror">
+<h3>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+</pre></div>
+</div>
+</div>
+<div class="section" id="notadirectoryerror">
+<h3>NotADirectoryError<a class="headerlink" href="#notadirectoryerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="notimplementederror">
+<h3>NotImplementedError<a class="headerlink" href="#notimplementederror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="oserror">
+<h3>OSError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
+</pre></div>
+</div>
+</div>
+<div class="section" id="overflowerror">
+<h3>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OverflowError` is raised when the result of an arithmetic operation
+is too large to be handled by the computer&#39;s processor.
+</pre></div>
+</div>
+</div>
+<div class="section" id="permissionerror">
+<h3>PermissionError<a class="headerlink" href="#permissionerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="processlookuperror">
+<h3>ProcessLookupError<a class="headerlink" href="#processlookuperror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="recursionerror">
+<h3>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `RecursionError` is raised when a function calls itself,
+directly or indirectly, too many times.
+It almost always indicates that you made an error in your code
+and that your program would never stop.
+</pre></div>
+</div>
+</div>
+<div class="section" id="referenceerror">
+<h3>ReferenceError<a class="headerlink" href="#referenceerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="runtimeerror">
+<h3>RuntimeError<a class="headerlink" href="#runtimeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="stopasynciteration">
+<h3>StopAsyncIteration<a class="headerlink" href="#stopasynciteration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="stopiteration">
+<h3>StopIteration<a class="headerlink" href="#stopiteration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`StopIteration` is raised to indicate that an iterator has no more
+item to provide when its `__next__` method is called by
+the `next()` builtin function.
+</pre></div>
+</div>
+</div>
+<div class="section" id="syntaxerror">
+<h3>SyntaxError<a class="headerlink" href="#syntaxerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `SyntaxError` occurs when Python cannot understand your code.
+</pre></div>
+</div>
+</div>
+<div class="section" id="systemerror">
+<h3>SystemError<a class="headerlink" href="#systemerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="systemexit">
+<h3>SystemExit<a class="headerlink" href="#systemexit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="taberror">
+<h3>TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `TabError` indicates that you have used both spaces
+and tab characters to indent your code.
+This is not allowed in Python.
+Indenting your code means to have block of codes aligned vertically
+by inserting either spaces or tab characters at the beginning of lines.
+Python&#39;s recommendation is to always use spaces to indent your code.
+</pre></div>
+</div>
+</div>
+<div class="section" id="timeouterror">
+<h3>TimeoutError<a class="headerlink" href="#timeouterror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="typeerror">
+<h3>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unboundlocalerror">
+<h3>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In Python, variables that are used inside a function are known as
+local variables. Before they are used, they must be assigned a value.
+A variable that is used before it is assigned a value is assumed to
+be defined outside that function; it is known as a `global`
+(or sometimes `nonlocal`) variable. You cannot assign a value to such
+a global variable inside a function without first indicating to
+Python that this is a global variable, otherwise you will see
+an `UnboundLocalError`.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicodedecodeerror">
+<h3>UnicodeDecodeError<a class="headerlink" href="#unicodedecodeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicodeencodeerror">
+<h3>UnicodeEncodeError<a class="headerlink" href="#unicodeencodeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicodeerror">
+<h3>UnicodeError<a class="headerlink" href="#unicodeerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicodetranslateerror">
+<h3>UnicodeTranslateError<a class="headerlink" href="#unicodetranslateerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="valueerror">
+<h3>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ValueError` indicates that a function or an operation
+received an argument of the right type, but an inappropriate value.
+</pre></div>
+</div>
+</div>
+<div class="section" id="windowserror">
+<h3>WindowsError<a class="headerlink" href="#windowserror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
+Please report this example to https://github.com/aroberge/friendly/issues.
+If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using the Friendly console, use `www()` to
+do an Internet search for this particular case.
+</pre></div>
+</div>
+</div>
+<div class="section" id="zerodivisionerror">
+<h3>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ZeroDivisionError` occurs when you are attempting to divide a value
+by zero either directly or by using some other mathematical operation.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="byteswarning">
+<h3>BytesWarning<a class="headerlink" href="#byteswarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="deprecationwarning">
+<h3>DeprecationWarning<a class="headerlink" href="#deprecationwarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="futurewarning">
+<h3>FutureWarning<a class="headerlink" href="#futurewarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="importwarning">
+<h3>ImportWarning<a class="headerlink" href="#importwarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="pendingdeprecationwarning">
+<h3>PendingDeprecationWarning<a class="headerlink" href="#pendingdeprecationwarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="resourcewarning">
+<h3>ResourceWarning<a class="headerlink" href="#resourcewarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="runtimewarning">
+<h3>RuntimeWarning<a class="headerlink" href="#runtimewarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="syntaxwarning">
+<h3>SyntaxWarning<a class="headerlink" href="#syntaxwarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicodewarning">
+<h3>UnicodeWarning<a class="headerlink" href="#unicodewarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="userwarning">
+<h3>UserWarning<a class="headerlink" href="#userwarning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+<div class="section" id="warning">
+<h3>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tracebacks_en_3.6.html" class="btn btn-neutral float-right" title="Friendly tracebacks - in English" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="translation_notes.html" class="btn btn-neutral float-left" title="Notes on translations - using gettext" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright André Roberge.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
