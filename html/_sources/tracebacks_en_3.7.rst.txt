@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.3.142
+Friendly version: 0.3.150
 Python version: 3.7.8
 
 
@@ -719,7 +719,7 @@ Circular import
         import circular_b
       File "TESTS:\circular_b.py", line 2, in <module>
         from circular_a import a
-    ImportError: cannot import name 'a' from 'circular_a' (C:\Users\andre\github\friendly-traceback\tests\circular_a.py)
+    ImportError: cannot import name 'a' from 'circular_a' (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
     
         You have a circular import.
         

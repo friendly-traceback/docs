@@ -66,5 +66,5 @@ your formatter, we suggest the following definition::
     def my_formatter(info, **ignore):
         ....
 
-.. automodule:: friendly.formatters
+.. automodule:: friendly_traceback.base_formatters
    :members:

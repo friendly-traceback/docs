@@ -16,5 +16,5 @@ Everything about the friendly console
     available in some environments (for example, when using
     IDLE or Mu.)
 
-.. automodule:: friendly.console_helpers
+.. automodule:: friendly_traceback.console_helpers
    :members:

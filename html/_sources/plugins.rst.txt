@@ -19,5 +19,5 @@ you use to the public API. In the meantime,
 here's some information about these functions.
 
 
-.. automodule:: friendly.editors_helpers
+.. automodule:: friendly_traceback.editors_helpers
    :members:

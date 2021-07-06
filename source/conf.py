@@ -19,7 +19,7 @@ import sys
 import warnings
 warnings.simplefilter("ignore")
 
-sys.path.insert(0, os.path.abspath("../../../friendly-traceback"))
+sys.path.insert(0, os.path.abspath("../../friendly-traceback"))
 
 from friendly_traceback import __version__  # pylint: disable=import-error
 

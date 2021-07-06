@@ -21,6 +21,6 @@ Without further ado, here's the API automatically obtained
 by Sphinx from the source code.
 
 
-.. automodule:: friendly
+.. automodule:: friendly_traceback
    :members:
 
