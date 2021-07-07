@@ -36,7 +36,7 @@ It can also take one of the following optional arguments:
 - ``www('python')``: go to Python's documentation site for the Python
   version currently used by the program from which it is invoked.
 
-- ``www('bug')``: go to the Github's issue page for **friendly**.
+- ``www('bug')``: go to the Github's issue page for **friendly_traceback**.
 
 - ``www('email')``: uses the default browser configuration to invoke
   an email app to start a new email to be sent to me

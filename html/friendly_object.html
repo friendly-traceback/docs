@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly object &mdash; friendly-traceback 0.3.152 documentation</title>
+  <title>Friendly object &mdash; friendly-traceback 0.3.153 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.152
+                0.3.153
               </div>
             
           
@@ -105,8 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#everything-about-the-friendly-console">Everything about the friendly console</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Friendly object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-advanced-users">For advanced users</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
@@ -270,18 +272,33 @@ that you might need.</p>
 </div>
 <div class="section" id="friendly-object">
 <span id="id1"></span><h1>Friendly object<a class="headerlink" href="#friendly-object" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="everything-about-the-friendly-console">
-<h1>Everything about the friendly console<a class="headerlink" href="#everything-about-the-friendly-console" title="Permalink to this headline">¶</a></h1>
 <p>What happens if someone uses an object with the same name
 as a friendly helper function?</p>
 <a class="reference internal image-reference" href="_images/friendly_why.png"><img alt="why as a static method" src="_images/friendly_why.png" style="width: 695.0px; height: 241.5px;" /></a>
 <p>As you can see, these functions are also available as static
-methods of a <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> object.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>Add more documentation about this including about
-<code class="docutils literal notranslate"><span class="pre">repr(Friendly)</span></code> and <code class="docutils literal notranslate"><span class="pre">dir(Friendly)</span></code>.</p>
+methods of a <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> object.  So, as long as you don’t
+use <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> as the name of an object in your program,
+you don’t have to worry about not being able to use
+any of <strong>friendly</strong>’s interactive functions.</p>
+<p>If you simply enter the name of that object, you can see
+a summary of each available  method of that object.</p>
+<a class="reference internal image-reference" href="_images/friendly_object1.png"><img alt="friendly object methods" src="_images/friendly_object1.png" style="width: 640.4000000000001px; height: 438.8px;" /></a>
+<p>A somewhat similar short description is available for
+each individual functions. These descriptions are
+available in both French and English as shown below.</p>
+<a class="reference internal image-reference" href="_images/friendly_object2.png"><img alt="description in French of explain." src="_images/friendly_object2.png" style="width: 622.4000000000001px; height: 101.60000000000001px;" /></a>
+<div class="section" id="for-advanced-users">
+<h2>For advanced users<a class="headerlink" href="#for-advanced-users" title="Permalink to this headline">¶</a></h2>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">set_debug()</span></code> to enter a debugging mode,
+you get access to more methods of the <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>
+object. These can be used to explore normally hidden
+values related to tracebacks.</p>
+<a class="reference internal image-reference" href="_images/friendly_object_debug.png"><img alt="debugging methods" src="_images/friendly_object_debug.png" style="width: 741.6px; height: 159.0px;" /></a>
+<p>These are only available as methods of <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>
+and not as individual functions.</p>
+<p>Here is one example illustrating the type of information
+that could be available for <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> cases:</p>
+<a class="reference internal image-reference" href="_images/friendly_object_statement.png"><img alt="debugging methods: Statement" src="_images/friendly_object_statement.png" style="width: 570.0px; height: 889.1999999999999px;" /></a>
 </div>
 </div>
 
