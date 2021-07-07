@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Bienvenue 환영합니다 Bienvenido - ようこそ Welcome 歡迎光臨 &mdash; friendly-traceback 0.3.150 documentation</title>
+  <title>Bienvenue 환영합니다 Bienvenido - ようこそ Welcome 歡迎光臨 &mdash; friendly-traceback 0.3.152 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.3.150
+                0.3.152
               </div>
             
           
@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="when_ft.html">Differences between friendly and friendly_traceback</a></li>
 </ul>
 <p class="caption"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -254,25 +255,44 @@
             
   <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This project is being split into 3 separate projects:</p>
+<p>This project has been split into 2 separate projects:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
 </ul>
-<p>The documentation does not reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code> until further notice.</p>
+<p>The documentation does not yet reflect this change.</p>
+<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
+<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
+that you might need.</p>
 </div>
-<p><a class="reference external" href="https://github.com/aroberge/friendly">Code on Github</a></p>
+<p><a class="reference external" href="https://github.com/friendly-traceback/friendly-traceback">Code on Github</a></p>
 <div class="section" id="bienvenue-bienvenido-welcome">
 <h1>Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨<a class="headerlink" href="#bienvenue-bienvenido-welcome" title="Permalink to this headline">¶</a></h1>
-<p><strong>friendly</strong> helps users understand what caused a given
+<p><strong>friendly_traceback</strong> and <strong>friendly</strong> help users understand what caused a given
 exception in their Python program, and how to fix it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>friendly</strong> is a program that uses <strong>friendly_traceback</strong>.
+From now on, I will generally use <strong>friendly</strong> to refer to both.
+I will explain the difference between the two in a separate section.
+As a user, you almost certainly only need to install and use <strong>friendly</strong>.</p>
+<p>If you need to report a but, you almost certainly need to report it
+to <strong>friendly_traceback</strong>; there is a very simple way to do this,
+which I will explain later when talking about the <code class="docutils literal notranslate"><span class="pre">www()</span></code> function.</p>
+</div>
 <p>There exists many Python projects
 whose <strong>primary</strong> goal is to supplement the information
 given by Python traceback to make them more useful for <strong>advanced</strong> programmers.
-To my knowledge, of all those projects, friendly is the only one
-designed with beginners in mind.</p>
+To my knowledge, of all those projects, friendly/friendly_traceback are
+the only ones designed with beginners in mind.</p>
+<p>To be more specific, while <strong>friendly</strong>
+can be useful for advanced programmers,
+it strives to present the information in a way that is easily
+understood by beginners and/or by users
+who would like to get information about traceback in their own language.
+<strong>friendly</strong> can give more detailed information as to
+<strong>where</strong> an exception occurred, <strong>what</strong> a given exception means and
+<strong>why</strong> it might have occurred (sometimes adding suggestions as to how to fix it.)</p>
 <div class="sidebar">
 <p class="sidebar-title">Using screenshots</p>
 <p>In this documentation, I most often use some screenshots,
@@ -283,14 +303,6 @@ If you rely on screen readers and need help because the use of screenshots
 prevents you from understanding the explanations, please do not hesitate to
 reach out to me: <a class="reference external" href="mailto:andre&#46;roberge&#37;&#52;&#48;gmail&#46;com">andre<span>&#46;</span>roberge<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </div>
-<p>To be more specific, while <strong>friendly</strong>
-can be useful for advanced programmers,
-it strives to present the information in a way that is easily
-understood by beginners and/or by users
-who would like to get information about traceback in their own language.
-<strong>friendly</strong> can give more detailed information as to
-<strong>where</strong> an exception occurred, <strong>what</strong> a given exception means and
-<strong>why</strong> it might have occurred (sometimes adding suggestions as to how to fix it.)</p>
 <p>Even though <strong>friendly</strong> can be used on its own with a specially
 designed console, a better option might be to use it together with
 GUI-based editors/IDE including JupyterLab and Jupyter notebooks.

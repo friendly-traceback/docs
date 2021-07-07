@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Everything about the friendly console &mdash; friendly-traceback 0.3.150 documentation</title>
+  <title>Everything about the friendly console &mdash; friendly-traceback 0.3.152 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.150
+                0.3.152
               </div>
             
           
@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="when_ft.html">Differences between friendly and friendly_traceback</a></li>
 </ul>
 <p class="caption"><span class="caption-text">friendly console</span></p>
 <ul class="current">
@@ -260,14 +261,15 @@
             
   <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This project is being split into 3 separate projects:</p>
+<p>This project has been split into 2 separate projects:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
 </ul>
-<p>The documentation does not reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code> until further notice.</p>
+<p>The documentation does not yet reflect this change.</p>
+<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
+<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
+that you might need.</p>
 </div>
 <div class="section" id="everything-about-the-friendly-console">
 <span id="console-api"></span><h1>Everything about the friendly console<a class="headerlink" href="#everything-about-the-friendly-console" title="Permalink to this headline">¶</a></h1>
@@ -354,9 +356,6 @@ itself.</p>
 <code class="sig-name descname"><span class="pre">set_formatter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_formatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.set_formatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the default formatter. If no argument is given, the default
 formatter is used.</p>
-<p>A custom formatter must accept <code class="docutils literal notranslate"><span class="pre">info</span></code> as a required arguments
-as well an additional argument whose value is subject to change.
-See base_formatters.py for details.</p>
 </dd></dl>
 
 <dl class="py function">

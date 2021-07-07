@@ -14,7 +14,7 @@ itself.  You can do the same for your own modules
 using something like the following::
 
     import my_module
-    friendly.add_excluded_path(my_module.__file__)
+    friendly_traceback.add_excluded_path(my_module.__file__)
 
 
 Without further ado, here's the API automatically obtained

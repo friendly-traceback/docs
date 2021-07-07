@@ -1,28 +1,29 @@
 
-`Code on Github <https://github.com/aroberge/friendly>`_
+`Code on Github <https://github.com/friendly-traceback/friendly-traceback>`_
 
 
 Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨
 ========================================================================
 
-**friendly** helps users understand what caused a given
+**friendly_traceback** and **friendly** help users understand what caused a given
 exception in their Python program, and how to fix it.
+
+.. note::
+
+    **friendly** is a program that uses **friendly_traceback**.
+    From now on, I will generally use **friendly** to refer to both.
+    I will explain the difference between the two in a separate section.
+    As a user, you almost certainly only need to install and use **friendly**.
+
+    If you need to report a but, you almost certainly need to report it
+    to **friendly_traceback**; there is a very simple way to do this,
+    which I will explain later when talking about the ``www()`` function.
 
 There exists many Python projects
 whose **primary** goal is to supplement the information
 given by Python traceback to make them more useful for **advanced** programmers.
-To my knowledge, of all those projects, friendly is the only one
-designed with beginners in mind.
-
-.. sidebar:: Using screenshots
-
-    In this documentation, I most often use some screenshots,
-    as I believe that they are more easily understandable by most users.
-    Occasionally, I write some examples as text so that they
-    can provide the required information to people relying on screen readers.
-    If you rely on screen readers and need help because the use of screenshots
-    prevents you from understanding the explanations, please do not hesitate to
-    reach out to me: andre.roberge@gmail.com
+To my knowledge, of all those projects, friendly/friendly_traceback are
+the only ones designed with beginners in mind.
 
 
 To be more specific, while **friendly**
@@ -33,6 +34,16 @@ who would like to get information about traceback in their own language.
 **friendly** can give more detailed information as to
 **where** an exception occurred, **what** a given exception means and
 **why** it might have occurred (sometimes adding suggestions as to how to fix it.)
+
+.. sidebar:: Using screenshots
+
+    In this documentation, I most often use some screenshots,
+    as I believe that they are more easily understandable by most users.
+    Occasionally, I write some examples as text so that they
+    can provide the required information to people relying on screen readers.
+    If you rely on screen readers and need help because the use of screenshots
+    prevents you from understanding the explanations, please do not hesitate to
+    reach out to me: andre.roberge@gmail.com
 
 Even though **friendly** can be used on its own with a specially
 designed console, a better option might be to use it together with
@@ -91,6 +102,7 @@ could easily be added.
    beginner
    install
    usage
+   when_ft
 
 
 .. toctree::

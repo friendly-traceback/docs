@@ -87,15 +87,16 @@ rst_epilog = """
 rst_prolog = """
 .. warning::
 
-    This project is being split into 3 separate projects:
+    This project has been split into 2 separate projects:
 
-    - ``friendly_traceback``,
-    - ``friendly``, and
-    - ``friendly_idle``.
+    - ``friendly_traceback``, and
+    - ``friendly``.
 
-    The documentation does not reflect this change.
+    The documentation does not yet reflect this change.
 
-    If you are a end-user, just install ``friendly`` until further notice.
+    If you are a end-user, just install ``friendly``: it will install
+    ``friendly_traceback`` and you will have access to everything
+    that you might need.
 """
 #
 add_module_names = False
