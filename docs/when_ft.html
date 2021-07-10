@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Differences between friendly and friendly_traceback &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>Differences between friendly and friendly_traceback &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -145,7 +144,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -255,17 +260,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation covers two related projects:
+<code class="docutils literal notranslate"><span class="pre">friendly</span></code> and <code class="docutils literal notranslate"><span class="pre">friendly-traceback</span></code>.</p>
+<p>You likely need to install and use <code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p>
 </div>
 <div class="section" id="differences-between-friendly-and-friendly-traceback">
 <h1>Differences between friendly and friendly_traceback<a class="headerlink" href="#differences-between-friendly-and-friendly-traceback" title="Permalink to this headline">¶</a></h1>
@@ -273,10 +272,11 @@ that you might need.</p>
 work to analyze a traceback and present the information
 in an helpful way.</p>
 <p><strong>friendly</strong> takes the output of <strong>friendly_traceback</strong>
-and formats it for specific environments, usually adding colour
-to the output.  If you use one of:</p>
+and formats it for specific environments, <strong>usually</strong> adding colour
+to the output.</p>
+<p>If you use one of:</p>
 <ul class="simple">
-<li><p>A terminal with colour support</p></li>
+<li><p>A terminal, ideally with colour support</p></li>
 <li><p>Python’s IDLE</p></li>
 <li><p>Mu</p></li>
 <li><p>IPython</p></li>
@@ -286,9 +286,9 @@ to the output.  If you use one of:</p>
 <li><p>etc.</p></li>
 </ul>
 <p>you will want to install and use <strong>friendly</strong>.</p>
-<p><strong>friendly</strong> has quite a few additional dependencies compared with
-<strong>friendly_traceback</strong>.
-If you design your own programming environment, such as is done on
+<p>Note that <strong>friendly</strong> has quite a few additional dependencies compared with
+<strong>friendly_traceback</strong>.</p>
+<p>If you design your own programming environment, such as is done on
 <a class="reference external" href="https://HackInScience.org">HackInScience</a>
 or <a class="reference external" href="https://futurecoder.io">futurecoder</a>
 then you likely only need to install <strong>friendly_traceback</strong>.</p>

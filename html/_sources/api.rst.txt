@@ -1,10 +1,9 @@
 Public API
 ==========
 
-
 Before getting Sphinx to document the public API automatically,
 I need to let you in on a little secret:
-occasionally, friendly will lie to you.
+occasionally, friendly-traceback will lie to you.
 Furthermore, I encourage you to do the same.
 
 Actually, if you have read the section

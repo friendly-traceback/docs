@@ -1,7 +1,6 @@
 IDLE's shell
 ============
 
-
 .. admonition:: Summary
 
     friendly has a special mode for IDLE.

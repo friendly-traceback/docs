@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Custom formatter &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>Custom formatter &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -145,7 +144,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul class="current">
@@ -258,19 +263,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="custom-formatter">
+  <div class="section" id="custom-formatter">
 <h1>Custom formatter<a class="headerlink" href="#custom-formatter" title="Permalink to this headline">¶</a></h1>
 <p>friendly comes with various formatters which style
 the information differently based on the environment.
@@ -289,11 +282,10 @@ your own and set it as a default using either:</p>
 <p>Currently, a formatter must accept two arguments:</p>
 <ol class="arabic">
 <li><p>A dict (<code class="docutils literal notranslate"><span class="pre">info</span></code>) which contains the friendly traceback information.
-The current dict items are the following:</p>
+At the time this documenation was written, the dict items were the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
-     <span class="s2">&quot;debug_warning&quot;</span><span class="p">,</span>
      <span class="s2">&quot;header&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;message&quot;</span><span class="p">,</span>  <span class="c1"># The last line of a Python traceback</span>
+     <span class="s2">&quot;message&quot;</span><span class="p">,</span>
      <span class="s2">&quot;original_python_traceback&quot;</span><span class="p">,</span>
      <span class="s2">&quot;simulated_python_traceback&quot;</span><span class="p">,</span>
      <span class="s2">&quot;shortened_traceback&quot;</span><span class="p">,</span>
@@ -301,7 +293,6 @@ The current dict items are the following:</p>
      <span class="s2">&quot;generic&quot;</span><span class="p">,</span>
      <span class="s2">&quot;parsing_error&quot;</span><span class="p">,</span>
      <span class="s2">&quot;parsing_error_source&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;cause_header&quot;</span><span class="p">,</span>
      <span class="s2">&quot;cause&quot;</span><span class="p">,</span>
      <span class="s2">&quot;last_call_header&quot;</span><span class="p">,</span>
      <span class="s2">&quot;last_call_source&quot;</span><span class="p">,</span>
@@ -312,14 +303,15 @@ The current dict items are the following:</p>
  <span class="p">]</span>
 </pre></div>
 </div>
-<p>New items are likely going to be added in the near future:
-is it suggested that you look at the actual code if you plan to
-create your own formatter.</p>
 </li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">show_info()</span></code> in a friendly console to see all possible items.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Friendly._show_info()</span></code> in a friendly console to see all possible items.
+Note that, when an actual exception is recorded, a few items not meant to
+be shown to the end user are stored in <code class="docutils literal notranslate"><span class="pre">info</span></code>; this is done so as
+to make them available in the console using method calls like
+<code class="docutils literal notranslate"><span class="pre">Friendly._get_exception()</span></code>, <code class="docutils literal notranslate"><span class="pre">Friendly._get_frame()</span></code>, etc.</p>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>A string (<code class="docutils literal notranslate"><span class="pre">include</span></code>) which specifies which parts of the friendly

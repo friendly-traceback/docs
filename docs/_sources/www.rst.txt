@@ -43,6 +43,11 @@ It can also take one of the following optional arguments:
   (andre.roberge@gmail.com). If you do not have a Github account,
   you can definitely use this option to communicate with me.
 
+- ``www('warnings')``: go to the Github's issue page inviting people
+  to comment about certain warnings given by **friendly**'s console
+  (but not the one included with friendly_traceback).
+  See :ref:`about_warnings` for details.
+
 All string arguments passed to ``why()`` are case-insensitive.
 
 Note that ``www()`` is a recent addition to friendly and that

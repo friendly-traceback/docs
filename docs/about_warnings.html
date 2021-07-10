@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>One last thing &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>One last thing &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">One last thing</a></li>
 </ul>
@@ -145,7 +144,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -255,25 +260,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="one-last-thing">
-<h1>One last thing<a class="headerlink" href="#one-last-thing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="one-last-thing">
+<span id="about-warnings"></span><h1>One last thing<a class="headerlink" href="#one-last-thing" title="Permalink to this headline">¶</a></h1>
 <p>Explaining tracebacks to beginners is useful, but so might be
 preventing mistakes in the first place.
-friendly’s console currently include two additional
-features that could possibly be of interest.</p>
-<a class="reference internal image-reference" href="_images/warnings_examples.png"><img alt="Python IndexError example" src="_images/warnings_examples.png" style="width: 753.9px; height: 264.59999999999997px;" /></a>
+The console included with <strong>friendly</strong>, but not the one
+included in <strong>friendly_traceback</strong>,
+currently includes some additional features that could possibly be of interest.</p>
+<a class="reference internal image-reference" href="_images/warnings_examples.png"><img alt="Friendly warnings examples" src="_images/warnings_examples.png" style="width: 799.4px; height: 582.4px;" /></a>
 </div>
 
 

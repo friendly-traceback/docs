@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>About IDLE &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>About IDLE &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -116,10 +115,7 @@
 </ul>
 <p class="caption"><span class="caption-text">IDLE</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">About IDLE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#colours">Colours</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About IDLE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
 </ul>
@@ -148,7 +144,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -258,19 +260,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="about-idle">
+  <div class="section" id="about-idle">
 <h1>About IDLE<a class="headerlink" href="#about-idle" title="Permalink to this headline">¶</a></h1>
 <p>IDLE is often the first program that is used by beginners
 learning Python since it is installed with Python.
@@ -284,27 +274,6 @@ exception hook <strong>except</strong> when dealing with syntax errors.
 To get the most out of friendly, <strong>I recommend to use
 friendly’s own console instead of IDLE’s shell</strong> as described
 on the next page.</p>
-<div class="section" id="colours">
-<h2>Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h2>
-<p>In most other programs where colour output is possible,
-friendly uses pygments, either directly or indirectly
-to add colour. This is not possible when using IDLE.</p>
-<p>Idle provides a few pre-defined element types to which colouring
-can be applied.</p>
-<a class="reference internal image-reference" href="_images/idle_defaults.png"><img alt="Idle color scheme" src="_images/idle_defaults.png" style="width: 405.5px; height: 541.0px;" /></a>
-<p>In the default scheme:</p>
-<ol class="arabic simple">
-<li><p>The default colour is black.</p></li>
-<li><p>Anything “printed” normally (<code class="docutils literal notranslate"><span class="pre">print()</span> <span class="pre">--&gt;</span> <span class="pre">sys.stdout</span></code>) is in blue.</p></li>
-<li><p>Anything printed following an exception (sent to <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code>) is in red.</p></li>
-<li><p>IDLE uses a red background to highlight a specific position of a syntax error
-as identified by Python.</p></li>
-</ol>
-<p>Friendly makes use of the colours chosen for these four basic
-elements when it formats the information presented to the user.
-The specific colour used for each of these cases can be changed by
-according to your preferences.</p>
-</div>
 </div>
 
 

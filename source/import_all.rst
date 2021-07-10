@@ -20,7 +20,7 @@ functions such as ``what()``, ``where()``, ``why()``, etc., which
 can be used in an interactive mode.  You can think of these
 functions as useful additions to Python's builtins, such as ``dir()``,
 ``vars()``, etc.
-These functions are meant to be used in interactive sessions.
+These functions are meant to be used in **interactive sessions**.
 
 The usual suggested alternatives to importing everything
 are the following:
@@ -58,7 +58,7 @@ environment, such as ``friendly.idle`` to be used with Python's IDLE,
 I define ``__all__`` so that only the relevant objects are imported
 when doing ``from friendly.X import *``.
 
-If you do not wish to do so, I suggest instead the following::
+**If you do not wish to do so**, I suggest instead the following::
 
     from friendly.X import Friendly
     # or
@@ -67,17 +67,19 @@ If you do not wish to do so, I suggest instead the following::
 ``Friendly`` is a special object which includes all the
 potentially useful functions as methods.
 
-.. warning::
+.. sidebar:: Only interactive functions ...
 
-    This might not be true. As I write this, ``Friendly`` does
-    not include ``run``, ``install``, and possibly others.
+    Functions that are not useful **during** an interactive
+    session with **friendly** but can start one include
+    ``run``, ``install``, and ``start_console``. If ``import *``
+    is not used, they must be imported separately if needed.
 
 
 By this, I mean that ``Friendly.why()`` is equivalent
 to writing ``why()``.
 ``Friendly`` is also imported if you do ``from friendly.X import *``.
 
-As mentioned previously, [:ref:`friendly_object`], ``Friendly``
+As mentioned previously in :ref:`friendly_object`, ``Friendly``
 can be used to easily obtain a list of useful functions, without
 needing to consult the documentation.
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Jupyter notebooks &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>Jupyter notebooks &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -152,7 +151,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -262,19 +267,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="jupyter-notebooks">
+  <div class="section" id="jupyter-notebooks">
 <h1>Jupyter notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
 <p>Friendly supports Jupyter notebooks and variants.
 Currently, this has been done more as a proof of concept than anything

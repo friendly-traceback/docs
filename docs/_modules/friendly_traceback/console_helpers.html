@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.console_helpers &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>friendly_traceback.console_helpers &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -104,7 +104,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
 </ul>
@@ -143,6 +142,11 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes and colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -387,6 +391,9 @@
 <span class="sd">    * If the argument &#39;site&#39; == &quot;email&quot;,</span>
 <span class="sd">      the default email client should open with Friendly&#39;s</span>
 <span class="sd">      developer&#39;s address already filled in.</span>
+
+<span class="sd">    * If the argument &#39;site&#39; == &quot;warnings&quot;, a specific issue</span>
+<span class="sd">      on Github will be shown, inviting comments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">urllib</span>
     <span class="kn">import</span> <span class="nn">webbrowser</span>
@@ -396,6 +403,7 @@
         <span class="s2">&quot;python&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.python.org/3&quot;</span><span class="p">,</span>
         <span class="s2">&quot;bug&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/friendly-traceback/friendly-traceback/issues/new&quot;</span><span class="p">,</span>
         <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;mailto:andre.roberge@gmail.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;warnings&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/friendly-traceback/friendly-traceback/issues/7&quot;</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">site</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -521,10 +529,13 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">: &#39;&#39;&quot;</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">56</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following are not meant to be shown to the end user:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">header_printed</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">base_formatters</span><span class="o">.</span><span class="n">items_in_order</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">header_printed</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">56</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following are not meant to be shown to the end user:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">header_printed</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
@@ -668,7 +679,7 @@
             <span class="n">more_header</span> <span class="o">=</span> <span class="s2">&quot;Debugging methods.&quot;</span>
             <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">more_header</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_helpers</span><span class="p">:</span>
-                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Friendly.&quot;</span> <span class="o">+</span> <span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;(): &quot;</span><span class="p">)</span>
+                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Friendly.</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">(): &quot;</span><span class="p">)</span>
                 <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
                 <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">):</span>
                     <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>

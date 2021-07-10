@@ -21,12 +21,11 @@ or, from the command line:
 Currently, a formatter must accept two arguments:
 
 1. A dict (``info``) which contains the friendly traceback information.
-   The current dict items are the following::
+   At the time this documenation was written, the dict items were the following::
 
        items = [
-            "debug_warning",
             "header",
-            "message",  # The last line of a Python traceback
+            "message",
             "original_python_traceback",
             "simulated_python_traceback",
             "shortened_traceback",
@@ -34,7 +33,6 @@ Currently, a formatter must accept two arguments:
             "generic",
             "parsing_error",
             "parsing_error_source",
-            "cause_header",
             "cause",
             "last_call_header",
             "last_call_source",
@@ -44,13 +42,14 @@ Currently, a formatter must accept two arguments:
             "exception_raised_variables",
         ]
 
-   New items are likely going to be added in the near future:
-   is it suggested that you look at the actual code if you plan to
-   create your own formatter.
 
 .. tip::
 
-    Use ``show_info()`` in a friendly console to see all possible items.
+    Use ``Friendly._show_info()`` in a friendly console to see all possible items.
+    Note that, when an actual exception is recorded, a few items not meant to
+    be shown to the end user are stored in ``info``; this is done so as
+    to make them available in the console using method calls like
+    ``Friendly._get_exception()``, ``Friendly._get_frame()``, etc.
 
 
 2. A string (``include``) which specifies which parts of the friendly

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Everything about the friendly console &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>Everything about the friendly console &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="One last thing" href="about_warnings.html" />
-    <link rel="prev" title="Multiple tracebacks" href="multiple_tracebacks.html" /> 
+    <link rel="prev" title="Friendly object" href="friendly_object.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Everything about the friendly console</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#console-helpers-py">console_helpers.py</a></li>
 </ul>
@@ -148,7 +147,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -249,7 +254,7 @@
         <a href="about_warnings.html" class="btn btn-neutral float-right" title="One last thing" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="multiple_tracebacks.html" class="btn btn-neutral float-left" title="Multiple tracebacks" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="friendly_object.html" class="btn btn-neutral float-left" title="Friendly object" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -258,19 +263,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="everything-about-the-friendly-console">
+  <div class="section" id="everything-about-the-friendly-console">
 <span id="console-api"></span><h1>Everything about the friendly console<a class="headerlink" href="#everything-about-the-friendly-console" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -439,6 +432,8 @@ the Issues page for Friendly on Github will open.</p></li>
 <li><p>If the argument ‘site’ == “email”,
 the default email client should open with Friendly’s
 developer’s address already filled in.</p></li>
+<li><p>If the argument ‘site’ == “warnings”, a specific issue
+on Github will be shown, inviting comments.</p></li>
 </ul>
 </dd></dl>
 
@@ -452,7 +447,7 @@ developer’s address already filled in.</p></li>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="about_warnings.html" class="btn btn-neutral float-right" title="One last thing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="multiple_tracebacks.html" class="btn btn-neutral float-left" title="Multiple tracebacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="friendly_object.html" class="btn btn-neutral float-left" title="Friendly object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

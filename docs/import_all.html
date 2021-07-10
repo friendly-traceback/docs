@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Why import *? &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>Why import *? &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -106,7 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -145,7 +144,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -255,19 +260,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="admonition-todo admonition" id="id1">
+  <div class="admonition-todo admonition" id="id1">
 <span id="import-all"></span><p class="admonition-title">Todo</p>
 <p>This is just a first draft that will need more work.</p>
 </div>
@@ -284,7 +277,7 @@ functions such as <code class="docutils literal notranslate"><span class="pre">w
 can be used in an interactive mode.  You can think of these
 functions as useful additions to Python’s builtins, such as <code class="docutils literal notranslate"><span class="pre">dir()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">vars()</span></code>, etc.
-These functions are meant to be used in interactive sessions.</p>
+These functions are meant to be used in <strong>interactive sessions</strong>.</p>
 <p>The usual suggested alternatives to importing everything
 are the following:</p>
 <ol class="arabic">
@@ -319,7 +312,7 @@ module <code class="docutils literal notranslate"><span class="pre">X</span></co
 environment, such as <code class="docutils literal notranslate"><span class="pre">friendly.idle</span></code> to be used with Python’s IDLE,
 I define <code class="docutils literal notranslate"><span class="pre">__all__</span></code> so that only the relevant objects are imported
 when doing <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
-<p>If you do not wish to do so, I suggest instead the following:</p>
+<p><strong>If you do not wish to do so</strong>, I suggest instead the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.X</span> <span class="kn">import</span> <span class="n">Friendly</span>
 <span class="c1"># or</span>
 <span class="kn">from</span> <span class="nn">friendly.X</span> <span class="kn">import</span> <span class="n">Friendly</span> <span class="k">as</span> <span class="n">some_other_name</span>
@@ -327,15 +320,17 @@ when doing <code class="docutils literal notranslate"><span class="pre">from</sp
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Friendly</span></code> is a special object which includes all the
 potentially useful functions as methods.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This might not be true. As I write this, <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> does
-not include <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">install</span></code>, and possibly others.</p>
+<div class="sidebar">
+<p class="sidebar-title">Only interactive functions …</p>
+<p>Functions that are not useful <strong>during</strong> an interactive
+session with <strong>friendly</strong> but can start one include
+<code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">install</span></code>, and <code class="docutils literal notranslate"><span class="pre">start_console</span></code>. If <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>
+is not used, they must be imported separately if needed.</p>
 </div>
 <p>By this, I mean that <code class="docutils literal notranslate"><span class="pre">Friendly.why()</span></code> is equivalent
 to writing <code class="docutils literal notranslate"><span class="pre">why()</span></code>.
 <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> is also imported if you do <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
-<p>As mentioned previously, [<a class="reference internal" href="friendly_object.html#friendly-object"><span class="std std-ref">Friendly object</span></a>], <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>
+<p>As mentioned previously in <a class="reference internal" href="friendly_object.html#friendly-object"><span class="std std-ref">Friendly object</span></a>, <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>
 can be used to easily obtain a list of useful functions, without
 needing to consult the documentation.</p>
 </div>

@@ -15,9 +15,10 @@ exception in their Python program, and how to fix it.
     I will explain the difference between the two in a separate section.
     As a user, you almost certainly only need to install and use **friendly**.
 
-    If you need to report a but, you almost certainly need to report it
-    to **friendly_traceback**; there is a very simple way to do this,
-    which I will explain later when talking about the ``www()`` function.
+    If you need to report a bug, you almost certainly need to report it
+    to **friendly_traceback**; there is a very simple way to do this
+    from the interactive console: ``www('bug')``, as I will explain
+    later.
 
 There exists many Python projects
 whose **primary** goal is to supplement the information
@@ -118,7 +119,6 @@ could easily be added.
    www
    history
    friendly_object
-   multiple_tracebacks
    repl_api
    about_warnings
 
@@ -178,7 +178,13 @@ could easily be added.
    :caption: Thoughts on design
 
    design
+   multiple_tracebacks
+   friendly_tb
+   ipython_tb
+   jupyter_tb
+   numbered_prompt
    themes
+   idle_colours
 
 .. toctree::
    :maxdepth: 1

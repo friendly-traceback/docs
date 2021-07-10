@@ -38,7 +38,7 @@ I recommend using **one of the first three** following options.
 
 All of the above assume that you are using a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
-add ``--style light`` as a command line option.
+add ``--format light`` as a command line option.
 
 
 More ways to use

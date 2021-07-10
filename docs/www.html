@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>www() &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>www() &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -109,7 +109,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
@@ -148,7 +147,13 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -258,19 +263,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This project has been split into 2 separate projects:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>, and</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p></li>
-</ul>
-<p>The documentation does not yet reflect this change.</p>
-<p>If you are a end-user, just install <code class="docutils literal notranslate"><span class="pre">friendly</span></code>: it will install
-<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and you will have access to everything
-that you might need.</p>
-</div>
-<div class="section" id="www">
+  <div class="section" id="www">
 <h1>www()<a class="headerlink" href="#www" title="Permalink to this headline">¶</a></h1>
 <p>Occasionally, friendly will not recognize an exception,
 or a given message associated with that exception:</p>
@@ -299,6 +292,10 @@ version currently used by the program from which it is invoked.</p></li>
 an email app to start a new email to be sent to me
 (<a class="reference external" href="mailto:andre&#46;roberge&#37;&#52;&#48;gmail&#46;com">andre<span>&#46;</span>roberge<span>&#64;</span>gmail<span>&#46;</span>com</a>). If you do not have a Github account,
 you can definitely use this option to communicate with me.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">www('warnings')</span></code>: go to the Github’s issue page inviting people
+to comment about certain warnings given by <strong>friendly</strong>’s console
+(but not the one included with friendly_traceback).
+See <a class="reference internal" href="about_warnings.html#about-warnings"><span class="std std-ref">One last thing</span></a> for details.</p></li>
 </ul>
 <p>All string arguments passed to <code class="docutils literal notranslate"><span class="pre">why()</span></code> are case-insensitive.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">www()</span></code> is a recent addition to friendly and that

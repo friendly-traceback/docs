@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback &mdash; friendly-traceback 0.3.153 documentation</title>
+  <title>friendly_traceback &mdash; friendly-traceback 0.3.157 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.3.153
+                0.3.157
               </div>
             
           
@@ -104,7 +104,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about_warnings.html">One last thing</a></li>
 </ul>
@@ -143,6 +142,11 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../themes.html">Themes and colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -270,7 +274,7 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="k">del</span> <span class="n">valid_version</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.3.153&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.3.157&quot;</span>
 
 
 <span class="c1"># ===========================================</span>
@@ -380,6 +384,7 @@
     <span class="n">console</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">formatter</span><span class="o">=</span><span class="s2">&quot;repl&quot;</span><span class="p">,</span>
     <span class="n">redirect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">numbered_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>  <span class="c1"># sourcery skip: move-assign</span>
     <span class="sd">&quot;&quot;&quot;Given a filename (relative or absolute path) ending with the &quot;.py&quot;</span>
 <span class="sd">    extension, this function uses the</span>
@@ -434,7 +439,11 @@
     <span class="p">)</span>
     <span class="k">if</span> <span class="n">console</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
         <span class="n">start_console</span><span class="p">(</span>
-            <span class="n">local_vars</span><span class="o">=</span><span class="n">module_globals</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">,</span> <span class="n">banner</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">include</span>
+            <span class="n">local_vars</span><span class="o">=</span><span class="n">module_globals</span><span class="p">,</span>
+            <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">,</span>
+            <span class="n">banner</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span>
+            <span class="n">numbered_prompt</span><span class="o">=</span><span class="n">numbered_prompt</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">module_globals</span></div>
@@ -454,6 +463,7 @@
     <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
     <span class="n">banner</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">displayhook</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">numbered_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Starts a Friendly console.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ft_console</span>
@@ -465,6 +475,7 @@
         <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">,</span>
         <span class="n">banner</span><span class="o">=</span><span class="n">banner</span><span class="p">,</span>
         <span class="n">displayhook</span><span class="o">=</span><span class="n">displayhook</span><span class="p">,</span>
+        <span class="n">numbered_prompt</span><span class="o">=</span><span class="n">numbered_prompt</span><span class="p">,</span>
     <span class="p">)</span></div>
 
 

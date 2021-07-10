@@ -41,9 +41,22 @@ completed, I entered more code, making a syntax error.
 
 If you are using Python 3.10 and do not worry about syntax errors,
 you can add the following at the beginning of your
-module and run it as is::
+module and run it as is, without needing to add another file::
 
     from friendly.idle import *
     install()
 
     # rest of your code
+
+
+If you do not like to use ``import *``, I suggest instead to use the
+following::
+
+    from friendly.idle import Friendly, install
+    install()
+
+    # rest of your code
+
+If an exception is raised and you want friendly to tell you "why",
+you will then have to use ``Friendly.why()``.
+

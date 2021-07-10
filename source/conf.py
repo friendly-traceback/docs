@@ -84,20 +84,9 @@ rst_epilog = """
 .. |france| image:: images/france.png
 """
 
-rst_prolog = """
-.. warning::
-
-    This project has been split into 2 separate projects:
-
-    - ``friendly_traceback``, and
-    - ``friendly``.
-
-    The documentation does not yet reflect this change.
-
-    If you are a end-user, just install ``friendly``: it will install
-    ``friendly_traceback`` and you will have access to everything
-    that you might need.
-"""
+# rst_prolog = """
+# Add info here
+# """
 #
 add_module_names = False
 # -- Options for HTML output -------------------------------------------------
