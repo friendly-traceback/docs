@@ -193,6 +193,7 @@ could easily be added.
 
    api
    formatter
+   custom_errors
    usage_adv
    plugins
 
