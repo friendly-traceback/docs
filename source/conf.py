@@ -17,6 +17,7 @@ import os
 import sys
 
 import warnings
+
 warnings.simplefilter("ignore")
 
 sys.path.insert(0, os.path.abspath("../../friendly-traceback"))
@@ -48,6 +49,7 @@ release = __version__
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
@@ -214,3 +216,10 @@ epub_exclude_files = ["search.html"]
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+autodoc_typehints = "none"
+
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "requests": ("https://docs.python-requests.org/en/master/", None),
+}
