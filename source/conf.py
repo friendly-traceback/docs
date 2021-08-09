@@ -16,12 +16,15 @@
 import os
 import sys
 
+
 import warnings
 warnings.simplefilter("ignore")
 
 sys.path.insert(0, os.path.abspath("../../friendly-traceback"))
+sys.path.append(os.path.abspath("../sphinx_ext"))
 
-from friendly_traceback import __version__  # pylint: disable=import-error
+
+from friendly_traceback import __version__  # noqa
 
 
 # -- Project information -----------------------------------------------------
@@ -52,7 +55,9 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
     'recommonmark',
+    "design_choice",
 ]
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -214,3 +219,4 @@ epub_exclude_files = ["search.html"]
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+design_choice_include_design_choices = True

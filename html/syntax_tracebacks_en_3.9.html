@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly SyntaxError tracebacks - in English &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Friendly SyntaxError tracebacks - in English &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -137,19 +137,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -296,82 +296,91 @@
 <li class="toctree-l2"><a class="reference internal" href="#forgot-o-for-octal">(119) Forgot ‘o’ for octal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integer-with-leading-zeros">(120) Integer with leading zeros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#invalid-character-in-identifier">(121) Invalid character in identifier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-encoding">(122) Invalid encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-hexadecimal-number">(123) Invalid hexadecimal number</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(124) Valid names cannot begin with a number</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(125) Valid names cannot begin with a number - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(126) Valid names cannot begin with a number - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(127) Valid names cannot begin with a number - 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(128) Valid names cannot begin with a number - 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keyword-can-t-be-an-expression">(129) Keyword can’t be an expression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-octal-number">(130) Invalid octal number</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#inverted-operators-1">(131) Inverted operators 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#inverted-operators-2">(132) Inverted operators 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(133) Keyword arg only once in function call</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keyword-as-attribute">(134) Keyword as attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(135) lambda with parentheses around arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lambda-with-tuple-as-argument">(136) lambda with tuple as argument</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assign-to-literal-in-for-loop">(137) Assign to literal in for loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(138) IndentationError/SyntaxError depending on version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-colon-if">(139) Missing colon - if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-colon-while">(140) Missing colon - while</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-dict">(141) Missing comma in a dict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(142) Missing comma between strings in a dict</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-list">(143) Missing comma in a list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-set">(144) Missing comma in a set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-tuple">(145) Missing comma in a tuple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#for-loop-missing-in-operator">(146) For loop missing ‘in’ operator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-parenthesis-for-range">(147) Missing parenthesis for range</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#misspelled-python-keyword">(148) Misspelled Python keyword</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#name-is-global-and-nonlocal">(149) Name is global and nonlocal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#name-is-parameter-and-nonlocal">(150) Name is parameter and nonlocal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nonlocal-variable-not-found">(151) nonlocal variable not found</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(152) nonlocal variable not found at module level</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#same-operator-twice-in-a-row">(153) Same operator twice in a row</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pip-from-interpreter">(154) Using pip from interpreter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-pip-from-interpreter-2">(155) Using pip from interpreter 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function">(156) print is a function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-2">(157) print is a function 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-3">(158) print is a function 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-4">(159) print is a function 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-5">(160) print is a function 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#calling-python-from-interpreter">(161) Calling python from interpreter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(162) problem with assigning a variable to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quote-inside-a-string">(163) Quote inside a string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raising-multiple-exceptions">(164) Raising multiple exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cannot-use-return-outside-function">(165) Cannot use return outside function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-comma-1">(166) Semi-colon instead of comma - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-2">(167) Semi-colon instead of commas - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-3">(168) Semi-colon instead of commas - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-if">(169) Single = instead of double == with if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-elif">(170) Single = instead of double == with elif</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-while">(171) Single = instead of double == with while</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-1">(172) Space between operators 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-2">(173) Space between operators 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-in-variable-name">(174) Space in variable name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#too-many-nested-blocks">(175) Too many nested blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#triple-equal-sign">(176) Triple-equal sign</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-bracket">(177) Unclosed bracket</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-1">(178) Unclosed parenthesis - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-2">(179) Unclosed parenthesis - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-3">(180) Unclosed parenthesis - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-4">(181) Unclosed parenthesis - 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#content-passed-continuation-line-character">(182) Content passed continuation line character</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unexpected-eof-while-parsing">(183) Unexpected EOF while parsing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote">(184) Invalid character (unicode quote)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-curly-bracket">(185) Unmatched closing curly bracket</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-parenthesis">(186) Unmatched closing parenthesis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-1">(187) Mismatched brackets - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-2">(188) Mismatched brackets - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-brackets-3">(189) Unmatched brackets - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unterminated-triple-quoted-string">(190) Unterminated triple quoted string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#taberror">(191) TabError</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eol-unescaped-backslash">(192) EOL unescaped backslash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-backquote-character">(193) Using the backquote character</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#walrus-instead-of-equal">(194) Walrus instead of equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-condition-in-while-statement">(195) Missing condition in while statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration">(196) Would-be variable declaration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration-2">(197) Would-be variable declaration - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-decimal-literal-1">(122) Invalid decimal literal - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-encoding">(123) Invalid encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-hexadecimal-number">(124) Invalid hexadecimal number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(125) Valid names cannot begin with a number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(126) Valid names cannot begin with a number - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(127) Valid names cannot begin with a number - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(128) Valid names cannot begin with a number - 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(129) Valid names cannot begin with a number - 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyword-can-t-be-an-expression">(130) Keyword can’t be an expression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-octal-number">(131) Invalid octal number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inverted-operators-1">(132) Inverted operators 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inverted-operators-2">(133) Inverted operators 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(134) Keyword arg only once in function call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyword-as-attribute">(135) Keyword as attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(136) lambda with parentheses around arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lambda-with-tuple-as-argument">(137) lambda with tuple as argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assign-to-literal-in-for-loop">(138) Assign to literal in for loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(139) IndentationError/SyntaxError depending on version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-colon-if">(140) Missing colon - if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-colon-while">(141) Missing colon - while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-dict">(142) Missing comma in a dict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(143) Missing comma between strings in a dict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-list">(144) Missing comma in a list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-set">(145) Missing comma in a set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-comma-in-a-tuple">(146) Missing comma in a tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-loop-missing-in-operator">(147) For loop missing ‘in’ operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-parenthesis-for-range">(148) Missing parenthesis for range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misspelled-python-keyword">(149) Misspelled Python keyword</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#name-is-global-and-nonlocal">(150) Name is global and nonlocal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#name-is-parameter-and-nonlocal">(151) Name is parameter and nonlocal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nonlocal-variable-not-found">(152) nonlocal variable not found</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(153) nonlocal variable not found at module level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#same-operator-twice-in-a-row">(154) Same operator twice in a row</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pip-from-interpreter">(155) Using pip from interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pip-from-interpreter-2">(156) Using pip from interpreter 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function">(157) print is a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-2">(158) print is a function 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-3">(159) print is a function 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-4">(160) print is a function 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-5">(161) print is a function 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-python-from-interpreter">(162) Calling python from interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(163) problem with assigning a variable to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quote-inside-a-string">(164) Quote inside a string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raising-multiple-exceptions">(165) Raising multiple exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cannot-use-return-outside-function">(166) Cannot use return outside function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-comma-1">(167) Semi-colon instead of comma - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-2">(168) Semi-colon instead of commas - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-3">(169) Semi-colon instead of commas - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-if">(170) Single = instead of double == with if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-elif">(171) Single = instead of double == with elif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-while">(172) Single = instead of double == with while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-1">(173) Space between operators 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-2">(174) Space between operators 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-in-variable-name">(175) Space in variable name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-nested-blocks">(176) Too many nested blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-nested-parentheses">(177) Too many nested parentheses.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triple-equal-sign">(178) Triple-equal sign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-bracket">(179) Unclosed bracket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-1">(180) Unclosed parenthesis - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-2">(181) Unclosed parenthesis - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-3">(182) Unclosed parenthesis - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-4">(183) Unclosed parenthesis - 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-passed-continuation-line-character">(184) Content passed continuation line character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unexpected-eof-while-parsing">(185) Unexpected EOF while parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(186) Invalid character (unicode fraction 3/4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(187) Invalid character (unicode fraction 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(188) Invalid character (unicode fraction slash)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote">(189) Invalid character (unicode quote)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote2">(190) Invalid character (unicode quote2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken">(191) Invalid character (mistaken &lt;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">(192) Invalid character (mistaken &gt;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken-comma">(193) Invalid character (mistaken comma)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-curly-bracket">(194) Unmatched closing curly bracket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-parenthesis">(195) Unmatched closing parenthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-1">(196) Mismatched brackets - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-2">(197) Mismatched brackets - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-brackets-3">(198) Unmatched brackets - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unterminated-triple-quoted-string">(199) Unterminated triple quoted string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taberror">(200) TabError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eol-unescaped-backslash">(201) EOL unescaped backslash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-backquote-character">(202) Using the backquote character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#walrus-instead-of-equal">(203) Walrus instead of equal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-condition-in-while-statement">(204) Missing condition in while statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration">(205) Would-be variable declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration-2">(206) Would-be variable declaration - 2</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
@@ -476,7 +485,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly version: 0.3.150
+<p>Friendly version: 0.4.23
 Python version: 3.9.5</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -492,7 +501,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\and_in_import_statement.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from math import sin and cos
                            ^
@@ -518,7 +527,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\and_in_import_statement_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from math import sin, tan, and cos
                                  ^
@@ -552,7 +561,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\annotated_name_global.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: # SyntaxError: annotated name &#39;x&#39; can&#39;t be global
    2: def foo():
@@ -579,7 +588,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\as_instead_of_comma_in_import.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: # issue 158
 --&gt;2: from math import (sin, cos) as funcs
@@ -611,7 +620,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_name_before_global_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    3:
    4:
@@ -639,7 +648,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_name_before_global_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    3:
    4:
@@ -669,7 +678,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_name_before_nonlocal_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
     5:     q = 1
     6:
@@ -699,7 +708,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_name_before_nonlocal_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
     5:     s = 1
     6:
@@ -729,7 +738,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_conditional.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t [cannot] assign to conditional expression&quot;&quot;&quot;
    2:
@@ -759,7 +768,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_debug.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
    2:    and assignment to keyword before.&quot;&quot;&quot;
@@ -786,7 +795,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_debug2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
    2:    and assignment to keyword before.&quot;&quot;&quot;
@@ -814,7 +823,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_ellipsis.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: cannot assign to Ellipsis in Py 3.8
    2:    and assignment to keyword before.&quot;&quot;&quot;
@@ -842,7 +851,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_f_string.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise
    2: Python &lt; 3.8: SyntaxError: can&#39;t assign to literal
@@ -874,7 +883,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_function_call_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to function call
    2:
@@ -909,7 +918,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_function_call_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to function call
    2:
@@ -944,7 +953,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_generator.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t [cannot] assign to generator expression&quot;&quot;&quot;
    2:
@@ -972,7 +981,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_literal_dict.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError:
    2: Python 3.8: cannot assign to dict display
@@ -1007,7 +1016,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_literal_int.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to literal&quot;&quot;&quot;
    2:
@@ -1042,7 +1051,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_literal_int_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to literal&quot;&quot;&quot;
    2:
@@ -1074,7 +1083,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_literal_int_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to literal
    2: or (Python 3.8) cannot assign to literal&quot;&quot;&quot;
@@ -1107,7 +1116,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_literal_set.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError:
    2: Python 3.8: cannot assign to set display
@@ -1143,7 +1152,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_keyword_def.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot; Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -1171,7 +1180,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_keyword_else.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot; Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -1198,7 +1207,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_keyword_none.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: cannot assign to None in Py 3.8
    2:    and can&#39;t assign to keyword before.&quot;&quot;&quot;
@@ -1226,7 +1235,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\assign_to_operation.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to operator
    2: or (Python 3.8) cannot assign to operator&quot;&quot;&quot;
@@ -1256,7 +1265,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\async_def_missing_parens.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: async def name:
                     ^
@@ -1284,7 +1293,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\augmented_assignment_to_literal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: if &quot;word&quot; := True:
          ^
@@ -1310,7 +1319,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\augmented_assigment_with_true.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: or (Python 3.8) cannot use named assignment with True&quot;&quot;&quot;
@@ -1338,7 +1347,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\backslash_instead_of_slash.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = 3 \ 4.0
                 ^
@@ -1364,7 +1373,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\break_outside_loop.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: &#39;break&#39; outside loop&quot;&quot;&quot;
    2:
@@ -1390,7 +1399,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\cannot_guess_the_cause.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: SyntaxErrors can be annoying!
                    ^
@@ -1421,7 +1430,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\cannot_use_star.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t use starred expression here&quot;&quot;&quot;
    2:
@@ -1448,7 +1457,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\cannot_use_double_star.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: (**k)
        ^
@@ -1474,7 +1483,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\class_missing_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: class:
            ^
@@ -1502,7 +1511,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\comprehension_missing_tuple_paren.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: x = [i, i**2 for i in range(10)]
                    ^
@@ -1533,7 +1542,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\comprehension_with_condition_no_else.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = [f(x) if condition for x in sequence]
                              ^
@@ -1566,7 +1575,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\comprehension_with_condition_with_else.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = [f(x) for x in sequence if condition else other]
                                                ^
@@ -1599,7 +1608,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\continue_outside_loop.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: &#39;continue&#39; outside loop&quot;&quot;&quot;
    2:
@@ -1627,7 +1636,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\copy_pasted_code.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: &gt;&gt;&gt; print(&quot;Hello World!&quot;)
@@ -1654,7 +1663,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\copy_pasted_code_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: ... print(&quot;Hello World!&quot;)
@@ -1681,7 +1690,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_arg_after_kwarg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, **kwargs, b):
                             ^
@@ -1708,7 +1717,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_bare_star_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: # SyntaxError: named arguments must follow bare *
    2:
@@ -1738,7 +1747,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_code_block.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -1768,7 +1777,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_code_block_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: class A:
 --&gt;2:     def :
@@ -1797,7 +1806,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_dotted_argument.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -1825,7 +1834,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_dotted_argument_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
 --&gt;2: def test(x., y):
@@ -1851,7 +1860,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_dotted_function_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -1878,7 +1887,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_dict_as_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test({&#39;a&#39;: 1}, y):  # dict as first argument
                ^
@@ -1902,7 +1911,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_duplicate_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: duplicate argument &#39;aa&#39; in function definition&quot;&quot;&quot;
    2:
@@ -1933,7 +1942,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_extra_semi_colon.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test():;
                  ^
@@ -1960,7 +1969,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_extra_comma.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a,,b):
                  ^
@@ -1988,7 +1997,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_forward_slash_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, **kwargs, /):
                             ^
@@ -2016,7 +2025,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_forward_slash_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *, b, /):
                         ^
@@ -2045,7 +2054,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_forward_slash_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *arg, /):
                         ^
@@ -2072,7 +2081,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_forward_slash_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, /, b, /):
                         ^
@@ -2097,7 +2106,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_function_name_invalid.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -2129,7 +2138,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_function_name_string.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -2157,7 +2166,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_keyword_as_arg_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: &quot;&quot;&quot;
@@ -2186,7 +2195,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_keyword_as_arg_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: &quot;&quot;&quot;
@@ -2215,7 +2224,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_keyword_as_arg_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: &quot;&quot;&quot;
@@ -2244,7 +2253,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_keyword_as_arg_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: &quot;&quot;&quot;
@@ -2275,7 +2284,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_keyword_as_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -2302,7 +2311,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_list_as_arg_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test([x], y):  # list as first argument
                ^
@@ -2328,7 +2337,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_list_as_arg_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(x, [y]):  # list as second argument, after comma
                   ^
@@ -2354,7 +2363,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_missing_colon.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test()
                 ^
@@ -2379,7 +2388,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_missing_comma.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -2413,7 +2422,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_missing_parens.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -2443,7 +2452,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_missing_parens_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
 --&gt;2: def name a, b:
@@ -2470,7 +2479,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_missing_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -2498,7 +2507,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_name_is_parameter_and_global.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: name &#39;x&#39; is parameter and global
    2: &quot;&quot;&quot;
@@ -2534,7 +2543,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_non_default_after_default.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: non-default argument follows default argument
    2: &quot;&quot;&quot;
@@ -2576,7 +2585,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_number_as_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def f(1):
             ^
@@ -2600,7 +2609,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_operator_after_2star.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(**):
                  ^
@@ -2625,7 +2634,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_operator_instead_of_comma.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a + b):
                  ^
@@ -2654,7 +2663,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_operator_instead_of_equal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, b=3, c+None):
                         ^
@@ -2683,7 +2692,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_operator_instead_of_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, +, b):
                   ^
@@ -2708,7 +2717,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_positional_after_keyword_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: positional argument follows keyword argument
    2: &quot;&quot;&quot;
@@ -2750,7 +2759,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_semi_colon_instead_of_colon.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test();
                 ^
@@ -2776,7 +2785,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_set_as_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(y, {&#39;a&#39;, &#39;b&#39;}):  # set as second argument, after comma
                   ^
@@ -2802,7 +2811,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_arg_before_slash.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *arg, /):
                         ^
@@ -2829,7 +2838,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_used_only_once.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *arg, *, b=1):
                         ^
@@ -2856,7 +2865,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_used_only_once_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *, *):
                      ^
@@ -2881,7 +2890,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_used_only_once_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, *arg, *other):
                         ^
@@ -2907,7 +2916,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_after_2star.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(**kw, *arg):
                      ^
@@ -2932,7 +2941,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_star_after_2star_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(**kw, *):
                      ^
@@ -2957,7 +2966,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_string_as_arg.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def f(&quot;1&quot;):
             ^
@@ -2983,7 +2992,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_tuple_as_arg_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test((a, b), c):
                ^
@@ -3011,7 +3020,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\def_tuple_as_arg_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: def test(a, (b, c)):
                   ^
@@ -3037,7 +3046,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\delete_constant_keyword.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: del True
           ^
@@ -3060,7 +3069,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\delete_function_call.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t or cannot delete function call
    2: &quot;&quot;&quot;
@@ -3092,7 +3101,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\delete_string_literal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: del &quot;Hello world!&quot;
           ^
@@ -3117,7 +3126,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\different_operators_in_a_row.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: 3 */ 4
          ^
@@ -3142,7 +3151,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\dot_before_paren.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: Reported by Hackinscience.&quot;&quot;&quot;
@@ -3170,7 +3179,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\duplicate_token.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: print(1 , , 2)
                 ^
@@ -3196,7 +3205,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\else_if_instead_of_elif.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -3226,7 +3235,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\elseif_instead_of_elif.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -3256,7 +3265,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\eol_string_literal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: EOL while scanning string literal&quot;&quot;&quot;
    2:
@@ -3282,7 +3291,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\equal_sign_instead_of_colon.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax
    2: &quot;&quot;&quot;
@@ -3312,7 +3321,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\except_multiple_exceptions.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: try:
    2:     pass
@@ -3341,7 +3350,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\extra_token.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: print(1 / 2) ==
                      ^
@@ -3367,7 +3376,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\f_string_binary.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: greet = bf&quot;Hello {name}&quot;
                 ^
@@ -3393,7 +3402,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\f_string_unterminated.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: f-string: unterminated string
    2: &quot;&quot;&quot;
@@ -3421,7 +3430,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\f_string_with_backslash.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: names = [&#39;a&#39;, &#39;b&#39;]
 --&gt;2: print(f&quot;{&#39;\n&#39;.join(names)}&quot;)
@@ -3457,7 +3466,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\for_missing_terms.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: for:
          ^
@@ -3483,7 +3492,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\future_braces.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from __future__ import braces
       ^
@@ -3510,7 +3519,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\future_import_star.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from __future__ import *
       ^
@@ -3545,7 +3554,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\future_must_be_first.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2: def fn():
@@ -3574,7 +3583,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\future_typo.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from __future__ import divisio
       ^
@@ -3597,7 +3606,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\future_unknown.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: from __future__ import something
       ^
@@ -3631,7 +3640,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\generator_expression_parens.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    2: def f(it, *varargs, **kwargs):
    3:     return list(it)
@@ -3664,7 +3673,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\hyphen_instead_of_underscore.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t assign to operator
    2: or (Python 3.8) cannot assign to operator&quot;&quot;&quot;
@@ -3695,7 +3704,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\if_missing_condition.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: if:
         ^
@@ -3723,14 +3732,13 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\imaginary_i.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: # SyntaxError: invalid syntax
    2:
 --&gt;3: a = 3.0i
              ^
 
-Valid names cannot begin with a number.
 Perhaps you thought that `i` could be used to represent
 the square root of `-1`. In Python, the symbol used for this is `j`
 and the complex part is written as `some_number` immediately
@@ -3755,7 +3763,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\import_from.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -3786,7 +3794,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\indentation_error_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &#39;&#39;&#39;Should raise IndentationError&#39;&#39;&#39;
    2:
@@ -3814,7 +3822,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\indentation_error_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &#39;&#39;&#39;Should raise IndentationError&#39;&#39;&#39;
    2: if True:
@@ -3841,7 +3849,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\indentation_error_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &#39;&#39;&#39;Should raise IndentationError&#39;&#39;&#39;
    2:
@@ -3869,7 +3877,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\indentation_error_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    2:
    3: def f():
@@ -3904,7 +3912,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\integer_with_leading_zero_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: x = 01
            ^
@@ -3931,7 +3939,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\integer_with_leading_zero_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: x = 000_123_456
                     ^
@@ -3955,7 +3963,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_character_in_identifier.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid character in identifier
    2: &quot;&quot;&quot;
@@ -3970,8 +3978,34 @@ which is not allowed.
 </pre></div>
 </div>
 </div>
+<div class="section" id="invalid-decimal-literal-1">
+<h2>(122) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\invalid_decimal_literal1.py&quot;, line 1
+    a = 1e
+         ^
+SyntaxError: invalid syntax
+
+    Perhaps you forgot a multiplication operator, `1 * e`.
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\invalid_decimal_literal1.py&#39;
+at the location indicated by ^.
+
+--&gt;1: a = 1e
+           ^
+
+Valid names cannot begin with a number.
+Perhaps you forgot a multiplication operator, `1 * e`.
+</pre></div>
+</div>
+</div>
 <div class="section" id="invalid-encoding">
-<h2>(122) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
+<h2>(123) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
   File &quot;TESTS:\syntax\invalid_encoding.py&quot;, line 2, in &lt;module&gt;
@@ -3986,7 +4020,7 @@ The encoding of the file was not valid.
 </div>
 </div>
 <div class="section" id="invalid-hexadecimal-number">
-<h2>(123) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(124) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4001,7 +4035,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_hexadecimal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4019,7 +4053,7 @@ followed by the characters used to represent the value of that integer.
 </div>
 </div>
 <div class="section" id="valid-names-cannot-begin-with-a-number">
-<h2>(124) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
+<h2>(125) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4034,7 +4068,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_identifier.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4046,7 +4080,7 @@ Valid names cannot begin with a number.
 </div>
 </div>
 <div class="section" id="valid-names-cannot-begin-with-a-number-2">
-<h2>(125) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
+<h2>(126) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4061,7 +4095,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_identifier_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4074,7 +4108,7 @@ Perhaps you forgot a multiplication operator, `2 * pi`.
 </div>
 </div>
 <div class="section" id="valid-names-cannot-begin-with-a-number-3">
-<h2>(126) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
+<h2>(127) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4089,7 +4123,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_identifier_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: 3job  # could be entered in a repl
         ^
@@ -4103,7 +4137,7 @@ since `3j` is a complex number.]
 </div>
 </div>
 <div class="section" id="valid-names-cannot-begin-with-a-number-4">
-<h2>(127) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
+<h2>(128) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4118,7 +4152,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_identifier_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: 3job = 1
         ^
@@ -4128,7 +4162,7 @@ Valid names cannot begin with a number.
 </div>
 </div>
 <div class="section" id="valid-names-cannot-begin-with-a-number-5">
-<h2>(128) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
+<h2>(129) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4143,7 +4177,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_identifier_5.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: print(42java)
                ^
@@ -4157,7 +4191,7 @@ since `42j` is a complex number.]
 </div>
 </div>
 <div class="section" id="keyword-can-t-be-an-expression">
-<h2>(129) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(130) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4170,7 +4204,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_keyword_argument.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise
    2: Python &lt; 3.8: SyntaxError: keyword can&#39;t be an expression
@@ -4194,7 +4228,7 @@ or contains a period, etc.
 </div>
 </div>
 <div class="section" id="invalid-octal-number">
-<h2>(130) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(131) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4209,7 +4243,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\invalid_octal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -4227,7 +4261,7 @@ followed by the characters used to represent the value of that integer.
 </div>
 </div>
 <div class="section" id="inverted-operators-1">
-<h2>(131) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(132) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4242,7 +4276,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\inverted_operators.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a =&lt; 3
          ^
@@ -4253,7 +4287,7 @@ in the wrong order: `=&lt;` instead of `&lt;=`.
 </div>
 </div>
 <div class="section" id="inverted-operators-2">
-<h2>(132) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(133) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4268,7 +4302,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\inverted_operators_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a =&lt;* 3
          ^
@@ -4282,7 +4316,7 @@ all the syntax errors in the code you wrote.
 </div>
 </div>
 <div class="section" id="keyword-arg-only-once-in-function-call">
-<h2>(133) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
+<h2>(134) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4295,7 +4329,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\keyword_arg_repeated.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError:  keyword argument repeated&quot;&quot;&quot;
    2:
@@ -4309,7 +4343,7 @@ Each keyword argument should appear only once in a function call.
 </div>
 </div>
 <div class="section" id="keyword-as-attribute">
-<h2>(134) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
+<h2>(135) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4324,7 +4358,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\keyword_as_attribute.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
     8:
     9: a = A()
@@ -4338,7 +4372,7 @@ You cannot use the Python keyword `pass` as an attribute.
 </div>
 </div>
 <div class="section" id="lambda-with-parentheses-around-arguments">
-<h2>(135) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<h2>(136) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4351,7 +4385,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\lambda_with_parens.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
 --&gt;2: x = lambda (a, b): a + b
@@ -4363,7 +4397,7 @@ This was allowed in Python 2 but it not allowed in Python 3.
 </div>
 </div>
 <div class="section" id="lambda-with-tuple-as-argument">
-<h2>(136) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(137) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4376,7 +4410,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\lambda_with_tuple_argument.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
 --&gt;2: x = lambda a, (b, c): a + b + b
@@ -4389,7 +4423,7 @@ within the body of the function.
 </div>
 </div>
 <div class="section" id="assign-to-literal-in-for-loop">
-<h2>(137) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(138) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4404,7 +4438,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\literal_in_for_loop.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: for &quot;char&quot; in &quot;word&quot;:
           ^
@@ -4419,7 +4453,7 @@ and not literals like `&quot;char&quot;`.
 </div>
 </div>
 <div class="section" id="indentationerror-syntaxerror-depending-on-version">
-<h2>(138) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
+<h2>(139) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4431,7 +4465,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_code_block.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &#39;&#39;&#39;Should raise SyntaxError: unexpected EOF while parsing&#39;&#39;&#39;
    2:
@@ -4445,7 +4479,7 @@ was expected to begin a new indented block.
 </div>
 </div>
 <div class="section" id="missing-colon-if">
-<h2>(139) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
+<h2>(140) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4460,7 +4494,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_colon_if.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -4473,7 +4507,7 @@ You wrote a statement beginning with
 </div>
 </div>
 <div class="section" id="missing-colon-while">
-<h2>(140) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
+<h2>(141) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4488,7 +4522,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_colon_while.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError&quot;&quot;&quot;
    2:
@@ -4501,7 +4535,7 @@ forgot to add a colon `:` at the end
 </div>
 </div>
 <div class="section" id="missing-comma-in-a-dict">
-<h2>(141) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(142) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4516,7 +4550,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_comma_in_dict.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    2:
    3: a = {&#39;a&#39;: 1,
@@ -4538,7 +4572,7 @@ Perhaps you meant
 </div>
 </div>
 <div class="section" id="missing-comma-between-strings-in-a-dict">
-<h2>(142) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(143) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4553,7 +4587,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_comma_in_dict_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2: a = {&#39;a&#39;: &#39;1&#39;,
@@ -4575,7 +4609,7 @@ a = {&#39;a&#39;: &#39;1&#39;,
 </div>
 </div>
 <div class="section" id="missing-comma-in-a-list">
-<h2>(143) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
+<h2>(144) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4590,7 +4624,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_comma_in_list.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4604,17 +4638,17 @@ Perhaps you meant to insert an operator like `+, -, *`
 between `2` and `3`.
 The following lines of code would not cause any `SyntaxError`:
 
-    a = [1, 2,  3]
-    a = [1, 2 +  3]
-    a = [1, 2 -  3]
-    a = [1, 2 *  3]
+    a = [1, 2,   3]
+    a = [1, 2 +   3]
+    a = [1, 2 -   3]
+    a = [1, 2 *   3]
 Note: these are just some of the possible choices and that
 some of them might raise other types of exceptions.
 </pre></div>
 </div>
 </div>
 <div class="section" id="missing-comma-in-a-set">
-<h2>(144) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
+<h2>(145) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4629,7 +4663,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_comma_in_set.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4643,17 +4677,17 @@ Perhaps you meant to insert an operator like `+, -, *`
 between `2` and `3`.
 The following lines of code would not cause any `SyntaxError`:
 
-    a = {1, 2,  3}
-    a = {1, 2 +  3}
-    a = {1, 2 -  3}
-    a = {1, 2 *  3}
+    a = {1, 2,   3}
+    a = {1, 2 +   3}
+    a = {1, 2 -   3}
+    a = {1, 2 *   3}
 Note: these are just some of the possible choices and that
 some of them might raise other types of exceptions.
 </pre></div>
 </div>
 </div>
 <div class="section" id="missing-comma-in-a-tuple">
-<h2>(145) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
+<h2>(146) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4668,7 +4702,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_comma_in_tuple.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -4683,17 +4717,17 @@ Perhaps you meant to insert an operator like `+, -, *`
 between `2` and `3`.
 The following lines of code would not cause any `SyntaxError`:
 
-    a = (1, 2,  3)
-    a = (1, 2 +  3)
-    a = (1, 2 -  3)
-    a = (1, 2 *  3)
+    a = (1, 2,   3)
+    a = (1, 2 +   3)
+    a = (1, 2 -   3)
+    a = (1, 2 *   3)
 Note: these are just some of the possible choices and that
 some of them might raise other types of exceptions.
 </pre></div>
 </div>
 </div>
 <div class="section" id="for-loop-missing-in-operator">
-<h2>(146) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this headline">¶</a></h2>
+<h2>(147) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4708,7 +4742,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_in_with_for.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: for x range(4):
             ^
@@ -4721,7 +4755,7 @@ as part of a `for` statement. Perhaps you meant:
 </div>
 </div>
 <div class="section" id="missing-parenthesis-for-range">
-<h2>(147) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
+<h2>(148) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4736,7 +4770,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\missing_parens_for_range.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: for i in range 3:
                      ^
@@ -4749,7 +4783,7 @@ Perhaps you meant:
 </div>
 </div>
 <div class="section" id="misspelled-python-keyword">
-<h2>(148) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(149) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4764,7 +4798,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\misspelled_keyword.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: i = 3
 --&gt;2: is i in range(3):
@@ -4776,7 +4810,7 @@ The correct line might be `if i in range(3):`
 </div>
 </div>
 <div class="section" id="name-is-global-and-nonlocal">
-<h2>(149) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(150) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4789,7 +4823,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\name_is_global_and_nonlocal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    3: xy = 1
    4:
@@ -4804,7 +4838,7 @@ A variable can be global, or nonlocal, but not both at the same time.
 </div>
 </div>
 <div class="section" id="name-is-parameter-and-nonlocal">
-<h2>(150) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(151) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4817,7 +4851,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\name_is_param_and_nonlocal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: name &#39;x&#39; is parameter and nonlocal&quot;&quot;&quot;
    2:
@@ -4833,7 +4867,7 @@ before declaring it also as a nonlocal variable:
 </div>
 </div>
 <div class="section" id="nonlocal-variable-not-found">
-<h2>(151) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
+<h2>(152) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4846,7 +4880,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\no_binding_for_nonlocal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: no binding for nonlocal &#39;ab&#39; found&quot;&quot;&quot;
    2:
@@ -4861,7 +4895,7 @@ nonlocal variable but it cannot be found.
 </div>
 </div>
 <div class="section" id="nonlocal-variable-not-found-at-module-level">
-<h2>(152) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
+<h2>(153) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4874,7 +4908,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\nonlocal_at_module.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError:  nonlocal declaration not allowed at module level&quot;&quot;&quot;
    2:
@@ -4889,7 +4923,7 @@ given a value outside that function.
 </div>
 </div>
 <div class="section" id="same-operator-twice-in-a-row">
-<h2>(153) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
+<h2>(154) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4902,7 +4936,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\operator_twice_in_a_row.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: 4****5
          ^
@@ -4914,7 +4948,7 @@ or forgot to write something between them.
 </div>
 </div>
 <div class="section" id="using-pip-from-interpreter">
-<h2>(154) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(155) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4929,7 +4963,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\pip_install_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: pip install friendly
@@ -4942,7 +4976,7 @@ not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="using-pip-from-interpreter-2">
-<h2>(155) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<h2>(156) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4957,7 +4991,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\pip_install_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: python -m pip install friendly
@@ -4970,7 +5004,7 @@ not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="print-is-a-function">
-<h2>(156) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
+<h2>(157) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -4985,7 +5019,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\print_is_a_function.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: Missing parentheses in call to &#39;print&#39; ...&quot;&quot;&quot;
 --&gt;2: print &#39;hello&#39;
@@ -5001,7 +5035,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-2">
-<h2>(157) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
+<h2>(158) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5016,7 +5050,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\print_is_a_function_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: print len(&#39;hello&#39;)
@@ -5028,7 +5062,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-3">
-<h2>(158) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
+<h2>(159) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5043,7 +5077,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\print_is_a_function_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: print &quot;&quot;&quot;This is a very long string which results in a very long error message.&quot;&quot;&quot;
             ^
@@ -5058,7 +5092,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-4">
-<h2>(159) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
+<h2>(160) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5073,7 +5107,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\print_is_a_function_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: print len(&quot;&quot;&quot;This is a long string
@@ -5086,7 +5120,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-5">
-<h2>(160) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
+<h2>(161) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5101,7 +5135,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\print_is_a_function_5.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: print len(&#39;This is a long string that fits on a single line.&#39;)
@@ -5113,7 +5147,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="calling-python-from-interpreter">
-<h2>(161) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(162) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5126,7 +5160,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\python_interpreter.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: python -i friendly
                 ^
@@ -5137,7 +5171,7 @@ You must do so from a terminal and not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="problem-with-assigning-a-variable-to-python">
-<h2>(162) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
+<h2>(163) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5152,7 +5186,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\python_not_interpreter.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: python = a b
                  ^
@@ -5162,17 +5196,17 @@ Perhaps you meant to insert an operator like `+; -; *; ,`
 between `a` and `b`.
 The following lines of code would not cause any `SyntaxError`:
 
-    python = a + b
-    python = a - b
-    python = a * b
-    python = a, b
+    python = a +  b
+    python = a -  b
+    python = a *  b
+    python = a,  b
 Note: these are just some of the possible choices and that
 some of them might raise other types of exceptions.
 </pre></div>
 </div>
 </div>
 <div class="section" id="quote-inside-a-string">
-<h2>(163) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
+<h2>(164) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5187,7 +5221,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\quote_inside_string.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -5202,7 +5236,7 @@ that was enclosed in quotes of the same kind.
 </div>
 </div>
 <div class="section" id="raising-multiple-exceptions">
-<h2>(164) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(165) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5215,7 +5249,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\raise_multiple_exceptions.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: raise X, Y
@@ -5226,7 +5260,7 @@ It looks like you are trying to raise an exception using Python 2 syntax.
 </div>
 </div>
 <div class="section" id="cannot-use-return-outside-function">
-<h2>(165) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(166) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5239,7 +5273,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\return_outside_function.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: &#39;return&#39; outside function&quot;&quot;&quot;
    2:
@@ -5251,7 +5285,7 @@ You can only use a `return` statement inside a function or method.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-comma-1">
-<h2>(166) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<h2>(167) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5266,7 +5300,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\semi_colon_instead_of_comma_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = [1, 2; 3]
                ^
@@ -5276,7 +5310,7 @@ You wrote a semi-colon, `;`, where a comma was expected.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-2">
-<h2>(167) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<h2>(168) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5291,7 +5325,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\semi_colon_instead_of_comma_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = [1; 2; 3]
             ^
@@ -5301,7 +5335,7 @@ You wrote semi-colons, `;`, where commas were expected.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-3">
-<h2>(168) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<h2>(169) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5316,7 +5350,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\semi_colon_instead_of_comma_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = [1; 2; 3];
             ^
@@ -5326,7 +5360,7 @@ You wrote semi-colons, `;`, where commas were expected.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-if">
-<h2>(169) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
+<h2>(170) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5341,7 +5375,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\single_equal_with_if.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: for i in range(101):
@@ -5353,7 +5387,7 @@ You likely used an assignment operator `=` instead of an equality operator `==`.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-elif">
-<h2>(170) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
+<h2>(171) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5368,7 +5402,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\single_equal_with_elif.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: for i in range(101):
@@ -5382,7 +5416,7 @@ You likely used an assignment operator `=` instead of an equality operator `==`.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-while">
-<h2>(171) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
+<h2>(172) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5397,7 +5431,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\single_equal_with_while.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: a = 1
@@ -5411,7 +5445,7 @@ an equality operator, `==`, or the walrus operator `:=`.
 </div>
 </div>
 <div class="section" id="space-between-operators-1">
-<h2>(172) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(173) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5424,7 +5458,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\space_between_operators_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = 2 * * 5
               ^
@@ -5438,7 +5472,7 @@ and meant to write `**` as a single operator.
 </div>
 </div>
 <div class="section" id="space-between-operators-2">
-<h2>(173) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(174) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5451,7 +5485,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\space_between_operators_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a / = b
           ^
@@ -5465,7 +5499,7 @@ and meant to write `/=` as a single operator.
 </div>
 </div>
 <div class="section" id="space-in-variable-name">
-<h2>(174) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
+<h2>(175) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5480,7 +5514,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\space_in_variable_name.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: my name = André
          ^
@@ -5490,7 +5524,7 @@ You cannot have spaces in identifiers (variable names).
 </div>
 </div>
 <div class="section" id="too-many-nested-blocks">
-<h2>(175) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>(176) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5499,13 +5533,11 @@ You cannot have spaces in identifiers (variable names).
     ^
 SyntaxError: too many statically nested blocks
 
-    Seriously?
-
 A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\too_many_nested_blocks.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    18:                  while 18:
    19:                   while 19:
@@ -5514,15 +5546,45 @@ beyond the location indicated by ^.
 --&gt;22:                      while 22:
                             ^
 
-You cannot be serious!
+Your code is too complex for Python:
+you need to reduce the number of indented code blocks
+contained inside other code blocks.
+</pre></div>
+</div>
+</div>
+<div class="section" id="too-many-nested-parentheses">
+<h2>(177) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\too_many_parentheses.py&quot;, line 4
+    ((((((((((((((((((((((((((((((((((
+                                     ^
+SyntaxError: too many nested parentheses
 
-In case this is a mistake in a real program, please
-consider reducing the number of nested code blocks.
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\too_many_parentheses.py&#39;
+at the location indicated by ^.
+
+   1: ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+   2:     ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+   3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
+--&gt;4:             ((((((((((((((((((((((((((((((((((
+                                                   ^
+   5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+   6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+   7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+Your code is too complex for Python:
+you need to reduce the number of parentheses
+contained inside other parentheses.
 </pre></div>
 </div>
 </div>
 <div class="section" id="triple-equal-sign">
-<h2>(176) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(178) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5537,7 +5599,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\triple_equal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1:
    2:
@@ -5552,7 +5614,7 @@ the exact same object, use the operator `is`.
 </div>
 </div>
 <div class="section" id="unclosed-bracket">
-<h2>(177) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(179) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5565,7 +5627,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unclosed_bracket.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
     3:
     4: def foo():
@@ -5582,7 +5644,7 @@ The opening square bracket `[` on line 5 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-1">
-<h2>(178) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
+<h2>(180) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5595,7 +5657,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unclosed_paren_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: x = int(&#39;1&#39;
@@ -5611,7 +5673,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-2">
-<h2>(179) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
+<h2>(181) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5624,7 +5686,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unclosed_paren_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: a = (b+c
@@ -5639,7 +5701,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-3">
-<h2>(180) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
+<h2>(182) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5652,7 +5714,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unclosed_paren_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    4:     if 1:
    5:         print(((123))
@@ -5670,7 +5732,7 @@ If this is incorrect, please report this case.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-4">
-<h2>(181) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
+<h2>(183) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5683,7 +5745,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unclosed_paren_4.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: # equal number of ( and ) in file
    2: print(&#39;hello&#39;
@@ -5699,7 +5761,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="content-passed-continuation-line-character">
-<h2>(182) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
+<h2>(184) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5712,7 +5774,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unexpected_after_continuation_character.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise
    2: SyntaxError: unexpected character after line continuation character
@@ -5728,7 +5790,7 @@ I am guessing that you forgot to enclose some content in a string.
 </div>
 </div>
 <div class="section" id="unexpected-eof-while-parsing">
-<h2>(183) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
+<h2>(185) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5739,7 +5801,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unexpected_eof.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
     3:
     4: def foo():
@@ -5761,8 +5823,98 @@ The opening square bracket `[` on line 5 is not closed.
 </pre></div>
 </div>
 </div>
+<div class="section" id="invalid-character-unicode-fraction-3-4">
+<h2>(186) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_fraction.py&quot;, line 1
+    a = ¾  # 3/4
+        ^
+SyntaxError: invalid character &#39;¾&#39; (U+00BE)
+
+    Did you mean `3/4`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_fraction.py&#39;
+at the location indicated by ^.
+
+--&gt;1: a = ¾  # 3/4
+          ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `¾`
+which is not allowed.
+You used the unicode character ¾ which is known as
+VULGAR FRACTION THREE QUARTERS
+I suspect that you meant to write the fraction `3/4` instead.
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-character-unicode-fraction-1-2">
+<h2>(187) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_fraction2.py&quot;, line 1
+    a = 1½  # 1 1/2
+         ^
+SyntaxError: invalid character &#39;½&#39; (U+00BD)
+
+    Did you mean `1/2`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_fraction2.py&#39;
+at the location indicated by ^.
+
+--&gt;1: a = 1½  # 1 1/2
+           ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `½`
+which is not allowed.
+You used the unicode character ½ which is known as
+VULGAR FRACTION ONE HALF
+I suspect that you meant to write the fraction `1/2` instead.
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-character-unicode-fraction-slash">
+<h2>(188) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_fraction3.py&quot;, line 1
+    a = 22 ⁄ 7
+           ^
+SyntaxError: invalid character &#39;⁄&#39; (U+2044)
+
+    Did you mean to use the division operator, `/`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_fraction3.py&#39;
+at the location indicated by ^.
+
+--&gt;1: a = 22 ⁄ 7
+             ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `⁄`
+which is not allowed.
+I suspect that you used the unicode character known as
+&#39;FRACTION SLASH&#39;, which looks similar to
+but is different from the division operator `/`.
+</pre></div>
+</div>
+</div>
 <div class="section" id="invalid-character-unicode-quote">
-<h2>(184) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
+<h2>(189) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5777,7 +5929,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unicode_quote.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid character in identifier for Python &lt;=3.8
    2:    and  SyntaxError: invalid character &#39;«&#39; (U+00AB) in Python 3.9&quot;&quot;&quot;
@@ -5788,12 +5940,140 @@ Did you use copy-paste?
 Python indicates that you used the unicode character `«`
 which is not allowed.
 I suspect that you used a fancy unicode quotation mark
+whose name is LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
 instead of a normal single or double quote for a string.
 </pre></div>
 </div>
 </div>
+<div class="section" id="invalid-character-unicode-quote2">
+<h2>(190) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_quote2.py&quot;, line 2
+    a = ‹ hello ›
+        ^
+SyntaxError: invalid character &#39;‹&#39; (U+2039)
+
+    Did you mean to use a normal quote character, `&#39;` or `&quot;`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_quote2.py&#39;
+at the location indicated by ^.
+
+   1: # matching unicode quotes in pair; not mistaken for &lt; and &gt; (less/greater)
+--&gt;2: a = ‹ hello ›
+          ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `‹`
+which is not allowed.
+I suspect that you used a fancy unicode quotation mark
+whose name is SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+instead of a normal single or double quote for a string.
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-character-mistaken">
+<h2>(191) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_quote3.py&quot;, line 2
+    if a ‹ hello:
+         ^
+SyntaxError: invalid character &#39;‹&#39; (U+2039)
+
+    Did you mean to use a normal quote character, `&#39;` or `&quot;`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_quote3.py&#39;
+at the location indicated by ^.
+
+   1: # unicode quote not in pair; mistaken &lt;
+--&gt;2: if a ‹ hello:
+           ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `‹`
+which is not allowed.
+I suspect that you used a fancy unicode quotation mark
+whose name is SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+instead of a normal single or double quote for a string.
+Or perhaps, you meant to write a less than sign, `&lt;`.
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>(192) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_quote4.py&quot;, line 2
+    if a › hello:
+         ^
+SyntaxError: invalid character &#39;›&#39; (U+203A)
+
+    Did you mean to use a normal quote character, `&#39;` or `&quot;`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_quote4.py&#39;
+at the location indicated by ^.
+
+   1: # unicode quote not in pair; mistaken &gt;
+--&gt;2: if a › hello:
+           ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `›`
+which is not allowed.
+I suspect that you used a fancy unicode quotation mark
+whose name is SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+instead of a normal single or double quote for a string.
+Or perhaps, you meant to write a greater than sign, `&gt;`.
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-character-mistaken-comma">
+<h2>(193) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_quote5.py&quot;, line 2
+    a = (1‚ 2)
+          ^
+SyntaxError: invalid character &#39;‚&#39; (U+201A)
+
+    Did you mean to use a normal quote character, `&#39;` or `&quot;`?
+
+A `SyntaxError` occurs when Python cannot understand your code.
+
+Python could not understand the code in the file
+&#39;TESTS:\syntax\unicode_quote5.py&#39;
+at the location indicated by ^.
+
+   1: # unicode quote not in pair; mistaken comma
+--&gt;2: a = (1‚ 2)
+            ^
+
+Did you use copy-paste?
+Python indicates that you used the unicode character `‚`
+which is not allowed.
+I suspect that you used a fancy unicode quotation mark
+whose name is SINGLE LOW-9 QUOTATION MARK
+instead of a normal single or double quote for a string.
+Or perhaps, you meant to write a comma.
+</pre></div>
+</div>
+</div>
 <div class="section" id="unmatched-closing-curly-bracket">
-<h2>(185) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(194) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5806,7 +6086,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unmatched_closing_curly.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax for Python &lt; 3.8
    2:    otherwise, SyntaxError: unmatched &#39;)&#39;
@@ -5821,7 +6101,7 @@ The closing curly bracket `}` on line 6 does not match anything.
 </div>
 </div>
 <div class="section" id="unmatched-closing-parenthesis">
-<h2>(186) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(195) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5834,7 +6114,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unmatched_closing_paren.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax for Python &lt; 3.8
    2:    otherwise, SyntaxError: unmatched &#39;)&#39;
@@ -5849,7 +6129,7 @@ The closing parenthesis `)` on line 6 does not match anything.
 </div>
 </div>
 <div class="section" id="mismatched-brackets-1">
-<h2>(187) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
+<h2>(196) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5862,7 +6142,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unmatched_closing_bracket_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
 --&gt;2: x = (1, 2, 3]
@@ -5876,7 +6156,7 @@ The closing square bracket `]` on line 2 does not match the opening parenthesis 
 </div>
 </div>
 <div class="section" id="mismatched-brackets-2">
-<h2>(188) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
+<h2>(197) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5889,7 +6169,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unmatched_closing_bracket_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2: x = (1,
@@ -5907,7 +6187,7 @@ The closing square bracket `]` on line 4 does not match the opening parenthesis 
 </div>
 </div>
 <div class="section" id="unmatched-brackets-3">
-<h2>(189) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
+<h2>(198) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5920,7 +6200,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unmatched_closing_bracket_3.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: x = [1,
    2:      2,
@@ -5932,7 +6212,7 @@ The closing square bracket `]` on line 3 does not match anything.
 </div>
 </div>
 <div class="section" id="unterminated-triple-quoted-string">
-<h2>(190) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
+<h2>(199) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5946,7 +6226,8 @@ SyntaxError: EOF while scanning triple-quoted string literal
 A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
-&#39;TESTS:\syntax\unterminated_triple_quote_string.py&#39;.
+&#39;TESTS:\syntax\unterminated_triple_quote_string.py&#39;
+.
 
    1: some_text =
 
@@ -5956,13 +6237,13 @@ the triple quotes needed to end the string.
 </div>
 </div>
 <div class="section" id="taberror">
-<h2>(191) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
+<h2>(200) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
   File &quot;TESTS:\syntax\tab_error.py&quot;, line 7
     pass
-  ^^^^^--&gt;
+  ^
 TabError: inconsistent use of tabs and spaces in indentation
 
 A `TabError` indicates that you have used both spaces
@@ -5974,7 +6255,7 @@ Python&#39;s recommendation is to always use spaces to indent your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\tab_error.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    3:
    4:
@@ -5986,7 +6267,7 @@ beyond the location indicated by ^.
 </div>
 </div>
 <div class="section" id="eol-unescaped-backslash">
-<h2>(192) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(201) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6001,7 +6282,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\unescaped_backslash.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a = &quot;abc\&quot;
                 ^
@@ -6015,7 +6296,7 @@ needed to escape it by writing two `\` in a row.
 </div>
 </div>
 <div class="section" id="using-the-backquote-character">
-<h2>(193) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
+<h2>(202) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6030,7 +6311,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\use_backquote.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
@@ -6044,7 +6325,7 @@ in this latter case, use the function `repr(x)`.
 </div>
 </div>
 <div class="section" id="walrus-instead-of-equal">
-<h2>(194) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(203) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6059,7 +6340,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\walrus_instead_of_equal.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: a := 3
             ^
@@ -6070,7 +6351,7 @@ the normal assignment operator `=` was required.
 </div>
 </div>
 <div class="section" id="missing-condition-in-while-statement">
-<h2>(195) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(204) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6085,7 +6366,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\while_missing_condition.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
 --&gt;1: while:
            ^
@@ -6098,7 +6379,7 @@ A `while` loop requires a condition:
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration">
-<h2>(196) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(205) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6113,7 +6394,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\would_be_type_declaration_1.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    1: begin, end = 1, 2
    2:
@@ -6127,7 +6408,7 @@ If you remove `var`, you will have a valid Python statement.
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration-2">
-<h2>(197) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
+<h2>(206) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6142,7 +6423,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 &#39;TESTS:\syntax\would_be_type_declaration_2.py&#39;
-beyond the location indicated by ^.
+at the location indicated by ^.
 
    2: end = 4
    3:

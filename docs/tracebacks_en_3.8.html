@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -137,19 +137,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -246,6 +246,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">Generic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-import">Missing import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#synonym">Synonym</a></li>
 </ul>
 </li>
@@ -419,7 +422,7 @@ trb_english.py located in the <code class="docutils literal notranslate"><span c
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly version: 0.3.150
+<p>Friendly version: 0.4.23
 Python version: 3.8.10</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -1823,6 +1826,130 @@ Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
 </pre></div>
 </div>
 </div>
+<div class="section" id="missing-module-name">
+<h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 247, in test_Missing_module_name
+    frame = Frame()
+NameError: name &#39;Frame&#39; is not defined
+
+    Did you forget to add `tkinter.`?
+
+A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+
+In your program, no object with the name `Frame` exists.
+
+The local object `tkinter`
+has an attribute named `Frame`.
+Perhaps you should have written `tkinter.Frame`
+instead of `Frame`.
+
+Exception raised on line 247 of file TESTS:\runtime\test_name_error.py.
+
+   244: def test_Missing_module_name():
+   245:     import tkinter
+   246:     try:
+--&gt;247:         frame = Frame()
+                        ^^^^^
+   248:     except NameError as e:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-self-1">
+<h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 198, in test_Missing_self_1
+    str(a)
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 189, in __str__
+    toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
+NameError: name &#39;add_toy&#39; is not defined
+
+    Did you write `self` at the wrong place?
+
+A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+
+In your program, no object with the name `add_toy` exists.
+
+The local object `&lt;Pet object&gt; from test_name_error.test_Missing_self_1`
+has an attribute named `add_toy`.
+Perhaps you should have written `self.add_toy(...`
+instead of `add_toy(self, ...`.
+
+Execution stopped on line 198 of file TESTS:\runtime\test_name_error.py.
+
+   194:                 return &quot;{} has no toys&quot;.format(self.name)
+   196:     a = Pet(&#39;Fido&#39;)
+   197:     try:
+--&gt;198:         str(a)
+   199:     except NameError as e:
+
+        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_1
+        str:  &lt;class str&gt;
+
+Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
+
+   187:         def __str__(self):
+   188:             # self at the wrong place
+--&gt;189:             toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
+                                ^^^^^^^
+   190:                                 self, &#39;something&#39;)
+   191:             if self.toys:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-self-2">
+<h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 232, in test_Missing_self_2
+    str(a)
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 224, in __str__
+    toys_list = add_toy(&#39;something&#39;)
+NameError: name &#39;add_toy&#39; is not defined
+
+    Did you forget to add `self.`?
+
+A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+
+In your program, no object with the name `add_toy` exists.
+
+A local object, `&lt;Pet object&gt; from test_name_error.test_Missing_self_2`,
+has an attribute named `add_toy`.
+Perhaps you should have written `self.add_toy`
+instead of `add_toy`.
+
+Execution stopped on line 232 of file TESTS:\runtime\test_name_error.py.
+
+   228:                 return &quot;{} has no toys&quot;.format(self.name)
+   230:     a = Pet(&#39;Fido&#39;)
+   231:     try:
+--&gt;232:         str(a)
+   233:     except NameError as e:
+
+        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_2
+        str:  &lt;class str&gt;
+
+Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
+
+   222:         def __str__(self):
+   223:             # Missing self.
+--&gt;224:             toys_list = add_toy(&#39;something&#39;)
+                                ^^^^^^^
+   225:             if self.toys:
+</pre></div>
+</div>
+</div>
 <div class="section" id="synonym">
 <h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -1869,7 +1996,7 @@ socket.gaierror: [Errno 11001] getaddrinfo failed
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 7, in test_Urllib_error
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 8, in test_Urllib_error
     request.urlopen(&quot;http://does_not_exist&quot;)
        ... More lines not shown. ...
   File &quot;PYTHON_LIB:\urllib\request.py&quot;, line 1383, in http_open
@@ -1889,13 +2016,13 @@ that a connection cannot be made.
 If that is the case, check for typos in the URL
 and check your internet connectivity.
 
-Execution stopped on line 7 of file TESTS:\runtime\test_os_error.py.
+Execution stopped on line 8 of file TESTS:\runtime\test_os_error.py.
 
-   4: def test_Urllib_error():
-   5:     from urllib import request, error
-   6:     try:
---&gt;7:         request.urlopen(&quot;http://does_not_exist&quot;)
-   8:     except error.URLError as e:
+   5: def test_Urllib_error():
+   6:     from urllib import request, error
+   7:     try:
+--&gt;8:         request.urlopen(&quot;http://does_not_exist&quot;)
+   9:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
         request.urlopen:  &lt;function urlopen&gt;
@@ -1910,6 +2037,40 @@ Exception raised on line 1357 of file PYTHON_LIB:\urllib\request.py.
    1358:             r = h.getresponse()
 
         global URLError:  &lt;class urllib.error.URLError&gt;
+
+
+
+Traceback (most recent call last):
+  File &quot;TESTS:\trb_common.py&quot;, line 77, in create_tracebacks
+    result, message = function()
+TypeError: cannot unpack non-iterable NoneType object
+
+A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+
+Unpacking is a convenient way to assign a name,
+to each item of an iterable.
+An iterable is an object capable of returning its members one at a time.
+Python containers (`list, tuple, dict`, etc.) are iterables,
+but not objects of type `NoneType`.
+
+Exception raised on line 77 of file TESTS:\trb_common.py.
+
+   74:                     if name.startswith(&quot;test&quot;):
+   75:                         function = getattr(mod, name)
+   76:                         if callable(function):
+--&gt;77:                             result, message = function()
+   78:                             title = name[5:].replace(&quot;_&quot;, &quot; &quot;)
+
+        function:  &lt;function test_no_information&gt;
+        message:  &#39;&lt;urlopen error [Errno 11001] getaddrinfo failed&gt;&#39;
+        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;PYTHO...&#39;
+                 len(result): 2419
+
+        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;PYTH...)
+                          len(result, message): 2
 </pre></div>
 </div>
 </div>
@@ -2775,7 +2936,7 @@ Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
 MyException: Some informative message about an unknown exception.
 
 No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 
 If you are using the Friendly console, use `www()` to

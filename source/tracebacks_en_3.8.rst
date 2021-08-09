@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.3.150
+Friendly version: 0.4.23
 Python version: 3.8.10
 
 
@@ -1604,6 +1604,139 @@ Missing import
        130:     except NameError as e:
 
 
+Missing module name
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 247, in test_Missing_module_name
+        frame = Frame()
+    NameError: name 'Frame' is not defined
+    
+        Did you forget to add `tkinter.`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `Frame` exists.
+    
+    The local object `tkinter`
+    has an attribute named `Frame`.
+    Perhaps you should have written `tkinter.Frame`
+    instead of `Frame`.
+    
+    Exception raised on line 247 of file TESTS:\runtime\test_name_error.py.
+    
+       244: def test_Missing_module_name():
+       245:     import tkinter
+       246:     try:
+    -->247:         frame = Frame()
+                            ^^^^^
+       248:     except NameError as e:
+
+
+Missing self 1
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 198, in test_Missing_self_1
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 189, in __str__
+        toys_list = add_toy(  # ensure that it can see 'self' on following line
+    NameError: name 'add_toy' is not defined
+    
+        Did you write `self` at the wrong place?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `add_toy` exists.
+    
+    The local object `<Pet object> from test_name_error.test_Missing_self_1`
+    has an attribute named `add_toy`.
+    Perhaps you should have written `self.add_toy(...`
+    instead of `add_toy(self, ...`.
+    
+    Execution stopped on line 198 of file TESTS:\runtime\test_name_error.py.
+    
+       194:                 return "{} has no toys".format(self.name)
+       196:     a = Pet('Fido')
+       197:     try:
+    -->198:         str(a)
+       199:     except NameError as e:
+
+            a:  <Pet object> from test_name_error.test_Missing_self_1
+            str:  <class str>
+        
+    Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
+    
+       187:         def __str__(self):
+       188:             # self at the wrong place
+    -->189:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+                                    ^^^^^^^
+       190:                                 self, 'something')
+       191:             if self.toys:
+
+
+Missing self 2
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 232, in test_Missing_self_2
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+        toys_list = add_toy('something')
+    NameError: name 'add_toy' is not defined
+    
+        Did you forget to add `self.`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `add_toy` exists.
+    
+    A local object, `<Pet object> from test_name_error.test_Missing_self_2`,
+    has an attribute named `add_toy`.
+    Perhaps you should have written `self.add_toy`
+    instead of `add_toy`.
+    
+    Execution stopped on line 232 of file TESTS:\runtime\test_name_error.py.
+    
+       228:                 return "{} has no toys".format(self.name)
+       230:     a = Pet('Fido')
+       231:     try:
+    -->232:         str(a)
+       233:     except NameError as e:
+
+            a:  <Pet object> from test_name_error.test_Missing_self_2
+            str:  <class str>
+        
+    Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
+    
+       222:         def __str__(self):
+       223:             # Missing self.
+    -->224:             toys_list = add_toy('something')
+                                    ^^^^^^^
+       225:             if self.toys:
+
+
 Synonym
 ~~~~~~~
 
@@ -1658,7 +1791,7 @@ Urllib error
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 7, in test_Urllib_error
+      File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
         request.urlopen("http://does_not_exist")
            ... More lines not shown. ...
       File "PYTHON_LIB:\urllib\request.py", line 1383, in http_open
@@ -1678,13 +1811,13 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Execution stopped on line 7 of file TESTS:\runtime\test_os_error.py.
+    Execution stopped on line 8 of file TESTS:\runtime\test_os_error.py.
     
-       4: def test_Urllib_error():
-       5:     from urllib import request, error
-       6:     try:
-    -->7:         request.urlopen("http://does_not_exist")
-       8:     except error.URLError as e:
+       5: def test_Urllib_error():
+       6:     from urllib import request, error
+       7:     try:
+    -->8:         request.urlopen("http://does_not_exist")
+       9:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
@@ -1701,6 +1834,40 @@ Urllib error
             global URLError:  <class urllib.error.URLError>
         
 
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_common.py", line 77, in create_tracebacks
+        result, message = function()
+    TypeError: cannot unpack non-iterable NoneType object
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    Unpacking is a convenient way to assign a name,
+    to each item of an iterable.
+    An iterable is an object capable of returning its members one at a time.
+    Python containers (`list, tuple, dict`, etc.) are iterables,
+    but not objects of type `NoneType`.
+    
+    Exception raised on line 77 of file TESTS:\trb_common.py.
+    
+       74:                     if name.startswith("test"):
+       75:                         function = getattr(mod, name)
+       76:                         if callable(function):
+    -->77:                             result, message = function()
+       78:                             title = name[5:].replace("_", " ")
+
+            function:  <function test_no_information>
+            message:  '<urlopen error [Errno 11001] getaddrinfo failed>'
+            result:  '\n    Traceback (most recent call last):\n      File "PYTHO...'
+                     len(result): 2419
+        
+            result, message:  ('\n    Traceback (most recent call last):\n      File "PYTH...)
+                              len(result, message): 2
+        
+        
 
 OverflowError
 -------------
@@ -2667,7 +2834,7 @@ Generic
     MyException: Some informative message about an unknown exception.
     
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     
     If you are using the Friendly console, use `www()` to

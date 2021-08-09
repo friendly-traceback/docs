@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - en Français &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Friendly tracebacks - en Français &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -137,19 +137,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -257,6 +257,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">Generic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-import">Missing import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#synonym">Synonym</a></li>
 </ul>
 </li>
@@ -417,7 +420,7 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly version: 0.3.150
+<p>Friendly version: 0.4.23
 Python version: 3.8.10</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -482,7 +485,7 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_assertion_error.py
 <div class="section" id="attribute-from-other-module">
 <h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 299, in test_Attribute_from_other_module
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 303, in test_Attribute_from_other_module
     keyword.pi
 AttributeError: module &#39;keyword&#39; has no attribute &#39;pi&#39;
 
@@ -495,13 +498,13 @@ Au lieu du module `keyword`, peut-être vouliez-vous utiliser l’attribut `pi` 
 l&#39;un des modules suivants:
 `math, cmath` .
 
-Exception levée à la ligne 299 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 303 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   295:         assert &quot;Did you mean `math`?&quot; in result
-   297:     import cmath
-   298:     try:
---&gt;299:         keyword.pi
-   300:     except AttributeError as e:
+   299:         assert &quot;Did you mean `math`?&quot; in result
+   301:     import cmath
+   302:     try:
+--&gt;303:         keyword.pi
+   304:     except AttributeError as e:
 
         keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
 </pre></div>
@@ -510,7 +513,7 @@ Exception levée à la ligne 299 du fichier TESTS:\runtime\test_attribute_error.
 <div class="section" id="builtin-function">
 <h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 217, in test_Builtin_function
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 221, in test_Builtin_function
     len.text
 AttributeError: &#39;builtin_function_or_method&#39; object has no attribute &#39;text&#39;
 
@@ -523,13 +526,13 @@ et `x` n’est pas une méthode ou un attribut (variable) appartenant à `objet`
 `len` est une fonction. Peut-être que vous vouliez écrire
 `len(text)`
 
-Exception levée à la ligne 217 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 221 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   214: def test_Builtin_function():
-   215:     text = &#39;Hello world!&#39;
-   216:     try:
---&gt;217:         len.text
-   218:     except AttributeError as e:
+   218: def test_Builtin_function():
+   219:     text = &#39;Hello world!&#39;
+   220:     try:
+--&gt;221:         len.text
+   222:     except AttributeError as e:
 
         text:  &#39;Hello world!&#39;
         len:  &lt;builtin function len&gt;
@@ -539,7 +542,7 @@ Exception levée à la ligne 217 du fichier TESTS:\runtime\test_attribute_error.
 <div class="section" id="builtin-module-with-no-file">
 <h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 234, in test_Builtin_module_with_no_file
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 238, in test_Builtin_module_with_no_file
     sys.foo
 AttributeError: module &#39;sys&#39; has no attribute &#39;foo&#39;
 
@@ -550,13 +553,13 @@ et `x` n’est pas une méthode ou un attribut (variable) appartenant à `objet`
 Python nous dit qu’aucun objet avec le nom `foo` n’est
 dans le module `sys`.
 
-Exception levée à la ligne 234 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 238 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   230:     &quot;&quot;&quot;Issue 116&quot;&quot;&quot;
-   231:     import sys
-   233:     try:
---&gt;234:         sys.foo
-   235:     except AttributeError as e:
+   234:     &quot;&quot;&quot;Issue 116&quot;&quot;&quot;
+   235:     import sys
+   237:     try:
+--&gt;238:         sys.foo
+   239:     except AttributeError as e:
 
         sys:  &lt;module sys (builtin)&gt;
 </pre></div>
@@ -565,7 +568,7 @@ Exception levée à la ligne 234 du fichier TESTS:\runtime\test_attribute_error.
 <div class="section" id="circular-import">
 <h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 329, in test_Circular_import
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 333, in test_Circular_import
     import my_turtle1
   File &quot;TESTS:\my_turtle1.py&quot;, line 4, in &lt;module&gt;
     a = my_turtle1.something
@@ -582,13 +585,13 @@ et que vous vouliez aussi importer un module du même nom
 de la bibliothèque standard de Python.
 Si c’est le cas, vous devriez utiliser un nom différent pour votre programme.
 
-L&#39;exécution s&#39;est arrêtée à la ligne 329 du fichier TESTS:\runtime\test_attribute_error.py
+L&#39;exécution s&#39;est arrêtée à la ligne 333 du fichier TESTS:\runtime\test_attribute_error.py
 
-   326:     from friendly_traceback.runtime_errors import stdlib_modules
-   327:     stdlib_modules.names.append(&quot;my_turtle1&quot;)
-   328:     try:
---&gt;329:        import my_turtle1
-   330:     except AttributeError as e:
+   330:     from friendly_traceback.runtime_errors import stdlib_modules
+   331:     stdlib_modules.names.append(&quot;my_turtle1&quot;)
+   332:     try:
+--&gt;333:        import my_turtle1
+   334:     except AttributeError as e:
 
 Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
 
@@ -604,7 +607,7 @@ Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
 <div class="section" id="circular-import-b">
 <h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 346, in test_Circular_import_b
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 350, in test_Circular_import_b
     import circular_c
   File &quot;TESTS:\circular_c.py&quot;, line 4, in &lt;module&gt;
     a = circular_c.something
@@ -620,12 +623,12 @@ Python a indiqué que le module `{module}` n&#39;était pas complètement import
 Cela peut se produire si, pendant l&#39;exécution du code du module `circular_c`
 une tentative est faite d&#39;importer à nouveau le même module.
 
-L&#39;exécution s&#39;est arrêtée à la ligne 346 du fichier TESTS:\runtime\test_attribute_error.py
+L&#39;exécution s&#39;est arrêtée à la ligne 350 du fichier TESTS:\runtime\test_attribute_error.py
 
-   344: def test_Circular_import_b():
-   345:     try:
---&gt;346:         import circular_c
-   347:     except AttributeError as e:
+   348: def test_Circular_import_b():
+   349:     try:
+--&gt;350:         import circular_c
+   351:     except AttributeError as e:
 
 Exception levée à la ligne 4 du fichier TESTS:\circular_c.py.
 
@@ -803,7 +806,7 @@ Exception levée à la ligne 81 du fichier TESTS:\runtime\test_attribute_error.p
 <div class="section" id="perhaps-comma">
 <h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 200, in test_Perhaps_comma
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 201, in test_Perhaps_comma
     a = [abcd
 AttributeError: &#39;str&#39; object has no attribute &#39;defg&#39;
 
@@ -818,14 +821,14 @@ Cependant, les objets `abcd` et `defg` sont des objets connus.
 Peut-être avez-vous écrit une période pour séparer ces deux objets,
 au lieu d’utiliser une virgule.
 
-Exception levée à la ligne 200 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 201 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   196:     defg = &quot;world&quot;
-   198:     # fmt: off
-   199:     try:
---&gt;200:         a = [abcd
-   201:         .defg]
-   202:     # fmt: on
+   197:     defg = &quot;world&quot;
+   199:     # fmt: off
+   200:     try:
+--&gt;201:         a = [abcd
+   202:         .defg]
+   203:     # fmt: on
 
         abcd:  &#39;hello&#39;
         defg:  &#39;world&#39;
@@ -864,7 +867,7 @@ Exception levée à la ligne 163 du fichier TESTS:\runtime\test_attribute_error.
 <div class="section" id="tuple-by-accident">
 <h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 269, in test_Tuple_by_accident
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 273, in test_Tuple_by_accident
     something.upper()
 AttributeError: &#39;tuple&#39; object has no attribute &#39;upper&#39;
 
@@ -879,14 +882,14 @@ ayant `upper` comme attribut.
 Peut-être avez-vous ajouté une virgule par erreur à la fin de la ligne
 lorsque vous avez défini `something`.
 
-Exception levée à la ligne 269 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 273 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   266: def test_Tuple_by_accident():
-   267:     something = &quot;abc&quot;,  # note trailing comma
-   268:     try:
---&gt;269:         something.upper()
+   270: def test_Tuple_by_accident():
+   271:     something = &quot;abc&quot;,  # note trailing comma
+   272:     try:
+--&gt;273:         something.upper()
                 ^^^^^^^^^^^^^^^
-   270:     except AttributeError as e:
+   274:     except AttributeError as e:
 
         something:  (&#39;abc&#39;,)
 </pre></div>
@@ -925,7 +928,7 @@ Exception levée à la ligne 97 du fichier TESTS:\runtime\test_attribute_error.p
 <div class="section" id="use-join-with-str">
 <h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 313, in test_Use_join_with_str
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 317, in test_Use_join_with_str
     a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
 AttributeError: &#39;list&#39; object has no attribute &#39;join&#39;
 
@@ -938,13 +941,13 @@ et `x` n’est pas une méthode ou un attribut (variable) appartenant à `objet`
 L’objet `[&#39;a&#39;, &#39;2&#39;]` n’a pas d’attribut nommé `join`.
 Vous vouliez peut-être plutôt écrire quelque chose comme `&#39;...&#39;.join([&#39;a&#39;, &#39;2&#39;])`.
 
-Exception levée à la ligne 313 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 317 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   311: def test_Use_join_with_str():
-   312:     try:
---&gt;313:         a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
+   315: def test_Use_join_with_str():
+   316:     try:
+--&gt;317:         a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
                     ^^^^^^^^^^^^^^^
-   314:     except AttributeError as e:
+   318:     except AttributeError as e:
 </pre></div>
 </div>
 </div>
@@ -982,7 +985,7 @@ Exception levée à la ligne 113 du fichier TESTS:\runtime\test_attribute_error.
 <div class="section" id="using-slots">
 <h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 254, in test_Using_slots
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 258, in test_Using_slots
     f.b = 1
 AttributeError: &#39;F&#39; object has no attribute &#39;b&#39;
 
@@ -995,13 +998,13 @@ Notez que l’objet `f` utilise `__slots__` qui empêche
 la création de nouveaux attributs.
 Voici quelques-uns de ses attributs connus :
 `a`.
-Exception levée à la ligne 254 du fichier TESTS:\runtime\test_attribute_error.py.
+Exception levée à la ligne 258 du fichier TESTS:\runtime\test_attribute_error.py.
 
-   250:         __slots__ = [&quot;a&quot;]
-   252:     f = F()
-   253:     try:
---&gt;254:         f.b = 1
-   255:     except AttributeError as e:
+   254:         __slots__ = [&quot;a&quot;]
+   256:     f = F()
+   257:     try:
+--&gt;258:         f.b = 1
+   259:     except AttributeError as e:
 
         f:  &lt;F object&gt; from test_attribute_error.test_Using_slots
 </pre></div>
@@ -1721,7 +1724,6 @@ Exception levée à la ligne 163 du fichier TESTS:\runtime\test_name_error.py.
    161: def test_Custom_name():
    162:     try:
 --&gt;163:         python
-                ^^^^^^
    164:     except NameError as e:
 </pre></div>
 </div>
@@ -1821,6 +1823,129 @@ Exception levée à la ligne 129 du fichier TESTS:\runtime\test_name_error.py.
 </pre></div>
 </div>
 </div>
+<div class="section" id="missing-module-name">
+<h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 247, in test_Missing_module_name
+    frame = Frame()
+NameError: name &#39;Frame&#39; is not defined
+
+    Avez-vous oublié d’ajouter `tkinter.` ?
+
+Une exception `NameError` indique que le nom d&#39;une variable
+ou d&#39;une fonction n&#39;est pas connue par Python.
+Habituellement, ceci indique une simple faute d&#39;orthographe.
+Cependant, cela peut également indiquer que le nom a été
+utilisé avant qu&#39;on ne lui ait associé une valeur.
+
+Dans votre programme, aucun objet portant le nom `Frame` n&#39;existe.
+
+L’objet local `tkinter`
+a un attribut nommé `Frame`.
+Peut-être que vous auriez dû écrire `tkinter.Frame`
+au lieu de `Frame`.
+
+Exception levée à la ligne 247 du fichier TESTS:\runtime\test_name_error.py.
+
+   244: def test_Missing_module_name():
+   245:     import tkinter
+   246:     try:
+--&gt;247:         frame = Frame()
+                        ^^^^^
+   248:     except NameError as e:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-self-1">
+<h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 198, in test_Missing_self_1
+    str(a)
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 189, in __str__
+    toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
+NameError: name &#39;add_toy&#39; is not defined
+
+    Avez-vous écrit `self` au mauvais endroit ?
+
+Une exception `NameError` indique que le nom d&#39;une variable
+ou d&#39;une fonction n&#39;est pas connue par Python.
+Habituellement, ceci indique une simple faute d&#39;orthographe.
+Cependant, cela peut également indiquer que le nom a été
+utilisé avant qu&#39;on ne lui ait associé une valeur.
+
+Dans votre programme, aucun objet portant le nom `add_toy` n&#39;existe.
+
+L’objet local `&lt;Pet object&gt; from test_name_error.test_Missing_self_1` a un attribut nommé `add_toy`.
+Peut-être que vous auriez dû écrire `self.add_toy(...`
+au lieu de `add_toy(self, ...`.
+
+L&#39;exécution s&#39;est arrêtée à la ligne 198 du fichier TESTS:\runtime\test_name_error.py
+
+   194:                 return &quot;{} has no toys&quot;.format(self.name)
+   196:     a = Pet(&#39;Fido&#39;)
+   197:     try:
+--&gt;198:         str(a)
+   199:     except NameError as e:
+
+        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_1
+        str:  &lt;class str&gt;
+
+Exception levée à la ligne 189 du fichier TESTS:\runtime\test_name_error.py.
+
+   187:         def __str__(self):
+   188:             # self at the wrong place
+--&gt;189:             toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
+                                ^^^^^^^
+   190:                                 self, &#39;something&#39;)
+   191:             if self.toys:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-self-2">
+<h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 232, in test_Missing_self_2
+    str(a)
+  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 224, in __str__
+    toys_list = add_toy(&#39;something&#39;)
+NameError: name &#39;add_toy&#39; is not defined
+
+    Avez-vous oublié d’ajouter `self.` ?
+
+Une exception `NameError` indique que le nom d&#39;une variable
+ou d&#39;une fonction n&#39;est pas connue par Python.
+Habituellement, ceci indique une simple faute d&#39;orthographe.
+Cependant, cela peut également indiquer que le nom a été
+utilisé avant qu&#39;on ne lui ait associé une valeur.
+
+Dans votre programme, aucun objet portant le nom `add_toy` n&#39;existe.
+
+Un objet local, `&lt;Pet object&gt; from test_name_error.test_Missing_self_2`,
+a un attribut nommé `add_toy`.
+Peut-être que vous auriez dû écrire `self.add_toy`
+au lieu de `add_toy`.
+
+L&#39;exécution s&#39;est arrêtée à la ligne 232 du fichier TESTS:\runtime\test_name_error.py
+
+   228:                 return &quot;{} has no toys&quot;.format(self.name)
+   230:     a = Pet(&#39;Fido&#39;)
+   231:     try:
+--&gt;232:         str(a)
+   233:     except NameError as e:
+
+        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_2
+        str:  &lt;class str&gt;
+
+Exception levée à la ligne 224 du fichier TESTS:\runtime\test_name_error.py.
+
+   222:         def __str__(self):
+   223:             # Missing self.
+--&gt;224:             toys_list = add_toy(&#39;something&#39;)
+                                ^^^^^^^
+   225:             if self.toys:
+</pre></div>
+</div>
+</div>
 <div class="section" id="synonym">
 <h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -1846,7 +1971,6 @@ Exception levée à la ligne 89 du fichier TESTS:\runtime\test_name_error.py.
    86:         assert &quot;The Python builtin `chr` has a similar name.&quot; in result
    88:     try:
 --&gt;89:         cost  # wrote from math import * above
-               ^^^^
    90:     except NameError as e:
 </pre></div>
 </div>
@@ -1868,7 +1992,7 @@ socket.gaierror: [Errno 11001] getaddrinfo failed
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 7, in test_Urllib_error
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 8, in test_Urllib_error
     request.urlopen(&quot;http://does_not_exist&quot;)
        ... Plus de lignes non affichées. ...
   File &quot;PYTHON_LIB:\urllib\request.py&quot;, line 1383, in http_open
@@ -1888,13 +2012,13 @@ qu’une connexion ne peut être faite.
 Si c’est le cas, vérifiez les fautes de frappe dans l’URL
 et vérifiez votre connectivité Internet.
 
-L&#39;exécution s&#39;est arrêtée à la ligne 7 du fichier TESTS:\runtime\test_os_error.py
+L&#39;exécution s&#39;est arrêtée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py
 
-   4: def test_Urllib_error():
-   5:     from urllib import request, error
-   6:     try:
---&gt;7:         request.urlopen(&quot;http://does_not_exist&quot;)
-   8:     except error.URLError as e:
+   5: def test_Urllib_error():
+   6:     from urllib import request, error
+   7:     try:
+--&gt;8:         request.urlopen(&quot;http://does_not_exist&quot;)
+   9:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
         request.urlopen:  &lt;function urlopen&gt;
@@ -1909,6 +2033,40 @@ Exception levée à la ligne 1357 du fichier PYTHON_LIB:\urllib\request.py.
    1358:             r = h.getresponse()
 
         global URLError:  &lt;class urllib.error.URLError&gt;
+
+
+
+Traceback (most recent call last):
+  File &quot;TESTS:\trb_common.py&quot;, line 77, in create_tracebacks
+    result, message = function()
+TypeError: cannot unpack non-iterable NoneType object
+
+Une exception `TypeError` est généralement causée par une tentative
+de combiner deux types d’objets incompatibles,
+en invoquant une fonction avec le mauvais type d’objet,
+ou en tentant d&#39;effectuer une opération non permise sur un type d&#39;objet donné.
+
+Le dépaquetage (&#39;unpack&#39;) est un moyen pratique d’attribuer un nom
+à chaque élément d’un itérable.
+Un itérable est un objet capable de renvoyer ses membres un à la fois.
+Les contenants python (`list, tuple, dict`, etc.) sont itérables,
+mais pas les objets de type `NoneType`.
+
+Exception levée à la ligne 77 du fichier TESTS:\trb_common.py.
+
+   74:                     if name.startswith(&quot;test&quot;):
+   75:                         function = getattr(mod, name)
+   76:                         if callable(function):
+--&gt;77:                             result, message = function()
+   78:                             title = name[5:].replace(&quot;_&quot;, &quot; &quot;)
+
+        function:  &lt;function test_no_information&gt;
+        message:  &#39;&lt;urlopen error [Errno 11001] getaddrinfo failed&gt;&#39;
+        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;PYTHO...&#39;
+                 len(result): 2506
+
+        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;PYTH...)
+                          len(result, message): 2
 </pre></div>
 </div>
 </div>
@@ -2777,7 +2935,7 @@ Exception levée à la ligne 94 du fichier TESTS:\runtime\test_unbound_local_err
 MyException: Some informative message about an unknown exception.
 
 Aucune information n’est disponible au sujet de cette exception.
-Veuillez signaler cet exemple à https://github.com/aroberge/friendly/issues.
+Veuillez signaler cet exemple à https://github.com/friendly-traceback/friendly-traceback/issues/new
 Si vous utilisez un REPL, utilisez `www(&#39;bug&#39;)` pour le faire.
 
 Si vous utilisez la console Friendly, utilisez `www()` pour

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Generic information about various exceptions &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Generic information about various exceptions &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -137,19 +137,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -357,7 +357,7 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#FloatingPointError">not used by Python</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">BaseException</span></code>, <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, and <code class="docutils literal notranslate"><span class="pre">ArithmeticError</span></code> are base classes which
 are also not normally seen: some derived classes are normally used instead.</p>
-<p>Information compiled using Friendly version: 0.3.150,
+<p>Information compiled using Friendly version: 0.4.23,
 Python version: 3.8.10</p>
 <div class="section" id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
@@ -390,7 +390,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 <div class="section" id="baseexception">
 <h3>BaseException<a class="headerlink" href="#baseexception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -399,28 +399,26 @@ do an Internet search for this particular case.
 </div>
 <div class="section" id="blockingioerror">
 <h3>BlockingIOError<a class="headerlink" href="#blockingioerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `BlockingIOError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="brokenpipeerror">
 <h3>BrokenPipeError<a class="headerlink" href="#brokenpipeerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `BrokenPipeError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="buffererror">
 <h3>BufferError<a class="headerlink" href="#buffererror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -429,51 +427,46 @@ do an Internet search for this particular case.
 </div>
 <div class="section" id="childprocesserror">
 <h3>ChildProcessError<a class="headerlink" href="#childprocesserror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ChildProcessError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="connectionabortederror">
 <h3>ConnectionAbortedError<a class="headerlink" href="#connectionabortederror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionAbortedError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="connectionerror">
 <h3>ConnectionError<a class="headerlink" href="#connectionerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="connectionrefusederror">
 <h3>ConnectionRefusedError<a class="headerlink" href="#connectionrefusederror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionRefusedError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="connectionreseterror">
 <h3>ConnectionResetError<a class="headerlink" href="#connectionreseterror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionResetError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -486,18 +479,16 @@ an end-of-file condition (EOF) without reading any data.
 </div>
 <div class="section" id="environmenterror">
 <h3>EnvironmentError<a class="headerlink" href="#environmenterror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="exception">
 <h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -506,11 +497,10 @@ do an Internet search for this particular case.
 </div>
 <div class="section" id="fileexistserror">
 <h3>FileExistsError<a class="headerlink" href="#fileexistserror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `FileExistsError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -525,7 +515,7 @@ This could be because you misspelled the name of the file.
 <div class="section" id="floatingpointerror">
 <h3>FloatingPointError<a class="headerlink" href="#floatingpointerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -535,7 +525,7 @@ do an Internet search for this particular case.
 <div class="section" id="generatorexit">
 <h3>GeneratorExit<a class="headerlink" href="#generatorexit" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -544,11 +534,9 @@ do an Internet search for this particular case.
 </div>
 <div class="section" id="ioerror">
 <h3>IOError<a class="headerlink" href="#ioerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -578,21 +566,19 @@ is greater than the length of the sequence.
 </div>
 <div class="section" id="interruptederror">
 <h3>InterruptedError<a class="headerlink" href="#interruptederror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `InterruptedError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="isadirectoryerror">
 <h3>IsADirectoryError<a class="headerlink" href="#isadirectoryerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `IsADirectoryError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -606,7 +592,7 @@ key in a Python dict or in a similar object.
 <div class="section" id="keyboardinterrupt">
 <h3>KeyboardInterrupt<a class="headerlink" href="#keyboardinterrupt" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -650,18 +636,17 @@ before being defined or given a value.
 </div>
 <div class="section" id="notadirectoryerror">
 <h3>NotADirectoryError<a class="headerlink" href="#notadirectoryerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `NotADirectoryError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="notimplementederror">
 <h3>NotImplementedError<a class="headerlink" href="#notimplementederror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -685,21 +670,19 @@ is too large to be handled by the computer&#39;s processor.
 </div>
 <div class="section" id="permissionerror">
 <h3>PermissionError<a class="headerlink" href="#permissionerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `PermissionError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
 <div class="section" id="processlookuperror">
 <h3>ProcessLookupError<a class="headerlink" href="#processlookuperror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ProcessLookupError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -715,7 +698,7 @@ and that your program would never stop.
 <div class="section" id="referenceerror">
 <h3>ReferenceError<a class="headerlink" href="#referenceerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -725,7 +708,7 @@ do an Internet search for this particular case.
 <div class="section" id="runtimeerror">
 <h3>RuntimeError<a class="headerlink" href="#runtimeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -735,7 +718,7 @@ do an Internet search for this particular case.
 <div class="section" id="stopasynciteration">
 <h3>StopAsyncIteration<a class="headerlink" href="#stopasynciteration" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -759,7 +742,7 @@ the `next()` builtin function.
 <div class="section" id="systemerror">
 <h3>SystemError<a class="headerlink" href="#systemerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -769,7 +752,7 @@ do an Internet search for this particular case.
 <div class="section" id="systemexit">
 <h3>SystemExit<a class="headerlink" href="#systemexit" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -789,11 +772,10 @@ Python&#39;s recommendation is to always use spaces to indent your code.
 </div>
 <div class="section" id="timeouterror">
 <h3>TimeoutError<a class="headerlink" href="#timeouterror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `TimeoutError` is a subclass of `OSError`.
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>
@@ -822,7 +804,7 @@ an `UnboundLocalError`.
 <div class="section" id="unicodedecodeerror">
 <h3>UnicodeDecodeError<a class="headerlink" href="#unicodedecodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -832,7 +814,7 @@ do an Internet search for this particular case.
 <div class="section" id="unicodeencodeerror">
 <h3>UnicodeEncodeError<a class="headerlink" href="#unicodeencodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -842,7 +824,7 @@ do an Internet search for this particular case.
 <div class="section" id="unicodeerror">
 <h3>UnicodeError<a class="headerlink" href="#unicodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -852,7 +834,7 @@ do an Internet search for this particular case.
 <div class="section" id="unicodetranslateerror">
 <h3>UnicodeTranslateError<a class="headerlink" href="#unicodetranslateerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
+Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
 If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -868,11 +850,9 @@ received an argument of the right type, but an inappropriate value.
 </div>
 <div class="section" id="windowserror">
 <h3>WindowsError<a class="headerlink" href="#windowserror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to https://github.com/aroberge/friendly/issues.
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
 </pre></div>
 </div>
 </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.console_helpers &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>friendly_traceback.console_helpers &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -135,19 +135,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -257,20 +258,26 @@
 <span class="sd">environments such as in a Jupyter notebook.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># NOTE: __all__ is defined at the very bottom of this file</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">friendly_traceback</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">from</span> <span class="nn">friendly_traceback</span> <span class="kn">import</span> <span class="n">debug_helper</span><span class="p">,</span> <span class="n">base_formatters</span><span class="p">,</span> <span class="n">__version__</span>
+<span class="kn">import</span> <span class="nn">friendly_traceback</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback</span> <span class="kn">import</span> <span class="n">__version__</span><span class="p">,</span> <span class="n">base_formatters</span><span class="p">,</span> <span class="n">debug_helper</span>
 <span class="kn">from</span> <span class="nn">friendly_traceback.config</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback.core</span> <span class="kn">import</span> <span class="n">TracebackData</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback.functions_help</span> <span class="kn">import</span> <span class="n">add_help_attribute</span>
 <span class="kn">from</span> <span class="nn">friendly_traceback.info_generic</span> <span class="kn">import</span> <span class="n">get_generic_explanation</span>
 <span class="kn">from</span> <span class="nn">friendly_traceback.path_info</span> <span class="kn">import</span> <span class="n">show_paths</span>
-<span class="kn">from</span> <span class="nn">friendly_traceback.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
-<span class="kn">from</span> <span class="nn">friendly_traceback.utils</span> <span class="kn">import</span> <span class="n">add_rich_repr</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback.syntax_errors.source_info</span> <span class="kn">import</span> <span class="n">Statement</span>
+<span class="kn">from</span> <span class="nn">friendly_traceback.typing</span> <span class="kn">import</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Site</span>
 
 <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
 
 
-<div class="viewcode-block" id="back"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.back">[docs]</a><span class="k">def</span> <span class="nf">back</span><span class="p">():</span>
+<div class="viewcode-block" id="back"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.back">[docs]</a><span class="k">def</span> <span class="nf">back</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Removes the last recorded traceback item.</span>
 
 <span class="sd">    The intention is to allow recovering from a typo when trying interactively</span>
@@ -279,18 +286,18 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Nothing to go back to: no exception recorded.&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
         <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Problem: saved info is not empty but friendly is&quot;</span><span class="p">)</span>
     <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">friendly</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_lang</span><span class="p">():</span>
             <span class="n">info</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_lang</span><span class="p">()</span>
-            <span class="n">session</span><span class="o">.</span><span class="n">friendly</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">recompile_info</span><span class="p">()</span></div>
+            <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">recompile_info</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="explain"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.explain">[docs]</a><span class="k">def</span> <span class="nf">explain</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;explain&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="explain"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.explain">[docs]</a><span class="k">def</span> <span class="nf">explain</span><span class="p">(</span><span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">&quot;explain&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows the previously recorded traceback info again,</span>
 <span class="sd">    with the option to specify different items to include.</span>
 <span class="sd">    For example, ``explain(&quot;why&quot;)`` is equivalent to ``why()``.</span>
@@ -301,19 +308,19 @@
     <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_include</span><span class="p">(</span><span class="n">old_include</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="friendly_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.friendly_tb">[docs]</a><span class="k">def</span> <span class="nf">friendly_tb</span><span class="p">():</span>
+<div class="viewcode-block" id="friendly_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.friendly_tb">[docs]</a><span class="k">def</span> <span class="nf">friendly_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows the a simplified Python traceback,</span>
 <span class="sd">    which includes the hint/suggestion if available.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;friendly_tb&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hint"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.hint">[docs]</a><span class="k">def</span> <span class="nf">hint</span><span class="p">():</span>
+<div class="viewcode-block" id="hint"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.hint">[docs]</a><span class="k">def</span> <span class="nf">hint</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows hint/suggestion if available.&quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;hint&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="history"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.history">[docs]</a><span class="k">def</span> <span class="nf">history</span><span class="p">():</span>
+<div class="viewcode-block" id="history"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.history">[docs]</a><span class="k">def</span> <span class="nf">history</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Prints the list of error messages recorded so far.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Nothing to show: no exception recorded.&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -323,14 +330,39 @@
         <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="python_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.python_tb">[docs]</a><span class="k">def</span> <span class="nf">python_tb</span><span class="p">():</span>
+<div class="viewcode-block" id="python_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.python_tb">[docs]</a><span class="k">def</span> <span class="nf">python_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows the Python traceback, excluding files from friendly</span>
 <span class="sd">    itself.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;python_tb&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="what"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.what">[docs]</a><span class="k">def</span> <span class="nf">what</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="set_prompt"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.set_prompt">[docs]</a><span class="k">def</span> <span class="nf">set_prompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Sets the default prompt to use in the console.</span>
+
+<span class="sd">    If the prompt argument is &quot;&gt;&gt;&gt;&quot; or &quot;python&quot;,</span>
+<span class="sd">    then the standard Python prompt will be used.</span>
+<span class="sd">    Note that the prompt argument will be stripped and is case-insensitive.</span>
+
+<span class="sd">    If any other argument is given, then the iPython style prompt will be used.</span>
+<span class="sd">    Setting this has also an effect on how the &quot;friendly traceback&quot; filename</span>
+<span class="sd">    are shown for code blocks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">prompt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;&gt;&gt;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="what"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.what">[docs]</a><span class="k">def</span> <span class="nf">what</span><span class="p">(</span>
+    <span class="n">exception</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">CodeType</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">pre</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;If known, shows the generic explanation about a given exception.</span>
 
 <span class="sd">    If the ``pre`` argument is set to ``True``, the output is</span>
@@ -341,9 +373,19 @@
         <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;what&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">):</span>
-        <span class="n">exception</span> <span class="o">=</span> <span class="n">exception</span><span class="o">.</span><span class="vm">__name__</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">exc</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{exception}</span><span class="s2"> is not an exception.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">exception</span><span class="o">=</span><span class="n">exception</span>
+                <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{exception}</span><span class="s2"> is not an exception.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="n">exception</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">pre</span><span class="p">:</span>  <span class="c1"># for documentation # pragma: no cover</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -355,17 +397,17 @@
     <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="where"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.where">[docs]</a><span class="k">def</span> <span class="nf">where</span><span class="p">():</span>
+<div class="viewcode-block" id="where"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.where">[docs]</a><span class="k">def</span> <span class="nf">where</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows the information about where the exception occurred&quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;where&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="why"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.why">[docs]</a><span class="k">def</span> <span class="nf">why</span><span class="p">():</span>
+<div class="viewcode-block" id="why"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.why">[docs]</a><span class="k">def</span> <span class="nf">why</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Shows the likely cause of the exception.&quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;why&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="www"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.www">[docs]</a><span class="k">def</span> <span class="nf">www</span><span class="p">(</span><span class="n">site</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+<div class="viewcode-block" id="www"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.www">[docs]</a><span class="k">def</span> <span class="nf">www</span><span class="p">(</span><span class="n">site</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Site</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;This uses the ``webbrowser`` module to open a tab (or window)</span>
 <span class="sd">     in the default browser, linking to a specific url</span>
 <span class="sd">     or opening the default email client.</span>
@@ -395,10 +437,10 @@
 <span class="sd">    * If the argument &#39;site&#39; == &quot;warnings&quot;, a specific issue</span>
 <span class="sd">      on Github will be shown, inviting comments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span> <span class="nn">urllib</span>
+    <span class="kn">import</span> <span class="nn">urllib.parse</span>
     <span class="kn">import</span> <span class="nn">webbrowser</span>
 
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">urls</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Site</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;friendly&quot;</span><span class="p">:</span> <span class="s2">&quot;https://friendly-traceback.github.io/docs/index.html&quot;</span><span class="p">,</span>
         <span class="s2">&quot;python&quot;</span><span class="p">:</span> <span class="s2">&quot;https://docs.python.org/3&quot;</span><span class="p">,</span>
         <span class="s2">&quot;bug&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/friendly-traceback/friendly-traceback/issues/new&quot;</span><span class="p">,</span>
@@ -406,7 +448,7 @@
         <span class="s2">&quot;warnings&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/friendly-traceback/friendly-traceback/issues/7&quot;</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">site</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">site</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa</span>
         <span class="k">pass</span>
     <span class="k">if</span> <span class="n">site</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">urls</span> <span class="ow">and</span> <span class="n">site</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -439,47 +481,52 @@
         <span class="k">return</span></div>
 
 
+<div class="viewcode-block" id="set_debug"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.set_debug">[docs]</a><span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="n">flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;This sets the value of the debug flag for the current session.&quot;&quot;&quot;</span>
+    <span class="n">debug_helper</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">flag</span>
+    <span class="n">debug_helper</span><span class="o">.</span><span class="n">SHOW_DEBUG_HELPER</span> <span class="o">=</span> <span class="n">flag</span></div>
+
+
 <span class="n">get_lang</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_lang</span>
 <span class="n">set_lang</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_lang</span>
 <span class="n">get_include</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_include</span>
 <span class="n">set_include</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_include</span>
 <span class="n">set_formatter</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_formatter</span>
 
-
 <span class="c1"># ===== Debugging functions are not unit tested by choice =====</span>
 
 
-<span class="k">def</span> <span class="nf">_debug_tb</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_debug_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;Shows the true Python traceback, which includes</span>
 <span class="sd">    files from friendly itself.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">explain</span><span class="p">(</span><span class="s2">&quot;debug_tb&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_get_exception</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_get_exception</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;Debugging tool: returns the exception instance or None if no exception</span>
 <span class="sd">    has been raised.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nothing to show: no exception recorded.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># add explicit None here and elsewhere to silence mypy</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;_exc_instance&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_get_frame</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_get_frame</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FrameType</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;This returns the frame in which the exception occurred.</span>
 
 <span class="sd">    This is not intended for end-users but is useful in development.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nothing to show: no exception recorded.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+        <span class="k">return</span> <span class="kc">None</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;_frame&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_get_statement</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_get_statement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Statement</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;This returns a &#39;Statement&#39; instance obtained for SyntaxErrors and</span>
 <span class="sd">    subclasses.  Such a Statement instance contains essentially all</span>
 <span class="sd">    the known information about the statement where the error occurred.</span>
@@ -488,14 +535,14 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nothing to show: no exception recorded.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+        <span class="k">return</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;_exc_instance&quot;</span><span class="p">],</span> <span class="ne">SyntaxError</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">statement</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">statement</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No statement: not a SyntaxError.&quot;</span><span class="p">)</span>
-    <span class="k">return</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 
-<span class="k">def</span> <span class="nf">_get_tb_data</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_get_tb_data</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TracebackData</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;This returns the TracebackData instance containing all the</span>
 <span class="sd">    information we have obtained.</span>
 
@@ -503,17 +550,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nothing to show: no exception recorded.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
+        <span class="k">return</span> <span class="kc">None</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;_tb_data&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="set_debug"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.set_debug">[docs]</a><span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="n">flag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
-    <span class="sd">&quot;&quot;&quot;This sets the value of the debug flag for the current session.&quot;&quot;&quot;</span>
-    <span class="n">debug_helper</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">flag</span></div>
-
-
-<span class="k">def</span> <span class="nf">_show_info</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span> <span class="nf">_show_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;Debugging tool: shows the complete content of traceback info.</span>
 
 <span class="sd">    Prints ``&#39;&#39;`` for a given item if it is not present.</span>
@@ -539,58 +581,29 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="n">basic_helpers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;back&quot;</span><span class="p">:</span> <span class="n">back</span><span class="p">,</span>
-    <span class="s2">&quot;explain&quot;</span><span class="p">:</span> <span class="n">explain</span><span class="p">,</span>
-    <span class="s2">&quot;history&quot;</span><span class="p">:</span> <span class="n">history</span><span class="p">,</span>
-    <span class="s2">&quot;set_lang&quot;</span><span class="p">:</span> <span class="n">set_lang</span><span class="p">,</span>
-    <span class="s2">&quot;show_paths&quot;</span><span class="p">:</span> <span class="n">show_paths</span><span class="p">,</span>
+<span class="n">helpers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;why&quot;</span><span class="p">:</span> <span class="n">why</span><span class="p">,</span>
     <span class="s2">&quot;what&quot;</span><span class="p">:</span> <span class="n">what</span><span class="p">,</span>
     <span class="s2">&quot;where&quot;</span><span class="p">:</span> <span class="n">where</span><span class="p">,</span>
-    <span class="s2">&quot;why&quot;</span><span class="p">:</span> <span class="n">why</span><span class="p">,</span>
     <span class="s2">&quot;www&quot;</span><span class="p">:</span> <span class="n">www</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">back</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Removes the last recorded traceback item.&quot;</span><span class="p">)</span>
-<span class="n">explain</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows all the information about the last traceback.&quot;</span><span class="p">)</span>
-<span class="n">history</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows a list of recorded traceback messages.&quot;</span><span class="p">)</span>
-<span class="n">set_lang</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Sets the language to be used.&quot;</span><span class="p">)</span>
-<span class="n">show_paths</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows the paths corresponding to synonyms used.&quot;</span><span class="p">)</span>
-<span class="n">what</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows the generic meaning of a given exception&quot;</span><span class="p">)</span>
-<span class="n">where</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows where an exception was raised.&quot;</span><span class="p">)</span>
-<span class="n">why</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows the likely cause of the exception.&quot;</span><span class="p">)</span>
-<span class="n">www</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Opens a web browser at a useful location.&quot;</span><span class="p">)</span>
-
-<span class="n">add_rich_repr</span><span class="p">(</span><span class="n">basic_helpers</span><span class="p">)</span>
-
-<span class="n">other_helpers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;explain&quot;</span><span class="p">:</span> <span class="n">explain</span><span class="p">,</span>
     <span class="s2">&quot;hint&quot;</span><span class="p">:</span> <span class="n">hint</span><span class="p">,</span>
-    <span class="s2">&quot;get_lang&quot;</span><span class="p">:</span> <span class="n">get_lang</span><span class="p">,</span>
-    <span class="s2">&quot;python_tb&quot;</span><span class="p">:</span> <span class="n">python_tb</span><span class="p">,</span>
+    <span class="s2">&quot;back&quot;</span><span class="p">:</span> <span class="n">back</span><span class="p">,</span>
+    <span class="s2">&quot;history&quot;</span><span class="p">:</span> <span class="n">history</span><span class="p">,</span>
     <span class="s2">&quot;friendly_tb&quot;</span><span class="p">:</span> <span class="n">friendly_tb</span><span class="p">,</span>
+    <span class="s2">&quot;python_tb&quot;</span><span class="p">:</span> <span class="n">python_tb</span><span class="p">,</span>
+    <span class="s2">&quot;set_prompt&quot;</span><span class="p">:</span> <span class="n">set_prompt</span><span class="p">,</span>
+    <span class="s2">&quot;show_paths&quot;</span><span class="p">:</span> <span class="n">show_paths</span><span class="p">,</span>
     <span class="s2">&quot;get_include&quot;</span><span class="p">:</span> <span class="n">get_include</span><span class="p">,</span>
     <span class="s2">&quot;set_include&quot;</span><span class="p">:</span> <span class="n">set_include</span><span class="p">,</span>
+    <span class="s2">&quot;get_lang&quot;</span><span class="p">:</span> <span class="n">get_lang</span><span class="p">,</span>
+    <span class="s2">&quot;set_lang&quot;</span><span class="p">:</span> <span class="n">set_lang</span><span class="p">,</span>
     <span class="s2">&quot;set_formatter&quot;</span><span class="p">:</span> <span class="n">set_formatter</span><span class="p">,</span>
     <span class="s2">&quot;set_debug&quot;</span><span class="p">:</span> <span class="n">set_debug</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="n">hint</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Suggestion sometimes added to a friendly traceback.&quot;</span><span class="p">)</span>
-<span class="n">python_tb</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows a normal Python traceback.&quot;</span><span class="p">)</span>
-<span class="n">friendly_tb</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Shows a simplified Python traceback.&quot;</span><span class="p">)</span>
-<span class="n">get_include</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span>
-    <span class="s2">&quot;Returns the current value used for items to include by default.&quot;</span>
-<span class="p">)</span>
-<span class="n">set_include</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span>
-    <span class="s2">&quot;Sets the items to show by default when an exception is raised.&quot;</span>
-<span class="p">)</span>
-<span class="n">get_lang</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Returns the language currently used.&quot;</span><span class="p">)</span>
-<span class="n">set_formatter</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Sets the formatter to use for display.&quot;</span><span class="p">)</span>
-<span class="n">set_debug</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Use True (default) or False to set the debug flag.&quot;</span>
+<span class="n">add_help_attribute</span><span class="p">(</span><span class="n">helpers</span><span class="p">)</span>
 
-<span class="n">add_rich_repr</span><span class="p">(</span><span class="n">other_helpers</span><span class="p">)</span>
-
-<span class="n">helpers</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">basic_helpers</span><span class="p">,</span> <span class="o">**</span><span class="n">other_helpers</span><span class="p">}</span>
-
-<span class="n">_debug_helpers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">debug_helper_methods</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;_debug_tb&quot;</span><span class="p">:</span> <span class="n">_debug_tb</span><span class="p">,</span>
     <span class="s2">&quot;_get_frame&quot;</span><span class="p">:</span> <span class="n">_get_frame</span><span class="p">,</span>
     <span class="s2">&quot;_show_info&quot;</span><span class="p">:</span> <span class="n">_show_info</span><span class="p">,</span>
@@ -598,17 +611,7 @@
     <span class="s2">&quot;_get_exception&quot;</span><span class="p">:</span> <span class="n">_get_exception</span><span class="p">,</span>
     <span class="s2">&quot;_get_statement&quot;</span><span class="p">:</span> <span class="n">_get_statement</span><span class="p">,</span>
 <span class="p">}</span>
-
-<span class="n">_debug_tb</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Shows the full traceback, including code from friendly_traceback.&quot;</span>
-<span class="p">)</span>
-<span class="n">_show_info</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Shows the all the items recorded in the traceback.&quot;</span>
-<span class="n">_get_exception</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Returns the exception instance.&quot;</span>
-<span class="n">_get_frame</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Returns the frame object where the exception occurred.&quot;</span>
-<span class="n">_get_statement</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Returns the statement in which a SyntaxError occurred.&quot;</span>
-<span class="n">_get_tb_data</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s2">&quot;Return a special traceback object.&quot;</span>
-
-<span class="n">add_rich_repr</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">)</span>
+<span class="n">add_help_attribute</span><span class="p">(</span><span class="n">debug_helper_methods</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">FriendlyHelpers</span><span class="p">:</span>
@@ -620,81 +623,83 @@
 
     <span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_helpers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">basic_helpers</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">local_helpers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">local_helpers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span><span class="p">)</span>  <span class="c1"># first alphabetically</span>
-        <span class="c1"># then by word length, as it is easier to read.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">include_in_rich_repr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">__include_more</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">other_helpers</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__include_more</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__include_more</span><span class="p">)</span>  <span class="c1"># first alphabetically</span>
-        <span class="c1"># then by word length, as it is easier to read.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">include_in_help</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__include_more</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;Friendly&quot;</span>  <span class="c1"># For a nicer Rich repr</span>
 
-        <span class="n">debug_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">debug_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">debug_helpers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Adds a helper base on its name and the function it refers to.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">def</span> <span class="nf">remove_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Removes a helper from the FriendlyHelpers object&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="nb">delattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot remove </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">; it is not a known helper.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
         <span class="sd">&quot;&quot;&quot;Only include useful friendly methods.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__include_basic</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">other_helpers</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
         <span class="sd">&quot;&quot;&quot;Shows a brief description in the default language of what</span>
-<span class="sd">        each &#39;basic&#39; function/method does.</span>
+<span class="sd">        each function/method does.</span>
 
-<span class="sd">        &#39;Advanced&#39; and debugging helper functions are not included</span>
-<span class="sd">        in the display.</span>
+<span class="sd">        Debugging helper functions are only included if the DEBUG flag is set.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">header</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">_</span><span class="p">(</span>
-                <span class="s2">&quot;The following methods of the Friendly object might also &quot;</span>
-                <span class="s2">&quot;be available as functions.&quot;</span>
-            <span class="p">)</span>
-            <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-            <span class="o">+</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Basic methods:&quot;</span><span class="p">)</span>
+        <span class="n">basic_helpers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">_debug_helpers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+                <span class="n">_debug_helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">basic_helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+        <span class="c1"># sort alphabetically, then by length name for nicer display</span>
+        <span class="n">basic_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">basic_helpers</span><span class="p">))</span>
+        <span class="n">basic_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">basic_helpers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+        <span class="n">_debug_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">))</span>
+        <span class="n">_debug_helpers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+
+        <span class="n">header</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+            <span class="s2">&quot;The following methods of the Friendly object should also &quot;</span>
+            <span class="s2">&quot;be available as functions.&quot;</span>
         <span class="p">)</span>
         <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">header</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_in_rich_repr</span><span class="p">:</span>
-            <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;(): &quot;</span><span class="p">)</span>
-            <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">basic_helpers</span><span class="p">:</span>
+            <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;(): &quot;</span><span class="p">)</span>
+            <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">):</span>
-                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;has no help() method.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;has no help() method.&quot;</span><span class="p">)</span>
 
-        <span class="n">more_header</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Less commonly used methods/functions.&quot;</span><span class="p">)</span>
-        <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">more_header</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_in_help</span><span class="p">:</span>
-            <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="s2">&quot;(): &quot;</span><span class="p">)</span>
-            <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">):</span>
-                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;has no help() method.&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">debug_helper</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
-            <span class="n">more_header</span> <span class="o">=</span> <span class="s2">&quot;Debugging methods.&quot;</span>
+        <span class="k">if</span> <span class="n">debug_helper</span><span class="o">.</span><span class="n">SHOW_DEBUG_HELPER</span><span class="p">:</span>
+            <span class="n">more_header</span> <span class="o">=</span> <span class="s2">&quot;Debugging methods (English only).&quot;</span>
             <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">more_header</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_helpers</span><span class="p">:</span>
-                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Friendly.</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">(): &quot;</span><span class="p">)</span>
-                <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_debug_helpers</span><span class="p">:</span>
+                <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;(): &quot;</span><span class="p">)</span>
+                <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">):</span>
-                    <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">Friendly</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">help</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;has no help() method.&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;has no help() method.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
 
 
-<span class="k">for</span> <span class="n">helper</span> <span class="ow">in</span> <span class="n">_debug_helpers</span><span class="p">:</span>
-    <span class="nb">setattr</span><span class="p">(</span><span class="n">FriendlyHelpers</span><span class="p">,</span> <span class="n">helper</span><span class="p">,</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">_debug_helpers</span><span class="p">[</span><span class="n">helper</span><span class="p">]))</span>
-<span class="k">for</span> <span class="n">helper</span> <span class="ow">in</span> <span class="n">helpers</span><span class="p">:</span>
-    <span class="nb">setattr</span><span class="p">(</span><span class="n">FriendlyHelpers</span><span class="p">,</span> <span class="n">helper</span><span class="p">,</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">helpers</span><span class="p">[</span><span class="n">helper</span><span class="p">]))</span>
-
 <span class="n">Friendly</span> <span class="o">=</span> <span class="n">FriendlyHelpers</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">helper_name</span> <span class="ow">in</span> <span class="n">helpers</span><span class="p">:</span>
+    <span class="n">Friendly</span><span class="o">.</span><span class="n">add_helper</span><span class="p">(</span><span class="n">helpers</span><span class="p">[</span><span class="n">helper_name</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">helper_name</span> <span class="ow">in</span> <span class="n">debug_helper_methods</span><span class="p">:</span>
+    <span class="n">Friendly</span><span class="o">.</span><span class="n">add_helper</span><span class="p">(</span><span class="n">debug_helper_methods</span><span class="p">[</span><span class="n">helper_name</span><span class="p">])</span>
+
 <span class="n">helpers</span><span class="p">[</span><span class="s2">&quot;Friendly&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Friendly</span>
+<span class="c1"># We don&#39;t include the debug helpers in __all__ so that they do</span>
+<span class="c1"># not show when doing dir() at a console; we only make them</span>
+<span class="c1"># available as methods of the Friendly object.</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">helpers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 

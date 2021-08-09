@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.3.150
+Friendly version: 0.4.23
 Python version: 3.8.10
 
 
@@ -97,7 +97,7 @@ Attribute from other module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 299, in test_Attribute_from_other_module
+      File "TESTS:\runtime\test_attribute_error.py", line 303, in test_Attribute_from_other_module
         keyword.pi
     AttributeError: module 'keyword' has no attribute 'pi'
     
@@ -110,13 +110,13 @@ Attribute from other module
     l'un des modules suivants:
     `math, cmath` .
     
-    Exception levée à la ligne 299 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 303 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       295:         assert "Did you mean `math`?" in result
-       297:     import cmath
-       298:     try:
-    -->299:         keyword.pi
-       300:     except AttributeError as e:
+       299:         assert "Did you mean `math`?" in result
+       301:     import cmath
+       302:     try:
+    -->303:         keyword.pi
+       304:     except AttributeError as e:
 
             keyword:  <module keyword> from PYTHON_LIB:\keyword.py
         
@@ -129,7 +129,7 @@ Builtin function
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 217, in test_Builtin_function
+      File "TESTS:\runtime\test_attribute_error.py", line 221, in test_Builtin_function
         len.text
     AttributeError: 'builtin_function_or_method' object has no attribute 'text'
     
@@ -142,13 +142,13 @@ Builtin function
     `len` est une fonction. Peut-être que vous vouliez écrire
     `len(text)`
     
-    Exception levée à la ligne 217 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 221 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       214: def test_Builtin_function():
-       215:     text = 'Hello world!'
-       216:     try:
-    -->217:         len.text
-       218:     except AttributeError as e:
+       218: def test_Builtin_function():
+       219:     text = 'Hello world!'
+       220:     try:
+    -->221:         len.text
+       222:     except AttributeError as e:
 
             text:  'Hello world!'
             len:  <builtin function len>
@@ -162,7 +162,7 @@ Builtin module with no file
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 234, in test_Builtin_module_with_no_file
+      File "TESTS:\runtime\test_attribute_error.py", line 238, in test_Builtin_module_with_no_file
         sys.foo
     AttributeError: module 'sys' has no attribute 'foo'
     
@@ -173,13 +173,13 @@ Builtin module with no file
     Python nous dit qu’aucun objet avec le nom `foo` n’est
     dans le module `sys`.
     
-    Exception levée à la ligne 234 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 238 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       230:     """Issue 116"""
-       231:     import sys
-       233:     try:
-    -->234:         sys.foo
-       235:     except AttributeError as e:
+       234:     """Issue 116"""
+       235:     import sys
+       237:     try:
+    -->238:         sys.foo
+       239:     except AttributeError as e:
 
             sys:  <module sys (builtin)>
         
@@ -192,7 +192,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 329, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 333, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -209,13 +209,13 @@ Circular import
     de la bibliothèque standard de Python.
     Si c’est le cas, vous devriez utiliser un nom différent pour votre programme.
     
-    L'exécution s'est arrêtée à la ligne 329 du fichier TESTS:\runtime\test_attribute_error.py
+    L'exécution s'est arrêtée à la ligne 333 du fichier TESTS:\runtime\test_attribute_error.py
     
-       326:     from friendly_traceback.runtime_errors import stdlib_modules
-       327:     stdlib_modules.names.append("my_turtle1")
-       328:     try:
-    -->329:        import my_turtle1
-       330:     except AttributeError as e:
+       330:     from friendly_traceback.runtime_errors import stdlib_modules
+       331:     stdlib_modules.names.append("my_turtle1")
+       332:     try:
+    -->333:        import my_turtle1
+       334:     except AttributeError as e:
 
     Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
     
@@ -235,7 +235,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 346, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 350, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -251,12 +251,12 @@ Circular import b
     Cela peut se produire si, pendant l'exécution du code du module `circular_c`
     une tentative est faite d'importer à nouveau le même module.
     
-    L'exécution s'est arrêtée à la ligne 346 du fichier TESTS:\runtime\test_attribute_error.py
+    L'exécution s'est arrêtée à la ligne 350 du fichier TESTS:\runtime\test_attribute_error.py
     
-       344: def test_Circular_import_b():
-       345:     try:
-    -->346:         import circular_c
-       347:     except AttributeError as e:
+       348: def test_Circular_import_b():
+       349:     try:
+    -->350:         import circular_c
+       351:     except AttributeError as e:
 
     Exception levée à la ligne 4 du fichier TESTS:\circular_c.py.
     
@@ -462,7 +462,7 @@ Perhaps comma
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 200, in test_Perhaps_comma
+      File "TESTS:\runtime\test_attribute_error.py", line 201, in test_Perhaps_comma
         a = [abcd
     AttributeError: 'str' object has no attribute 'defg'
     
@@ -477,14 +477,14 @@ Perhaps comma
     Peut-être avez-vous écrit une période pour séparer ces deux objets, 
     au lieu d’utiliser une virgule.
     
-    Exception levée à la ligne 200 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 201 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       196:     defg = "world"
-       198:     # fmt: off
-       199:     try:
-    -->200:         a = [abcd
-       201:         .defg]
-       202:     # fmt: on
+       197:     defg = "world"
+       199:     # fmt: off
+       200:     try:
+    -->201:         a = [abcd
+       202:         .defg]
+       203:     # fmt: on
 
             abcd:  'hello'
             defg:  'world'
@@ -531,7 +531,7 @@ Tuple by accident
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 269, in test_Tuple_by_accident
+      File "TESTS:\runtime\test_attribute_error.py", line 273, in test_Tuple_by_accident
         something.upper()
     AttributeError: 'tuple' object has no attribute 'upper'
     
@@ -546,14 +546,14 @@ Tuple by accident
     Peut-être avez-vous ajouté une virgule par erreur à la fin de la ligne
     lorsque vous avez défini `something`.
     
-    Exception levée à la ligne 269 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 273 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       266: def test_Tuple_by_accident():
-       267:     something = "abc",  # note trailing comma
-       268:     try:
-    -->269:         something.upper()
+       270: def test_Tuple_by_accident():
+       271:     something = "abc",  # note trailing comma
+       272:     try:
+    -->273:         something.upper()
                     ^^^^^^^^^^^^^^^
-       270:     except AttributeError as e:
+       274:     except AttributeError as e:
 
             something:  ('abc',)
         
@@ -600,7 +600,7 @@ Use join with str
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 313, in test_Use_join_with_str
+      File "TESTS:\runtime\test_attribute_error.py", line 317, in test_Use_join_with_str
         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
     AttributeError: 'list' object has no attribute 'join'
     
@@ -613,13 +613,13 @@ Use join with str
     L’objet `['a', '2']` n’a pas d’attribut nommé `join`.
     Vous vouliez peut-être plutôt écrire quelque chose comme `'...'.join(['a', '2'])`.
     
-    Exception levée à la ligne 313 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 317 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       311: def test_Use_join_with_str():
-       312:     try:
-    -->313:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+       315: def test_Use_join_with_str():
+       316:     try:
+    -->317:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                         ^^^^^^^^^^^^^^^
-       314:     except AttributeError as e:
+       318:     except AttributeError as e:
 
 
 Use synonym
@@ -664,7 +664,7 @@ Using slots
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 254, in test_Using_slots
+      File "TESTS:\runtime\test_attribute_error.py", line 258, in test_Using_slots
         f.b = 1
     AttributeError: 'F' object has no attribute 'b'
     
@@ -677,13 +677,13 @@ Using slots
     la création de nouveaux attributs.
     Voici quelques-uns de ses attributs connus :
     `a`.
-    Exception levée à la ligne 254 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne 258 du fichier TESTS:\runtime\test_attribute_error.py.
     
-       250:         __slots__ = ["a"]
-       252:     f = F()
-       253:     try:
-    -->254:         f.b = 1
-       255:     except AttributeError as e:
+       254:         __slots__ = ["a"]
+       256:     f = F()
+       257:     try:
+    -->258:         f.b = 1
+       259:     except AttributeError as e:
 
             f:  <F object> from test_attribute_error.test_Using_slots
         
@@ -1494,7 +1494,6 @@ Custom name
        161: def test_Custom_name():
        162:     try:
     -->163:         python
-                    ^^^^^^
        164:     except NameError as e:
 
 
@@ -1602,6 +1601,138 @@ Missing import
        130:     except NameError as e:
 
 
+Missing module name
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 247, in test_Missing_module_name
+        frame = Frame()
+    NameError: name 'Frame' is not defined
+    
+        Avez-vous oublié d’ajouter `tkinter.` ?
+        
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `Frame` n'existe.
+    
+    L’objet local `tkinter`
+    a un attribut nommé `Frame`.
+    Peut-être que vous auriez dû écrire `tkinter.Frame`
+    au lieu de `Frame`.
+    
+    Exception levée à la ligne 247 du fichier TESTS:\runtime\test_name_error.py.
+    
+       244: def test_Missing_module_name():
+       245:     import tkinter
+       246:     try:
+    -->247:         frame = Frame()
+                            ^^^^^
+       248:     except NameError as e:
+
+
+Missing self 1
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 198, in test_Missing_self_1
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 189, in __str__
+        toys_list = add_toy(  # ensure that it can see 'self' on following line
+    NameError: name 'add_toy' is not defined
+    
+        Avez-vous écrit `self` au mauvais endroit ?
+        
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `add_toy` n'existe.
+    
+    L’objet local `<Pet object> from test_name_error.test_Missing_self_1` a un attribut nommé `add_toy`.
+    Peut-être que vous auriez dû écrire `self.add_toy(...`
+    au lieu de `add_toy(self, ...`.
+    
+    L'exécution s'est arrêtée à la ligne 198 du fichier TESTS:\runtime\test_name_error.py
+    
+       194:                 return "{} has no toys".format(self.name)
+       196:     a = Pet('Fido')
+       197:     try:
+    -->198:         str(a)
+       199:     except NameError as e:
+
+            a:  <Pet object> from test_name_error.test_Missing_self_1
+            str:  <class str>
+        
+    Exception levée à la ligne 189 du fichier TESTS:\runtime\test_name_error.py.
+    
+       187:         def __str__(self):
+       188:             # self at the wrong place
+    -->189:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+                                    ^^^^^^^
+       190:                                 self, 'something')
+       191:             if self.toys:
+
+
+Missing self 2
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 232, in test_Missing_self_2
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+        toys_list = add_toy('something')
+    NameError: name 'add_toy' is not defined
+    
+        Avez-vous oublié d’ajouter `self.` ?
+        
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `add_toy` n'existe.
+    
+    Un objet local, `<Pet object> from test_name_error.test_Missing_self_2`,
+    a un attribut nommé `add_toy`.
+    Peut-être que vous auriez dû écrire `self.add_toy`
+    au lieu de `add_toy`.
+    
+    L'exécution s'est arrêtée à la ligne 232 du fichier TESTS:\runtime\test_name_error.py
+    
+       228:                 return "{} has no toys".format(self.name)
+       230:     a = Pet('Fido')
+       231:     try:
+    -->232:         str(a)
+       233:     except NameError as e:
+
+            a:  <Pet object> from test_name_error.test_Missing_self_2
+            str:  <class str>
+        
+    Exception levée à la ligne 224 du fichier TESTS:\runtime\test_name_error.py.
+    
+       222:         def __str__(self):
+       223:             # Missing self.
+    -->224:             toys_list = add_toy('something')
+                                    ^^^^^^^
+       225:             if self.toys:
+
+
 Synonym
 ~~~~~~~
 
@@ -1631,7 +1762,6 @@ Synonym
        86:         assert "The Python builtin `chr` has a similar name." in result
        88:     try:
     -->89:         cost  # wrote from math import * above
-                   ^^^^
        90:     except NameError as e:
 
 
@@ -1657,7 +1787,7 @@ Urllib error
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 7, in test_Urllib_error
+      File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
         request.urlopen("http://does_not_exist")
            ... Plus de lignes non affichées. ...
       File "PYTHON_LIB:\urllib\request.py", line 1383, in http_open
@@ -1677,13 +1807,13 @@ Urllib error
     Si c’est le cas, vérifiez les fautes de frappe dans l’URL
     et vérifiez votre connectivité Internet.
     
-    L'exécution s'est arrêtée à la ligne 7 du fichier TESTS:\runtime\test_os_error.py
+    L'exécution s'est arrêtée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py
     
-       4: def test_Urllib_error():
-       5:     from urllib import request, error
-       6:     try:
-    -->7:         request.urlopen("http://does_not_exist")
-       8:     except error.URLError as e:
+       5: def test_Urllib_error():
+       6:     from urllib import request, error
+       7:     try:
+    -->8:         request.urlopen("http://does_not_exist")
+       9:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
@@ -1700,6 +1830,40 @@ Urllib error
             global URLError:  <class urllib.error.URLError>
         
 
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_common.py", line 77, in create_tracebacks
+        result, message = function()
+    TypeError: cannot unpack non-iterable NoneType object
+    
+    Une exception `TypeError` est généralement causée par une tentative
+    de combiner deux types d’objets incompatibles,
+    en invoquant une fonction avec le mauvais type d’objet,
+    ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
+    
+    Le dépaquetage ('unpack') est un moyen pratique d’attribuer un nom
+    à chaque élément d’un itérable.
+    Un itérable est un objet capable de renvoyer ses membres un à la fois.
+    Les contenants python (`list, tuple, dict`, etc.) sont itérables,
+    mais pas les objets de type `NoneType`.
+    
+    Exception levée à la ligne 77 du fichier TESTS:\trb_common.py.
+    
+       74:                     if name.startswith("test"):
+       75:                         function = getattr(mod, name)
+       76:                         if callable(function):
+    -->77:                             result, message = function()
+       78:                             title = name[5:].replace("_", " ")
+
+            function:  <function test_no_information>
+            message:  '<urlopen error [Errno 11001] getaddrinfo failed>'
+            result:  '\n    Traceback (most recent call last):\n      File "PYTHO...'
+                     len(result): 2506
+        
+            result, message:  ('\n    Traceback (most recent call last):\n      File "PYTH...)
+                              len(result, message): 2
+        
+        
 
 OverflowError
 -------------
@@ -2669,7 +2833,7 @@ Generic
     MyException: Some informative message about an unknown exception.
     
     Aucune information n’est disponible au sujet de cette exception.
-    Veuillez signaler cet exemple à https://github.com/aroberge/friendly/issues.
+    Veuillez signaler cet exemple à https://github.com/friendly-traceback/friendly-traceback/issues/new
     Si vous utilisez un REPL, utilisez `www('bug')` pour le faire.
     
     Si vous utilisez la console Friendly, utilisez `www()` pour

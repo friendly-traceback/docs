@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.path_info &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>friendly_traceback.path_info &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.23
               </div>
             
           
@@ -135,19 +135,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -258,18 +259,22 @@
 <span class="sd">it might be desirable to exclude additional files.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">asttokens</span>  <span class="c1"># Only use it to find site-packages</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="kn">import</span> <span class="nn">asttokens</span>  <span class="c1"># Only use it as a representative to find site-packages</span>
 
 <span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
+<span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">StrPath</span>
 
-<span class="n">EXCLUDED_FILE_PATH</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="n">EXCLUDED_DIR_NAMES</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">EXCLUDED_FILE_PATH</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">EXCLUDED_DIR_NAMES</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 <span class="n">SITE_PACKAGES</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">asttokens</span><span class="o">.</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;..&quot;</span><span class="p">))</span>
 <span class="n">FRIENDLY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 <span class="n">TESTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FRIENDLY</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;tests&quot;</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">exclude_file_from_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">exclude_file_from_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Exclude a file from appearing in a traceback generated by</span>
 <span class="sd">    Friendly-traceback.  Note that this does not apply to</span>
 <span class="sd">    the true Python traceback obtained using &quot;debug_tb&quot;.</span>
@@ -283,7 +288,7 @@
     <span class="n">EXCLUDED_FILE_PATH</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">exclude_directory_from_traceback</span><span class="p">(</span><span class="n">dir_name</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">exclude_directory_from_traceback</span><span class="p">(</span><span class="n">dir_name</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Exclude all files found in a given directory, including sub-directories,</span>
 <span class="sd">    from appearing in a traceback generated by Friendly.</span>
 <span class="sd">    Note that this does not apply to the true Python traceback</span>
@@ -306,19 +311,19 @@
 <span class="n">exclude_directory_from_traceback</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_excluded_file</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">is_excluded_file</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Determines if the file belongs to the group that is excluded from tracebacks.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;frozen &quot;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">True</span>
     <span class="c1"># full_path could be a pathlib.Path instance</span>
     <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;frozen &quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
     <span class="k">for</span> <span class="n">dirs</span> <span class="ow">in</span> <span class="n">EXCLUDED_DIR_NAMES</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">dirs</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="n">full_path</span> <span class="ow">in</span> <span class="n">EXCLUDED_FILE_PATH</span>
 
 
-<span class="k">def</span> <span class="nf">include_file_in_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">include_file_in_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Reverses the effect of ``exclude_file_from_traceback()`` so that</span>
 <span class="sd">    the file can potentially appear in later tracebacks generated</span>
 <span class="sd">    by Friendly-traceback.</span>
@@ -344,11 +349,13 @@
 
 
 <span class="k">class</span> <span class="nc">PathUtil</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">python</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="vm">__file__</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">shorten_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="n">MaybeText</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;MaybeText&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">shorten_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">MaybeText</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MaybeText</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
         <span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">session</span>
 
         <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># can happen in some rare cases</span>
@@ -356,10 +363,10 @@
         <span class="n">orig_path</span> <span class="o">=</span> <span class="n">path</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># We might get passed a path repr</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">path_lower</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">path_lower</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="s2">&quot;ipykernel&quot;</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
-            <span class="n">new_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shorten_jupyter_kernel</span><span class="p">(</span><span class="n">orig_path</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="n">frame</span><span class="p">)</span>
+            <span class="n">new_path</span> <span class="o">=</span> <span class="n">shorten_jupyter_kernel</span><span class="p">(</span><span class="n">orig_path</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">new_path</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">new_path</span>
 
@@ -374,57 +381,58 @@
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
         <span class="k">elif</span> <span class="s2">&quot;&lt;friendly-console:&quot;</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
             <span class="n">split_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&lt;friendly-console:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">numbered_prompt</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span><span class="p">:</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">split_path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;&lt;friendly-console:&quot;</span> <span class="o">+</span> <span class="n">split_path</span>
-        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">SITE_PACKAGES</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">SITE_PACKAGES</span><span class="o">.</span><span class="n">casefold</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;LOCAL:&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">SITE_PACKAGES</span><span class="p">)</span> <span class="p">:]</span>
-        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">casefold</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;PYTHON_LIB:&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">python</span><span class="p">)</span> <span class="p">:]</span>
-        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">FRIENDLY</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">FRIENDLY</span><span class="o">.</span><span class="n">casefold</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;FRIENDLY:&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">FRIENDLY</span><span class="p">)</span> <span class="p">:]</span>
-        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">TESTS</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">TESTS</span><span class="o">.</span><span class="n">casefold</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;TESTS:&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">TESTS</span><span class="p">)</span> <span class="p">:]</span>
         <span class="k">elif</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>  <span class="c1"># exclude separator</span>
-        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">home</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+        <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">home</span><span class="o">.</span><span class="n">casefold</span><span class="p">()):</span>
             <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;HOME:&quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">home</span><span class="p">)</span> <span class="p">:]</span>
         <span class="k">return</span> <span class="n">path</span>
 
-    <span class="k">def</span> <span class="nf">shorten_jupyter_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">session</span>
-        <span class="kn">from</span> <span class="nn">.source_cache</span> <span class="kn">import</span> <span class="n">cache</span>
 
-        <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">shorten_jupyter_kernel</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.source_cache</span> <span class="kn">import</span> <span class="n">cache</span>
+
+    <span class="k">if</span> <span class="s2">&quot;__main__&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+        <span class="n">main</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s2">&quot;__main__&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;In&quot;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">main</span><span class="p">):</span>
+            <span class="n">ipython_inputs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="s2">&quot;In&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_source_lines</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-        <span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">source</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">frame</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;_frame&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s2">&quot;In&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_globals</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">ipython_inputs</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_globals</span><span class="p">[</span><span class="s2">&quot;In&quot;</span><span class="p">]</span>
-        <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">new_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">inp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ipython_inputs</span><span class="p">):</span>
-            <span class="n">inp</span> <span class="o">=</span> <span class="n">inp</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="n">inp</span><span class="p">:</span>
-                <span class="n">new_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">]&quot;</span>
-                <span class="n">found</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">found</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">new_path</span> <span class="o">=</span> <span class="n">new_path</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span>
-        <span class="k">return</span> <span class="n">new_path</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_source_lines</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">source</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">new_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">inp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ipython_inputs</span><span class="p">):</span>
+        <span class="n">inp</span> <span class="o">=</span> <span class="n">inp</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="n">inp</span><span class="p">:</span>
+            <span class="n">new_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">]&quot;</span>
+            <span class="n">found</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">found</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">new_path</span> <span class="o">=</span> <span class="n">new_path</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span>
+    <span class="k">return</span> <span class="n">new_path</span>
 
 
 <span class="n">path_utils</span> <span class="o">=</span> <span class="n">PathUtil</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="show_paths"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.show_paths">[docs]</a><span class="k">def</span> <span class="nf">show_paths</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<div class="viewcode-block" id="show_paths"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.show_paths">[docs]</a><span class="k">def</span> <span class="nf">show_paths</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;To avoid displaying very long file paths to the user,</span>
 <span class="sd">    Friendly-traceback tries to shorten them using some easily</span>
 <span class="sd">    recognized synonyms. This function shows the path synonyms</span>
