@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.23 documentation</title>
+  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.28 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.23
+                0.4.28
               </div>
             
           
@@ -144,7 +144,7 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
@@ -254,6 +254,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#oserror">OsError</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#urllib-error">Urllib error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
@@ -422,7 +423,7 @@ trb_english.py located in the <code class="docutils literal notranslate"><span c
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.23
+<p>Friendly version: 0.4.28
 Python version: 3.8.10</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -2037,6 +2038,40 @@ Exception raised on line 1357 of file PYTHON_LIB:\urllib\request.py.
    1358:             r = h.getresponse()
 
         global URLError:  &lt;class urllib.error.URLError&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-argument">
+<h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 40, in test_invalid_argument
+    open(&quot;c:\test.txt&quot;)
+OSError: [Errno 22] Invalid argument: &#39;c:\test.txt&#39;
+
+    Perhaps you need to double the backslash characters.
+
+An `OSError` exception is usually raised by the Operating System
+to indicate that an operation is not allowed or that
+a resource is not available.
+
+I suspect that you wrote a filename or path that contains
+at least one backslash character, `\`.
+Python likely interpreted this as indicating the beginning of
+what is known as an escape sequence.
+To solve the problem, either write a so-called &#39;raw string&#39;
+by adding the letter `r` as a prefix in
+front of the filename or path, or replace all single backslash
+characters, `\`, by double ones: `\\`.
+
+Exception raised on line 40 of file TESTS:\runtime\test_os_error.py.
+
+   37:     if os.name != &quot;nt&quot;:
+   38:         return &quot;Windows test only&quot;, &quot;No result&quot;
+   39:     try:
+--&gt;40:         open(&quot;c:\test.txt&quot;)
+   41:     except OSError as e:
+
+        open:  &lt;builtin function open&gt;
 
 
 
@@ -2065,11 +2100,11 @@ Exception raised on line 77 of file TESTS:\trb_common.py.
    78:                             title = name[5:].replace(&quot;_&quot;, &quot; &quot;)
 
         function:  &lt;function test_no_information&gt;
-        message:  &#39;&lt;urlopen error [Errno 11001] getaddrinfo failed&gt;&#39;
-        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;PYTHO...&#39;
-                 len(result): 2419
+        message:  &quot;[Errno 22] Invalid argument: &#39;c:\\test.txt&#39;&quot;
+        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;TESTS...&#39;
+                 len(result): 1198
 
-        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;PYTH...)
+        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;TEST...)
                           len(result, message): 2
 </pre></div>
 </div>

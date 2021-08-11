@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.4.23
+Friendly version: 0.4.28
 Python version: 3.8.10
 
 
@@ -1831,6 +1831,44 @@ Urllib error
         
 
 
+invalid argument
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_os_error.py", line 40, in test_invalid_argument
+        open("c:\test.txt")
+    OSError: [Errno 22] Invalid argument: 'c:\test.txt'
+    
+        Il faut peut-être doubler les caractères barres obliques inversées.
+        
+    Une exception `OSError` est généralement levée par le système d’exploitation
+    pour indiquer qu’une opération n’est pas autorisée ou
+    qu'une ressource n’est pas disponible.
+    
+    Je soupçonne que vous avez écrit un nom de fichier ou un chemin qui contient
+    au moins un caractère Barre oblique inversée, `\`.
+    Python a probablement interprété ce caractère comme indiquant le début de
+    ce que l'on appelle une séquence d'échappement.
+    Pour résoudre ce problème, écrivez une "chaîne brute" (raw string)
+    en ajoutant la lettre `r` comme préfixe devant le nom de
+    fichier ou du chemin d'accès, ou remplacer tous les caractères
+    simples, `\`, par des caractères doubles : `\\`.
+    
+    Exception levée à la ligne 40 du fichier TESTS:\runtime\test_os_error.py.
+    
+       37:     if os.name != "nt":
+       38:         return "Windows test only", "No result"
+       39:     try:
+    -->40:         open("c:\test.txt")
+       41:     except OSError as e:
+
+            open:  <builtin function open>
+        
+
+
     Traceback (most recent call last):
       File "TESTS:\trb_common.py", line 77, in create_tracebacks
         result, message = function()
@@ -1856,11 +1894,11 @@ Urllib error
        78:                             title = name[5:].replace("_", " ")
 
             function:  <function test_no_information>
-            message:  '<urlopen error [Errno 11001] getaddrinfo failed>'
-            result:  '\n    Traceback (most recent call last):\n      File "PYTHO...'
-                     len(result): 2506
+            message:  "[Errno 22] Invalid argument: 'c:\\test.txt'"
+            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
+                     len(result): 1329
         
-            result, message:  ('\n    Traceback (most recent call last):\n      File "PYTH...)
+            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
                               len(result, message): 2
         
         

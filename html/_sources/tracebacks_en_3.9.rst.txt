@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.23
+Friendly version: 0.4.28
 Python version: 3.9.5
 
 
@@ -1833,6 +1833,44 @@ Urllib error
         
 
 
+invalid argument
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_os_error.py", line 40, in test_invalid_argument
+        open("c:\test.txt")
+    OSError: [Errno 22] Invalid argument: 'c:\test.txt'
+    
+        Perhaps you need to double the backslash characters.
+        
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
+    
+    I suspect that you wrote a filename or path that contains
+    at least one backslash character, `\`.
+    Python likely interpreted this as indicating the beginning of
+    what is known as an escape sequence.
+    To solve the problem, either write a so-called 'raw string'
+    by adding the letter `r` as a prefix in
+    front of the filename or path, or replace all single backslash
+    characters, `\`, by double ones: `\\`.
+    
+    Exception raised on line 40 of file TESTS:\runtime\test_os_error.py.
+    
+       37:     if os.name != "nt":
+       38:         return "Windows test only", "No result"
+       39:     try:
+    -->40:         open("c:\test.txt")
+       41:     except OSError as e:
+
+            open:  <builtin function open>
+        
+
+
     Traceback (most recent call last):
       File "TESTS:\trb_common.py", line 77, in create_tracebacks
         result, message = function()
@@ -1858,11 +1896,11 @@ Urllib error
        78:                             title = name[5:].replace("_", " ")
 
             function:  <function test_no_information>
-            message:  '<urlopen error [Errno 11001] getaddrinfo failed>'
-            result:  '\n    Traceback (most recent call last):\n      File "PYTHO...'
-                     len(result): 2419
+            message:  "[Errno 22] Invalid argument: 'c:\\test.txt'"
+            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
+                     len(result): 1198
         
-            result, message:  ('\n    Traceback (most recent call last):\n      File "PYTH...)
+            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
                               len(result, message): 2
         
         

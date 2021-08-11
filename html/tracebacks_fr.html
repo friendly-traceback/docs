@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - en Français &mdash; friendly-traceback 0.4.23 documentation</title>
+  <title>Friendly tracebacks - en Français &mdash; friendly-traceback 0.4.28 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.23
+                0.4.28
               </div>
             
           
@@ -144,7 +144,7 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
@@ -265,6 +265,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#oserror">OsError</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#urllib-error">Urllib error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
@@ -420,7 +421,7 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.23
+<p>Friendly version: 0.4.28
 Python version: 3.8.10</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -2033,6 +2034,40 @@ Exception levée à la ligne 1357 du fichier PYTHON_LIB:\urllib\request.py.
    1358:             r = h.getresponse()
 
         global URLError:  &lt;class urllib.error.URLError&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-argument">
+<h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 40, in test_invalid_argument
+    open(&quot;c:\test.txt&quot;)
+OSError: [Errno 22] Invalid argument: &#39;c:\test.txt&#39;
+
+    Il faut peut-être doubler les caractères barres obliques inversées.
+
+Une exception `OSError` est généralement levée par le système d’exploitation
+pour indiquer qu’une opération n’est pas autorisée ou
+qu&#39;une ressource n’est pas disponible.
+
+Je soupçonne que vous avez écrit un nom de fichier ou un chemin qui contient
+au moins un caractère Barre oblique inversée, `\`.
+Python a probablement interprété ce caractère comme indiquant le début de
+ce que l&#39;on appelle une séquence d&#39;échappement.
+Pour résoudre ce problème, écrivez une &quot;chaîne brute&quot; (raw string)
+en ajoutant la lettre `r` comme préfixe devant le nom de
+fichier ou du chemin d&#39;accès, ou remplacer tous les caractères
+simples, `\`, par des caractères doubles : `\\`.
+
+Exception levée à la ligne 40 du fichier TESTS:\runtime\test_os_error.py.
+
+   37:     if os.name != &quot;nt&quot;:
+   38:         return &quot;Windows test only&quot;, &quot;No result&quot;
+   39:     try:
+--&gt;40:         open(&quot;c:\test.txt&quot;)
+   41:     except OSError as e:
+
+        open:  &lt;builtin function open&gt;
 
 
 
@@ -2061,11 +2096,11 @@ Exception levée à la ligne 77 du fichier TESTS:\trb_common.py.
    78:                             title = name[5:].replace(&quot;_&quot;, &quot; &quot;)
 
         function:  &lt;function test_no_information&gt;
-        message:  &#39;&lt;urlopen error [Errno 11001] getaddrinfo failed&gt;&#39;
-        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;PYTHO...&#39;
-                 len(result): 2506
+        message:  &quot;[Errno 22] Invalid argument: &#39;c:\\test.txt&#39;&quot;
+        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;TESTS...&#39;
+                 len(result): 1329
 
-        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;PYTH...)
+        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;TEST...)
                           len(result, message): 2
 </pre></div>
 </div>

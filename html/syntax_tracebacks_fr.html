@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly SyntaxError tracebacks - en Français &mdash; friendly-traceback 0.4.23 documentation</title>
+  <title>Friendly SyntaxError tracebacks - en Français &mdash; friendly-traceback 0.4.28 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.4.23
+                0.4.28
               </div>
             
           
@@ -143,7 +143,7 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
@@ -344,50 +344,53 @@
 <li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-3">(159) print is a function 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-4">(160) print is a function 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-5">(161) print is a function 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#calling-python-from-interpreter">(162) Calling python from interpreter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(163) problem with assigning a variable to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quote-inside-a-string">(164) Quote inside a string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raising-multiple-exceptions">(165) Raising multiple exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cannot-use-return-outside-function">(166) Cannot use return outside function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-comma-1">(167) Semi-colon instead of comma - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-2">(168) Semi-colon instead of commas - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-3">(169) Semi-colon instead of commas - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-if">(170) Single = instead of double == with if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-elif">(171) Single = instead of double == with elif</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-while">(172) Single = instead of double == with while</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-1">(173) Space between operators 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-2">(174) Space between operators 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#space-in-variable-name">(175) Space in variable name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#too-many-nested-blocks">(176) Too many nested blocks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#triple-equal-sign">(177) Triple-equal sign</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-bracket">(178) Unclosed bracket</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-1">(179) Unclosed parenthesis - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-2">(180) Unclosed parenthesis - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-3">(181) Unclosed parenthesis - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-4">(182) Unclosed parenthesis - 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#content-passed-continuation-line-character">(183) Content passed continuation line character</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unexpected-eof-while-parsing">(184) Unexpected EOF while parsing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(185) Invalid character (unicode fraction 3/4)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(186) Invalid character (unicode fraction 1/2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(187) Invalid character (unicode fraction slash)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote">(188) Invalid character (unicode quote)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote2">(189) Invalid character (unicode quote2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken">(190) Invalid character (mistaken &lt;)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">(191) Invalid character (mistaken &gt;)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken-comma">(192) Invalid character (mistaken comma)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-curly-bracket">(193) Unmatched closing curly bracket</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-parenthesis">(194) Unmatched closing parenthesis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-1">(195) Mismatched brackets - 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-2">(196) Mismatched brackets - 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unmatched-brackets-3">(197) Unmatched brackets - 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#unterminated-triple-quoted-string">(198) Unterminated triple quoted string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#taberror">(199) TabError</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eol-unescaped-backslash">(200) EOL unescaped backslash</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-backquote-character">(201) Using the backquote character</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#walrus-instead-of-equal">(202) Walrus instead of equal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#missing-condition-in-while-statement">(203) Missing condition in while statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration">(204) Would-be variable declaration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration-2">(205) Would-be variable declaration - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-6">(162) print is a function 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-is-a-function-7">(163) print is a function 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-python-from-interpreter">(164) Calling python from interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(165) problem with assigning a variable to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quote-inside-a-string">(166) Quote inside a string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raising-multiple-exceptions">(167) Raising multiple exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cannot-use-return-outside-function">(168) Cannot use return outside function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-comma-1">(169) Semi-colon instead of comma - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-2">(170) Semi-colon instead of commas - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semi-colon-instead-of-commas-3">(171) Semi-colon instead of commas - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-if">(172) Single = instead of double == with if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-elif">(173) Single = instead of double == with elif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-instead-of-double-with-while">(174) Single = instead of double == with while</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-1">(175) Space between operators 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-between-operators-2">(176) Space between operators 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-in-variable-name">(177) Space in variable name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-nested-blocks">(178) Too many nested blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triple-equal-sign">(179) Triple-equal sign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-bracket">(180) Unclosed bracket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-1">(181) Unclosed parenthesis - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-2">(182) Unclosed parenthesis - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-3">(183) Unclosed parenthesis - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unclosed-parenthesis-4">(184) Unclosed parenthesis - 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-passed-continuation-line-character">(185) Content passed continuation line character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unexpected-eof-while-parsing">(186) Unexpected EOF while parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(187) Invalid character (unicode fraction 3/4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(188) Invalid character (unicode fraction 1/2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(189) Invalid character (unicode fraction slash)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote">(190) Invalid character (unicode quote)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-unicode-quote2">(191) Invalid character (unicode quote2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken">(192) Invalid character (mistaken &lt;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">(193) Invalid character (mistaken &gt;)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#invalid-character-mistaken-comma">(194) Invalid character (mistaken comma)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-curly-bracket">(195) Unmatched closing curly bracket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-closing-parenthesis">(196) Unmatched closing parenthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-1">(197) Mismatched brackets - 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mismatched-brackets-2">(198) Mismatched brackets - 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unmatched-brackets-3">(199) Unmatched brackets - 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unterminated-triple-quoted-string">(200) Unterminated triple quoted string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taberror">(201) TabError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eol-unescaped-backslash">(202) EOL unescaped backslash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-backquote-character">(203) Using the backquote character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unicode-error">(204) unicode error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#walrus-instead-of-equal">(205) Walrus instead of equal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#missing-condition-in-while-statement">(206) Missing condition in while statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration">(207) Would-be variable declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#would-be-variable-declaration-2">(208) Would-be variable declaration - 2</a></li>
 </ul>
 </li>
 </ul>
@@ -485,7 +488,7 @@ plutôt suggéré d’exécuter make_trb.bat qui est au premier niveau
 du répertoire de fichier. Si vous faites ceci, la documentation pour
 toutes les langues sera automatiquement mise à jour.</p>
 </div>
-<p>Friendly version: 0.4.23
+<p>Friendly version: 0.4.28
 Python version: 3.8.10</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -5150,8 +5153,66 @@ Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour 
 </pre></div>
 </div>
 </div>
+<div class="section" id="print-is-a-function-6">
+<h2>(162) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\print_non_paren_non_string1.py&quot;, line 1
+    print hello world!
+          ^
+SyntaxError: Missing parentheses in call to &#39;print&#39;. Did you mean print(hello world!)?
+
+    Vouliez-vous dire `print(&quot;hello world!&quot;)` ?
+
+Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
+
+Python ne peut pas comprendre le code du fichier
+&#39;TESTS:\syntax\print_non_paren_non_string1.py&#39;
+à l&#39;endroit indiqué par ^.
+
+--&gt;1: print hello world!
+            ^
+
+Peut-être que vous avez besoin d&#39;écrire
+
+     print(&quot;hello world!&quot;)
+
+Dans l&#39;ancienne version de Python, `print` était un mot clé.
+Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l&#39;invoquer.
+Notez que les arguments de `print` doivent être séparés par des virgules.
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-is-a-function-7">
+<h2>(163) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\print_non_paren_non_string2.py&quot;, line 1
+    print len(&quot;hello&quot;) hello
+          ^
+SyntaxError: invalid syntax
+
+    Vouliez-vous dire `print(&#39;len(&quot;hello&quot;) hello&#39;)` ?
+
+Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
+
+Python ne peut pas comprendre le code du fichier
+&#39;TESTS:\syntax\print_non_paren_non_string2.py&#39;
+à l&#39;endroit indiqué par ^.
+
+--&gt;1: print len(&quot;hello&quot;) hello
+            ^
+
+Dans l&#39;ancienne version de Python, `print` était un mot clé.
+Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l&#39;invoquer.
+Notez que les arguments de `print` doivent être séparés par des virgules.
+</pre></div>
+</div>
+</div>
 <div class="section" id="calling-python-from-interpreter">
-<h2>(162) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(164) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5175,7 +5236,7 @@ Vous devez le faire à partir d’un terminal et non d’un interprète Python.
 </div>
 </div>
 <div class="section" id="problem-with-assigning-a-variable-to-python">
-<h2>(163) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
+<h2>(165) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5210,7 +5271,7 @@ certains d’entre eux pourraient soulever d’autres types d’exceptions.
 </div>
 </div>
 <div class="section" id="quote-inside-a-string">
-<h2>(164) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
+<h2>(166) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5240,7 +5301,7 @@ Je soupçonne que vous essayiez d&#39;utiliser un apostrophe ou un guillemet
 </div>
 </div>
 <div class="section" id="raising-multiple-exceptions">
-<h2>(165) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(167) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5264,7 +5325,7 @@ Je crois que vous essayez de lever une exception en utilisant la syntaxe de Pyth
 </div>
 </div>
 <div class="section" id="cannot-use-return-outside-function">
-<h2>(166) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(168) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5289,7 +5350,7 @@ Vous ne pouvez utiliser un énoncé `return` qu&#39;à l’intérieur d’une fo
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-comma-1">
-<h2>(167) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<h2>(169) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5314,7 +5375,7 @@ Vous avez écrit un point-virgule, `;`, au lieu d&#39;une virgule.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-2">
-<h2>(168) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<h2>(170) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5339,7 +5400,7 @@ Vous avez écrit des points-virgules, `;`, au lieu de virgules.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-3">
-<h2>(169) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<h2>(171) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5364,7 +5425,7 @@ Vous avez écrit des points-virgules, `;`, au lieu de virgules.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-if">
-<h2>(170) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
+<h2>(172) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5391,7 +5452,7 @@ Vous avez utilisé un opérateur d’affectation `=` au lieu d’un opérateur d
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-elif">
-<h2>(171) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
+<h2>(173) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5420,7 +5481,7 @@ Vous avez utilisé un opérateur d’affectation `=` au lieu d’un opérateur d
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-while">
-<h2>(172) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
+<h2>(174) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5449,7 +5510,7 @@ un opérateur d&#39;égalité, `==`, ou l&#39;opérateur `:=`.
 </div>
 </div>
 <div class="section" id="space-between-operators-1">
-<h2>(173) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(175) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5476,7 +5537,7 @@ et vouliez écrire l&#39;opérateur `**`.
 </div>
 </div>
 <div class="section" id="space-between-operators-2">
-<h2>(174) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(176) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5503,7 +5564,7 @@ et vouliez écrire l&#39;opérateur `/=`.
 </div>
 </div>
 <div class="section" id="space-in-variable-name">
-<h2>(175) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
+<h2>(177) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5528,7 +5589,7 @@ Vous ne pouvez pas avoir d’espaces dans les identifiants (noms de variables).
 </div>
 </div>
 <div class="section" id="too-many-nested-blocks">
-<h2>(176) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>(178) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
   File &quot;TESTS:\None&quot;, line TESTS:\None
@@ -5543,7 +5604,7 @@ contenus dans d&#39;autres blocs de code.
 </div>
 </div>
 <div class="section" id="triple-equal-sign">
-<h2>(177) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(179) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5573,7 +5634,7 @@ exactement le même objet, utilisez l’opérateur `is`.
 </div>
 </div>
 <div class="section" id="unclosed-bracket">
-<h2>(178) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(180) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5603,7 +5664,7 @@ Le symbole crochet `[` à la ligne 5 n&#39;est pas fermé par le symbole corresp
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-1">
-<h2>(179) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
+<h2>(181) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5632,7 +5693,7 @@ Le symbole parenthèse `(` à la ligne 2 n&#39;est pas fermé par le symbole cor
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-2">
-<h2>(180) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
+<h2>(182) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5660,7 +5721,7 @@ Le symbole parenthèse `(` à la ligne 2 n&#39;est pas fermé par le symbole cor
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-3">
-<h2>(181) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
+<h2>(183) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5691,7 +5752,7 @@ Si cela est incorrect, veuillez signaler ce cas.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-4">
-<h2>(182) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
+<h2>(184) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5720,7 +5781,7 @@ Le symbole parenthèse `(` à la ligne 2 n&#39;est pas fermé par le symbole cor
 </div>
 </div>
 <div class="section" id="content-passed-continuation-line-character">
-<h2>(183) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
+<h2>(185) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5749,7 +5810,7 @@ Je suppose que vous avez oublié d’enfermer du contenu dans une chaîne de car
 </div>
 </div>
 <div class="section" id="unexpected-eof-while-parsing">
-<h2>(184) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
+<h2>(186) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5784,7 +5845,7 @@ Le symbole crochet `[` à la ligne 5 n&#39;est pas fermé par le symbole corresp
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-3-4">
-<h2>(185) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
+<h2>(187) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5814,7 +5875,7 @@ Je pense que vous vouliez plutôt écrire la fraction `3/4`.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-1-2">
-<h2>(186) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
+<h2>(188) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5844,7 +5905,7 @@ Je pense que vous vouliez plutôt écrire la fraction `1/2`.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-slash">
-<h2>(187) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
+<h2>(189) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5874,7 +5935,7 @@ mais est différent de l&#39;opérateur de division `/`.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-quote">
-<h2>(188) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
+<h2>(190) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5906,7 +5967,7 @@ au lieu d&#39;un guillemet normal (simple ou double) pour une chaîne de caract�
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-quote2">
-<h2>(189) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
+<h2>(191) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5937,7 +5998,7 @@ au lieu d&#39;un guillemet normal (simple ou double) pour une chaîne de caract�
 </div>
 </div>
 <div class="section" id="invalid-character-mistaken">
-<h2>(190) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
+<h2>(192) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -5969,7 +6030,7 @@ Ou peut-être avez-vous voulu écrire un signe plus petit que, `&lt;`.
 </div>
 </div>
 <div class="section" id="id9">
-<h2>(191) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>(193) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6001,7 +6062,7 @@ Ou peut-être avez-vous voulu écrire un signe plus grand que, `&gt;`.
 </div>
 </div>
 <div class="section" id="invalid-character-mistaken-comma">
-<h2>(192) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(194) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6033,7 +6094,7 @@ Ou peut-être, vous vouliez écrire une virgule.
 </div>
 </div>
 <div class="section" id="unmatched-closing-curly-bracket">
-<h2>(193) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(195) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6061,7 +6122,7 @@ Le symbole accolade `}` à la ligne 6 n&#39;a pas de symbole ouvrant qui lui cor
 </div>
 </div>
 <div class="section" id="unmatched-closing-parenthesis">
-<h2>(194) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(196) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6089,7 +6150,7 @@ Le symbole parenthèse `)` à la ligne 6 n&#39;a pas de symbole ouvrant qui lui 
 </div>
 </div>
 <div class="section" id="mismatched-brackets-1">
-<h2>(195) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
+<h2>(197) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6116,7 +6177,7 @@ Le symbole crochet `]` à la ligne 2 ne correspond pas au symbole parenthèse `(
 </div>
 </div>
 <div class="section" id="mismatched-brackets-2">
-<h2>(196) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
+<h2>(198) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6147,7 +6208,7 @@ Le symbole crochet `]` à la ligne 4 ne correspond pas au symbole parenthèse `(
 </div>
 </div>
 <div class="section" id="unmatched-brackets-3">
-<h2>(197) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
+<h2>(199) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6172,7 +6233,7 @@ Le symbole crochet `]` à la ligne 3 n&#39;a pas de symbole ouvrant qui lui corr
 </div>
 </div>
 <div class="section" id="unterminated-triple-quoted-string">
-<h2>(198) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
+<h2>(200) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6197,7 +6258,7 @@ sans inclure les triples guillemets nécessaires pour mettre fin à la chaîne.
 </div>
 </div>
 <div class="section" id="taberror">
-<h2>(199) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
+<h2>(201) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6228,7 +6289,7 @@ Python ne peut pas comprendre le code du fichier
 </div>
 </div>
 <div class="section" id="eol-unescaped-backslash">
-<h2>(200) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(202) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6258,7 +6319,7 @@ deviez en écrire deux `\` d’affilée.
 </div>
 </div>
 <div class="section" id="using-the-backquote-character">
-<h2>(201) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
+<h2>(203) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6287,8 +6348,39 @@ dans ce dernier cas, utilisez la fonction `repr(x)`.
 </pre></div>
 </div>
 </div>
+<div class="section" id="unicode-error">
+<h2>(204) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
+    __import__(name)
+  File &quot;TESTS:\syntax\unicode_error.py&quot;, line 1
+    path = &quot;c:\Users\andre&quot;
+           ^
+SyntaxError: (unicode error) &#39;unicodeescape&#39; codec can&#39;t decode bytes in position 2-3: truncated \UXXXXXXXX escape
+
+    Il faut peut-être doubler les caractères barres obliques inversées.
+
+Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
+
+Python ne peut pas comprendre le code du fichier
+&#39;TESTS:\syntax\unicode_error.py&#39;
+à l&#39;endroit indiqué par ^.
+
+--&gt;1: path = &quot;c:\Users\andre&quot;
+             ^
+
+Je pense que vous avez écrit une chaîne qui contient
+une barre oblique inversée, `\` suivie d&#39;un &quot;U&quot; majuscule et d&#39;autres caractères.
+Python a probablement interprété cela comme indiquant le début de
+ce que l&#39;on appelle une séquence d&#39;échappement pour les caractères unicode spéciaux.
+Pour résoudre ce problème, écrivez une &quot;chaîne brute&quot; (raw string)
+en ajoutant la lettre `r` en tant que préfixe devant
+la chaîne de caractères, ou remplacez `\U` par `\\U`.
+</pre></div>
+</div>
+</div>
 <div class="section" id="walrus-instead-of-equal">
-<h2>(202) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(205) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6314,7 +6406,7 @@ l’opérateur d’affectation normal `=` était requis.
 </div>
 </div>
 <div class="section" id="missing-condition-in-while-statement">
-<h2>(203) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(206) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6342,7 +6434,7 @@ Une boucle `while` doit inclure une condition :
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration">
-<h2>(204) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(207) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
@@ -6371,7 +6463,7 @@ Si vous supprimez `var`, vous aurez une instruction Python valide.
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration-2">
-<h2>(205) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
+<h2>(208) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\trb_syntax_common.py&quot;, line 49, in create_tracebacks
     __import__(name)
