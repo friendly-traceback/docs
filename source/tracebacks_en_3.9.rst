@@ -960,7 +960,6 @@ ChainMap
     -->1010:             raise KeyError(f'Key not found in the first mapping: {key!r}')
 
             KeyError:  <class KeyError>
-            :  'Key not found in the first mapping: '
         
 
 
