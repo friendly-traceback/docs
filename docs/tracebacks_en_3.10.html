@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.28 documentation</title>
+  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.31 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.28
+                0.4.31
               </div>
             
           
@@ -206,11 +206,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#filenotfounderror">FileNotFoundError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directory-not-found">Directory not found</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filename-not-found">Filename not found</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filename-not-found-2">Filename not found 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filename-not-found-3">Filename not found 3</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#importerror">ImportError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Circular import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Circular import</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
 </ul>
 </li>
@@ -231,7 +234,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lookuperror">LookupError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Generic</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
@@ -248,7 +251,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#custom-name">Custom name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Generic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-import">Missing import</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
@@ -262,11 +265,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Generic</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Generic</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#typeerror">TypeError</a><ul>
@@ -300,7 +303,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Generic</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#valueerror">ValueError</a><ul>
@@ -423,7 +426,7 @@ C:Usersandrefriendly-tracebackfriendly-tracebackteststrb_english.py located in t
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.28
+<p>Friendly version: 0.4.31
 Python version: 3.10.0rc1</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -990,10 +993,37 @@ Exception raised on line 258 of file TESTS:\runtime\test_attribute_error.py.
 </div>
 <div class="section" id="filenotfounderror">
 <h2>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="directory-not-found">
+<h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 6, in test_Generic
+  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 70, in test_Directory_not_found
+    open(&quot;does_not_exist/file.txt&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: &#39;does_not_exist/file.txt&#39;
+
+A `FileNotFoundError` exception indicates that you
+are trying to open a file that cannot be found by Python.
+This could be because you misspelled the name of the file.
+
+In your program, the name of the
+file that cannot be found is `file.txt`.
+does_not_exist
+is not a valid directory.
+
+Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
+
+   68: def test_Directory_not_found():
+   69:     try:
+--&gt;70:         open(&quot;does_not_exist/file.txt&quot;)
+   71:     except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="filename-not-found">
+<h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 7, in test_Filename_not_found
     open(&quot;does_not_exist&quot;)
 FileNotFoundError: [Errno 2] No such file or directory: &#39;does_not_exist&#39;
 
@@ -1003,13 +1033,79 @@ This could be because you misspelled the name of the file.
 
 In your program, the name of the
 file that cannot be found is `does_not_exist`.
+It was expected to be found in the
+`C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
+I have no additional information for you.
 
-Exception raised on line 6 of file TESTS:\runtime\test_file_not_found_error.py.
+Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
 
-   4: def test_Generic():
-   5:     try:
---&gt;6:         open(&quot;does_not_exist&quot;)
-   7:     except FileNotFoundError as e:
+   5: def test_Filename_not_found():
+   6:     try:
+--&gt;7:         open(&quot;does_not_exist&quot;)
+   8:     except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="filename-not-found-2">
+<h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 30, in test_Filename_not_found_2
+    open(&quot;setupp.py&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: &#39;setupp.py&#39;
+
+    Did you mean `setup.py`?
+
+A `FileNotFoundError` exception indicates that you
+are trying to open a file that cannot be found by Python.
+This could be because you misspelled the name of the file.
+
+In your program, the name of the
+file that cannot be found is `setupp.py`.
+It was expected to be found in the
+`C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+The file `setup.py` has a similar name.
+
+Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
+
+   26:     if chdir:
+   27:         os.chdir(&quot;..&quot;)
+   29:     try:
+--&gt;30:         open(&quot;setupp.py&quot;)
+   31:     except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="filename-not-found-3">
+<h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 52, in test_Filename_not_found_3
+    open(&quot;setup.pyg&quot;)
+FileNotFoundError: [Errno 2] No such file or directory: &#39;setup.pyg&#39;
+
+    Did you mean `setup.py`?
+
+A `FileNotFoundError` exception indicates that you
+are trying to open a file that cannot be found by Python.
+This could be because you misspelled the name of the file.
+
+In your program, the name of the
+file that cannot be found is `setup.pyg`.
+It was expected to be found in the
+`C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+Perhaps you meant one of the following files with similar names:
+`setup.py`, `setup.cfg`
+
+Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
+
+   49:     if chdir:
+   50:         os.chdir(&quot;..&quot;)
+   51:     try:
+--&gt;52:         open(&quot;setup.pyg&quot;)
+   53:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -1018,8 +1114,8 @@ Exception raised on line 6 of file TESTS:\runtime\test_file_not_found_error.py.
 </div>
 <div class="section" id="importerror">
 <h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>Circular import<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_import_error.py&quot;, line 58, in test_Circular_import
     import circular_a
@@ -1414,8 +1510,8 @@ Exception raised on line 98 of file TESTS:\runtime\test_key_error.py.
 </div>
 <div class="section" id="lookuperror">
 <h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id5">
-<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_lookup_error.py&quot;, line 10, in test_Generic
     raise LookupError(&quot;Fake message&quot;)
@@ -1743,8 +1839,8 @@ Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_name_error.py&quot;, line 9, in test_Generic
     this = something
@@ -2084,8 +2180,8 @@ Exception raised on line 77 of file TESTS:\trb_common.py.
 </div>
 <div class="section" id="overflowerror">
 <h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
-<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_overflow_error.py&quot;, line 6, in test_Generic
     2.0 ** 1600
@@ -2106,8 +2202,8 @@ Exception raised on line 6 of file TESTS:\runtime\test_overflow_error.py.
 </div>
 <div class="section" id="recursionerror">
 <h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_recursion_error.py&quot;, line 8, in test_Generic
     a()
@@ -2935,8 +3031,8 @@ Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
 </div>
 <div class="section" id="unknownerror">
 <h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id9">
-<h3>Generic<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_unknown_error.py&quot;, line 12, in test_Generic
     raise MyException(&quot;Some informative message about an unknown exception.&quot;)

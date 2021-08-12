@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.4.28
+Friendly version: 0.4.31
 Python version: 3.8.10
 
 
@@ -693,14 +693,45 @@ FileNotFoundError
 -----------------
 
 
-Generic
-~~~~~~~
+Directory not found
+~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 6, in test_Generic
+      File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+        open("does_not_exist/file.txt")
+    FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
+    
+    Une exception `FileNotFoundError` indique que vous
+    essayez d’importer un module qui ne peut pas être trouvé par Python.
+    Cela pourrait être parce que vous fait une faute d'orthographe en
+    écrivant le nom du fichier.
+    
+    Dans votre programme, le nom du fichier inconnu est `file.txt`.
+    does_not_exist
+    n'est pas un répertoire valide.
+    
+    Exception levée à la ligne 70 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    
+       68: def test_Directory_not_found():
+       69:     try:
+    -->70:         open("does_not_exist/file.txt")
+       71:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
         open("does_not_exist")
     FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist'
     
@@ -710,13 +741,87 @@ Generic
     écrivant le nom du fichier.
     
     Dans votre programme, le nom du fichier inconnu est `does_not_exist`.
+    On s'attendait à ce qu'il soit trouvé dans le répertoire
+    `C:\Users\andre\friendly-traceback\friendly-traceback\tests`.
+    Je n’ai pas d’informations supplémentaires pour vous.
     
-    Exception levée à la ligne 6 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    Exception levée à la ligne 7 du fichier TESTS:\runtime\test_file_not_found_error.py.
     
-       4: def test_Generic():
-       5:     try:
-    -->6:         open("does_not_exist")
-       7:     except FileNotFoundError as e:
+       5: def test_Filename_not_found():
+       6:     try:
+    -->7:         open("does_not_exist")
+       8:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 2
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+        open("setupp.py")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
+    
+        Vouliez-vous dire `setup.py` ?
+        
+    Une exception `FileNotFoundError` indique que vous
+    essayez d’importer un module qui ne peut pas être trouvé par Python.
+    Cela pourrait être parce que vous fait une faute d'orthographe en
+    écrivant le nom du fichier.
+    
+    Dans votre programme, le nom du fichier inconnu est `setupp.py`.
+    On s'attendait à ce qu'il soit trouvé dans le répertoire
+    `C:\Users\andre\friendly-traceback\friendly-traceback`.
+    Le fichier `setup.py` a un nom semblable.
+    
+    Exception levée à la ligne 30 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    
+       26:     if chdir:
+       27:         os.chdir("..")
+       29:     try:
+    -->30:         open("setupp.py")
+       31:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 3
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+        open("setup.pyg")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
+    
+        Vouliez-vous dire `setup.py` ?
+        
+    Une exception `FileNotFoundError` indique que vous
+    essayez d’importer un module qui ne peut pas être trouvé par Python.
+    Cela pourrait être parce que vous fait une faute d'orthographe en
+    écrivant le nom du fichier.
+    
+    Dans votre programme, le nom du fichier inconnu est `setup.pyg`.
+    On s'attendait à ce qu'il soit trouvé dans le répertoire
+    `C:\Users\andre\friendly-traceback\friendly-traceback`.
+    Vous vouliez peut-être un des fichiers suivants ayant des noms semblables :
+    `setup.py`, `setup.cfg`
+    
+    Exception levée à la ligne 52 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    
+       49:     if chdir:
+       50:         os.chdir("..")
+       51:     try:
+    -->52:         open("setup.pyg")
+       53:     except FileNotFoundError as e:
 
             open:  <builtin function open>
         

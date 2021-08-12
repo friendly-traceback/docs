@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.28
+Friendly version: 0.4.31
 Python version: 3.7.8
 
 
@@ -698,14 +698,45 @@ FileNotFoundError
 -----------------
 
 
-Generic
-~~~~~~~
+Directory not found
+~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 6, in test_Generic
+      File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+        open("does_not_exist/file.txt")
+    FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
+    
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `file.txt`.
+    does_not_exist
+    is not a valid directory.
+    
+    Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       68: def test_Directory_not_found():
+       69:     try:
+    -->70:         open("does_not_exist/file.txt")
+       71:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
         open("does_not_exist")
     FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist'
     
@@ -715,13 +746,87 @@ Generic
     
     In your program, the name of the
     file that cannot be found is `does_not_exist`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
+    I have no additional information for you.
     
-    Exception raised on line 6 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
     
-       4: def test_Generic():
-       5:     try:
-    -->6:         open("does_not_exist")
-       7:     except FileNotFoundError as e:
+       5: def test_Filename_not_found():
+       6:     try:
+    -->7:         open("does_not_exist")
+       8:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 2
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+        open("setupp.py")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
+    
+        Did you mean `setup.py`?
+        
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `setupp.py`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    The file `setup.py` has a similar name.
+    
+    Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       26:     if chdir:
+       27:         os.chdir("..")
+       29:     try:
+    -->30:         open("setupp.py")
+       31:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 3
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+        open("setup.pyg")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
+    
+        Did you mean `setup.py`?
+        
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `setup.pyg`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    Perhaps you meant one of the following files with similar names:
+    `setup.py`, `setup.cfg`
+    
+    Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       49:     if chdir:
+       50:         os.chdir("..")
+       51:     try:
+    -->52:         open("setup.pyg")
+       53:     except FileNotFoundError as e:
 
             open:  <builtin function open>
         
