@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.4.31
+Friendly version: 0.4.32
 Python version: 3.8.10
 
 
@@ -1033,8 +1033,6 @@ ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
         d.pop(42)
-      File "PYTHON_LIB:\collections\__init__.py", line 967, in pop
-        raise KeyError('Key not found in the first mapping: {!r}'.format(key))
     KeyError: 'Key not found in the first mapping: 42'
     
     Une `KeyError` est levée lorsqu'une valeur n'est pas trouvée en tant que
@@ -1042,7 +1040,7 @@ ChainMap
     
     La clé `42` est introuvable dans `d`, un objet de type `ChainMap`.
     
-    L'exécution s'est arrêtée à la ligne 62 du fichier TESTS:\runtime\test_key_error.py
+    Exception levée à la ligne 62 du fichier TESTS:\runtime\test_key_error.py.
     
        59:     from collections import ChainMap
        60:     d = ChainMap({}, {})
@@ -1052,18 +1050,6 @@ ChainMap
 
             d:  ChainMap({}, {})
             d.pop:  <bound method ChainMap.pop of ChainMap({}, {})>
-        
-    Exception levée à la ligne 967 du fichier PYTHON_LIB:\collections\__init__.py.
-    
-       964:         try:
-       965:             return self.maps[0].pop(key, *args)
-       966:         except KeyError:
-    -->967:             raise KeyError('Key not found in the first mapping: {!r}'.format(key))
-
-            key:  42
-            KeyError:  <class KeyError>
-            format:  <builtin function format>
-            'Key not found in the first mapping: {!r}'.format:  <builtin method format of str object>
         
 
 
@@ -1144,8 +1130,6 @@ Popitem empty ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
         alpha.popitem()
-      File "PYTHON_LIB:\collections\__init__.py", line 960, in popitem
-        raise KeyError('No keys found in the first mapping.')
     KeyError: 'No keys found in the first mapping.'
     
         `alpha` est une `ChainMap` vide.
@@ -1155,7 +1139,7 @@ Popitem empty ChainMap
     
     Vous avez essayé de récupérer un élément de `alpha` qui est une `ChainMap` vide.
     
-    L'exécution s'est arrêtée à la ligne 26 du fichier TESTS:\runtime\test_key_error.py
+    Exception levée à la ligne 26 du fichier TESTS:\runtime\test_key_error.py.
     
        23:     from collections import ChainMap
        24:     alpha = ChainMap({}, {})
@@ -1165,15 +1149,6 @@ Popitem empty ChainMap
 
             alpha:  ChainMap({}, {})
             alpha.popitem:  <bound method ChainMap.popitem of ChainMap({}, {})>
-        
-    Exception levée à la ligne 960 du fichier PYTHON_LIB:\collections\__init__.py.
-    
-       957:         try:
-       958:             return self.maps[0].popitem()
-       959:         except KeyError:
-    -->960:             raise KeyError('No keys found in the first mapping.')
-
-            KeyError:  <class KeyError>
         
 
 
@@ -1500,8 +1475,6 @@ no curses
     Traceback (most recent call last):
       File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
         import curses
-      File "PYTHON_LIB:\curses\__init__.py", line 13, in <module>
-        from _curses import *
     ModuleNotFoundError: No module named '_curses'
     
         Le module curses est rarement installé avec Python sur Windows.
@@ -1514,23 +1487,12 @@ no curses
     Vous avez essayé d’importer le module curses.
     Le module curses est rarement installé avec Python sur Windows.
     
-    L'exécution s'est arrêtée à la ligne 92 du fichier TESTS:\runtime\test_module_not_found_error.py
+    Exception levée à la ligne 92 du fichier TESTS:\runtime\test_module_not_found_error.py.
     
        90:     def test_no_curses():
        91:         try:
     -->92:             import curses
        93:         except ModuleNotFoundError as e:
-
-    Exception levée à la ligne 13 du fichier PYTHON_LIB:\curses\__init__.py.
-    
-        1: """curses
-        2: 
-        3: The main package for curses support for Python.  Normally used by importing
-       (...)
-       10: 
-       11: """
-    -->13: from _curses import *
-       14: import os as _os
 
 
 NameError
@@ -1894,11 +1856,6 @@ Urllib error
     Traceback (most recent call last):
       File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
         request.urlopen("http://does_not_exist")
-           ... Plus de lignes non affichées. ...
-      File "PYTHON_LIB:\urllib\request.py", line 1383, in http_open
-        return self.do_open(http.client.HTTPConnection, req)
-      File "PYTHON_LIB:\urllib\request.py", line 1357, in do_open
-        raise URLError(err)
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     Une exception de type `URLError` est une sous-classe de `OSError`.
@@ -1912,7 +1869,7 @@ Urllib error
     Si c’est le cas, vérifiez les fautes de frappe dans l’URL
     et vérifiez votre connectivité Internet.
     
-    L'exécution s'est arrêtée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py
+    Exception levée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py.
     
        5: def test_Urllib_error():
        6:     from urllib import request, error
@@ -1922,17 +1879,6 @@ Urllib error
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
-        
-    Exception levée à la ligne 1357 du fichier PYTHON_LIB:\urllib\request.py.
-    
-       1353:             try:
-       1354:                 h.request(req.get_method(), req.selector, req.data, headers,
-       1355:                           encode_chunked=req.has_header('Transfer-encoding'))
-       1356:             except OSError as err: # timeout error
-    -->1357:                 raise URLError(err)
-       1358:             r = h.getresponse()
-
-            global URLError:  <class urllib.error.URLError>
         
 
 

@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.31
+Friendly version: 0.4.32
 Python version: 3.10.0rc1
 
 
@@ -1008,8 +1008,6 @@ ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
         d.pop(42)
-      File "PYTHON_LIB:\collections\__init__.py", line 1054, in pop
-        raise KeyError(f'Key not found in the first mapping: {key!r}')
     KeyError: 'Key not found in the first mapping: 42'
     
     A `KeyError` is raised when a value is not found as a
@@ -1017,7 +1015,7 @@ ChainMap
     
     The key `42` cannot be found in `d`, an object of type `ChainMap`.
     
-    Execution stopped on line 62 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 62 of file TESTS:\runtime\test_key_error.py.
     
        59:     from collections import ChainMap
        60:     d = ChainMap({}, {})
@@ -1027,15 +1025,6 @@ ChainMap
 
             d:  ChainMap({}, {})
             d.pop:  <bound method ChainMap.pop of ChainMap({}, {})>
-        
-    Exception raised on line 1054 of file PYTHON_LIB:\collections\__init__.py.
-    
-       1051:         try:
-       1052:             return self.maps[0].pop(key, *args)
-       1053:         except KeyError:
-    -->1054:             raise KeyError(f'Key not found in the first mapping: {key!r}')
-
-            KeyError:  <class KeyError>
         
 
 
@@ -1116,8 +1105,6 @@ Popitem empty ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
         alpha.popitem()
-      File "PYTHON_LIB:\collections\__init__.py", line 1047, in popitem
-        raise KeyError('No keys found in the first mapping.')
     KeyError: 'No keys found in the first mapping.'
     
         `alpha` is an empty `ChainMap`.
@@ -1127,7 +1114,7 @@ Popitem empty ChainMap
     
     You tried to retrieve an item from `alpha` which is an empty `ChainMap`.
     
-    Execution stopped on line 26 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 26 of file TESTS:\runtime\test_key_error.py.
     
        23:     from collections import ChainMap
        24:     alpha = ChainMap({}, {})
@@ -1137,15 +1124,6 @@ Popitem empty ChainMap
 
             alpha:  ChainMap({}, {})
             alpha.popitem:  <bound method ChainMap.popitem of ChainMap({}, {})>
-        
-    Exception raised on line 1047 of file PYTHON_LIB:\collections\__init__.py.
-    
-       1044:         try:
-       1045:             return self.maps[0].popitem()
-       1046:         except KeyError:
-    -->1047:             raise KeyError('No keys found in the first mapping.')
-
-            KeyError:  <class KeyError>
         
 
 
@@ -1472,8 +1450,6 @@ no curses
     Traceback (most recent call last):
       File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
         import curses
-      File "PYTHON_LIB:\curses\__init__.py", line 13, in <module>
-        from _curses import *
     ModuleNotFoundError: No module named '_curses'
     
         The curses module is rarely installed with Python on Windows.
@@ -1486,23 +1462,12 @@ no curses
     You have tried to import the curses module.
     The curses module is rarely installed with Python on Windows.
     
-    Execution stopped on line 92 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 92 of file TESTS:\runtime\test_module_not_found_error.py.
     
        90:     def test_no_curses():
        91:         try:
     -->92:             import curses
        93:         except ModuleNotFoundError as e:
-
-    Exception raised on line 13 of file PYTHON_LIB:\curses\__init__.py.
-    
-        1: """curses
-        2: 
-        3: The main package for curses support for Python.  Normally used by importing
-       (...)
-       10: 
-       11: """
-    -->13: from _curses import *
-       14: import os as _os
 
 
 NameError
@@ -1867,11 +1832,6 @@ Urllib error
     Traceback (most recent call last):
       File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
         request.urlopen("http://does_not_exist")
-           ... More lines not shown. ...
-      File "PYTHON_LIB:\urllib\request.py", line 1377, in http_open
-        return self.do_open(http.client.HTTPConnection, req)
-      File "PYTHON_LIB:\urllib\request.py", line 1351, in do_open
-        raise URLError(err)
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     An exception of type `URLError` is a subclass of `OSError`.
@@ -1885,7 +1845,7 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Execution stopped on line 8 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
     
        5: def test_Urllib_error():
        6:     from urllib import request, error
@@ -1895,17 +1855,6 @@ Urllib error
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
-        
-    Exception raised on line 1351 of file PYTHON_LIB:\urllib\request.py.
-    
-       1347:             try:
-       1348:                 h.request(req.get_method(), req.selector, req.data, headers,
-       1349:                           encode_chunked=req.has_header('Transfer-encoding'))
-       1350:             except OSError as err: # timeout error
-    -->1351:                 raise URLError(err)
-       1352:             r = h.getresponse()
-
-            global URLError:  <class urllib.error.URLError>
         
 
 
