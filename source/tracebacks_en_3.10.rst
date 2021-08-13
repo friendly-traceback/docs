@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.32
+Friendly version: 0.4.33
 Python version: 3.10.0rc1
 
 

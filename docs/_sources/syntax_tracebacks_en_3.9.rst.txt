@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage..
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly version: 0.4.32
+Friendly version: 0.4.33
 Python version: 3.9.5
 
 
@@ -1074,7 +1074,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-          ^
+           ^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -1396,7 +1396,7 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: def f(*):
-                 ^
+                  ^
 
     Assuming you were defining a function, you need
     to replace `*` by either `*arguments` or
@@ -2309,7 +2309,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def test(a=1, b):
-                         ^
+                          ^
 
     In Python, you can define functions with only positional arguments
     
@@ -2377,7 +2377,7 @@ Python version: 3.9.5
     at the location indicated by ^.
     
     -->1: def test(**):
-                     ^
+                      ^
 
     The `**` operator needs to be followed by an identifier (variable name).
     
@@ -3696,8 +3696,7 @@ Python version: 3.9.5
     -->4: pass
           ^
 
-    The line identified above
-    was expected to begin a new indented block.
+    Line `4` identified above was expected to begin a new indented block.
     
 
 (116) IndentationError: unexpected indent
@@ -3711,7 +3710,7 @@ Python version: 3.9.5
         __import__(name)
       File "TESTS:\syntax\indentation_error_2.py", line 4
         pass
-       ^
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3725,9 +3724,9 @@ Python version: 3.9.5
        2: if True:
        3:     pass
     -->4:       pass
-               ^
+                ^
 
-    The line identified above is more indented than expected.
+    Line `4` identified above is more indented than expected.
     
 
 (117) IndentationError: unindent does not match ...
@@ -3758,7 +3757,7 @@ Python version: 3.9.5
     -->5:     pass
                   ^
 
-    The line identified above is less indented than expected.
+    Line `5` identified above is less indented than expected.
     
 
 (118) IndentationError: missing continuation line
@@ -3772,7 +3771,7 @@ Python version: 3.9.5
         __import__(name)
       File "TESTS:\syntax\indentation_error_4.py", line 6
         "c"
-       ^
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3787,9 +3786,9 @@ Python version: 3.9.5
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                  ^
+                   ^
 
-    The line identified above is more indented than expected.
+    Line `6` identified above is more indented than expected.
     
     However, line 6, which is identified as having a problem,
     consists of a single string which is also the case
@@ -4443,8 +4442,7 @@ Python version: 3.9.5
     -->4: 
           ^
 
-    The line identified above
-    was expected to begin a new indented block.
+    Line `4` identified above was expected to begin a new indented block.
     
 
 (140) Missing colon - if
@@ -4615,7 +4613,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = [1, 2  3]
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a list
@@ -4657,7 +4655,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = {1, 2  3}
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -4699,7 +4697,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = (1, 2  3)
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a tuple, 
@@ -4772,7 +4770,7 @@ Python version: 3.9.5
     at the location indicated by ^.
     
     -->1: for i in range 3:
-                         ^
+                          ^
 
     It looks as though you forgot to use to use parenthesis with `range`.
     Perhaps you meant:
@@ -5337,7 +5335,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: message = 'don't'
-                         ^
+                          ^
 
     There appears to be a Python identifier (variable name)
     immediately following a string.
@@ -6462,7 +6460,7 @@ Python version: 3.9.5
         __import__(name)
       File "TESTS:\syntax\tab_error.py", line 7
         pass
-      ^
+        ^
     TabError: inconsistent use of tabs and spaces in indentation
     
     A `TabError` indicates that you have used both spaces

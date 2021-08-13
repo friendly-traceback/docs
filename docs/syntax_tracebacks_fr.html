@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly SyntaxError tracebacks - en Français &mdash; friendly-traceback 0.4.32 documentation</title>
+  <title>Friendly SyntaxError tracebacks - en Français &mdash; friendly-traceback 0.4.33 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.4.32
+                0.4.33
               </div>
             
           
@@ -488,7 +488,7 @@ plutôt suggéré d’exécuter make_trb.bat qui est au premier niveau
 du répertoire de fichier. Si vous faites ceci, la documentation pour
 toutes les langues sera automatiquement mise à jour.</p>
 </div>
-<p>Friendly version: 0.4.32
+<p>Friendly version: 0.4.33
 Python version: 3.8.10</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -1432,7 +1432,7 @@ Python ne peut pas comprendre le code du fichier
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t use starred expression here&quot;&quot;&quot;
    2:
 --&gt;3: *a
-      ^
+       ^
 
 L’opérateur astérisque `*` est interprété comme signifiant que
 le déballage itérable doit être utilisé pour attribuer un nom
@@ -2610,7 +2610,7 @@ Python ne peut pas comprendre le code du fichier
 à l&#39;endroit indiqué par ^.
 
 --&gt;1: def test(**):
-                 ^
+                  ^
 
 L&#39;opérateur `**` doit être suivi d&#39;un identifiant (nom de variable).
 </pre></div>
@@ -2722,7 +2722,7 @@ Python ne peut pas comprendre le code du fichier
    3:
    4:
 --&gt;5: test(a=1, b)
-                ^
+                 ^
 
 Dans Python, vous pouvez invoquer les fonctions avec seulement des arguments de position
 
@@ -3800,8 +3800,7 @@ Python ne peut pas comprendre le code du fichier
 --&gt;4: pass
       ^
 
-La ligne indiquée ci-dessus par --&gt; devrait
-normalement commencer un nouveau bloc de code indenté.
+La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
 </pre></div>
 </div>
 </div>
@@ -3812,7 +3811,7 @@ normalement commencer un nouveau bloc de code indenté.
     __import__(name)
   File &quot;TESTS:\syntax\indentation_error_2.py&quot;, line 4
     pass
-   ^
+    ^
 IndentationError: unexpected indent
 
 Une exception de type `IndentationError` se produit lorsqu&#39;une ligne de code
@@ -3827,9 +3826,9 @@ Python ne peut pas comprendre le code du fichier
    2: if True:
    3:     pass
 --&gt;4:       pass
-           ^
+            ^
 
-La ligne indiquée ci-dessus par --&gt; est plus indentée que prévu.
+La ligne `4` indiquée ci-dessus est plus indentée que prévu.
 </pre></div>
 </div>
 </div>
@@ -3858,7 +3857,7 @@ Python ne peut pas comprendre le code du fichier
 --&gt;5:     pass
               ^
 
-La ligne indiquée ci-dessus par --&gt; est moins indentée que prévu.
+La ligne `5` identifiée ci-dessus est moins indentée que prévu.
 </pre></div>
 </div>
 </div>
@@ -3869,7 +3868,7 @@ La ligne indiquée ci-dessus par --&gt; est moins indentée que prévu.
     __import__(name)
   File &quot;TESTS:\syntax\indentation_error_4.py&quot;, line 6
     &quot;c&quot;
-   ^
+    ^
 IndentationError: unexpected indent
 
 Une exception de type `IndentationError` se produit lorsqu&#39;une ligne de code
@@ -3885,9 +3884,9 @@ Python ne peut pas comprendre le code du fichier
    4:      s = &quot;a&quot;\
    5:          &quot;b&quot;
 --&gt;6:          &quot;c&quot;
-              ^
+               ^
 
-La ligne indiquée ci-dessus par --&gt; est plus indentée que prévu.
+La ligne `6` indiquée ci-dessus est plus indentée que prévu.
 
 Toutefois, la ligne 6, qui est identifiée comme ayant un problème,
 se compose d’une seule chaîne, ce qui est également le cas
@@ -4637,7 +4636,7 @@ Python ne peut pas comprendre le code du fichier
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = [1, 2  3]
-                 ^
+                  ^
 
 Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
 Il est également possible que vous ayez oublié une virgule entre les éléments d&#39;une liste
@@ -4676,7 +4675,7 @@ Python ne peut pas comprendre le code du fichier
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = {1, 2  3}
-                 ^
+                  ^
 
 Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
 Il est également possible que vous ayez oublié une virgule entre les éléments d&#39;un ensemble (set)
@@ -4715,7 +4714,7 @@ Python ne peut pas comprendre le code du fichier
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = (1, 2  3)
-                 ^
+                  ^
 
 Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
 Il est également possible que vous ayez oublié une virgule entre les éléments d&#39;un tuple,
@@ -4780,7 +4779,7 @@ Python ne peut pas comprendre le code du fichier
 à l&#39;endroit indiqué par ^.
 
 --&gt;1: for i in range 3:
-                     ^
+                      ^
 
 Il semble que vous avez oublié d’utiliser des parenthèses
 avec `range`. Peut-être que vous vouliez dire:
@@ -5291,7 +5290,7 @@ Python ne peut pas comprendre le code du fichier
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: message = &#39;don&#39;t&#39;
-                     ^
+                      ^
 
 Il semble y avoir un identificateur Python (nom de variable)
 immédiatement après une chaîne.

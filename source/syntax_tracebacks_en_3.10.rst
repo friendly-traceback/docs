@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage..
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly version: 0.4.32
+Friendly version: 0.4.33
 Python version: 3.10.0rc1
 
 
@@ -1074,7 +1074,7 @@ Python version: 3.10.0rc1
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-          ^
+           ^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -2376,7 +2376,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: def test(**):
-                     ^
+                      ^
 
     The `**` operator needs to be followed by an identifier (variable name).
     
@@ -3109,7 +3109,7 @@ Python version: 3.10.0rc1
        1: """Should raise SyntaxError: EOL while scanning string literal"""
        2: 
     -->3: alphabet = 'abc
-                     ^
+                      ^
 
     You started writing a string with a single or double quote
     but never ended the string with another quote on that line.
@@ -3626,7 +3626,7 @@ Python version: 3.10.0rc1
        1: # SyntaxError: invalid syntax
        2: 
     -->3: a = 3.0i
-                ^
+                 ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -3702,8 +3702,7 @@ Python version: 3.10.0rc1
     -->4: pass
           ^
 
-    The line identified above
-    was expected to begin a new indented block.
+    Line `4` identified above was expected to begin a new indented block.
     
 
 (116) IndentationError: unexpected indent
@@ -3717,7 +3716,7 @@ Python version: 3.10.0rc1
         __import__(name)
       File "TESTS:\syntax\indentation_error_2.py", line 4
         pass
-       -->
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3731,9 +3730,9 @@ Python version: 3.10.0rc1
        2: if True:
        3:     pass
     -->4:       pass
-               ^
+                ^
 
-    The line identified above is more indented than expected.
+    Line `4` identified above is more indented than expected.
     
 
 (117) IndentationError: unindent does not match ...
@@ -3764,7 +3763,7 @@ Python version: 3.10.0rc1
     -->5:     pass
                   ^
 
-    The line identified above is less indented than expected.
+    Line `5` identified above is less indented than expected.
     
 
 (118) IndentationError: missing continuation line
@@ -3778,7 +3777,7 @@ Python version: 3.10.0rc1
         __import__(name)
       File "TESTS:\syntax\indentation_error_4.py", line 6
         "c"
-       -->
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3793,9 +3792,9 @@ Python version: 3.10.0rc1
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                  ^
+                   ^
 
-    The line identified above is more indented than expected.
+    Line `6` identified above is more indented than expected.
     
     However, line 6, which is identified as having a problem,
     consists of a single string which is also the case
@@ -3827,7 +3826,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: x = 01
-              ^
+               ^
 
     Perhaps you meant to write the octal number `0o1`
     and forgot the letter 'o', or perhaps you meant to write
@@ -3918,7 +3917,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: a = 1e
-              ^
+               ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -3976,7 +3975,7 @@ Python version: 3.10.0rc1
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = 0x123g4
-                  ^
+                   ^
 
     It looks like you used an invalid character (`g`) in an hexadecimal number.
     
@@ -4045,7 +4044,7 @@ Python version: 3.10.0rc1
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: tau = 2pi
-                ^
+                 ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4078,7 +4077,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: 3job  # could be entered in a repl
-           ^
+            ^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `3 * job`.
@@ -4463,8 +4462,7 @@ Python version: 3.10.0rc1
     -->4: 
           ^
 
-    The line identified above
-    was expected to begin a new indented block.
+    Line `4` identified above was expected to begin a new indented block.
     
 
 (140) Missing colon - if
@@ -4792,7 +4790,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: for i in range 3:
-                         ^
+                          ^
 
     Python told us that it expected a colon at the position indicated.
     However, adding a colon or replacing something else by a colon
@@ -6051,7 +6049,7 @@ Python version: 3.10.0rc1
     at the location indicated by ^.
     
     -->1: a = 1½  # 1 1/2
-              ^
+               ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -6460,7 +6458,7 @@ Python version: 3.10.0rc1
         __import__(name)
       File "TESTS:\syntax\tab_error.py", line 7
         pass
-      ^
+        ^
     TabError: inconsistent use of tabs and spaces in indentation
     
     A `TabError` indicates that you have used both spaces

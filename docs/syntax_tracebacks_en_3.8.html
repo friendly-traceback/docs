@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly SyntaxError tracebacks - in English &mdash; friendly-traceback 0.4.32 documentation</title>
+  <title>Friendly SyntaxError tracebacks - in English &mdash; friendly-traceback 0.4.33 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.32
+                0.4.33
               </div>
             
           
@@ -487,7 +487,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly version: 0.4.32
+<p>Friendly version: 0.4.33
 Python version: 3.8.10</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -1429,7 +1429,7 @@ at the location indicated by ^.
    1: &quot;&quot;&quot;Should raise SyntaxError: can&#39;t use starred expression here&quot;&quot;&quot;
    2:
 --&gt;3: *a
-      ^
+       ^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -2606,7 +2606,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def test(**):
-                 ^
+                  ^
 
 The `**` operator needs to be followed by an identifier (variable name).
 </pre></div>
@@ -2718,7 +2718,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: test(a=1, b)
-                ^
+                 ^
 
 In Python, you can call functions with only positional arguments
 
@@ -3796,8 +3796,7 @@ at the location indicated by ^.
 --&gt;4: pass
       ^
 
-The line identified above
-was expected to begin a new indented block.
+Line `4` identified above was expected to begin a new indented block.
 </pre></div>
 </div>
 </div>
@@ -3808,7 +3807,7 @@ was expected to begin a new indented block.
     __import__(name)
   File &quot;TESTS:\syntax\indentation_error_2.py&quot;, line 4
     pass
-   ^
+    ^
 IndentationError: unexpected indent
 
 An `IndentationError` occurs when a given line of code is
@@ -3822,9 +3821,9 @@ at the location indicated by ^.
    2: if True:
    3:     pass
 --&gt;4:       pass
-           ^
+            ^
 
-The line identified above is more indented than expected.
+Line `4` identified above is more indented than expected.
 </pre></div>
 </div>
 </div>
@@ -3852,7 +3851,7 @@ at the location indicated by ^.
 --&gt;5:     pass
               ^
 
-The line identified above is less indented than expected.
+Line `5` identified above is less indented than expected.
 </pre></div>
 </div>
 </div>
@@ -3863,7 +3862,7 @@ The line identified above is less indented than expected.
     __import__(name)
   File &quot;TESTS:\syntax\indentation_error_4.py&quot;, line 6
     &quot;c&quot;
-   ^
+    ^
 IndentationError: unexpected indent
 
 An `IndentationError` occurs when a given line of code is
@@ -3878,9 +3877,9 @@ at the location indicated by ^.
    4:      s = &quot;a&quot;\
    5:          &quot;b&quot;
 --&gt;6:          &quot;c&quot;
-              ^
+               ^
 
-The line identified above is more indented than expected.
+Line `6` identified above is more indented than expected.
 
 However, line 6, which is identified as having a problem,
 consists of a single string which is also the case
@@ -4627,7 +4626,7 @@ at the location indicated by ^.
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = [1, 2  3]
-                 ^
+                  ^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a list
@@ -4666,7 +4665,7 @@ at the location indicated by ^.
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = {1, 2  3}
-                 ^
+                  ^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -4705,7 +4704,7 @@ at the location indicated by ^.
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: a = (1, 2  3)
-                 ^
+                  ^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a tuple,
@@ -4771,7 +4770,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: for i in range 3:
-                     ^
+                      ^
 
 It looks as though you forgot to use to use parenthesis with `range`.
 Perhaps you meant:
@@ -5282,7 +5281,7 @@ at the location indicated by ^.
    1: &quot;&quot;&quot;Should raise SyntaxError: invalid syntax&quot;&quot;&quot;
    2:
 --&gt;3: message = &#39;don&#39;t&#39;
-                     ^
+                      ^
 
 There appears to be a Python identifier (variable name)
 immediately following a string.

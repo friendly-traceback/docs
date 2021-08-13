@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.4.32
+Friendly version: 0.4.33
 Python version: 3.8.10
 
 
@@ -1077,7 +1077,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-          ^
+           ^
 
     L’opérateur astérisque `*` est interprété comme signifiant que
     le déballage itérable doit être utilisé pour attribuer un nom
@@ -2382,7 +2382,7 @@ Python version: 3.8.10
     à l'endroit indiqué par ^.
     
     -->1: def test(**):
-                     ^
+                      ^
 
     L'opérateur `**` doit être suivi d'un identifiant (nom de variable).
     
@@ -2504,7 +2504,7 @@ Python version: 3.8.10
        3: 
        4: 
     -->5: test(a=1, b)
-                    ^
+                     ^
 
     Dans Python, vous pouvez invoquer les fonctions avec seulement des arguments de position
     
@@ -3700,8 +3700,7 @@ Python version: 3.8.10
     -->4: pass
           ^
 
-    La ligne indiquée ci-dessus par --> devrait
-    normalement commencer un nouveau bloc de code indenté.
+    La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
 
 (116) IndentationError: unexpected indent
@@ -3715,7 +3714,7 @@ Python version: 3.8.10
         __import__(name)
       File "TESTS:\syntax\indentation_error_2.py", line 4
         pass
-       ^
+        ^
     IndentationError: unexpected indent
     
     Une exception de type `IndentationError` se produit lorsqu'une ligne de code
@@ -3730,9 +3729,9 @@ Python version: 3.8.10
        2: if True:
        3:     pass
     -->4:       pass
-               ^
+                ^
 
-    La ligne indiquée ci-dessus par --> est plus indentée que prévu.
+    La ligne `4` indiquée ci-dessus est plus indentée que prévu.
     
 
 (117) IndentationError: unindent does not match ...
@@ -3764,7 +3763,7 @@ Python version: 3.8.10
     -->5:     pass
                   ^
 
-    La ligne indiquée ci-dessus par --> est moins indentée que prévu.
+    La ligne `5` identifiée ci-dessus est moins indentée que prévu.
     
 
 (118) IndentationError: missing continuation line
@@ -3778,7 +3777,7 @@ Python version: 3.8.10
         __import__(name)
       File "TESTS:\syntax\indentation_error_4.py", line 6
         "c"
-       ^
+        ^
     IndentationError: unexpected indent
     
     Une exception de type `IndentationError` se produit lorsqu'une ligne de code
@@ -3794,9 +3793,9 @@ Python version: 3.8.10
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                  ^
+                   ^
 
-    La ligne indiquée ci-dessus par --> est plus indentée que prévu.
+    La ligne `6` indiquée ci-dessus est plus indentée que prévu.
     
     Toutefois, la ligne 6, qui est identifiée comme ayant un problème,
     se compose d’une seule chaîne, ce qui est également le cas
@@ -4630,7 +4629,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = [1, 2  3]
-                     ^
+                      ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'une liste
@@ -4672,7 +4671,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = {1, 2  3}
-                     ^
+                      ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'un ensemble (set)
@@ -4714,7 +4713,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = (1, 2  3)
-                     ^
+                      ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'un tuple,
@@ -4786,7 +4785,7 @@ Python version: 3.8.10
     à l'endroit indiqué par ^.
     
     -->1: for i in range 3:
-                         ^
+                          ^
 
     Il semble que vous avez oublié d’utiliser des parenthèses
     avec `range`. Peut-être que vous vouliez dire:
@@ -5351,7 +5350,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: message = 'don't'
-                         ^
+                          ^
 
     Il semble y avoir un identificateur Python (nom de variable)
     immédiatement après une chaîne.

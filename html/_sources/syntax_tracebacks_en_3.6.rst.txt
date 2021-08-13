@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage..
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly version: 0.4.32
+Friendly version: 0.4.33
 Python version: 3.6.8
 
 
@@ -92,7 +92,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\annotated_name_global.py", line 4
         x:int = 1
-       ^
+        ^
     SyntaxError: annotated name 'x' can't be global
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -157,7 +157,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_1.py", line 7
         global p
-       ^
+        ^
     SyntaxError: name 'p' is assigned to before global declaration
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -188,7 +188,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_2.py", line 7
         global r
-       ^
+        ^
     SyntaxError: name 'r' is used prior to global declaration
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -219,7 +219,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 9
         nonlocal q
-       ^
+        ^
     SyntaxError: name 'q' is used prior to nonlocal declaration
     
         Did you forget to write `nonlocal` first?
@@ -252,7 +252,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_2.py", line 9
         nonlocal s
-       ^
+        ^
     SyntaxError: name 's' is assigned to before nonlocal declaration
     
         Did you forget to add `nonlocal`?
@@ -285,7 +285,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_conditional.py", line 3
         a if 1 else b = 1
-       ^
+        ^
     SyntaxError: can't assign to conditional expression
     
         You can only assign objects to identifiers (variable names).
@@ -318,7 +318,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_debug.py", line 4
         __debug__ = 1
-       ^
+        ^
     SyntaxError: assignment to keyword
     
         You cannot assign a value to `__debug__`.
@@ -348,7 +348,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_debug2.py", line 4
         a.__debug__ = 1
-       ^
+        ^
     SyntaxError: assignment to keyword
     
         You cannot assign a value to `__debug__`.
@@ -378,7 +378,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_ellipsis.py", line 4
         ... = 1
-       ^
+        ^
     SyntaxError: can't assign to Ellipsis
     
         You cannot assign a value to the ellipsis symbol [`...`].
@@ -409,7 +409,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_f_string.py", line 6
         f'{x}' = 42
-       ^
+        ^
     SyntaxError: can't assign to literal
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -442,7 +442,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_function_call_1.py", line 6
         len('a') = 3
-       ^
+        ^
     SyntaxError: can't assign to function call
     
         You can only assign objects to identifiers (variable names).
@@ -480,7 +480,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_function_call_2.py", line 6
         func(a, b=3) = 4
-       ^
+        ^
     SyntaxError: can't assign to function call
     
         You can only assign objects to identifiers (variable names).
@@ -518,7 +518,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_generator.py", line 3
         (x for x in x) = 1
-       ^
+        ^
     SyntaxError: can't assign to generator expression
     
         You can only assign objects to identifiers (variable names).
@@ -549,7 +549,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_dict.py", line 7
         {1 : 2, 2 : 4} = 5
-       ^
+        ^
     SyntaxError: can't assign to literal
     
         You can only assign objects to identifiers (variable names).
@@ -589,7 +589,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int.py", line 3
         1 = a
-       ^
+        ^
     SyntaxError: can't assign to literal
     
         Perhaps you meant to write `a = 1`
@@ -627,7 +627,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
         1 = 2
-       ^
+        ^
     SyntaxError: can't assign to literal
     
         You can only assign objects to identifiers (variable names).
@@ -663,7 +663,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
         1 = a = b
-       ^
+        ^
     SyntaxError: can't assign to literal
     
         You can only assign objects to identifiers (variable names).
@@ -700,7 +700,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_set.py", line 7
         {1, 2, 3} = 4
-       ^
+        ^
     SyntaxError: can't assign to literal
     
         You can only assign objects to identifiers (variable names).
@@ -804,7 +804,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_keyword_none.py", line 4
         None = 1
-       ^
+        ^
     SyntaxError: can't assign to keyword
     
         You cannot assign a value to `None`.
@@ -834,7 +834,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\assign_to_operation.py", line 4
         a + 1 = 2
-       ^
+        ^
     SyntaxError: can't assign to operator
     
         Perhaps you needed `==` instead of `=`.
@@ -991,7 +991,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\break_outside_loop.py", line 4
         break
-       ^
+        ^
     SyntaxError: 'break' outside loop
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -1004,7 +1004,7 @@ Python version: 3.6.8
        2: 
        3: if True:
     -->4:     break
-             ^
+              ^
 
     The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
     
@@ -1055,7 +1055,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\cannot_use_star.py", line 3
         *a
-       ^
+        ^
     SyntaxError: can't use starred expression here
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -1255,7 +1255,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\continue_outside_loop.py", line 4
         continue
-       ^
+        ^
     SyntaxError: 'continue' not properly in loop
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -1268,7 +1268,7 @@ Python version: 3.6.8
        2: 
        3: if True:
     -->4:     continue
-             ^
+              ^
 
     The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
     
@@ -1591,7 +1591,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\def_duplicate_arg.py", line 4
         def f(aa=1, aa=2):
-       ^
+        ^
     SyntaxError: duplicate argument 'aa' in function definition
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -2252,7 +2252,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
         global x
-       ^
+        ^
     SyntaxError: name 'x' is parameter and global
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -2373,7 +2373,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: def test(**):
-                     ^
+                      ^
 
     The `**` operator needs to be followed by an identifier (variable name).
     
@@ -2857,7 +2857,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: del True
-             ^
+              ^
 
     You cannot delete the constant `True`.
     
@@ -2918,7 +2918,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: del "Hello world!"
-             ^
+              ^
 
     You cannot delete the literal `"Hello world!"`.
     You can only delete the names of objects, or
@@ -3072,7 +3072,7 @@ Python version: 3.6.8
        3: if False:
        4:     pass
     -->5: elseif True:
-                    ^
+                     ^
 
     You likely meant to use Python's `elif` keyword
     but wrote `elseif` instead.
@@ -3344,7 +3344,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\future_braces.py", line 1
         from __future__ import braces
-       ^
+        ^
     SyntaxError: not a chance
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -3374,7 +3374,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\future_import_star.py", line 1
         from __future__ import *
-       ^
+        ^
     SyntaxError: future feature * is not defined
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -3411,7 +3411,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\future_must_be_first.py", line 3
         from __future__ import generators
-       ^
+        ^
     SyntaxError: from __future__ imports must occur at the beginning of the file
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -3440,7 +3440,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\future_typo.py", line 1
         from __future__ import divisio
-       ^
+        ^
     SyntaxError: future feature divisio is not defined
     
         Did you mean `division`?
@@ -3468,7 +3468,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\future_unknown.py", line 1
         from __future__ import something
-       ^
+        ^
     SyntaxError: future feature something is not defined
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -3538,7 +3538,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
         a-b = 2
-       ^
+        ^
     SyntaxError: can't assign to operator
     
         Did you mean `a_b`?
@@ -3691,8 +3691,7 @@ Python version: 3.6.8
     -->4: pass
              ^
 
-    The line identified above
-    was expected to begin a new indented block.
+    Line `4` identified above was expected to begin a new indented block.
     
 
 (116) IndentationError: unexpected indent
@@ -3706,7 +3705,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\indentation_error_2.py", line 4
         pass
-       ^
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3720,9 +3719,9 @@ Python version: 3.6.8
        2: if True:
        3:     pass
     -->4:       pass
-               ^
+                ^
 
-    The line identified above is more indented than expected.
+    Line `4` identified above is more indented than expected.
     
 
 (117) IndentationError: unindent does not match ...
@@ -3753,7 +3752,7 @@ Python version: 3.6.8
     -->5:     pass
                   ^
 
-    The line identified above is less indented than expected.
+    Line `5` identified above is less indented than expected.
     
 
 (118) IndentationError: missing continuation line
@@ -3767,7 +3766,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\indentation_error_4.py", line 6
         "c"
-       ^
+        ^
     IndentationError: unexpected indent
     
     An `IndentationError` occurs when a given line of code is
@@ -3782,9 +3781,9 @@ Python version: 3.6.8
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                  ^
+                   ^
 
-    The line identified above is more indented than expected.
+    Line `6` identified above is more indented than expected.
     
     However, line 6, which is identified as having a problem,
     consists of a single string which is also the case
@@ -4118,7 +4117,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: print(42java)
-                     ^
+                      ^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `42 * java`.
@@ -4613,7 +4612,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = [1, 2  3]
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a list
@@ -4655,7 +4654,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = {1, 2  3}
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -4697,7 +4696,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = (1, 2  3)
-                     ^
+                      ^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a tuple, 
@@ -4770,7 +4769,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: for i in range 3:
-                         ^
+                          ^
 
     It looks as though you forgot to use to use parenthesis with `range`.
     Perhaps you meant:
@@ -4820,7 +4819,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\name_is_global_and_nonlocal.py", line 7
         global xy
-       ^
+        ^
     SyntaxError: name 'xy' is nonlocal and global
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -4851,7 +4850,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\name_is_param_and_nonlocal.py", line 5
         nonlocal x
-       ^
+        ^
     SyntaxError: name 'x' is parameter and nonlocal
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -4883,7 +4882,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\no_binding_for_nonlocal.py", line 5
         nonlocal ab
-       ^
+        ^
     SyntaxError: no binding for nonlocal 'ab' found
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -4914,7 +4913,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\nonlocal_at_module.py", line 4
         nonlocal cd
-       ^
+        ^
     SyntaxError: nonlocal declaration not allowed at module level
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -4954,7 +4953,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: 4****5
-              ^
+               ^
 
     You cannot have write the same operator, `**`, twice in a row.
     Perhaps you wrote one of them by mistake
@@ -5335,7 +5334,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: message = 'don't'
-                         ^
+                          ^
 
     There appears to be a Python identifier (variable name)
     immediately following a string.
@@ -5381,7 +5380,7 @@ Python version: 3.6.8
         __import__(name)
       File "TESTS:\syntax\return_outside_function.py", line 3
         return
-       ^
+        ^
     SyntaxError: 'return' outside function
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -5393,7 +5392,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: 'return' outside function"""
        2: 
     -->3: return
-         ^
+          ^
 
     You can only use a `return` statement inside a function or method.
     
@@ -6527,7 +6526,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: path = "c:\Users\andre"
-                ^
+                 ^
 
     I suspect that you wrote a string that contains
     one backslash character, `\` followed by an uppercase `U`
@@ -6626,7 +6625,7 @@ Python version: 3.6.8
     at the location indicated by ^.
     
     -->1: (a=)
-            ^
+             ^
 
     You are likely using a 'debug' syntax of f-strings introduced
     in Python version 3.8. You are using version 3.6.
