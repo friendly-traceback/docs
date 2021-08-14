@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.4.33
+Friendly version: 0.4.36
 Python version: 3.8.10
 
 
@@ -2922,7 +2922,8 @@ Generic
     MyException: Some informative message about an unknown exception.
     
     Aucune information n’est disponible au sujet de cette exception.
-    Veuillez signaler cet exemple à https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Veuillez signaler cet exemple à
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     Si vous utilisez un REPL, utilisez `www('bug')` pour le faire.
     
     Si vous utilisez la console Friendly, utilisez `www()` pour

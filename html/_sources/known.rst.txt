@@ -27,7 +27,7 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 ``BaseException``, ``Exception``, and ``ArithmeticError`` are base classes which
 are also not normally seen: some derived classes are normally used instead.
 
-Information compiled using Friendly version: 0.4.33,
+Information compiled using Friendly version: 0.4.36,
 Python version: 3.8.10
 
 
@@ -71,7 +71,8 @@ BaseException
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -102,7 +103,8 @@ BufferError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -180,7 +182,8 @@ Exception
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -210,7 +213,8 @@ FloatingPointError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -221,7 +225,8 @@ GeneratorExit
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -296,7 +301,8 @@ KeyboardInterrupt
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -356,7 +362,8 @@ NotImplementedError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -414,7 +421,8 @@ ReferenceError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -425,7 +433,8 @@ RuntimeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -436,7 +445,8 @@ StopAsyncIteration
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -463,7 +473,8 @@ SystemError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -474,7 +485,8 @@ SystemExit
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -531,7 +543,8 @@ UnicodeDecodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -542,7 +555,8 @@ UnicodeEncodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -553,7 +567,8 @@ UnicodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -564,7 +579,8 @@ UnicodeTranslateError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.

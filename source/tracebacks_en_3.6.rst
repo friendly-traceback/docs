@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.33
+Friendly version: 0.4.36
 Python version: 3.6.8
 
 
@@ -2924,7 +2924,8 @@ Generic
     MyException: Some informative message about an unknown exception.
     
     No information is known about this exception.
-    Please report this example to https://github.com/friendly-traceback/friendly-traceback/issues/new
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     
     If you are using the Friendly console, use `www()` to

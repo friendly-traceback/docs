@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage..
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly version: 0.4.33
+Friendly version: 0.4.36
 Python version: 3.8.10
 
 
@@ -1084,6 +1084,8 @@ Python version: 3.8.10
                      ^
     SyntaxError: invalid syntax
     
+        Friendly-traceback does not know the cause of this error.
+        
     A `SyntaxError` occurs when Python cannot understand your code.
     
     Python could not understand the code in the file
