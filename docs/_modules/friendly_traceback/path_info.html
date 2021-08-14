@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.path_info &mdash; friendly-traceback 0.4.32 documentation</title>
+  <title>friendly_traceback.path_info &mdash; friendly-traceback 0.4.33 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.4.32
+                0.4.33
               </div>
             
           
@@ -312,7 +312,7 @@
 <span class="n">exclude_directory_from_traceback</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_excluded_file</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">is_excluded_file</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">,</span> <span class="n">python_excluded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Determines if the file belongs to the group that is excluded from tracebacks.&quot;&quot;&quot;</span>
     <span class="c1"># full_path could be a pathlib.Path instance</span>
     <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
@@ -322,8 +322,12 @@
         <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">dirs</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
     <span class="c1"># Design choice: we exclude all files from the Python standard library</span>
-    <span class="c1"># but not those that have been installed by the user.</span>
-    <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">PYTHON_LIB</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">SITE_PACKAGES</span><span class="p">):</span>
+    <span class="c1"># but not those that have been installed by the user if python_excluded is True.</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">PYTHON_LIB</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">SITE_PACKAGES</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">python_excluded</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="n">full_path</span> <span class="ow">in</span> <span class="n">EXCLUDED_FILE_PATH</span>
 
