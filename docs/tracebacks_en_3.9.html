@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.36 documentation</title>
+  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.42 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.36
+                0.4.42
               </div>
             
           
@@ -195,6 +195,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#nonetype">Nonetype</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#object-attribute-typo">Object attribute typo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#perhaps-comma">Perhaps comma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#read-only">Read only</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#shadow-stdlib-module">Shadow stdlib module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tuple-by-accident">Tuple by accident</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#use-builtin">Use builtin</a></li>
@@ -290,7 +291,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#tuple-no-item-assignment">Tuple no item assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unhachable-type">Unhachable type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unsupported-operand-types">Unsupported operand types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-got-multiple-argument">function got multiple argument</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#function-has-no-len">function has no len</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-got-multiple-argument">method got multiple argument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vars-arg-must-have-dict">vars arg must have dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#unboundlocalerror">UnboundLocalError</a><ul>
@@ -308,6 +312,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#date-invalid-month">Date invalid month</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#not-enough-values-to-unpack">Not enough values to unpack</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#too-many-values-to-unpack">Too many values to unpack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slots-conflicts-with-class-variable">slots conflicts with class variable</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a><ul>
@@ -426,7 +431,7 @@ C:Usersandrefriendly-tracebackfriendly-tracebackteststrb_english.py located in t
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.36
+<p>Friendly version: 0.4.42
 Python version: 3.9.5</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -491,7 +496,7 @@ Exception raised on line 8 of file TESTS:\runtime\test_assertion_error.py.
 <div class="section" id="attribute-from-other-module">
 <h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 303, in test_Attribute_from_other_module
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 323, in test_Attribute_from_other_module
     keyword.pi
 AttributeError: module &#39;keyword&#39; has no attribute &#39;pi&#39;
 
@@ -504,13 +509,13 @@ Instead of the module `keyword`, perhaps you wanted to use
 the attribute `pi` of one of the following modules:
 `math, cmath`.
 
-Exception raised on line 303 of file TESTS:\runtime\test_attribute_error.py.
+Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
 
-   299:         assert &quot;Did you mean `math`?&quot; in result
-   301:     import cmath
-   302:     try:
---&gt;303:         keyword.pi
-   304:     except AttributeError as e:
+   319:         assert &quot;Did you mean `math`?&quot; in result
+   321:     import cmath
+   322:     try:
+--&gt;323:         keyword.pi
+   324:     except AttributeError as e:
 
         keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
 </pre></div>
@@ -574,7 +579,7 @@ Exception raised on line 238 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="circular-import">
 <h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 333, in test_Circular_import
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 353, in test_Circular_import
     import my_turtle1
   File &quot;TESTS:\my_turtle1.py&quot;, line 4, in &lt;module&gt;
     a = my_turtle1.something
@@ -591,13 +596,13 @@ and that you also wanted to import a module with the same name
 from Python&#39;s standard library.
 If so, you should use a different name for your program.
 
-Execution stopped on line 333 of file TESTS:\runtime\test_attribute_error.py.
+Execution stopped on line 353 of file TESTS:\runtime\test_attribute_error.py.
 
-   330:     from friendly_traceback.runtime_errors import stdlib_modules
-   331:     stdlib_modules.names.append(&quot;my_turtle1&quot;)
-   332:     try:
---&gt;333:        import my_turtle1
-   334:     except AttributeError as e:
+   350:     from friendly_traceback.runtime_errors import stdlib_modules
+   351:     stdlib_modules.names.append(&quot;my_turtle1&quot;)
+   352:     try:
+--&gt;353:        import my_turtle1
+   354:     except AttributeError as e:
 
 Exception raised on line 4 of file TESTS:\my_turtle1.py.
 
@@ -613,7 +618,7 @@ Exception raised on line 4 of file TESTS:\my_turtle1.py.
 <div class="section" id="circular-import-b">
 <h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 350, in test_Circular_import_b
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 370, in test_Circular_import_b
     import circular_c
   File &quot;TESTS:\circular_c.py&quot;, line 4, in &lt;module&gt;
     a = circular_c.something
@@ -629,12 +634,12 @@ Python indicated that the module `{module}` was not fully imported.
 This can occur if, during the execution of the code in module `circular_c`
 an attempt is made to import the same module again.
 
-Execution stopped on line 350 of file TESTS:\runtime\test_attribute_error.py.
+Execution stopped on line 370 of file TESTS:\runtime\test_attribute_error.py.
 
-   348: def test_Circular_import_b():
-   349:     try:
---&gt;350:         import circular_c
-   351:     except AttributeError as e:
+   368: def test_Circular_import_b():
+   369:     try:
+--&gt;370:         import circular_c
+   371:     except AttributeError as e:
 
 Exception raised on line 4 of file TESTS:\circular_c.py.
 
@@ -696,7 +701,7 @@ Exception raised on line 47 of file TESTS:\runtime\test_attribute_error.py.
 --&gt;47:         a.attr
    48:     except AttributeError as e:
 
-        a:  &lt;f.A object&gt; from test_attribute_error.test_Generic_different_frame
+        a:  &lt;f.A object&gt;
 </pre></div>
 </div>
 </div>
@@ -841,6 +846,34 @@ Exception raised on line 201 of file TESTS:\runtime\test_attribute_error.py.
 </pre></div>
 </div>
 </div>
+<div class="section" id="read-only">
+<h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 278, in test_Read_only
+    f.b = 1
+AttributeError: &#39;F&#39; object attribute &#39;b&#39; is read-only
+
+An `AttributeError` occurs when the code contains something like
+    `object.x`
+and `x` is not a method or attribute (variable) belonging to `object`.
+
+Object `f` uses `__slots__` to specify which attributes can
+be changed. The value of attribute `f.b` cannot be changed.
+The only attribute of `f` whose value can be changed is`a`.
+
+Exception raised on line 278 of file TESTS:\runtime\test_attribute_error.py.
+
+   274:         b = 2
+   276:     f = F()
+   277:     try:
+--&gt;278:         f.b = 1
+   279:     except AttributeError as e:
+
+        f:  &lt;F object&gt; from test_attribute_error.test_Read_only
+        f.b:  2
+</pre></div>
+</div>
+</div>
 <div class="section" id="shadow-stdlib-module">
 <h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -873,7 +906,7 @@ Exception raised on line 163 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="tuple-by-accident">
 <h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 273, in test_Tuple_by_accident
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 293, in test_Tuple_by_accident
     something.upper()
 AttributeError: &#39;tuple&#39; object has no attribute &#39;upper&#39;
 
@@ -888,14 +921,14 @@ which does have `&#39;upper&#39;` as an attribute.
 Perhaps you added a trailing comma by mistake at the end of the line
 where you defined `something`.
 
-Exception raised on line 273 of file TESTS:\runtime\test_attribute_error.py.
+Exception raised on line 293 of file TESTS:\runtime\test_attribute_error.py.
 
-   270: def test_Tuple_by_accident():
-   271:     something = &quot;abc&quot;,  # note trailing comma
-   272:     try:
---&gt;273:         something.upper()
+   290: def test_Tuple_by_accident():
+   291:     something = &quot;abc&quot;,  # note trailing comma
+   292:     try:
+--&gt;293:         something.upper()
                 ^^^^^^^^^^^^^^^
-   274:     except AttributeError as e:
+   294:     except AttributeError as e:
 
         something:  (&#39;abc&#39;,)
 </pre></div>
@@ -934,7 +967,7 @@ Exception raised on line 97 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="use-join-with-str">
 <h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 317, in test_Use_join_with_str
+  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 337, in test_Use_join_with_str
     a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
 AttributeError: &#39;list&#39; object has no attribute &#39;join&#39;
 
@@ -947,13 +980,13 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 The object `[&#39;a&#39;, &#39;2&#39;]` has no attribute named `join`.
 Perhaps you wanted something like `&#39;abc&#39;.join([&#39;a&#39;, &#39;2&#39;])`.
 
-Exception raised on line 317 of file TESTS:\runtime\test_attribute_error.py.
+Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
 
-   315: def test_Use_join_with_str():
-   316:     try:
---&gt;317:         a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
+   335: def test_Use_join_with_str():
+   336:     try:
+--&gt;337:         a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
                     ^^^^^^^^^^^^^^^
-   318:     except AttributeError as e:
+   338:     except AttributeError as e:
 </pre></div>
 </div>
 </div>
@@ -2781,6 +2814,35 @@ Exception raised on line 283 of file TESTS:\runtime\test_type_error.py.
 </pre></div>
 </div>
 </div>
+<div class="section" id="function-got-multiple-argument">
+<h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 868, in test_function_got_multiple_argument
+    fn2(0, a=1)
+TypeError: fn2() got multiple values for argument &#39;a&#39;
+
+A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+
+You have specified the value of argument `a` more than once
+when calling the function named `fn2`.
+This function has the following arguments:
+`a, b=1`
+
+Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
+
+   865:     def fn2(a, b=1):
+   866:         pass
+   867:     try:
+--&gt;868:         fn2(0, a=1)
+   869:     except TypeError as e:
+
+        fn2:  &lt;function fn2&gt; from test_function_got_multiple_argument
+</pre></div>
+</div>
+</div>
 <div class="section" id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -2809,6 +2871,64 @@ Exception raised on line 796 of file TESTS:\runtime\test_type_error.py.
 
         bad:  &lt;function bad&gt; from test_function_has_no_len
         len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="method-got-multiple-argument">
+<h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 886, in test_method_got_multiple_argument
+    t.some_method(0, a=1)
+TypeError: some_method() got multiple values for argument &#39;a&#39;
+
+A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+
+You have specified the value of argument `a` more than once
+when calling the function named `t.some_method`.
+This function has only one argument: `a`
+
+Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
+
+   883:             pass
+   884:     t = T()
+   885:     try:
+--&gt;886:         t.some_method(0, a=1)
+   887:     except TypeError as e:
+
+        t:  &lt;T object&gt; from test_type_error.test_method_got_multiple_argument
+        t.some_method:  &lt;bound method T.some_method&gt; of &lt;test_type_error.test_method_got_multiple_argument.T object&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="vars-arg-must-have-dict">
+<h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 839, in test_vars_arg_must_have_dict
+    vars(f)
+TypeError: vars() argument must have __dict__ attribute
+
+A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+
+The function `vars` is used to list the content of the
+`__dict__` attribute of an object.
+Object `f` uses `__slots__` instead of `__dict__`.
+
+Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
+
+   835:         assert no_slots not in result
+   836:         assert use_slots not in result
+   838:     try:
+--&gt;839:         vars(f)
+   840:     except TypeError as e:
+
+        f:  &lt;F object&gt; from test_type_error.test_vars_arg_must_have_dict
+        vars:  &lt;builtin function vars&gt;
 </pre></div>
 </div>
 </div>
@@ -3114,6 +3234,29 @@ Exception raised on line 43 of file TESTS:\runtime\test_value_error.py.
    44:     except ValueError as e:
 
         c:  [1, 2, 3]
+</pre></div>
+</div>
+</div>
+<div class="section" id="slots-conflicts-with-class-variable">
+<h3>slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_value_error.py&quot;, line 72, in test_slots_conflicts_with_class_variable
+    class F:
+ValueError: &#39;a&#39; in __slots__ conflicts with class variable
+
+A `ValueError` indicates that a function or an operation
+received an argument of the right type, but an inappropriate value.
+
+The name `a` is used both as the name of a class variable
+and as a string item in the class `__slots__`;
+this is not allowed.
+
+Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+
+   70: def test_slots_conflicts_with_class_variable():
+   71:     try:
+--&gt;72:         class F:
+   73:             __slots__ = [&quot;a&quot;, &quot;b&quot;]
 </pre></div>
 </div>
 </div>

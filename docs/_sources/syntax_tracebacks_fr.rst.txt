@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.4.36
+Friendly version: 0.4.42
 Python version: 3.8.10
 
 

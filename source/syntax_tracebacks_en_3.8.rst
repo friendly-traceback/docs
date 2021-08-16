@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage..
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly version: 0.4.36
+Friendly version: 0.4.42
 Python version: 3.8.10
 
 

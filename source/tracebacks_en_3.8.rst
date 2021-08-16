@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.36
+Friendly version: 0.4.42
 Python version: 3.8.10
 
 
@@ -99,7 +99,7 @@ Attribute from other module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 303, in test_Attribute_from_other_module
+      File "TESTS:\runtime\test_attribute_error.py", line 323, in test_Attribute_from_other_module
         keyword.pi
     AttributeError: module 'keyword' has no attribute 'pi'
     
@@ -112,13 +112,13 @@ Attribute from other module
     the attribute `pi` of one of the following modules:
     `math, cmath`.
     
-    Exception raised on line 303 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
     
-       299:         assert "Did you mean `math`?" in result
-       301:     import cmath
-       302:     try:
-    -->303:         keyword.pi
-       304:     except AttributeError as e:
+       319:         assert "Did you mean `math`?" in result
+       321:     import cmath
+       322:     try:
+    -->323:         keyword.pi
+       324:     except AttributeError as e:
 
             keyword:  <module keyword> from PYTHON_LIB:\keyword.py
         
@@ -194,7 +194,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 333, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 353, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -211,13 +211,13 @@ Circular import
     from Python's standard library.
     If so, you should use a different name for your program.
     
-    Execution stopped on line 333 of file TESTS:\runtime\test_attribute_error.py.
+    Execution stopped on line 353 of file TESTS:\runtime\test_attribute_error.py.
     
-       330:     from friendly_traceback.runtime_errors import stdlib_modules
-       331:     stdlib_modules.names.append("my_turtle1")
-       332:     try:
-    -->333:        import my_turtle1
-       334:     except AttributeError as e:
+       350:     from friendly_traceback.runtime_errors import stdlib_modules
+       351:     stdlib_modules.names.append("my_turtle1")
+       352:     try:
+    -->353:        import my_turtle1
+       354:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\my_turtle1.py.
     
@@ -237,7 +237,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 350, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 370, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -253,12 +253,12 @@ Circular import b
     This can occur if, during the execution of the code in module `circular_c`
     an attempt is made to import the same module again.
     
-    Execution stopped on line 350 of file TESTS:\runtime\test_attribute_error.py.
+    Execution stopped on line 370 of file TESTS:\runtime\test_attribute_error.py.
     
-       348: def test_Circular_import_b():
-       349:     try:
-    -->350:         import circular_c
-       351:     except AttributeError as e:
+       368: def test_Circular_import_b():
+       369:     try:
+    -->370:         import circular_c
+       371:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\circular_c.py.
     
@@ -328,7 +328,7 @@ Generic different frame
     -->47:         a.attr
        48:     except AttributeError as e:
 
-            a:  <f.A object> from test_attribute_error.test_Generic_different_frame
+            a:  <f.A object>
         
 
 
@@ -493,6 +493,38 @@ Perhaps comma
         
 
 
+Read only
+~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 278, in test_Read_only
+        f.b = 1
+    AttributeError: 'F' object attribute 'b' is read-only
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Object `f` uses `__slots__` to specify which attributes can
+    be changed. The value of attribute `f.b` cannot be changed.
+    The only attribute of `f` whose value can be changed is`a`.
+    
+    Exception raised on line 278 of file TESTS:\runtime\test_attribute_error.py.
+    
+       274:         b = 2
+       276:     f = F()
+       277:     try:
+    -->278:         f.b = 1
+       279:     except AttributeError as e:
+
+            f:  <F object> from test_attribute_error.test_Read_only
+            f.b:  2
+        
+
+
 Shadow stdlib module
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -533,7 +565,7 @@ Tuple by accident
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 273, in test_Tuple_by_accident
+      File "TESTS:\runtime\test_attribute_error.py", line 293, in test_Tuple_by_accident
         something.upper()
     AttributeError: 'tuple' object has no attribute 'upper'
     
@@ -548,14 +580,14 @@ Tuple by accident
     Perhaps you added a trailing comma by mistake at the end of the line
     where you defined `something`.
     
-    Exception raised on line 273 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 293 of file TESTS:\runtime\test_attribute_error.py.
     
-       270: def test_Tuple_by_accident():
-       271:     something = "abc",  # note trailing comma
-       272:     try:
-    -->273:         something.upper()
+       290: def test_Tuple_by_accident():
+       291:     something = "abc",  # note trailing comma
+       292:     try:
+    -->293:         something.upper()
                     ^^^^^^^^^^^^^^^
-       274:     except AttributeError as e:
+       294:     except AttributeError as e:
 
             something:  ('abc',)
         
@@ -602,7 +634,7 @@ Use join with str
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 317, in test_Use_join_with_str
+      File "TESTS:\runtime\test_attribute_error.py", line 337, in test_Use_join_with_str
         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
     AttributeError: 'list' object has no attribute 'join'
     
@@ -615,13 +647,13 @@ Use join with str
     The object `['a', '2']` has no attribute named `join`.
     Perhaps you wanted something like `'abc'.join(['a', '2'])`.
     
-    Exception raised on line 317 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
     
-       315: def test_Use_join_with_str():
-       316:     try:
-    -->317:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+       335: def test_Use_join_with_str():
+       336:     try:
+    -->337:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                         ^^^^^^^^^^^^^^^
-       318:     except AttributeError as e:
+       338:     except AttributeError as e:
 
 
 Use synonym
@@ -2667,6 +2699,39 @@ Unsupported operand types
         
 
 
+function got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 868, in test_function_got_multiple_argument
+        fn2(0, a=1)
+    TypeError: fn2() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `fn2`.
+    This function has the following arguments:
+    `a, b=1`
+    
+    Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
+    
+       865:     def fn2(a, b=1):
+       866:         pass
+       867:     try:
+    -->868:         fn2(0, a=1)
+       869:     except TypeError as e:
+
+            fn2:  <function fn2> from test_function_got_multiple_argument
+        
+
+
 function has no len
 ~~~~~~~~~~~~~~~~~~~
 
@@ -2699,6 +2764,72 @@ function has no len
 
             bad:  <function bad> from test_function_has_no_len
             len:  <builtin function len>
+        
+
+
+method got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 886, in test_method_got_multiple_argument
+        t.some_method(0, a=1)
+    TypeError: some_method() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `t.some_method`.
+    This function has only one argument: `a`
+    
+    Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
+    
+       883:             pass
+       884:     t = T()
+       885:     try:
+    -->886:         t.some_method(0, a=1)
+       887:     except TypeError as e:
+
+            t:  <T object> from test_type_error.test_method_got_multiple_argument
+            t.some_method:  <bound method T.some_method> of <test_type_error.test_method_got_multiple_argument.T object>
+        
+
+
+vars arg must have dict
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 839, in test_vars_arg_must_have_dict
+        vars(f)
+    TypeError: vars() argument must have __dict__ attribute
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The function `vars` is used to list the content of the
+    `__dict__` attribute of an object.
+    Object `f` uses `__slots__` instead of `__dict__`.
+    
+    Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
+    
+       835:         assert no_slots not in result
+       836:         assert use_slots not in result
+       838:     try:
+    -->839:         vars(f)
+       840:     except TypeError as e:
+
+            f:  <F object> from test_type_error.test_vars_arg_must_have_dict
+            vars:  <builtin function vars>
         
 
 
@@ -3038,6 +3169,32 @@ Too many values to unpack
 
             c:  [1, 2, 3]
         
+
+
+slots conflicts with class variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
+        class F:
+    ValueError: 'a' in __slots__ conflicts with class variable
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The name `a` is used both as the name of a class variable
+    and as a string item in the class `__slots__`;
+    this is not allowed.
+    
+    Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+    
+       70: def test_slots_conflicts_with_class_variable():
+       71:     try:
+    -->72:         class F:
+       73:             __slots__ = ["a", "b"]
 
 
 ZeroDivisionError
