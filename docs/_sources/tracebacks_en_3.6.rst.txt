@@ -299,7 +299,7 @@ Generic
     -->24:         A.x  # testing type
        25:     except AttributeError as e:
 
-            A:  <class A> from test_attribute_error.test_Generic
+            A:  <class A> defined in <function test_attribute_error.test_Generic>
         
 
 
@@ -331,7 +331,8 @@ Generic different frame
     -->47:         a.attr
        48:     except AttributeError as e:
 
-            a:  <f.A object>
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_different_frame.<locals>.f>
         
 
 
@@ -360,7 +361,8 @@ Generic instance
     -->65:         a.x
        66:     except AttributeError as e:
 
-            a:  <A object> from test_attribute_error.test_Generic_instance
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_instance>
         
 
 
@@ -523,7 +525,8 @@ Read only
     -->278:         f.b = 1
        279:     except AttributeError as e:
 
-            f:  <F object> from test_attribute_error.test_Read_only
+            f:  <F object>
+                defined in <function test_attribute_error.test_Read_only>
             f.b:  2
         
 
@@ -722,7 +725,8 @@ Using slots
     -->258:         f.b = 1
        259:     except AttributeError as e:
 
-            f:  <F object> from test_attribute_error.test_Using_slots
+            f:  <F object>
+                defined in <function test_attribute_error.test_Using_slots>
         
 
 
@@ -1090,7 +1094,7 @@ ChainMap
        63:     except KeyError as e:
 
             d:  ChainMap({}, {})
-            d.pop:  <bound method ChainMap.pop of ChainMap({}, {})>
+            d.pop:  <bound method ChainMap.pop> of ChainMap({}, {})
         
 
 
@@ -1189,7 +1193,7 @@ Popitem empty ChainMap
        27:     except KeyError as e:
 
             alpha:  ChainMap({}, {})
-            alpha.popitem:  <bound method ChainMap.popitem of ChainMap({}, {})>
+            alpha.popitem:  <bound method ChainMap.popitem> of ChainMap({}, {})
         
 
 
@@ -1637,7 +1641,8 @@ Free variable referenced
     -->149:         outer()
        150:     except NameError as e:
 
-            outer:  <function outer> from test_Free_variable_referenced
+            outer:  <function outer>
+                defined in <function test_Free_variable_referenced>
         
     Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
     
@@ -1767,7 +1772,7 @@ Missing self 1
     
     In your program, no object with the name `add_toy` exists.
     
-    The local object `<Pet object> from test_name_error.test_Missing_self_1`
+    The local object `<Pet object> defined in <function test_name_error.test_Missing_self_1>`
     has an attribute named `add_toy`.
     Perhaps you should have written `self.add_toy(...`
     instead of `add_toy(self, ...`.
@@ -1780,7 +1785,8 @@ Missing self 1
     -->198:         str(a)
        199:     except NameError as e:
 
-            a:  <Pet object> from test_name_error.test_Missing_self_1
+            a:  <Pet object>
+                defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
     Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
@@ -1816,7 +1822,7 @@ Missing self 2
     
     In your program, no object with the name `add_toy` exists.
     
-    A local object, `<Pet object> from test_name_error.test_Missing_self_2`,
+    A local object, `<Pet object> defined in <function test_name_error.test_Missing_self_2>`,
     has an attribute named `add_toy`.
     Perhaps you should have written `self.add_toy`
     instead of `add_toy`.
@@ -1829,7 +1835,8 @@ Missing self 2
     -->232:         str(a)
        233:     except NameError as e:
 
-            a:  <Pet object> from test_name_error.test_Missing_self_2
+            a:  <Pet object>
+                defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
     Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
@@ -1930,7 +1937,7 @@ invalid argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 40, in test_invalid_argument
+      File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
         open("c:\test.txt")
     OSError: [Errno 22] Invalid argument: 'c:\test.txt'
     
@@ -1949,49 +1956,54 @@ invalid argument
     front of the filename or path, or replace all single backslash
     characters, `\`, by double ones: `\\`.
     
-    Exception raised on line 40 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
     
-       37:     if os.name != "nt":
-       38:         return "Windows test only", "No result"
-       39:     try:
-    -->40:         open("c:\test.txt")
-       41:     except OSError as e:
+       43:     if os.name != "nt":
+       44:         return "Windows test only", "No result"
+       45:     try:
+    -->46:         open("c:\test.txt")
+       47:     except OSError as e:
 
             open:  <builtin function open>
         
 
 
-    Traceback (most recent call last):
-      File "TESTS:\trb_common.py", line 77, in create_tracebacks
-        result, message = function()
-    TypeError: 'NoneType' object is not iterable
-    
-    A `TypeError` is usually caused by trying
-    to combine two incompatible types of objects,
-    by calling a function with the wrong type of object,
-    or by trying to do an operation not allowed on a given type of object.
-    
-    An iterable is an object capable of returning its members one at a time.
-    Python containers (`list, tuple, dict`, etc.) are iterables.
-    An iterable is required here.
-    
-    Exception raised on line 77 of file TESTS:\trb_common.py.
-    
-       74:                     if name.startswith("test"):
-       75:                         function = getattr(mod, name)
-       76:                         if callable(function):
-    -->77:                             result, message = function()
-       78:                             title = name[5:].replace("_", " ")
+no information
+~~~~~~~~~~~~~~
 
-            function:  <function test_no_information>
-            message:  "[Errno 22] Invalid argument: 'c:\\test.txt'"
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 1198
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+        raise OSError("Some unknown message")
+    OSError: Some unknown message
+    
+        Friendly-traceback does not know the cause of this error.
         
-            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
-                              len(result, message): 2
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
+    
+    No information is known about this exception.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
+    If you are using a REPL, use `www('bug')` to do so.
+    
+    If you are using the Friendly console, use `www()` to
+    do an Internet search for this particular case.
+    
+    Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
+    
+       24:     old_debug = friendly_traceback.debug_helper.DEBUG
+       25:     friendly_traceback.debug_helper.DEBUG = False
+       26:     try:
+    -->27:         raise OSError("Some unknown message")
+       28:     except OSError as e:
+
+            OSError:  <class OSError>
         
-        
+
 
 OverflowError
 -------------
@@ -2052,7 +2064,7 @@ Generic
     -->8:         a()
        9:     except RecursionError as e:
 
-            a:  <function a> from test_Generic
+            a:  <function a> defined in <function test_Generic>
         
     Exception raised on line 6 of file TESTS:\runtime\test_recursion_error.py.
     
@@ -2060,7 +2072,7 @@ Generic
     -->6:         return a()
                          ^^^
 
-            a:  <function a> from test_Generic
+            a:  <function a> defined in <function test_Generic>
         
 
 
@@ -2499,7 +2511,8 @@ Object is not subscriptable
                         ^^^^
        711:     except TypeError as e:
 
-            f:  <function f> from test_Object_is_not_subscriptable
+            f:  <function f>
+                defined in <function test_Object_is_not_subscriptable>
         
 
 
@@ -2560,7 +2573,8 @@ Too few positional argument
     -->441:         fn(1)
        442:     except TypeError as e:
 
-            fn:  <function fn> from test_Too_few_positional_argument
+            fn:  <function fn>
+                defined in <function test_Too_few_positional_argument>
         
 
 
@@ -2595,7 +2609,8 @@ Too many positional argument
     -->422:         A().f(1)
        423:     except TypeError as e:
 
-            A:  <class A> from test_type_error.test_Too_many_positional_argument
+            A:  <class A>
+                defined in <function test_type_error.test_Too_many_positional_argument>
         
 
 
@@ -2729,7 +2744,8 @@ function got multiple argument
     -->868:         fn2(0, a=1)
        869:     except TypeError as e:
 
-            fn2:  <function fn2> from test_function_got_multiple_argument
+            fn2:  <function fn2>
+                defined in <function test_function_got_multiple_argument>
         
 
 
@@ -2763,7 +2779,7 @@ function has no len
     -->796:         len(bad)
        797:     except TypeError as e:
 
-            bad:  <function bad> from test_function_has_no_len
+            bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
         
 
@@ -2796,8 +2812,11 @@ method got multiple argument
     -->886:         t.some_method(0, a=1)
        887:     except TypeError as e:
 
-            t:  <T object> from test_type_error.test_method_got_multiple_argument
-            t.some_method:  <bound method T.some_method> of <test_type_error.test_method_got_multiple_argument.T object>
+            t:  <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
+            t.some_method:  <bound method T.some_method>
+                of <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
         
 
 
@@ -2829,7 +2848,8 @@ vars arg must have dict
     -->839:         vars(f)
        840:     except TypeError as e:
 
-            f:  <F object> from test_type_error.test_vars_arg_must_have_dict
+            f:  <F object>
+                defined in <function test_type_error.test_vars_arg_must_have_dict>
             vars:  <builtin function vars>
         
 
@@ -3029,7 +3049,7 @@ Typo in local
     -->97:         test2()
        98:     except UnboundLocalError as e:
 
-            test2:  <function test2> from test_Typo_in_local
+            test2:  <function test2> defined in <function test_Typo_in_local>
         
     Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
     

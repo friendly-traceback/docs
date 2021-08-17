@@ -270,6 +270,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#oserror">OsError</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#urllib-error">Urllib error</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-information">no information</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
@@ -671,7 +672,7 @@ Exception levée à la ligne 24 du fichier TESTS:\runtime\test_attribute_error.p
 --&gt;24:         A.x  # testing type
    25:     except AttributeError as e:
 
-        A:  &lt;class A&gt; from test_attribute_error.test_Generic
+        A:  &lt;class A&gt; defined in &lt;function test_attribute_error.test_Generic&gt;
 </pre></div>
 </div>
 </div>
@@ -699,7 +700,8 @@ Exception levée à la ligne 47 du fichier TESTS:\runtime\test_attribute_error.p
 --&gt;47:         a.attr
    48:     except AttributeError as e:
 
-        a:  &lt;f.A object&gt;
+        a:  &lt;A object&gt;
+            defined in &lt;function test_attribute_error.test_Generic_different_frame.&lt;locals&gt;.f&gt;
 </pre></div>
 </div>
 </div>
@@ -724,7 +726,8 @@ Exception levée à la ligne 65 du fichier TESTS:\runtime\test_attribute_error.p
 --&gt;65:         a.x
    66:     except AttributeError as e:
 
-        a:  &lt;A object&gt; from test_attribute_error.test_Generic_instance
+        a:  &lt;A object&gt;
+            defined in &lt;function test_attribute_error.test_Generic_instance&gt;
 </pre></div>
 </div>
 </div>
@@ -867,7 +870,8 @@ Exception levée à la ligne 278 du fichier TESTS:\runtime\test_attribute_error.
 --&gt;278:         f.b = 1
    279:     except AttributeError as e:
 
-        f:  &lt;F object&gt; from test_attribute_error.test_Read_only
+        f:  &lt;F object&gt;
+            defined in &lt;function test_attribute_error.test_Read_only&gt;
         f.b:  2
 </pre></div>
 </div>
@@ -1043,7 +1047,8 @@ Exception levée à la ligne 258 du fichier TESTS:\runtime\test_attribute_error.
 --&gt;258:         f.b = 1
    259:     except AttributeError as e:
 
-        f:  &lt;F object&gt; from test_attribute_error.test_Using_slots
+        f:  &lt;F object&gt;
+            defined in &lt;function test_attribute_error.test_Using_slots&gt;
 </pre></div>
 </div>
 </div>
@@ -1364,7 +1369,7 @@ Exception levée à la ligne 62 du fichier TESTS:\runtime\test_key_error.py.
    63:     except KeyError as e:
 
         d:  ChainMap({}, {})
-        d.pop:  &lt;bound method ChainMap.pop of ChainMap({}, {})&gt;
+        d.pop:  &lt;bound method ChainMap.pop&gt; of ChainMap({}, {})
 </pre></div>
 </div>
 </div>
@@ -1451,7 +1456,7 @@ Exception levée à la ligne 26 du fichier TESTS:\runtime\test_key_error.py.
    27:     except KeyError as e:
 
         alpha:  ChainMap({}, {})
-        alpha.popitem:  &lt;bound method ChainMap.popitem of ChainMap({}, {})&gt;
+        alpha.popitem:  &lt;bound method ChainMap.popitem&gt; of ChainMap({}, {})
 </pre></div>
 </div>
 </div>
@@ -1849,7 +1854,8 @@ L&#39;exécution s&#39;est arrêtée à la ligne 149 du fichier TESTS:\runtime\t
 --&gt;149:         outer()
    150:     except NameError as e:
 
-        outer:  &lt;function outer&gt; from test_Free_variable_referenced
+        outer:  &lt;function outer&gt;
+            defined in &lt;function test_Free_variable_referenced&gt;
 
 Exception levée à la ligne 144 du fichier TESTS:\runtime\test_name_error.py.
 
@@ -1967,7 +1973,7 @@ utilisé avant qu&#39;on ne lui ait associé une valeur.
 
 Dans votre programme, aucun objet portant le nom `add_toy` n&#39;existe.
 
-L’objet local `&lt;Pet object&gt; from test_name_error.test_Missing_self_1` a un attribut nommé `add_toy`.
+L’objet local `&lt;Pet object&gt; defined in &lt;function test_name_error.test_Missing_self_1&gt;` a un attribut nommé `add_toy`.
 Peut-être que vous auriez dû écrire `self.add_toy(...`
 au lieu de `add_toy(self, ...`.
 
@@ -1979,7 +1985,8 @@ L&#39;exécution s&#39;est arrêtée à la ligne 198 du fichier TESTS:\runtime\t
 --&gt;198:         str(a)
    199:     except NameError as e:
 
-        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_1
+        a:  &lt;Pet object&gt;
+            defined in &lt;function test_name_error.test_Missing_self_1&gt;
         str:  &lt;class str&gt;
 
 Exception levée à la ligne 189 du fichier TESTS:\runtime\test_name_error.py.
@@ -2012,7 +2019,7 @@ utilisé avant qu&#39;on ne lui ait associé une valeur.
 
 Dans votre programme, aucun objet portant le nom `add_toy` n&#39;existe.
 
-Un objet local, `&lt;Pet object&gt; from test_name_error.test_Missing_self_2`,
+Un objet local, `&lt;Pet object&gt; defined in &lt;function test_name_error.test_Missing_self_2&gt;`,
 a un attribut nommé `add_toy`.
 Peut-être que vous auriez dû écrire `self.add_toy`
 au lieu de `add_toy`.
@@ -2025,7 +2032,8 @@ L&#39;exécution s&#39;est arrêtée à la ligne 232 du fichier TESTS:\runtime\t
 --&gt;232:         str(a)
    233:     except NameError as e:
 
-        a:  &lt;Pet object&gt; from test_name_error.test_Missing_self_2
+        a:  &lt;Pet object&gt;
+            defined in &lt;function test_name_error.test_Missing_self_2&gt;
         str:  &lt;class str&gt;
 
 Exception levée à la ligne 224 du fichier TESTS:\runtime\test_name_error.py.
@@ -2115,7 +2123,7 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py.
 <div class="section" id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 40, in test_invalid_argument
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 46, in test_invalid_argument
     open(&quot;c:\test.txt&quot;)
 OSError: [Errno 22] Invalid argument: &#39;c:\test.txt&#39;
 
@@ -2134,49 +2142,48 @@ en ajoutant la lettre `r` comme préfixe devant le nom de
 fichier ou du chemin d&#39;accès, ou remplacer tous les caractères
 simples, `\`, par des caractères doubles : `\\`.
 
-Exception levée à la ligne 40 du fichier TESTS:\runtime\test_os_error.py.
+Exception levée à la ligne 46 du fichier TESTS:\runtime\test_os_error.py.
 
-   37:     if os.name != &quot;nt&quot;:
-   38:         return &quot;Windows test only&quot;, &quot;No result&quot;
-   39:     try:
---&gt;40:         open(&quot;c:\test.txt&quot;)
-   41:     except OSError as e:
+   43:     if os.name != &quot;nt&quot;:
+   44:         return &quot;Windows test only&quot;, &quot;No result&quot;
+   45:     try:
+--&gt;46:         open(&quot;c:\test.txt&quot;)
+   47:     except OSError as e:
 
         open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="no-information">
+<h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 27, in test_no_information
+    raise OSError(&quot;Some unknown message&quot;)
+OSError: Some unknown message
 
+    Friendly-traceback ne connaît pas la cause de cette erreur.
 
+Une exception `OSError` est généralement levée par le système d’exploitation
+pour indiquer qu’une opération n’est pas autorisée ou
+qu&#39;une ressource n’est pas disponible.
 
-Traceback (most recent call last):
-  File &quot;TESTS:\trb_common.py&quot;, line 77, in create_tracebacks
-    result, message = function()
-TypeError: cannot unpack non-iterable NoneType object
+Aucune information n’est disponible au sujet de cette exception.
+Veuillez signaler cet exemple à
+https://github.com/friendly-traceback/friendly-traceback/issues/new
+Si vous utilisez un REPL, utilisez `www(&#39;bug&#39;)` pour le faire.
 
-Une exception `TypeError` est généralement causée par une tentative
-de combiner deux types d’objets incompatibles,
-en invoquant une fonction avec le mauvais type d’objet,
-ou en tentant d&#39;effectuer une opération non permise sur un type d&#39;objet donné.
+Si vous utilisez la console Friendly, utilisez `www()` pour
+faire une recherche sur Internet pour ce cas particulier.
 
-Le dépaquetage (&#39;unpack&#39;) est un moyen pratique d’attribuer un nom
-à chaque élément d’un itérable.
-Un itérable est un objet capable de renvoyer ses membres un à la fois.
-Les contenants python (`list, tuple, dict`, etc.) sont itérables,
-mais pas les objets de type `NoneType`.
+Exception levée à la ligne 27 du fichier TESTS:\runtime\test_os_error.py.
 
-Exception levée à la ligne 77 du fichier TESTS:\trb_common.py.
+   24:     old_debug = friendly_traceback.debug_helper.DEBUG
+   25:     friendly_traceback.debug_helper.DEBUG = False
+   26:     try:
+--&gt;27:         raise OSError(&quot;Some unknown message&quot;)
+   28:     except OSError as e:
 
-   74:                     if name.startswith(&quot;test&quot;):
-   75:                         function = getattr(mod, name)
-   76:                         if callable(function):
---&gt;77:                             result, message = function()
-   78:                             title = name[5:].replace(&quot;_&quot;, &quot; &quot;)
-
-        function:  &lt;function test_no_information&gt;
-        message:  &quot;[Errno 22] Invalid argument: &#39;c:\\test.txt&#39;&quot;
-        result:  &#39;\n    Traceback (most recent call last):\n      File &quot;TESTS...&#39;
-                 len(result): 1329
-
-        result, message:  (&#39;\n    Traceback (most recent call last):\n      File &quot;TEST...)
-                          len(result, message): 2
+        OSError:  &lt;class OSError&gt;
 </pre></div>
 </div>
 </div>
@@ -2230,7 +2237,7 @@ L&#39;exécution s&#39;est arrêtée à la ligne 8 du fichier TESTS:\runtime\tes
 --&gt;8:         a()
    9:     except RecursionError as e:
 
-        a:  &lt;function a&gt; from test_Generic
+        a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
 
 Exception levée à la ligne 6 du fichier TESTS:\runtime\test_recursion_error.py.
 
@@ -2238,7 +2245,7 @@ Exception levée à la ligne 6 du fichier TESTS:\runtime\test_recursion_error.py
 --&gt;6:         return a()
                      ^^^
 
-        a:  &lt;function a&gt; from test_Generic
+        a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
 </pre></div>
 </div>
 </div>
@@ -2631,7 +2638,8 @@ Exception levée à la ligne 710 du fichier TESTS:\runtime\test_type_error.py.
                     ^^^^
    711:     except TypeError as e:
 
-        f:  &lt;function f&gt; from test_Object_is_not_subscriptable
+        f:  &lt;function f&gt;
+            defined in &lt;function test_Object_is_not_subscriptable&gt;
 </pre></div>
 </div>
 </div>
@@ -2685,7 +2693,8 @@ Exception levée à la ligne 441 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;441:         fn(1)
    442:     except TypeError as e:
 
-        fn:  &lt;function fn&gt; from test_Too_few_positional_argument
+        fn:  &lt;function fn&gt;
+            defined in &lt;function test_Too_few_positional_argument&gt;
 </pre></div>
 </div>
 </div>
@@ -2715,7 +2724,8 @@ Exception levée à la ligne 422 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;422:         A().f(1)
    423:     except TypeError as e:
 
-        A:  &lt;class A&gt; from test_type_error.test_Too_many_positional_argument
+        A:  &lt;class A&gt;
+            defined in &lt;function test_type_error.test_Too_many_positional_argument&gt;
 </pre></div>
 </div>
 </div>
@@ -2834,7 +2844,8 @@ Exception levée à la ligne 868 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;868:         fn2(0, a=1)
    869:     except TypeError as e:
 
-        fn2:  &lt;function fn2&gt; from test_function_got_multiple_argument
+        fn2:  &lt;function fn2&gt;
+            defined in &lt;function test_function_got_multiple_argument&gt;
 </pre></div>
 </div>
 </div>
@@ -2864,7 +2875,7 @@ Exception levée à la ligne 796 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;796:         len(bad)
    797:     except TypeError as e:
 
-        bad:  &lt;function bad&gt; from test_function_has_no_len
+        bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
         len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
@@ -2893,8 +2904,11 @@ Exception levée à la ligne 886 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;886:         t.some_method(0, a=1)
    887:     except TypeError as e:
 
-        t:  &lt;T object&gt; from test_type_error.test_method_got_multiple_argument
-        t.some_method:  &lt;bound method T.some_method&gt; of &lt;test_type_error.test_method_got_multiple_argument.T object&gt;
+        t:  &lt;T object&gt;
+            defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
+        t.some_method:  &lt;bound method T.some_method&gt;
+            of &lt;T object&gt;
+            defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
 </pre></div>
 </div>
 </div>
@@ -2922,7 +2936,8 @@ Exception levée à la ligne 839 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;839:         vars(f)
    840:     except TypeError as e:
 
-        f:  &lt;F object&gt; from test_type_error.test_vars_arg_must_have_dict
+        f:  &lt;F object&gt;
+            defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
         vars:  &lt;builtin function vars&gt;
 </pre></div>
 </div>
@@ -3110,7 +3125,7 @@ L&#39;exécution s&#39;est arrêtée à la ligne 97 du fichier TESTS:\runtime\te
 --&gt;97:         test2()
    98:     except UnboundLocalError as e:
 
-        test2:  &lt;function test2&gt; from test_Typo_in_local
+        test2:  &lt;function test2&gt; defined in &lt;function test_Typo_in_local&gt;
 
 Exception levée à la ligne 94 du fichier TESTS:\runtime\test_unbound_local_error.py.
 
