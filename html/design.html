@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Some thoughts on the design of friendly &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Some thoughts on the design of friendly &mdash; friendly-traceback 0.4.42 documentation</title>
   
 
   
@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Multiple tracebacks" href="multiple_tracebacks.html" />
+    <link rel="next" title="Themes, Styles, and Colours" href="themes.html" />
     <link rel="prev" title="Google’s colab" href="colab.html" /> 
 </head>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.42
               </div>
             
           
@@ -137,7 +137,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
@@ -147,6 +147,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#original-purpose">Original purpose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#revised-purpose">Revised purpose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gradual-reveal">Gradual reveal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary-of-design-choices">Summary of design choices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#about-warnings">About Warnings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#location-of-the-exception">Location of the exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#variable-information">Variable information</a></li>
@@ -155,12 +156,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#other-similar-projects">Other similar projects</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -259,7 +260,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="multiple_tracebacks.html" class="btn btn-neutral float-right" title="Multiple tracebacks" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="themes.html" class="btn btn-neutral float-right" title="Themes, Styles, and Colours" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="colab.html" class="btn btn-neutral float-left" title="Google’s colab" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
@@ -274,7 +275,10 @@
   <div class="section" id="some-thoughts-on-the-design-of-friendly">
 <h1>Some thoughts on the design of friendly<a class="headerlink" href="#some-thoughts-on-the-design-of-friendly" title="Permalink to this headline">¶</a></h1>
 <p>The following are thoughts on the design of this project.
-The content of this file <strong>will</strong> be changed as this project evolve.</p>
+More information about various design choices are scattered
+throughout this documentation.
+If you can think of better design choices,
+please feel free to file an issue.</p>
 <div class="section" id="original-purpose">
 <h2>Original purpose<a class="headerlink" href="#original-purpose" title="Permalink to this headline">¶</a></h2>
 <p>friendly’s primary purpose is to make it easier for
@@ -297,9 +301,9 @@ Thonny shows the normal Python traceback [1],
 and offers some additional explanations [2], parts of which can be hidden
 or revealed by clicking on a button.</p>
 <a class="reference internal image-reference" href="_images/thonny.png"><img alt="_images/thonny.png" src="_images/thonny.png" style="width: 767.0px; height: 540.0px;" /></a>
-<p>For now, friendly tries to identify the most likely cause
-of the exception, but some consideration has been given to
-include more than one possible explanation in some cases.</p>
+<p>For now, friendly usually tries to identify the most likely cause
+of the exception, but makes some additional suggestions in
+a few relatively rare cases.</p>
 </div>
 <div class="section" id="gradual-reveal">
 <h2>Gradual reveal<a class="headerlink" href="#gradual-reveal" title="Permalink to this headline">¶</a></h2>
@@ -308,14 +312,65 @@ should be shown all at once. As we accumulated more and more cases,
 we realised that this could yield a huge amount of material which could
 be rather daunting for beginners. Eventually, this lead to the
 approach of using a REPL whenever possible so that the user could get
-some small amount of information at a time by entering <code class="docutils literal notranslate"><span class="pre">why()</span></code> or
-<code class="docutils literal notranslate"><span class="pre">where()</span></code>.</p>
+some small amount of information at a time by entering <code class="docutils literal notranslate"><span class="pre">what()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">why()</span></code> or <code class="docutils literal notranslate"><span class="pre">where()</span></code>.</p>
 <p>As part of the gradual reveal, the traceback shown to the user
 shows an added “hint” which attempts to summarize in a single sentence
 a possible cause or remedy to the exception that was raised.
 This has been inspired in parts by the
 <a class="reference external" href="https://github.com/SylvainDe/DidYouMean-Python">DidYouMean-Python (aka BetterErrorMessages)</a>
 project.</p>
+</div>
+<div class="section" id="summary-of-design-choices">
+<h2>Summary of design choices<a class="headerlink" href="#summary-of-design-choices" title="Permalink to this headline">¶</a></h2>
+<p>Scattered throughout this documentation, we added notes about choices
+that were made in designing friendly and friendly-traceback.
+These are are listed below.</p>
+<div class="admonition-design_choice admonition">
+<p class="admonition-title">Design Choice: automatic installation for Jupyter</p>
+<p>Anyone using friendly in a Jupyter environment does so because
+they want the traceback information to be processed by friendly.
+For this reason, friendly is automatically installed when
+<code class="docutils literal notranslate"><span class="pre">friendly.jupyter</span></code> is imported, instead of requiring users
+to call <code class="docutils literal notranslate"><span class="pre">install()</span></code> after the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+</div>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id2"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 64.)</p>
+<div class="admonition-design_choice admonition">
+<p class="admonition-title">UI Design Choice: buttons instead of function calls for Jupyter</p>
+<p>friendly aims to be as easy to use as possible for beginners.
+Having them clicking on buttons to reveal some additional information
+when needed is more user-friendly than requiring them to
+type in and execute some function calls.</p>
+</div>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id3"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 74.)</p>
+<div class="admonition-design_choice admonition">
+<p class="admonition-title">Design Choice: only message shown by default for Jupyter</p>
+<p>Rather than showing the friendly traceback by default,
+only the exception message is shown in addition to the <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">...</span></code>
+button.</p>
+</div>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id4"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 85.)</p>
+<div class="admonition-design_choice admonition">
+<p class="admonition-title">Design Choice: Jupyter font family with Rich</p>
+<p>Instead of using the Jupyter default, Rich specifies a
+set of possible fonts for its output. As a result, the apparent
+size of the fonts, at least on Windows, appears to be
+larger when using Rich than without.  To avoid this,
+I override the default from Rich to give a more consistent
+look and feel.</p>
+</div>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id5"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 217.)</p>
+<div class="admonition-design_choice admonition">
+<p class="admonition-title">UI Design Choice: Red means exception or error</p>
+<p>For both themes, I have chosen to use the colour red only for
+exception names, such as <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, for traceback headings,
+and for headings showing where an exception occurred.</p>
+</div>
+<p class="design_choice-source">(The <a class="reference internal" href="themes.html#id1"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\themes.rst, line 26.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sections shown below will likely be moved elsewhere</p>
+</div>
 </div>
 <div class="section" id="about-warnings">
 <h2>About Warnings<a class="headerlink" href="#about-warnings" title="Permalink to this headline">¶</a></h2>
@@ -417,6 +472,15 @@ The following is an incomplete list of projects or modules to look at:</p>
 <li><p><a class="reference external" href="https://github.com/skorokithakis/tbvaccine">https://github.com/skorokithakis/tbvaccine</a></p></li>
 <li><p><a class="reference external" href="https://github.com/alexmojaki/stack_data">https://github.com/alexmojaki/stack_data</a></p></li>
 </ul>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Add explanation about:</p>
+<ul class="simple">
+<li><p>variable shown</p></li>
+<li><p>how it works (especially for analysis of SyntaxError cases)</p></li>
+<li><p>use Mu to show numbered prompt</p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -426,7 +490,7 @@ The following is an incomplete list of projects or modules to look at:</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="multiple_tracebacks.html" class="btn btn-neutral float-right" title="Multiple tracebacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="themes.html" class="btn btn-neutral float-right" title="Themes, Styles, and Colours" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="colab.html" class="btn btn-neutral float-left" title="Google’s colab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

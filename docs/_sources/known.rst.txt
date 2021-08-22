@@ -27,7 +27,7 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 ``BaseException``, ``Exception``, and ``ArithmeticError`` are base classes which
 are also not normally seen: some derived classes are normally used instead.
 
-Information compiled using Friendly version: 0.3.150,
+Information compiled using Friendly version: 0.4.42,
 Python version: 3.8.10
 
 
@@ -71,7 +71,8 @@ BaseException
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -81,22 +82,20 @@ BlockingIOError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `BlockingIOError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 BrokenPipeError
 ~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `BrokenPipeError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 BufferError
 ~~~~~~~~~~~
@@ -104,7 +103,8 @@ BufferError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -114,55 +114,50 @@ ChildProcessError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ChildProcessError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ConnectionAbortedError
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ConnectionAbortedError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ConnectionError
 ~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ConnectionError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ConnectionRefusedError
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ConnectionRefusedError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ConnectionResetError
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ConnectionResetError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 EOFError
 ~~~~~~~~
@@ -177,11 +172,9 @@ EnvironmentError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 Exception
 ~~~~~~~~~
@@ -189,7 +182,8 @@ Exception
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -199,11 +193,10 @@ FileExistsError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `FileExistsError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 FileNotFoundError
 ~~~~~~~~~~~~~~~~~
@@ -220,7 +213,8 @@ FloatingPointError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -231,7 +225,8 @@ GeneratorExit
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -241,11 +236,9 @@ IOError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ImportError
 ~~~~~~~~~~~
@@ -279,22 +272,20 @@ InterruptedError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `InterruptedError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 IsADirectoryError
 ~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `IsADirectoryError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 KeyError
 ~~~~~~~~
@@ -310,7 +301,8 @@ KeyboardInterrupt
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -359,11 +351,10 @@ NotADirectoryError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `NotADirectoryError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 NotImplementedError
 ~~~~~~~~~~~~~~~~~~~
@@ -371,7 +362,8 @@ NotImplementedError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -398,22 +390,20 @@ PermissionError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `PermissionError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ProcessLookupError
 ~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ProcessLookupError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 RecursionError
 ~~~~~~~~~~~~~~
@@ -431,7 +421,8 @@ ReferenceError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -442,7 +433,8 @@ RuntimeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -453,7 +445,8 @@ StopAsyncIteration
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -480,7 +473,8 @@ SystemError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -491,7 +485,8 @@ SystemExit
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -513,11 +508,10 @@ TimeoutError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `TimeoutError` is a subclass of `OSError`.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 TypeError
 ~~~~~~~~~
@@ -549,7 +543,8 @@ UnicodeDecodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -560,7 +555,8 @@ UnicodeEncodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -571,7 +567,8 @@ UnicodeError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -582,7 +579,8 @@ UnicodeTranslateError
 .. code-block:: none
 
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
@@ -600,11 +598,9 @@ WindowsError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
 
 ZeroDivisionError
 ~~~~~~~~~~~~~~~~~

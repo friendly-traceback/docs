@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.3.150
+Friendly version: 0.4.42
 Python version: 3.9.5
 
 
@@ -99,7 +99,7 @@ Attribute from other module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 299, in test_Attribute_from_other_module
+      File "TESTS:\runtime\test_attribute_error.py", line 323, in test_Attribute_from_other_module
         keyword.pi
     AttributeError: module 'keyword' has no attribute 'pi'
     
@@ -112,13 +112,13 @@ Attribute from other module
     the attribute `pi` of one of the following modules:
     `math, cmath`.
     
-    Exception raised on line 299 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
     
-       295:         assert "Did you mean `math`?" in result
-       297:     import cmath
-       298:     try:
-    -->299:         keyword.pi
-       300:     except AttributeError as e:
+       319:         assert "Did you mean `math`?" in result
+       321:     import cmath
+       322:     try:
+    -->323:         keyword.pi
+       324:     except AttributeError as e:
 
             keyword:  <module keyword> from PYTHON_LIB:\keyword.py
         
@@ -131,7 +131,7 @@ Builtin function
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 217, in test_Builtin_function
+      File "TESTS:\runtime\test_attribute_error.py", line 221, in test_Builtin_function
         len.text
     AttributeError: 'builtin_function_or_method' object has no attribute 'text'
     
@@ -144,13 +144,13 @@ Builtin function
     `len` is a function. Perhaps you meant to write
     `len(text)`
     
-    Exception raised on line 217 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 221 of file TESTS:\runtime\test_attribute_error.py.
     
-       214: def test_Builtin_function():
-       215:     text = 'Hello world!'
-       216:     try:
-    -->217:         len.text
-       218:     except AttributeError as e:
+       218: def test_Builtin_function():
+       219:     text = 'Hello world!'
+       220:     try:
+    -->221:         len.text
+       222:     except AttributeError as e:
 
             text:  'Hello world!'
             len:  <builtin function len>
@@ -164,7 +164,7 @@ Builtin module with no file
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 234, in test_Builtin_module_with_no_file
+      File "TESTS:\runtime\test_attribute_error.py", line 238, in test_Builtin_module_with_no_file
         sys.foo
     AttributeError: module 'sys' has no attribute 'foo'
     
@@ -175,13 +175,13 @@ Builtin module with no file
     Python tells us that no object with name `foo` is
     found in module `sys`.
     
-    Exception raised on line 234 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 238 of file TESTS:\runtime\test_attribute_error.py.
     
-       230:     """Issue 116"""
-       231:     import sys
-       233:     try:
-    -->234:         sys.foo
-       235:     except AttributeError as e:
+       234:     """Issue 116"""
+       235:     import sys
+       237:     try:
+    -->238:         sys.foo
+       239:     except AttributeError as e:
 
             sys:  <module sys (builtin)>
         
@@ -194,7 +194,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 329, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 353, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -211,13 +211,13 @@ Circular import
     from Python's standard library.
     If so, you should use a different name for your program.
     
-    Execution stopped on line 329 of file TESTS:\runtime\test_attribute_error.py.
+    Execution stopped on line 353 of file TESTS:\runtime\test_attribute_error.py.
     
-       326:     from friendly_traceback.runtime_errors import stdlib_modules
-       327:     stdlib_modules.names.append("my_turtle1")
-       328:     try:
-    -->329:        import my_turtle1
-       330:     except AttributeError as e:
+       350:     from friendly_traceback.runtime_errors import stdlib_modules
+       351:     stdlib_modules.names.append("my_turtle1")
+       352:     try:
+    -->353:        import my_turtle1
+       354:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\my_turtle1.py.
     
@@ -237,7 +237,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 346, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 370, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -253,12 +253,12 @@ Circular import b
     This can occur if, during the execution of the code in module `circular_c`
     an attempt is made to import the same module again.
     
-    Execution stopped on line 346 of file TESTS:\runtime\test_attribute_error.py.
+    Execution stopped on line 370 of file TESTS:\runtime\test_attribute_error.py.
     
-       344: def test_Circular_import_b():
-       345:     try:
-    -->346:         import circular_c
-       347:     except AttributeError as e:
+       368: def test_Circular_import_b():
+       369:     try:
+    -->370:         import circular_c
+       371:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\circular_c.py.
     
@@ -296,7 +296,7 @@ Generic
     -->24:         A.x  # testing type
        25:     except AttributeError as e:
 
-            A:  <class A> from test_attribute_error.test_Generic
+            A:  <class A> defined in <function test_attribute_error.test_Generic>
         
 
 
@@ -328,7 +328,8 @@ Generic different frame
     -->47:         a.attr
        48:     except AttributeError as e:
 
-            a:  <f.A object> from test_attribute_error.test_Generic_different_frame
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_different_frame.<locals>.f>
         
 
 
@@ -357,7 +358,8 @@ Generic instance
     -->65:         a.x
        66:     except AttributeError as e:
 
-            a:  <A object> from test_attribute_error.test_Generic_instance
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_instance>
         
 
 
@@ -464,7 +466,7 @@ Perhaps comma
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 200, in test_Perhaps_comma
+      File "TESTS:\runtime\test_attribute_error.py", line 201, in test_Perhaps_comma
         a = [abcd
     AttributeError: 'str' object has no attribute 'defg'
     
@@ -479,17 +481,50 @@ Perhaps comma
     Perhaps you wrote a period to separate these two objects, 
     instead of using a comma.
     
-    Exception raised on line 200 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 201 of file TESTS:\runtime\test_attribute_error.py.
     
-       196:     defg = "world"
-       198:     # fmt: off
-       199:     try:
-    -->200:         a = [abcd
-       201:         .defg]
-       202:     # fmt: on
+       197:     defg = "world"
+       199:     # fmt: off
+       200:     try:
+    -->201:         a = [abcd
+       202:         .defg]
+       203:     # fmt: on
 
             abcd:  'hello'
             defg:  'world'
+        
+
+
+Read only
+~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 278, in test_Read_only
+        f.b = 1
+    AttributeError: 'F' object attribute 'b' is read-only
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Object `f` uses `__slots__` to specify which attributes can
+    be changed. The value of attribute `f.b` cannot be changed.
+    The only attribute of `f` whose value can be changed is`a`.
+    
+    Exception raised on line 278 of file TESTS:\runtime\test_attribute_error.py.
+    
+       274:         b = 2
+       276:     f = F()
+       277:     try:
+    -->278:         f.b = 1
+       279:     except AttributeError as e:
+
+            f:  <F object>
+                defined in <function test_attribute_error.test_Read_only>
+            f.b:  2
         
 
 
@@ -533,7 +568,7 @@ Tuple by accident
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 269, in test_Tuple_by_accident
+      File "TESTS:\runtime\test_attribute_error.py", line 293, in test_Tuple_by_accident
         something.upper()
     AttributeError: 'tuple' object has no attribute 'upper'
     
@@ -548,14 +583,14 @@ Tuple by accident
     Perhaps you added a trailing comma by mistake at the end of the line
     where you defined `something`.
     
-    Exception raised on line 269 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 293 of file TESTS:\runtime\test_attribute_error.py.
     
-       266: def test_Tuple_by_accident():
-       267:     something = "abc",  # note trailing comma
-       268:     try:
-    -->269:         something.upper()
+       290: def test_Tuple_by_accident():
+       291:     something = "abc",  # note trailing comma
+       292:     try:
+    -->293:         something.upper()
                     ^^^^^^^^^^^^^^^
-       270:     except AttributeError as e:
+       294:     except AttributeError as e:
 
             something:  ('abc',)
         
@@ -602,7 +637,7 @@ Use join with str
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 313, in test_Use_join_with_str
+      File "TESTS:\runtime\test_attribute_error.py", line 337, in test_Use_join_with_str
         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
     AttributeError: 'list' object has no attribute 'join'
     
@@ -615,13 +650,13 @@ Use join with str
     The object `['a', '2']` has no attribute named `join`.
     Perhaps you wanted something like `'abc'.join(['a', '2'])`.
     
-    Exception raised on line 313 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
     
-       311: def test_Use_join_with_str():
-       312:     try:
-    -->313:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+       335: def test_Use_join_with_str():
+       336:     try:
+    -->337:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                         ^^^^^^^^^^^^^^^
-       314:     except AttributeError as e:
+       338:     except AttributeError as e:
 
 
 Use synonym
@@ -666,7 +701,7 @@ Using slots
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 254, in test_Using_slots
+      File "TESTS:\runtime\test_attribute_error.py", line 258, in test_Using_slots
         f.b = 1
     AttributeError: 'F' object has no attribute 'b'
     
@@ -679,15 +714,16 @@ Using slots
     the creation of new attributes.
     The following are some of its known attributes:
     `a`.
-    Exception raised on line 254 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 258 of file TESTS:\runtime\test_attribute_error.py.
     
-       250:         __slots__ = ["a"]
-       252:     f = F()
-       253:     try:
-    -->254:         f.b = 1
-       255:     except AttributeError as e:
+       254:         __slots__ = ["a"]
+       256:     f = F()
+       257:     try:
+    -->258:         f.b = 1
+       259:     except AttributeError as e:
 
-            f:  <F object> from test_attribute_error.test_Using_slots
+            f:  <F object>
+                defined in <function test_attribute_error.test_Using_slots>
         
 
 
@@ -695,14 +731,45 @@ FileNotFoundError
 -----------------
 
 
-Generic
-~~~~~~~
+Directory not found
+~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 6, in test_Generic
+      File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+        open("does_not_exist/file.txt")
+    FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
+    
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `file.txt`.
+    does_not_exist
+    is not a valid directory.
+    
+    Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       68: def test_Directory_not_found():
+       69:     try:
+    -->70:         open("does_not_exist/file.txt")
+       71:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
         open("does_not_exist")
     FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist'
     
@@ -712,13 +779,87 @@ Generic
     
     In your program, the name of the
     file that cannot be found is `does_not_exist`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
+    I have no additional information for you.
     
-    Exception raised on line 6 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
     
-       4: def test_Generic():
-       5:     try:
-    -->6:         open("does_not_exist")
-       7:     except FileNotFoundError as e:
+       5: def test_Filename_not_found():
+       6:     try:
+    -->7:         open("does_not_exist")
+       8:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 2
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+        open("setupp.py")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
+    
+        Did you mean `setup.py`?
+        
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `setupp.py`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    The file `setup.py` has a similar name.
+    
+    Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       26:     if chdir:
+       27:         os.chdir("..")
+       29:     try:
+    -->30:         open("setupp.py")
+       31:     except FileNotFoundError as e:
+
+            open:  <builtin function open>
+        
+
+
+Filename not found 3
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+        open("setup.pyg")
+    FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
+    
+        Did you mean `setup.py`?
+        
+    A `FileNotFoundError` exception indicates that you
+    are trying to open a file that cannot be found by Python.
+    This could be because you misspelled the name of the file.
+    
+    In your program, the name of the
+    file that cannot be found is `setup.pyg`.
+    It was expected to be found in the
+    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    Perhaps you meant one of the following files with similar names:
+    `setup.py`, `setup.cfg`
+    
+    Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
+    
+       49:     if chdir:
+       50:         os.chdir("..")
+       51:     try:
+    -->52:         open("setup.pyg")
+       53:     except FileNotFoundError as e:
 
             open:  <builtin function open>
         
@@ -932,8 +1073,6 @@ ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
         d.pop(42)
-      File "PYTHON_LIB:\collections\__init__.py", line 1010, in pop
-        raise KeyError(f'Key not found in the first mapping: {key!r}')
     KeyError: 'Key not found in the first mapping: 42'
     
     A `KeyError` is raised when a value is not found as a
@@ -941,7 +1080,7 @@ ChainMap
     
     The key `42` cannot be found in `d`, an object of type `ChainMap`.
     
-    Execution stopped on line 62 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 62 of file TESTS:\runtime\test_key_error.py.
     
        59:     from collections import ChainMap
        60:     d = ChainMap({}, {})
@@ -950,17 +1089,7 @@ ChainMap
        63:     except KeyError as e:
 
             d:  ChainMap({}, {})
-            d.pop:  <bound method ChainMap.pop of ChainMap({}, {})>
-        
-    Exception raised on line 1010 of file PYTHON_LIB:\collections\__init__.py.
-    
-       1007:         try:
-       1008:             return self.maps[0].pop(key, *args)
-       1009:         except KeyError:
-    -->1010:             raise KeyError(f'Key not found in the first mapping: {key!r}')
-
-            KeyError:  <class KeyError>
-            :  'Key not found in the first mapping: '
+            d.pop:  <bound method ChainMap.pop> of ChainMap({}, {})
         
 
 
@@ -1041,8 +1170,6 @@ Popitem empty ChainMap
     Traceback (most recent call last):
       File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
         alpha.popitem()
-      File "PYTHON_LIB:\collections\__init__.py", line 1003, in popitem
-        raise KeyError('No keys found in the first mapping.')
     KeyError: 'No keys found in the first mapping.'
     
         `alpha` is an empty `ChainMap`.
@@ -1052,7 +1179,7 @@ Popitem empty ChainMap
     
     You tried to retrieve an item from `alpha` which is an empty `ChainMap`.
     
-    Execution stopped on line 26 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 26 of file TESTS:\runtime\test_key_error.py.
     
        23:     from collections import ChainMap
        24:     alpha = ChainMap({}, {})
@@ -1061,16 +1188,7 @@ Popitem empty ChainMap
        27:     except KeyError as e:
 
             alpha:  ChainMap({}, {})
-            alpha.popitem:  <bound method ChainMap.popitem of ChainMap({}, {})>
-        
-    Exception raised on line 1003 of file PYTHON_LIB:\collections\__init__.py.
-    
-       1000:         try:
-       1001:             return self.maps[0].popitem()
-       1002:         except KeyError:
-    -->1003:             raise KeyError('No keys found in the first mapping.')
-
-            KeyError:  <class KeyError>
+            alpha.popitem:  <bound method ChainMap.popitem> of ChainMap({}, {})
         
 
 
@@ -1396,8 +1514,6 @@ no curses
     Traceback (most recent call last):
       File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
         import curses
-      File "PYTHON_LIB:\curses\__init__.py", line 13, in <module>
-        from _curses import *
     ModuleNotFoundError: No module named '_curses'
     
         The curses module is rarely installed with Python on Windows.
@@ -1410,23 +1526,12 @@ no curses
     You have tried to import the curses module.
     The curses module is rarely installed with Python on Windows.
     
-    Execution stopped on line 92 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 92 of file TESTS:\runtime\test_module_not_found_error.py.
     
        90:     def test_no_curses():
        91:         try:
     -->92:             import curses
        93:         except ModuleNotFoundError as e:
-
-    Exception raised on line 13 of file PYTHON_LIB:\curses\__init__.py.
-    
-        1: """curses
-        2: 
-        3: The main package for curses support for Python.  Normally used by importing
-       (...)
-       10: 
-       11: """
-    -->13: from _curses import *
-       14: import os as _os
 
 
 NameError
@@ -1495,7 +1600,6 @@ Custom name
        161: def test_Custom_name():
        162:     try:
     -->163:         python
-                    ^^^^^^
        164:     except NameError as e:
 
 
@@ -1532,7 +1636,8 @@ Free variable referenced
     -->149:         outer()
        150:     except NameError as e:
 
-            outer:  <function outer> from test_Free_variable_referenced
+            outer:  <function outer>
+                defined in <function test_Free_variable_referenced>
         
     Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
     
@@ -1603,6 +1708,141 @@ Missing import
        130:     except NameError as e:
 
 
+Missing module name
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 247, in test_Missing_module_name
+        frame = Frame()
+    NameError: name 'Frame' is not defined
+    
+        Did you forget to add `tkinter.`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `Frame` exists.
+    
+    The local object `tkinter`
+    has an attribute named `Frame`.
+    Perhaps you should have written `tkinter.Frame`
+    instead of `Frame`.
+    
+    Exception raised on line 247 of file TESTS:\runtime\test_name_error.py.
+    
+       244: def test_Missing_module_name():
+       245:     import tkinter
+       246:     try:
+    -->247:         frame = Frame()
+                            ^^^^^
+       248:     except NameError as e:
+
+
+Missing self 1
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 198, in test_Missing_self_1
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 189, in __str__
+        toys_list = add_toy(  # ensure that it can see 'self' on following line
+    NameError: name 'add_toy' is not defined
+    
+        Did you write `self` at the wrong place?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `add_toy` exists.
+    
+    The local object `<Pet object> defined in <function test_name_error.test_Missing_self_1>`
+    has an attribute named `add_toy`.
+    Perhaps you should have written `self.add_toy(...`
+    instead of `add_toy(self, ...`.
+    
+    Execution stopped on line 198 of file TESTS:\runtime\test_name_error.py.
+    
+       194:                 return "{} has no toys".format(self.name)
+       196:     a = Pet('Fido')
+       197:     try:
+    -->198:         str(a)
+       199:     except NameError as e:
+
+            a:  <Pet object>
+                defined in <function test_name_error.test_Missing_self_1>
+            str:  <class str>
+        
+    Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
+    
+       187:         def __str__(self):
+       188:             # self at the wrong place
+    -->189:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+                                    ^^^^^^^
+       190:                                 self, 'something')
+       191:             if self.toys:
+
+
+Missing self 2
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 232, in test_Missing_self_2
+        str(a)
+      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+        toys_list = add_toy('something')
+    NameError: name 'add_toy' is not defined
+    
+        Did you forget to add `self.`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `add_toy` exists.
+    
+    A local object, `<Pet object> defined in <function test_name_error.test_Missing_self_2>`,
+    has an attribute named `add_toy`.
+    Perhaps you should have written `self.add_toy`
+    instead of `add_toy`.
+    
+    Execution stopped on line 232 of file TESTS:\runtime\test_name_error.py.
+    
+       228:                 return "{} has no toys".format(self.name)
+       230:     a = Pet('Fido')
+       231:     try:
+    -->232:         str(a)
+       233:     except NameError as e:
+
+            a:  <Pet object>
+                defined in <function test_name_error.test_Missing_self_2>
+            str:  <class str>
+        
+    Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
+    
+       222:         def __str__(self):
+       223:             # Missing self.
+    -->224:             toys_list = add_toy('something')
+                                    ^^^^^^^
+       225:             if self.toys:
+
+
 Synonym
 ~~~~~~~
 
@@ -1632,7 +1872,6 @@ Synonym
        86:         assert "The Python builtin `chr` has a similar name." in result
        88:     try:
     -->89:         cost  # wrote from math import * above
-                   ^^^^
        90:     except NameError as e:
 
 
@@ -1658,13 +1897,8 @@ Urllib error
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 7, in test_Urllib_error
+      File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
         request.urlopen("http://does_not_exist")
-           ... More lines not shown. ...
-      File "PYTHON_LIB:\urllib\request.py", line 1375, in http_open
-        return self.do_open(http.client.HTTPConnection, req)
-      File "PYTHON_LIB:\urllib\request.py", line 1349, in do_open
-        raise URLError(err)
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     An exception of type `URLError` is a subclass of `OSError`.
@@ -1678,27 +1912,91 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Execution stopped on line 7 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
     
-       4: def test_Urllib_error():
-       5:     from urllib import request, error
-       6:     try:
-    -->7:         request.urlopen("http://does_not_exist")
-       8:     except error.URLError as e:
+       5: def test_Urllib_error():
+       6:     from urllib import request, error
+       7:     try:
+    -->8:         request.urlopen("http://does_not_exist")
+       9:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
         
-    Exception raised on line 1349 of file PYTHON_LIB:\urllib\request.py.
-    
-       1345:             try:
-       1346:                 h.request(req.get_method(), req.selector, req.data, headers,
-       1347:                           encode_chunked=req.has_header('Transfer-encoding'))
-       1348:             except OSError as err: # timeout error
-    -->1349:                 raise URLError(err)
-       1350:             r = h.getresponse()
 
-            global URLError:  <class urllib.error.URLError>
+
+invalid argument
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+        open("c:\test.txt")
+    OSError: [Errno 22] Invalid argument: 'c:\test.txt'
+    
+        Perhaps you need to double the backslash characters.
+        
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
+    
+    I suspect that you wrote a filename or path that contains
+    at least one backslash character, `\`.
+    Python likely interpreted this as indicating the beginning of
+    what is known as an escape sequence.
+    To solve the problem, either write a so-called 'raw string'
+    by adding the letter `r` as a prefix in
+    front of the filename or path, or replace all single backslash
+    characters, `\`, by double ones: `\\`.
+    
+    Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
+    
+       43:     if os.name != "nt":
+       44:         return "Windows test only", "No result"
+       45:     try:
+    -->46:         open("c:\test.txt")
+       47:     except OSError as e:
+
+            open:  <builtin function open>
+        
+
+
+no information
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+        raise OSError("Some unknown message")
+    OSError: Some unknown message
+    
+        Friendly-traceback does not know the cause of this error.
+        
+    An `OSError` exception is usually raised by the Operating System
+    to indicate that an operation is not allowed or that
+    a resource is not available.
+    
+    No information is known about this exception.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
+    If you are using a REPL, use `www('bug')` to do so.
+    
+    If you are using the Friendly console, use `www()` to
+    do an Internet search for this particular case.
+    
+    Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
+    
+       24:     old_debug = friendly_traceback.debug_helper.DEBUG
+       25:     friendly_traceback.debug_helper.DEBUG = False
+       26:     try:
+    -->27:         raise OSError("Some unknown message")
+       28:     except OSError as e:
+
+            OSError:  <class OSError>
         
 
 
@@ -1761,7 +2059,7 @@ Generic
     -->8:         a()
        9:     except RecursionError as e:
 
-            a:  <function a> from test_Generic
+            a:  <function a> defined in <function test_Generic>
         
     Exception raised on line 6 of file TESTS:\runtime\test_recursion_error.py.
     
@@ -1769,7 +2067,7 @@ Generic
     -->6:         return a()
                          ^^^
 
-            a:  <function a> from test_Generic
+            a:  <function a> defined in <function test_Generic>
         
 
 
@@ -2210,7 +2508,8 @@ Object is not subscriptable
                         ^^^^
        711:     except TypeError as e:
 
-            f:  <function f> from test_Object_is_not_subscriptable
+            f:  <function f>
+                defined in <function test_Object_is_not_subscriptable>
         
 
 
@@ -2271,7 +2570,8 @@ Too few positional argument
     -->441:         fn(1)
        442:     except TypeError as e:
 
-            fn:  <function fn> from test_Too_few_positional_argument
+            fn:  <function fn>
+                defined in <function test_Too_few_positional_argument>
         
 
 
@@ -2306,7 +2606,8 @@ Too many positional argument
     -->422:         A().f(1)
        423:     except TypeError as e:
 
-            A:  <class A> from test_type_error.test_Too_many_positional_argument
+            A:  <class A>
+                defined in <function test_type_error.test_Too_many_positional_argument>
         
 
 
@@ -2411,6 +2712,40 @@ Unsupported operand types
         
 
 
+function got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 868, in test_function_got_multiple_argument
+        fn2(0, a=1)
+    TypeError: fn2() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `fn2`.
+    This function has the following arguments:
+    `a, b=1`
+    
+    Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
+    
+       865:     def fn2(a, b=1):
+       866:         pass
+       867:     try:
+    -->868:         fn2(0, a=1)
+       869:     except TypeError as e:
+
+            fn2:  <function fn2>
+                defined in <function test_function_got_multiple_argument>
+        
+
+
 function has no len
 ~~~~~~~~~~~~~~~~~~~
 
@@ -2441,8 +2776,78 @@ function has no len
     -->796:         len(bad)
        797:     except TypeError as e:
 
-            bad:  <function bad> from test_function_has_no_len
+            bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
+        
+
+
+method got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 886, in test_method_got_multiple_argument
+        t.some_method(0, a=1)
+    TypeError: some_method() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `t.some_method`.
+    This function has only one argument: `a`
+    
+    Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
+    
+       883:             pass
+       884:     t = T()
+       885:     try:
+    -->886:         t.some_method(0, a=1)
+       887:     except TypeError as e:
+
+            t:  <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
+            t.some_method:  <bound method T.some_method>
+                of <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
+        
+
+
+vars arg must have dict
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 839, in test_vars_arg_must_have_dict
+        vars(f)
+    TypeError: vars() argument must have __dict__ attribute
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The function `vars` is used to list the content of the
+    `__dict__` attribute of an object.
+    Object `f` uses `__slots__` instead of `__dict__`.
+    
+    Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
+    
+       835:         assert no_slots not in result
+       836:         assert use_slots not in result
+       838:     try:
+    -->839:         vars(f)
+       840:     except TypeError as e:
+
+            f:  <F object>
+                defined in <function test_type_error.test_vars_arg_must_have_dict>
+            vars:  <builtin function vars>
         
 
 
@@ -2641,7 +3046,7 @@ Typo in local
     -->97:         test2()
        98:     except UnboundLocalError as e:
 
-            test2:  <function test2> from test_Typo_in_local
+            test2:  <function test2> defined in <function test_Typo_in_local>
         
     Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
     
@@ -2667,7 +3072,8 @@ Generic
     MyException: Some informative message about an unknown exception.
     
     No information is known about this exception.
-    Please report this example to https://github.com/aroberge/friendly/issues.
+    Please report this example to
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
     If you are using a REPL, use `www('bug')` to do so.
     
     If you are using the Friendly console, use `www()` to
@@ -2781,6 +3187,32 @@ Too many values to unpack
 
             c:  [1, 2, 3]
         
+
+
+slots conflicts with class variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
+        class F:
+    ValueError: 'a' in __slots__ conflicts with class variable
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The name `a` is used both as the name of a class variable
+    and as a string item in the class `__slots__`;
+    this is not allowed.
+    
+    Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+    
+       70: def test_slots_conflicts_with_class_variable():
+       71:     try:
+    -->72:         class F:
+       73:             __slots__ = ["a", "b"]
 
 
 ZeroDivisionError

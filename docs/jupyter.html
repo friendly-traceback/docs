@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Jupyter notebooks &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Jupyter notebooks and JupyterLab &mdash; friendly-traceback 0.4.42 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.42
               </div>
             
           
@@ -137,12 +137,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter notebooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#jupyterlab-notebook">JupyterLab notebook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter notebooks and JupyterLab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#suggested-usage">Suggested usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-formatters">Available formatters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#normal-jupyter-tracebacks">Normal Jupyter tracebacks.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dark-background">Dark background</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#about-the-hash-digest">About the hash_digest</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-s-notes">Developer’s notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
@@ -151,12 +154,12 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -239,7 +242,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Jupyter notebooks</li>
+      <li>Jupyter notebooks and JupyterLab</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -267,21 +270,88 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="jupyter-notebooks">
-<h1>Jupyter notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="jupyter-notebooks-and-jupyterlab">
+<h1>Jupyter notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this headline">¶</a></h1>
 <p>Friendly supports Jupyter notebooks and variants.
-Currently, this has been done more as a proof of concept than anything
-else: I am not aware of anyone else having made use of this feature.
-I also almost never test it; please feel free to report any issues.</p>
-<div class="section" id="jupyterlab-notebook">
-<h2>JupyterLab notebook<a class="headerlink" href="#jupyterlab-notebook" title="Permalink to this headline">¶</a></h2>
+Note that, other than when I specifically do work to improve
+friendly’s integration with Jupyter, I do not use Jupyter
+and may not notice any bugs due to changes in Jupyter and iPython;
+please feel free to report any issues.</p>
+<div class="section" id="suggested-usage">
+<h2>Suggested usage<a class="headerlink" href="#suggested-usage" title="Permalink to this headline">¶</a></h2>
+<p>If you are using a Classic notebook, or JupyterLab
+with a light theme, I suggest that use the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.jupyter</span> <span class="kn">import</span> <span class="n">Friendly</span>
+</pre></div>
+</div>
+<p>This should automatically install friendly.</p>
+<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;" /></a>
+<p>If you are using JupyterLab with the dark theme
+selected, then I suggest the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.jupyter</span> <span class="kn">import</span> <span class="n">Friendly</span>
+<span class="n">Friendly</span><span class="o">.</span><span class="n">dark</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;" /></a>
+<p>In both these cases, an easy to use interactive mode is selected
+where you can have access to the <code class="docutils literal notranslate"><span class="pre">what()</span></code>, <code class="docutils literal notranslate"><span class="pre">why()</span></code>, and <code class="docutils literal notranslate"><span class="pre">where()</span></code>
+information when an exception is raised without having to type anything.
+Because of this, there is little advantage to use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.jupyter</span> <span class="pre">import</span> <span class="pre">*</span></code>
+and my use recommendation to do a <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">import</span></code> does not apply.</p>
+<a class="reference internal image-reference" href="_images/jupyter_message_only.png"><img alt="_images/jupyter_message_only.png" src="_images/jupyter_message_only.png" style="width: 427.2px; height: 169.2px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_more_clicked.png"><img alt="_images/jupyter_more_clicked.png" src="_images/jupyter_more_clicked.png" style="width: 471.0px; height: 374.4px;" /></a>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Set width to 60 by default. Add new function to set width
+of traceback separately, and set that to 100 by default.
+For iPython, set both to 60. Keep track of tb width
+so that it is never smaller than general width.</p>
+</div>
+<a class="reference internal image-reference" href="_images/jupyter_wide_why.png"><img alt="_images/jupyter_wide_why.png" src="_images/jupyter_wide_why.png" style="width: 617.2px; height: 304.8px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_narrow_why.png"><img alt="_images/jupyter_narrow_why.png" src="_images/jupyter_narrow_why.png" style="width: 619.8px; height: 468.0px;" /></a>
+<div class="admonition-design_choice admonition" id="id2">
+<p class="admonition-title">Design Choice: automatic installation for Jupyter</p>
+<p>Anyone using friendly in a Jupyter environment does so because
+they want the traceback information to be processed by friendly.
+For this reason, friendly is automatically installed when
+<code class="docutils literal notranslate"><span class="pre">friendly.jupyter</span></code> is imported, instead of requiring users
+to call <code class="docutils literal notranslate"><span class="pre">install()</span></code> after the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+</div>
+<div class="admonition-design_choice admonition" id="id3">
+<p class="admonition-title">UI Design Choice: buttons instead of function calls for Jupyter</p>
+<p>friendly aims to be as easy to use as possible for beginners.
+Having them clicking on buttons to reveal some additional information
+when needed is more user-friendly than requiring them to
+type in and execute some function calls.</p>
+</div>
+<div class="admonition-design_choice admonition" id="id4">
+<p class="admonition-title">Design Choice: only message shown by default for Jupyter</p>
+<p>Rather than showing the friendly traceback by default,
+only the exception message is shown in addition to the <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">...</span></code>
+button.</p>
+</div>
+</div>
+<div class="section" id="available-formatters">
+<h2>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this headline">¶</a></h2>
+<p>To be added</p>
+</div>
+<div class="section" id="normal-jupyter-tracebacks">
+<h2>Normal Jupyter tracebacks.<a class="headerlink" href="#normal-jupyter-tracebacks" title="Permalink to this headline">¶</a></h2>
 <p>By default, tracebacks in JupyterLab notebooks (or Juypter notebooks)
-displayed in a browser are given a pink background (1).</p>
+displayed in a browser are given a pink background (1).
+The image below shows the “old” style of tracebacks.</p>
 <a class="reference internal image-reference" href="_images/jupyter-lab-error.png"><img alt="_images/jupyter-lab-error.png" src="_images/jupyter-lab-error.png" style="width: 503.4px; height: 226.2px;" /></a>
-<p>The “location” of the error (2) includes is of the form
+<p>The “location” of the error (2) includes was of the form
 <code class="docutils literal notranslate"><span class="pre">&lt;ipython-input-A-B&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">A</span></code> is the code block number
 and <code class="docutils literal notranslate"><span class="pre">B</span></code> is an internal value (“hash_digest”) of no particular use
-to a end user. This hash_digest is removed by friendly
+to a end user.</p>
+<p>Recently, Jupyter (lab/notebooks) have changed the way they
+operate and use temporary files to store code to be
+executed; the filenames currently do not have any
+relation to the code block number.</p>
+<p>Friendly’s traceback however indicate clearly what code blocks
+were involved in the execution leading to a particular traceback.</p>
+<p>This hash_digest is removed by friendly
 as shown below.</p>
 <a class="reference internal image-reference" href="_images/jupyter-lab-default.png"><img alt="_images/jupyter-lab-default.png" src="_images/jupyter-lab-default.png" style="width: 645.0px; height: 835.1999999999999px;" /></a>
 <ol class="arabic simple">
@@ -331,6 +401,18 @@ However, IPython developers are certainly swamped with issues to consider
 and would be right not to consider this a high priority item to look at,
 although it might prevent some messages one occasionally gets about
 the need to restart a kernel.</p>
+</div>
+</div>
+<div class="section" id="developer-s-notes">
+<h2>Developer’s notes<a class="headerlink" href="#developer-s-notes" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-design_choice admonition" id="id5">
+<p class="admonition-title">Design Choice: Jupyter font family with Rich</p>
+<p>Instead of using the Jupyter default, Rich specifies a
+set of possible fonts for its output. As a result, the apparent
+size of the fonts, at least on Windows, appears to be
+larger when using Rich than without.  To avoid this,
+I override the default from Rich to give a more consistent
+look and feel.</p>
 </div>
 </div>
 </div>

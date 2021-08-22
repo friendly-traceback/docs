@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.base_formatters &mdash; friendly-traceback 0.3.150 documentation</title>
+  <title>friendly_traceback.base_formatters &mdash; friendly-traceback 0.4.23 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.3.150
+                0.4.23
               </div>
             
           
@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../beginner.html">Useful information for beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../when_ft.html">Differences between friendly and friendly_traceback</a></li>
 </ul>
 <p class="caption"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -103,8 +104,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html#everything-about-the-friendly-console">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
 </ul>
@@ -136,14 +135,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
 <ul>
@@ -277,9 +282,11 @@
 <span class="sd">  embedded as a code-block in a file (such as .rst). It can also be used</span>
 <span class="sd">  to print the information in a traditional console.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">debug_helper</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span>
 
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">debug_helper</span>
+<span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
+<span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Info</span>
 
 <span class="c1"># The following is the order in which the various items, if they exist</span>
 <span class="c1"># and have been selected to be printed, would be printed.</span>
@@ -326,7 +333,7 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="repl"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.repl">[docs]</a><span class="k">def</span> <span class="nf">repl</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">&quot;friendly_tb&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="repl"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.repl">[docs]</a><span class="k">def</span> <span class="nf">repl</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="n">Info</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">&quot;friendly_tb&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Default formatter, primarily for console usage.</span>
 
 <span class="sd">    The only change made to the content of &quot;info&quot; is</span>
@@ -349,7 +356,9 @@
     <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="docs"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.docs">[docs]</a><span class="k">def</span> <span class="nf">docs</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">&quot;friendly_tb&quot;</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+<div class="viewcode-block" id="docs"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.docs">[docs]</a><span class="k">def</span> <span class="nf">docs</span><span class="p">(</span>
+    <span class="n">info</span><span class="p">:</span> <span class="n">Info</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">&quot;friendly_tb&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;Formatter that produces an output that is suitable for</span>
 <span class="sd">    insertion in a RestructuredText (.rst) code block,</span>
 <span class="sd">    with pre-formatted indentation.</span>
@@ -383,7 +392,7 @@
     <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="no_result"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.no_result">[docs]</a><span class="k">def</span> <span class="nf">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="p">):</span>
+<div class="viewcode-block" id="no_result"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.no_result">[docs]</a><span class="k">def</span> <span class="nf">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="n">Info</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Should normally only be called if no result is available</span>
 <span class="sd">    from either hint() or why().</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -402,7 +411,7 @@
     <span class="p">)</span>  <span class="c1"># pragma: no cover</span></div>
 
 
-<span class="n">items_groups</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">items_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">},</span>  <span class="c1"># Also included as last line of traceback</span>
     <span class="s2">&quot;hint&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;suggest&quot;</span><span class="p">},</span>
     <span class="s2">&quot;what&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;generic&quot;</span><span class="p">},</span>
@@ -427,11 +436,13 @@
     <span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;why&quot;</span><span class="p">])</span>
     <span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;where&quot;</span><span class="p">])</span>
 <span class="p">)</span>
-<span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;no_tb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;explain&quot;</span><span class="p">]</span>  <span class="c1"># used in check_syntax()</span>
-<span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;no_tb&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;friendly_tb&quot;</span><span class="p">])</span>
+
+<span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;no_tb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;explain&quot;</span><span class="p">])</span>  <span class="c1"># used in check_syntax()</span>
+<span class="k">for</span> <span class="n">item_</span> <span class="ow">in</span> <span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;friendly_tb&quot;</span><span class="p">]:</span>
+    <span class="n">items_groups</span><span class="p">[</span><span class="s2">&quot;no_tb&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">item_</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">select_items</span><span class="p">(</span><span class="n">group_name</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">select_items</span><span class="p">(</span><span class="n">group_name</span><span class="p">:</span> <span class="n">InclusionChoice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
     <span class="n">items</span> <span class="o">=</span> <span class="n">items_groups</span><span class="p">[</span><span class="n">group_name</span><span class="p">]</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items_in_order</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
 </pre></div>

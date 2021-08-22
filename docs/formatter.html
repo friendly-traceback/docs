@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Custom formatter &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Custom formatter &mdash; friendly-traceback 0.4.42 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.42
               </div>
             
           
@@ -137,19 +137,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes and colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -355,7 +355,7 @@ to print the information in a traditional console.</p></li>
 </ul>
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.docs">
-<code class="sig-name descname"><span class="pre">docs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.docs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">docs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.docs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formatter that produces an output that is suitable for
 insertion in a RestructuredText (.rst) code block,
 with pre-formatted indentation.</p>
@@ -365,14 +365,14 @@ some added indentation.</p>
 
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.no_result">
-<code class="sig-name descname"><span class="pre">no_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#no_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.no_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">no_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#no_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.no_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Should normally only be called if no result is available
 from either hint() or why().</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.repl">
-<code class="sig-name descname"><span class="pre">repl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#repl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.repl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">repl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#repl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.repl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default formatter, primarily for console usage.</p>
 <p>The only change made to the content of “info” is
 some added indentation.</p>

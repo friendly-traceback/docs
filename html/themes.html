@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Themes and colours &mdash; friendly-traceback 0.3.157 documentation</title>
+  <title>Themes, Styles, and Colours &mdash; friendly-traceback 0.4.42 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="IDLE’s colours" href="idle_colours.html" />
-    <link rel="prev" title="Numbered prompt" href="numbered_prompt.html" /> 
+    <link rel="next" title="Multiple tracebacks" href="multiple_tracebacks.html" />
+    <link rel="prev" title="Some thoughts on the design of friendly" href="design.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3.157
+                0.4.42
               </div>
             
           
@@ -137,28 +137,31 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Themes, Styles, and Colours</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#friendly-default-theme-using-windows-terminal">friendly default theme using Windows Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-os">Other OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-background-colours">Different background colours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colour-consistency">Colour consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rich-partially-supported">Rich partially supported</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conemu-base16-theme">ConEmu: base16 theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conemu-default-windows-theme">ConEmu: default windows theme</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rich-not-supported">Rich not supported</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">IPython tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Themes and colours</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#friendly-default-theme-using-windows-terminal">friendly default theme using Windows Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conemu-base16-theme">ConEmu: base16 theme</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conemu-default-windows-theme">ConEmu: default windows theme</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conemu-powershell-theme">ConEmu: powershell theme</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-os">Other OS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rich-not-supported">Rich not supported</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Use in your project</span></p>
@@ -241,7 +244,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Themes and colours</li>
+      <li>Themes, Styles, and Colours</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -257,10 +260,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="idle_colours.html" class="btn btn-neutral float-right" title="IDLE’s colours" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="multiple_tracebacks.html" class="btn btn-neutral float-right" title="Multiple tracebacks" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="numbered_prompt.html" class="btn btn-neutral float-left" title="Numbered prompt" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="design.html" class="btn btn-neutral float-left" title="Some thoughts on the design of friendly" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -269,8 +272,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="themes-and-colours">
-<span id="themes"></span><h1>Themes and colours<a class="headerlink" href="#themes-and-colours" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="themes-styles-and-colours">
+<span id="themes"></span><h1>Themes, Styles, and Colours<a class="headerlink" href="#themes-styles-and-colours" title="Permalink to this headline">¶</a></h1>
 <p>As mentioned before, friendly uses
 <a class="reference external" href="https://github.com/willmcgugan/rich">Rich</a> to add colours.
 Syntax colouring is done by Rich using Pygments.
@@ -278,49 +281,75 @@ While Pygments comes with many different styles (colour schemes),
 most of them do not define colours for all possible parts of
 a Python traceback: depending on the style, we sometimes end up with
 some text with the same colour as the background.</p>
+<p>Furthermore, depending on the context, using the default
+values, Rich might use different colours for the same Python object.</p>
 <p>To ensure that all of friendly’s output would be styled
-properly, friendly includes its own “themes”: one suitable for
-light coloured backgrounds, and one for dark coloured backgrounds.
-One problem I had was to figure out
-all the possible styling elements. It turned out that this problem had
-bee “solved” in 2008 when Johannes Woolard and I created the Pygments Tango
-style for an old project where we sought to include all
-possible styling elements, while minimizing the numbers of colours
-used.</p>
-<div class="sidebar">
-<p class="sidebar-title">Old screenshots</p>
-<p>The screenshots on this page have been taken with an older version of
-friendly. A few changes have been done since, but the conclusion would
-remain the same.</p>
+consistently, I have created two pygments styles: one suitable for
+white or light coloured backgrounds,
+and one for black or dark coloured backgrounds.
+These are found in the
+<a class="reference external" href="https://github.com/friendly-traceback/friendly_styles">friendly_styles</a>
+repository.</p>
+<div class="admonition-design_choice admonition" id="id1">
+<p class="admonition-title">UI Design Choice: Red means exception or error</p>
+<p>For both themes, I have chosen to use the colour red only for
+exception names, such as <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, for traceback headings,
+and for headings showing where an exception occurred.</p>
 </div>
-<p>Designing a pygments colour style is one thing; having it faithfully
-displayed in a terminal is something else altogether.
-Below you will see various screenshots: the first one is
-taken using the new <a class="reference external" href="https://github.com/microsoft/terminal">Windows Terminal</a>.
-Other screenshots have been taken using <a class="reference external" href="https://conemu.github.io/">ConEmu</a>,
-using different colour schemes available from ConEmu’s settings.
-Much to my surprise, even though the colours I have chosen are not standard
-colours, they are much altered by ConEmu depending on the chosen
-colour scheme.</p>
+<a class="reference internal image-reference" href="_images/friendly_indexerror_en.png"><img alt="friendly IndexError example in English" src="_images/friendly_indexerror_en.png" style="width: 620.0px; height: 569.5px;" /></a>
+<p>This choice of only using red to signal something related to an exception
+results in some styles that might be different from the
+default style in some environments. For example, Jupyter notebooks
+use red as the colour for strings.</p>
 <div class="section" id="friendly-default-theme-using-windows-terminal">
 <h2>friendly default theme using Windows Terminal<a class="headerlink" href="#friendly-default-theme-using-windows-terminal" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/theme_terminal.png"><img alt="Default theme using Windows Terminal" src="_images/theme_terminal.png" style="width: 628.4000000000001px; height: 375.6px;" /></a>
-</div>
-<div class="section" id="conemu-base16-theme">
-<h2>ConEmu: base16 theme<a class="headerlink" href="#conemu-base16-theme" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/conemu_base16.png"><img alt="ConEmu: base16 theme" src="_images/conemu_base16.png" style="width: 626.4000000000001px; height: 358.0px;" /></a>
-</div>
-<div class="section" id="conemu-default-windows-theme">
-<h2>ConEmu: default windows theme<a class="headerlink" href="#conemu-default-windows-theme" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/conemu_default_windows.png"><img alt="ConEmu: default windows theme" src="_images/conemu_default_windows.png" style="width: 626.4000000000001px; height: 358.40000000000003px;" /></a>
-</div>
-<div class="section" id="conemu-powershell-theme">
-<h2>ConEmu: powershell theme<a class="headerlink" href="#conemu-powershell-theme" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/conemu_powershell.png"><img alt="ConEmu: default powershell theme" src="_images/conemu_powershell.png" style="width: 626.4000000000001px; height: 352.0px;" /></a>
+<p>When using Windows, only the new Windows Terminal can faithfully
+support the full colour gamet provided by Rich as shown in
+the above screenshot.</p>
 </div>
 <div class="section" id="other-os">
 <h2>Other OS<a class="headerlink" href="#other-os" title="Permalink to this headline">¶</a></h2>
 <p>Screenshots taken by MacOS or Linux users would be welcome.</p>
+</div>
+<div class="section" id="different-background-colours">
+<h2>Different background colours<a class="headerlink" href="#different-background-colours" title="Permalink to this headline">¶</a></h2>
+<p>Both styles/themes designed for friendly support specifying a
+different background colour when highlighting.
+See the section on Mu as an example.</p>
+</div>
+<div class="section" id="colour-consistency">
+<h2>Colour consistency<a class="headerlink" href="#colour-consistency" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned previously, depending on the context, Rich can colour
+Python objects differently. The screenshot below illustrates this,
+and shows how one can use friendly’s styles to achieve consistency.</p>
+<a class="reference internal image-reference" href="_images/rich_vs_friendly.png"><img alt="Illustrating differences between rich's default and friendly's" src="_images/rich_vs_friendly.png" style="width: 589.0px; height: 392.5px;" /></a>
+</div>
+<div class="section" id="rich-partially-supported">
+<h2>Rich partially supported<a class="headerlink" href="#rich-partially-supported" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="sidebar-title">Old screenshots</p>
+<p>The screenshots showing partial support for Rich when using ConEmu
+have been taken with an older version of friendly.
+A few changes have been done since, but the conclusion would
+remain the same.</p>
+</div>
+<p>Designing a pygments colour style is one thing; having it faithfully
+displayed in a terminal even if it supports escape sequences emitted
+by Rich is something else altogether.
+Below you will see a few screenshots taken using
+<a class="reference external" href="https://conemu.github.io/">ConEmu</a>,
+using different colour schemes available from ConEmu’s settings.
+Much to my surprise, even though the colours I have chosen are not standard
+colours, they are much altered by ConEmu depending on the chosen
+colour scheme.</p>
+<div class="section" id="conemu-base16-theme">
+<h3>ConEmu: base16 theme<a class="headerlink" href="#conemu-base16-theme" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/conemu_base16.png"><img alt="ConEmu: base16 theme" src="_images/conemu_base16.png" style="width: 626.4000000000001px; height: 358.0px;" /></a>
+</div>
+<div class="section" id="conemu-default-windows-theme">
+<h3>ConEmu: default windows theme<a class="headerlink" href="#conemu-default-windows-theme" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/conemu_default_windows.png"><img alt="ConEmu: default windows theme" src="_images/conemu_default_windows.png" style="width: 626.4000000000001px; height: 358.40000000000003px;" /></a>
+</div>
 </div>
 <div class="section" id="rich-not-supported">
 <h2>Rich not supported<a class="headerlink" href="#rich-not-supported" title="Permalink to this headline">¶</a></h2>
@@ -330,17 +359,8 @@ underlined, etc.). Some environment cannot interpret these escape
 sequences. Here is what happens if we attempt to use Rich
 together with Python’s IDLE for the same code as shown above:</p>
 <a class="reference internal image-reference" href="_images/rich_not_supported.png"><img alt="Rich not supported in IDLE" src="_images/rich_not_supported.png" style="width: 548.8000000000001px; height: 200.0px;" /></a>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
-<p>While suggestions for improving friendly are generally
-always welcome, suggested changes to the current default theme
-will likely be ignored since the end result appear to be
-completely dependent on the environment.</p>
-<p>I might consider supporting custom themes, but this will likely
-be a lower priority item: chances are that using either the
-<code class="docutils literal notranslate"><span class="pre">'light'</span></code> or <code class="docutils literal notranslate"><span class="pre">'dark'</span></code> theme with a custom <code class="docutils literal notranslate"><span class="pre">background</span></code>
-colour will be sufficient in most situations for the time being.</p>
+<p>However, friendly includes special support for adding colours
+when using IDLE.</p>
 </div>
 </div>
 
@@ -350,8 +370,8 @@ colour will be sufficient in most situations for the time being.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="idle_colours.html" class="btn btn-neutral float-right" title="IDLE’s colours" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="numbered_prompt.html" class="btn btn-neutral float-left" title="Numbered prompt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multiple_tracebacks.html" class="btn btn-neutral float-right" title="Multiple tracebacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="design.html" class="btn btn-neutral float-left" title="Some thoughts on the design of friendly" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

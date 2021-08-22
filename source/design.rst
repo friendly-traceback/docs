@@ -2,7 +2,11 @@ Some thoughts on the design of friendly
 =================================================
 
 The following are thoughts on the design of this project.
-The content of this file **will** be changed as this project evolve.
+More information about various design choices are scattered
+throughout this documentation.
+If you can think of better design choices,
+please feel free to file an issue.
+
 
 Original purpose
 ------------------
@@ -37,9 +41,9 @@ or revealed by clicking on a button.
    :scale: 100 %
 
 
-For now, friendly tries to identify the most likely cause
-of the exception, but some consideration has been given to
-include more than one possible explanation in some cases.
+For now, friendly usually tries to identify the most likely cause
+of the exception, but makes some additional suggestions in
+a few relatively rare cases.
 
 Gradual reveal
 ---------------
@@ -49,8 +53,8 @@ should be shown all at once. As we accumulated more and more cases,
 we realised that this could yield a huge amount of material which could
 be rather daunting for beginners. Eventually, this lead to the
 approach of using a REPL whenever possible so that the user could get
-some small amount of information at a time by entering ``why()`` or
-``where()``.
+some small amount of information at a time by entering ``what()``,
+``why()`` or ``where()``.
 
 As part of the gradual reveal, the traceback shown to the user
 shows an added "hint" which attempts to summarize in a single sentence
@@ -58,6 +62,24 @@ a possible cause or remedy to the exception that was raised.
 This has been inspired in parts by the
 `DidYouMean-Python (aka BetterErrorMessages) <https://github.com/SylvainDe/DidYouMean-Python>`_
 project.
+
+
+Summary of design choices
+-------------------------
+
+Scattered throughout this documentation, we added notes about choices
+that were made in designing friendly and friendly-traceback.
+These are are listed below.
+
+.. design_choice_list::
+
+
+
+.. note::
+
+    The sections shown below will likely be moved elsewhere
+
+
 
 About Warnings
 ---------------
@@ -183,3 +205,12 @@ The following is an incomplete list of projects or modules to look at:
 - https://github.com/onelivesleft/PrettyErrors/
 - https://github.com/skorokithakis/tbvaccine
 - https://github.com/alexmojaki/stack_data
+
+
+.. todo::
+
+    Add explanation about:
+
+    - variable shown
+    - how it works (especially for analysis of SyntaxError cases)
+    - use Mu to show numbered prompt

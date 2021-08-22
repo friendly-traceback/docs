@@ -178,12 +178,12 @@ could easily be added.
    :caption: Thoughts on design
 
    design
+   themes
    multiple_tracebacks
    friendly_tb
    ipython_tb
    jupyter_tb
    numbered_prompt
-   themes
    idle_colours
 
 .. toctree::
