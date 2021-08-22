@@ -431,7 +431,7 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.42
+<p>Friendly version: 0.4.52
 Python version: 3.8.10</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -3144,8 +3144,8 @@ Exception levée à la ligne 94 du fichier TESTS:\runtime\test_unbound_local_err
 <h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;TESTS:\runtime\test_unknown_error.py&quot;, line 12, in test_Generic
-    raise MyException(&quot;Some informative message about an unknown exception.&quot;)
-MyException: Some informative message about an unknown exception.
+    raise UnknownException(&quot;Some informative message about an unknown exception.&quot;)
+UnknownException: Some informative message about an unknown exception.
 
 Aucune information n’est disponible au sujet de cette exception.
 Veuillez signaler cet exemple à
@@ -3160,10 +3160,10 @@ Exception levée à la ligne 12 du fichier TESTS:\runtime\test_unknown_error.py.
     9:     old_debug = friendly_traceback.debug_helper.DEBUG
    10:     friendly_traceback.debug_helper.DEBUG = False
    11:     try:
---&gt;12:         raise MyException(&quot;Some informative message about an unknown exception.&quot;)
+--&gt;12:         raise UnknownException(&quot;Some informative message about an unknown exception.&quot;)
    13:     except Exception as e:
 
-        global MyException:  &lt;class test_unknown_error.MyException&gt;
+        global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
 </pre></div>
 </div>
 </div>

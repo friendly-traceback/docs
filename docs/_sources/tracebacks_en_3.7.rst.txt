@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.42
+Friendly version: 0.4.52
 Python version: 3.7.8
 
 
@@ -3073,8 +3073,8 @@ Generic
 
     Traceback (most recent call last):
       File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
-        raise MyException("Some informative message about an unknown exception.")
-    MyException: Some informative message about an unknown exception.
+        raise UnknownException("Some informative message about an unknown exception.")
+    UnknownException: Some informative message about an unknown exception.
     
     No information is known about this exception.
     Please report this example to
@@ -3089,10 +3089,10 @@ Generic
         9:     old_debug = friendly_traceback.debug_helper.DEBUG
        10:     friendly_traceback.debug_helper.DEBUG = False
        11:     try:
-    -->12:         raise MyException("Some informative message about an unknown exception.")
+    -->12:         raise UnknownException("Some informative message about an unknown exception.")
        13:     except Exception as e:
 
-            global MyException:  <class test_unknown_error.MyException>
+            global UnknownException:  <class test_unknown_error.UnknownException>
         
 
 
