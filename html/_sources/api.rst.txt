@@ -19,7 +19,22 @@ using something like the following::
 Without further ado, here's the API automatically obtained
 by Sphinx from the source code.
 
+``friendly_traceback``
+----------------------
 
 .. automodule:: friendly_traceback
    :members:
 
+``friendly_traceback.info_generic``
+-----------------------------------
+
+.. automodule:: friendly_traceback.info_generic
+
+   .. autodecorator:: friendly_traceback.info_generic.register
+
+``friendly_traceback.info_specific``
+------------------------------------
+
+.. automodule:: friendly_traceback.info_specific
+
+   .. autodecorator:: friendly_traceback.info_specific.register

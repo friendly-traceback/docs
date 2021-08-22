@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>friendly_traceback.info_generic &mdash; friendly-traceback 0.4.52 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> friendly-traceback
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.52
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../when_ft.html">Differences between friendly and friendly_traceback</a></li>
+</ul>
+<p class="caption"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.7.html">friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.9.html">friendly tracebacks - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">friendly-traceback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../friendly_traceback.html">friendly_traceback</a> &raquo;</li>
+        
+      <li>friendly_traceback.info_generic</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for friendly_traceback.info_generic</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;info_generic.py</span>
+
+<span class="sd">Generic information about Python exceptions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span><span class="p">,</span> <span class="n">no_information</span>
+<span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">GenericExplain</span>
+
+<span class="n">GENERIC</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="n">GenericExplain</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">SUBCLASS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span> <span class="nf">get_generic_explanation</span><span class="p">(</span><span class="n">exception_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Provides a generic explanation about a particular exception.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">):</span>
+        <span class="n">exception_name</span> <span class="o">=</span> <span class="n">exception_type</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">exception_name</span> <span class="o">=</span> <span class="n">exception_type</span>
+    <span class="k">if</span> <span class="n">exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">exception_type</span><span class="p">]()</span>
+    <span class="k">elif</span> <span class="n">exception_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Warning&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="s2">&quot;UnknownWarning&quot;</span><span class="p">]()</span>
+    <span class="k">elif</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os_error_subclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">no_information</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="register"><a class="viewcode-back" href="../../api.html#friendly_traceback.info_generic.register">[docs]</a><span class="k">def</span> <span class="nf">register</span><span class="p">(</span>
+    <span class="n">error_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">GenericExplain</span><span class="p">],</span> <span class="n">GenericExplain</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Decorator used to record as available an explanation for a given exception&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">add_exception</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="n">GENERIC</span><span class="p">[</span><span class="n">error_class</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span>
+
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">add_exception</span></div>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ArithmeticError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">arithmetic_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;`ArithmeticError` is the base class for those built-in exceptions</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;that are raised for various arithmetic errors.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;It is unusual that you are seeing this exception;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;normally, a more specific exception should have been raised.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">AssertionError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">assertion_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;In Python, the keyword `assert` is used in statements of the form</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;`assert condition`, to confirm that `condition` is not `False`,</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;nor equivalent to `False` such as an empty list, etc.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;If `condition` is `False` or equivalent, an `AssertionError` is raised.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">attribute_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `AttributeError` occurs when the code contains something like</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;    `object.x`</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;and `x` is not a method or attribute (variable) belonging to `object`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">EOFError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">eof_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `EOFError` is raised when the `input()` function hits</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;an end-of-file condition (EOF) without reading any data.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">file_not_found_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `FileNotFoundError` exception indicates that you</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;are trying to open a file that cannot be found by Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;This could be because you misspelled the name of the file.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ImportError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">import_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `ImportError` exception indicates that a certain object could not</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;be imported from a module or package. Most often, this is</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;because the name of the object is not spelled correctly.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">IndentationError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">indentation_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `IndentationError` occurs when a given line of code is</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;not indented (aligned vertically with other lines) as expected.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `IndexError` occurs when you try to get an item from a list,</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;a tuple, or a similar object (sequence), and use an index which</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;does not exist; typically, this happens because the index you give</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;is greater than the length of the sequence.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">key_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `KeyError` is raised when a value is not found as a</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;key in a Python dict or in a similar object.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">LookupError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">lookup_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;`LookupError` is the base class for the exceptions that are raised</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;when a key or index used on a mapping or sequence is invalid.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;It can also be raised directly by codecs.lookup().</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">MemoryError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">memory_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;Like the name indicates, a `MemoryError` occurs when Python</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;runs out of memory. This can happen if you create an object</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;that is too big, like a list with too many items.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ModuleNotFoundError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">module_not_found_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `ModuleNotFoundError` exception indicates that you</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;are trying to import a module that cannot be found by Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;This could be because you misspelled the name of the module</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;or because it is not installed on your computer.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">NameError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">name_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `NameError` exception indicates that a variable or</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;function name is not known to Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;Most often, this is because there is a spelling mistake.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;However, sometimes it is because the name is used</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;before being defined or given a value.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">OSError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">os_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `OSError` exception is usually raised by the Operating System</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;to indicate that an operation is not allowed or that</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;a resource is not available.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">os_error_subclass</span><span class="p">(</span><span class="n">error_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">OSError</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `OSError`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">error_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">os_error</span><span class="p">()</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">OverflowError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">overflow_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;An `OverflowError` is raised when the result of an arithmetic operation</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;is too large to be handled by the computer&#39;s processor.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">RecursionError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">recursion_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `RecursionError` is raised when a function calls itself,</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;directly or indirectly, too many times.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;It almost always indicates that you made an error in your code</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;and that your program would never stop.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">StopIteration</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">stop_iteration</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;`StopIteration` is raised to indicate that an iterator has no more</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;item to provide when its `__next__` method is called by</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;the `next()` builtin function.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">SyntaxError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">syntax_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;A `SyntaxError` occurs when Python cannot understand your code.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">TabError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tab_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `TabError` indicates that you have used both spaces</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;and tab characters to indent your code.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;This is not allowed in Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;Indenting your code means to have block of codes aligned vertically</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;by inserting either spaces or tab characters at the beginning of lines.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;Python&#39;s recommendation is to always use spaces to indent your code.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">type_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `TypeError` is usually caused by trying</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;to combine two incompatible types of objects,</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;by calling a function with the wrong type of object,</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;or by trying to do an operation not allowed on a given type of object.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">value_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `ValueError` indicates that a function or an operation</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;received an argument of the right type, but an inappropriate value.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">UnboundLocalError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unbound_local_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;In Python, variables that are used inside a function are known as </span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;local variables. Before they are used, they must be assigned a value.</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;A variable that is used before it is assigned a value is assumed to</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;be defined outside that function; it is known as a `global`</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;(or sometimes `nonlocal`) variable. You cannot assign a value to such</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;a global variable inside a function without first indicating to</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;Python that this is a global variable, otherwise you will see</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;an `UnboundLocalError`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="s2">&quot;UnknownWarning&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unknown_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;No information is available about this warning.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">zero_division_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">&quot;A `ZeroDivisionError` occurs when you are attempting to divide a value</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;by zero either directly or by using some other mathematical operation.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright André Roberge.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

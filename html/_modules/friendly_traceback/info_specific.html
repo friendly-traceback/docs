@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>friendly_traceback.info_specific &mdash; friendly-traceback 0.4.52 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> friendly-traceback
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.52
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../when_ft.html">Differences between friendly and friendly_traceback</a></li>
+</ul>
+<p class="caption"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.7.html">friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.9.html">friendly tracebacks - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">friendly-traceback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../friendly_traceback.html">friendly_traceback</a> &raquo;</li>
+        
+      <li>friendly_traceback.info_specific</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for friendly_traceback.info_specific</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;info_specific.py</span>
+
+<span class="sd">Attempts to provide some specific information about the likely cause</span>
+<span class="sd">of a given exception.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">FrameType</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">debug_helper</span>
+<span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span><span class="p">,</span> <span class="n">internal_error</span>
+<span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">_E</span><span class="p">,</span> <span class="n">CauseInfo</span><span class="p">,</span> <span class="n">Explain</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">TracebackData</span>
+
+
+<span class="n">get_cause</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="n">Explain</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span> <span class="nf">get_likely_cause</span><span class="p">(</span>
+    <span class="n">etype</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">_E</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">_E</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Gets the likely cause of a given exception based on some information</span>
+<span class="sd">    specific to a given exception.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">etype</span> <span class="ow">in</span> <span class="n">get_cause</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">get_cause</span><span class="p">[</span><span class="n">etype</span><span class="p">](</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa  # pragma: no cover</span>
+        <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Exception caught in get_likely_cause().&quot;</span><span class="p">)</span>
+        <span class="n">debug_helper</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;cause&quot;</span><span class="p">:</span> <span class="n">internal_error</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># see if it could be the result of using socket, or urllib, urllib3, etc.</span>
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">etype</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">get_cause</span><span class="p">[</span><span class="ne">OSError</span><span class="p">](</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa  # pragma: no cover</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="register"><a class="viewcode-back" href="../../api.html#friendly_traceback.info_specific.register">[docs]</a><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">error_name</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">_E</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Explain</span><span class="p">[</span><span class="n">_E</span><span class="p">]],</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Decorator used to record as available an explanation for a given exception&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">add_exception</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Explain</span><span class="p">[</span><span class="n">_E</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">get_cause</span><span class="p">[</span><span class="n">error_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span>
+
+    <span class="k">return</span> <span class="n">add_exception</span></div>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_attribute_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">AttributeError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">attribute_error</span>
+
+    <span class="k">return</span> <span class="n">attribute_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_file_not_found_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">file_not_found_error</span>
+
+    <span class="k">return</span> <span class="n">file_not_found_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ImportError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_import_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">import_error</span>
+
+    <span class="k">return</span> <span class="n">import_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_index_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">index_error</span>
+
+    <span class="k">return</span> <span class="n">index_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_key_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">KeyError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">key_error</span>
+
+    <span class="k">return</span> <span class="n">key_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ModuleNotFoundError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_module_not_found_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">module_not_found_error</span>
+
+    <span class="k">return</span> <span class="n">module_not_found_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">NameError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_name_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">NameError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">name_error</span>
+
+    <span class="k">return</span> <span class="n">name_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">OSError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_os_error</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="ne">OSError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">os_error</span>
+
+    <span class="k">return</span> <span class="n">os_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">OverflowError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_overflow_error</span><span class="p">(</span><span class="o">*</span><span class="n">_args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{}</span>
+    <span class="c1"># can be provided for real test cases</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_type_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">type_error</span>
+
+    <span class="k">return</span> <span class="n">type_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_value_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">value_error</span>
+
+    <span class="k">return</span> <span class="n">value_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">UnboundLocalError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_unbound_local_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">UnboundLocalError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">unbound_local_error</span>
+
+    <span class="k">return</span> <span class="n">unbound_local_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_zero_division_error</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">zero_division_error</span>
+
+    <span class="k">return</span> <span class="n">zero_division_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright André Roberge.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Custom formatter &mdash; friendly-traceback 0.4.42 documentation</title>
+  <title>Custom formatter &mdash; friendly-traceback 0.4.52 documentation</title>
   
 
   
@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Other details for advanced users" href="usage_adv.html" />
+    <link rel="next" title="Registering custom error types" href="custom_errors.html" />
     <link rel="prev" title="Public API" href="api.html" /> 
 </head>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.42
+                0.4.52
               </div>
             
           
@@ -159,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#base-formatters-py">base_formatters.py</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
@@ -251,7 +252,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="usage_adv.html" class="btn btn-neutral float-right" title="Other details for advanced users" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="custom_errors.html" class="btn btn-neutral float-right" title="Registering custom error types" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
         <a href="api.html" class="btn btn-neutral float-left" title="Public API" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
@@ -355,7 +356,7 @@ to print the information in a traditional console.</p></li>
 </ul>
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.docs">
-<code class="sig-name descname"><span class="pre">docs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.docs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">docs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.docs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formatter that produces an output that is suitable for
 insertion in a RestructuredText (.rst) code block,
 with pre-formatted indentation.</p>
@@ -365,14 +366,14 @@ some added indentation.</p>
 
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.no_result">
-<code class="sig-name descname"><span class="pre">no_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#no_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.no_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">no_result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#no_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.no_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Should normally only be called if no result is available
 from either hint() or why().</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="friendly_traceback.base_formatters.repl">
-<code class="sig-name descname"><span class="pre">repl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">friendly_traceback.typing.Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">message</span><span class="p"><span class="pre">,</span> </span><span class="pre">hint</span><span class="p"><span class="pre">,</span> </span><span class="pre">what</span><span class="p"><span class="pre">,</span> </span><span class="pre">why</span><span class="p"><span class="pre">,</span> </span><span class="pre">where</span><span class="p"><span class="pre">,</span> </span><span class="pre">friendly_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">python_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">debug_tb</span><span class="p"><span class="pre">,</span> </span><span class="pre">explain</span><span class="p"><span class="pre">,</span> </span><span class="pre">no_tb</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#repl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.repl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">repl</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#repl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.repl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default formatter, primarily for console usage.</p>
 <p>The only change made to the content of “info” is
 some added indentation.</p>
@@ -387,7 +388,7 @@ some added indentation.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="usage_adv.html" class="btn btn-neutral float-right" title="Other details for advanced users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="custom_errors.html" class="btn btn-neutral float-right" title="Registering custom error types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="api.html" class="btn btn-neutral float-left" title="Public API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

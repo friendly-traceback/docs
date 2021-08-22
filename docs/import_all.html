@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Why import *? &mdash; friendly-traceback 0.4.42 documentation</title>
+  <title>Why import *? &mdash; friendly-traceback 0.4.52 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.4.42
+                0.4.52
               </div>
             
           
@@ -156,6 +156,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
@@ -278,6 +279,14 @@ can be used in an interactive mode.  You can think of these
 functions as useful additions to Python’s builtins, such as <code class="docutils literal notranslate"><span class="pre">dir()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">vars()</span></code>, etc.
 These functions are meant to be used in <strong>interactive sessions</strong>.</p>
+<p>Speaking of which, here are the names immediately available from
+the default namespace in a python interpreter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">))</span>
+<span class="go">[&#39;ArithmeticError&#39;, &#39;AssertionError&#39;, &#39;AttributeError&#39;, &#39;BaseException&#39;, &#39;BlockingIOError&#39;, &#39;BrokenPipeError&#39;, &#39;BufferError&#39;, &#39;BytesWarning&#39;, &#39;ChildProcessError&#39;, &#39;ConnectionAbortedError&#39;, &#39;ConnectionError&#39;, &#39;ConnectionRefusedError&#39;, &#39;ConnectionResetError&#39;, &#39;DeprecationWarning&#39;, &#39;EOFError&#39;, &#39;Ellipsis&#39;, &#39;EnvironmentError&#39;, &#39;Exception&#39;, &#39;False&#39;, &#39;FileExistsError&#39;, &#39;FileNotFoundError&#39;, &#39;FloatingPointError&#39;, &#39;FutureWarning&#39;, &#39;GeneratorExit&#39;, &#39;IOError&#39;, &#39;ImportError&#39;, &#39;ImportWarning&#39;, &#39;IndentationError&#39;, &#39;IndexError&#39;, &#39;InterruptedError&#39;, &#39;IsADirectoryError&#39;, &#39;KeyError&#39;, &#39;KeyboardInterrupt&#39;, &#39;LookupError&#39;, &#39;MemoryError&#39;, &#39;ModuleNotFoundError&#39;, &#39;NameError&#39;, &#39;None&#39;, &#39;NotADirectoryError&#39;, &#39;NotImplemented&#39;, &#39;NotImplementedError&#39;, &#39;OSError&#39;, &#39;OverflowError&#39;, &#39;PendingDeprecationWarning&#39;, &#39;PermissionError&#39;, &#39;ProcessLookupError&#39;, &#39;RecursionError&#39;, &#39;ReferenceError&#39;, &#39;ResourceWarning&#39;, &#39;RuntimeError&#39;, &#39;RuntimeWarning&#39;, &#39;StopAsyncIteration&#39;, &#39;StopIteration&#39;, &#39;SyntaxError&#39;, &#39;SyntaxWarning&#39;, &#39;SystemError&#39;, &#39;SystemExit&#39;, &#39;TabError&#39;, &#39;TimeoutError&#39;, &#39;True&#39;, &#39;TypeError&#39;, &#39;UnboundLocalError&#39;, &#39;UnicodeDecodeError&#39;, &#39;UnicodeEncodeError&#39;, &#39;UnicodeError&#39;, &#39;UnicodeTranslateError&#39;, &#39;UnicodeWarning&#39;, &#39;UserWarning&#39;, &#39;ValueError&#39;, &#39;Warning&#39;, &#39;WindowsError&#39;, &#39;ZeroDivisionError&#39;, &#39;_&#39;, &#39;__build_class__&#39;, &#39;__debug__&#39;, &#39;__doc__&#39;, &#39;__import__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;abs&#39;, &#39;all&#39;, &#39;any&#39;, &#39;ascii&#39;, &#39;bin&#39;, &#39;bool&#39;, &#39;breakpoint&#39;, &#39;bytearray&#39;, &#39;bytes&#39;, &#39;callable&#39;, &#39;chr&#39;, &#39;classmethod&#39;, &#39;compile&#39;, &#39;complex&#39;, &#39;copyright&#39;, &#39;credits&#39;, &#39;delattr&#39;, &#39;dict&#39;, &#39;dir&#39;, &#39;divmod&#39;, &#39;enumerate&#39;, &#39;eval&#39;, &#39;exec&#39;, &#39;exit&#39;, &#39;filter&#39;, &#39;float&#39;, &#39;format&#39;, &#39;frozenset&#39;, &#39;getattr&#39;, &#39;globals&#39;, &#39;hasattr&#39;, &#39;hash&#39;, &#39;help&#39;, &#39;hex&#39;, &#39;id&#39;, &#39;input&#39;, &#39;int&#39;, &#39;isinstance&#39;, &#39;issubclass&#39;, &#39;iter&#39;, &#39;len&#39;, &#39;license&#39;, &#39;list&#39;, &#39;locals&#39;, &#39;map&#39;, &#39;max&#39;, &#39;memoryview&#39;, &#39;min&#39;, &#39;next&#39;, &#39;object&#39;, &#39;oct&#39;, &#39;open&#39;, &#39;ord&#39;, &#39;pow&#39;, &#39;print&#39;, &#39;property&#39;, &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;, &#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;, &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tuple&#39;, &#39;type&#39;, &#39;vars&#39;, &#39;zip&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">))</span>
+<span class="go">154</span>
+</pre></div>
+</div>
 <p>The usual suggested alternatives to importing everything
 are the following:</p>
 <ol class="arabic">
@@ -294,8 +303,9 @@ are the following:</p>
 </div>
 </li>
 </ol>
-<p>One problem with the first suggestion is that <strong>friendly</strong> has <strong>many</strong>
-other functions that are potentially useful. So this might
+<p>One problem with the first suggestion is that <strong>friendly</strong> has quite a few
+other functions that are potentially useful; nothing like the 154 names
+shown above but still too many to type explicitly. So this might
 require another import statement, <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">something_else</span></code>
 when wanting to use <code class="docutils literal notranslate"><span class="pre">something_else</span></code>. Trying to import <strong>all</strong> the
 possibly relevant functions by explicitly naming them
