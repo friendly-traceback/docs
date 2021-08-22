@@ -349,11 +349,11 @@ description for any occurences of the <a class="reference external" href="https:
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly_traceback</span> <span class="kn">import</span> <span class="n">info_generic</span>
 
 <span class="nd">@info_generic</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">describe</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    A `ConnectionError` from the `requests` package usually indicates that</span>
-<span class="s2">    a service cannot be reached because it is offline.</span>
-<span class="s2">    &quot;&quot;&quot;</span>
+ <span class="k">return</span> <span class="p">(</span>
+     <span class="s2">&quot;A `ConnectionError` from the `requests` package</span><span class="se">\n</span><span class="s2">&quot;</span>
+     <span class="s2">&quot;usually indicates that a service cannot be reached</span><span class="se">\n</span><span class="s2">&quot;</span>
+     <span class="s2">&quot;because it is offline.</span><span class="se">\n</span><span class="s2">&quot;</span>
+ <span class="p">)</span>
 </pre></div>
 </div>
 <p>Now <code class="docutils literal notranslate"><span class="pre">friendly</span></code> will print</p>
@@ -369,37 +369,63 @@ description for the particular error:</p>
 
 <span class="n">answer_to_why</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">First, check whether the container is running:</span>
-<span class="s2">```sh</span>
-<span class="s2">$ docker container inspect -f &#39;{{.State.Running}}&#39; api</span>
-<span class="s2">```</span>
+
+<span class="s2">    $ docker container inspect -f &#39;{{.State.Running}}&#39; api</span>
+
 <span class="s2">If necessary, restart with</span>
-<span class="s2">```sh</span>
-<span class="s2">$ docker restart api</span>
-<span class="s2">```&quot;&quot;&quot;</span>
+
+<span class="s2">    $ docker restart api</span>
+<span class="s2">&quot;&quot;&quot;</span>
 
 <span class="nd">@info_specific</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">traceback_data</span><span class="p">):</span>
     <span class="n">hint_added</span> <span class="o">=</span> <span class="p">(</span>
         <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> request &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;for `</span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">` has failed.&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;for `</span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">` has failed.</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;cause&quot;</span><span class="p">:</span> <span class="n">answer_to_why</span><span class="p">,</span> <span class="s2">&quot;suggest&quot;</span><span class="p">:</span> <span class="n">hint_added</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>This results in the following customized <code class="docutils literal notranslate"><span class="pre">friendly</span></code> output:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">traceback</span> <span class="n">would</span> <span class="n">be</span> <span class="n">shown</span> <span class="n">here</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>The GET request at <code class="docutils literal notranslate"><span class="pre">https://my-services/api</span></code> has failed.</p>
-<p>A <cite>ConnectionError</cite> from the <cite>requests</cite> package usually indicates that
-a service cannot be reached because it is offline.</p>
-<p>First, check whether the container is running:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker container inspect -f <span class="s1">&#39;{{.State.Running}}&#39;</span> my-service
-</pre></div>
-</div>
-<p>If necessary, restart with</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ docker restart my-service
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  [Very long traceback omitted]
+
+
+    The GET request for `https://my-services/api` has failed.
+
+A `ConnectionError` from the `requests` package
+usually indicates that a service cannot be reached
+because it is offline.
+
+First, check whether the container is running:
+
+    $ docker container inspect -f &#39;{{.State.Running}}&#39; api
+
+If necessary, restart with
+
+    $ docker restart api
+
+Execution stopped on line 38 of file example.py.
+
+   33:     response = requests.get(&quot;https://my-services/api&quot;)
+   34:     response.raise_for_status()
+   35:     return response.json()
+--&gt;38: fetch_data()
+
+        fetch_data:  &lt;function fetch_data&gt;
+
+Exception raised on line 516 of file LOCAL:\requests\adapters.py.
+
+   510:                 raise ProxyError(e, request=request)
+   512:             if isinstance(e.reason, _SSLError):
+   513:                 # This branch is for urllib3 v1.22 and later.
+   514:                 raise SSLError(e, request=request)
+--&gt;516:             raise ConnectionError(e, request=request)
+   518:         except ClosedPoolError as e:
+
+        request:  &lt;PreparedRequest [GET]&gt;
+        global ConnectionError:  &lt;class requests.exceptions.ConnectionError&gt;
 </pre></div>
 </div>
 </div></blockquote>

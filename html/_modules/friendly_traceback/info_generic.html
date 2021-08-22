@@ -276,23 +276,21 @@
         <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">exception_type</span><span class="p">]()</span>
     <span class="k">elif</span> <span class="n">exception_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Warning&quot;</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="s2">&quot;UnknownWarning&quot;</span><span class="p">]()</span>
-    <span class="k">elif</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">os_error_subclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># for known_exception_type in GENERIC:</span>
-        <span class="c1">#     if (</span>
-        <span class="c1">#         known_exception_type == BaseException</span>
-        <span class="c1">#         or known_exception_type == Exception</span>
-        <span class="c1">#         or not inspect.isclass(known_exception_type)</span>
-        <span class="c1">#     ):</span>
-        <span class="c1">#         continue</span>
-        <span class="c1">#     if inspect.isclass(exception_type) and issubclass(</span>
-        <span class="c1">#         exception_type, known_exception_type</span>
-        <span class="c1">#     ):</span>
-        <span class="c1">#         explanation = _(</span>
-        <span class="c1">#             &quot;An exception of type `{name}` is a subclass of `{parent}`.\n&quot;</span>
-        <span class="c1">#         ).format(name=exception_name, parent=known_exception_type.__name__)</span>
-        <span class="c1">#         return explanation + GENERIC[known_exception_type]()</span>
+        <span class="k">for</span> <span class="n">known_exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">known_exception_type</span> <span class="o">==</span> <span class="ne">BaseException</span>
+                <span class="ow">or</span> <span class="n">known_exception_type</span> <span class="o">==</span> <span class="ne">Exception</span>
+                <span class="ow">or</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">known_exception_type</span><span class="p">)</span>
+            <span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span>
+                <span class="n">exception_type</span><span class="p">,</span> <span class="n">known_exception_type</span>
+            <span class="p">):</span>
+                <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                    <span class="s2">&quot;An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">known_exception_type</span><span class="p">]()</span>
         <span class="k">return</span> <span class="n">no_information</span><span class="p">()</span>
 
 
@@ -453,14 +451,6 @@
         <span class="s2">&quot;to indicate that an operation is not allowed or that</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;a resource is not available.</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">os_error_subclass</span><span class="p">(</span><span class="n">error_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">OSError</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
-    <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
-        <span class="s2">&quot;An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `OSError`.</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">error_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">os_error</span><span class="p">()</span>
 
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">OverflowError</span><span class="p">)</span>

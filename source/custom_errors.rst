@@ -104,11 +104,11 @@ description for any occurences of the :exc:`requests.ConnectionError`:
    from friendly_traceback import info_generic
 
    @info_generic.register(requests.ConnectionError)
-   def describe():
-       return """
-       A `ConnectionError` from the `requests` package usually indicates that
-       a service cannot be reached because it is offline.
-       """
+    return (
+        "A `ConnectionError` from the `requests` package\n"
+        "usually indicates that a service cannot be reached\n"
+        "because it is offline.\n"
+    )
 
 Now ``friendly`` will print
 
@@ -128,19 +128,19 @@ description for the particular error:
 
    answer_to_why = """
    First, check whether the container is running:
-   ```sh
-   $ docker container inspect -f '{{.State.Running}}' api
-   ```
+
+       $ docker container inspect -f '{{.State.Running}}' api
+
    If necessary, restart with
-   ```sh
-   $ docker restart api
-   ```"""
+
+       $ docker restart api
+   """
 
    @info_specific.register(requests.ConnectionError)
    def describe(error, frame, traceback_data):
        hint_added = (
            f"The {error.request.method} request "
-           f"for `{error.request.url}` has failed."
+           f"for `{error.request.url}` has failed.\n"
        )
        return {"cause": answer_to_why, "suggest": hint_added}
 
@@ -150,22 +150,41 @@ This results in the following customized ``friendly`` output:
 
   .. code-block::
 
-      The traceback would be shown here.
+    Traceback (most recent call last):
+      [Very long traceback omitted]
 
-  The GET request at ``https://my-services/api`` has failed.
 
-  A `ConnectionError` from the `requests` package usually indicates that
-  a service cannot be reached because it is offline.
+        The GET request for `https://my-services/api` has failed.
 
-  First, check whether the container is running:
+    A `ConnectionError` from the `requests` package
+    usually indicates that a service cannot be reached
+    because it is offline.
 
-  .. code-block:: sh
+    First, check whether the container is running:
 
-     $ docker container inspect -f '{{.State.Running}}' my-service
+        $ docker container inspect -f '{{.State.Running}}' api
 
-  If necessary, restart with
+    If necessary, restart with
 
-  .. code-block:: sh
+        $ docker restart api
 
-     $ docker restart my-service
+    Execution stopped on line 38 of file example.py.
 
+       33:     response = requests.get("https://my-services/api")
+       34:     response.raise_for_status()
+       35:     return response.json()
+    -->38: fetch_data()
+
+            fetch_data:  <function fetch_data>
+
+    Exception raised on line 516 of file LOCAL:\requests\adapters.py.
+
+       510:                 raise ProxyError(e, request=request)
+       512:             if isinstance(e.reason, _SSLError):
+       513:                 # This branch is for urllib3 v1.22 and later.
+       514:                 raise SSLError(e, request=request)
+    -->516:             raise ConnectionError(e, request=request)
+       518:         except ClosedPoolError as e:
+
+            request:  <PreparedRequest [GET]>
+            global ConnectionError:  <class requests.exceptions.ConnectionError>
