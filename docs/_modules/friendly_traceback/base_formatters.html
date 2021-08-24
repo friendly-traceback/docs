@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>friendly_traceback.base_formatters &mdash; friendly-traceback 0.4.23 documentation</title>
+  <title>friendly_traceback.base_formatters &mdash; friendly-traceback 0.4.52 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.4.23
+                0.4.52
               </div>
             
           
@@ -142,7 +142,7 @@
 <p class="caption"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
@@ -154,6 +154,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
 </ul>
@@ -288,11 +289,11 @@
 <span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
 <span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Info</span>
 
+<span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
 <span class="c1"># The following is the order in which the various items, if they exist</span>
 <span class="c1"># and have been selected to be printed, would be printed.</span>
 <span class="c1"># If you are writing a custom formatter, this should be taken as the</span>
 <span class="c1"># authoritative list of items to consider.</span>
-
 <span class="n">items_in_order</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;header&quot;</span><span class="p">,</span>  <span class="c1"># Currently unused by this project; used by HackInScience</span>
     <span class="s2">&quot;message&quot;</span><span class="p">,</span>  <span class="c1"># The last line of a Python traceback</span>
@@ -396,7 +397,6 @@
     <span class="sd">&quot;&quot;&quot;Should normally only be called if no result is available</span>
 <span class="sd">    from either hint() or why().</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="s2">&quot;why&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;I have no suggestion to offer.&quot;</span><span class="p">)</span>
 

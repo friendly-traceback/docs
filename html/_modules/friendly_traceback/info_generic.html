@@ -263,11 +263,11 @@
 
 <span class="n">GENERIC</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="n">GenericExplain</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">SUBCLASS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
 
 
 <span class="k">def</span> <span class="nf">get_generic_explanation</span><span class="p">(</span><span class="n">exception_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Provides a generic explanation about a particular exception.&quot;&quot;&quot;</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">):</span>
         <span class="n">exception_name</span> <span class="o">=</span> <span class="n">exception_type</span><span class="o">.</span><span class="vm">__name__</span>
     <span class="k">else</span><span class="p">:</span>
@@ -312,7 +312,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ArithmeticError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">arithmetic_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;`ArithmeticError` is the base class for those built-in exceptions</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;that are raised for various arithmetic errors.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -323,7 +322,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">AssertionError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">assertion_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;In Python, the keyword `assert` is used in statements of the form</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;`assert condition`, to confirm that `condition` is not `False`,</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -334,7 +332,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">attribute_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `AttributeError` occurs when the code contains something like</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;    `object.x`</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -344,7 +341,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">EOFError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">eof_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `EOFError` is raised when the `input()` function hits</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;an end-of-file condition (EOF) without reading any data.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -353,7 +349,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">file_not_found_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `FileNotFoundError` exception indicates that you</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;are trying to open a file that cannot be found by Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -363,7 +358,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ImportError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">import_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `ImportError` exception indicates that a certain object could not</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;be imported from a module or package. Most often, this is</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -373,7 +367,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">IndentationError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">indentation_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `IndentationError` occurs when a given line of code is</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;not indented (aligned vertically with other lines) as expected.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -382,7 +375,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `IndexError` occurs when you try to get an item from a list,</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;a tuple, or a similar object (sequence), and use an index which</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -393,7 +385,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">key_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `KeyError` is raised when a value is not found as a</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;key in a Python dict or in a similar object.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -402,7 +393,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">LookupError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lookup_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;`LookupError` is the base class for the exceptions that are raised</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;when a key or index used on a mapping or sequence is invalid.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -412,7 +402,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">MemoryError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">memory_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;Like the name indicates, a `MemoryError` occurs when Python</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;runs out of memory. This can happen if you create an object</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -422,7 +411,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ModuleNotFoundError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">module_not_found_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `ModuleNotFoundError` exception indicates that you</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;are trying to import a module that cannot be found by Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -433,7 +421,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">NameError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">name_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `NameError` exception indicates that a variable or</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;function name is not known to Python.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -445,7 +432,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">OSError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">os_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `OSError` exception is usually raised by the Operating System</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;to indicate that an operation is not allowed or that</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -455,7 +441,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">OverflowError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">overflow_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;An `OverflowError` is raised when the result of an arithmetic operation</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;is too large to be handled by the computer&#39;s processor.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -464,7 +449,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">RecursionError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">recursion_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `RecursionError` is raised when a function calls itself,</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;directly or indirectly, too many times.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -475,7 +459,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">StopIteration</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">stop_iteration</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;`StopIteration` is raised to indicate that an iterator has no more</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;item to provide when its `__next__` method is called by</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -485,13 +468,11 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">SyntaxError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">syntax_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;A `SyntaxError` occurs when Python cannot understand your code.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">TabError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">tab_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `TabError` indicates that you have used both spaces</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;and tab characters to indent your code.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -504,7 +485,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">type_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `TypeError` is usually caused by trying</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;to combine two incompatible types of objects,</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -515,7 +495,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">value_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `ValueError` indicates that a function or an operation</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;received an argument of the right type, but an inappropriate value.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -524,7 +503,6 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">UnboundLocalError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">unbound_local_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;In Python, variables that are used inside a function are known as </span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;local variables. Before they are used, they must be assigned a value.</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -539,13 +517,11 @@
 
 <span class="nd">@register</span><span class="p">(</span><span class="s2">&quot;UnknownWarning&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">unknown_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;No information is available about this warning.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">zero_division_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">&quot;A `ZeroDivisionError` occurs when you are attempting to divide a value</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;by zero either directly or by using some other mathematical operation.</span><span class="se">\n</span><span class="s2">&quot;</span>

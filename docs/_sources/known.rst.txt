@@ -212,12 +212,11 @@ FloatingPointError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `FloatingPointError` is a subclass of `ArithmeticError`.
+    `ArithmeticError` is the base class for those built-in exceptions
+    that are raised for various arithmetic errors.
+    It is unusual that you are seeing this exception;
+    normally, a more specific exception should have been raised.
 
 GeneratorExit
 ~~~~~~~~~~~~~
@@ -542,48 +541,36 @@ UnicodeDecodeError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `UnicodeDecodeError` is a subclass of `ValueError`.
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
 
 UnicodeEncodeError
 ~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `UnicodeEncodeError` is a subclass of `ValueError`.
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
 
 UnicodeError
 ~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `UnicodeError` is a subclass of `ValueError`.
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
 
 UnicodeTranslateError
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `UnicodeTranslateError` is a subclass of `ValueError`.
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
 
 ValueError
 ~~~~~~~~~~

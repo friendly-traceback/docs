@@ -268,6 +268,7 @@
 
 
 <span class="n">get_cause</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="n">Explain</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
 
 
 <span class="k">def</span> <span class="nf">get_likely_cause</span><span class="p">(</span>
@@ -276,7 +277,6 @@
     <span class="sd">&quot;&quot;&quot;Gets the likely cause of a given exception based on some information</span>
 <span class="sd">    specific to a given exception.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">etype</span> <span class="ow">in</span> <span class="n">get_cause</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">get_cause</span><span class="p">[</span><span class="n">etype</span><span class="p">](</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
@@ -344,7 +344,6 @@
 <span class="k">def</span> <span class="nf">_key_error</span><span class="p">(</span>
     <span class="n">value</span><span class="p">:</span> <span class="ne">KeyError</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">FrameType</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">:</span> <span class="s2">&quot;TracebackData&quot;</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
-    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
     <span class="kn">from</span> <span class="nn">.runtime_errors</span> <span class="kn">import</span> <span class="n">key_error</span>
 
     <span class="k">return</span> <span class="n">key_error</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">get_cause</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="n">tb_data</span><span class="p">)</span>
