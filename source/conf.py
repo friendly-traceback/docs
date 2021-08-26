@@ -30,7 +30,7 @@ from friendly_traceback import __version__  # noqa
 
 # -- Project information -----------------------------------------------------
 
-project = "friendly-traceback"
+project = "friendly"
 copyright = "André Roberge"
 author = "André Roberge"
 
@@ -85,7 +85,7 @@ language = None
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = "sphinx"
+pygments_style = "friendly_styles"
 
 rst_epilog = """
 .. |france| image:: images/france.png
