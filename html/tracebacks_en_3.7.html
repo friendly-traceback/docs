@@ -1,102 +1,165 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.7.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.6.html" />
 
-
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Friendly tracebacks - in English &mdash; friendly-traceback 0.4.52 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
+        <title>Friendly tracebacks - in English - friendly-traceback 0.4.52 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
 
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style>
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+  <body>
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.7.html" />
-    <link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.6.html" /> 
-</head>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
 
-<body class="wy-body-for-nav">
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
 
-          
-            <a href="index.html" class="icon icon-home"> friendly-traceback
-          
 
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.4.52
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Begin here</span></p>
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.52 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.4.52 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="when_ft.html">Differences between friendly and friendly_traceback</a></li>
 </ul>
-<p class="caption"><span class="caption-text">friendly console</span></p>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
@@ -109,31 +172,31 @@
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Why import *?</span></p>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
 </ul>
-<p class="caption"><span class="caption-text">IDLE</span></p>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Mu</span></p>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other consoles</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
@@ -141,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
@@ -152,7 +215,7 @@
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Use in your project</span></p>
+<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
@@ -160,175 +223,17 @@
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contribute</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
 </ul>
-<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">friendly tracebacks - Python 3.7 in English</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#arithmeticerror">ArithmeticError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#generic">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#assertionerror">AssertionError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#attributeerror">AttributeError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#attribute-from-other-module">Attribute from other module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#builtin-function">Builtin function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#builtin-module-with-no-file">Builtin module with no file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#circular-import">Circular import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#circular-import-b">Circular import b</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Generic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-different-frame">Generic different frame</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-instance">Generic instance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-attribute-typo">Module attribute typo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nonetype">Nonetype</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-attribute-typo">Object attribute typo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#perhaps-comma">Perhaps comma</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#read-only">Read only</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#shadow-stdlib-module">Shadow stdlib module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-by-accident">Tuple by accident</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-builtin">Use builtin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-join-with-str">Use join with str</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-synonym">Use synonym</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-slots">Using slots</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#filenotfounderror">FileNotFoundError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#directory-not-found">Directory not found</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filename-not-found">Filename not found</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filename-not-found-2">Filename not found 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filename-not-found-3">Filename not found 3</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#importerror">ImportError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Circular import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#indexerror">IndexError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#empty">Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#long-list">Long list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#short-tuple">Short tuple</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#keyerror">KeyError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#chainmap">ChainMap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#forgot-to-convert-to-string">Forgot to convert to string</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generic-key-error">Generic key error</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#popitem-empty-chainmap">Popitem empty ChainMap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#popitem-empty-dict">Popitem empty dict</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#similar-names">Similar names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#string-by-mistake">String by mistake</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#lookuperror">LookupError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#need-to-install-module">Need to install module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#not-a-package">Not a package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#not-a-package-similar-name">Not a package similar name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-not-module">Object not module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#similar-object-not-module">Similar object not module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#standard-library-module">Standard library module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#no-curses">no curses</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#nameerror">NameError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#custom-name">Custom name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Generic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-import">Missing import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#synonym">Synonym</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#oserror">OsError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#urllib-error">Urllib error</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#no-information">no information</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#typeerror">TypeError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bad-type-for-unary-operator">Bad type for unary operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#builtin-has-no-len">Builtin has no len</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#can-only-concatenate">Can only concatenate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cannot-convert-dictionary-update-sequence">Cannot convert dictionary update sequence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cannot-multiply-by-non-int">Cannot multiply by non int</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cannot-unpack-non-iterable-object">Cannot unpack non iterable object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comparison-not-supported">Comparison not supported</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#derive-from-baseexception">Derive from BaseException</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#indices-must-be-integers-or-slices">Indices must be integers or slices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#not-an-integer">Not an integer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#not-callable">Not callable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-is-not-iterable">Object is not iterable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-is-not-subscriptable">Object is not subscriptable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#slice-indices-must-be-integers-or-none">Slice indices must be integers or None</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#too-few-positional-argument">Too few positional argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#too-many-positional-argument">Too many positional argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tuple-no-item-assignment">Tuple no item assignment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unhachable-type">Unhachable type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unsupported-operand-types">Unsupported operand types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#function-got-multiple-argument">function got multiple argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#function-has-no-len">function has no len</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#method-got-multiple-argument">method got multiple argument</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vars-arg-must-have-dict">vars arg must have dict</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#unboundlocalerror">UnboundLocalError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#missing-both">Missing both</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-global">Missing global</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#missing-nonlocal">Missing nonlocal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#typo-in-local">Typo in local</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Generic</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#valueerror">ValueError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#date-invalid-month">Date invalid month</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#not-enough-values-to-unpack">Not enough values to unpack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#too-many-values-to-unpack">Too many values to unpack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#slots-conflicts-with-class-variable">slots conflicts with class variable</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#complex-division">Complex division</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#division-by-zero-literal">Division by zero literal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#division-operator">Division operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#divmod">Divmod</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#float-division">Float division</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#float-divmod">Float divmod</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#float-modulo">Float modulo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#integer-division-operator">Integer division operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mixed-operations">Mixed operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modulo-operator">Modulo operator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#raise-zero-negative-power">Raise zero negative power</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">friendly tracebacks - Python 3.7 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
@@ -339,87 +244,36 @@
 <li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">En français</span></p>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
 </ul>
 
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">friendly-traceback</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Friendly tracebacks - in English</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/tracebacks_en_3.7.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="syntax_tracebacks_en_3.7.html" class="btn btn-neutral float-right" title="Friendly SyntaxError tracebacks - in English" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
-        <a href="syntax_tracebacks_en_3.6.html" class="btn btn-neutral float-left" title="Friendly SyntaxError tracebacks - in English" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
-  </div>
-  
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="friendly-tracebacks-in-english">
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <article role="main">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <div class="section" id="friendly-tracebacks-in-english">
 <h1>Friendly tracebacks - in English<a class="headerlink" href="#friendly-tracebacks-in-english" title="Permalink to this headline">¶</a></h1>
 <p>Friendly aims to provide friendlier feedback when an exception
 is raised than what is done by Python.
@@ -440,8 +294,8 @@ Python version: 3.7.8</p>
 <div class="section" id="generic">
 <h3>Generic<a class="headerlink" href="#generic" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_arithmetic_error.py&quot;, line 9, in test_Generic
-    raise ArithmeticError(&#39;error&#39;)
+  File "TESTS:\runtime\test_arithmetic_error.py", line 9, in test_Generic
+    raise ArithmeticError('error')
 ArithmeticError: error
 
 `ArithmeticError` is the base class for those built-in exceptions
@@ -456,7 +310,7 @@ Exception raised on line 9 of file TESTS:\runtime\test_arithmetic_error.py.
     6:         # I am not aware of any way in which this error is raised directly
     7:         # Usually, a subclass such as ZeroDivisionError, etc., would
     8:         # likely be raised.
---&gt; 9:         raise ArithmeticError(&#39;error&#39;)
+--&gt; 9:         raise ArithmeticError('error')
    10:     except ArithmeticError as e:
 
         ArithmeticError:  &lt;class ArithmeticError&gt;
@@ -469,8 +323,8 @@ Exception raised on line 9 of file TESTS:\runtime\test_arithmetic_error.py.
 <div class="section" id="id1">
 <h3>Generic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_assertion_error.py&quot;, line 8, in test_Generic
-    raise AssertionError(&quot;Fake message&quot;)
+  File "TESTS:\runtime\test_assertion_error.py", line 8, in test_Generic
+    raise AssertionError("Fake message")
 AssertionError: Fake message
 
 In Python, the keyword `assert` is used in statements of the form
@@ -484,8 +338,8 @@ Exception raised on line 8 of file TESTS:\runtime\test_assertion_error.py.
    4: def test_Generic():
    5:     try:
    6:         # We raise it explicitly, rather than with the keyword assert, since
-   7:         # we don&#39;t want pytest to rewrite out test.
---&gt;8:         raise AssertionError(&quot;Fake message&quot;)
+   7:         # we don't want pytest to rewrite out test.
+--&gt;8:         raise AssertionError("Fake message")
    9:     except AssertionError as e:
 
         AssertionError:  &lt;class AssertionError&gt;
@@ -498,9 +352,9 @@ Exception raised on line 8 of file TESTS:\runtime\test_assertion_error.py.
 <div class="section" id="attribute-from-other-module">
 <h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 323, in test_Attribute_from_other_module
+  File "TESTS:\runtime\test_attribute_error.py", line 323, in test_Attribute_from_other_module
     keyword.pi
-AttributeError: module &#39;keyword&#39; has no attribute &#39;pi&#39;
+AttributeError: module 'keyword' has no attribute 'pi'
 
     Did you mean one of the following modules: `math, cmath`?
 An `AttributeError` occurs when the code contains something like
@@ -513,7 +367,7 @@ the attribute `pi` of one of the following modules:
 
 Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
 
-   319:         assert &quot;Did you mean `math`?&quot; in result
+   319:         assert "Did you mean `math`?" in result
    321:     import cmath
    322:     try:
 --&gt;323:         keyword.pi
@@ -526,9 +380,9 @@ Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="builtin-function">
 <h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 221, in test_Builtin_function
+  File "TESTS:\runtime\test_attribute_error.py", line 221, in test_Builtin_function
     len.text
-AttributeError: &#39;builtin_function_or_method&#39; object has no attribute &#39;text&#39;
+AttributeError: 'builtin_function_or_method' object has no attribute 'text'
 
     Did you mean `len(text)`?
 
@@ -542,12 +396,12 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 Exception raised on line 221 of file TESTS:\runtime\test_attribute_error.py.
 
    218: def test_Builtin_function():
-   219:     text = &#39;Hello world!&#39;
+   219:     text = 'Hello world!'
    220:     try:
 --&gt;221:         len.text
    222:     except AttributeError as e:
 
-        text:  &#39;Hello world!&#39;
+        text:  'Hello world!'
         len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
@@ -555,9 +409,9 @@ Exception raised on line 221 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="builtin-module-with-no-file">
 <h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 238, in test_Builtin_module_with_no_file
+  File "TESTS:\runtime\test_attribute_error.py", line 238, in test_Builtin_module_with_no_file
     sys.foo
-AttributeError: module &#39;sys&#39; has no attribute &#39;foo&#39;
+AttributeError: module 'sys' has no attribute 'foo'
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -568,7 +422,7 @@ found in module `sys`.
 
 Exception raised on line 238 of file TESTS:\runtime\test_attribute_error.py.
 
-   234:     &quot;&quot;&quot;Issue 116&quot;&quot;&quot;
+   234:     """Issue 116"""
    235:     import sys
    237:     try:
 --&gt;238:         sys.foo
@@ -581,11 +435,11 @@ Exception raised on line 238 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="circular-import">
 <h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 353, in test_Circular_import
+  File "TESTS:\runtime\test_attribute_error.py", line 353, in test_Circular_import
     import my_turtle1
-  File &quot;TESTS:\my_turtle1.py&quot;, line 4, in &lt;module&gt;
+  File "TESTS:\my_turtle1.py", line 4, in &lt;module&gt;
     a = my_turtle1.something
-AttributeError: module &#39;my_turtle1&#39; has no attribute &#39;something&#39;
+AttributeError: module 'my_turtle1' has no attribute 'something'
 
     Did you give your program the same name as a Python module?
 
@@ -598,20 +452,20 @@ Python tells us that module `my_turtle1` does not have an attribute named `somet
 However, it does not appear that module `my_turtle1` was imported.
 I suspect that you used the name `my_turtle1.py` for your program
 and that you also wanted to import a module with the same name
-from Python&#39;s standard library.
+from Python's standard library.
 If so, you should use a different name for your program.
 
 Execution stopped on line 353 of file TESTS:\runtime\test_attribute_error.py.
 
    350:     from friendly_traceback.runtime_errors import stdlib_modules
-   351:     stdlib_modules.names.append(&quot;my_turtle1&quot;)
+   351:     stdlib_modules.names.append("my_turtle1")
    352:     try:
 --&gt;353:        import my_turtle1
    354:     except AttributeError as e:
 
 Exception raised on line 4 of file TESTS:\my_turtle1.py.
 
-   1: &quot;&quot;&quot;To test attribute error of partially initialized module.&quot;&quot;&quot;
+   1: """To test attribute error of partially initialized module."""
    2: import my_turtle1
 --&gt;4: a = my_turtle1.something
           ^^^^^^^^^^^^^^^^^^^^
@@ -623,11 +477,11 @@ Exception raised on line 4 of file TESTS:\my_turtle1.py.
 <div class="section" id="circular-import-b">
 <h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 370, in test_Circular_import_b
+  File "TESTS:\runtime\test_attribute_error.py", line 370, in test_Circular_import_b
     import circular_c
-  File &quot;TESTS:\circular_c.py&quot;, line 4, in &lt;module&gt;
+  File "TESTS:\circular_c.py", line 4, in &lt;module&gt;
     a = circular_c.something
-AttributeError: module &#39;circular_c&#39; has no attribute &#39;something&#39;
+AttributeError: module 'circular_c' has no attribute 'something'
 
     You likely have a circular import.
 
@@ -660,9 +514,9 @@ Exception raised on line 4 of file TESTS:\circular_c.py.
 <div class="section" id="id2">
 <h3>Generic<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 24, in test_Generic
+  File "TESTS:\runtime\test_attribute_error.py", line 24, in test_Generic
     A.x  # testing type
-AttributeError: type object &#39;A&#39; has no attribute &#39;x&#39;
+AttributeError: type object 'A' has no attribute 'x'
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -685,9 +539,9 @@ Exception raised on line 24 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="generic-different-frame">
 <h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 47, in test_Generic_different_frame
+  File "TESTS:\runtime\test_attribute_error.py", line 47, in test_Generic_different_frame
     a.attr
-AttributeError: &#39;A&#39; object has no attribute &#39;attr&#39;
+AttributeError: 'A' object has no attribute 'attr'
 
     Did you mean `attr2`?
 
@@ -714,9 +568,9 @@ Exception raised on line 47 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="generic-instance">
 <h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 65, in test_Generic_instance
+  File "TESTS:\runtime\test_attribute_error.py", line 65, in test_Generic_instance
     a.x
-AttributeError: &#39;A&#39; object has no attribute &#39;x&#39;
+AttributeError: 'A' object has no attribute 'x'
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -740,9 +594,9 @@ Exception raised on line 65 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="module-attribute-typo">
 <h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 142, in test_Module_attribute_typo
+  File "TESTS:\runtime\test_attribute_error.py", line 142, in test_Module_attribute_typo
     math.cost
-AttributeError: module &#39;math&#39; has no attribute &#39;cost&#39;
+AttributeError: module 'math' has no attribute 'cost'
 
     Did you mean `cos`?
 
@@ -756,7 +610,7 @@ the following names which are attributes of module `math`:
 
 Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
 
-   137:         assert &quot;Did you mean `ascii_lowercase`&quot; in result
+   137:         assert "Did you mean `ascii_lowercase`" in result
    139:     import math
    141:     try:
 --&gt;142:         math.cost
@@ -769,9 +623,9 @@ Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="nonetype">
 <h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 181, in test_Nonetype
+  File "TESTS:\runtime\test_attribute_error.py", line 181, in test_Nonetype
     a.b
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;b&#39;
+AttributeError: 'NoneType' object has no attribute 'b'
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -794,9 +648,9 @@ Exception raised on line 181 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="object-attribute-typo">
 <h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 81, in test_Object_attribute_typo
+  File "TESTS:\runtime\test_attribute_error.py", line 81, in test_Object_attribute_typo
     a.appendh(4)
-AttributeError: &#39;list&#39; object has no attribute &#39;appendh&#39;
+AttributeError: 'list' object has no attribute 'appendh'
 
     Did you mean `append`?
 
@@ -824,9 +678,9 @@ Exception raised on line 81 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="perhaps-comma">
 <h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 201, in test_Perhaps_comma
+  File "TESTS:\runtime\test_attribute_error.py", line 201, in test_Perhaps_comma
     a = [abcd
-AttributeError: &#39;str&#39; object has no attribute &#39;defg&#39;
+AttributeError: 'str' object has no attribute 'defg'
 
     Did you mean to separate object names by a comma?
 
@@ -841,24 +695,24 @@ instead of using a comma.
 
 Exception raised on line 201 of file TESTS:\runtime\test_attribute_error.py.
 
-   197:     defg = &quot;world&quot;
+   197:     defg = "world"
    199:     # fmt: off
    200:     try:
 --&gt;201:         a = [abcd
    202:         .defg]
    203:     # fmt: on
 
-        abcd:  &#39;hello&#39;
-        defg:  &#39;world&#39;
+        abcd:  'hello'
+        defg:  'world'
 </pre></div>
 </div>
 </div>
 <div class="section" id="read-only">
 <h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 278, in test_Read_only
+  File "TESTS:\runtime\test_attribute_error.py", line 278, in test_Read_only
     f.b = 1
-AttributeError: &#39;F&#39; object attribute &#39;b&#39; is read-only
+AttributeError: 'F' object attribute 'b' is read-only
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -885,9 +739,9 @@ Exception raised on line 278 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="shadow-stdlib-module">
 <h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 163, in test_Shadow_stdlib_module
+  File "TESTS:\runtime\test_attribute_error.py", line 163, in test_Shadow_stdlib_module
     turtle.Pen
-AttributeError: module &#39;turtle&#39; has no attribute &#39;Pen&#39;
+AttributeError: module 'turtle' has no attribute 'Pen'
 
     Did you give your program the same name as a Python module?
 
@@ -896,7 +750,7 @@ An `AttributeError` occurs when the code contains something like
 and `x` is not a method or attribute (variable) belonging to `object`.
 
 You imported a module named `turtle` from `TESTS:\turtle.py`.
-There is also a module named `turtle` in Python&#39;s standard library.
+There is also a module named `turtle` in Python's standard library.
 Perhaps you need to rename your module.
 
 Exception raised on line 163 of file TESTS:\runtime\test_attribute_error.py.
@@ -914,9 +768,9 @@ Exception raised on line 163 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="tuple-by-accident">
 <h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 293, in test_Tuple_by_accident
+  File "TESTS:\runtime\test_attribute_error.py", line 293, in test_Tuple_by_accident
     something.upper()
-AttributeError: &#39;tuple&#39; object has no attribute &#39;upper&#39;
+AttributeError: 'tuple' object has no attribute 'upper'
 
     Did you write a comma by mistake?
 
@@ -925,29 +779,29 @@ An `AttributeError` occurs when the code contains something like
 and `x` is not a method or attribute (variable) belonging to `object`.
 
 `something` is a tuple that contains a single item
-which does have `&#39;upper&#39;` as an attribute.
+which does have `'upper'` as an attribute.
 Perhaps you added a trailing comma by mistake at the end of the line
 where you defined `something`.
 
 Exception raised on line 293 of file TESTS:\runtime\test_attribute_error.py.
 
    290: def test_Tuple_by_accident():
-   291:     something = &quot;abc&quot;,  # note trailing comma
+   291:     something = "abc",  # note trailing comma
    292:     try:
 --&gt;293:         something.upper()
                 ^^^^^^^^^^^^^^^
    294:     except AttributeError as e:
 
-        something:  (&#39;abc&#39;,)
+        something:  ('abc',)
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-builtin">
 <h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 97, in test_Use_builtin
+  File "TESTS:\runtime\test_attribute_error.py", line 97, in test_Use_builtin
     a.length()
-AttributeError: &#39;list&#39; object has no attribute &#39;length&#39;
+AttributeError: 'list' object has no attribute 'length'
 
     Did you mean `len(a)`?
 
@@ -975,24 +829,24 @@ Exception raised on line 97 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="use-join-with-str">
 <h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 337, in test_Use_join_with_str
-    a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
-AttributeError: &#39;list&#39; object has no attribute &#39;join&#39;
+  File "TESTS:\runtime\test_attribute_error.py", line 337, in test_Use_join_with_str
+    a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+AttributeError: 'list' object has no attribute 'join'
 
-    Did you mean `&#39;abc&#39;.join([&#39;a&#39;, &#39;2&#39;])`?
+    Did you mean `'abc'.join(['a', '2'])`?
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
 and `x` is not a method or attribute (variable) belonging to `object`.
 
-The object `[&#39;a&#39;, &#39;2&#39;]` has no attribute named `join`.
-Perhaps you wanted something like `&#39;abc&#39;.join([&#39;a&#39;, &#39;2&#39;])`.
+The object `['a', '2']` has no attribute named `join`.
+Perhaps you wanted something like `'abc'.join(['a', '2'])`.
 
 Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
 
    335: def test_Use_join_with_str():
    336:     try:
---&gt;337:         a = [&#39;a&#39;, &#39;2&#39;].join(&#39;abc&#39;) + [&#39;b&#39;, &#39;3&#39;].join(&#39;\n&#39;)
+--&gt;337:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                     ^^^^^^^^^^^^^^^
    338:     except AttributeError as e:
 </pre></div>
@@ -1001,9 +855,9 @@ Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="use-synonym">
 <h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 113, in test_Use_synonym
+  File "TESTS:\runtime\test_attribute_error.py", line 113, in test_Use_synonym
     a.add(4)
-AttributeError: &#39;list&#39; object has no attribute &#39;add&#39;
+AttributeError: 'list' object has no attribute 'add'
 
     Did you mean `append`?
 
@@ -1032,9 +886,9 @@ Exception raised on line 113 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="using-slots">
 <h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_attribute_error.py&quot;, line 258, in test_Using_slots
+  File "TESTS:\runtime\test_attribute_error.py", line 258, in test_Using_slots
     f.b = 1
-AttributeError: &#39;F&#39; object has no attribute &#39;b&#39;
+AttributeError: 'F' object has no attribute 'b'
 
 An `AttributeError` occurs when the code contains something like
     `object.x`
@@ -1047,7 +901,7 @@ The following are some of its known attributes:
 `a`.
 Exception raised on line 258 of file TESTS:\runtime\test_attribute_error.py.
 
-   254:         __slots__ = [&quot;a&quot;]
+   254:         __slots__ = ["a"]
    256:     f = F()
    257:     try:
 --&gt;258:         f.b = 1
@@ -1064,9 +918,9 @@ Exception raised on line 258 of file TESTS:\runtime\test_attribute_error.py.
 <div class="section" id="directory-not-found">
 <h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 70, in test_Directory_not_found
-    open(&quot;does_not_exist/file.txt&quot;)
-FileNotFoundError: [Errno 2] No such file or directory: &#39;does_not_exist/file.txt&#39;
+  File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+    open("does_not_exist/file.txt")
+FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
 
 A `FileNotFoundError` exception indicates that you
 are trying to open a file that cannot be found by Python.
@@ -1081,7 +935,7 @@ Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
 
    68: def test_Directory_not_found():
    69:     try:
---&gt;70:         open(&quot;does_not_exist/file.txt&quot;)
+--&gt;70:         open("does_not_exist/file.txt")
    71:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1091,9 +945,9 @@ Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
 <div class="section" id="filename-not-found">
 <h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 7, in test_Filename_not_found
-    open(&quot;does_not_exist&quot;)
-FileNotFoundError: [Errno 2] No such file or directory: &#39;does_not_exist&#39;
+  File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
+    open("does_not_exist")
+FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist'
 
 A `FileNotFoundError` exception indicates that you
 are trying to open a file that cannot be found by Python.
@@ -1109,7 +963,7 @@ Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
 
    5: def test_Filename_not_found():
    6:     try:
---&gt;7:         open(&quot;does_not_exist&quot;)
+--&gt;7:         open("does_not_exist")
    8:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1119,9 +973,9 @@ Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
 <div class="section" id="filename-not-found-2">
 <h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 30, in test_Filename_not_found_2
-    open(&quot;setupp.py&quot;)
-FileNotFoundError: [Errno 2] No such file or directory: &#39;setupp.py&#39;
+  File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+    open("setupp.py")
+FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
 
     Did you mean `setup.py`?
 
@@ -1138,9 +992,9 @@ The file `setup.py` has a similar name.
 Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
 
    26:     if chdir:
-   27:         os.chdir(&quot;..&quot;)
+   27:         os.chdir("..")
    29:     try:
---&gt;30:         open(&quot;setupp.py&quot;)
+--&gt;30:         open("setupp.py")
    31:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1150,9 +1004,9 @@ Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
 <div class="section" id="filename-not-found-3">
 <h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_file_not_found_error.py&quot;, line 52, in test_Filename_not_found_3
-    open(&quot;setup.pyg&quot;)
-FileNotFoundError: [Errno 2] No such file or directory: &#39;setup.pyg&#39;
+  File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+    open("setup.pyg")
+FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
 
     Did you mean `setup.py`?
 
@@ -1170,9 +1024,9 @@ Perhaps you meant one of the following files with similar names:
 Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
 
    49:     if chdir:
-   50:         os.chdir(&quot;..&quot;)
+   50:         os.chdir("..")
    51:     try:
---&gt;52:         open(&quot;setup.pyg&quot;)
+--&gt;52:         open("setup.pyg")
    53:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1185,13 +1039,13 @@ Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
 <div class="section" id="id3">
 <h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_import_error.py&quot;, line 58, in test_Circular_import
+  File "TESTS:\runtime\test_import_error.py", line 58, in test_Circular_import
     import circular_a
-  File &quot;TESTS:\circular_a.py&quot;, line 2, in &lt;module&gt;
+  File "TESTS:\circular_a.py", line 2, in &lt;module&gt;
     import circular_b
-  File &quot;TESTS:\circular_b.py&quot;, line 2, in &lt;module&gt;
+  File "TESTS:\circular_b.py", line 2, in &lt;module&gt;
     from circular_a import a
-ImportError: cannot import name &#39;a&#39; from &#39;circular_a&#39; (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
+ImportError: cannot import name 'a' from 'circular_a' (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
 
     You have a circular import.
 
@@ -1203,12 +1057,12 @@ The object that could not be imported is `a`.
 The module or package where it was
 expected to be found is `circular_a`.
 
-The problem was likely caused by what is known as a &#39;circular import&#39;.
+The problem was likely caused by what is known as a 'circular import'.
 First, Python imported and started executing the code in file
-   &#39;TESTS:\runtime\test_import_error.py&#39;.
+   'TESTS:\runtime\test_import_error.py'.
 which imports module `circular_a`.
 During this process, the code in another file,
-   &#39;TESTS:\circular_b.py&#39;
+   'TESTS:\circular_b.py'
 was executed. However in this last file, an attempt was made
 to import the original module `circular_a`
 a second time, before Python had completed the first import.
@@ -1222,7 +1076,7 @@ Execution stopped on line 58 of file TESTS:\runtime\test_import_error.py.
 
 Exception raised on line 2 of file TESTS:\circular_b.py.
 
-   1: &quot;&quot;&quot;File used in for test_circular_import() in test_import_error.py&quot;&quot;&quot;
+   1: """File used in for test_circular_import() in test_import_error.py"""
 --&gt;2: from circular_a import a
 </pre></div>
 </div>
@@ -1230,9 +1084,9 @@ Exception raised on line 2 of file TESTS:\circular_b.py.
 <div class="section" id="simple-import-error">
 <h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_import_error.py&quot;, line 44, in test_Simple_import_error
+  File "TESTS:\runtime\test_import_error.py", line 44, in test_Simple_import_error
     from math import Pi
-ImportError: cannot import name &#39;Pi&#39; from &#39;math&#39; (unknown location)
+ImportError: cannot import name 'Pi' from 'math' (unknown location)
 
     Did you mean `pi`?
 
@@ -1258,7 +1112,7 @@ Exception raised on line 44 of file TESTS:\runtime\test_import_error.py.
 <div class="section" id="empty">
 <h3>Empty<a class="headerlink" href="#empty" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_index_error.py&quot;, line 38, in test_Empty
+  File "TESTS:\runtime\test_index_error.py", line 38, in test_Empty
     c = a[1]
 IndexError: list index out of range
 
@@ -1288,7 +1142,7 @@ Exception raised on line 38 of file TESTS:\runtime\test_index_error.py.
 <div class="section" id="long-list">
 <h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_index_error.py&quot;, line 24, in test_Long_list
+  File "TESTS:\runtime\test_index_error.py", line 24, in test_Long_list
     print(a[60], b[0])
 IndexError: list index out of range
 
@@ -1319,7 +1173,7 @@ Exception raised on line 24 of file TESTS:\runtime\test_index_error.py.
 <div class="section" id="short-tuple">
 <h3>Short tuple<a class="headerlink" href="#short-tuple" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_index_error.py&quot;, line 8, in test_Short_tuple
+  File "TESTS:\runtime\test_index_error.py", line 8, in test_Short_tuple
     print(a[3], b[2])
 IndexError: tuple index out of range
 
@@ -1354,16 +1208,16 @@ Exception raised on line 8 of file TESTS:\runtime\test_index_error.py.
 <div class="section" id="chainmap">
 <h3>ChainMap<a class="headerlink" href="#chainmap" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;PYTHON_LIB:\collections\__init__.py&quot;, line 984, in pop
+  File "PYTHON_LIB:\collections\__init__.py", line 984, in pop
     return self.maps[0].pop(key, *args)
 KeyError: 42
 
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 62, in test_ChainMap
+  File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
     d.pop(42)
-KeyError: &#39;Key not found in the first mapping: 42&#39;
+KeyError: 'Key not found in the first mapping: 42'
 
 A `KeyError` is raised when a value is not found as a
 key in a Python dict or in a similar object.
@@ -1386,7 +1240,7 @@ Exception raised on line 62 of file TESTS:\runtime\test_key_error.py.
 <div class="section" id="forgot-to-convert-to-string">
 <h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 115, in test_Forgot_to_convert_to_string
+  File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
     print(squares[2])
 KeyError: 2
 
@@ -1402,53 +1256,53 @@ Perhaps you forgot to convert the key into a string.
 Exception raised on line 115 of file TESTS:\runtime\test_key_error.py.
 
    112: def test_Forgot_to_convert_to_string():
-   113:     squares = {&quot;1&quot;: 1, &quot;2&quot;: 4, &quot;3&quot;: 9}
+   113:     squares = {"1": 1, "2": 4, "3": 9}
    114:     try:
 --&gt;115:         print(squares[2])
                       ^^^^^^^^^^
    116:     except KeyError as e:
 
-        squares:  {&#39;1&#39;: 1, &#39;2&#39;: 4, &#39;3&#39;: 9}
+        squares:  {'1': 1, '2': 4, '3': 9}
 </pre></div>
 </div>
 </div>
 <div class="section" id="generic-key-error">
 <h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 44, in test_Generic_key_error
-    d[&quot;c&quot;]
-KeyError: &#39;c&#39;
+  File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
+    d["c"]
+KeyError: 'c'
 
 A `KeyError` is raised when a value is not found as a
 key in a Python dict or in a similar object.
 
-The key `&#39;c&#39;` cannot be found in the dict `d`.
+The key `'c'` cannot be found in the dict `d`.
 
 Exception raised on line 44 of file TESTS:\runtime\test_key_error.py.
 
    41: def test_Generic_key_error():
-   42:     d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+   42:     d = {"a": 1, "b": 2}
    43:     try:
---&gt;44:         d[&quot;c&quot;]
+--&gt;44:         d["c"]
    45:     except KeyError as e:
 
-        d:  {&#39;a&#39;: 1, &#39;b&#39;: 2}
+        d:  {'a': 1, 'b': 2}
 </pre></div>
 </div>
 </div>
 <div class="section" id="popitem-empty-chainmap">
 <h3>Popitem empty ChainMap<a class="headerlink" href="#popitem-empty-chainmap" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;PYTHON_LIB:\collections\__init__.py&quot;, line 977, in popitem
+  File "PYTHON_LIB:\collections\__init__.py", line 977, in popitem
     return self.maps[0].popitem()
-KeyError: &#39;popitem(): dictionary is empty&#39;
+KeyError: 'popitem(): dictionary is empty'
 
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 26, in test_Popitem_empty_ChainMap
+  File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
     alpha.popitem()
-KeyError: &#39;No keys found in the first mapping.&#39;
+KeyError: 'No keys found in the first mapping.'
 
     `alpha` is an empty `ChainMap`.
 
@@ -1473,9 +1327,9 @@ Exception raised on line 26 of file TESTS:\runtime\test_key_error.py.
 <div class="section" id="popitem-empty-dict">
 <h3>Popitem empty dict<a class="headerlink" href="#popitem-empty-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 8, in test_Popitem_empty_dict
+  File "TESTS:\runtime\test_key_error.py", line 8, in test_Popitem_empty_dict
     d.popitem()
-KeyError: &#39;popitem(): dictionary is empty&#39;
+KeyError: 'popitem(): dictionary is empty'
 
     `d` is an empty `dict`.
 
@@ -1500,58 +1354,58 @@ Exception raised on line 8 of file TESTS:\runtime\test_key_error.py.
 <div class="section" id="similar-names">
 <h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 145, in test_Similar_names
-    a = second[&quot;alpha&quot;]
-KeyError: &#39;alpha&#39;
+  File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
+    a = second["alpha"]
+KeyError: 'alpha'
 
-    Did you mean `&#39;alpha0&#39;`?
+    Did you mean `'alpha0'`?
 
 A `KeyError` is raised when a value is not found as a
 key in a Python dict or in a similar object.
 
-The key `&#39;alpha&#39;` cannot be found in the dict `second`.
-`second` has some keys similar to `&#39;alpha&#39;` including:
-`&#39;alpha0&#39;, &#39;alpha12&#39;, &#39;alpha11&#39;`.
+The key `'alpha'` cannot be found in the dict `second`.
+`second` has some keys similar to `'alpha'` including:
+`'alpha0', 'alpha12', 'alpha11'`.
 
 Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
 
    141:         assert ok, diff
-   143:     second = {&quot;alpha0&quot;: 1, &quot;alpha11&quot;: 2, &quot;alpha12&quot;: 3}
+   143:     second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
    144:     try:
---&gt;145:         a = second[&quot;alpha&quot;]
+--&gt;145:         a = second["alpha"]
                     ^^^^^^^^^^^^^^^
    146:     except KeyError as e:
 
-        second:  {&#39;alpha0&#39;: 1, &#39;alpha11&#39;: 2, &#39;alpha12&#39;: 3}
+        second:  {'alpha0': 1, 'alpha11': 2, 'alpha12': 3}
 </pre></div>
 </div>
 </div>
 <div class="section" id="string-by-mistake">
 <h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_key_error.py&quot;, line 98, in test_String_by_mistake
-    d[&quot;(0, 0)&quot;]
-KeyError: &#39;(0, 0)&#39;
+  File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
+    d["(0, 0)"]
+KeyError: '(0, 0)'
 
     Did you convert `(0, 0)` into a string by mistake?
 
 A `KeyError` is raised when a value is not found as a
 key in a Python dict or in a similar object.
 
-The key `&#39;(0, 0)&#39;` cannot be found in the dict `d`.
-`&#39;(0, 0)&#39;` is a string.
+The key `'(0, 0)'` cannot be found in the dict `d`.
+`'(0, 0)'` is a string.
 There is a key of `d` whose string representation
-is identical to `&#39;(0, 0)&#39;`.
+is identical to `'(0, 0)'`.
 
 Exception raised on line 98 of file TESTS:\runtime\test_key_error.py.
 
    94:     chain_map_string_by_mistake()  # do not show in docs
-   96:     d = {(0, 0): &quot;origin&quot;}
+   96:     d = {(0, 0): "origin"}
    97:     try:
---&gt;98:         d[&quot;(0, 0)&quot;]
+--&gt;98:         d["(0, 0)"]
    99:     except KeyError as e:
 
-        d:  {(0, 0): &#39;origin&#39;}
+        d:  {(0, 0): 'origin'}
 </pre></div>
 </div>
 </div>
@@ -1561,8 +1415,8 @@ Exception raised on line 98 of file TESTS:\runtime\test_key_error.py.
 <div class="section" id="id4">
 <h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_lookup_error.py&quot;, line 10, in test_Generic
-    raise LookupError(&quot;Fake message&quot;)
+  File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
+    raise LookupError("Fake message")
 LookupError: Fake message
 
 `LookupError` is the base class for the exceptions that are raised
@@ -1577,7 +1431,7 @@ Exception raised on line 10 of file TESTS:\runtime\test_lookup_error.py.
     7:         # It should normally not be raised by user code,
     8:         # other than possibly codecs.lookup(), which is why we raise
     9:         # it directly here for our example.
---&gt;10:         raise LookupError(&quot;Fake message&quot;)
+--&gt;10:         raise LookupError("Fake message")
    11:     except LookupError as e:
 
         LookupError:  &lt;class LookupError&gt;
@@ -1590,9 +1444,9 @@ Exception raised on line 10 of file TESTS:\runtime\test_lookup_error.py.
 <div class="section" id="need-to-install-module">
 <h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 76, in test_Need_to_install_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
     import alphabet
-ModuleNotFoundError: No module named &#39;alphabet&#39;
+ModuleNotFoundError: No module named 'alphabet'
 
 A `ModuleNotFoundError` exception indicates that you
 are trying to import a module that cannot be found by Python.
@@ -1614,9 +1468,9 @@ Exception raised on line 76 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="not-a-package">
 <h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 22, in test_Not_a_package
+  File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
     import os.xxx
-ModuleNotFoundError: No module named &#39;os.xxx&#39;; &#39;os&#39; is not a package
+ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
 
 A `ModuleNotFoundError` exception indicates that you
 are trying to import a module that cannot be found by Python.
@@ -1637,9 +1491,9 @@ Exception raised on line 22 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="not-a-package-similar-name">
 <h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 36, in test_Not_a_package_similar_name
+  File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
     import os.pathh
-ModuleNotFoundError: No module named &#39;os.pathh&#39;; &#39;os&#39; is not a package
+ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
 
     Did you mean `import os.path`?
 
@@ -1666,9 +1520,9 @@ Exception raised on line 36 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="object-not-module">
 <h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 49, in test_Object_not_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
     import os.open
-ModuleNotFoundError: No module named &#39;os.open&#39;; &#39;os&#39; is not a package
+ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
 
     Did you mean `from os import open`?
 
@@ -1693,9 +1547,9 @@ Exception raised on line 49 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="similar-object-not-module">
 <h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 62, in test_Similar_object_not_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
     import os.opend
-ModuleNotFoundError: No module named &#39;os.opend&#39;; &#39;os&#39; is not a package
+ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
 
     Did you mean `from os import open`?
 
@@ -1722,9 +1576,9 @@ Exception raised on line 62 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="standard-library-module">
 <h3>Standard library module<a class="headerlink" href="#standard-library-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 7, in test_Standard_library_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 7, in test_Standard_library_module
     import Tkinter
-ModuleNotFoundError: No module named &#39;Tkinter&#39;
+ModuleNotFoundError: No module named 'Tkinter'
 
     Did you mean `tkinter`?
 
@@ -1749,9 +1603,9 @@ Exception raised on line 7 of file TESTS:\runtime\test_module_not_found_error.py
 <div class="section" id="no-curses">
 <h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_module_not_found_error.py&quot;, line 92, in test_no_curses
+  File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
     import curses
-ModuleNotFoundError: No module named &#39;_curses&#39;
+ModuleNotFoundError: No module named '_curses'
 
     The curses module is rarely installed with Python on Windows.
 
@@ -1778,9 +1632,9 @@ Exception raised on line 92 of file TESTS:\runtime\test_module_not_found_error.p
 <div class="section" id="annotated-variable">
 <h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 24, in test_Annotated_variable
+  File "TESTS:\runtime\test_name_error.py", line 24, in test_Annotated_variable
     y = x
-NameError: name &#39;x&#39; is not defined
+NameError: name 'x' is not defined
 
     Did you use a colon instead of an equal sign?
 
@@ -1813,9 +1667,9 @@ Exception raised on line 24 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="custom-name">
 <h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 163, in test_Custom_name
+  File "TESTS:\runtime\test_name_error.py", line 163, in test_Custom_name
     python
-NameError: name &#39;python&#39; is not defined
+NameError: name 'python' is not defined
 
     You are already using Python!
 A `NameError` exception indicates that a variable or
@@ -1837,13 +1691,13 @@ Exception raised on line 163 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="free-variable-referenced">
 <h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 149, in test_Free_variable_referenced
+  File "TESTS:\runtime\test_name_error.py", line 149, in test_Free_variable_referenced
     outer()
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 145, in outer
+  File "TESTS:\runtime\test_name_error.py", line 145, in outer
     inner()
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 144, in inner
+  File "TESTS:\runtime\test_name_error.py", line 144, in inner
     return var
-NameError: free variable &#39;var&#39; referenced before assignment in enclosing scope
+NameError: free variable 'var' referenced before assignment in enclosing scope
 
 A `NameError` exception indicates that a variable or
 function name is not known to Python.
@@ -1877,9 +1731,9 @@ Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="id5">
 <h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 9, in test_Generic
+  File "TESTS:\runtime\test_name_error.py", line 9, in test_Generic
     this = something
-NameError: name &#39;something&#39; is not defined
+NameError: name 'something' is not defined
 
 A `NameError` exception indicates that a variable or
 function name is not known to Python.
@@ -1903,9 +1757,9 @@ Exception raised on line 9 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="missing-import">
 <h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 129, in test_Missing_import
+  File "TESTS:\runtime\test_name_error.py", line 129, in test_Missing_import
     unicodedata.something
-NameError: name &#39;unicodedata&#39; is not defined
+NameError: name 'unicodedata' is not defined
 
     Did you forget to import `unicodedata`?
 
@@ -1917,12 +1771,12 @@ before being defined or given a value.
 
 The name `unicodedata` is not defined in your program.
 Perhaps you forgot to import `unicodedata` which is found
-in Python&#39;s standard library.
+in Python's standard library.
 
 Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
 
-   125:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   126:         assert &quot;I have no additional information for you.&quot; in result
+   125:     if friendly_traceback.get_lang() == "en":
+   126:         assert "I have no additional information for you." in result
    128:     try:
 --&gt;129:         unicodedata.something
                 ^^^^^^^^^^^
@@ -1933,9 +1787,9 @@ Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="missing-module-name">
 <h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 247, in test_Missing_module_name
+  File "TESTS:\runtime\test_name_error.py", line 247, in test_Missing_module_name
     frame = Frame()
-NameError: name &#39;Frame&#39; is not defined
+NameError: name 'Frame' is not defined
 
     Did you forget to add `tkinter.`?
 
@@ -1966,11 +1820,11 @@ Exception raised on line 247 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="missing-self-1">
 <h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 198, in test_Missing_self_1
+  File "TESTS:\runtime\test_name_error.py", line 198, in test_Missing_self_1
     str(a)
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 189, in __str__
-    toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
-NameError: name &#39;add_toy&#39; is not defined
+  File "TESTS:\runtime\test_name_error.py", line 189, in __str__
+    toys_list = add_toy(  # ensure that it can see 'self' on following line
+NameError: name 'add_toy' is not defined
 
     Did you write `self` at the wrong place?
 
@@ -1989,8 +1843,8 @@ instead of `add_toy(self, ...`.
 
 Execution stopped on line 198 of file TESTS:\runtime\test_name_error.py.
 
-   194:                 return &quot;{} has no toys&quot;.format(self.name)
-   196:     a = Pet(&#39;Fido&#39;)
+   194:                 return "{} has no toys".format(self.name)
+   196:     a = Pet('Fido')
    197:     try:
 --&gt;198:         str(a)
    199:     except NameError as e:
@@ -2003,9 +1857,9 @@ Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
 
    187:         def __str__(self):
    188:             # self at the wrong place
---&gt;189:             toys_list = add_toy(  # ensure that it can see &#39;self&#39; on following line
+--&gt;189:             toys_list = add_toy(  # ensure that it can see 'self' on following line
                                 ^^^^^^^
-   190:                                 self, &#39;something&#39;)
+   190:                                 self, 'something')
    191:             if self.toys:
 </pre></div>
 </div>
@@ -2013,11 +1867,11 @@ Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="missing-self-2">
 <h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 232, in test_Missing_self_2
+  File "TESTS:\runtime\test_name_error.py", line 232, in test_Missing_self_2
     str(a)
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 224, in __str__
-    toys_list = add_toy(&#39;something&#39;)
-NameError: name &#39;add_toy&#39; is not defined
+  File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+    toys_list = add_toy('something')
+NameError: name 'add_toy' is not defined
 
     Did you forget to add `self.`?
 
@@ -2036,8 +1890,8 @@ instead of `add_toy`.
 
 Execution stopped on line 232 of file TESTS:\runtime\test_name_error.py.
 
-   228:                 return &quot;{} has no toys&quot;.format(self.name)
-   230:     a = Pet(&#39;Fido&#39;)
+   228:                 return "{} has no toys".format(self.name)
+   230:     a = Pet('Fido')
    231:     try:
 --&gt;232:         str(a)
    233:     except NameError as e:
@@ -2050,7 +1904,7 @@ Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
 
    222:         def __str__(self):
    223:             # Missing self.
---&gt;224:             toys_list = add_toy(&#39;something&#39;)
+--&gt;224:             toys_list = add_toy('something')
                                 ^^^^^^^
    225:             if self.toys:
 </pre></div>
@@ -2059,9 +1913,9 @@ Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="synonym">
 <h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_name_error.py&quot;, line 89, in test_Synonym
+  File "TESTS:\runtime\test_name_error.py", line 89, in test_Synonym
     cost  # wrote from math import * above
-NameError: name &#39;cost&#39; is not defined
+NameError: name 'cost' is not defined
 
     Did you mean `cos`?
 
@@ -2077,8 +1931,8 @@ Instead of writing `cost`, perhaps you meant one of the following:
 
 Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
 
-   85:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   86:         assert &quot;The Python builtin `chr` has a similar name.&quot; in result
+   85:     if friendly_traceback.get_lang() == "en":
+   86:         assert "The Python builtin `chr` has a similar name." in result
    88:     try:
 --&gt;89:         cost  # wrote from math import * above
    90:     except NameError as e:
@@ -2091,19 +1945,19 @@ Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="urllib-error">
 <h3>Urllib error<a class="headerlink" href="#urllib-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;PYTHON_LIB:\urllib\request.py&quot;, line 1350, in do_open
+  File "PYTHON_LIB:\urllib\request.py", line 1350, in do_open
        ... More lines not shown. ...
-  File &quot;PYTHON_LIB:\socket.py&quot;, line 707, in create_connection
+  File "PYTHON_LIB:\socket.py", line 707, in create_connection
     for res in getaddrinfo(host, port, 0, SOCK_STREAM):
-  File &quot;PYTHON_LIB:\socket.py&quot;, line 752, in getaddrinfo
+  File "PYTHON_LIB:\socket.py", line 752, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
 socket.gaierror: [Errno 11001] getaddrinfo failed
 
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 8, in test_Urllib_error
-    request.urlopen(&quot;http://does_not_exist&quot;)
+  File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
+    request.urlopen("http://does_not_exist")
 URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 
 An exception of type `URLError` is a subclass of `OSError`.
@@ -2122,7 +1976,7 @@ Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
    5: def test_Urllib_error():
    6:     from urllib import request, error
    7:     try:
---&gt;8:         request.urlopen(&quot;http://does_not_exist&quot;)
+--&gt;8:         request.urlopen("http://does_not_exist")
    9:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
@@ -2133,9 +1987,9 @@ Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
 <div class="section" id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 46, in test_invalid_argument
-    open(&quot;c:\test.txt&quot;)
-OSError: [Errno 22] Invalid argument: &#39;c:\test.txt&#39;
+  File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+    open("c:\test.txt")
+OSError: [Errno 22] Invalid argument: 'c:\test.txt'
 
     Perhaps you need to double the backslash characters.
 
@@ -2147,17 +2001,17 @@ I suspect that you wrote a filename or path that contains
 at least one backslash character, `\`.
 Python likely interpreted this as indicating the beginning of
 what is known as an escape sequence.
-To solve the problem, either write a so-called &#39;raw string&#39;
+To solve the problem, either write a so-called 'raw string'
 by adding the letter `r` as a prefix in
 front of the filename or path, or replace all single backslash
 characters, `\`, by double ones: `\\`.
 
 Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
 
-   43:     if os.name != &quot;nt&quot;:
-   44:         return &quot;Windows test only&quot;, &quot;No result&quot;
+   43:     if os.name != "nt":
+   44:         return "Windows test only", "No result"
    45:     try:
---&gt;46:         open(&quot;c:\test.txt&quot;)
+--&gt;46:         open("c:\test.txt")
    47:     except OSError as e:
 
         open:  &lt;builtin function open&gt;
@@ -2167,8 +2021,8 @@ Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
 <div class="section" id="no-information">
 <h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_os_error.py&quot;, line 27, in test_no_information
-    raise OSError(&quot;Some unknown message&quot;)
+  File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+    raise OSError("Some unknown message")
 OSError: Some unknown message
 
     Friendly-traceback does not know the cause of this error.
@@ -2180,7 +2034,7 @@ a resource is not available.
 No information is known about this exception.
 Please report this example to
 https://github.com/friendly-traceback/friendly-traceback/issues/new
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using a REPL, use `www('bug')` to do so.
 
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -2190,7 +2044,7 @@ Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
    24:     old_debug = friendly_traceback.debug_helper.DEBUG
    25:     friendly_traceback.debug_helper.DEBUG = False
    26:     try:
---&gt;27:         raise OSError(&quot;Some unknown message&quot;)
+--&gt;27:         raise OSError("Some unknown message")
    28:     except OSError as e:
 
         OSError:  &lt;class OSError&gt;
@@ -2203,12 +2057,12 @@ Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
 <div class="section" id="id6">
 <h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_overflow_error.py&quot;, line 6, in test_Generic
+  File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
     2.0 ** 1600
-OverflowError: (34, &#39;Result too large&#39;)
+OverflowError: (34, 'Result too large')
 
 An `OverflowError` is raised when the result of an arithmetic operation
-is too large to be handled by the computer&#39;s processor.
+is too large to be handled by the computer's processor.
 
 Exception raised on line 6 of file TESTS:\runtime\test_overflow_error.py.
 
@@ -2225,12 +2079,12 @@ Exception raised on line 6 of file TESTS:\runtime\test_overflow_error.py.
 <div class="section" id="id7">
 <h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_recursion_error.py&quot;, line 8, in test_Generic
+  File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
     a()
        ... More lines not shown. ...
-  File &quot;TESTS:\runtime\test_recursion_error.py&quot;, line 6, in a
+  File "TESTS:\runtime\test_recursion_error.py", line 6, in a
     return a()
-  File &quot;TESTS:\runtime\test_recursion_error.py&quot;, line 6, in a
+  File "TESTS:\runtime\test_recursion_error.py", line 6, in a
     return a()
 RecursionError: maximum recursion depth exceeded
 
@@ -2265,9 +2119,9 @@ Exception raised on line 6 of file TESTS:\runtime\test_recursion_error.py.
 <div class="section" id="bad-type-for-unary-operator">
 <h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 371, in test_Bad_type_for_unary_operator
-    a =+ &quot;def&quot;
-TypeError: bad operand type for unary +: &#39;str&#39;
+  File "TESTS:\runtime\test_type_error.py", line 371, in test_Bad_type_for_unary_operator
+    a =+ "def"
+TypeError: bad operand type for unary +: 'str'
 
     Perhaps you meant to write `+=` instead of `=+`
 A `TypeError` is usually caused by trying
@@ -2275,7 +2129,7 @@ to combine two incompatible types of objects,
 by calling a function with the wrong type of object,
 or by trying to do an operation not allowed on a given type of object.
 
-You tried to use the unary operator &#39;+&#39;
+You tried to use the unary operator '+'
 with the following type of object: a string (`str`).
 This operation is not defined for this type of object.
 
@@ -2283,11 +2137,11 @@ Perhaps you meant to write `+=` instead of `=+`
 
 Exception raised on line 371 of file TESTS:\runtime\test_type_error.py.
 
-   366:         assert &quot;You tried to use the unary operator &#39;~&#39;&quot; in result
+   366:         assert "You tried to use the unary operator '~'" in result
    368:     try:
    369:         # fmt: off
-   370:         a = &quot;abc&quot;
---&gt;371:         a =+ &quot;def&quot;
+   370:         a = "abc"
+--&gt;371:         a =+ "def"
                    ^^^^^^^
    372:         # fmt: on
 </pre></div>
@@ -2296,39 +2150,39 @@ Exception raised on line 371 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="builtin-has-no-len">
 <h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 780, in test_Builtin_has_no_len
-    len(&quot;Hello world&quot;.split)
-TypeError: object of type &#39;builtin_function_or_method&#39; has no len()
+  File "TESTS:\runtime\test_type_error.py", line 780, in test_Builtin_has_no_len
+    len("Hello world".split)
+TypeError: object of type 'builtin_function_or_method' has no len()
 
-    Did you forget to call `&quot;Hello world&quot;.split`?
+    Did you forget to call `"Hello world".split`?
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
 by calling a function with the wrong type of object,
 or by trying to do an operation not allowed on a given type of object.
 
-I suspect that you forgot to add parentheses to call `&quot;Hello world&quot;.split`.
+I suspect that you forgot to add parentheses to call `"Hello world".split`.
 You might have meant to write:
-`len(&quot;Hello world&quot;.split())`
+`len("Hello world".split())`
 
 Exception raised on line 780 of file TESTS:\runtime\test_type_error.py.
 
    778: def test_Builtin_has_no_len():
    779:     try:
---&gt;780:         len(&quot;Hello world&quot;.split)
+--&gt;780:         len("Hello world".split)
    781:     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
-        &quot;Hello world&quot;.split:  &lt;builtin method split of str object&gt;
+        "Hello world".split:  &lt;builtin method split of str object&gt;
 </pre></div>
 </div>
 </div>
 <div class="section" id="can-only-concatenate">
 <h3>Can only concatenate<a class="headerlink" href="#can-only-concatenate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 37, in test_Can_only_concatenate
+  File "TESTS:\runtime\test_type_error.py", line 37, in test_Can_only_concatenate
     result = a_tuple + a_list
-TypeError: can only concatenate tuple (not &quot;list&quot;) to tuple
+TypeError: can only concatenate tuple (not "list") to tuple
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2355,7 +2209,7 @@ Exception raised on line 37 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="cannot-convert-dictionary-update-sequence">
 <h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 766, in test_Cannot_convert_dictionary_update_sequence
+  File "TESTS:\runtime\test_type_error.py", line 766, in test_Cannot_convert_dictionary_update_sequence
     dd.update([1, 2, 3])
 TypeError: cannot convert dictionary update sequence element #0 to a sequence
 
@@ -2372,13 +2226,13 @@ perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([
 
 Exception raised on line 766 of file TESTS:\runtime\test_type_error.py.
 
-   762:         assert &quot;you should use the `dict.fromkeys()`&quot; in result
-   764:     dd = {&quot;a&quot;: &quot;a&quot;}
+   762:         assert "you should use the `dict.fromkeys()`" in result
+   764:     dd = {"a": "a"}
    765:     try:
 --&gt;766:         dd.update([1, 2, 3])
    767:     except TypeError as e:
 
-        dd:  {&#39;a&#39;: &#39;a&#39;}
+        dd:  {'a': 'a'}
         dd.update:  &lt;builtin method update of dict object&gt;
 </pre></div>
 </div>
@@ -2386,11 +2240,11 @@ Exception raised on line 766 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="cannot-multiply-by-non-int">
 <h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 570, in test_Cannot_multiply_by_non_int
-    &quot;a&quot; * &quot;2&quot;
-TypeError: can&#39;t multiply sequence by non-int of type &#39;str&#39;
+  File "TESTS:\runtime\test_type_error.py", line 570, in test_Cannot_multiply_by_non_int
+    "a" * "2"
+TypeError: can't multiply sequence by non-int of type 'str'
 
-    Did you forget to convert `&quot;2&quot;` into an integer?
+    Did you forget to convert `"2"` into an integer?
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2399,14 +2253,14 @@ or by trying to do an operation not allowed on a given type of object.
 
 You can only multiply sequences, such as list, tuples,
  strings, etc., by integers.
-Perhaps you forgot to convert `&quot;2&quot;` into an integer.
+Perhaps you forgot to convert `"2"` into an integer.
 
 Exception raised on line 570 of file TESTS:\runtime\test_type_error.py.
 
-   566:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   567:         assert &quot;Did you forget to convert `c` into an integer?&quot; in result
+   566:     if friendly_traceback.get_lang() == "en":
+   567:         assert "Did you forget to convert `c` into an integer?" in result
    569:     try:
---&gt;570:         &quot;a&quot; * &quot;2&quot;
+--&gt;570:         "a" * "2"
    571:     except TypeError as e:
 </pre></div>
 </div>
@@ -2414,7 +2268,7 @@ Exception raised on line 570 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="cannot-unpack-non-iterable-object">
 <h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 738, in test_Cannot_unpack_non_iterable_object
+  File "TESTS:\runtime\test_type_error.py", line 738, in test_Cannot_unpack_non_iterable_object
     a, b = 42.0
 TypeError: cannot unpack non-iterable float object
 
@@ -2441,9 +2295,9 @@ Exception raised on line 738 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="comparison-not-supported">
 <h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 320, in test_Comparison_not_supported
+  File "TESTS:\runtime\test_type_error.py", line 320, in test_Comparison_not_supported
     b &gt;= a
-TypeError: &#39;&gt;=&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;
+TypeError: '&gt;=' not supported between instances of 'int' and 'str'
 
     Did you forget to convert the string `a` into an integer (`int`)?
 
@@ -2460,12 +2314,12 @@ Perhaps you forgot to convert the string `a` into an integer (`int`).
 Exception raised on line 320 of file TESTS:\runtime\test_type_error.py.
 
    317:     try:
-   318:         a = &quot;2&quot;
+   318:         a = "2"
    319:         b = 42
 --&gt;320:         b &gt;= a
    321:     except TypeError as e:
 
-        a:  &#39;2&#39;
+        a:  '2'
         b:  42
 </pre></div>
 </div>
@@ -2473,8 +2327,8 @@ Exception raised on line 320 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="derive-from-baseexception">
 <h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 513, in test_Derive_from_BaseException
-    raise &quot;exception&quot;  # noqa
+  File "TESTS:\runtime\test_type_error.py", line 513, in test_Derive_from_BaseException
+    raise "exception"  # noqa
 TypeError: exceptions must derive from BaseException
 
 A `TypeError` is usually caused by trying
@@ -2488,7 +2342,7 @@ Exception raised on line 513 of file TESTS:\runtime\test_type_error.py.
 
    511: def test_Derive_from_BaseException():
    512:     try:
---&gt;513:         raise &quot;exception&quot;  # noqa
+--&gt;513:         raise "exception"  # noqa
    514:     except TypeError as e:
 </pre></div>
 </div>
@@ -2496,31 +2350,31 @@ Exception raised on line 513 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="indices-must-be-integers-or-slices">
 <h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 652, in test_Indices_must_be_integers_or_slices
-    [1, 2, 3][&quot;2&quot;]
+  File "TESTS:\runtime\test_type_error.py", line 652, in test_Indices_must_be_integers_or_slices
+    [1, 2, 3]["2"]
 TypeError: list indices must be integers or slices, not str
 
-    Did you forget to convert `&quot;2&quot;` into an integer?
+    Did you forget to convert `"2"` into an integer?
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
 by calling a function with the wrong type of object,
 or by trying to do an operation not allowed on a given type of object.
 
-In the expression `[1, 2, 3][&quot;2&quot;]`
+In the expression `[1, 2, 3]["2"]`
 what is included between the square brackets, `[...]`,
 must be either an integer or a slice
 (`start:stop` or `start:stop:step`)
 and you have used a string (`str`) instead.
 
-Perhaps you forgot to convert `&quot;2&quot;` into an integer.
+Perhaps you forgot to convert `"2"` into an integer.
 
 Exception raised on line 652 of file TESTS:\runtime\test_type_error.py.
 
-   648:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   649:         assert &quot;Perhaps you forgot to convert `2.0` into an integer.&quot; in result
+   648:     if friendly_traceback.get_lang() == "en":
+   649:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
    651:     try:
---&gt;652:         [1, 2, 3][&quot;2&quot;]
+--&gt;652:         [1, 2, 3]["2"]
    653:     except TypeError as e:
 </pre></div>
 </div>
@@ -2528,9 +2382,9 @@ Exception raised on line 652 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="not-an-integer">
 <h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 615, in test_Not_an_integer
+  File "TESTS:\runtime\test_type_error.py", line 615, in test_Not_an_integer
     range(c, d)
-TypeError: &#39;str&#39; object cannot be interpreted as an integer
+TypeError: 'str' object cannot be interpreted as an integer
 
     Did you forget to convert `c, d` into integers?
 
@@ -2543,14 +2397,14 @@ You wrote an object of type `str` where an integer was expected.
 Perhaps you forgot to convert `c, d` into integers.
 Exception raised on line 615 of file TESTS:\runtime\test_type_error.py.
 
-   611:         assert &quot;Perhaps you forgot to convert `1.0&quot; in result
-   613:     c, d = &quot;2&quot;, &quot;3&quot;
+   611:         assert "Perhaps you forgot to convert `1.0" in result
+   613:     c, d = "2", "3"
    614:     try:
 --&gt;615:         range(c, d)
    616:     except TypeError as e:
 
-        c:  &#39;2&#39;
-        d:  &#39;3&#39;
+        c:  '2'
+        d:  '3'
         range:  &lt;class range&gt;
 </pre></div>
 </div>
@@ -2558,9 +2412,9 @@ Exception raised on line 615 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="not-callable">
 <h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 500, in test_Not_callable
+  File "TESTS:\runtime\test_type_error.py", line 500, in test_Not_callable
     _ = [1, 2](a + b)
-TypeError: &#39;list&#39; object is not callable
+TypeError: 'list' object is not callable
 
     Did you mean `[1, 2][a + b]`?
 
@@ -2580,7 +2434,7 @@ Perhaps you meant to use `[]` instead of `()` and write
 
 Exception raised on line 500 of file TESTS:\runtime\test_type_error.py.
 
-   496:         assert &quot;b.a_list[3]&quot; in result
+   496:         assert "b.a_list[3]" in result
    498:     try:
    499:         a, b = 3, 7
 --&gt;500:         _ = [1, 2](a + b)
@@ -2596,9 +2450,9 @@ Exception raised on line 500 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="object-is-not-iterable">
 <h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 724, in test_Object_is_not_iterable
+  File "TESTS:\runtime\test_type_error.py", line 724, in test_Object_is_not_iterable
     list(42)
-TypeError: &#39;int&#39; object is not iterable
+TypeError: 'int' object is not iterable
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2623,9 +2477,9 @@ Exception raised on line 724 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="object-is-not-subscriptable">
 <h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 710, in test_Object_is_not_subscriptable
+  File "TESTS:\runtime\test_type_error.py", line 710, in test_Object_is_not_subscriptable
     a = f[1]
-TypeError: &#39;function&#39; object is not subscriptable
+TypeError: 'function' object is not subscriptable
 
     Did you mean `f(1)`?
 
@@ -2656,7 +2510,7 @@ Exception raised on line 710 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="slice-indices-must-be-integers-or-none">
 <h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 666, in test_Slice_indices_must_be_integers_or_None
+  File "TESTS:\runtime\test_type_error.py", line 666, in test_Slice_indices_must_be_integers_or_None
     [1, 2, 3][1.0:2.0]
 TypeError: slice indices must be integers or None or have an __index__ method
 
@@ -2683,16 +2537,16 @@ Exception raised on line 666 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="too-few-positional-argument">
 <h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 441, in test_Too_few_positional_argument
+  File "TESTS:\runtime\test_type_error.py", line 441, in test_Too_few_positional_argument
     fn(1)
-TypeError: fn() missing 2 required positional arguments: &#39;b&#39; and &#39;c&#39;
+TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
 by calling a function with the wrong type of object,
 or by trying to do an operation not allowed on a given type of object.
 
-You apparently have called the function &#39;fn()&#39; with
+You apparently have called the function 'fn()' with
 fewer positional arguments than it requires (2 missing).
 
 Exception raised on line 441 of file TESTS:\runtime\test_type_error.py.
@@ -2711,7 +2565,7 @@ Exception raised on line 441 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="too-many-positional-argument">
 <h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 422, in test_Too_many_positional_argument
+  File "TESTS:\runtime\test_type_error.py", line 422, in test_Too_many_positional_argument
     A().f(1)
 TypeError: f() takes 1 positional argument but 2 were given
 
@@ -2743,9 +2597,9 @@ Exception raised on line 422 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="tuple-no-item-assignment">
 <h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 389, in test_Tuple_no_item_assignment
+  File "TESTS:\runtime\test_type_error.py", line 389, in test_Tuple_no_item_assignment
     a[0] = 0
-TypeError: &#39;tuple&#39; object does not support item assignment
+TypeError: 'tuple' object does not support item assignment
 
     Did you mean to use a list?
 
@@ -2776,9 +2630,9 @@ Exception raised on line 389 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="unhachable-type">
 <h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 683, in test_Unhachable_type
+  File "TESTS:\runtime\test_type_error.py", line 683, in test_Unhachable_type
     {[1, 2]: 1}
-TypeError: unhashable type: &#39;list&#39;
+TypeError: unhashable type: 'list'
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2802,9 +2656,9 @@ Exception raised on line 683 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="unsupported-operand-types">
 <h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 283, in test_Unsupported_operand_types
+  File "TESTS:\runtime\test_type_error.py", line 283, in test_Unsupported_operand_types
     a @= b
-TypeError: unsupported operand type(s) for @=: &#39;str&#39; and &#39;int&#39;
+TypeError: unsupported operand type(s) for @=: 'str' and 'int'
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2820,12 +2674,12 @@ for multiplication of matrices.
 Exception raised on line 283 of file TESTS:\runtime\test_type_error.py.
 
    280:     try:
-   281:         a = &quot;a&quot;
+   281:         a = "a"
    282:         b = 2
 --&gt;283:         a @= b
    284:     except TypeError as e:
 
-        a:  &#39;a&#39;
+        a:  'a'
         b:  2
 </pre></div>
 </div>
@@ -2833,9 +2687,9 @@ Exception raised on line 283 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 868, in test_function_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 868, in test_function_got_multiple_argument
     fn2(0, a=1)
-TypeError: fn2() got multiple values for argument &#39;a&#39;
+TypeError: fn2() got multiple values for argument 'a'
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2863,9 +2717,9 @@ Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 796, in test_function_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 796, in test_function_has_no_len
     len(bad)
-TypeError: object of type &#39;function&#39; has no len()
+TypeError: object of type 'function' has no len()
 
     Did you forget to call `bad`?
 
@@ -2894,9 +2748,9 @@ Exception raised on line 796 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 886, in test_method_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 886, in test_method_got_multiple_argument
     t.some_method(0, a=1)
-TypeError: some_method() got multiple values for argument &#39;a&#39;
+TypeError: some_method() got multiple values for argument 'a'
 
 A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -2926,7 +2780,7 @@ Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_type_error.py&quot;, line 839, in test_vars_arg_must_have_dict
+  File "TESTS:\runtime\test_type_error.py", line 839, in test_vars_arg_must_have_dict
     vars(f)
 TypeError: vars() argument must have __dict__ attribute
 
@@ -2959,13 +2813,13 @@ Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="missing-both">
 <h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 61, in test_Missing_both
+  File "TESTS:\runtime\test_unbound_local_error.py", line 61, in test_Missing_both
     outer_missing_both()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 22, in outer_missing_both
+  File "TESTS:\runtime\test_unbound_local_error.py", line 22, in outer_missing_both
     inner()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 21, in inner
+  File "TESTS:\runtime\test_unbound_local_error.py", line 21, in inner
     spam_missing_both += 1
-UnboundLocalError: local variable &#39;spam_missing_both&#39; referenced before assignment
+UnboundLocalError: local variable 'spam_missing_both' referenced before assignment
 
     Did you forget to add either `global spam_missing_both` or
     `nonlocal spam_missing_both`?
@@ -3012,13 +2866,13 @@ Exception raised on line 21 of file TESTS:\runtime\test_unbound_local_error.py.
 <div class="section" id="missing-global">
 <h3>Missing global<a class="headerlink" href="#missing-global" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 27, in test_Missing_global
+  File "TESTS:\runtime\test_unbound_local_error.py", line 27, in test_Missing_global
     outer_missing_global()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 10, in outer_missing_global
+  File "TESTS:\runtime\test_unbound_local_error.py", line 10, in outer_missing_global
     inner()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 9, in inner
+  File "TESTS:\runtime\test_unbound_local_error.py", line 9, in inner
     spam_missing_global += 1
-UnboundLocalError: local variable &#39;spam_missing_global&#39; referenced before assignment
+UnboundLocalError: local variable 'spam_missing_global' referenced before assignment
 
     Did you forget to add `global spam_missing_global`?
 
@@ -3059,13 +2913,13 @@ Exception raised on line 9 of file TESTS:\runtime\test_unbound_local_error.py.
 <div class="section" id="missing-nonlocal">
 <h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 44, in test_Missing_nonlocal
+  File "TESTS:\runtime\test_unbound_local_error.py", line 44, in test_Missing_nonlocal
     outer_missing_nonlocal()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 16, in outer_missing_nonlocal
+  File "TESTS:\runtime\test_unbound_local_error.py", line 16, in outer_missing_nonlocal
     inner()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 15, in inner
+  File "TESTS:\runtime\test_unbound_local_error.py", line 15, in inner
     spam_missing_nonlocal += 1
-UnboundLocalError: local variable &#39;spam_missing_nonlocal&#39; referenced before assignment
+UnboundLocalError: local variable 'spam_missing_nonlocal' referenced before assignment
 
     Did you forget to add `nonlocal spam_missing_nonlocal`?
 
@@ -3104,11 +2958,11 @@ Exception raised on line 15 of file TESTS:\runtime\test_unbound_local_error.py.
 <div class="section" id="typo-in-local">
 <h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 97, in test_Typo_in_local
+  File "TESTS:\runtime\test_unbound_local_error.py", line 97, in test_Typo_in_local
     test2()
-  File &quot;TESTS:\runtime\test_unbound_local_error.py&quot;, line 94, in test2
+  File "TESTS:\runtime\test_unbound_local_error.py", line 94, in test2
     alpha3 += 1
-UnboundLocalError: local variable &#39;alpha3&#39; referenced before assignment
+UnboundLocalError: local variable 'alpha3' referenced before assignment
 
     Did you mean `alpha2`?
 
@@ -3149,14 +3003,14 @@ Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
 <div class="section" id="id8">
 <h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_unknown_error.py&quot;, line 12, in test_Generic
-    raise UnknownException(&quot;Some informative message about an unknown exception.&quot;)
+  File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
+    raise UnknownException("Some informative message about an unknown exception.")
 UnknownException: Some informative message about an unknown exception.
 
 No information is known about this exception.
 Please report this example to
 https://github.com/friendly-traceback/friendly-traceback/issues/new
-If you are using a REPL, use `www(&#39;bug&#39;)` to do so.
+If you are using a REPL, use `www('bug')` to do so.
 
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
@@ -3166,7 +3020,7 @@ Exception raised on line 12 of file TESTS:\runtime\test_unknown_error.py.
     9:     old_debug = friendly_traceback.debug_helper.DEBUG
    10:     friendly_traceback.debug_helper.DEBUG = False
    11:     try:
---&gt;12:         raise UnknownException(&quot;Some informative message about an unknown exception.&quot;)
+--&gt;12:         raise UnknownException("Some informative message about an unknown exception.")
    13:     except Exception as e:
 
         global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
@@ -3179,7 +3033,7 @@ Exception raised on line 12 of file TESTS:\runtime\test_unknown_error.py.
 <div class="section" id="date-invalid-month">
 <h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_value_error.py&quot;, line 58, in test_Date_invalid_month
+  File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
     d = date(2021, 13, 1)
 ValueError: month must be in 1..12
 
@@ -3207,7 +3061,7 @@ Exception raised on line 58 of file TESTS:\runtime\test_value_error.py.
 <div class="section" id="not-enough-values-to-unpack">
 <h3>Not enough values to unpack<a class="headerlink" href="#not-enough-values-to-unpack" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_value_error.py&quot;, line 28, in test_Not_enough_values_to_unpack
+  File "TESTS:\runtime\test_value_error.py", line 28, in test_Not_enough_values_to_unpack
     a, b, c = d
 ValueError: not enough values to unpack (expected 3, got 2)
 
@@ -3221,20 +3075,20 @@ than the length of the iterable, a string (`str`) of length 2.
 
 Exception raised on line 28 of file TESTS:\runtime\test_value_error.py.
 
-   24:     assert &quot;ValueError: not enough values to unpack (expected 3, got 2)&quot; in result
-   26:     d = &quot;ab&quot;
+   24:     assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
+   26:     d = "ab"
    27:     try:
 --&gt;28:         a, b, c = d
    29:     except ValueError as e:
 
-        d:  &#39;ab&#39;
+        d:  'ab'
 </pre></div>
 </div>
 </div>
 <div class="section" id="too-many-values-to-unpack">
 <h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_value_error.py&quot;, line 43, in test_Too_many_values_to_unpack
+  File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
     a, b = c
 ValueError: too many values to unpack (expected 2)
 
@@ -3261,9 +3115,9 @@ Exception raised on line 43 of file TESTS:\runtime\test_value_error.py.
 <div class="section" id="slots-conflicts-with-class-variable">
 <h3>slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_value_error.py&quot;, line 72, in test_slots_conflicts_with_class_variable
+  File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
     class F:
-ValueError: &#39;a&#39; in __slots__ conflicts with class variable
+ValueError: 'a' in __slots__ conflicts with class variable
 
 A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
@@ -3277,7 +3131,7 @@ Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
    70: def test_slots_conflicts_with_class_variable():
    71:     try:
 --&gt;72:         class F:
-   73:             __slots__ = [&quot;a&quot;, &quot;b&quot;]
+   73:             __slots__ = ["a", "b"]
 </pre></div>
 </div>
 </div>
@@ -3287,7 +3141,7 @@ Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
 <div class="section" id="complex-division">
 <h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 155, in test_Complex_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
     1 / zero
 ZeroDivisionError: complex division by zero
 
@@ -3315,7 +3169,7 @@ Exception raised on line 155 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="division-by-zero-literal">
 <h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 199, in test_Division_by_zero_literal
+  File "TESTS:\runtime\test_zero_division_error.py", line 199, in test_Division_by_zero_literal
     1. / 0
 ZeroDivisionError: float division by zero
 
@@ -3326,8 +3180,8 @@ You are dividing by zero.
 
 Exception raised on line 199 of file TESTS:\runtime\test_zero_division_error.py.
 
-   194:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   195:         assert &quot;Using the modulo operator, you are dividing by zero&quot; in result
+   194:     if friendly_traceback.get_lang() == "en":
+   195:         assert "Using the modulo operator, you are dividing by zero" in result
    198:     try:
 --&gt;199:         1. / 0
    200:     except ZeroDivisionError as e:
@@ -3337,7 +3191,7 @@ Exception raised on line 199 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="division-operator">
 <h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 17, in test_Division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 17, in test_Division_operator
     1 / zero
 ZeroDivisionError: division by zero
 
@@ -3352,8 +3206,8 @@ which is equal to zero.
 
 Exception raised on line 17 of file TESTS:\runtime\test_zero_division_error.py.
 
-   13:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   14:         assert &quot;The following mathematical expression includes a division by zero&quot; in result
+   13:     if friendly_traceback.get_lang() == "en":
+   14:         assert "The following mathematical expression includes a division by zero" in result
    16:     try:
 --&gt;17:         1 / zero
    18:     except ZeroDivisionError as e:
@@ -3365,7 +3219,7 @@ Exception raised on line 17 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="divmod">
 <h3>Divmod<a class="headerlink" href="#divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 82, in test_Divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
     divmod(1, zero)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3390,7 +3244,7 @@ Exception raised on line 82 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="float-division">
 <h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 125, in test_Float_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 125, in test_Float_division
     1 / zero
 ZeroDivisionError: float division by zero
 
@@ -3418,7 +3272,7 @@ Exception raised on line 125 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="float-divmod">
 <h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 140, in test_Float_divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 140, in test_Float_divmod
     divmod(1, zero)
 ZeroDivisionError: float divmod()
 
@@ -3443,7 +3297,7 @@ Exception raised on line 140 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="float-modulo">
 <h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 110, in test_Float_modulo
+  File "TESTS:\runtime\test_zero_division_error.py", line 110, in test_Float_modulo
     1 % zero
 ZeroDivisionError: float modulo
 
@@ -3458,8 +3312,8 @@ which is equal to zero.
 
 Exception raised on line 110 of file TESTS:\runtime\test_zero_division_error.py.
 
-   106:         assert &quot;The following mathematical expression includes a division by zero&quot; in result
-   107:         assert &quot;done using the modulo operator&quot; in result
+   106:         assert "The following mathematical expression includes a division by zero" in result
+   107:         assert "done using the modulo operator" in result
    109:     try:
 --&gt;110:         1 % zero
    111:     except ZeroDivisionError as e:
@@ -3471,7 +3325,7 @@ Exception raised on line 110 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="integer-division-operator">
 <h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 42, in test_Integer_division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 42, in test_Integer_division_operator
     1 // zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3486,8 +3340,8 @@ which is equal to zero.
 
 Exception raised on line 42 of file TESTS:\runtime\test_zero_division_error.py.
 
-   38:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   39:         assert &quot;The following mathematical expression includes a division by zero&quot; in result
+   38:     if friendly_traceback.get_lang() == "en":
+   39:         assert "The following mathematical expression includes a division by zero" in result
    41:     try:
 --&gt;42:         1 // zero
    43:     except ZeroDivisionError as e:
@@ -3499,7 +3353,7 @@ Exception raised on line 42 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="mixed-operations">
 <h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 212, in test_Mixed_operations
+  File "TESTS:\runtime\test_zero_division_error.py", line 212, in test_Mixed_operations
     a = divmod(8, 1 // 2)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3526,7 +3380,7 @@ Exception raised on line 212 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="modulo-operator">
 <h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 67, in test_Modulo_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 67, in test_Modulo_operator
     1 % zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3541,8 +3395,8 @@ which is equal to zero.
 
 Exception raised on line 67 of file TESTS:\runtime\test_zero_division_error.py.
 
-   63:     if friendly_traceback.get_lang() == &quot;en&quot;:
-   64:         assert &quot;The following mathematical expression includes a division by zero&quot; in result
+   63:     if friendly_traceback.get_lang() == "en":
+   64:         assert "The following mathematical expression includes a division by zero" in result
    66:     try:
 --&gt;67:         1 % zero
    68:     except ZeroDivisionError as e:
@@ -3554,7 +3408,7 @@ Exception raised on line 67 of file TESTS:\runtime\test_zero_division_error.py.
 <div class="section" id="raise-zero-negative-power">
 <h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;TESTS:\runtime\test_zero_division_error.py&quot;, line 170, in test_Raise_zero_negative_power
+  File "TESTS:\runtime\test_zero_division_error.py", line 170, in test_Raise_zero_negative_power
     zero ** -1
 ZeroDivisionError: 0.0 cannot be raised to a negative power
 
@@ -3579,52 +3433,232 @@ Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
 </div>
 </div>
 
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="syntax_tracebacks_en_3.7.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Friendly SyntaxError tracebacks - in English</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="syntax_tracebacks_en_3.6.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Friendly SyntaxError tracebacks - in English</div>
+                
+              </div>
+            </a>
+        </div>
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="syntax_tracebacks_en_3.7.html" class="btn btn-neutral float-right" title="Friendly SyntaxError tracebacks - in English" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="syntax_tracebacks_en_3.6.html" class="btn btn-neutral float-left" title="Friendly SyntaxError tracebacks - in English" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <div class="related-information">
+              Copyright &#169; André Roberge
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="_sources/tracebacks_en_3.7.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Friendly tracebacks - in English</a><ul>
+<li><a class="reference internal" href="#arithmeticerror">ArithmeticError</a><ul>
+<li><a class="reference internal" href="#generic">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#assertionerror">AssertionError</a><ul>
+<li><a class="reference internal" href="#id1">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#attributeerror">AttributeError</a><ul>
+<li><a class="reference internal" href="#attribute-from-other-module">Attribute from other module</a></li>
+<li><a class="reference internal" href="#builtin-function">Builtin function</a></li>
+<li><a class="reference internal" href="#builtin-module-with-no-file">Builtin module with no file</a></li>
+<li><a class="reference internal" href="#circular-import">Circular import</a></li>
+<li><a class="reference internal" href="#circular-import-b">Circular import b</a></li>
+<li><a class="reference internal" href="#id2">Generic</a></li>
+<li><a class="reference internal" href="#generic-different-frame">Generic different frame</a></li>
+<li><a class="reference internal" href="#generic-instance">Generic instance</a></li>
+<li><a class="reference internal" href="#module-attribute-typo">Module attribute typo</a></li>
+<li><a class="reference internal" href="#nonetype">Nonetype</a></li>
+<li><a class="reference internal" href="#object-attribute-typo">Object attribute typo</a></li>
+<li><a class="reference internal" href="#perhaps-comma">Perhaps comma</a></li>
+<li><a class="reference internal" href="#read-only">Read only</a></li>
+<li><a class="reference internal" href="#shadow-stdlib-module">Shadow stdlib module</a></li>
+<li><a class="reference internal" href="#tuple-by-accident">Tuple by accident</a></li>
+<li><a class="reference internal" href="#use-builtin">Use builtin</a></li>
+<li><a class="reference internal" href="#use-join-with-str">Use join with str</a></li>
+<li><a class="reference internal" href="#use-synonym">Use synonym</a></li>
+<li><a class="reference internal" href="#using-slots">Using slots</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filenotfounderror">FileNotFoundError</a><ul>
+<li><a class="reference internal" href="#directory-not-found">Directory not found</a></li>
+<li><a class="reference internal" href="#filename-not-found">Filename not found</a></li>
+<li><a class="reference internal" href="#filename-not-found-2">Filename not found 2</a></li>
+<li><a class="reference internal" href="#filename-not-found-3">Filename not found 3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#importerror">ImportError</a><ul>
+<li><a class="reference internal" href="#id3">Circular import</a></li>
+<li><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indexerror">IndexError</a><ul>
+<li><a class="reference internal" href="#empty">Empty</a></li>
+<li><a class="reference internal" href="#long-list">Long list</a></li>
+<li><a class="reference internal" href="#short-tuple">Short tuple</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyerror">KeyError</a><ul>
+<li><a class="reference internal" href="#chainmap">ChainMap</a></li>
+<li><a class="reference internal" href="#forgot-to-convert-to-string">Forgot to convert to string</a></li>
+<li><a class="reference internal" href="#generic-key-error">Generic key error</a></li>
+<li><a class="reference internal" href="#popitem-empty-chainmap">Popitem empty ChainMap</a></li>
+<li><a class="reference internal" href="#popitem-empty-dict">Popitem empty dict</a></li>
+<li><a class="reference internal" href="#similar-names">Similar names</a></li>
+<li><a class="reference internal" href="#string-by-mistake">String by mistake</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lookuperror">LookupError</a><ul>
+<li><a class="reference internal" href="#id4">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
+<li><a class="reference internal" href="#need-to-install-module">Need to install module</a></li>
+<li><a class="reference internal" href="#not-a-package">Not a package</a></li>
+<li><a class="reference internal" href="#not-a-package-similar-name">Not a package similar name</a></li>
+<li><a class="reference internal" href="#object-not-module">Object not module</a></li>
+<li><a class="reference internal" href="#similar-object-not-module">Similar object not module</a></li>
+<li><a class="reference internal" href="#standard-library-module">Standard library module</a></li>
+<li><a class="reference internal" href="#no-curses">no curses</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nameerror">NameError</a><ul>
+<li><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
+<li><a class="reference internal" href="#custom-name">Custom name</a></li>
+<li><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
+<li><a class="reference internal" href="#id5">Generic</a></li>
+<li><a class="reference internal" href="#missing-import">Missing import</a></li>
+<li><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
+<li><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
+<li><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
+<li><a class="reference internal" href="#synonym">Synonym</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oserror">OsError</a><ul>
+<li><a class="reference internal" href="#urllib-error">Urllib error</a></li>
+<li><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
+<li><a class="reference internal" href="#no-information">no information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
+<li><a class="reference internal" href="#id6">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
+<li><a class="reference internal" href="#id7">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#typeerror">TypeError</a><ul>
+<li><a class="reference internal" href="#bad-type-for-unary-operator">Bad type for unary operator</a></li>
+<li><a class="reference internal" href="#builtin-has-no-len">Builtin has no len</a></li>
+<li><a class="reference internal" href="#can-only-concatenate">Can only concatenate</a></li>
+<li><a class="reference internal" href="#cannot-convert-dictionary-update-sequence">Cannot convert dictionary update sequence</a></li>
+<li><a class="reference internal" href="#cannot-multiply-by-non-int">Cannot multiply by non int</a></li>
+<li><a class="reference internal" href="#cannot-unpack-non-iterable-object">Cannot unpack non iterable object</a></li>
+<li><a class="reference internal" href="#comparison-not-supported">Comparison not supported</a></li>
+<li><a class="reference internal" href="#derive-from-baseexception">Derive from BaseException</a></li>
+<li><a class="reference internal" href="#indices-must-be-integers-or-slices">Indices must be integers or slices</a></li>
+<li><a class="reference internal" href="#not-an-integer">Not an integer</a></li>
+<li><a class="reference internal" href="#not-callable">Not callable</a></li>
+<li><a class="reference internal" href="#object-is-not-iterable">Object is not iterable</a></li>
+<li><a class="reference internal" href="#object-is-not-subscriptable">Object is not subscriptable</a></li>
+<li><a class="reference internal" href="#slice-indices-must-be-integers-or-none">Slice indices must be integers or None</a></li>
+<li><a class="reference internal" href="#too-few-positional-argument">Too few positional argument</a></li>
+<li><a class="reference internal" href="#too-many-positional-argument">Too many positional argument</a></li>
+<li><a class="reference internal" href="#tuple-no-item-assignment">Tuple no item assignment</a></li>
+<li><a class="reference internal" href="#unhachable-type">Unhachable type</a></li>
+<li><a class="reference internal" href="#unsupported-operand-types">Unsupported operand types</a></li>
+<li><a class="reference internal" href="#function-got-multiple-argument">function got multiple argument</a></li>
+<li><a class="reference internal" href="#function-has-no-len">function has no len</a></li>
+<li><a class="reference internal" href="#method-got-multiple-argument">method got multiple argument</a></li>
+<li><a class="reference internal" href="#vars-arg-must-have-dict">vars arg must have dict</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unboundlocalerror">UnboundLocalError</a><ul>
+<li><a class="reference internal" href="#missing-both">Missing both</a></li>
+<li><a class="reference internal" href="#missing-global">Missing global</a></li>
+<li><a class="reference internal" href="#missing-nonlocal">Missing nonlocal</a></li>
+<li><a class="reference internal" href="#typo-in-local">Typo in local</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
+<li><a class="reference internal" href="#id8">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#valueerror">ValueError</a><ul>
+<li><a class="reference internal" href="#date-invalid-month">Date invalid month</a></li>
+<li><a class="reference internal" href="#not-enough-values-to-unpack">Not enough values to unpack</a></li>
+<li><a class="reference internal" href="#too-many-values-to-unpack">Too many values to unpack</a></li>
+<li><a class="reference internal" href="#slots-conflicts-with-class-variable">slots conflicts with class variable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a><ul>
+<li><a class="reference internal" href="#complex-division">Complex division</a></li>
+<li><a class="reference internal" href="#division-by-zero-literal">Division by zero literal</a></li>
+<li><a class="reference internal" href="#division-operator">Division operator</a></li>
+<li><a class="reference internal" href="#divmod">Divmod</a></li>
+<li><a class="reference internal" href="#float-division">Float division</a></li>
+<li><a class="reference internal" href="#float-divmod">Float divmod</a></li>
+<li><a class="reference internal" href="#float-modulo">Float modulo</a></li>
+<li><a class="reference internal" href="#integer-division-operator">Integer division operator</a></li>
+<li><a class="reference internal" href="#mixed-operations">Mixed operations</a></li>
+<li><a class="reference internal" href="#modulo-operator">Modulo operator</a></li>
+<li><a class="reference internal" href="#raise-zero-negative-power">Raise zero negative power</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright André Roberge.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
+          </div>
         </div>
       </div>
-
-    </section>
-
+      
+      
+    </aside>
   </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/main.js"></script>
+    </body>
 </html>

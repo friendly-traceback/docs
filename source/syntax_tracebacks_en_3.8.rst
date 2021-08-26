@@ -578,6 +578,7 @@ Python version: 3.8.10
     is or includes an actual object of type `dict`
     and is not simply the name of a variable.
     
+    You can only assign objects to identifiers (variable names).
     
 
 (18) Cannot assign to literal int
@@ -652,6 +653,7 @@ Python version: 3.8.10
     is or includes an actual object of type `int`
     and is not simply the name of a variable.
     
+    You can only assign objects to identifiers (variable names).
     
 
 (20) Cannot assign to literal - 5
@@ -689,6 +691,7 @@ Python version: 3.8.10
     is or includes an actual object 
     and is not simply the name of a variable.
     
+    You can only assign objects to identifiers (variable names).
     
 
 (21) Cannot assign to literal - 3
@@ -729,6 +732,7 @@ Python version: 3.8.10
     is or includes an actual object of type `set`
     and is not simply the name of a variable.
     
+    You can only assign objects to identifiers (variable names).
     
 
 (22) Assign to keyword def
@@ -3011,6 +3015,8 @@ Python version: 3.8.10
               ^
 
     You cannot delete the constant `True`.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
     
 
 (95) Cannot delete function call
@@ -3099,8 +3105,8 @@ Python version: 3.8.10
               ^
 
     You cannot delete the literal `"Hello world!"`.
-    You can only delete the names of objects, or
-    individual items in a container.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
     
 
 (98) Value missing in dict - 1

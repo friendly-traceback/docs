@@ -1,102 +1,165 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visual Studio Code" href="vs_code.html" /><link rel="prev" title="Using with an editor or IDE" href="editor.html" />
 
-
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Jupyter notebooks and JupyterLab &mdash; friendly-traceback 0.4.52 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
+        <title>Jupyter notebooks and JupyterLab - friendly-traceback 0.4.52 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
 
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style>
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+  <body>
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Visual Studio Code" href="vs_code.html" />
-    <link rel="prev" title="Using with an editor or IDE" href="editor.html" /> 
-</head>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
 
-<body class="wy-body-for-nav">
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
-   
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
 
-          
-            <a href="index.html" class="icon icon-home"> friendly-traceback
-          
 
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.4.52
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Begin here</span></p>
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.52 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.4.52 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="when_ft.html">Differences between friendly and friendly_traceback</a></li>
 </ul>
-<p class="caption"><span class="caption-text">friendly console</span></p>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
@@ -109,49 +172,39 @@
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Why import *?</span></p>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
 </ul>
-<p class="caption"><span class="caption-text">IDLE</span></p>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Mu</span></p>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other consoles</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Editors and Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter notebooks and JupyterLab</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#suggested-usage">Suggested usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#available-formatters">Available formatters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#normal-jupyter-tracebacks">Normal Jupyter tracebacks.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dark-background">Dark background</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#about-the-hash-digest">About the hash_digest</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#developer-s-notes">Developer’s notes</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Jupyter notebooks and JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Thoughts on design</span></p>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
@@ -162,7 +215,7 @@
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Use in your project</span></p>
+<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
@@ -170,12 +223,12 @@
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contribute</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
 </ul>
-<p class="caption"><span class="caption-text">All the tracebacks!</span></p>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
@@ -191,87 +244,36 @@
 <li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">En français</span></p>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
 </ul>
 
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">friendly-traceback</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Jupyter notebooks and JupyterLab</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/jupyter.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="vs_code.html" class="btn btn-neutral float-right" title="Visual Studio Code" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
-        <a href="editor.html" class="btn btn-neutral float-left" title="Using with an editor or IDE" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-      
-  </div>
-  
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="jupyter-notebooks-and-jupyterlab">
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <article role="main">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <div class="section" id="jupyter-notebooks-and-jupyterlab">
 <h1>Jupyter notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this headline">¶</a></h1>
 <p>Friendly supports Jupyter notebooks and variants.
 Note that, other than when I specifically do work to improve
@@ -286,21 +288,21 @@ with a light theme, I suggest that use the following:</p>
 </pre></div>
 </div>
 <p>This should automatically install friendly.</p>
-<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;"/></a>
 <p>If you are using JupyterLab with the dark theme
 selected, then I suggest the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.jupyter</span> <span class="kn">import</span> <span class="n">Friendly</span>
 <span class="n">Friendly</span><span class="o">.</span><span class="n">dark</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_light_install.png"><img alt="_images/jupyter_light_install.png" src="_images/jupyter_light_install.png" style="width: 421.2px; height: 100.8px;"/></a>
 <p>In both these cases, an easy to use interactive mode is selected
 where you can have access to the <code class="docutils literal notranslate"><span class="pre">what()</span></code>, <code class="docutils literal notranslate"><span class="pre">why()</span></code>, and <code class="docutils literal notranslate"><span class="pre">where()</span></code>
 information when an exception is raised without having to type anything.
 Because of this, there is little advantage to use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.jupyter</span> <span class="pre">import</span> <span class="pre">*</span></code>
 and my use recommendation to do a <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">import</span></code> does not apply.</p>
-<a class="reference internal image-reference" href="_images/jupyter_message_only.png"><img alt="_images/jupyter_message_only.png" src="_images/jupyter_message_only.png" style="width: 427.2px; height: 169.2px;" /></a>
-<a class="reference internal image-reference" href="_images/jupyter_more_clicked.png"><img alt="_images/jupyter_more_clicked.png" src="_images/jupyter_more_clicked.png" style="width: 471.0px; height: 374.4px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_message_only.png"><img alt="_images/jupyter_message_only.png" src="_images/jupyter_message_only.png" style="width: 427.2px; height: 169.2px;"/></a>
+<a class="reference internal image-reference" href="_images/jupyter_more_clicked.png"><img alt="_images/jupyter_more_clicked.png" src="_images/jupyter_more_clicked.png" style="width: 471.0px; height: 374.4px;"/></a>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>Set width to 60 by default. Add new function to set width
@@ -308,8 +310,8 @@ of traceback separately, and set that to 100 by default.
 For iPython, set both to 60. Keep track of tb width
 so that it is never smaller than general width.</p>
 </div>
-<a class="reference internal image-reference" href="_images/jupyter_wide_why.png"><img alt="_images/jupyter_wide_why.png" src="_images/jupyter_wide_why.png" style="width: 617.2px; height: 304.8px;" /></a>
-<a class="reference internal image-reference" href="_images/jupyter_narrow_why.png"><img alt="_images/jupyter_narrow_why.png" src="_images/jupyter_narrow_why.png" style="width: 619.8px; height: 468.0px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter_wide_why.png"><img alt="_images/jupyter_wide_why.png" src="_images/jupyter_wide_why.png" style="width: 617.2px; height: 304.8px;"/></a>
+<a class="reference internal image-reference" href="_images/jupyter_narrow_why.png"><img alt="_images/jupyter_narrow_why.png" src="_images/jupyter_narrow_why.png" style="width: 619.8px; height: 468.0px;"/></a>
 <div class="admonition-design_choice admonition" id="id2">
 <p class="admonition-title">Design Choice: automatic installation for Jupyter</p>
 <p>Anyone using friendly in a Jupyter environment does so because
@@ -341,7 +343,7 @@ button.</p>
 <p>By default, tracebacks in JupyterLab notebooks (or Juypter notebooks)
 displayed in a browser are given a pink background (1).
 The image below shows the “old” style of tracebacks.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-error.png"><img alt="_images/jupyter-lab-error.png" src="_images/jupyter-lab-error.png" style="width: 503.4px; height: 226.2px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-error.png"><img alt="_images/jupyter-lab-error.png" src="_images/jupyter-lab-error.png" style="width: 503.4px; height: 226.2px;"/></a>
 <p>The “location” of the error (2) includes was of the form
 <code class="docutils literal notranslate"><span class="pre">&lt;ipython-input-A-B&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">A</span></code> is the code block number
 and <code class="docutils literal notranslate"><span class="pre">B</span></code> is an internal value (“hash_digest”) of no particular use
@@ -354,7 +356,7 @@ relation to the code block number.</p>
 were involved in the execution leading to a particular traceback.</p>
 <p>This hash_digest is removed by friendly
 as shown below.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-default.png"><img alt="_images/jupyter-lab-default.png" src="_images/jupyter-lab-default.png" style="width: 645.0px; height: 835.1999999999999px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-default.png"><img alt="_images/jupyter-lab-default.png" src="_images/jupyter-lab-default.png" style="width: 645.0px; height: 835.1999999999999px;"/></a>
 <ol class="arabic simple">
 <li><p>To use friendly, we use a special import statement.</p></li>
 <li><p>Tracebacks shown by friendly do not have a pink background. Note how
@@ -370,22 +372,22 @@ used for Jupyter notebooks.</p></li>
 </ol>
 <p>After changing to the <code class="docutils literal notranslate"><span class="pre">'light'</span></code>, I displayed a more complete
 content displayed with <code class="docutils literal notranslate"><span class="pre">explain()</span></code></p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-default2.png"><img alt="_images/jupyter-lab-default2.png" src="_images/jupyter-lab-default2.png" style="width: 661.6px; height: 376.8px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-default2.png"><img alt="_images/jupyter-lab-default2.png" src="_images/jupyter-lab-default2.png" style="width: 661.6px; height: 376.8px;"/></a>
 <p>When using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.jupyter</span> <span class="pre">import</span> <span class="pre">*</span></code>,
 the default formatter is known as <code class="docutils literal notranslate"><span class="pre">'jupyter'</span></code>.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-default3.png"><img alt="_images/jupyter-lab-default3.png" src="_images/jupyter-lab-default3.png" style="width: 723.6px; height: 517.8px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-default3.png"><img alt="_images/jupyter-lab-default3.png" src="_images/jupyter-lab-default3.png" style="width: 723.6px; height: 517.8px;"/></a>
 </div>
 <div class="section" id="dark-background">
 <h2>Dark background<a class="headerlink" href="#dark-background" title="Permalink to this headline">¶</a></h2>
 <p>JupyterLab also gives the choice of a dark background theme.
 Here’s how the previous example look with this dark theme.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-dark.png"><img alt="_images/jupyter-lab-dark.png" src="_images/jupyter-lab-dark.png" style="width: 658.1999999999999px; height: 813.0px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-dark.png"><img alt="_images/jupyter-lab-dark.png" src="_images/jupyter-lab-dark.png" style="width: 658.1999999999999px; height: 813.0px;"/></a>
 <p>As a last step, I changed the formatter to use the <code class="docutils literal notranslate"><span class="pre">'dark'</span></code> option,
 which is the default for the friendly console when used in a terminal.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-dark-rich.png"><img alt="_images/jupyter-lab-dark-rich.png" src="_images/jupyter-lab-dark-rich.png" style="width: 662.0px; height: 371.20000000000005px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-dark-rich.png"><img alt="_images/jupyter-lab-dark-rich.png" src="_images/jupyter-lab-dark-rich.png" style="width: 662.0px; height: 371.20000000000005px;"/></a>
 <p>Finally, here is the result from changing back to the default
 <code class="docutils literal notranslate"><span class="pre">'jupyter'</span></code> formatter.</p>
-<a class="reference internal image-reference" href="_images/jupyter-lab-dark2.png"><img alt="_images/jupyter-lab-dark2.png" src="_images/jupyter-lab-dark2.png" style="width: 690.6px; height: 519.6px;" /></a>
+<a class="reference internal image-reference" href="_images/jupyter-lab-dark2.png"><img alt="_images/jupyter-lab-dark2.png" src="_images/jupyter-lab-dark2.png" style="width: 690.6px; height: 519.6px;"/></a>
 <p>For the dark Jupyter theme, some elements, such as numbers and operators,
 are very difficult to read.
 For this reason, I much prefer using the <code class="docutils literal notranslate"><span class="pre">'dark'</span></code> friendly
@@ -418,52 +420,84 @@ look and feel.</p>
 </div>
 </div>
 
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="vs_code.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Visual Studio Code</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="editor.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Using with an editor or IDE</div>
+                
+              </div>
+            </a>
+        </div>
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="vs_code.html" class="btn btn-neutral float-right" title="Visual Studio Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="editor.html" class="btn btn-neutral float-left" title="Using with an editor or IDE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <div class="related-information">
+              Copyright &#169; André Roberge
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="_sources/jupyter.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
     </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Jupyter notebooks and JupyterLab</a><ul>
+<li><a class="reference internal" href="#suggested-usage">Suggested usage</a></li>
+<li><a class="reference internal" href="#available-formatters">Available formatters</a></li>
+<li><a class="reference internal" href="#normal-jupyter-tracebacks">Normal Jupyter tracebacks.</a></li>
+<li><a class="reference internal" href="#dark-background">Dark background</a><ul>
+<li><a class="reference internal" href="#about-the-hash-digest">About the hash_digest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#developer-s-notes">Developer’s notes</a></li>
+</ul>
+</li>
+</ul>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright André Roberge.
-
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
+          </div>
         </div>
       </div>
-
-    </section>
-
+      
+      
+    </aside>
   </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-   
-
-</body>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/main.js"></script>
+    </body>
 </html>

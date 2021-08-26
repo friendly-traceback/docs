@@ -86,21 +86,21 @@ also type ``python -m friendly -h`` in a terminal.
 Logging
 --------
 
-You can use friendly with the logging module.
+You can use friendly_traceback with the logging module.
 Here's an example, together with the corresponding
 output::
 
-    import friendly
+    import friendly_traceback
     import logging
 
     # Configure as desired before running the code
     logging.basicConfig(filename="ignore.log")
-    friendly.set_lang('fr')  # Just as an example :-)
+    friendly_traceback.set_lang('fr')  # Just as an example :-)
 
     try:
         import ignore2
     except Exception:
-        friendly.explain_traceback(redirect="capture")
+        friendly_traceback.explain_traceback(redirect="capture")
         # Note: friendly often remove some details from tracebacks
         # to make them more readable. This can be helpful
         # but sometimes we might also need to see the full
@@ -117,8 +117,6 @@ output::
 And here's the output:
 
 .. code-block:: none
-
-    ERROR:root: Friendly traceback
 
     Traceback (most recent call last):
       File "ignore.py", line 9, in <module>

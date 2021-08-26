@@ -27,7 +27,7 @@ from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 import sphinx
 from sphinx import addnodes
 from sphinx.application import Sphinx
-from sphinx.deprecation import RemovedInSphinx40Warning
+# from sphinx.deprecation import RemovedInSphinx40Warning
 from sphinx.domains import Domain
 from sphinx.environment import BuildEnvironment
 from sphinx.errors import NoUri
@@ -121,11 +121,11 @@ class DesignChoiceDomain(Domain):
 
 
 def process_design_choices(app: Sphinx, doctree: nodes.document) -> None:
-    warnings.warn(
-        "process_design_choices() is deprecated.",
-        RemovedInSphinx40Warning,
-        stacklevel=2,
-    )
+    # warnings.warn(
+    #     "process_design_choices() is deprecated.",
+    #     RemovedInSphinx40Warning,
+    #     stacklevel=2,
+    # )
     # collect all design_choices in the environment
     # this is not done in the directive itself because it some transformations
     # must have already been run, e.g. substitutions
@@ -262,11 +262,11 @@ def process_design_choice_nodes(
     """Replace all design_choice_list nodes with a list of the collected design_choices.
     Augment each design_choice with a backlink to the original location.
     """
-    warnings.warn(
-        "process_design_choice_nodes() is deprecated.",
-        RemovedInSphinx40Warning,
-        stacklevel=2,
-    )
+    # warnings.warn(
+    #     "process_design_choice_nodes() is deprecated.",
+    #     RemovedInSphinx40Warning,
+    #     stacklevel=2,
+    # )
 
     domain = cast(DesignChoiceDomain, app.env.get_domain("design_choice"))
     design_choices = sum(
@@ -324,9 +324,9 @@ def process_design_choice_nodes(
 
 
 def purge_design_choices(app: Sphinx, env: BuildEnvironment, docname: str) -> None:
-    warnings.warn(
-        "purge_design_choices() is deprecated.", RemovedInSphinx40Warning, stacklevel=2
-    )
+    # warnings.warn(
+    #     "purge_design_choices() is deprecated.", RemovedInSphinx40Warning, stacklevel=2
+    # )
     if not hasattr(env, "design_choice_all_design_choices"):
         return
     env.design_choice_all_design_choices = [
@@ -339,7 +339,7 @@ def purge_design_choices(app: Sphinx, env: BuildEnvironment, docname: str) -> No
 def merge_info(
     app: Sphinx, env: BuildEnvironment, docnames: Iterable[str], other: BuildEnvironment
 ) -> None:
-    warnings.warn("merge_info() is deprecated.", RemovedInSphinx40Warning, stacklevel=2)
+    # warnings.warn("merge_info() is deprecated.", RemovedInSphinx40Warning, stacklevel=2)
     if not hasattr(other, "design_choice_all_design_choices"):
         return
     if not hasattr(env, "design_choice_all_design_choices"):

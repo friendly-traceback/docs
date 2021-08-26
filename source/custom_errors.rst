@@ -87,6 +87,8 @@ When the connection can not be established, a :exc:`requests.ConnectionError` wi
 Fortunately, since it inherits from :exc:`OSError`, ``friendly`` is **already**
 able to provide a default explanation about the error cause **in this particular case**:
 
+.. code-block:: none
+
   An exception of type ``ConnectionError`` is a subclass of ``OSError``. An ``OSError``
   exception is usually raised by the Operating System to indicate that an operation
   is not allowed or that a resource is not available.
@@ -111,6 +113,8 @@ description for any occurences of the :exc:`requests.ConnectionError`:
     )
 
 Now ``friendly`` will print
+
+.. code-block:: none
 
   A `ConnectionError` from the `requests` package usually indicates that
   a service cannot be reached because it is offline.
@@ -148,7 +152,7 @@ description for the particular error:
 
 This results in the following customized ``friendly`` output:
 
-  .. code-block::
+.. code-block::
 
     Traceback (most recent call last):
       [Very long traceback omitted]
