@@ -102,6 +102,8 @@ add_module_names = False
 # a list of builtin themes.
 # html_theme = "sphinx_rtd_theme"  # installed separately
 html_theme = "furo"  # installed seperately
+pygments_style = "friendly_light"
+pygments_dark_style = "friendly_dark"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
