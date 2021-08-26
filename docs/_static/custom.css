@@ -1,8 +1,13 @@
 div.admonition {
     border-left-width: 0.3rem;
-    box-shadow: 0 0.2rem 0.5rem rgb(0 0 0 / 10%), 0 0 0.0625rem rgb(0 0 0 / 20%);
+    box-shadow: 0 0.2rem 0.5rem rgb(128 128 128 / 20%), 0 0 0.0625rem rgb(128 128 128 / 40%);
 }
 div.sidebar {font-size: smaller;}
 .highlight {background-color: #fffff8; border: 1px solid #999;}
 
 .highlight .hll {background-color: #e7f5ff;}
+
+
+img {
+    box-shadow: 0 0.2rem 0.5rem rgb(128 128 128 / 20%), 0 0 0.0625rem rgb(128 128 128 / 40%);
+}
