@@ -1,5 +1,5 @@
-div.admonition.important {
-    border-left-width: 0.4rem;
+div.admonition {
+    border-left-width: 0.3rem;
     box-shadow: 0 0.2rem 0.5rem rgb(0 0 0 / 10%), 0 0 0.0625rem rgb(0 0 0 / 20%);
 }
 div.sidebar {font-size: smaller;}
