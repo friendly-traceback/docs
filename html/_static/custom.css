@@ -11,3 +11,7 @@ div.sidebar {font-size: smaller;}
 img {
     box-shadow: 0 0.2rem 0.5rem rgb(128 128 128 / 20%), 0 0 0.0625rem rgb(128 128 128 / 40%);
 }
+
+pre {
+    white-space: pre-wrap;
+}
