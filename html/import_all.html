@@ -132,7 +132,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -268,17 +268,22 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="admonition-todo admonition" id="id1">
-<span id="import-all"></span><p class="admonition-title">Todo</p>
-<p>This is just a first draft that will need more work.</p>
+        <div class="section" id="why-import">
+<span id="import-all"></span><h1>Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?<a class="headerlink" href="#why-import" title="Permalink to this headline">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As explained below, while I recommend to use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> for easier interactions,
+you might prefer the next best alternative which is to
+import the <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> object by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly...</span> <span class="kn">import</span> <span class="n">Friendly</span>
+</pre></div>
 </div>
-<div class="section" id="why-import">
-<h1>Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?<a class="headerlink" href="#why-import" title="Permalink to this headline">¶</a></h1>
+</div>
 <p>In many pages of this documentation, you will see that I suggest to use
 something like <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">*</span></code>.
 This is often mentioned as being a bad practice, since it
@@ -299,7 +304,17 @@ the default namespace in a python interpreter:</p>
 <span class="go">154</span>
 </pre></div>
 </div>
-<p>The usual suggested alternatives to importing everything
+<p>Using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> with <strong>friendly-traceback</strong> adds 19 names to the environment
+so that they are immediately available in an interactive session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>
+<span class="go">['Friendly', '__builtins__', 'back', 'explain', 'friendly_tb', 'get_include', 'get_lang', 'hint', 'history', 'python_tb', 'set_debug', 'set_formatter', 'set_include', 'set_lang', 'set_prompt', 'show_paths', 'what', 'where', 'why', 'www']</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">dir</span><span class="p">())</span>  <span class="c1"># includes '__builtins__'</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>[Note: <strong>friendly</strong> might add 2 to 4 additional names to select a specific theme.]</p>
+<p>The <em>usual</em> suggested alternatives to importing everything
 are the following:</p>
 <ol class="arabic">
 <li><p>Import only what’s needed. For example:</p>
@@ -315,7 +330,8 @@ are the following:</p>
 </div>
 </li>
 </ol>
-<p>One problem with the first suggestion is that <strong>friendly</strong> has quite a few
+<p>One problem with the first suggestion is that, as shown above,
+<strong>friendly/friendly-traceback</strong> has quite a few
 other functions that are potentially useful; nothing like the 154 names
 shown above but still too many to type explicitly. So this might
 require another import statement, <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">something_else</span></code>
@@ -334,14 +350,14 @@ module <code class="docutils literal notranslate"><span class="pre">X</span></co
 environment, such as <code class="docutils literal notranslate"><span class="pre">friendly.idle</span></code> to be used with Python’s IDLE,
 I define <code class="docutils literal notranslate"><span class="pre">__all__</span></code> so that only the relevant objects are imported
 when doing <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
-<p><strong>If you do not wish to do so</strong>, I suggest instead the following:</p>
+<div class="section" id="recommended-alternative">
+<h2>Recommended alternative<a class="headerlink" href="#recommended-alternative" title="Permalink to this headline">¶</a></h2>
+<p><strong>If you do not wish to use</strong> <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>, I suggest instead the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.X</span> <span class="kn">import</span> <span class="n">Friendly</span>
 <span class="c1"># or</span>
 <span class="kn">from</span> <span class="nn">friendly.X</span> <span class="kn">import</span> <span class="n">Friendly</span> <span class="k">as</span> <span class="n">some_other_name</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Friendly</span></code> is a special object which includes all the
-potentially useful functions as methods.</p>
 <div class="sidebar">
 <p class="sidebar-title">Only interactive functions …</p>
 <p>Functions that are not useful <strong>during</strong> an interactive
@@ -349,12 +365,16 @@ session with <strong>friendly</strong> but can start one include
 <code class="docutils literal notranslate"><span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">install</span></code>, and <code class="docutils literal notranslate"><span class="pre">start_console</span></code>. If <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>
 is not used, they must be imported separately if needed.</p>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Friendly</span></code> is a special object which includes all the
+potentially useful functions as methods to be used
+during an interactive session.</p>
 <p>By this, I mean that <code class="docutils literal notranslate"><span class="pre">Friendly.why()</span></code> is equivalent
 to writing <code class="docutils literal notranslate"><span class="pre">why()</span></code>.
 <code class="docutils literal notranslate"><span class="pre">Friendly</span></code> is also imported if you do <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.X</span> <span class="pre">import</span> <span class="pre">*</span></code>.</p>
 <p>As mentioned previously in <a class="reference internal" href="friendly_object.html#friendly-object"><span class="std std-ref">Friendly object</span></a>, <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>
 can be used to easily obtain a list of useful functions, without
 needing to consult the documentation.</p>
+</div>
 </div>
 
       </article>
@@ -399,8 +419,27 @@ needing to consult the documentation.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a><ul>
+<li><a class="reference internal" href="#recommended-alternative">Recommended alternative</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -280,10 +280,11 @@
 <p>The hand-written documentation about the console
 might not reflect the latest version of the code.
 This page documents the relevant API by automatically
-extracting information from the code.</p>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">dark()</span></code> and <code class="docutils literal notranslate"><span class="pre">light()</span></code> might not be
-available in some environments (for example, when using
-IDLE or Mu.)</p>
+extracting information from the <strong>friendly-traceback</strong> code.</p>
+<p>Note that, in addition to the functions shown below,
+when using <strong>friendly</strong> instead of <strong>friendly-traceback</strong>,
+some additional functions might be included as means to
+change the colour scheme used by <strong>friendly</strong>.</p>
 </div>
 <span class="target" id="module-friendly_traceback.console_helpers"></span><div class="section" id="console-helpers-py">
 <h2>console_helpers.py<a class="headerlink" href="#console-helpers-py" title="Permalink to this headline">¶</a></h2>
@@ -442,6 +443,15 @@ on Github will be shown, inviting comments.</p></li>
 </ul>
 </dd></dl>
 </div>
+<dl class="py class">
+<dt class="sig sig-object py" id="friendly_traceback.console_helpers.FriendlyHelpers">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">FriendlyHelpers</span></span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#FriendlyHelpers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.FriendlyHelpers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class which can be used in a console as an alternative
+to using the helper functions directly.
+This can be helpful if one of the helper functions gets redefined.</p>
+<p>It is usually instantiated using the name <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>.</p>
+<p>For example, we can write <code class="docutils literal notranslate"><span class="pre">Friendly.why()</span></code> as equivalent to <code class="docutils literal notranslate"><span class="pre">why()</span></code>.</p>
+</dd></dl>
 </div>
 
       </article>

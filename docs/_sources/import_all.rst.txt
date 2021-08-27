@@ -1,12 +1,16 @@
 .. _import_all:
 
-.. todo::
-
-   This is just a first draft that will need more work.
-
 
 Why ``import *``?
 ==================
+
+.. tip::
+
+   As explained below, while I recommend to use ``import *`` for easier interactions,
+   you might prefer the next best alternative which is to
+   import the ``Friendly`` object by doing::
+
+       from friendly... import Friendly
 
 In many pages of this documentation, you will see that I suggest to use
 something like ``from friendly.X import *``.
@@ -30,8 +34,18 @@ the default namespace in a python interpreter::
     >>> len(dir(__builtins__))
     154
 
+Using ``import *`` with **friendly-traceback** adds 19 names to the environment
+so that they are immediately available in an interactive session::
 
-The usual suggested alternatives to importing everything
+    >>> dir()
+    ['Friendly', '__builtins__', 'back', 'explain', 'friendly_tb', 'get_include', 'get_lang', 'hint', 'history', 'python_tb', 'set_debug', 'set_formatter', 'set_include', 'set_lang', 'set_prompt', 'show_paths', 'what', 'where', 'why', 'www']
+
+    >>> len(dir())  # includes '__builtins__'
+    20
+
+[Note: **friendly** might add 2 to 4 additional names to select a specific theme.]
+
+The *usual* suggested alternatives to importing everything
 are the following:
 
 1. Import only what's needed. For example::
@@ -46,7 +60,8 @@ are the following:
        import friendly.X as Y
 
 
-One problem with the first suggestion is that **friendly** has quite a few
+One problem with the first suggestion is that, as shown above,
+**friendly/friendly-traceback** has quite a few
 other functions that are potentially useful; nothing like the 154 names
 shown above but still too many to type explicitly. So this might
 require another import statement, ``from friendly.X import something_else``
@@ -68,14 +83,15 @@ environment, such as ``friendly.idle`` to be used with Python's IDLE,
 I define ``__all__`` so that only the relevant objects are imported
 when doing ``from friendly.X import *``.
 
-**If you do not wish to do so**, I suggest instead the following::
+Recommended alternative
+-----------------------
+
+**If you do not wish to use** ``import *``, I suggest instead the following::
 
     from friendly.X import Friendly
     # or
     from friendly.X import Friendly as some_other_name
 
-``Friendly`` is a special object which includes all the
-potentially useful functions as methods.
 
 .. sidebar:: Only interactive functions ...
 
@@ -84,6 +100,9 @@ potentially useful functions as methods.
     ``run``, ``install``, and ``start_console``. If ``import *``
     is not used, they must be imported separately if needed.
 
+``Friendly`` is a special object which includes all the
+potentially useful functions as methods to be used
+during an interactive session.
 
 By this, I mean that ``Friendly.why()`` is equivalent
 to writing ``why()``.
