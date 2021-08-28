@@ -105,7 +105,7 @@ add_module_names = False
 html_theme = "furo"  # installed seperately
 pygments_style = "friendly_light"
 pygments_dark_style = "friendly_dark"
-html_logo = "images/friendly_logo.png"
+html_logo = "friendly_logo.png"
 html_title = f"friendly-traceback {__version__}"
 
 # Theme options are theme-specific and customize the look and feel of a theme
