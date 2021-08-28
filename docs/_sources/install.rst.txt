@@ -1,7 +1,7 @@
 Installation 
 ==============
 
-.. hint::
+.. tip::
 
     |mu_logo| If you use Mu, you should ignore this page as some
     Mu-specific instructions are provided later.

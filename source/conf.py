@@ -30,7 +30,7 @@ from friendly_traceback import __version__  # noqa
 
 # -- Project information -----------------------------------------------------
 
-project = "friendly"
+project = "friendly-traceback"
 copyright = "André Roberge"
 author = "André Roberge"
 
@@ -56,6 +56,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
+    "sphinx_inline_tabs",
     'recommonmark',
     "design_choice",
 ]
@@ -104,6 +105,8 @@ add_module_names = False
 html_theme = "furo"  # installed seperately
 pygments_style = "friendly_light"
 pygments_dark_style = "friendly_dark"
+html_logo = "images/friendly_logo.png"
+html_title = f"friendly-traceback {__version__}"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -117,7 +120,6 @@ pygments_dark_style = "friendly_dark"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-
 suppress_warnings = ["misc.highlighting_failure"]
 
 html_css_files = [
