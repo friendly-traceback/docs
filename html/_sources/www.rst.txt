@@ -10,7 +10,7 @@ In this case, you can use the function ``www()`` which will open
 your default web browser and do an internet search for
 ``"SomeError: never seen before"`` using DuckDuckGo.
 
-The same is true if you find that the explanation given by **friendly**
+The same is true if you find that the explanation given by **Friendly**
 is not enough for you.
 
 .. image:: images/www_ddg.png
@@ -19,7 +19,7 @@ is not enough for you.
 
 
 If no exception has been raised, calling ``www()`` will open
-**friendly**'s documentation instead.
+**Friendly**'s documentation instead.
 
 
 Optional arguments
@@ -31,7 +31,7 @@ module to open a page in the default web browser.
 It can also take one of the following optional arguments:
 
 
-- ``www('friendly')``: go to **friendly**'s documentation site.
+- ``www('friendly')``: go to **Friendly**'s documentation site.
 
 - ``www('python')``: go to Python's documentation site for the Python
   version currently used by the program from which it is invoked.
@@ -44,7 +44,7 @@ It can also take one of the following optional arguments:
   you can definitely use this option to communicate with me.
 
 - ``www('warnings')``: go to the Github's issue page inviting people
-  to comment about certain warnings given by **friendly**'s console
+  to comment about certain warnings given by **Friendly**'s console
   (but not the one included with friendly_traceback).
   See :ref:`about_warnings` for details.
 

@@ -15,7 +15,7 @@ not possible to (easily) change the language used for Mu's menu items.
    :scale: 60 %
    :alt: Mu modes
 
-**friendly** has only been tested with the Python 3 mode.
+**Friendly** has only been tested with the Python 3 mode.
 It should work when using the Pygame zero or the Web mode.
 
 

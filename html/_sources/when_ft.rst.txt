@@ -14,7 +14,7 @@ Differences between friendly and friendly_traceback
 work to analyze a traceback and present the information
 in an helpful way.
 
-**friendly** takes the output of **friendly_traceback**
+**Friendly** takes the output of **friendly_traceback**
 and formats it for specific environments, **usually** adding colour
 to the output.
 
@@ -29,9 +29,9 @@ If you use one of:
 - Google Colab notebooks
 - etc.
 
-you will want to install and use **friendly**.
+you will want to install and use **Friendly**.
 
-Note that **friendly** has quite a few additional dependencies compared with
+Note that **Friendly** has quite a few additional dependencies compared with
 **friendly_traceback**.
 
 

@@ -14,7 +14,7 @@ As you can see, these functions are also available as static
 methods of a ``Friendly`` object.  So, as long as you don't
 use ``Friendly`` as the name of an object in your program,
 you don't have to worry about not being able to use
-any of **friendly**'s interactive functions.
+any of **Friendly**'s interactive functions.
 
 If you simply enter the name of that object, you can see
 a summary of each available  method of that object.

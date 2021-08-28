@@ -18,7 +18,7 @@ This is often mentioned as being a bad practice, since it
 "pollutes" the current namespace with various names whose origin become
 difficult to trace.
 
-If you have tried the **friendly** console, or read the previous
+If you have tried the **Friendly** console, or read the previous
 pages in this documentation, you will have seen various useful
 functions such as ``what()``, ``where()``, ``why()``, etc., which
 can be used in an interactive mode.  You can think of these
@@ -43,7 +43,7 @@ so that they are immediately available in an interactive session::
     >>> len(dir())  # includes '__builtins__'
     20
 
-[Note: **friendly** might add 2 to 4 additional names to select a specific theme.]
+[Note: **Friendly** might add 2 to 4 additional names to select a specific theme.]
 
 The *usual* suggested alternatives to importing everything
 are the following:
@@ -96,7 +96,7 @@ Recommended alternative
 .. sidebar:: Only interactive functions ...
 
     Functions that are not useful **during** an interactive
-    session with **friendly** but can start one include
+    session with **Friendly** but can start one include
     ``run``, ``install``, and ``start_console``. If ``import *``
     is not used, they must be imported separately if needed.
 

@@ -20,7 +20,7 @@ that provided by the terse hint shown after the traceback.
     used a fancy unicode quotation mark instead of a normal single or double
     quote for a string. This can happen if you copy-pasted code.
 
-When you call ``why()``, **friendly** attempts to analyze the code you
+When you call ``why()``, **Friendly** attempts to analyze the code you
 entered and figure out what exactly went wrong, and quite often makes
 suggestions as to how to fix it.
 

@@ -1,38 +1,49 @@
 
-`Code on Github <https://github.com/friendly-traceback/friendly-traceback>`_
+`Code on Github <https://github.com/friendly-traceback>`_
+
+
+.. image:: friendly_logo.png
+   :class: sidebar-logo
 
 
 Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨
 ========================================================================
 
-**friendly_traceback** and **friendly** help users understand what caused a given
+**Friendly** helps users understand what caused a given
 exception in their Python program, and how to fix it.
+**Friendly**, with an uppercase **F**
+refers to two related packages: **friendly-traceback** and **friendly**.
 
-.. note::
+.. tab:: friendly-traceback
 
-    **friendly** is a program that uses **friendly_traceback**.
-    From now on, I will generally use **friendly** to refer to both.
-    I will explain the difference between the two in a separate section.
-    As a user, you almost certainly only need to install and use **friendly**.
+    **friendly-traceback** does all the work to figure out what caused
+    a particular exception and does some basic formatting of the
+    information it obtains.
 
-    If you need to report a bug, you almost certainly need to report it
-    to **friendly_traceback**; there is a very simple way to do this
-    from the interactive console: ``www('bug')``, as I will explain
-    later.
+
+.. tab:: friendly
+
+    **friendly** takes the information obtained by **friendly-traceback**
+    and applies some formatting (most often, adding colours) which often
+    makes the information easier to understand.
+
+
+Introduction
+-------------
 
 There exists many Python projects
 whose **primary** goal is to supplement the information
 given by Python traceback to make them more useful for **advanced** programmers.
-To my knowledge, of all those projects, friendly/friendly_traceback are
-the only ones designed with beginners in mind.
+To my knowledge, of all those projects, **Friendly** is
+the only one designed with beginners in mind.
 
 
-To be more specific, while **friendly**
+To be more specific, while **Friendly**
 can be useful for advanced programmers,
 it strives to present the information in a way that is easily
 understood by beginners and/or by users
 who would like to get information about traceback in their own language.
-**friendly** can give more detailed information as to
+**Friendly** can give more detailed information as to
 **where** an exception occurred, **what** a given exception means and
 **why** it might have occurred (sometimes adding suggestions as to how to fix it.)
 
@@ -46,7 +57,7 @@ who would like to get information about traceback in their own language.
     prevents you from understanding the explanations, please do not hesitate to
     reach out to me: andre.roberge@gmail.com
 
-Even though **friendly** can be used on its own with a specially
+Even though **Friendly** can be used on its own with a specially
 designed console, a better option might be to use it together with
 GUI-based editors/IDE including JupyterLab and Jupyter notebooks.
 I explain how to do so later.

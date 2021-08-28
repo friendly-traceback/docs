@@ -13,9 +13,9 @@ Everything about the friendly console
     extracting information from the **friendly-traceback** code.
 
     Note that, in addition to the functions shown below,
-    when using **friendly** instead of **friendly-traceback**,
+    when using **Friendly** instead of **friendly-traceback**,
     some additional functions might be included as means to
-    change the colour scheme used by **friendly**.
+    change the colour scheme used by **Friendly**.
 
 
 .. automodule:: friendly_traceback.console_helpers

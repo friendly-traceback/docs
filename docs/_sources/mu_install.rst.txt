@@ -1,7 +1,7 @@
 Using with Mu: installation
 ===========================
 
-It is possible that, in the future, **friendly** might
+It is possible that, in the future, **Friendly** might
 be incorporated inside Mu, available at the click of a button.
 For now, it needs to be installed separately.
 Note that the ability of installing third-party packages in the
