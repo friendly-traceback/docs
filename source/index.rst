@@ -114,7 +114,7 @@ could easily be added.
    beginner
    install
    usage
-   when_ft
+   usage_adv
 
 
 .. toctree::
@@ -205,7 +205,6 @@ could easily be added.
    api
    formatter
    custom_errors
-   usage_adv
    plugins
 
 .. toctree::

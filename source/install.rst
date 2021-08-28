@@ -1,5 +1,5 @@
-Installation 
-==============
+Getting Friendly
+=================
 
 .. tip::
 
@@ -9,14 +9,21 @@ Installation
 .. |mu_logo| image:: images/mu_logo.png
 
 
-
-Installation
--------------
-
-You can install friendly from `PyPI <https://pypi.org/>`_ in the usual way::
+You can get **Friendly** from `PyPI <https://pypi.org/>`_ in the usual way:
 
 
-    python -m pip install friendly
+.. tab:: friendly
+
+    .. code-block::
+
+        $ python -m pip install friendly
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        $ python -m pip install friendly_traceback
 
 
 This needs to be done from a terminal.
@@ -28,6 +35,13 @@ It could be ``python``, ``python3``, ``py -3.8``, etc.
 Instead of ``python -m pip install ...``, some tutorials might suggest
 to simply write ``pip install ...``; I do not recommend this as it might
 not install programs in the right "environment" for your computer.
+
+
+.. tip::
+
+    Installing **friendly** with pip automatically installs **friendly_traceback**.
+    Most users will want to use **friendly**.
+
 
 Mistake to avoid
 -----------------

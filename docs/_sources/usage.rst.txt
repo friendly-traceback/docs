@@ -1,7 +1,7 @@
 Basic usage
 ============
 
-There are various ways of using friendly.
+There are various ways of using **Friendly**.
 I only list here the basic scenarios available from a
 terminal or from within a Python interpreter.
 More options are possible, including running from an editor/IDE
@@ -11,21 +11,56 @@ For those that know how to run programs **from a terminal**,
 I recommend using **one of the first three** following options.
 
 
-1. Execute a Python program, as I have already shown at the beginning::
-
-    $ python -m friendly example.py
+1. Execute a Python program, as I have already shown at the beginning:
 
 
-2. You can also start a friendly console::
+.. tab:: friendly
 
-    $ python -m friendly
+    .. code-block::
+
+        $ python -m friendly example.py
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        $ python -m friendly_traceback example.py
+
+
+2. You can also start a friendly console:
+
+.. tab:: friendly
+
+    .. code-block::
+
+        $ python -m friendly
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        $ python -m friendly_traceback
 
 
 3. Combining the two options above by using Python's ``-i`` flag
    to start friendly's console after executing
-   a program::
+   a program:
 
-    $ python -im friendly example.py
+
+.. tab:: friendly
+
+    .. code-block::
+
+        $ python -im friendly example.py
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        $ python -im friendly_traceback example.py
 
 
 .. sidebar:: Suggestion
@@ -36,126 +71,73 @@ I recommend using **one of the first three** following options.
     what I have used for various screen captures.
 
 
-All of the above assume that you are using a terminal with a dark background.
+You can also start a friendly console from any Python interactive interpreter.
+
+
+.. tab:: friendly
+
+    .. code-block::
+
+        >>> import friendly
+        >>> friendly.start_console()
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        >>> import friendly_traceback
+        >>> friendly_traceback.start_console()
+
+
+While **friendly_traceback** does not print in colour, **friendly** does.
+For **friendly**, all of the above assume that you are using
+a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
-add ``--format light`` as a command line option.
+add ``--format light``, which can be abbreviated as ``-f light``,
+as a command line option. Similarly, the ``start_console()`` function
+accept various parameters, including ``formatter`` for **friendly**
+which can be specified to be either ``dark`` or ``light``.
 
 
-More ways to use
------------------
+Using in other environments
+---------------------------
 
-The following ways of using friendly are described
-in more details later. I simply list them here as useful
-summary for experienced Python programmers.
+If you want to use **Friendly** elsewhere than from a terminal,
+you likely will need to use a custom mode designed for that
+environment. Currently, as explained elsewhere in this documentation,
+**Friendly** has been adapted to work with the following:
+
+- Python's IDLE
+- Mu
+- IPython
+- Normal programs run from Visual Studio Code
+- Jupyter notebooks (in a browser)
+- JupyterLab
+- Jupyter notebooks inside Visual Studio Code
+- Google's Colab notebooks
 
 
-4. You can use friendly as an exception hook::
+If you design your own programming environment, such as is done on
+`HackInScience <https://HackInScience.org>`_
+or `futurecoder <https://futurecoder.io>`_
+then you likely only need to install **friendly_traceback**.
+Compared with **friendly_traceback**, **friendly** has
+quite a few additional dependencies that you would likely not need.
 
-    import friendly
-    friendly.install()  # replaces the default sys.excepthook
 
+|france| En Français
+---------------------
 
-5. Starting the console from any Python interpreter::
+**Friendly** can provide users with information in either English or French.
+When using **Friendly** from a terminal as described above,
+to get the information in French, one needs to add the command
+line argument ``lang fr``, like the following::
+
+    $ python -m friendly --lang fr
+
+If one is starting the console from a Python interpreter,
+use a ``lang`` function parameter as follows::
 
     >>> import friendly
-    >>> friendly.start_console()
-
-
-6. You can also use it to catch exceptions locally::
-
-    import friendly
-
-    ...
-
-    try:
-        # Some code
-    except Exception:
-        friendly.explain_traceback()
-
-
-All of the above support additional options allowing one
-to select a different language (only French for now) or
-changing the information that is shown by default.
-
-More information about various additional options is
-provided later in this documentation.
-As a shortcut, you can
-also type ``python -m friendly -h`` in a terminal.
-
-
-Logging
---------
-
-You can use friendly_traceback with the logging module.
-Here's an example, together with the corresponding
-output::
-
-    import friendly_traceback
-    import logging
-
-    # Configure as desired before running the code
-    logging.basicConfig(filename="ignore.log")
-    friendly_traceback.set_lang('fr')  # Just as an example :-)
-
-    try:
-        import ignore2
-    except Exception:
-        friendly_traceback.explain_traceback(redirect="capture")
-        # Note: friendly often remove some details from tracebacks
-        # to make them more readable. This can be helpful
-        # but sometimes we might also need to see the full
-        # traceback in log files.
-        # For example, compare the path of ignore2.py shown
-        # in both tracebacks.
-        log = (" Friendly traceback\n" +
-                  friendly.get_output() +
-                  "\n----Original traceback-----\n")
-        # exc_info=True below will append the original traceback
-        logging.error(log, exc_info=True)
-
-
-And here's the output:
-
-.. code-block:: none
-
-    Traceback (most recent call last):
-      File "ignore.py", line 9, in <module>
-        import ignore2
-      File "CWD:\ignore2.py", line 3, in <module>
-        c = a / b
-    ZeroDivisionError: division by zero
-
-        Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
-        par zéro soit directement ou en utilisant une autre opération mathématique.
-
-        Vous divisez par le terme suivant
-
-             b
-
-        qui est égal à zéro.
-
-        L'exécution s'est arrêtée à la ligne 9 du fichier ignore.py
-
-            7:
-            8: try:
-        --> 9:     import ignore2
-           10: except Exception:
-
-        Exception levée à la ligne 3 du fichier CWD:\ignore2.py.
-
-           1: a = 1
-           2: b = 0
-        -->3: c = a / b
-                  ^^^^^
-
-                a:  1
-                b:  0
-
-
-    ----Original traceback-----
-    Traceback (most recent call last):
-      File "ignore.py", line 9, in <module>
-        import ignore2
-      File "C:\Users\andre\github\friendly\ignore2.py", line 3, in <module>
-        c = a / b
-    ZeroDivisionError: division by zero
+    >>> friendly.start_console(lang='fr')

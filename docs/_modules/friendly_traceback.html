@@ -159,9 +159,9 @@
   <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../beginner.html">Useful information for beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Basic usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../when_ft.html">Differences between friendly and friendly_traceback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_adv.html">Other details for advanced users</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -224,7 +224,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../formatter.html">Custom formatter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
@@ -382,7 +381,7 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Replaces ``sys.excepthook`` by friendly's own version.</span>
-<span class="sd">    Intercepts, and provides an explanation for all Python exceptions except</span>
+<span class="sd">    Intercepts, and can provide an explanation for all Python exceptions except</span>
 <span class="sd">    for ``SystemExist`` and ``KeyboardInterrupt``.</span>
 
 <span class="sd">    The optional arguments are:</span>
@@ -417,7 +416,7 @@
     <span class="n">include</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">InclusionChoice</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">console</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">formatter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Formatter</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"repl"</span><span class="p">,</span>
+    <span class="n">formatter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Formatter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">redirect</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Writer</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">ipython_prompt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>  <span class="c1"># sourcery skip: move-assign</span>
@@ -493,7 +492,7 @@
 
 <div class="viewcode-block" id="start_console"><a class="viewcode-back" href="../api.html#friendly_traceback.start_console">[docs]</a><span class="k">def</span> <span class="nf">start_console</span><span class="p">(</span>  <span class="c1"># pragma: no cover</span>
     <span class="n">local_vars</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">formatter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Formatter</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"repl"</span><span class="p">,</span>
+    <span class="n">formatter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Formatter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">"friendly_tb"</span><span class="p">,</span>
     <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"en"</span><span class="p">,</span>
     <span class="n">banner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

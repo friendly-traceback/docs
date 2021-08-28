@@ -2,7 +2,7 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Differences between friendly and friendly_traceback" href="when_ft.html" /><link rel="prev" title="Installation" href="install.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Other details for advanced users" href="usage_adv.html" /><link rel="prev" title="Getting Friendly" href="install.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
         <title>Basic usage - friendly-traceback 0.4.52</title>
@@ -159,9 +159,9 @@
   <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Basic usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="when_ft.html">Differences between friendly and friendly_traceback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -224,7 +224,6 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
@@ -279,32 +278,60 @@
         </div>
         <div class="section" id="basic-usage">
 <h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
-<p>There are various ways of using friendly.
+<p>There are various ways of using <strong>Friendly</strong>.
 I only list here the basic scenarios available from a
 terminal or from within a Python interpreter.
 More options are possible, including running from an editor/IDE
 as described later in this documentation.</p>
 <p>For those that know how to run programs <strong>from a terminal</strong>,
 I recommend using <strong>one of the first three</strong> following options.</p>
-<ol class="arabic">
-<li><p>Execute a Python program, as I have already shown at the beginning:</p>
+<ol class="arabic simple">
+<li><p>Execute a Python program, as I have already shown at the beginning:</p></li>
+</ol>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly example.py
 </pre></div>
 </div>
-</li>
-<li><p>You can also start a friendly console:</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback example.py
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>You can also start a friendly console:</p></li>
+</ol>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly
 </pre></div>
 </div>
-</li>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
 <li><p>Combining the two options above by using Python’s <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag
 to start friendly’s console after executing
-a program:</p>
+a program:</p></li>
+</ol>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -im friendly example.py
 </pre></div>
 </div>
-</li>
-</ol>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -im friendly_traceback example.py
+</pre></div>
+</div>
+</div>
+</div>
 <div class="sidebar">
 <p class="sidebar-title">Suggestion</p>
 <p>If you are a Windows user I <strong>very strongly suggest</strong> that you use the new
@@ -312,119 +339,65 @@ a program:</p>
 that you can get from the Windows Store; this is
 what I have used for various screen captures.</p>
 </div>
-<p>All of the above assume that you are using a terminal with a dark background.
-If you are using a terminal with a light background, you might want to
-add <code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">light</span></code> as a command line option.</p>
-<div class="section" id="more-ways-to-use">
-<h2>More ways to use<a class="headerlink" href="#more-ways-to-use" title="Permalink to this headline">¶</a></h2>
-<p>The following ways of using friendly are described
-in more details later. I simply list them here as useful
-summary for experienced Python programmers.</p>
-<ol class="arabic" start="4">
-<li><p>You can use friendly as an exception hook:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly</span>
-<span class="n">friendly</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>  <span class="c1"># replaces the default sys.excepthook</span>
-</pre></div>
-</div>
-</li>
-<li><p>Starting the console from any Python interpreter:</p>
+<p>You can also start a friendly console from any Python interactive interpreter.</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">friendly</span><span class="o">.</span><span class="n">start_console</span><span class="p">()</span>
 </pre></div>
 </div>
-</li>
-<li><p>You can also use it to catch exceptions locally:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly</span>
-
-<span class="o">...</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># Some code</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="n">friendly</span><span class="o">.</span><span class="n">explain_traceback</span><span class="p">()</span>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">start_console</span><span class="p">()</span>
 </pre></div>
 </div>
-</li>
-</ol>
-<p>All of the above support additional options allowing one
-to select a different language (only French for now) or
-changing the information that is shown by default.</p>
-<p>More information about various additional options is
-provided later in this documentation.
-As a shortcut, you can
-also type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">friendly</span> <span class="pre">-h</span></code> in a terminal.</p>
 </div>
-<div class="section" id="logging">
-<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
-<p>You can use friendly_traceback with the logging module.
-Here’s an example, together with the corresponding
-output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="c1"># Configure as desired before running the code</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"ignore.log"</span><span class="p">)</span>
-<span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_lang</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)</span>  <span class="c1"># Just as an example :-)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">ignore2</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">explain_traceback</span><span class="p">(</span><span class="n">redirect</span><span class="o">=</span><span class="s2">"capture"</span><span class="p">)</span>
-    <span class="c1"># Note: friendly often remove some details from tracebacks</span>
-    <span class="c1"># to make them more readable. This can be helpful</span>
-    <span class="c1"># but sometimes we might also need to see the full</span>
-    <span class="c1"># traceback in log files.</span>
-    <span class="c1"># For example, compare the path of ignore2.py shown</span>
-    <span class="c1"># in both tracebacks.</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="p">(</span><span class="s2">" Friendly traceback</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
-              <span class="n">friendly</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span> <span class="o">+</span>
-              <span class="s2">"</span><span class="se">\n</span><span class="s2">----Original traceback-----</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-    <span class="c1"># exc_info=True below will append the original traceback</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</div>
+<p>While <strong>friendly_traceback</strong> does not print in colour, <strong>friendly</strong> does.
+For <strong>friendly</strong>, all of the above assume that you are using
+a terminal with a dark background.
+If you are using a terminal with a light background, you might want to
+add <code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">light</span></code>, which can be abbreviated as <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">light</span></code>,
+as a command line option. Similarly, the <code class="docutils literal notranslate"><span class="pre">start_console()</span></code> function
+accept various parameters, including <code class="docutils literal notranslate"><span class="pre">formatter</span></code> for <strong>friendly</strong>
+which can be specified to be either <code class="docutils literal notranslate"><span class="pre">dark</span></code> or <code class="docutils literal notranslate"><span class="pre">light</span></code>.</p>
+<div class="section" id="using-in-other-environments">
+<h2>Using in other environments<a class="headerlink" href="#using-in-other-environments" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use <strong>Friendly</strong> elsewhere than from a terminal,
+you likely will need to use a custom mode designed for that
+environment. Currently, as explained elsewhere in this documentation,
+<strong>Friendly</strong> has been adapted to work with the following:</p>
+<ul class="simple">
+<li><p>Python’s IDLE</p></li>
+<li><p>Mu</p></li>
+<li><p>IPython</p></li>
+<li><p>Normal programs run from Visual Studio Code</p></li>
+<li><p>Jupyter notebooks (in a browser)</p></li>
+<li><p>JupyterLab</p></li>
+<li><p>Jupyter notebooks inside Visual Studio Code</p></li>
+<li><p>Google’s Colab notebooks</p></li>
+</ul>
+<p>If you design your own programming environment, such as is done on
+<a class="reference external" href="https://HackInScience.org">HackInScience</a>
+or <a class="reference external" href="https://futurecoder.io">futurecoder</a>
+then you likely only need to install <strong>friendly_traceback</strong>.
+Compared with <strong>friendly_traceback</strong>, <strong>friendly</strong> has
+quite a few additional dependencies that you would likely not need.</p>
+</div>
+<div class="section" id="france-en-francais">
+<h2><img alt="france" src="_images/france.png"/> En Français<a class="headerlink" href="#france-en-francais" title="Permalink to this headline">¶</a></h2>
+<p><strong>Friendly</strong> can provide users with information in either English or French.
+When using <strong>Friendly</strong> from a terminal as described above,
+to get the information in French, one needs to add the command
+line argument <code class="docutils literal notranslate"><span class="pre">lang</span> <span class="pre">fr</span></code>, like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr
 </pre></div>
 </div>
-<p>And here’s the output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "ignore.py", line 9, in &lt;module&gt;
-    import ignore2
-  File "CWD:\ignore2.py", line 3, in &lt;module&gt;
-    c = a / b
-ZeroDivisionError: division by zero
-
-    Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
-    par zéro soit directement ou en utilisant une autre opération mathématique.
-
-    Vous divisez par le terme suivant
-
-         b
-
-    qui est égal à zéro.
-
-    L'exécution s'est arrêtée à la ligne 9 du fichier ignore.py
-
-        7:
-        8: try:
-    --&gt; 9:     import ignore2
-       10: except Exception:
-
-    Exception levée à la ligne 3 du fichier CWD:\ignore2.py.
-
-       1: a = 1
-       2: b = 0
-    --&gt;3: c = a / b
-              ^^^^^
-
-            a:  1
-            b:  0
-
-
-----Original traceback-----
-Traceback (most recent call last):
-  File "ignore.py", line 9, in &lt;module&gt;
-    import ignore2
-  File "C:\Users\andre\github\friendly\ignore2.py", line 3, in &lt;module&gt;
-    c = a / b
-ZeroDivisionError: division by zero
+<p>If one is starting the console from a Python interpreter,
+use a <code class="docutils literal notranslate"><span class="pre">lang</span></code> function parameter as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">friendly</span><span class="o">.</span><span class="n">start_console</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -434,12 +407,12 @@ ZeroDivisionError: division by zero
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="when_ft.html">
+          <a class="next-page" href="usage_adv.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Differences between friendly and friendly_traceback</div>
+                <div class="title">Other details for advanced users</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -450,7 +423,7 @@ ZeroDivisionError: division by zero
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Installation</div>
+                <div class="title">Getting Friendly</div>
                 
               </div>
             </a>
@@ -485,8 +458,8 @@ ZeroDivisionError: division by zero
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Basic usage</a><ul>
-<li><a class="reference internal" href="#more-ways-to-use">More ways to use</a></li>
-<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#using-in-other-environments">Using in other environments</a></li>
+<li><a class="reference internal" href="#france-en-francais"> En Français</a></li>
 </ul>
 </li>
 </ul>
