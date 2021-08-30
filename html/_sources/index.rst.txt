@@ -1,5 +1,8 @@
 
-`Code on Github <https://github.com/friendly-traceback>`_
+.. tip::
+
+    You can change the theme from light to dark by clicking
+    on the Sun/Shaded Sun/Moon icon. --->
 
 
 .. image:: friendly_logo.png
@@ -32,6 +35,9 @@ refers to two related packages: **friendly_traceback** and **friendly**.
     the information easier to understand.
     In this documentation, I will almost always use
     **friendly** to generate the screen capture of the examples.
+
+
+`Code on Github <https://github.com/friendly-traceback>`_
 
 
 Introduction
