@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
@@ -281,26 +282,31 @@
 <div class="section" id="bienvenue-bienvenido-welcome">
 <h1>Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨<a class="headerlink" href="#bienvenue-bienvenido-welcome" title="Permalink to this headline">¶</a></h1>
 <p><strong>Friendly</strong> helps users understand what caused a given
-exception in their Python program, and how to fix it.
-<strong>Friendly</strong>, with an uppercase <strong>F</strong>
-refers to two related packages: <strong>friendly-traceback</strong> and <strong>friendly</strong>.</p>
+exception in their Python program, and how to fix it.</p>
+<p>In this documentation, <strong>Friendly</strong>, with an uppercase <strong>F</strong>
+refers to two related packages: <strong>friendly_traceback</strong> and <strong>friendly</strong>.</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly-traceback</label><div class="tab-content docutils container">
-<p><strong>friendly-traceback</strong> does all the work to figure out what caused
-a particular exception and does some basic formatting of the
-information it obtains.</p>
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly_traceback</label><div class="tab-content docutils container">
+<p><strong>friendly_traceback</strong> does all the work to figure out what caused
+a particular exception and does some minimal formatting of the
+information it obtains.  In this documentation, I will often use
+<strong>friendly_traceback</strong> to generate the text version
+of the examples’ output.</p>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly</label><div class="tab-content docutils container">
-<p><strong>friendly</strong> takes the information obtained by <strong>friendly-traceback</strong>
-and applies some formatting (most often, adding colours) which often
-makes the information easier to understand.</p>
+<p><strong>friendly</strong> takes the information obtained by <strong>friendly_traceback</strong>
+and applies some additional formatting (most often, adding colours)
+with the intention to make
+the information easier to understand.
+In this documentation, I will almost always use
+<strong>friendly</strong> to generate the screen capture of the examples.</p>
 </div>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>There exists many Python projects
-whose <strong>primary</strong> goal is to supplement the information
-given by Python traceback to make them more useful for <strong>advanced</strong> programmers.
+whose primary goal is to supplement the information
+given by Python traceback to make them more useful.
 To my knowledge, of all those projects, <strong>Friendly</strong> is
 the only one designed with beginners in mind.</p>
 <p>To be more specific, while <strong>Friendly</strong>
@@ -311,16 +317,6 @@ who would like to get information about traceback in their own language.
 <strong>Friendly</strong> can give more detailed information as to
 <strong>where</strong> an exception occurred, <strong>what</strong> a given exception means and
 <strong>why</strong> it might have occurred (sometimes adding suggestions as to how to fix it.)</p>
-<div class="sidebar">
-<p class="sidebar-title">Using screenshots</p>
-<p>In this documentation, I most often use some screenshots,
-as I believe that they are more easily understandable by most users.
-Occasionally, I write some examples as text so that they
-can provide the required information to people relying on screen readers.
-If you rely on screen readers and need help because the use of screenshots
-prevents you from understanding the explanations, please do not hesitate to
-reach out to me: <a class="reference external" href="mailto:andre.roberge%40gmail.com">andre<span>.</span>roberge<span>@</span>gmail<span>.</span>com</a></p>
-</div>
 <p>Even though <strong>Friendly</strong> can be used on its own with a specially
 designed console, a better option might be to use it together with
 GUI-based editors/IDE including JupyterLab and Jupyter notebooks.
@@ -340,17 +336,133 @@ For now, I’ll just show one quick example.</p>
 </div>
 <p>First, here is what happens when I use Python
 to run this program.</p>
-<a class="reference internal image-reference" href="_images/python_indexerror.png"><img alt="Python IndexError example" src="_images/python_indexerror.png" style="width: 566.5px; height: 112.5px;"/></a>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="only-dark reference internal image-reference" href="_images/python_indexerror.png"><img alt="Python IndexError example" class="only-dark" src="_images/python_indexerror.png" style="width: 724.8px; height: 130.2px;"/></a>
+<a class="only-light reference internal image-reference" href="_images/python_indexerror_light.png"><img alt="Python IndexError example" class="only-light" src="_images/python_indexerror_light.png" style="width: 720.6px; height: 129.6px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python example.py
+Traceback (most recent call last):
+  File "C:\Users\andre\friendly-traceback\friendly-traceback\example.py", line 6, in &lt;module&gt;
+    print(get_last([1, 2, 3]))
+  File "C:\Users\andre\friendly-traceback\friendly-traceback\example.py", line 4, in get_last
+    return seq[last_index]
+IndexError: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
 <p>Not exactly the most helpful information for beginners …</p>
 <p>Here’s the corresponding version with full explanation from friendly,
 making use of
 <a class="reference external" href="https://github.com/willmcgugan/rich">Rich</a> to produce a colourful output.</p>
-<a class="reference internal image-reference" href="_images/friendly_indexerror_en.png"><img alt="friendly IndexError example in English" src="_images/friendly_indexerror_en.png" style="width: 620.0px; height: 569.5px;"/></a>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="only-dark reference internal image-reference" href="_images/friendly_indexerror_en.png"><img alt="friendly IndexError example in English" class="only-dark" src="_images/friendly_indexerror_en.png" style="width: 540.0px; height: 601.0px;"/></a>
+<a class="only-light reference internal image-reference" href="_images/friendly_indexerror_en_light.png"><img alt="friendly IndexError example in English" class="only-light" src="_images/friendly_indexerror_en_light.png" style="width: 539.0px; height: 597.5px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python -m friendly_traceback example.py
+
+Traceback (most recent call last):
+  File "example.py", line 6, in &lt;module&gt;
+    print(get_last([1, 2, 3]))
+  File "example.py", line 4, in get_last
+    return seq[last_index]
+IndexError: list index out of range
+
+        Remember: the first item of a `list` is not at index 1 but at index 0.
+
+    An `IndexError` occurs when you try to get an item from a list,
+    a tuple, or a similar object (sequence), and use an index which
+    does not exist; typically, this happens because the index you give
+    is greater than the length of the sequence.
+
+    You have tried to get the item with index `3` of `seq`,
+    a `list` of length `3`.
+    The valid index values of `seq` are integers ranging from
+    `-3` to `2`.
+
+    Execution stopped on line 6 of file example.py.
+
+       2: def get_last(seq):
+       3:     last_index = len(seq)
+       4:     return seq[last_index]
+    --&gt;6: print(get_last([1, 2, 3]))
+                ^^^^^^^^^^^^^^^^^^^
+
+            get_last:  &lt;function get_last&gt;
+            print:  &lt;builtin function print&gt;
+
+    Exception raised on line 4 of file example.py.
+
+       2: def get_last(seq):
+       3:     last_index = len(seq)
+    --&gt;4:     return seq[last_index]
+                     ^^^^^^^^^^^^^^^
+
+            last_index:  3
+            seq:  [1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
 <p>One unique feature of friendly is that all the information
 it provides can be translated into another language; currently, only
 English (by default) and French are available but other languages
 could easily be added.</p>
-<a class="reference internal image-reference" href="_images/friendly_indexerror_fr.png"><img alt="friendly IndexError in French" src="_images/friendly_indexerror_fr.png" style="width: 620.0px; height: 600.0px;"/></a>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="only-dark reference internal image-reference" href="_images/friendly_indexerror_fr.png"><img alt="friendly IndexError in French" class="only-dark" src="_images/friendly_indexerror_fr.png" style="width: 620.0px; height: 600.0px;"/></a>
+<a class="only-light reference internal image-reference" href="_images/friendly_indexerror_fr_light.png"><img alt="friendly IndexError in French" class="only-light" src="_images/friendly_indexerror_fr_light.png" style="width: 541.0px; height: 629.0px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python -m friendly_traceback example.py --lang fr
+
+Traceback (most recent call last):
+  File "example.py", line 6, in &lt;module&gt;
+    print(get_last([1, 2, 3]))
+  File "example.py", line 4, in get_last
+    return seq[last_index]
+IndexError: list index out of range
+
+        N’oubliez pas : le premier élément d'un objet de type `une liste (`list`)` est à l’indice 0
+        et non pas à l'indice 1.
+
+    Une exception `IndexError` se produit lorsque vous essayez d’obtenir un élément
+    d'une liste, d'un tuple, ou d'un objet similaire (séquence), à l’aide d’un indice qui
+    n’existe pas; typiquement, c’est parce que l’indice que vous donnez
+    est plus grand que la longueur de la séquence.
+
+    Vous avez essayé d’obtenir l’élément avec l’indice `3` de `seq`,
+    une liste (`list`) de longueur `3`.
+    Les indices valides de `seq` sont les entiers allant de `-3` à `2`.
+
+    L'exécution s'est arrêtée à la ligne 6 du fichier example.py
+
+       2: def get_last(seq):
+       3:     last_index = len(seq)
+       4:     return seq[last_index]
+    --&gt;6: print(get_last([1, 2, 3]))
+                ^^^^^^^^^^^^^^^^^^^
+
+            get_last:  &lt;function get_last&gt;
+            print:  &lt;builtin function print&gt;
+
+    Exception levée à la ligne 4 du fichier example.py.
+
+       2: def get_last(seq):
+       3:     last_index = len(seq)
+    --&gt;4:     return seq[last_index]
+                     ^^^^^^^^^^^^^^^
+
+            last_index:  3
+            seq:  [1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Keep reading if you want to find out more.</strong></p>
 <div class="toctree-wrapper compound">
 </div>
@@ -445,5 +557,7 @@ could easily be added.</p>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
     <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

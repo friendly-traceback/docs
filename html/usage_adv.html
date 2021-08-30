@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
@@ -296,22 +297,44 @@
 </div>
 <div class="section" id="running-another-script">
 <h2>Running another script<a class="headerlink" href="#running-another-script" title="Permalink to this headline">¶</a></h2>
-<p>We have already given an example of running another script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly demos/hello.py
+<p>We have already explained how to run a program using <strong>Friendly</strong>.
+What if the separate script has its own command line arguments?</p>
+<div class="sidebar">
+<p class="sidebar-title">Included in repository</p>
+<p>A similar program is included in the <strong>demos/</strong> directory of both
+<strong>friendly</strong> and <strong>friendly_traceback</strong> Github repository.</p>
+</div>
+<p>Consider the following program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstration of a program that uses command line arguments</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
 
-Hello world!
-Running as main!
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"numbers"</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">"*"</span><span class="p">,</span>
+                     <span class="n">help</span><span class="o">=</span><span class="s2">"List of numbers to add."</span>
+                     <span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--to_int"</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">"Converts the sum to integer"</span><span class="p">,</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span>
+                    <span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">numbers</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="p">)</span> <span class="o">==</span> <span class="n">total</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">to_int</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The sum is"</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>What if the separate script has its own command line arguments?
-If they are simply positional arguments, you can simply tack them
-on at the end of the argument list. An example can be found
-in the <code class="docutils literal notranslate"><span class="pre">demos/</span></code> directory, which can be run directly or using
-friendly.</p>
+<p>Using Python, we would normally run this program as follows.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python demos/adder.py 1 2 3
 The sum is 6
 </pre></div>
 </div>
+<p>We can do the same using <strong>friendly</strong> (or <strong>friendly_traceback</strong>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly demos/adder.py 1 2 3
 The sum is 6.0
 </pre></div>
@@ -330,6 +353,44 @@ intended to be used by friendly:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr demos/adder.py -- --to_int 1 2 3
 The sum is 6
 </pre></div>
+</div>
+<p>Finally, let’s generate a traceback to see <strong>Friendly</strong> in action, this time
+using <strong>friendly_traceback</strong> so that no special formatting is applied.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
+
+Traceback (most recent call last):
+  File "demos\adder.py", line 13, in &lt;module&gt;
+    total += float(number)
+ValueError: could not convert string to float: 'a'
+
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+
+    I do not recognize this error message.
+    I am guessing that the problem is with the function `float`.
+    Its docstring is:
+
+    `'''Convert a string or number to a floating point number, if possible.'''`
+
+    Exception raised on line 13 of file demos\adder.py.
+
+        9: total = 0
+       10: args = parser.parse_args()
+       12: for number in args.numbers:
+    --&gt;13:     total += float(number)
+                        ^^^^^^^^^^^^^
+       15: if int(total) == total and args.to_int:
+
+            number:  'a'
+            float:  &lt;class float&gt;
+</pre></div>
+</div>
+<p>All possible <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> cases are not yet explained by <strong>Friendly</strong>
+as we can see above.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Provide an explanation for the error message
+<code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">convert</span> <span class="pre">string</span> <span class="pre">to</span> <span class="pre">float:</span> <span class="pre">'a'</span></code>.</p>
 </div>
 </div>
 <div class="section" id="where-the-output-is-written">
@@ -374,9 +435,7 @@ Additional translations are more than welcome.</p>
 </pre></div>
 </div>
 <p>If the language requested does not exist, no error is raised nor any warning
-given, but the choice reverts to the default (English).
-More information on the choice of language (localization) can be found
-in the section about design.</p>
+given, but the choice reverts to the default (English).</p>
 </div>
 <div class="section" id="as-an-exception-hook">
 <h2>As an exception hook<a class="headerlink" href="#as-an-exception-hook" title="Permalink to this headline">¶</a></h2>
@@ -609,5 +668,7 @@ ZeroDivisionError: division by zero
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
     <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

@@ -21,23 +21,49 @@ Other details for advanced users
 Running another script
 ----------------------
 
-We have already given an example of running another script::
-
-    $ python -m friendly demos/hello.py
-
-    Hello world!
-    Running as main!
-
+We have already explained how to run a program using **Friendly**.
 What if the separate script has its own command line arguments?
-If they are simply positional arguments, you can simply tack them
-on at the end of the argument list. An example can be found
-in the ``demos/`` directory, which can be run directly or using
-friendly.
+
+
+.. sidebar:: Included in repository
+
+    A similar program is included in the **demos/** directory of both
+    **friendly** and **friendly_traceback** Github repository.
+
+Consider the following program::
+
+    # Demonstration of a program that uses command line arguments
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("numbers", nargs="*",
+                         help="List of numbers to add."
+                         )
+    parser.add_argument("--to_int",
+                        help="Converts the sum to integer",
+                        action="store_true"
+                        )
+
+    total = 0
+    args = parser.parse_args()
+
+    for number in args.numbers:
+        total += float(number)
+
+    if int(total) == total and args.to_int:
+        total = int(total)
+
+    print("The sum is", total)
+
+
+Using Python, we would normally run this program as follows.
 
 .. code-block::
 
     $ python demos/adder.py 1 2 3
     The sum is 6
+
+We can do the same using **friendly** (or **friendly_traceback**).
 
 .. code-block::
 
@@ -54,13 +80,54 @@ However, what if one wants to run a script that uses optional named arguments
 similarly to how friendly can use ``--lang`` and other optional
 arguments? In this case, use ``--`` to separate the list of arguments
 to be used by the script from those written previously and
-intended to be used by friendly::
+intended to be used by friendly:
+
+.. code-block::
 
     $ python -m friendly --lang fr demos/adder.py -- --to_int 1 2 3
     The sum is 6
 
+Finally, let's generate a traceback to see **Friendly** in action, this time
+using **friendly_traceback** so that no special formatting is applied.
+
+.. code-block::
+
+    $ python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
+
+    Traceback (most recent call last):
+      File "demos\adder.py", line 13, in <module>
+        total += float(number)
+    ValueError: could not convert string to float: 'a'
+
+        A `ValueError` indicates that a function or an operation
+        received an argument of the right type, but an inappropriate value.
+
+        I do not recognize this error message.
+        I am guessing that the problem is with the function `float`.
+        Its docstring is:
+
+        `'''Convert a string or number to a floating point number, if possible.'''`
+
+        Exception raised on line 13 of file demos\adder.py.
+
+            9: total = 0
+           10: args = parser.parse_args()
+           12: for number in args.numbers:
+        -->13:     total += float(number)
+                            ^^^^^^^^^^^^^
+           15: if int(total) == total and args.to_int:
+
+                number:  'a'
+                float:  <class float>
 
 
+All possible ``ValueError`` cases are not yet explained by **Friendly**
+as we can see above.
+
+.. todo::
+
+    Provide an explanation for the error message
+    ``ValueError: could not convert string to float: 'a'``.
 
 
 
@@ -111,8 +178,6 @@ The language currently used can be obtained using::
 
 If the language requested does not exist, no error is raised nor any warning
 given, but the choice reverts to the default (English).
-More information on the choice of language (localization) can be found
-in the section about design.
 
 As an exception hook
 ---------------------

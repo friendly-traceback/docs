@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
@@ -359,7 +360,11 @@ For <strong>friendly</strong>, all of the above assume that you are using
 a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
 add <code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">light</span></code>, which can be abbreviated as <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">light</span></code>,
-as a command line option. Similarly, the <code class="docutils literal notranslate"><span class="pre">start_console()</span></code> function
+as a command line option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --format light
+</pre></div>
+</div>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">start_console()</span></code> function
 accept various parameters, including <code class="docutils literal notranslate"><span class="pre">formatter</span></code> for <strong>friendly</strong>
 which can be specified to be either <code class="docutils literal notranslate"><span class="pre">dark</span></code> or <code class="docutils literal notranslate"><span class="pre">light</span></code>.</p>
 <div class="section" id="using-in-other-environments">
@@ -367,7 +372,9 @@ which can be specified to be either <code class="docutils literal notranslate"><
 <p>If you want to use <strong>Friendly</strong> elsewhere than from a terminal,
 you likely will need to use a custom mode designed for that
 environment. Currently, as explained elsewhere in this documentation,
-<strong>Friendly</strong> has been adapted to work with the following:</p>
+<strong>friendly</strong> (but not <strong>friendly-traceback</strong>)
+has special options that need to be selected
+so that it can work best with the following:</p>
 <ul class="simple">
 <li><p>Python’s IDLE</p></li>
 <li><p>Mu</p></li>
@@ -387,19 +394,47 @@ quite a few additional dependencies that you would likely not need.</p>
 </div>
 <div class="section" id="france-en-francais">
 <h2><img alt="france" src="_images/france.png"/> En Français<a class="headerlink" href="#france-en-francais" title="Permalink to this headline">¶</a></h2>
-<p><strong>Friendly</strong> can provide users with information in either English or French.
-When using <strong>Friendly</strong> from a terminal as described above,
-to get the information in French, one needs to add the command
-line argument <code class="docutils literal notranslate"><span class="pre">lang</span> <span class="pre">fr</span></code>, like the following:</p>
+<p><strong>Friendly</strong> offre la possibilité de présenter l’information en
+Français.
+Par exemple, si on désire démarrer <strong>Friendly</strong> à partir d’un terminal
+tel que décrit ci-dessus, il suffit de rajouter l’argument
+<code class="docutils literal notranslate"><span class="pre">lang</span> <span class="pre">fr</span></code> de la façon suivante:</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr
 </pre></div>
 </div>
-<p>If one is starting the console from a Python interpreter,
-use a <code class="docutils literal notranslate"><span class="pre">lang</span></code> function parameter as follows:</p>
+</div>
+<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback --lang fr
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si on désire démarrer la console à partir d’un interprète
+Python, on utilise le paramètre
+<code class="docutils literal notranslate"><span class="pre">lang</span></code> de la façon suivante:</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"/><label class="tab-label" for="tab-set--5-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">friendly</span><span class="o">.</span><span class="n">start_console</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"/><label class="tab-label" for="tab-set--5-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">start_console</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="other-languages">
+<h2>Other languages<a class="headerlink" href="#other-languages" title="Permalink to this headline">¶</a></h2>
+<p>In principle, <strong>Friendly</strong> could support languages other than English
+and French. Contributions from native speakers of other languages
+are welcome.  Note that this is not a small task as
+there is a lot of text that needs to be translated.</p>
 </div>
 </div>
 
@@ -460,6 +495,7 @@ use a <code class="docutils literal notranslate"><span class="pre">lang</span></
 <li><a class="reference internal" href="#">Basic usage</a><ul>
 <li><a class="reference internal" href="#using-in-other-environments">Using in other environments</a></li>
 <li><a class="reference internal" href="#france-en-francais"> En Français</a></li>
+<li><a class="reference internal" href="#other-languages">Other languages</a></li>
 </ul>
 </li>
 </ul>
@@ -477,5 +513,7 @@ use a <code class="docutils literal notranslate"><span class="pre">lang</span></
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
     <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

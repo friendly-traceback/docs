@@ -1,12 +1,12 @@
-Getting Friendly
-=================
-
 .. tip::
 
     |mu_logo| If you use Mu, you should ignore this page as some
     Mu-specific instructions are provided later.
 
 .. |mu_logo| image:: images/mu_logo.png
+
+Getting Friendly
+=================
 
 
 You can get **Friendly** from `PyPI <https://pypi.org/>`_ in the usual way:
@@ -40,23 +40,24 @@ not install programs in the right "environment" for your computer.
 .. tip::
 
     Installing **friendly** with pip automatically installs **friendly_traceback**.
-    Most users will want to use **friendly**.
+    Unless you have a specific use case that requires
+    to use **friendly_traceback** directly,
+    you should use **friendly**.
 
 
-Mistake to avoid
------------------
+.. caution::
 
-A mistake often made by beginners is
-to try to use ``pip`` from within Python.
+    A mistake often made by beginners is
+    to try to use ``pip`` from within Python.
 
-.. image:: images/pip2.png
-   :scale: 50 %
-   :alt: error using pip inside a Python console
+    .. image:: images/pip2.png
+       :scale: 50 %
+       :alt: error using pip inside a Python console
 
-The error message is not very helpful.
-This is what it might look if you had already been using friendly.
+    The error message is not very helpful.
+    This is what it might look if you had already been using **friendly**.
 
 
-.. image:: images/pip.png
-   :scale: 50 %
-   :alt: error using pip inside a friendly console
+    .. image:: images/pip.png
+       :scale: 50 %
+       :alt: error using pip inside a friendly console

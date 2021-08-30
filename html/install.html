@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
@@ -133,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -271,18 +272,18 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="getting-friendly">
-<h1>Getting Friendly<a class="headerlink" href="#getting-friendly" title="Permalink to this headline">¶</a></h1>
-<div class="admonition tip">
+        <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><img alt="mu_logo" src="_images/mu_logo.png"/> If you use Mu, you should ignore this page as some
 Mu-specific instructions are provided later.</p>
 </div>
+<div class="section" id="getting-friendly">
+<h1>Getting Friendly<a class="headerlink" href="#getting-friendly" title="Permalink to this headline">¶</a></h1>
 <p>You can get <strong>Friendly</strong> from <a class="reference external" href="https://pypi.org/">PyPI</a> in the usual way:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly</label><div class="tab-content docutils container">
@@ -307,15 +308,17 @@ not install programs in the right “environment” for your computer.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Installing <strong>friendly</strong> with pip automatically installs <strong>friendly_traceback</strong>.
-Most users will want to use <strong>friendly</strong>.</p>
+Unless you have a specific use case that requires
+to use <strong>friendly_traceback</strong> directly,
+you should use <strong>friendly</strong>.</p>
 </div>
-<div class="section" id="mistake-to-avoid">
-<h2>Mistake to avoid<a class="headerlink" href="#mistake-to-avoid" title="Permalink to this headline">¶</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
 <p>A mistake often made by beginners is
 to try to use <code class="docutils literal notranslate"><span class="pre">pip</span></code> from within Python.</p>
 <a class="reference internal image-reference" href="_images/pip2.png"><img alt="error using pip inside a Python console" src="_images/pip2.png" style="width: 393.0px; height: 185.5px;"/></a>
 <p>The error message is not very helpful.
-This is what it might look if you had already been using friendly.</p>
+This is what it might look if you had already been using <strong>friendly</strong>.</p>
 <a class="reference internal image-reference" href="_images/pip.png"><img alt="error using pip inside a friendly console" src="_images/pip.png" style="width: 719.0px; height: 329.0px;"/></a>
 </div>
 </div>
@@ -362,27 +365,8 @@ This is what it might look if you had already been using friendly.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Getting Friendly</a><ul>
-<li><a class="reference internal" href="#mistake-to-avoid">Mistake to avoid</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
@@ -393,5 +377,7 @@ This is what it might look if you had already been using friendly.</p>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
     <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

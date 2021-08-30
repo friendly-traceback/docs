@@ -95,7 +95,12 @@ For **friendly**, all of the above assume that you are using
 a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
 add ``--format light``, which can be abbreviated as ``-f light``,
-as a command line option. Similarly, the ``start_console()`` function
+as a command line option::
+
+    $ python -m friendly --format light
+
+
+Similarly, the ``start_console()`` function
 accept various parameters, including ``formatter`` for **friendly**
 which can be specified to be either ``dark`` or ``light``.
 
@@ -106,7 +111,9 @@ Using in other environments
 If you want to use **Friendly** elsewhere than from a terminal,
 you likely will need to use a custom mode designed for that
 environment. Currently, as explained elsewhere in this documentation,
-**Friendly** has been adapted to work with the following:
+**friendly** (but not **friendly-traceback**)
+has special options that need to be selected
+so that it can work best with the following:
 
 - Python's IDLE
 - Mu
@@ -129,15 +136,49 @@ quite a few additional dependencies that you would likely not need.
 |france| En Français
 ---------------------
 
-**Friendly** can provide users with information in either English or French.
-When using **Friendly** from a terminal as described above,
-to get the information in French, one needs to add the command
-line argument ``lang fr``, like the following::
+**Friendly** offre la possibilité de présenter l'information en
+Français.
+Par exemple, si on désire démarrer **Friendly** à partir d'un terminal
+tel que décrit ci-dessus, il suffit de rajouter l'argument
+``lang fr`` de la façon suivante:
 
-    $ python -m friendly --lang fr
+.. tab:: friendly
 
-If one is starting the console from a Python interpreter,
-use a ``lang`` function parameter as follows::
+    .. code-block::
 
-    >>> import friendly
-    >>> friendly.start_console(lang='fr')
+        $ python -m friendly --lang fr
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        $ python -m friendly_traceback --lang fr
+
+Si on désire démarrer la console à partir d'un interprète
+Python, on utilise le paramètre
+``lang`` de la façon suivante:
+
+
+.. tab:: friendly
+
+    .. code-block::
+
+        >>> import friendly
+        >>> friendly.start_console(lang='fr')
+
+
+.. tab:: friendly_traceback
+
+    .. code-block::
+
+        >>> import friendly_traceback
+        >>> friendly_traceback.start_console(lang='fr')
+
+Other languages
+---------------
+
+In principle, **Friendly** could support languages other than English
+and French. Contributions from native speakers of other languages
+are welcome.  Note that this is not a small task as
+there is a lot of text that needs to be translated.

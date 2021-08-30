@@ -57,6 +57,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
     "sphinx_inline_tabs",
+    "sphinx_copybutton",
     'recommonmark',
     "design_choice",
 ]
@@ -111,6 +112,9 @@ html_title = f"friendly-traceback {__version__}"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+html_theme_options = {
+    "navigation_with_keys": True,
+}
 # html_theme_options = {
 #     'prev_next_buttons_location': 'both',
 #     'style_external_links': True,

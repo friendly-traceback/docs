@@ -11,29 +11,35 @@ Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨
 
 **Friendly** helps users understand what caused a given
 exception in their Python program, and how to fix it.
-**Friendly**, with an uppercase **F**
-refers to two related packages: **friendly-traceback** and **friendly**.
 
-.. tab:: friendly-traceback
+In this documentation, **Friendly**, with an uppercase **F**
+refers to two related packages: **friendly_traceback** and **friendly**.
 
-    **friendly-traceback** does all the work to figure out what caused
-    a particular exception and does some basic formatting of the
-    information it obtains.
+.. tab:: friendly_traceback
+
+    **friendly_traceback** does all the work to figure out what caused
+    a particular exception and does some minimal formatting of the
+    information it obtains.  In this documentation, I will often use
+    **friendly_traceback** to generate the text version
+    of the examples' output.
 
 
 .. tab:: friendly
 
-    **friendly** takes the information obtained by **friendly-traceback**
-    and applies some formatting (most often, adding colours) which often
-    makes the information easier to understand.
+    **friendly** takes the information obtained by **friendly_traceback**
+    and applies some additional formatting (most often, adding colours)
+    with the intention to make
+    the information easier to understand.
+    In this documentation, I will almost always use
+    **friendly** to generate the screen capture of the examples.
 
 
 Introduction
 -------------
 
 There exists many Python projects
-whose **primary** goal is to supplement the information
-given by Python traceback to make them more useful for **advanced** programmers.
+whose primary goal is to supplement the information
+given by Python traceback to make them more useful.
 To my knowledge, of all those projects, **Friendly** is
 the only one designed with beginners in mind.
 
@@ -46,16 +52,6 @@ who would like to get information about traceback in their own language.
 **Friendly** can give more detailed information as to
 **where** an exception occurred, **what** a given exception means and
 **why** it might have occurred (sometimes adding suggestions as to how to fix it.)
-
-.. sidebar:: Using screenshots
-
-    In this documentation, I most often use some screenshots,
-    as I believe that they are more easily understandable by most users.
-    Occasionally, I write some examples as text so that they
-    can provide the required information to people relying on screen readers.
-    If you rely on screen readers and need help because the use of screenshots
-    prevents you from understanding the explanations, please do not hesitate to
-    reach out to me: andre.roberge@gmail.com
 
 Even though **Friendly** can be used on its own with a specially
 designed console, a better option might be to use it together with
@@ -79,9 +75,31 @@ Consider the following program::
 First, here is what happens when I use Python
 to run this program.
 
-.. image:: images/python_indexerror.png
-   :scale: 50 %
-   :alt: Python IndexError example
+.. tab:: Screen capture
+
+    .. image:: images/python_indexerror.png
+       :scale: 60 %
+       :class: only-dark
+       :alt: Python IndexError example
+
+    .. image:: images/python_indexerror_light.png
+       :scale: 60 %
+       :class: only-light
+       :alt: Python IndexError example
+
+.. tab:: Text version
+
+  .. code-block:: none
+
+    > python example.py
+    Traceback (most recent call last):
+      File "C:\Users\andre\friendly-traceback\friendly-traceback\example.py", line 6, in <module>
+        print(get_last([1, 2, 3]))
+      File "C:\Users\andre\friendly-traceback\friendly-traceback\example.py", line 4, in get_last
+        return seq[last_index]
+    IndexError: list index out of range
+
+
 
 Not exactly the most helpful information for beginners ...
 
@@ -89,18 +107,131 @@ Here's the corresponding version with full explanation from friendly,
 making use of
 `Rich <https://github.com/willmcgugan/rich>`_ to produce a colourful output.
 
-.. image:: images/friendly_indexerror_en.png
-   :scale: 50 %
-   :alt: friendly IndexError example in English
+.. tab:: Screen capture
+
+    .. image:: images/friendly_indexerror_en.png
+       :scale: 50 %
+       :class: only-dark
+       :alt: friendly IndexError example in English
+
+    .. image:: images/friendly_indexerror_en_light.png
+       :scale: 50 %
+       :class: only-light
+       :alt: friendly IndexError example in English
+
+
+.. tab:: Text version
+
+  .. code-block:: none
+
+    > python -m friendly_traceback example.py
+
+    Traceback (most recent call last):
+      File "example.py", line 6, in <module>
+        print(get_last([1, 2, 3]))
+      File "example.py", line 4, in get_last
+        return seq[last_index]
+    IndexError: list index out of range
+
+            Remember: the first item of a `list` is not at index 1 but at index 0.
+
+        An `IndexError` occurs when you try to get an item from a list,
+        a tuple, or a similar object (sequence), and use an index which
+        does not exist; typically, this happens because the index you give
+        is greater than the length of the sequence.
+
+        You have tried to get the item with index `3` of `seq`,
+        a `list` of length `3`.
+        The valid index values of `seq` are integers ranging from
+        `-3` to `2`.
+
+        Execution stopped on line 6 of file example.py.
+
+           2: def get_last(seq):
+           3:     last_index = len(seq)
+           4:     return seq[last_index]
+        -->6: print(get_last([1, 2, 3]))
+                    ^^^^^^^^^^^^^^^^^^^
+
+                get_last:  <function get_last>
+                print:  <builtin function print>
+
+        Exception raised on line 4 of file example.py.
+
+           2: def get_last(seq):
+           3:     last_index = len(seq)
+        -->4:     return seq[last_index]
+                         ^^^^^^^^^^^^^^^
+
+                last_index:  3
+                seq:  [1, 2, 3]
+
+
 
 One unique feature of friendly is that all the information
 it provides can be translated into another language; currently, only
 English (by default) and French are available but other languages
 could easily be added.
 
-.. image:: images/friendly_indexerror_fr.png
-   :scale: 50 %
-   :alt: friendly IndexError in French
+.. tab:: Screen capture
+
+    .. image:: images/friendly_indexerror_fr.png
+       :scale: 50 %
+       :class: only-dark
+       :alt: friendly IndexError in French
+
+    .. image:: images/friendly_indexerror_fr_light.png
+       :scale: 50 %
+       :class: only-light
+       :alt: friendly IndexError in French
+
+
+.. tab:: Text version
+
+    .. code-block:: none
+
+
+        > python -m friendly_traceback example.py --lang fr
+
+        Traceback (most recent call last):
+          File "example.py", line 6, in <module>
+            print(get_last([1, 2, 3]))
+          File "example.py", line 4, in get_last
+            return seq[last_index]
+        IndexError: list index out of range
+
+                N’oubliez pas : le premier élément d'un objet de type `une liste (`list`)` est à l’indice 0
+                et non pas à l'indice 1.
+
+            Une exception `IndexError` se produit lorsque vous essayez d’obtenir un élément
+            d'une liste, d'un tuple, ou d'un objet similaire (séquence), à l’aide d’un indice qui
+            n’existe pas; typiquement, c’est parce que l’indice que vous donnez
+            est plus grand que la longueur de la séquence.
+
+            Vous avez essayé d’obtenir l’élément avec l’indice `3` de `seq`,
+            une liste (`list`) de longueur `3`.
+            Les indices valides de `seq` sont les entiers allant de `-3` à `2`.
+
+            L'exécution s'est arrêtée à la ligne 6 du fichier example.py
+
+               2: def get_last(seq):
+               3:     last_index = len(seq)
+               4:     return seq[last_index]
+            -->6: print(get_last([1, 2, 3]))
+                        ^^^^^^^^^^^^^^^^^^^
+
+                    get_last:  <function get_last>
+                    print:  <builtin function print>
+
+            Exception levée à la ligne 4 du fichier example.py.
+
+               2: def get_last(seq):
+               3:     last_index = len(seq)
+            -->4:     return seq[last_index]
+                             ^^^^^^^^^^^^^^^
+
+                    last_index:  3
+                    seq:  [1, 2, 3]
 
 
 **Keep reading if you want to find out more.**

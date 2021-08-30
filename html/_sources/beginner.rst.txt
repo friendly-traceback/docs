@@ -8,8 +8,36 @@ Useful information for beginners
     next page.
 
 
-The information in this page is not intended to take the place of a
-complete introduction for beginners.
+Get someone to help you
+-----------------------
+
+Learning programming on your own can be extremely challenging.
+Having a teacher or an experienced friend helping you can be invaluable.
+
+**Friendly** has been designed to help beginners when they encounter
+problems with their code, giving rise to what is known as a **traceback**.
+I believe that the information available from **Friendly** is much
+more useful that that normally provided by Python. Still, before someone
+can use **Friendly**, they have to know many other concepts, including setting
+up correctly their programming environment, to using a terminal,
+and knowing how to install packages, etc.
+
+In case no one is available to help you, here is some basic information
+that can be helpful for some of you, but that is definitely not
+intended to take the place of a complete introduction for beginners,
+nor can it replace having someone helping you.
+
+.. tip::
+
+    If you find yourself stuck, ask questions on Internet forums intended
+    for Python beginners such as `Reddit's LearnPython <https://reddit.com/r/learnpython>`_
+    or `Python users <https://discuss.python.org/c/users/>`_.
+
+    - Describe what you wanted to do.
+    - Describe **exactly** what you have done.
+    - Describe what does not work. If you get an error message,
+      include **all the text** that was shown.
+    - Do not include images.
 
 
 What is a REPL?
