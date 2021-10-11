@@ -368,6 +368,8 @@ could easily be added.
    SyntaxError - Python 3.9 in English <syntax_tracebacks_en_3.9>
    friendly tracebacks - Python 3.10 in English <tracebacks_en_3.10>
    SyntaxError - Python 3.10 in English <syntax_tracebacks_en_3.10>
+   friendly tracebacks - Python 3.11 in English <tracebacks_en_3.11>
+   SyntaxError - Python 3.11 in English <syntax_tracebacks_en_3.11>
    compare_exceptions
    compare
 

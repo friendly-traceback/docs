@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.52
+Friendly version: 0.4.54
 Python version: 3.7.8
 
 
@@ -952,6 +952,39 @@ IndexError
 ----------
 
 
+Assignment
+~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_index_error.py", line 76, in test_Assignment
+        a[13] = 1
+    IndexError: list assignment index out of range
+    
+    An `IndexError` occurs when you try to get an item from a list,
+    a tuple, or a similar object (sequence), and use an index which
+    does not exist; typically, this happens because the index you give
+    is greater than the length of the sequence.
+    
+    You have tried to assign a value to index `13` of `a`,
+    a `list` of length `10`.
+    The valid index values of `a` are integers ranging from
+    `-10` to `9`.
+    
+    Exception raised on line 76 of file TESTS:\runtime\test_index_error.py.
+    
+       72:         assert "You have tried to assign a value to index `1` of `b`," in result
+       73:         assert "a `list` which contains no item." in result
+       75:     try:
+    -->76:         a[13] = 1
+       77:     except IndexError as e:
+
+            a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        
+
+
 Empty
 ~~~~~
 
@@ -1588,7 +1621,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 163, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 165, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1600,12 +1633,12 @@ Custom name
     before being defined or given a value.
     
     You are already using Python!
-    Exception raised on line 163 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 165 of file TESTS:\runtime\test_name_error.py.
     
-       161: def test_Custom_name():
-       162:     try:
-    -->163:         python
-       164:     except NameError as e:
+       163: def test_Custom_name():
+       164:     try:
+    -->165:         python
+       166:     except NameError as e:
 
 
 Free variable referenced
@@ -1720,7 +1753,7 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 247, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 249, in test_Missing_module_name
         frame = Frame()
     NameError: name 'Frame' is not defined
     
@@ -1739,14 +1772,14 @@ Missing module name
     Perhaps you should have written `tkinter.Frame`
     instead of `Frame`.
     
-    Exception raised on line 247 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 249 of file TESTS:\runtime\test_name_error.py.
     
-       244: def test_Missing_module_name():
-       245:     import tkinter
-       246:     try:
-    -->247:         frame = Frame()
+       246: def test_Missing_module_name():
+       247:     import tkinter
+       248:     try:
+    -->249:         frame = Frame()
                             ^^^^^
-       248:     except NameError as e:
+       250:     except NameError as e:
 
 
 Missing self 1
@@ -1756,9 +1789,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 198, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 200, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 189, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 191, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1777,26 +1810,26 @@ Missing self 1
     Perhaps you should have written `self.add_toy(...`
     instead of `add_toy(self, ...`.
     
-    Execution stopped on line 198 of file TESTS:\runtime\test_name_error.py.
+    Execution stopped on line 200 of file TESTS:\runtime\test_name_error.py.
     
-       194:                 return "{} has no toys".format(self.name)
-       196:     a = Pet('Fido')
-       197:     try:
-    -->198:         str(a)
-       199:     except NameError as e:
+       196:                 return "{} has no toys".format(self.name)
+       198:     a = Pet('Fido')
+       199:     try:
+    -->200:         str(a)
+       201:     except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception raised on line 189 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 191 of file TESTS:\runtime\test_name_error.py.
     
-       187:         def __str__(self):
-       188:             # self at the wrong place
-    -->189:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+       189:         def __str__(self):
+       190:             # self at the wrong place
+    -->191:             toys_list = add_toy(  # ensure that it can see 'self' on following line
                                     ^^^^^^^
-       190:                                 self, 'something')
-       191:             if self.toys:
+       192:                                 self, 'something')
+       193:             if self.toys:
 
 
 Missing self 2
@@ -1806,9 +1839,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 232, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 234, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 226, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1827,25 +1860,25 @@ Missing self 2
     Perhaps you should have written `self.add_toy`
     instead of `add_toy`.
     
-    Execution stopped on line 232 of file TESTS:\runtime\test_name_error.py.
+    Execution stopped on line 234 of file TESTS:\runtime\test_name_error.py.
     
-       228:                 return "{} has no toys".format(self.name)
-       230:     a = Pet('Fido')
-       231:     try:
-    -->232:         str(a)
-       233:     except NameError as e:
+       230:                 return "{} has no toys".format(self.name)
+       232:     a = Pet('Fido')
+       233:     try:
+    -->234:         str(a)
+       235:     except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception raised on line 224 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 226 of file TESTS:\runtime\test_name_error.py.
     
-       222:         def __str__(self):
-       223:             # Missing self.
-    -->224:             toys_list = add_toy('something')
+       224:         def __str__(self):
+       225:             # Missing self.
+    -->226:             toys_list = add_toy('something')
                                     ^^^^^^^
-       225:             if self.toys:
+       227:             if self.toys:
 
 
 Synonym
@@ -2867,7 +2900,7 @@ Missing both
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 61, in test_Missing_both
+      File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
         outer_missing_both()
       File "TESTS:\runtime\test_unbound_local_error.py", line 22, in outer_missing_both
         inner()
@@ -2899,12 +2932,12 @@ Missing both
     
     as the first line inside your function.
     
-    Execution stopped on line 61 of file TESTS:\runtime\test_unbound_local_error.py.
+    Execution stopped on line 63 of file TESTS:\runtime\test_unbound_local_error.py.
     
-       59: def test_Missing_both():
-       60:     try:
-    -->61:         outer_missing_both()
-       62:     except UnboundLocalError as e:
+       61: def test_Missing_both():
+       62:     try:
+    -->63:         outer_missing_both()
+       64:     except UnboundLocalError as e:
 
             global outer_missing_both:  <function outer_missing_both>
         
@@ -2975,7 +3008,7 @@ Missing nonlocal
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 44, in test_Missing_nonlocal
+      File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
         outer_missing_nonlocal()
       File "TESTS:\runtime\test_unbound_local_error.py", line 16, in outer_missing_nonlocal
         inner()
@@ -3001,12 +3034,12 @@ Missing nonlocal
     
     should have been included as the first line inside your function.
     
-    Execution stopped on line 44 of file TESTS:\runtime\test_unbound_local_error.py.
+    Execution stopped on line 45 of file TESTS:\runtime\test_unbound_local_error.py.
     
-       42: def test_Missing_nonlocal():
-       43:     try:
-    -->44:         outer_missing_nonlocal()
-       45:     except UnboundLocalError as e:
+       43: def test_Missing_nonlocal():
+       44:     try:
+    -->45:         outer_missing_nonlocal()
+       46:     except UnboundLocalError as e:
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
@@ -3023,9 +3056,9 @@ Typo in local
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 97, in test_Typo_in_local
+      File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
         test2()
-      File "TESTS:\runtime\test_unbound_local_error.py", line 94, in test2
+      File "TESTS:\runtime\test_unbound_local_error.py", line 98, in test2
         alpha3 += 1
     UnboundLocalError: local variable 'alpha3' referenced before assignment
     
@@ -3043,22 +3076,22 @@ Typo in local
     Instead of writing `alpha3`, perhaps you meant one of the following:
     *   Local scope: `alpha2`, `alpha1`
     
-    Execution stopped on line 97 of file TESTS:\runtime\test_unbound_local_error.py.
+    Execution stopped on line 101 of file TESTS:\runtime\test_unbound_local_error.py.
     
-       93:         alpha2 = 1
-       94:         alpha3 += 1
-       96:     try:
-    -->97:         test2()
-       98:     except UnboundLocalError as e:
+        97:         alpha2 = 1
+        98:         alpha3 += 1
+       100:     try:
+    -->101:         test2()
+       102:     except UnboundLocalError as e:
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    Exception raised on line 94 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 98 of file TESTS:\runtime\test_unbound_local_error.py.
     
-       91:     def test2():
-       92:         alpha1 = 1
-       93:         alpha2 = 1
-    -->94:         alpha3 += 1
+       95:     def test2():
+       96:         alpha1 = 1
+       97:         alpha2 = 1
+    -->98:         alpha3 += 1
 
 
 UnknownError

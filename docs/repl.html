@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="why()" href="why.html" /><link rel="prev" title="Other details for advanced users" href="usage_adv.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Console basics - friendly-traceback 0.4.52</title>
+        <title>Console basics - friendly-traceback 0.4.54</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.52</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.52</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -245,6 +245,8 @@
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
 </ul>
@@ -305,20 +307,36 @@ following content:</p>
 <p>to run this file, I will add an additional <code class="docutils literal notranslate"><span class="pre">i</span></code> flag so that <code class="docutils literal notranslate"><span class="pre">-m</span></code> become <code class="docutils literal notranslate"><span class="pre">-im</span></code>;
 as a result, a friendly console will be available after the program ends
 so that we can execute more Python commands.</p>
-<a class="reference internal image-reference" href="_images/friendly_interactive_indexerror_en.png"><img alt="friendly IndexError interactive example in English" src="_images/friendly_interactive_indexerror_en.png" style="width: 602.4px; height: 303.59999999999997px;"/></a>
-<p>In the image above, the red arrow points to the the interactive prompt
-where we can type more command. the part identified by (1) is essentially the normal Python traceback. Depending on how long it gets, it can get shortened
-by friendly as is explained later [<a class="reference internal" href="multiple_tracebacks.html#multiple-tracebacks"><span class="std std-ref">Multiple tracebacks</span></a>].</p>
-<p>Part (2) is a “hint” <strong>occasionally</strong> provided by friendly and which
-can be useful in identifying the cause of the problem. You will see
-shortly how to get friendly to give additional information
-as to the possible cause of this error.</p>
-<p>Let’s do this again but choosing French as the default language
-with the <code class="docutils literal notranslate"><span class="pre">--lang</span> <span class="pre">fr</span></code> option: this will
-help to better identify various parts and compare what information
-is obtained from Python (as it won’t be translated) and what additional
-information is provided by friendly.</p>
-<a class="reference internal image-reference" href="_images/friendly_interactive_indexerror_fr.png"><img alt="friendly IndexError interactive example in French" src="_images/friendly_interactive_indexerror_fr.png" style="width: 716.4px; height: 321.0px;"/></a>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="only-dark reference internal image-reference" href="_images/python_interactive_indexerror.png"><img alt="Python IndexError example" class="only-dark" src="_images/python_interactive_indexerror.png" style="width: 690.5px; height: 338.5px;"/></a>
+<a class="only-light reference internal image-reference" href="_images/python_interactive_indexerror_light.png"><img alt="Python IndexError example" class="only-light" src="_images/python_interactive_indexerror_light.png" style="width: 690.5px; height: 337.5px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python -im friendly_traceback example.py
+
+Traceback (most recent call last):
+  File "example.py", line 6, in &lt;module&gt;
+    print(get_last([1, 2, 3]))
+  File "example.py", line 4, in get_last
+    return seq[last_index]
+IndexError: list index out of range
+
+    Remember: the first item of a `list` is not at index 1 but at index 0.
+
+Friendly-traceback version 0.4.52. [Python version: 3.9.5]
+Type 'Friendly' for help on special functions/methods.
+
+[1]:
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output above includes a normal Python traceback followed by a reminder
+about list indices, and ends with a numbered prompt <code class="docutils literal notranslate"><span class="pre">[1]:</span></code> awaiting for
+user input.</p>
+<p>In the next pages, we will see various functions that can be
+entered at the prompt to give us more information.</p>
 </div>
 
       </article>

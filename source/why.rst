@@ -3,22 +3,34 @@
 why()
 ======
 
-You read some interesting code found in a tutorial on the web
-and decide to try it out by copy-pasting it.
-
-.. image:: images/why_1.png
-   :scale: 60 %
-   :alt: Screen capture of syntax error
-
-So, this didn't work, but you'd like to find out a bit more information than
-that provided by the terse hint shown after the traceback.
+Let's continue with the previously shown ``IndexError`` case and try
+to find what was the cause.
 
 
-    >>> why()
-    Python indicates that you used some unicode characters not allowed as part
-    of a variable name; this includes many emojis. However, I suspect that you
-    used a fancy unicode quotation mark instead of a normal single or double
-    quote for a string. This can happen if you copy-pasted code.
+.. tab:: Screen capture
+
+    .. image:: images/why.png
+       :scale: 50 %
+       :class: only-dark
+       :alt: Python IndexError example: why() gives the cause
+
+    .. image:: images/why_light.png
+       :scale: 50 %
+       :class: only-light
+       :alt: Python IndexError example: why() gives the cause
+
+.. tab:: Text version
+
+  .. code-block:: none
+
+        [1]: why()
+
+        You have tried to get the item with index 3 of seq, a list of length 3.
+        The valid index values of seq are integers ranging from -3 to 2.
+
+
+        [2]:
+
 
 When you call ``why()``, **Friendly** attempts to analyze the code you
 entered and figure out what exactly went wrong, and quite often makes

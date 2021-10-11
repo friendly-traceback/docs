@@ -2,10 +2,10 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Comparison between Python versions: SyntaxErrors" href="compare.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.10.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Comparison between Python versions: SyntaxErrors" href="compare.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.11.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Comparing Exception messages between Python versions - friendly-traceback 0.4.52</title>
+        <title>Comparing Exception messages between Python versions - friendly-traceback 0.4.54</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.52</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.52</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -245,6 +245,8 @@
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
 </ul>
@@ -305,6 +307,10 @@ Simple import error</div>
 <pre class="highlight friendly-small-pre"><b>3.6: </b>cannot import name 'Pi'
 <b>3.7: </b>cannot import name 'Pi' from 'math' (unknown location)
 </pre>
+<div class="filename-header">Free variable referenced</div>
+<pre class="highlight friendly-small-pre"><b>3.10: </b>free variable 'var' referenced before assignment in enclosing scope
+<b>3.11: </b>cannot access free variable 'var' where it is not associated with a value in enclosing scope
+</pre>
 <div class="filename-header">
 Cannot unpack non iterable object</div>
 <pre class="highlight friendly-small-pre"><b>3.6: </b>'float' object is not iterable
@@ -326,6 +332,22 @@ Cannot unpack non iterable object</div>
 <pre class="highlight friendly-small-pre"><b>3.9: </b>some_method() got multiple values for argument 'a'
 <b>3.10: </b>test_method_got_multiple_argument.&lt;locals&gt;.T.some_method() got multiple values for argument 'a'
 </pre>
+<div class="filename-header">Missing both</div>
+<pre class="highlight friendly-small-pre"><b>3.10: </b>local variable 'spam_missing_both' referenced before assignment
+<b>3.11: </b>cannot access local variable 'spam_missing_both' where it is not associated with a value
+</pre>
+<div class="filename-header">Missing global</div>
+<pre class="highlight friendly-small-pre"><b>3.10: </b>local variable 'spam_missing_global' referenced before assignment
+<b>3.11: </b>cannot access local variable 'spam_missing_global' where it is not associated with a value
+</pre>
+<div class="filename-header">Missing nonlocal</div>
+<pre class="highlight friendly-small-pre"><b>3.10: </b>local variable 'spam_missing_nonlocal' referenced before assignment
+<b>3.11: </b>cannot access local variable 'spam_missing_nonlocal' where it is not associated with a value
+</pre>
+<div class="filename-header">Typo in local</div>
+<pre class="highlight friendly-small-pre"><b>3.10: </b>local variable 'alpha3' referenced before assignment
+<b>3.11: </b>cannot access local variable 'alpha3' where it is not associated with a value
+</pre>
 </div>
 </div>
 
@@ -342,7 +364,7 @@ Cannot unpack non iterable object</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="syntax_tracebacks_en_3.10.html">
+          <a class="prev-page" href="syntax_tracebacks_en_3.11.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">

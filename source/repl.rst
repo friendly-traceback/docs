@@ -31,27 +31,42 @@ to run this file, I will add an additional ``i`` flag so that ``-m`` become ``-i
 as a result, a friendly console will be available after the program ends
 so that we can execute more Python commands.
 
-.. image:: images/friendly_interactive_indexerror_en.png
-   :scale: 60 %
-   :alt: friendly IndexError interactive example in English
 
-In the image above, the red arrow points to the the interactive prompt
-where we can type more command. the part identified by (1) is essentially the normal Python traceback. Depending on how long it gets, it can get shortened
-by friendly as is explained later [:ref:`multiple_tracebacks`].
+.. tab:: Screen capture
 
-Part (2) is a "hint" **occasionally** provided by friendly and which
-can be useful in identifying the cause of the problem. You will see
-shortly how to get friendly to give additional information
-as to the possible cause of this error.
+    .. image:: images/python_interactive_indexerror.png
+       :scale: 50 %
+       :class: only-dark
+       :alt: Python IndexError example
 
-Let's do this again but choosing French as the default language
-with the ``--lang fr`` option: this will
-help to better identify various parts and compare what information
-is obtained from Python (as it won't be translated) and what additional
-information is provided by friendly.
+    .. image:: images/python_interactive_indexerror_light.png
+       :scale: 50 %
+       :class: only-light
+       :alt: Python IndexError example
 
-.. image:: images/friendly_interactive_indexerror_fr.png
-   :scale: 60 %
-   :alt: friendly IndexError interactive example in French
+.. tab:: Text version
 
+  .. code-block:: none
 
+        > python -im friendly_traceback example.py
+
+        Traceback (most recent call last):
+          File "example.py", line 6, in <module>
+            print(get_last([1, 2, 3]))
+          File "example.py", line 4, in get_last
+            return seq[last_index]
+        IndexError: list index out of range
+
+            Remember: the first item of a `list` is not at index 1 but at index 0.
+
+        Friendly-traceback version 0.4.52. [Python version: 3.9.5]
+        Type 'Friendly' for help on special functions/methods.
+
+        [1]:
+
+The output above includes a normal Python traceback followed by a reminder
+about list indices, and ends with a numbered prompt ``[1]:`` awaiting for
+user input.
+
+In the next pages, we will see various functions that can be
+entered at the prompt to give us more information.

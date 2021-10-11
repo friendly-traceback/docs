@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="what()" href="what.html" /><link rel="prev" title="Console basics" href="repl.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>why() - friendly-traceback 0.4.52</title>
+        <title>why() - friendly-traceback 0.4.54</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.52</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.52</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -245,6 +245,8 @@
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
 </ul>
@@ -279,17 +281,24 @@
         </div>
         <div class="section" id="why">
 <h1>why()<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h1>
-<p>You read some interesting code found in a tutorial on the web
-and decide to try it out by copy-pasting it.</p>
-<a class="reference internal image-reference" href="_images/why_1.png"><img alt="Screen capture of syntax error" src="_images/why_1.png" style="width: 611.4px; height: 171.6px;"/></a>
-<p>So, this didn’t work, but you’d like to find out a bit more information than
-that provided by the terse hint shown after the traceback.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">why</span><span class="p">()</span>
-<span class="go">Python indicates that you used some unicode characters not allowed as part</span>
-<span class="go">of a variable name; this includes many emojis. However, I suspect that you</span>
-<span class="go">used a fancy unicode quotation mark instead of a normal single or double</span>
-<span class="go">quote for a string. This can happen if you copy-pasted code.</span>
+<p>Let’s continue with the previously shown <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> case and try
+to find what was the cause.</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="only-dark reference internal image-reference" href="_images/why.png"><img alt="Python IndexError example: why() gives the cause" class="only-dark" src="_images/why.png" style="width: 709.5px; height: 153.5px;"/></a>
+<a class="only-light reference internal image-reference" href="_images/why_light.png"><img alt="Python IndexError example: why() gives the cause" class="only-light" src="_images/why_light.png" style="width: 709.5px; height: 144.5px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[1]: why()
+
+You have tried to get the item with index 3 of seq, a list of length 3.
+The valid index values of seq are integers ranging from -3 to 2.
+
+
+[2]:
 </pre></div>
+</div>
+</div>
 </div>
 <p>When you call <code class="docutils literal notranslate"><span class="pre">why()</span></code>, <strong>Friendly</strong> attempts to analyze the code you
 entered and figure out what exactly went wrong, and quite often makes
