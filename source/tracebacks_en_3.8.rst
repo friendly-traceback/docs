@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.54
+Friendly version: 0.4.71
 Python version: 3.8.10
 
 
@@ -2752,7 +2752,7 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 868, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 872, in test_function_got_multiple_argument
         fn2(0, a=1)
     TypeError: fn2() got multiple values for argument 'a'
     
@@ -2766,13 +2766,13 @@ function got multiple argument
     This function has the following arguments:
     `a, b=1`
     
-    Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 872 of file TESTS:\runtime\test_type_error.py.
     
-       865:     def fn2(a, b=1):
-       866:         pass
-       867:     try:
-    -->868:         fn2(0, a=1)
-       869:     except TypeError as e:
+       868:     def fn2(a, b=1):
+       869:         pass
+       871:     try:
+    -->872:         fn2(0, a=1)
+       873:     except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -2786,7 +2786,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 796, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 797, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -2801,16 +2801,49 @@ function has no len
     You might have meant to write:
     `len(bad())`
     
-    Exception raised on line 796 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 797 of file TESTS:\runtime\test_type_error.py.
     
        793:     def bad():
        794:         pass
-       795:     try:
-    -->796:         len(bad)
-       797:     except TypeError as e:
+       796:     try:
+    -->797:         len(bad)
+       798:     except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
+        
+
+
+getattr attribute name must be string
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 918, in test_getattr_attribute_name_must_be_string
+        getattr("__repr__", 1)  # as reported in issue #77
+    TypeError: getattr(): attribute name must be string
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The second argument of the function `getattr()` must be a string.
+    
+    Exception raised on line 918 of file TESTS:\runtime\test_type_error.py.
+    
+       911:     if friendly_traceback.get_lang() == "en":
+       912:         assert (
+       913:             "The second argument of the function `hasattr()` must be a string."
+       914:             in result
+       915:         )
+       917:     try:
+    -->918:         getattr("__repr__", 1)  # as reported in issue #77
+       919:     except TypeError as e:
+
+            getattr:  <builtin function getattr>
         
 
 
@@ -2821,7 +2854,7 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 886, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 891, in test_method_got_multiple_argument
         t.some_method(0, a=1)
     TypeError: some_method() got multiple values for argument 'a'
     
@@ -2834,13 +2867,13 @@ method got multiple argument
     when calling the function named `t.some_method`.
     This function has only one argument: `a`
     
-    Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 891 of file TESTS:\runtime\test_type_error.py.
     
-       883:             pass
-       884:     t = T()
-       885:     try:
-    -->886:         t.some_method(0, a=1)
-       887:     except TypeError as e:
+       887:             pass
+       889:     t = T()
+       890:     try:
+    -->891:         t.some_method(0, a=1)
+       892:     except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -2857,7 +2890,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 839, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 841, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -2870,13 +2903,13 @@ vars arg must have dict
     `__dict__` attribute of an object.
     Object `f` uses `__slots__` instead of `__dict__`.
     
-    Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 841 of file TESTS:\runtime\test_type_error.py.
     
-       835:         assert no_slots not in result
-       836:         assert use_slots not in result
-       838:     try:
-    -->839:         vars(f)
-       840:     except TypeError as e:
+       837:         assert no_slots not in result
+       838:         assert use_slots not in result
+       840:     try:
+    -->841:         vars(f)
+       842:     except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3089,6 +3122,56 @@ Typo in local
     -->98:         alpha3 += 1
 
 
+Using name of builtin
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
+        dist([])
+      File "TESTS:\runtime\test_unbound_local_error.py", line 117, in dist
+        max = max(points)
+    UnboundLocalError: local variable 'max' referenced before assignment
+    
+    In Python, variables that are used inside a function are known as 
+    local variables. Before they are used, they must be assigned a value.
+    A variable that is used before it is assigned a value is assumed to
+    be defined outside that function; it is known as a `global`
+    (or sometimes `nonlocal`) variable. You cannot assign a value to such
+    a global variable inside a function without first indicating to
+    Python that this is a global variable, otherwise you will see
+    an `UnboundLocalError`.
+    
+    `max` is a Python builtin function.
+    You have tried to assign a value to `max` inside a function
+    while also using its original meaning in the function.
+    
+    Note that it is generally not a good idea to give a local variable
+    the same name as a Python builtin function (like `max`).
+    
+    Execution stopped on line 121 of file TESTS:\runtime\test_unbound_local_error.py.
+    
+       118:         min = min(points)
+       119:         return max - min
+       120:     try:
+    -->121:         dist([])
+       122:     except UnboundLocalError as e:
+
+            dist:  <function dist> defined in <function test_Using_name_of_builtin>
+        
+    Exception raised on line 117 of file TESTS:\runtime\test_unbound_local_error.py.
+    
+       116:     def dist(points):
+    -->117:         max = max(points)
+                    ^^^
+       118:         min = min(points)
+
+            max:  <builtin function max>
+        
+
+
 UnknownError
 ------------
 
@@ -3246,6 +3329,41 @@ slots conflicts with class variable
        71:     try:
     -->72:         class F:
        73:             __slots__ = ["a", "b"]
+
+
+time strptime incorrect format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 98, in test_time_strptime_incorrect_format
+        time.strptime("2020-01-01", "%d %m %Y")
+    ValueError: time data '2020-01-01' does not match format '%d %m %Y'
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The value you gave for the time is not in the format you specified.
+    Make sure to use the same separator between items
+    (for example, between day and month) and keep the order the same
+    in both the data provided and the format you specified.
+    The following table might be useful:
+    https://docs.python.org/3/library/time.html#time.strftime
+    The following site might also be useful: https://www.strfti.me/
+    
+    Exception raised on line 98 of file TESTS:\runtime\test_value_error.py.
+    
+       94:         return
+       96:     import time
+       97:     try:
+    -->98:         time.strptime("2020-01-01", "%d %m %Y")
+       99:     except ValueError as e:
+
+            time:  <module time (builtin)>
+            time.strptime:  <builtin function strptime>
+        
 
 
 ZeroDivisionError

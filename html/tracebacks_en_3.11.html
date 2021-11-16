@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.11.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.10.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Friendly tracebacks - in English - friendly-traceback 0.4.54</title>
+        <title>Friendly tracebacks - in English - friendly-traceback 0.4.71</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.71</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.71</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -293,8 +293,8 @@ C:Usersandrefriendly-tracebackfriendly-tracebackteststrb_english.py located in t
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly version: 0.4.54
-Python version: 3.11.0a1</p>
+<p>Friendly version: 0.4.71
+Python version: 3.11.0a2</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="generic">
@@ -2694,7 +2694,7 @@ Exception raised on line 283 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 868, in test_function_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 872, in test_function_got_multiple_argument
     fn2(0, a=1)
 TypeError: test_function_got_multiple_argument.&lt;locals&gt;.fn2() got multiple values for argument 'a'
 
@@ -2708,13 +2708,13 @@ when calling the function named `fn2`.
 This function has the following arguments:
 `a, b=1`
 
-Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
+Exception raised on line 872 of file TESTS:\runtime\test_type_error.py.
 
-   865:     def fn2(a, b=1):
-   866:         pass
-   867:     try:
---&gt;868:         fn2(0, a=1)
-   869:     except TypeError as e:
+   868:     def fn2(a, b=1):
+   869:         pass
+   871:     try:
+--&gt;872:         fn2(0, a=1)
+   873:     except TypeError as e:
 
         fn2:  &lt;function fn2&gt;
             defined in &lt;function test_function_got_multiple_argument&gt;
@@ -2724,7 +2724,7 @@ Exception raised on line 868 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 796, in test_function_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 797, in test_function_has_no_len
     len(bad)
 TypeError: object of type 'function' has no len()
 
@@ -2739,23 +2739,52 @@ I suspect that you forgot to add parentheses to call `bad`.
 You might have meant to write:
 `len(bad())`
 
-Exception raised on line 796 of file TESTS:\runtime\test_type_error.py.
+Exception raised on line 797 of file TESTS:\runtime\test_type_error.py.
 
    793:     def bad():
    794:         pass
-   795:     try:
---&gt;796:         len(bad)
-   797:     except TypeError as e:
+   796:     try:
+--&gt;797:         len(bad)
+   798:     except TypeError as e:
 
         bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
         len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
 </div>
+<div class="section" id="getattr-attribute-name-must-be-string">
+<h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 918, in test_getattr_attribute_name_must_be_string
+    getattr("__repr__", 1)  # as reported in issue #77
+TypeError: getattr(): attribute name must be string
+
+A `TypeError` is usually caused by trying
+to combine two incompatible types of objects,
+by calling a function with the wrong type of object,
+or by trying to do an operation not allowed on a given type of object.
+
+The second argument of the function `getattr()` must be a string.
+
+Exception raised on line 918 of file TESTS:\runtime\test_type_error.py.
+
+   911:     if friendly_traceback.get_lang() == "en":
+   912:         assert (
+   913:             "The second argument of the function `hasattr()` must be a string."
+   914:             in result
+   915:         )
+   917:     try:
+--&gt;918:         getattr("__repr__", 1)  # as reported in issue #77
+   919:     except TypeError as e:
+
+        getattr:  &lt;builtin function getattr&gt;
+</pre></div>
+</div>
+</div>
 <div class="section" id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 886, in test_method_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 891, in test_method_got_multiple_argument
     t.some_method(0, a=1)
 TypeError: test_method_got_multiple_argument.&lt;locals&gt;.T.some_method() got multiple values for argument 'a'
 
@@ -2768,13 +2797,13 @@ You have specified the value of argument `a` more than once
 when calling the function named `t.some_method`.
 This function has only one argument: `a`
 
-Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
+Exception raised on line 891 of file TESTS:\runtime\test_type_error.py.
 
-   883:             pass
-   884:     t = T()
-   885:     try:
---&gt;886:         t.some_method(0, a=1)
-   887:     except TypeError as e:
+   887:             pass
+   889:     t = T()
+   890:     try:
+--&gt;891:         t.some_method(0, a=1)
+   892:     except TypeError as e:
 
         t:  &lt;T object&gt;
             defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
@@ -2787,7 +2816,7 @@ Exception raised on line 886 of file TESTS:\runtime\test_type_error.py.
 <div class="section" id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 839, in test_vars_arg_must_have_dict
+  File "TESTS:\runtime\test_type_error.py", line 841, in test_vars_arg_must_have_dict
     vars(f)
 TypeError: vars() argument must have __dict__ attribute
 
@@ -2800,13 +2829,13 @@ The function `vars` is used to list the content of the
 `__dict__` attribute of an object.
 Object `f` uses `__slots__` instead of `__dict__`.
 
-Exception raised on line 839 of file TESTS:\runtime\test_type_error.py.
+Exception raised on line 841 of file TESTS:\runtime\test_type_error.py.
 
-   835:         assert no_slots not in result
-   836:         assert use_slots not in result
-   838:     try:
---&gt;839:         vars(f)
-   840:     except TypeError as e:
+   837:         assert no_slots not in result
+   838:         assert use_slots not in result
+   840:     try:
+--&gt;841:         vars(f)
+   842:     except TypeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
@@ -3004,6 +3033,52 @@ Exception raised on line 98 of file TESTS:\runtime\test_unbound_local_error.py.
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-name-of-builtin">
+<h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
+    dist([])
+  File "TESTS:\runtime\test_unbound_local_error.py", line 117, in dist
+    max = max(points)
+UnboundLocalError: cannot access local variable 'max' where it is not associated with a value
+
+In Python, variables that are used inside a function are known as
+local variables. Before they are used, they must be assigned a value.
+A variable that is used before it is assigned a value is assumed to
+be defined outside that function; it is known as a `global`
+(or sometimes `nonlocal`) variable. You cannot assign a value to such
+a global variable inside a function without first indicating to
+Python that this is a global variable, otherwise you will see
+an `UnboundLocalError`.
+
+`max` is a Python builtin function.
+You have tried to assign a value to `max` inside a function
+while also using its original meaning in the function.
+
+Note that it is generally not a good idea to give a local variable
+the same name as a Python builtin function (like `max`).
+
+Execution stopped on line 121 of file TESTS:\runtime\test_unbound_local_error.py.
+
+   118:         min = min(points)
+   119:         return max - min
+   120:     try:
+--&gt;121:         dist([])
+   122:     except UnboundLocalError as e:
+
+        dist:  &lt;function dist&gt; defined in &lt;function test_Using_name_of_builtin&gt;
+
+Exception raised on line 117 of file TESTS:\runtime\test_unbound_local_error.py.
+
+   116:     def dist(points):
+--&gt;117:         max = max(points)
+                ^^^
+   118:         min = min(points)
+
+        max:  &lt;builtin function max&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="unknownerror">
 <h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
@@ -3139,6 +3214,37 @@ Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
    71:     try:
 --&gt;72:         class F:
    73:             __slots__ = ["a", "b"]
+</pre></div>
+</div>
+</div>
+<div class="section" id="time-strptime-incorrect-format">
+<h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 98, in test_time_strptime_incorrect_format
+    time.strptime("2020-01-01", "%d %m %Y")
+ValueError: time data '2020-01-01' does not match format '%d %m %Y'
+
+A `ValueError` indicates that a function or an operation
+received an argument of the right type, but an inappropriate value.
+
+The value you gave for the time is not in the format you specified.
+Make sure to use the same separator between items
+(for example, between day and month) and keep the order the same
+in both the data provided and the format you specified.
+The following table might be useful:
+https://docs.python.org/3/library/time.html#time.strftime
+The following site might also be useful: https://www.strfti.me/
+
+Exception raised on line 98 of file TESTS:\runtime\test_value_error.py.
+
+   94:         return
+   96:     import time
+   97:     try:
+--&gt;98:         time.strptime("2020-01-01", "%d %m %Y")
+   99:     except ValueError as e:
+
+        time:  &lt;module time (builtin)&gt;
+        time.strptime:  &lt;builtin function strptime&gt;
 </pre></div>
 </div>
 </div>
@@ -3616,6 +3722,7 @@ Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
 <li><a class="reference internal" href="#unsupported-operand-types">Unsupported operand types</a></li>
 <li><a class="reference internal" href="#function-got-multiple-argument">function got multiple argument</a></li>
 <li><a class="reference internal" href="#function-has-no-len">function has no len</a></li>
+<li><a class="reference internal" href="#getattr-attribute-name-must-be-string">getattr attribute name must be string</a></li>
 <li><a class="reference internal" href="#method-got-multiple-argument">method got multiple argument</a></li>
 <li><a class="reference internal" href="#vars-arg-must-have-dict">vars arg must have dict</a></li>
 </ul>
@@ -3625,6 +3732,7 @@ Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
 <li><a class="reference internal" href="#missing-global">Missing global</a></li>
 <li><a class="reference internal" href="#missing-nonlocal">Missing nonlocal</a></li>
 <li><a class="reference internal" href="#typo-in-local">Typo in local</a></li>
+<li><a class="reference internal" href="#using-name-of-builtin">Using name of builtin</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
@@ -3636,6 +3744,7 @@ Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
 <li><a class="reference internal" href="#not-enough-values-to-unpack">Not enough values to unpack</a></li>
 <li><a class="reference internal" href="#too-many-values-to-unpack">Too many values to unpack</a></li>
 <li><a class="reference internal" href="#slots-conflicts-with-class-variable">slots conflicts with class variable</a></li>
+<li><a class="reference internal" href="#time-strptime-incorrect-format">time strptime incorrect format</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a><ul>

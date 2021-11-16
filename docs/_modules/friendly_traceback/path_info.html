@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>friendly_traceback.path_info - friendly-traceback 0.4.54</title>
+        <title>friendly_traceback.path_info - friendly-traceback 0.4.71</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.71</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.71</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -310,12 +310,14 @@
 <span class="sd">    Friendly-traceback.  Note that this does not apply to</span>
 <span class="sd">    the true Python traceback obtained using "debug_tb".</span>
 <span class="sd">    """</span>
+    <span class="c1"># full_path could be a pathlib.Path instance</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+    <span class="c1"># full_path could be a relative path; see issue #81</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">full_path</span><span class="si">}</span><span class="s2"> is not a valid file path; it cannot be excluded."</span>
         <span class="p">)</span>
-    <span class="c1"># full_path could be a pathlib.Path instance</span>
-    <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
     <span class="n">EXCLUDED_FILE_PATH</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
 
 
@@ -346,6 +348,7 @@
     <span class="sd">"""Determines if the file belongs to the group that is excluded from tracebacks."""</span>
     <span class="c1"># full_path could be a pathlib.Path instance</span>
     <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">full_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"&lt;frozen "</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">for</span> <span class="n">dirs</span> <span class="ow">in</span> <span class="n">EXCLUDED_DIR_NAMES</span><span class="p">:</span>
@@ -384,6 +387,8 @@
 <span class="sd">                 include_file_in_traceback(some_module.__file__)</span>
 
 <span class="sd">    """</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
     <span class="n">EXCLUDED_FILE_PATH</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
 
 

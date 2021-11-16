@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>friendly_traceback.console_helpers - friendly-traceback 0.4.54</title>
+        <title>friendly_traceback.console_helpers - friendly-traceback 0.4.71</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.54</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.71</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.54</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.71</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -360,8 +360,10 @@
         <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"message"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"message"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">message</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="python_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.python_tb">[docs]</a><span class="k">def</span> <span class="nf">python_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -437,7 +439,19 @@
 
 <div class="viewcode-block" id="why"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.why">[docs]</a><span class="k">def</span> <span class="nf">why</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the likely cause of the exception."""</span>
-    <span class="n">explain</span><span class="p">(</span><span class="s2">"why"</span><span class="p">)</span></div>
+    <span class="c1"># If no cause is found, and the exception name is not accompanied by a</span>
+    <span class="c1"># message, as in "StopIteration:", we use the same info for</span>
+    <span class="c1"># the cause as we used for the generic information as per issue #66</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">"cause"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">info</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">info</span><span class="p">[</span><span class="s2">"cause"</span><span class="p">])</span>
+        <span class="ow">and</span> <span class="s2">"message"</span> <span class="ow">in</span> <span class="n">info</span>
+        <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># empty message</span>
+    <span class="p">):</span>
+        <span class="n">explain</span><span class="p">(</span><span class="s2">"what"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">explain</span><span class="p">(</span><span class="s2">"why"</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="www"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.www">[docs]</a><span class="k">def</span> <span class="nf">www</span><span class="p">(</span><span class="n">site</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Site</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
