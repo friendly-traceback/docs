@@ -8,7 +8,7 @@ More options are possible, including running from an editor/IDE
 as described later in this documentation.
 
 For those that know how to run programs **from a terminal**,
-I recommend using **one of the first three** following options.
+I recommend using **one of the first four** following options.
 
 
 1. Execute a Python program, as I have already shown at the beginning:
@@ -71,7 +71,57 @@ I recommend using **one of the first three** following options.
     what I have used for various screen captures.
 
 
-You can also start a friendly console from any Python interactive interpreter.
+4. (New) If you run a program that raises an error and leaves you at an
+   interactive prompt, you can import friendly "after the fact".
+   Consider the following content of a file named ``ignore.py``::
+
+        from math import *
+
+        def test():
+            a = cost(pi)
+
+        test()
+
+
+Here's a sample session:
+
+
+.. code-block:: none
+
+        > python -i ignore.py
+        Traceback (most recent call last):
+          File "C:\Users\andre\friendly-traceback\friendly\ignore.py", line 6, in <module>
+            test()
+          File "C:\Users\andre\friendly-traceback\friendly\ignore.py", line 4, in test
+            a = cost(pi)
+        NameError: name 'cost' is not defined
+        >>> from friendly import start_console
+        An exception occurred before friendly-traceback was imported.
+        Some information is available.
+        >>> start_console()
+
+        friendly-traceback: 0.4.79
+        friendly: 0.4.29
+        Python: 3.9.5
+        Type 'Friendly' for help on special functions/methods.
+
+        [1]: why()
+
+            In your program, no object with the name `cost` exists.
+            Instead of writing `cost`, perhaps you meant one of the following:
+            *   Global scope: `cos`, `cosh`, `acos`
+
+
+.. note::
+
+    This last example is more easily done in environments like Jupyter
+    notebooks where the Friendly console does not have to be explicitly
+    called to have access to the information from Friendly.
+
+
+
+You can also start a friendly console from any Python interactive interpreter,
+which is what was done above.
 
 
 .. tab:: friendly

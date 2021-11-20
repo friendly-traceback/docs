@@ -240,6 +240,12 @@ could easily be added.
                     seq:  [1, 2, 3]
 
 
+.. note::
+
+    New: Spanish translation is approximately half done and work
+    has started on an Italian translation.
+
+
 **Keep reading if you want to find out more.**
 
 
