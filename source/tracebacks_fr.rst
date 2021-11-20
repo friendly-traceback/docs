@@ -8,12 +8,12 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
 .. note::
 
      Le contenu de cette page a été généré par l'exécution de
-     trb_french.py situé dans le répertoire ``tests/``.
+     `trb_french.py` situé dans le répertoire ``tests/``.
      Ceci a besoin d'être fait de manière explicite lorsqu'on veut
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly version: 0.4.78
+Friendly-traceback version: 0.4.78
 Python version: 3.9.5
 
 
