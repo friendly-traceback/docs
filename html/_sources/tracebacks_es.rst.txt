@@ -42,7 +42,7 @@ Generic
     Es inusual que veas esta excepción;
     normalmente, una excepción más específica debería haber sido lanzada.
     
-    Excepción elevada en la linea 9 del bloque de código TESTS:\runtime\test_arithmetic_error.py.
+    Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_arithmetic_error.py.
     
         4: def test_Generic():
         5:     try:
@@ -77,7 +77,7 @@ Generic
     
     Si `condición` es `False` o equivalente, se produce un `AssertionError`.
     
-    Excepción elevada en la linea 8 del bloque de código TESTS:\runtime\test_assertion_error.py.
+    Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_assertion_error.py.
     
        4: def test_Generic():
        5:     try:
@@ -114,7 +114,7 @@ Attribute from other module
     atributo `pi` de uno de los siguientes módulos:
     `math, cmath.
     
-    Excepción elevada en la linea 323 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 323 del archivo TESTS:\runtime\test_attribute_error.py.
     
        319:         assert "Did you mean `math`?" in result
        321:     import cmath
@@ -146,7 +146,7 @@ Builtin function
     `len` es una función. Quizás quisiste escribir
     `len(text)`
     
-    Excepción elevada en la linea 221 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 221 del archivo TESTS:\runtime\test_attribute_error.py.
     
        218: def test_Builtin_function():
        219:     text = 'Hello world!'
@@ -177,7 +177,7 @@ Builtin module with no file
     Python nos indica que no se encuentra ningún objeto con nombre `foo` en
     el módulo  `sys`.
     
-    Excepción elevada en la linea 238 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 238 del archivo TESTS:\runtime\test_attribute_error.py.
     
        234:     """Issue 116"""
        235:     import sys
@@ -221,7 +221,7 @@ Circular import
     -->353:        import my_turtle1
        354:     except AttributeError as e:
 
-    Excepción elevada en la linea 4 del bloque de código TESTS:\my_turtle1.py.
+    Excepción elevada en la linea 4 del archivo TESTS:\my_turtle1.py.
     
        1: """To test attribute error of partially initialized module."""
        2: import my_turtle1
@@ -262,7 +262,7 @@ Circular import b
     -->370:         import circular_c
        371:     except AttributeError as e:
 
-    Excepción elevada en la linea 4 del bloque de código TESTS:\circular_c.py.
+    Excepción elevada en la linea 4 del archivo TESTS:\circular_c.py.
     
        1: # Attribute error for partially initialize module
        2: import circular_c
@@ -290,7 +290,7 @@ Generic
     
     Un objeto de tipo `A` no tiene ningún atributo llamado `x`.
     
-    Excepción elevada en la linea 24 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 24 del archivo TESTS:\runtime\test_attribute_error.py.
     
        20:     class A:
        21:         pass
@@ -322,7 +322,7 @@ Generic different frame
     El objeto `a` no tiene ningún atributo llamado `attr`.
     Tal vez quiso escribir `a.attr2` en lugar de `a.attr`
     
-    Excepción elevada en la linea 47 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 47 del archivo TESTS:\runtime\test_attribute_error.py.
     
        43:         return A()
        45:     a = f()
@@ -352,7 +352,7 @@ Generic instance
     
     Un objeto de tipo `a` no tiene ningún atributo llamado `x`.
     
-    Excepción elevada en la linea 65 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 65 del archivo TESTS:\runtime\test_attribute_error.py.
     
        62:         pass
        63:     a = A()
@@ -386,7 +386,7 @@ Module attribute typo
     siguientes nombres que son atributos del módulo `math`:
     `cos, cosh, acos`
     
-    Excepción elevada en la linea 142 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 142 del archivo TESTS:\runtime\test_attribute_error.py.
     
        137:         assert "Did you mean `ascii_lowercase`" in result
        139:     import math
@@ -415,7 +415,7 @@ Nonetype
     
     Está intentando acceder al atributo `b`
     de una variable cuyo valor es `None`.
-    Excepción elevada en la linea 181 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 181 del archivo TESTS:\runtime\test_attribute_error.py.
     
        178: def test_Nonetype():
        179:     a = None
@@ -447,7 +447,7 @@ Object attribute typo
     El objeto `a` no tiene ningún atributo llamado `appendh`.
     Tal vez quiso escribir `a.append` en lugar de `a.appendh`
     
-    Excepción elevada en la linea 81 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 81 del archivo TESTS:\runtime\test_attribute_error.py.
     
        77: def test_Object_attribute_typo():
        78:     #
@@ -483,7 +483,7 @@ Perhaps comma
     Perhaps you wrote a period to separate these two objects, 
     instead of using a comma.
     
-    Excepción elevada en la linea 201 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 201 del archivo TESTS:\runtime\test_attribute_error.py.
     
        197:     defg = "world"
        199:     # fmt: off
@@ -516,7 +516,7 @@ Read only
     cambiar. Puntualmente, el valor del atributo `f.b` no puede ser cambiado.
     The only attribute of `f` whose value can be changed is`a`.
     
-    Excepción elevada en la linea 278 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 278 del archivo TESTS:\runtime\test_attribute_error.py.
     
        274:         b = 2
        276:     f = F()
@@ -551,7 +551,7 @@ Shadow stdlib module
     Pero también existe un modulo llamado `turtle` en la librería estándar de Python.
     Quizás debas cambiar el nombre de tu módulo.
     
-    Excepción elevada en la linea 163 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 163 del archivo TESTS:\runtime\test_attribute_error.py.
     
        159: def test_Shadow_stdlib_module():
        160:     import turtle
@@ -585,7 +585,7 @@ Tuple by accident
     Perhaps you added a trailing comma by mistake at the end of the line
     where you defined `something`.
     
-    Excepción elevada en la linea 293 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 293 del archivo TESTS:\runtime\test_attribute_error.py.
     
        290: def test_Tuple_by_accident():
        291:     something = "abc",  # note trailing comma
@@ -618,7 +618,7 @@ Use builtin
     The object `a` has no attribute named `length`.
     Perhaps you can use the Python builtin function `len` instead:
     `len(a)`.
-    Excepción elevada en la linea 97 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 97 del archivo TESTS:\runtime\test_attribute_error.py.
     
        93: def test_Use_builtin():
        94:     #
@@ -652,7 +652,7 @@ Use join with str
     The object `['a', '2']` has no attribute named `join`.
     Perhaps you wanted something like `'abc'.join(['a', '2'])`.
     
-    Excepción elevada en la linea 337 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 337 del archivo TESTS:\runtime\test_attribute_error.py.
     
        335: def test_Use_join_with_str():
        336:     try:
@@ -682,7 +682,7 @@ Use synonym
     Sin embargo, `a` tiene los siguientes atributos con significados similares:
     `append, extend, insert`.
     
-    Excepción elevada en la linea 113 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 113 del archivo TESTS:\runtime\test_attribute_error.py.
     
        109: def test_Use_synonym():
        110:     #
@@ -716,7 +716,7 @@ Using slots
     que impide la creación de nuevos atributos.
     A continuación se detallan algunos de sus atributos conocidos:
     `a`.
-    Excepción elevada en la linea 258 del bloque de código TESTS:\runtime\test_attribute_error.py.
+    Excepción elevada en la linea 258 del archivo TESTS:\runtime\test_attribute_error.py.
     
        254:         __slots__ = ["a"]
        256:     f = F()
@@ -753,7 +753,7 @@ Directory not found
     does_not_exist
     no es un directorio valido.
     
-    Excepción elevada en la linea 70 del bloque de código TESTS:\runtime\test_file_not_found_error.py.
+    Excepción elevada en la linea 70 del archivo TESTS:\runtime\test_file_not_found_error.py.
     
        68: def test_Directory_not_found():
        69:     try:
@@ -785,7 +785,7 @@ Filename not found
     directorio `C:\Users\andre\friendly-traceback\friendly-traceback\tests`.
     No tengo información adicional para usted.
     
-    Excepción elevada en la linea 7 del bloque de código TESTS:\runtime\test_file_not_found_error.py.
+    Excepción elevada en la linea 7 del archivo TESTS:\runtime\test_file_not_found_error.py.
     
        5: def test_Filename_not_found():
        6:     try:
@@ -819,7 +819,7 @@ Filename not found 2
     directorio `C:\Users\andre\friendly-traceback\friendly-traceback`.
     El archivo `setup.py` tiene un nombre similar.
     
-    Excepción elevada en la linea 30 del bloque de código TESTS:\runtime\test_file_not_found_error.py.
+    Excepción elevada en la linea 30 del archivo TESTS:\runtime\test_file_not_found_error.py.
     
        26:     if chdir:
        27:         os.chdir("..")
@@ -855,7 +855,7 @@ Filename not found 3
     Tal vez se refiera a uno de los siguientes archivos con nombres similares:
     `setup.py`, `setup.cfg`
     
-    Excepción elevada en la linea 52 del bloque de código TESTS:\runtime\test_file_not_found_error.py.
+    Excepción elevada en la linea 52 del archivo TESTS:\runtime\test_file_not_found_error.py.
     
        49:     if chdir:
        50:         os.chdir("..")
@@ -911,7 +911,7 @@ Circular import
     -->58:         import circular_a
        59:     except ImportError as e:
 
-    Excepción elevada en la linea 2 del bloque de código TESTS:\circular_b.py.
+    Excepción elevada en la linea 2 del archivo TESTS:\circular_b.py.
     
        1: """File used in for test_circular_import() in test_import_error.py"""
     -->2: from circular_a import a
@@ -936,7 +936,7 @@ Simple import error
     
     Perhaps you meant to import `pi` (from `math`) instead of `Pi`
     
-    Excepción elevada en la linea 44 del bloque de código TESTS:\runtime\test_import_error.py.
+    Excepción elevada en la linea 44 del archivo TESTS:\runtime\test_import_error.py.
     
        40:     no_suggestion()
        41:     multiple_import_on_same_line()
@@ -970,7 +970,7 @@ Assignment
     The valid index values of `a` are integers ranging from
     `-10` to `9`.
     
-    Excepción elevada en la linea 76 del bloque de código TESTS:\runtime\test_index_error.py.
+    Excepción elevada en la linea 76 del archivo TESTS:\runtime\test_index_error.py.
     
        72:         assert "You have tried to assign a value to index `1` of `b`," in result
        73:         assert "a `list` which contains no item." in result
@@ -1003,7 +1003,7 @@ Empty
     You have tried to get the item with index `1` of `a`,
     una `list` which contains no item.
     
-    Excepción elevada en la linea 38 del bloque de código TESTS:\runtime\test_index_error.py.
+    Excepción elevada en la linea 38 del archivo TESTS:\runtime\test_index_error.py.
     
        35: def test_Empty():
        36:     a = []
@@ -1037,7 +1037,7 @@ Long list
     The valid index values of `a` are integers ranging from
     `-40` to `39`.
     
-    Excepción elevada en la linea 24 del bloque de código TESTS:\runtime\test_index_error.py.
+    Excepción elevada en la linea 24 del archivo TESTS:\runtime\test_index_error.py.
     
        21:     a = list(range(40))
        22:     b = tuple(range(50))
@@ -1075,7 +1075,7 @@ Short tuple
     The valid index values of `a` are integers ranging from
     `-3` to `2`.
     
-    Excepción elevada en la linea 8 del bloque de código TESTS:\runtime\test_index_error.py.
+    Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_index_error.py.
     
        5:     a = (1, 2, 3)
        6:     b = [1, 2, 3]
@@ -1115,7 +1115,7 @@ ChainMap
     
     The key `42` cannot be found in `d`, an object of type `ChainMap`.
     
-    Excepción elevada en la linea 62 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_key_error.py.
     
        59:     from collections import ChainMap
        60:     d = ChainMap({}, {})
@@ -1148,7 +1148,7 @@ Forgot to convert to string
     `squares` contains a string key which is identical to `str(2)`.
     Perhaps you forgot to convert the key into a string.
     
-    Excepción elevada en la linea 115 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 115 del archivo TESTS:\runtime\test_key_error.py.
     
        112: def test_Forgot_to_convert_to_string():
        113:     squares = {"1": 1, "2": 4, "3": 9}
@@ -1177,7 +1177,7 @@ Generic key error
     
     The key `'c'` cannot be found in the dict `d`.
     
-    Excepción elevada en la linea 44 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 44 del archivo TESTS:\runtime\test_key_error.py.
     
        41: def test_Generic_key_error():
        42:     d = {"a": 1, "b": 2}
@@ -1214,7 +1214,7 @@ Popitem empty ChainMap
     
     Has intentado recuperar un elemento de `alpha` que es un `ChainMap` vacío.
     
-    Excepción elevada en la linea 26 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 26 del archivo TESTS:\runtime\test_key_error.py.
     
        23:     from collections import ChainMap
        24:     alpha = ChainMap({}, {})
@@ -1245,7 +1245,7 @@ Popitem empty dict
     
     You tried to retrieve an item from `d` which is an empty `dict`.
     
-    Excepción elevada en la linea 8 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_key_error.py.
     
        5: def test_Popitem_empty_dict():
        6:     d = {}
@@ -1278,7 +1278,7 @@ Similar names
     `second` has some keys similar to `'alpha'` including:
     `'alpha0', 'alpha12', 'alpha11'`.
     
-    Excepción elevada en la linea 145 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 145 del archivo TESTS:\runtime\test_key_error.py.
     
        141:         assert ok, diff
        143:     second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
@@ -1312,7 +1312,7 @@ String by mistake
     There is a key of `d` whose string representation
     is identical to `'(0, 0)'`.
     
-    Excepción elevada en la linea 98 del bloque de código TESTS:\runtime\test_key_error.py.
+    Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_key_error.py.
     
        94:     chain_map_string_by_mistake()  # do not show in docs
        96:     d = {(0, 0): "origin"}
@@ -1343,7 +1343,7 @@ Generic
     cuando una clave o índice utilizado en un mapeo o secuencia no es válido.
     También puede ser elevada directamente por codecs.lookup().
     
-    Excepción elevada en la linea 10 del bloque de código TESTS:\runtime\test_lookup_error.py.
+    Excepción elevada en la linea 10 del archivo TESTS:\runtime\test_lookup_error.py.
     
         4: def test_Generic():
         5:     try:
@@ -1381,7 +1381,7 @@ Need to install module
     No se puede importar el módulo llamado `alphabet`.
     Tal vez sea necesario instalarlo.
     
-    Excepción elevada en la linea 76 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 76 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        74: def test_Need_to_install_module():
        75:     try:
@@ -1407,7 +1407,7 @@ Not a package
     
     `xxx` no puede ser importado desde `os`.
     
-    Excepción elevada en la linea 22 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 22 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        19: def test_Not_a_package():
        21:     try:
@@ -1439,7 +1439,7 @@ Not a package similar name
     Other objects with similar names that are part of
      `os` include `fspath`.
     
-    Excepción elevada en la linea 36 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 36 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        34: def test_Not_a_package_similar_name():
        35:     try:
@@ -1467,7 +1467,7 @@ Object not module
     
     `open` is not a separate module but an object that is part of `os`.
     
-    Excepción elevada en la linea 49 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 49 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        47: def test_Object_not_module():
        48:     try:
@@ -1502,7 +1502,7 @@ Similar object not module
     Other objects with similar names that are part of
      `os` include `popen, fdopen`.
     
-    Excepción elevada en la linea 62 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        60: def test_Similar_object_not_module():
        61:     try:
@@ -1532,7 +1532,7 @@ Standard library module
     Tal vez sea necesario instalarlo.
     `tkinter` es un módulo existente que tiene un nombre similar.
     
-    Excepción elevada en la linea 7 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 7 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        5: def test_Standard_library_module():
        6:     try:
@@ -1561,7 +1561,7 @@ no curses
     Ha intentado importar el módulo curses.
     El módulo curses rara vez se instala con Python en Windows.
     
-    Excepción elevada en la linea 92 del bloque de código TESTS:\runtime\test_module_not_found_error.py.
+    Excepción elevada en la linea 92 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
        90:     def test_no_curses():
        91:         try:
@@ -1602,7 +1602,7 @@ Annotated variable
     
         x = 3
     
-    Excepción elevada en la linea 24 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 24 del archivo TESTS:\runtime\test_name_error.py.
     
        22: def test_Annotated_variable():
        23:     try:
@@ -1630,7 +1630,7 @@ Custom name
     antes de ser definido o de recibir un valor.
     
     ¡Ya estás usando Python!
-    Excepción elevada en la linea 165 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 165 del archivo TESTS:\runtime\test_name_error.py.
     
        163: def test_Custom_name():
        164:     try:
@@ -1674,7 +1674,7 @@ Free variable referenced
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Excepción elevada en la linea 144 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 144 del archivo TESTS:\runtime\test_name_error.py.
     
        143:         def inner():
     -->144:             return var
@@ -1701,7 +1701,7 @@ Generic
     In your program, no object with the name `something` exists.
     No tengo información adicional para usted.
     
-    Excepción elevada en la linea 9 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_name_error.py.
     
         7: def test_Generic():
         8:     try:
@@ -1733,7 +1733,7 @@ Missing import
     Perhaps you forgot to import `unicodedata` which is found
     in Python's standard library.
     
-    Excepción elevada en la linea 129 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 129 del archivo TESTS:\runtime\test_name_error.py.
     
        125:     if friendly_traceback.get_lang() == "en":
        126:         assert "I have no additional information for you." in result
@@ -1769,7 +1769,7 @@ Missing module name
     Perhaps you should have written `tkinter.Frame`
     instead of `Frame`.
     
-    Excepción elevada en la linea 249 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 249 del archivo TESTS:\runtime\test_name_error.py.
     
        246: def test_Missing_module_name():
        247:     import tkinter
@@ -1819,7 +1819,7 @@ Missing self 1
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Excepción elevada en la linea 191 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 191 del archivo TESTS:\runtime\test_name_error.py.
     
        189:         def __str__(self):
        190:             # self at the wrong place
@@ -1869,7 +1869,7 @@ Missing self 2
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Excepción elevada en la linea 226 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 226 del archivo TESTS:\runtime\test_name_error.py.
     
        224:         def __str__(self):
        225:             # Missing self.
@@ -1901,7 +1901,7 @@ Synonym
     Instead of writing `cost`, perhaps you meant one of the following:
     *   alcance global: `cos`, `cosh`, `acos`
     
-    Excepción elevada en la linea 89 del bloque de código TESTS:\runtime\test_name_error.py.
+    Excepción elevada en la linea 89 del archivo TESTS:\runtime\test_name_error.py.
     
        85:     if friendly_traceback.get_lang() == "en":
        86:         assert "The Python builtin `chr` has a similar name." in result
@@ -1947,7 +1947,7 @@ Urllib error
     Si ese es el caso, verifique que la URL sea correcta
     y compruebe su conectividad a Internet.
     
-    Excepción elevada en la linea 8 del bloque de código TESTS:\runtime\test_os_error.py.
+    Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_os_error.py.
     
        5: def test_Urllib_error():
        6:     from urllib import request, error
@@ -1986,7 +1986,7 @@ invalid argument
     front of the filename or path, or replace all single backslash
     characters, `\`, by double ones: `\\`.
     
-    Excepción elevada en la linea 46 del bloque de código TESTS:\runtime\test_os_error.py.
+    Excepción elevada en la linea 46 del archivo TESTS:\runtime\test_os_error.py.
     
        43:     if os.name != "nt":
        44:         return "Windows test only", "No result"
@@ -2023,7 +2023,7 @@ no information
     Si está utilizando la consola Friendly, utilice `www()` para
     hacer una búsqueda en Internet para este caso en particular.
     
-    Excepción elevada en la linea 27 del bloque de código TESTS:\runtime\test_os_error.py.
+    Excepción elevada en la linea 27 del archivo TESTS:\runtime\test_os_error.py.
     
        24:     old_debug = friendly_traceback.debug_helper.DEBUG
        25:     friendly_traceback.debug_helper.DEBUG = False
@@ -2053,7 +2053,7 @@ Generic
     Se produce un `OverflowError` cuando el resultado de una operación aritmética
     es demasiado grande para ser manejado por el procesador del ordenador.
     
-    Excepción elevada en la linea 6 del bloque de código TESTS:\runtime\test_overflow_error.py.
+    Excepción elevada en la linea 6 del archivo TESTS:\runtime\test_overflow_error.py.
     
        4: def test_Generic():
        5:     try:
@@ -2096,7 +2096,7 @@ Generic
 
             a:  <function a> defined in <function test_Generic>
         
-    Excepción elevada en la linea 6 del bloque de código TESTS:\runtime\test_recursion_error.py.
+    Excepción elevada en la linea 6 del archivo TESTS:\runtime\test_recursion_error.py.
     
        5:     def a():
     -->6:         return a()
@@ -2133,7 +2133,7 @@ Bad type for unary operator
     
     Perhaps you meant to write `+=` instead of `=+`
     
-    Excepción elevada en la linea 371 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 371 del archivo TESTS:\runtime\test_type_error.py.
     
        366:         assert "You tried to use the unary operator '~'" in result
        368:     try:
@@ -2166,7 +2166,7 @@ Builtin has no len
     You might have meant to write:
     `len("Hello world".split())`
     
-    Excepción elevada en la linea 780 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 780 del archivo TESTS:\runtime\test_type_error.py.
     
        778: def test_Builtin_has_no_len():
        779:     try:
@@ -2197,7 +2197,7 @@ Can only concatenate
     You tried to concatenate (add) two different types of objects:
     una `tuple` and una `list`.
     
-    Excepción elevada en la linea 37 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 37 del archivo TESTS:\runtime\test_type_error.py.
     
        34:     try:
        35:         a_tuple = (1, 2, 3)
@@ -2233,7 +2233,7 @@ Cannot convert dictionary update sequence
     Instead of writing `dd.update([1, 2, 3])`
     perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Excepción elevada en la linea 766 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 766 del archivo TESTS:\runtime\test_type_error.py.
     
        762:         assert "you should use the `dict.fromkeys()`" in result
        764:     dd = {"a": "a"}
@@ -2268,7 +2268,7 @@ Cannot multiply by non int
      strings, etc., by integers.
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Excepción elevada en la linea 570 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 570 del archivo TESTS:\runtime\test_type_error.py.
     
        566:     if friendly_traceback.get_lang() == "en":
        567:         assert "Did you forget to convert `c` into an integer?" in result
@@ -2299,7 +2299,7 @@ Cannot unpack non iterable object
     Python containers (`list, tuple, dict`, etc.) are iterables,
     but not objects of type `float`.
     
-    Excepción elevada en la linea 738 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 738 del archivo TESTS:\runtime\test_type_error.py.
     
        736: def test_Cannot_unpack_non_iterable_object():
        737:     try:
@@ -2330,7 +2330,7 @@ Comparison not supported
     un número entero (`int`) and un string (`str`).
     Perhaps you forgot to convert the string `a` into un número entero (`int`).
     
-    Excepción elevada en la linea 320 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 320 del archivo TESTS:\runtime\test_type_error.py.
     
        317:     try:
        318:         a = "2"
@@ -2361,7 +2361,7 @@ Derive from BaseException
     
     En Python 3, las excepciones deben derivarse de `BaseException`.
     
-    Excepción elevada en la linea 513 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 513 del archivo TESTS:\runtime\test_type_error.py.
     
        511: def test_Derive_from_BaseException():
        512:     try:
@@ -2395,7 +2395,7 @@ Indices must be integers or slices
     
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Excepción elevada en la linea 652 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 652 del archivo TESTS:\runtime\test_type_error.py.
     
        648:     if friendly_traceback.get_lang() == "en":
        649:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
@@ -2424,7 +2424,7 @@ Not an integer
     
     You wrote an object of type `str` where an integer was expected.
     Perhaps you forgot to convert `c, d` into integers.
-    Excepción elevada en la linea 615 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 615 del archivo TESTS:\runtime\test_type_error.py.
     
        611:         assert "Perhaps you forgot to convert `1.0" in result
        613:     c, d = "2", "3"
@@ -2465,7 +2465,7 @@ Not callable
     Perhaps you meant to use `[]` instead of `()` and write
     `[1, 2][a + b]`
     
-    Excepción elevada en la linea 500 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 500 del archivo TESTS:\runtime\test_type_error.py.
     
        496:         assert "b.a_list[3]" in result
        498:     try:
@@ -2500,7 +2500,7 @@ Object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     An iterable is required here.
     
-    Excepción elevada en la linea 724 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 724 del archivo TESTS:\runtime\test_type_error.py.
     
        722: def test_Object_is_not_iterable():
        723:     try:
@@ -2534,7 +2534,7 @@ Object is not subscriptable
     
     Perhaps you meant to write `f(1)`.
     
-    Excepción elevada en la linea 710 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 710 del archivo TESTS:\runtime\test_type_error.py.
     
        706:     def f():
        707:         pass
@@ -2570,7 +2570,7 @@ Slice indices must be integers or None
     each of `start`, `stop`, `step` must be either an integer, `None`,
     or possibly some other object having an `__index__` method.
     
-    Excepción elevada en la linea 666 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 666 del archivo TESTS:\runtime\test_type_error.py.
     
        664: def test_Slice_indices_must_be_integers_or_None():
        665:     try:
@@ -2597,7 +2597,7 @@ Too few positional argument
     You apparently have called the function 'fn()' with
     fewer positional arguments than it requires (2 missing).
     
-    Excepción elevada en la linea 441 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 441 del archivo TESTS:\runtime\test_type_error.py.
     
        437:     def fn(a, b, c):
        438:         pass
@@ -2633,7 +2633,7 @@ Too many positional argument
     such positional argument(s).
     Perhaps you forgot `self` when defining `f`.
     
-    Excepción elevada en la linea 422 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 422 del archivo TESTS:\runtime\test_type_error.py.
     
        418:         def f(x):
        419:             pass
@@ -2670,7 +2670,7 @@ Tuple no item assignment
     most likely by using an indexing operation.
     Tal vez quisiste usar una lista en su lugar.
     
-    Excepción elevada en la linea 389 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 389 del archivo TESTS:\runtime\test_type_error.py.
     
        386: def test_Tuple_no_item_assignment():
        387:     a = (1, 2, 3)
@@ -2704,7 +2704,7 @@ Unhachable type
     Hashable objects are objects that do not change value
     once they have been created.Instead of using una `list`, consider using una `tuple`.
     
-    Excepción elevada en la linea 683 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 683 del archivo TESTS:\runtime\test_type_error.py.
     
        681: def test_Unhachable_type():
        682:     try:
@@ -2734,7 +2734,7 @@ Unsupported operand types
     This operator is normally used only
     for multiplication of matrices.
     
-    Excepción elevada en la linea 283 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 283 del archivo TESTS:\runtime\test_type_error.py.
     
        280:     try:
        281:         a = "a"
@@ -2768,7 +2768,7 @@ function got multiple argument
     This function has the following arguments:
     `a, b=1`
     
-    Excepción elevada en la linea 872 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 872 del archivo TESTS:\runtime\test_type_error.py.
     
        868:     def fn2(a, b=1):
        869:         pass
@@ -2803,7 +2803,7 @@ function has no len
     You might have meant to write:
     `len(bad())`
     
-    Excepción elevada en la linea 797 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 797 del archivo TESTS:\runtime\test_type_error.py.
     
        793:     def bad():
        794:         pass
@@ -2834,7 +2834,7 @@ getattr attribute name must be string
     
     The second argument of the function `getattr()` must be a string.
     
-    Excepción elevada en la linea 918 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 918 del archivo TESTS:\runtime\test_type_error.py.
     
        911:     if friendly_traceback.get_lang() == "en":
        912:         assert (
@@ -2869,7 +2869,7 @@ method got multiple argument
     when calling the function named `t.some_method`.
     This function has only one argument: `a`
     
-    Excepción elevada en la linea 891 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 891 del archivo TESTS:\runtime\test_type_error.py.
     
        887:             pass
        889:     t = T()
@@ -2905,7 +2905,7 @@ vars arg must have dict
     `__dict__` attribute of an object.
     Object `f` uses `__slots__` instead of `__dict__`.
     
-    Excepción elevada en la linea 841 del bloque de código TESTS:\runtime\test_type_error.py.
+    Excepción elevada en la linea 841 del archivo TESTS:\runtime\test_type_error.py.
     
        837:         assert no_slots not in result
        838:         assert use_slots not in result
@@ -2971,7 +2971,7 @@ Missing both
 
             global outer_missing_both:  <function outer_missing_both>
         
-    Excepción elevada en la linea 21 del bloque de código TESTS:\runtime\test_unbound_local_error.py.
+    Excepción elevada en la linea 21 del archivo TESTS:\runtime\test_unbound_local_error.py.
     
        20:     def inner():
     -->21:         spam_missing_both += 1
@@ -3022,7 +3022,7 @@ Missing global
 
             global outer_missing_global:  <function outer_missing_global>
         
-    Excepción elevada en la linea 9 del bloque de código TESTS:\runtime\test_unbound_local_error.py.
+    Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_unbound_local_error.py.
     
        8:     def inner():
     -->9:         spam_missing_global += 1
@@ -3073,7 +3073,7 @@ Missing nonlocal
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
-    Excepción elevada en la linea 15 del bloque de código TESTS:\runtime\test_unbound_local_error.py.
+    Excepción elevada en la linea 15 del archivo TESTS:\runtime\test_unbound_local_error.py.
     
        14:     def inner():
     -->15:         spam_missing_nonlocal += 1
@@ -3116,7 +3116,7 @@ Typo in local
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    Excepción elevada en la linea 98 del bloque de código TESTS:\runtime\test_unbound_local_error.py.
+    Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_unbound_local_error.py.
     
        95:     def test2():
        96:         alpha1 = 1
@@ -3163,7 +3163,7 @@ Using name of builtin
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
         
-    Excepción elevada en la linea 117 del bloque de código TESTS:\runtime\test_unbound_local_error.py.
+    Excepción elevada en la linea 117 del archivo TESTS:\runtime\test_unbound_local_error.py.
     
        116:     def dist(points):
     -->117:         max = max(points)
@@ -3197,7 +3197,7 @@ Generic
     Si está utilizando la consola Friendly, utilice `www()` para
     hacer una búsqueda en Internet para este caso en particular.
     
-    Excepción elevada en la linea 12 del bloque de código TESTS:\runtime\test_unknown_error.py.
+    Excepción elevada en la linea 12 del archivo TESTS:\runtime\test_unknown_error.py.
     
         9:     old_debug = friendly_traceback.debug_helper.DEBUG
        10:     friendly_traceback.debug_helper.DEBUG = False
@@ -3232,7 +3232,7 @@ Date invalid month
     I am guessing that you specify an invalid value for a month
     in a `date` object. Valid values are integers, from 1 to 12.
     
-    Excepción elevada en la linea 58 del bloque de código TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 58 del archivo TESTS:\runtime\test_value_error.py.
     
        55: def test_Date_invalid_month():
        56:     from datetime import date
@@ -3264,7 +3264,7 @@ Not enough values to unpack
     In this instance, there are more names (3)
     than the length of the iterable, un string (`str`) of length 2.
     
-    Excepción elevada en la linea 28 del bloque de código TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 28 del archivo TESTS:\runtime\test_value_error.py.
     
        24:     assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
        26:     d = "ab"
@@ -3295,7 +3295,7 @@ Too many values to unpack
     In this instance, there are fewer names (2)
     than the length of the iterable, una `list` of length 3.
     
-    Excepción elevada en la linea 43 del bloque de código TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 43 del archivo TESTS:\runtime\test_value_error.py.
     
        40: def test_Too_many_values_to_unpack():
        41:     c = [1, 2, 3]
@@ -3325,7 +3325,7 @@ slots conflicts with class variable
     and as a string item in the class `__slots__`;
     this is not allowed.
     
-    Excepción elevada en la linea 72 del bloque de código TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 72 del archivo TESTS:\runtime\test_value_error.py.
     
        70: def test_slots_conflicts_with_class_variable():
        71:     try:
@@ -3355,7 +3355,7 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     The following site might also be useful: https://www.strfti.me/
     
-    Excepción elevada en la linea 98 del bloque de código TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_value_error.py.
     
        94:         return
        96:     import time
@@ -3392,7 +3392,7 @@ Complex division
     
     which is equal to zero.
     
-    Excepción elevada en la linea 155 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 155 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        152: def test_Complex_division():
        153:     zero = 0j
@@ -3420,7 +3420,7 @@ Division by zero literal
     
     Estás dividiendo por cero.
     
-    Excepción elevada en la linea 199 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 199 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        194:     if friendly_traceback.get_lang() == "en":
        195:         assert "Using the modulo operator, you are dividing by zero" in result
@@ -3449,7 +3449,7 @@ Division operator
     
     which is equal to zero.
     
-    Excepción elevada en la linea 17 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 17 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        13:     if friendly_traceback.get_lang() == "en":
        14:         assert "The following mathematical expression includes a division by zero" in result
@@ -3477,7 +3477,7 @@ Divmod
     
     The second argument of the `divmod()` function is zero.
     
-    Excepción elevada en la linea 82 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 82 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        79: def test_Divmod():
        80:     zero = 0
@@ -3510,7 +3510,7 @@ Float division
     
     which is equal to zero.
     
-    Excepción elevada en la linea 125 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 125 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        122: def test_Float_division():
        123:     zero = 0.
@@ -3538,7 +3538,7 @@ Float divmod
     
     The second argument of the `divmod()` function is equal to zero.
     
-    Excepción elevada en la linea 140 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 140 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        137: def test_Float_divmod():
        138:     zero = 0.
@@ -3571,7 +3571,7 @@ Float modulo
     
     which is equal to zero.
     
-    Excepción elevada en la linea 110 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 110 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        106:         assert "The following mathematical expression includes a division by zero" in result
        107:         assert "done using the modulo operator" in result
@@ -3603,7 +3603,7 @@ Integer division operator
     
     which is equal to zero.
     
-    Excepción elevada en la linea 42 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 42 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        38:     if friendly_traceback.get_lang() == "en":
        39:         assert "The following mathematical expression includes a division by zero" in result
@@ -3633,7 +3633,7 @@ Mixed operations
     
         divmod(8, 1 // 2)
     
-    Excepción elevada en la linea 212 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 212 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        210: def test_Mixed_operations():
        211:     try:
@@ -3666,7 +3666,7 @@ Modulo operator
     
     which is equal to zero.
     
-    Excepción elevada en la linea 67 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 67 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        63:     if friendly_traceback.get_lang() == "en":
        64:         assert "The following mathematical expression includes a division by zero" in result
@@ -3695,7 +3695,7 @@ Raise zero negative power
     You are attempting to raise the number 0 to a negative power
     which is equivalent to dividing by zero.
     
-    Excepción elevada en la linea 170 del bloque de código TESTS:\runtime\test_zero_division_error.py.
+    Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division_error.py.
     
        167: def test_Raise_zero_negative_power():
        168:     zero = 0
