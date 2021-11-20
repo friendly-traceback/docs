@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>friendly_traceback.console_helpers - friendly-traceback 0.4.71</title>
+        <title>friendly_traceback.console_helpers - friendly-traceback 0.4.78</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.71</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.4.78</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.71</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.78</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -373,26 +373,9 @@
     <span class="n">explain</span><span class="p">(</span><span class="s2">"python_tb"</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="set_prompt"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.set_prompt">[docs]</a><span class="k">def</span> <span class="nf">set_prompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Sets the default prompt to use in the console.</span>
-
-<span class="sd">    If the prompt argument is "&gt;&gt;&gt;" or "python",</span>
-<span class="sd">    then the standard Python prompt will be used.</span>
-<span class="sd">    Note that the prompt argument will be stripped and is case-insensitive.</span>
-
-<span class="sd">    If any other argument is given, then the iPython style prompt will be used.</span>
-<span class="sd">    Setting this has also an effect on how the "friendly traceback" filename</span>
-<span class="sd">    are shown for code blocks.</span>
-<span class="sd">    """</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="n">prompt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"&gt;&gt;&gt;"</span><span class="p">,</span> <span class="s2">"python"</span><span class="p">]:</span>
-            <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa</span>
-        <span class="k">pass</span></div>
+<div class="viewcode-block" id="toggle_prompt"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.toggle_prompt">[docs]</a><span class="k">def</span> <span class="nf">toggle_prompt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Toggles the style of prompt to use in the console."""</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span></div>
 
 
 <div class="viewcode-block" id="what"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.what">[docs]</a><span class="k">def</span> <span class="nf">what</span><span class="p">(</span>
@@ -639,7 +622,7 @@
     <span class="s2">"history"</span><span class="p">:</span> <span class="n">history</span><span class="p">,</span>
     <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="n">friendly_tb</span><span class="p">,</span>
     <span class="s2">"python_tb"</span><span class="p">:</span> <span class="n">python_tb</span><span class="p">,</span>
-    <span class="s2">"set_prompt"</span><span class="p">:</span> <span class="n">set_prompt</span><span class="p">,</span>
+    <span class="s2">"toggle_prompt"</span><span class="p">:</span> <span class="n">toggle_prompt</span><span class="p">,</span>
     <span class="s2">"show_paths"</span><span class="p">:</span> <span class="n">show_paths</span><span class="p">,</span>
     <span class="s2">"get_include"</span><span class="p">:</span> <span class="n">get_include</span><span class="p">,</span>
     <span class="s2">"set_include"</span><span class="p">:</span> <span class="n">set_include</span><span class="p">,</span>

@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly version: 0.4.71
+Friendly version: 0.4.78
 Python version: 3.7.8
 
 
@@ -40,7 +40,7 @@ Generic
     It is unusual that you are seeing this exception;
     normally, a more specific exception should have been raised.
     
-    Exception raised on line 9 of file TESTS:\runtime\test_arithmetic_error.py.
+    Exception raised on line 9 of code block TESTS:\runtime\test_arithmetic_error.py.
     
         4: def test_Generic():
         5:     try:
@@ -75,7 +75,7 @@ Generic
     
     If `condition` is `False` or equivalent, an `AssertionError` is raised.
     
-    Exception raised on line 8 of file TESTS:\runtime\test_assertion_error.py.
+    Exception raised on line 8 of code block TESTS:\runtime\test_assertion_error.py.
     
        4: def test_Generic():
        5:     try:
@@ -112,7 +112,7 @@ Attribute from other module
     the attribute `pi` of one of the following modules:
     `math, cmath`.
     
-    Exception raised on line 323 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 323 of code block TESTS:\runtime\test_attribute_error.py.
     
        319:         assert "Did you mean `math`?" in result
        321:     import cmath
@@ -144,7 +144,7 @@ Builtin function
     `len` is a function. Perhaps you meant to write
     `len(text)`
     
-    Exception raised on line 221 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 221 of code block TESTS:\runtime\test_attribute_error.py.
     
        218: def test_Builtin_function():
        219:     text = 'Hello world!'
@@ -175,7 +175,7 @@ Builtin module with no file
     Python tells us that no object with name `foo` is
     found in module `sys`.
     
-    Exception raised on line 238 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 238 of code block TESTS:\runtime\test_attribute_error.py.
     
        234:     """Issue 116"""
        235:     import sys
@@ -222,7 +222,7 @@ Circular import
     -->353:        import my_turtle1
        354:     except AttributeError as e:
 
-    Exception raised on line 4 of file TESTS:\my_turtle1.py.
+    Exception raised on line 4 of code block TESTS:\my_turtle1.py.
     
        1: """To test attribute error of partially initialized module."""
        2: import my_turtle1
@@ -263,7 +263,7 @@ Circular import b
     -->370:         import circular_c
        371:     except AttributeError as e:
 
-    Exception raised on line 4 of file TESTS:\circular_c.py.
+    Exception raised on line 4 of code block TESTS:\circular_c.py.
     
        1: # Attribute error for partially initialize module
        2: import circular_c
@@ -291,7 +291,7 @@ Generic
     
     The object `A` has no attribute named `x`.
     
-    Exception raised on line 24 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 24 of code block TESTS:\runtime\test_attribute_error.py.
     
        20:     class A:
        21:         pass
@@ -323,7 +323,7 @@ Generic different frame
     The object `a` has no attribute named `attr`.
     Perhaps you meant to write `a.attr2` instead of `a.attr`
     
-    Exception raised on line 47 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 47 of code block TESTS:\runtime\test_attribute_error.py.
     
        43:         return A()
        45:     a = f()
@@ -353,7 +353,7 @@ Generic instance
     
     The object `a` has no attribute named `x`.
     
-    Exception raised on line 65 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 65 of code block TESTS:\runtime\test_attribute_error.py.
     
        62:         pass
        63:     a = A()
@@ -387,7 +387,7 @@ Module attribute typo
     the following names which are attributes of module `math`:
     `cos, cosh, acos`
     
-    Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 142 of code block TESTS:\runtime\test_attribute_error.py.
     
        137:         assert "Did you mean `ascii_lowercase`" in result
        139:     import math
@@ -416,7 +416,7 @@ Nonetype
     
     You are attempting to access the attribute `b`
     for a variable whose value is `None`.
-    Exception raised on line 181 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 181 of code block TESTS:\runtime\test_attribute_error.py.
     
        178: def test_Nonetype():
        179:     a = None
@@ -448,7 +448,7 @@ Object attribute typo
     The object `a` has no attribute named `appendh`.
     Perhaps you meant to write `a.append` instead of `a.appendh`
     
-    Exception raised on line 81 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 81 of code block TESTS:\runtime\test_attribute_error.py.
     
        77: def test_Object_attribute_typo():
        78:     #
@@ -484,7 +484,7 @@ Perhaps comma
     Perhaps you wrote a period to separate these two objects, 
     instead of using a comma.
     
-    Exception raised on line 201 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 201 of code block TESTS:\runtime\test_attribute_error.py.
     
        197:     defg = "world"
        199:     # fmt: off
@@ -517,7 +517,7 @@ Read only
     be changed. The value of attribute `f.b` cannot be changed.
     The only attribute of `f` whose value can be changed is`a`.
     
-    Exception raised on line 278 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 278 of code block TESTS:\runtime\test_attribute_error.py.
     
        274:         b = 2
        276:     f = F()
@@ -552,7 +552,7 @@ Shadow stdlib module
     There is also a module named `turtle` in Python's standard library.
     Perhaps you need to rename your module.
     
-    Exception raised on line 163 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 163 of code block TESTS:\runtime\test_attribute_error.py.
     
        159: def test_Shadow_stdlib_module():
        160:     import turtle
@@ -586,7 +586,7 @@ Tuple by accident
     Perhaps you added a trailing comma by mistake at the end of the line
     where you defined `something`.
     
-    Exception raised on line 293 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 293 of code block TESTS:\runtime\test_attribute_error.py.
     
        290: def test_Tuple_by_accident():
        291:     something = "abc",  # note trailing comma
@@ -619,7 +619,7 @@ Use builtin
     The object `a` has no attribute named `length`.
     Perhaps you can use the Python builtin function `len` instead:
     `len(a)`.
-    Exception raised on line 97 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 97 of code block TESTS:\runtime\test_attribute_error.py.
     
        93: def test_Use_builtin():
        94:     #
@@ -653,7 +653,7 @@ Use join with str
     The object `['a', '2']` has no attribute named `join`.
     Perhaps you wanted something like `'abc'.join(['a', '2'])`.
     
-    Exception raised on line 337 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 337 of code block TESTS:\runtime\test_attribute_error.py.
     
        335: def test_Use_join_with_str():
        336:     try:
@@ -683,7 +683,7 @@ Use synonym
     However, `a` has the following attributes with similar meanings:
     `append, extend, insert`.
     
-    Exception raised on line 113 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 113 of code block TESTS:\runtime\test_attribute_error.py.
     
        109: def test_Use_synonym():
        110:     #
@@ -717,7 +717,7 @@ Using slots
     the creation of new attributes.
     The following are some of its known attributes:
     `a`.
-    Exception raised on line 258 of file TESTS:\runtime\test_attribute_error.py.
+    Exception raised on line 258 of code block TESTS:\runtime\test_attribute_error.py.
     
        254:         __slots__ = ["a"]
        256:     f = F()
@@ -754,7 +754,7 @@ Directory not found
     does_not_exist
     is not a valid directory.
     
-    Exception raised on line 70 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 70 of code block TESTS:\runtime\test_file_not_found_error.py.
     
        68: def test_Directory_not_found():
        69:     try:
@@ -786,7 +786,7 @@ Filename not found
     `C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
     I have no additional information for you.
     
-    Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 7 of code block TESTS:\runtime\test_file_not_found_error.py.
     
        5: def test_Filename_not_found():
        6:     try:
@@ -820,7 +820,7 @@ Filename not found 2
     `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
     The file `setup.py` has a similar name.
     
-    Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 30 of code block TESTS:\runtime\test_file_not_found_error.py.
     
        26:     if chdir:
        27:         os.chdir("..")
@@ -856,7 +856,7 @@ Filename not found 3
     Perhaps you meant one of the following files with similar names:
     `setup.py`, `setup.cfg`
     
-    Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
+    Exception raised on line 52 of code block TESTS:\runtime\test_file_not_found_error.py.
     
        49:     if chdir:
        50:         os.chdir("..")
@@ -914,7 +914,7 @@ Circular import
     -->58:         import circular_a
        59:     except ImportError as e:
 
-    Exception raised on line 2 of file TESTS:\circular_b.py.
+    Exception raised on line 2 of code block TESTS:\circular_b.py.
     
        1: """File used in for test_circular_import() in test_import_error.py"""
     -->2: from circular_a import a
@@ -939,7 +939,7 @@ Simple import error
     
     Perhaps you meant to import `pi` (from `math`) instead of `Pi`
     
-    Exception raised on line 44 of file TESTS:\runtime\test_import_error.py.
+    Exception raised on line 44 of code block TESTS:\runtime\test_import_error.py.
     
        40:     no_suggestion()
        41:     multiple_import_on_same_line()
@@ -973,7 +973,7 @@ Assignment
     The valid index values of `a` are integers ranging from
     `-10` to `9`.
     
-    Exception raised on line 76 of file TESTS:\runtime\test_index_error.py.
+    Exception raised on line 76 of code block TESTS:\runtime\test_index_error.py.
     
        72:         assert "You have tried to assign a value to index `1` of `b`," in result
        73:         assert "a `list` which contains no item." in result
@@ -1006,7 +1006,7 @@ Empty
     You have tried to get the item with index `1` of `a`,
     a `list` which contains no item.
     
-    Exception raised on line 38 of file TESTS:\runtime\test_index_error.py.
+    Exception raised on line 38 of code block TESTS:\runtime\test_index_error.py.
     
        35: def test_Empty():
        36:     a = []
@@ -1040,7 +1040,7 @@ Long list
     The valid index values of `a` are integers ranging from
     `-40` to `39`.
     
-    Exception raised on line 24 of file TESTS:\runtime\test_index_error.py.
+    Exception raised on line 24 of code block TESTS:\runtime\test_index_error.py.
     
        21:     a = list(range(40))
        22:     b = tuple(range(50))
@@ -1078,7 +1078,7 @@ Short tuple
     The valid index values of `a` are integers ranging from
     `-3` to `2`.
     
-    Exception raised on line 8 of file TESTS:\runtime\test_index_error.py.
+    Exception raised on line 8 of code block TESTS:\runtime\test_index_error.py.
     
        5:     a = (1, 2, 3)
        6:     b = [1, 2, 3]
@@ -1118,7 +1118,7 @@ ChainMap
     
     The key `42` cannot be found in `d`, an object of type `ChainMap`.
     
-    Exception raised on line 62 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 62 of code block TESTS:\runtime\test_key_error.py.
     
        59:     from collections import ChainMap
        60:     d = ChainMap({}, {})
@@ -1151,7 +1151,7 @@ Forgot to convert to string
     `squares` contains a string key which is identical to `str(2)`.
     Perhaps you forgot to convert the key into a string.
     
-    Exception raised on line 115 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 115 of code block TESTS:\runtime\test_key_error.py.
     
        112: def test_Forgot_to_convert_to_string():
        113:     squares = {"1": 1, "2": 4, "3": 9}
@@ -1180,7 +1180,7 @@ Generic key error
     
     The key `'c'` cannot be found in the dict `d`.
     
-    Exception raised on line 44 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 44 of code block TESTS:\runtime\test_key_error.py.
     
        41: def test_Generic_key_error():
        42:     d = {"a": 1, "b": 2}
@@ -1217,7 +1217,7 @@ Popitem empty ChainMap
     
     You tried to retrieve an item from `alpha` which is an empty `ChainMap`.
     
-    Exception raised on line 26 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 26 of code block TESTS:\runtime\test_key_error.py.
     
        23:     from collections import ChainMap
        24:     alpha = ChainMap({}, {})
@@ -1248,7 +1248,7 @@ Popitem empty dict
     
     You tried to retrieve an item from `d` which is an empty `dict`.
     
-    Exception raised on line 8 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 8 of code block TESTS:\runtime\test_key_error.py.
     
        5: def test_Popitem_empty_dict():
        6:     d = {}
@@ -1281,7 +1281,7 @@ Similar names
     `second` has some keys similar to `'alpha'` including:
     `'alpha0', 'alpha12', 'alpha11'`.
     
-    Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 145 of code block TESTS:\runtime\test_key_error.py.
     
        141:         assert ok, diff
        143:     second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
@@ -1315,7 +1315,7 @@ String by mistake
     There is a key of `d` whose string representation
     is identical to `'(0, 0)'`.
     
-    Exception raised on line 98 of file TESTS:\runtime\test_key_error.py.
+    Exception raised on line 98 of code block TESTS:\runtime\test_key_error.py.
     
        94:     chain_map_string_by_mistake()  # do not show in docs
        96:     d = {(0, 0): "origin"}
@@ -1346,7 +1346,7 @@ Generic
     when a key or index used on a mapping or sequence is invalid.
     It can also be raised directly by codecs.lookup().
     
-    Exception raised on line 10 of file TESTS:\runtime\test_lookup_error.py.
+    Exception raised on line 10 of code block TESTS:\runtime\test_lookup_error.py.
     
         4: def test_Generic():
         5:     try:
@@ -1384,7 +1384,7 @@ Need to install module
     No module named `alphabet` can be imported.
     Perhaps you need to install it.
     
-    Exception raised on line 76 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 76 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        74: def test_Need_to_install_module():
        75:     try:
@@ -1410,7 +1410,7 @@ Not a package
     
     `xxx` cannot be imported from `os`.
     
-    Exception raised on line 22 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 22 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        19: def test_Not_a_package():
        21:     try:
@@ -1442,7 +1442,7 @@ Not a package similar name
     Other objects with similar names that are part of
      `os` include `fspath`.
     
-    Exception raised on line 36 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 36 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        34: def test_Not_a_package_similar_name():
        35:     try:
@@ -1470,7 +1470,7 @@ Object not module
     
     `open` is not a separate module but an object that is part of `os`.
     
-    Exception raised on line 49 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 49 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        47: def test_Object_not_module():
        48:     try:
@@ -1505,7 +1505,7 @@ Similar object not module
     Other objects with similar names that are part of
      `os` include `popen, fdopen`.
     
-    Exception raised on line 62 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 62 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        60: def test_Similar_object_not_module():
        61:     try:
@@ -1535,7 +1535,7 @@ Standard library module
     Perhaps you need to install it.
     `tkinter` is an existing module that has a similar name.
     
-    Exception raised on line 7 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 7 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        5: def test_Standard_library_module():
        6:     try:
@@ -1564,7 +1564,7 @@ no curses
     You have tried to import the curses module.
     The curses module is rarely installed with Python on Windows.
     
-    Exception raised on line 92 of file TESTS:\runtime\test_module_not_found_error.py.
+    Exception raised on line 92 of code block TESTS:\runtime\test_module_not_found_error.py.
     
        90:     def test_no_curses():
        91:         try:
@@ -1605,7 +1605,7 @@ Annotated variable
     
         x = 3
     
-    Exception raised on line 24 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 24 of code block TESTS:\runtime\test_name_error.py.
     
        22: def test_Annotated_variable():
        23:     try:
@@ -1633,7 +1633,7 @@ Custom name
     before being defined or given a value.
     
     You are already using Python!
-    Exception raised on line 165 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 165 of code block TESTS:\runtime\test_name_error.py.
     
        163: def test_Custom_name():
        164:     try:
@@ -1677,7 +1677,7 @@ Free variable referenced
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 144 of code block TESTS:\runtime\test_name_error.py.
     
        143:         def inner():
     -->144:             return var
@@ -1704,7 +1704,7 @@ Generic
     In your program, no object with the name `something` exists.
     I have no additional information for you.
     
-    Exception raised on line 9 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 9 of code block TESTS:\runtime\test_name_error.py.
     
         7: def test_Generic():
         8:     try:
@@ -1736,7 +1736,7 @@ Missing import
     Perhaps you forgot to import `unicodedata` which is found
     in Python's standard library.
     
-    Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 129 of code block TESTS:\runtime\test_name_error.py.
     
        125:     if friendly_traceback.get_lang() == "en":
        126:         assert "I have no additional information for you." in result
@@ -1772,7 +1772,7 @@ Missing module name
     Perhaps you should have written `tkinter.Frame`
     instead of `Frame`.
     
-    Exception raised on line 249 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 249 of code block TESTS:\runtime\test_name_error.py.
     
        246: def test_Missing_module_name():
        247:     import tkinter
@@ -1822,7 +1822,7 @@ Missing self 1
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception raised on line 191 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 191 of code block TESTS:\runtime\test_name_error.py.
     
        189:         def __str__(self):
        190:             # self at the wrong place
@@ -1872,7 +1872,7 @@ Missing self 2
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception raised on line 226 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 226 of code block TESTS:\runtime\test_name_error.py.
     
        224:         def __str__(self):
        225:             # Missing self.
@@ -1904,7 +1904,7 @@ Synonym
     Instead of writing `cost`, perhaps you meant one of the following:
     *   Global scope: `cos`, `cosh`, `acos`
     
-    Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
+    Exception raised on line 89 of code block TESTS:\runtime\test_name_error.py.
     
        85:     if friendly_traceback.get_lang() == "en":
        86:         assert "The Python builtin `chr` has a similar name." in result
@@ -1950,7 +1950,7 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 8 of code block TESTS:\runtime\test_os_error.py.
     
        5: def test_Urllib_error():
        6:     from urllib import request, error
@@ -1989,7 +1989,7 @@ invalid argument
     front of the filename or path, or replace all single backslash
     characters, `\`, by double ones: `\\`.
     
-    Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 46 of code block TESTS:\runtime\test_os_error.py.
     
        43:     if os.name != "nt":
        44:         return "Windows test only", "No result"
@@ -2026,7 +2026,7 @@ no information
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
     
-    Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 27 of code block TESTS:\runtime\test_os_error.py.
     
        24:     old_debug = friendly_traceback.debug_helper.DEBUG
        25:     friendly_traceback.debug_helper.DEBUG = False
@@ -2056,7 +2056,7 @@ Generic
     An `OverflowError` is raised when the result of an arithmetic operation
     is too large to be handled by the computer's processor.
     
-    Exception raised on line 6 of file TESTS:\runtime\test_overflow_error.py.
+    Exception raised on line 6 of code block TESTS:\runtime\test_overflow_error.py.
     
        4: def test_Generic():
        5:     try:
@@ -2099,7 +2099,7 @@ Generic
 
             a:  <function a> defined in <function test_Generic>
         
-    Exception raised on line 6 of file TESTS:\runtime\test_recursion_error.py.
+    Exception raised on line 6 of code block TESTS:\runtime\test_recursion_error.py.
     
        5:     def a():
     -->6:         return a()
@@ -2136,7 +2136,7 @@ Bad type for unary operator
     
     Perhaps you meant to write `+=` instead of `=+`
     
-    Exception raised on line 371 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 371 of code block TESTS:\runtime\test_type_error.py.
     
        366:         assert "You tried to use the unary operator '~'" in result
        368:     try:
@@ -2169,7 +2169,7 @@ Builtin has no len
     You might have meant to write:
     `len("Hello world".split())`
     
-    Exception raised on line 780 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 780 of code block TESTS:\runtime\test_type_error.py.
     
        778: def test_Builtin_has_no_len():
        779:     try:
@@ -2200,7 +2200,7 @@ Can only concatenate
     You tried to concatenate (add) two different types of objects:
     a `tuple` and a `list`.
     
-    Exception raised on line 37 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 37 of code block TESTS:\runtime\test_type_error.py.
     
        34:     try:
        35:         a_tuple = (1, 2, 3)
@@ -2236,7 +2236,7 @@ Cannot convert dictionary update sequence
     Instead of writing `dd.update([1, 2, 3])`
     perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Exception raised on line 766 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 766 of code block TESTS:\runtime\test_type_error.py.
     
        762:         assert "you should use the `dict.fromkeys()`" in result
        764:     dd = {"a": "a"}
@@ -2271,7 +2271,7 @@ Cannot multiply by non int
      strings, etc., by integers.
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Exception raised on line 570 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 570 of code block TESTS:\runtime\test_type_error.py.
     
        566:     if friendly_traceback.get_lang() == "en":
        567:         assert "Did you forget to convert `c` into an integer?" in result
@@ -2302,7 +2302,7 @@ Cannot unpack non iterable object
     Python containers (`list, tuple, dict`, etc.) are iterables,
     but not objects of type `float`.
     
-    Exception raised on line 738 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 738 of code block TESTS:\runtime\test_type_error.py.
     
        736: def test_Cannot_unpack_non_iterable_object():
        737:     try:
@@ -2333,7 +2333,7 @@ Comparison not supported
     an integer (`int`) and a string (`str`).
     Perhaps you forgot to convert the string `a` into an integer (`int`).
     
-    Exception raised on line 320 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 320 of code block TESTS:\runtime\test_type_error.py.
     
        317:     try:
        318:         a = "2"
@@ -2364,7 +2364,7 @@ Derive from BaseException
     
     In Python 3, exceptions must be derived from BaseException.
     
-    Exception raised on line 513 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 513 of code block TESTS:\runtime\test_type_error.py.
     
        511: def test_Derive_from_BaseException():
        512:     try:
@@ -2398,7 +2398,7 @@ Indices must be integers or slices
     
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Exception raised on line 652 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 652 of code block TESTS:\runtime\test_type_error.py.
     
        648:     if friendly_traceback.get_lang() == "en":
        649:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
@@ -2427,7 +2427,7 @@ Not an integer
     
     You wrote an object of type `str` where an integer was expected.
     Perhaps you forgot to convert `c, d` into integers.
-    Exception raised on line 615 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 615 of code block TESTS:\runtime\test_type_error.py.
     
        611:         assert "Perhaps you forgot to convert `1.0" in result
        613:     c, d = "2", "3"
@@ -2468,7 +2468,7 @@ Not callable
     Perhaps you meant to use `[]` instead of `()` and write
     `[1, 2][a + b]`
     
-    Exception raised on line 500 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 500 of code block TESTS:\runtime\test_type_error.py.
     
        496:         assert "b.a_list[3]" in result
        498:     try:
@@ -2503,7 +2503,7 @@ Object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     An iterable is required here.
     
-    Exception raised on line 724 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 724 of code block TESTS:\runtime\test_type_error.py.
     
        722: def test_Object_is_not_iterable():
        723:     try:
@@ -2537,7 +2537,7 @@ Object is not subscriptable
     
     Perhaps you meant to write `f(1)`.
     
-    Exception raised on line 710 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 710 of code block TESTS:\runtime\test_type_error.py.
     
        706:     def f():
        707:         pass
@@ -2573,7 +2573,7 @@ Slice indices must be integers or None
     each of `start`, `stop`, `step` must be either an integer, `None`,
     or possibly some other object having an `__index__` method.
     
-    Exception raised on line 666 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 666 of code block TESTS:\runtime\test_type_error.py.
     
        664: def test_Slice_indices_must_be_integers_or_None():
        665:     try:
@@ -2600,7 +2600,7 @@ Too few positional argument
     You apparently have called the function 'fn()' with
     fewer positional arguments than it requires (2 missing).
     
-    Exception raised on line 441 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 441 of code block TESTS:\runtime\test_type_error.py.
     
        437:     def fn(a, b, c):
        438:         pass
@@ -2636,7 +2636,7 @@ Too many positional argument
     such positional argument(s).
     Perhaps you forgot `self` when defining `f`.
     
-    Exception raised on line 422 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 422 of code block TESTS:\runtime\test_type_error.py.
     
        418:         def f(x):
        419:             pass
@@ -2673,7 +2673,7 @@ Tuple no item assignment
     most likely by using an indexing operation.
     Perhaps you meant to use a list instead.
     
-    Exception raised on line 389 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 389 of code block TESTS:\runtime\test_type_error.py.
     
        386: def test_Tuple_no_item_assignment():
        387:     a = (1, 2, 3)
@@ -2707,7 +2707,7 @@ Unhachable type
     Hashable objects are objects that do not change value
     once they have been created.Instead of using a `list`, consider using a `tuple`.
     
-    Exception raised on line 683 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 683 of code block TESTS:\runtime\test_type_error.py.
     
        681: def test_Unhachable_type():
        682:     try:
@@ -2737,7 +2737,7 @@ Unsupported operand types
     This operator is normally used only
     for multiplication of matrices.
     
-    Exception raised on line 283 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 283 of code block TESTS:\runtime\test_type_error.py.
     
        280:     try:
        281:         a = "a"
@@ -2771,7 +2771,7 @@ function got multiple argument
     This function has the following arguments:
     `a, b=1`
     
-    Exception raised on line 872 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 872 of code block TESTS:\runtime\test_type_error.py.
     
        868:     def fn2(a, b=1):
        869:         pass
@@ -2806,7 +2806,7 @@ function has no len
     You might have meant to write:
     `len(bad())`
     
-    Exception raised on line 797 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 797 of code block TESTS:\runtime\test_type_error.py.
     
        793:     def bad():
        794:         pass
@@ -2837,7 +2837,7 @@ getattr attribute name must be string
     
     The second argument of the function `getattr()` must be a string.
     
-    Exception raised on line 918 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 918 of code block TESTS:\runtime\test_type_error.py.
     
        911:     if friendly_traceback.get_lang() == "en":
        912:         assert (
@@ -2872,7 +2872,7 @@ method got multiple argument
     when calling the function named `t.some_method`.
     This function has only one argument: `a`
     
-    Exception raised on line 891 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 891 of code block TESTS:\runtime\test_type_error.py.
     
        887:             pass
        889:     t = T()
@@ -2908,7 +2908,7 @@ vars arg must have dict
     `__dict__` attribute of an object.
     Object `f` uses `__slots__` instead of `__dict__`.
     
-    Exception raised on line 841 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 841 of code block TESTS:\runtime\test_type_error.py.
     
        837:         assert no_slots not in result
        838:         assert use_slots not in result
@@ -2974,7 +2974,7 @@ Missing both
 
             global outer_missing_both:  <function outer_missing_both>
         
-    Exception raised on line 21 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 21 of code block TESTS:\runtime\test_unbound_local_error.py.
     
        20:     def inner():
     -->21:         spam_missing_both += 1
@@ -3025,7 +3025,7 @@ Missing global
 
             global outer_missing_global:  <function outer_missing_global>
         
-    Exception raised on line 9 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 9 of code block TESTS:\runtime\test_unbound_local_error.py.
     
        8:     def inner():
     -->9:         spam_missing_global += 1
@@ -3076,7 +3076,7 @@ Missing nonlocal
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
-    Exception raised on line 15 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 15 of code block TESTS:\runtime\test_unbound_local_error.py.
     
        14:     def inner():
     -->15:         spam_missing_nonlocal += 1
@@ -3119,7 +3119,7 @@ Typo in local
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    Exception raised on line 98 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 98 of code block TESTS:\runtime\test_unbound_local_error.py.
     
        95:     def test2():
        96:         alpha1 = 1
@@ -3166,7 +3166,7 @@ Using name of builtin
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
         
-    Exception raised on line 117 of file TESTS:\runtime\test_unbound_local_error.py.
+    Exception raised on line 117 of code block TESTS:\runtime\test_unbound_local_error.py.
     
        116:     def dist(points):
     -->117:         max = max(points)
@@ -3200,7 +3200,7 @@ Generic
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
     
-    Exception raised on line 12 of file TESTS:\runtime\test_unknown_error.py.
+    Exception raised on line 12 of code block TESTS:\runtime\test_unknown_error.py.
     
         9:     old_debug = friendly_traceback.debug_helper.DEBUG
        10:     friendly_traceback.debug_helper.DEBUG = False
@@ -3235,7 +3235,7 @@ Date invalid month
     I am guessing that you specify an invalid value for a month
     in a `date` object. Valid values are integers, from 1 to 12.
     
-    Exception raised on line 58 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 58 of code block TESTS:\runtime\test_value_error.py.
     
        55: def test_Date_invalid_month():
        56:     from datetime import date
@@ -3267,7 +3267,7 @@ Not enough values to unpack
     In this instance, there are more names (3)
     than the length of the iterable, a string (`str`) of length 2.
     
-    Exception raised on line 28 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 28 of code block TESTS:\runtime\test_value_error.py.
     
        24:     assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
        26:     d = "ab"
@@ -3298,7 +3298,7 @@ Too many values to unpack
     In this instance, there are fewer names (2)
     than the length of the iterable, a `list` of length 3.
     
-    Exception raised on line 43 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 43 of code block TESTS:\runtime\test_value_error.py.
     
        40: def test_Too_many_values_to_unpack():
        41:     c = [1, 2, 3]
@@ -3328,7 +3328,7 @@ slots conflicts with class variable
     and as a string item in the class `__slots__`;
     this is not allowed.
     
-    Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 72 of code block TESTS:\runtime\test_value_error.py.
     
        70: def test_slots_conflicts_with_class_variable():
        71:     try:
@@ -3358,7 +3358,7 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     The following site might also be useful: https://www.strfti.me/
     
-    Exception raised on line 98 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 98 of code block TESTS:\runtime\test_value_error.py.
     
        94:         return
        96:     import time
@@ -3395,7 +3395,7 @@ Complex division
     
     which is equal to zero.
     
-    Exception raised on line 155 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 155 of code block TESTS:\runtime\test_zero_division_error.py.
     
        152: def test_Complex_division():
        153:     zero = 0j
@@ -3423,7 +3423,7 @@ Division by zero literal
     
     You are dividing by zero.
     
-    Exception raised on line 199 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 199 of code block TESTS:\runtime\test_zero_division_error.py.
     
        194:     if friendly_traceback.get_lang() == "en":
        195:         assert "Using the modulo operator, you are dividing by zero" in result
@@ -3452,7 +3452,7 @@ Division operator
     
     which is equal to zero.
     
-    Exception raised on line 17 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 17 of code block TESTS:\runtime\test_zero_division_error.py.
     
        13:     if friendly_traceback.get_lang() == "en":
        14:         assert "The following mathematical expression includes a division by zero" in result
@@ -3480,7 +3480,7 @@ Divmod
     
     The second argument of the `divmod()` function is zero.
     
-    Exception raised on line 82 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 82 of code block TESTS:\runtime\test_zero_division_error.py.
     
        79: def test_Divmod():
        80:     zero = 0
@@ -3513,7 +3513,7 @@ Float division
     
     which is equal to zero.
     
-    Exception raised on line 125 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 125 of code block TESTS:\runtime\test_zero_division_error.py.
     
        122: def test_Float_division():
        123:     zero = 0.
@@ -3541,7 +3541,7 @@ Float divmod
     
     The second argument of the `divmod()` function is equal to zero.
     
-    Exception raised on line 140 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 140 of code block TESTS:\runtime\test_zero_division_error.py.
     
        137: def test_Float_divmod():
        138:     zero = 0.
@@ -3574,7 +3574,7 @@ Float modulo
     
     which is equal to zero.
     
-    Exception raised on line 110 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 110 of code block TESTS:\runtime\test_zero_division_error.py.
     
        106:         assert "The following mathematical expression includes a division by zero" in result
        107:         assert "done using the modulo operator" in result
@@ -3606,7 +3606,7 @@ Integer division operator
     
     which is equal to zero.
     
-    Exception raised on line 42 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 42 of code block TESTS:\runtime\test_zero_division_error.py.
     
        38:     if friendly_traceback.get_lang() == "en":
        39:         assert "The following mathematical expression includes a division by zero" in result
@@ -3636,7 +3636,7 @@ Mixed operations
     
         divmod(8, 1 // 2)
     
-    Exception raised on line 212 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 212 of code block TESTS:\runtime\test_zero_division_error.py.
     
        210: def test_Mixed_operations():
        211:     try:
@@ -3669,7 +3669,7 @@ Modulo operator
     
     which is equal to zero.
     
-    Exception raised on line 67 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 67 of code block TESTS:\runtime\test_zero_division_error.py.
     
        63:     if friendly_traceback.get_lang() == "en":
        64:         assert "The following mathematical expression includes a division by zero" in result
@@ -3698,7 +3698,7 @@ Raise zero negative power
     You are attempting to raise the number 0 to a negative power
     which is equivalent to dividing by zero.
     
-    Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 170 of code block TESTS:\runtime\test_zero_division_error.py.
     
        167: def test_Raise_zero_negative_power():
        168:     zero = 0

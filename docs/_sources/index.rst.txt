@@ -373,6 +373,16 @@ could easily be added.
    compare_exceptions
    compare
 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: En español
+
+   tracebacks_es
+   syntax_tracebacks_es
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:

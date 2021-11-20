@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="One last thing" href="about_warnings.html" /><link rel="prev" title="Friendly object" href="friendly_object.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Everything about the friendly console - friendly-traceback 0.4.71</title>
+        <title>Everything about the friendly console - friendly-traceback 0.4.78</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.71</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.78</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.71</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.78</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -383,23 +383,17 @@ formatter is used.</p>
 English strings will be used.</p>
 </dd></dl>
 <dl class="py function">
-<dt class="sig sig-object py" id="friendly_traceback.console_helpers.set_prompt">
-<span class="sig-name descname"><span class="pre">set_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#set_prompt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.set_prompt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the default prompt to use in the console.</p>
-<p>If the prompt argument is “&gt;&gt;&gt;” or “python”,
-then the standard Python prompt will be used.
-Note that the prompt argument will be stripped and is case-insensitive.</p>
-<p>If any other argument is given, then the iPython style prompt will be used.
-Setting this has also an effect on how the “friendly traceback” filename
-are shown for code blocks.</p>
-</dd></dl>
-<dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.console_helpers.show_paths">
 <span class="sig-name descname"><span class="pre">show_paths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/path_info.html#show_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.show_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>To avoid displaying very long file paths to the user,
 Friendly-traceback tries to shorten them using some easily
 recognized synonyms. This function shows the path synonyms
 currently used.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.console_helpers.toggle_prompt">
+<span class="sig-name descname"><span class="pre">toggle_prompt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#toggle_prompt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.toggle_prompt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles the style of prompt to use in the console.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.console_helpers.what">
