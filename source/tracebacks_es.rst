@@ -1,4 +1,3 @@
-
 Friendly tracebacks - en español
 ======================================
 
