@@ -372,7 +372,7 @@ Module attribute typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'
     
-        Vouliez-vous dire `cos` ?
+        Vouliez-vous dire `cosh` ?
         
     Une exception `AttributeError` se produit lorsque le code contient quelque chose comme
         `object.x`
@@ -380,7 +380,7 @@ Module attribute typo
     
     Au lieu d’écrire `math.cost`, peut-être que vous vouliez écrire
     l'un des attributs suivants du module `math` :
-    cos, cosh
+    cosh, cos
     
     Exception levée à la ligne 142 du fichier TESTS:\runtime\test_attribute_error.py.
     
@@ -1269,7 +1269,7 @@ Similar names
     
     La clé `'alpha'` est introuvable dans le dict `second`.
     `second` a quelques clés similaires à `'alpha'` dont :
-    `'alpha0', 'alpha11', 'alpha12'`.
+    `'alpha0', 'alpha12', 'alpha11'`.
     
     Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
     
@@ -1900,7 +1900,7 @@ Synonym
     
     Dans votre programme, aucun objet portant le nom `cost` n'existe.
     Au lieu d’écrire `cost`, peut-être que vous vouliez écrire l'un des noms suivants :
-    *    Portée globale : `cos`, `cosh`
+    *    Portée globale : `cosh`, `cos`
     
     Exception levée à la ligne 89 du fichier TESTS:\runtime\test_name_error.py.
     
@@ -3156,7 +3156,7 @@ Typo in local
         alpha3 += 1
     UnboundLocalError: local variable 'alpha3' referenced before assignment
     
-        Vouliez-vous dire `alpha2` ?
+        Vouliez-vous dire `alpha1` ?
         
     En Python, les variables utilisées à l’intérieur d’une fonction sont appelées
     variables «locales».
@@ -3169,7 +3169,7 @@ Typo in local
     qu’il s’agit d’une variable globale, sinon vous verrez une exception `UnboundLocalError`.
     
     Au lieu d’écrire `alpha3`, peut-être que vous vouliez écrire l'un des noms suivants :
-    *    Portée locale : `alpha2`, `alpha1`
+    *    Portée locale : `alpha1`, `alpha2`
     
     L'exécution s'est arrêtée à la ligne 101 du fichier TESTS:\runtime\test_unbound_local_error.py
     

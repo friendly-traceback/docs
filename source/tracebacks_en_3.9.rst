@@ -1274,7 +1274,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
     
@@ -1905,7 +1905,7 @@ Synonym
     
     In your program, no object with the name `cost` exists.
     Instead of writing `cost`, perhaps you meant one of the following:
-    *   Global scope: `cos`, `cosh`
+    *   Global scope: `cosh`, `cos`
     
     Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
     

@@ -1274,7 +1274,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
     

@@ -1,5 +1,5 @@
 
-Friendly tracebacks - en español
+Friendly tracebacks - in italiano
 ======================================
 
 Friendly aims to provide friendlier feedback when an exception
@@ -1261,7 +1261,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha11', 'alpha12'`.
+    `'alpha0', 'alpha12', 'alpha11'`.
     
     Eccezione rilevata alla linea 145 del file TESTS:\runtime\test_key_error.py.
     
@@ -1881,7 +1881,7 @@ Synonym
         cost  # wrote from math import * above
     NameError: name 'cost' is not defined
     
-        Intendevi `cosh`?
+        Intendevi `cos`?
         
     A `NameError` exception indicates that a variable or
     function name is not known to Python.
@@ -1891,7 +1891,7 @@ Synonym
     
     In your program, no object with the name `cost` exists.
     Instead of writing `cost`, perhaps you meant one of the following:
-    *   Global scope: `cos`, `cosh`
+    *   Global scope: `cosh`, `cos`
     
     Eccezione rilevata alla linea 89 del file TESTS:\runtime\test_name_error.py.
     

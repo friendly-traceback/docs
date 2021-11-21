@@ -374,7 +374,7 @@ Module attribute typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'
     
-        Did you mean `cosh`?
+        Did you mean `cos`?
         
     An `AttributeError` occurs when the code contains something like
         `object.x`
@@ -382,7 +382,7 @@ Module attribute typo
     
     Instead of writing `math.cost`, perhaps you meant to write one of 
     the following names which are attributes of module `math`:
-    `cosh, cos`
+    `cos, cosh`
     
     Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
     
@@ -1245,7 +1245,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha11', 'alpha12'`.
+    `'alpha0', 'alpha12', 'alpha11'`.
     
     Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
     

@@ -376,7 +376,7 @@ Module attribute typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'
     
-        ¿Quieres decir `cosh`?
+        ¿Quieres decir `cos`?
         
     Un `AttributeError` ocurre cuando el código contiene algo como
         objeto.x
@@ -384,7 +384,7 @@ Module attribute typo
     
     En lugar de escribir `math.cost`, quizás quisiste escribir uno de los
     siguientes nombres que son atributos del módulo `math`:
-    `cosh, cos`
+    `cos, cosh`
     
     Excepción elevada en la linea 142 del archivo TESTS:\runtime\test_attribute_error.py.
     
@@ -1276,7 +1276,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Excepción elevada en la linea 145 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1897,7 +1897,7 @@ Synonym
         cost  # wrote from math import * above
     NameError: name 'cost' is not defined
     
-        ¿Quieres decir `cosh`?
+        ¿Quieres decir `cos`?
         
     Una excepción `NameError` indica que una variable o
     nombre de función no es conocido por Python.
@@ -1907,7 +1907,7 @@ Synonym
     
     In your program, no object with the name `cost` exists.
     Instead of writing `cost`, perhaps you meant one of the following:
-    *   alcance global: `cosh`, `cos`
+    *   alcance global: `cos`, `cosh`
     
     Excepción elevada en la linea 89 del archivo TESTS:\runtime\test_name_error.py.
     

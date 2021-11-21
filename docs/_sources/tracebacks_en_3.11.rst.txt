@@ -374,7 +374,7 @@ Module attribute typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'
     
-        Did you mean `cosh`?
+        Did you mean `cos`?
         
     An `AttributeError` occurs when the code contains something like
         `object.x`
@@ -382,7 +382,7 @@ Module attribute typo
     
     Instead of writing `math.cost`, perhaps you meant to write one of 
     the following names which are attributes of module `math`:
-    `cosh, cos`
+    `cos, cosh`
     
     Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
     
@@ -1869,7 +1869,7 @@ Synonym
         cost  # wrote from math import * above
     NameError: name 'cost' is not defined
     
-        Did you mean `cos`?
+        Did you mean `cosh`?
         
     A `NameError` exception indicates that a variable or
     function name is not known to Python.
@@ -1879,7 +1879,7 @@ Synonym
     
     In your program, no object with the name `cost` exists.
     Instead of writing `cost`, perhaps you meant one of the following:
-    *   Global scope: `cosh`, `cos`
+    *   Global scope: `cos`, `cosh`
     
     Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
     
@@ -3133,7 +3133,7 @@ Typo in local
         alpha3 += 1
     UnboundLocalError: cannot access local variable 'alpha3' where it is not associated with a value
     
-        Did you mean `alpha2`?
+        Did you mean `alpha1`?
         
     In Python, variables that are used inside a function are known as 
     local variables. Before they are used, they must be assigned a value.
@@ -3145,7 +3145,7 @@ Typo in local
     an `UnboundLocalError`.
     
     Instead of writing `alpha3`, perhaps you meant one of the following:
-    *   Local scope: `alpha2`, `alpha1`
+    *   Local scope: `alpha1`, `alpha2`
     
     Execution stopped on line 101 of file TESTS:\runtime\test_unbound_local_error.py.
     
