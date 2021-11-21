@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.9.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.8.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Friendly tracebacks - in English - friendly-traceback 0.4.79</title>
+        <title>Friendly tracebacks - in English - friendly-traceback 0.4.82</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.79</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.82</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.79</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.82</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -260,6 +260,11 @@
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_it.html">Friendly tracebacks - en español</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
 
 </div>
 </div>
@@ -298,7 +303,7 @@ Not all cases handled by friendly are included here.</p>
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.4.78
+<p>Friendly-traceback version: 0.4.82
 Python version: 3.9.5</p>
 <div class="section" id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -614,7 +619,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 
 Instead of writing `math.cost`, perhaps you meant to write one of
 the following names which are attributes of module `math`:
-`cos, cosh, acos`
+`cos, cosh`
 
 Exception raised on line 142 of file TESTS:\runtime\test_attribute_error.py.
 
@@ -1047,7 +1052,7 @@ Exception raised on line 52 of file TESTS:\runtime\test_file_not_found_error.py.
 <div class="section" id="id3">
 <h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 58, in test_Circular_import
+  File "TESTS:\runtime\test_import_error.py", line 59, in test_Circular_import
     import circular_a
   File "TESTS:\circular_a.py", line 2, in &lt;module&gt;
     import circular_b
@@ -1073,12 +1078,12 @@ was executed. However in this last file, an attempt was made
 to import the original module `circular_a`
 a second time, before Python had completed the first import.
 
-Execution stopped on line 58 of file TESTS:\runtime\test_import_error.py.
+Execution stopped on line 59 of file TESTS:\runtime\test_import_error.py.
 
-   56: def test_Circular_import():
-   57:     try:
---&gt;58:         import circular_a
-   59:     except ImportError as e:
+   57: def test_Circular_import():
+   58:     try:
+--&gt;59:         import circular_a
+   60:     except ImportError as e:
 
 Exception raised on line 2 of file TESTS:\circular_b.py.
 
@@ -1090,7 +1095,7 @@ Exception raised on line 2 of file TESTS:\circular_b.py.
 <div class="section" id="simple-import-error">
 <h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 44, in test_Simple_import_error
+  File "TESTS:\runtime\test_import_error.py", line 45, in test_Simple_import_error
     from math import Pi
 ImportError: cannot import name 'Pi' from 'math' (unknown location)
 
@@ -1102,13 +1107,13 @@ because the name of the object is not spelled correctly.
 
 Perhaps you meant to import `pi` (from `math`) instead of `Pi`
 
-Exception raised on line 44 of file TESTS:\runtime\test_import_error.py.
+Exception raised on line 45 of file TESTS:\runtime\test_import_error.py.
 
-   40:     no_suggestion()
-   41:     multiple_import_on_same_line()
-   43:     try:
---&gt;44:         from math import Pi
-   45:     except ImportError as e:
+   41:     no_suggestion()
+   42:     multiple_import_on_same_line()
+   44:     try:
+--&gt;45:         from math import Pi
+   46:     except ImportError as e:
 </pre></div>
 </div>
 </div>
@@ -1540,8 +1545,6 @@ or because it is not installed on your computer.
 Perhaps you meant `import os.path`.
 `path` is a name similar to `pathh` and is a module that
 can be imported from `os`.
-Other objects with similar names that are part of
- `os` include `fspath`.
 
 Exception raised on line 36 of file TESTS:\runtime\test_module_not_found_error.py.
 
@@ -1597,7 +1600,7 @@ Perhaps you meant `from os import open`.
 `open` is a name similar to `opend` and is an object that
 can be imported from `os`.
 Other objects with similar names that are part of
- `os` include `popen, fdopen`.
+ `os` include `popen`.
 
 Exception raised on line 62 of file TESTS:\runtime\test_module_not_found_error.py.
 
@@ -1702,7 +1705,7 @@ Exception raised on line 24 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="custom-name">
 <h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 165, in test_Custom_name
+  File "TESTS:\runtime\test_name_error.py", line 192, in test_Custom_name
     python
 NameError: name 'python' is not defined
 
@@ -1714,23 +1717,23 @@ However, sometimes it is because the name is used
 before being defined or given a value.
 
 You are already using Python!
-Exception raised on line 165 of file TESTS:\runtime\test_name_error.py.
+Exception raised on line 192 of file TESTS:\runtime\test_name_error.py.
 
-   163: def test_Custom_name():
-   164:     try:
---&gt;165:         python
-   166:     except NameError as e:
+   190: def test_Custom_name():
+   191:     try:
+--&gt;192:         python
+   193:     except NameError as e:
 </pre></div>
 </div>
 </div>
 <div class="section" id="free-variable-referenced">
 <h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 149, in test_Free_variable_referenced
+  File "TESTS:\runtime\test_name_error.py", line 176, in test_Free_variable_referenced
     outer()
-  File "TESTS:\runtime\test_name_error.py", line 145, in outer
+  File "TESTS:\runtime\test_name_error.py", line 172, in outer
     inner()
-  File "TESTS:\runtime\test_name_error.py", line 144, in inner
+  File "TESTS:\runtime\test_name_error.py", line 171, in inner
     return var
 NameError: free variable 'var' referenced before assignment in enclosing scope
 
@@ -1744,21 +1747,21 @@ In your program, `var` is an unknown name
 that exists in an enclosing scope,
 but has not yet been assigned a value.
 
-Execution stopped on line 149 of file TESTS:\runtime\test_name_error.py.
+Execution stopped on line 176 of file TESTS:\runtime\test_name_error.py.
 
-   145:         inner()
-   146:         var = 4
-   148:     try:
---&gt;149:         outer()
-   150:     except NameError as e:
+   172:         inner()
+   173:         var = 4
+   175:     try:
+--&gt;176:         outer()
+   177:     except NameError as e:
 
         outer:  &lt;function outer&gt;
             defined in &lt;function test_Free_variable_referenced&gt;
 
-Exception raised on line 144 of file TESTS:\runtime\test_name_error.py.
+Exception raised on line 171 of file TESTS:\runtime\test_name_error.py.
 
-   143:         def inner():
---&gt;144:             return var
+   170:         def inner():
+--&gt;171:             return var
                            ^^^
 </pre></div>
 </div>
@@ -1804,9 +1807,15 @@ Most often, this is because there is a spelling mistake.
 However, sometimes it is because the name is used
 before being defined or given a value.
 
+
 The name `unicodedata` is not defined in your program.
 Perhaps you forgot to import `unicodedata` which is found
 in Python's standard library.
+
+`unicodedata` is a name found in module `stringprep`.
+Perhaps you forgot to write
+
+    from stringprep import unicodedata
 
 Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
 
@@ -1822,7 +1831,7 @@ Exception raised on line 129 of file TESTS:\runtime\test_name_error.py.
 <div class="section" id="missing-module-name">
 <h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 249, in test_Missing_module_name
+  File "TESTS:\runtime\test_name_error.py", line 276, in test_Missing_module_name
     frame = Frame()
 NameError: name 'Frame' is not defined
 
@@ -1841,23 +1850,27 @@ has an attribute named `Frame`.
 Perhaps you should have written `tkinter.Frame`
 instead of `Frame`.
 
-Exception raised on line 249 of file TESTS:\runtime\test_name_error.py.
+`Frame` is a name found in the following modules from the standard library:
+tkinter, tracemalloc.
+Perhaps you forgot to import `Frame` from one of these modules.
 
-   246: def test_Missing_module_name():
-   247:     import tkinter
-   248:     try:
---&gt;249:         frame = Frame()
+Exception raised on line 276 of file TESTS:\runtime\test_name_error.py.
+
+   273: def test_Missing_module_name():
+   274:     import tkinter
+   275:     try:
+--&gt;276:         frame = Frame()
                         ^^^^^
-   250:     except NameError as e:
+   277:     except NameError as e:
 </pre></div>
 </div>
 </div>
 <div class="section" id="missing-self-1">
 <h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 200, in test_Missing_self_1
+  File "TESTS:\runtime\test_name_error.py", line 227, in test_Missing_self_1
     str(a)
-  File "TESTS:\runtime\test_name_error.py", line 191, in __str__
+  File "TESTS:\runtime\test_name_error.py", line 218, in __str__
     toys_list = add_toy(  # ensure that it can see 'self' on following line
 NameError: name 'add_toy' is not defined
 
@@ -1876,35 +1889,35 @@ has an attribute named `add_toy`.
 Perhaps you should have written `self.add_toy(...`
 instead of `add_toy(self, ...`.
 
-Execution stopped on line 200 of file TESTS:\runtime\test_name_error.py.
+Execution stopped on line 227 of file TESTS:\runtime\test_name_error.py.
 
-   196:                 return "{} has no toys".format(self.name)
-   198:     a = Pet('Fido')
-   199:     try:
---&gt;200:         str(a)
-   201:     except NameError as e:
+   223:                 return "{} has no toys".format(self.name)
+   225:     a = Pet('Fido')
+   226:     try:
+--&gt;227:         str(a)
+   228:     except NameError as e:
 
         a:  &lt;Pet object&gt;
             defined in &lt;function test_name_error.test_Missing_self_1&gt;
         str:  &lt;class str&gt;
 
-Exception raised on line 191 of file TESTS:\runtime\test_name_error.py.
+Exception raised on line 218 of file TESTS:\runtime\test_name_error.py.
 
-   189:         def __str__(self):
-   190:             # self at the wrong place
---&gt;191:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+   216:         def __str__(self):
+   217:             # self at the wrong place
+--&gt;218:             toys_list = add_toy(  # ensure that it can see 'self' on following line
                                 ^^^^^^^
-   192:                                 self, 'something')
-   193:             if self.toys:
+   219:                                 self, 'something')
+   220:             if self.toys:
 </pre></div>
 </div>
 </div>
 <div class="section" id="missing-self-2">
 <h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 234, in test_Missing_self_2
+  File "TESTS:\runtime\test_name_error.py", line 261, in test_Missing_self_2
     str(a)
-  File "TESTS:\runtime\test_name_error.py", line 226, in __str__
+  File "TESTS:\runtime\test_name_error.py", line 253, in __str__
     toys_list = add_toy('something')
 NameError: name 'add_toy' is not defined
 
@@ -1923,25 +1936,25 @@ has an attribute named `add_toy`.
 Perhaps you should have written `self.add_toy`
 instead of `add_toy`.
 
-Execution stopped on line 234 of file TESTS:\runtime\test_name_error.py.
+Execution stopped on line 261 of file TESTS:\runtime\test_name_error.py.
 
-   230:                 return "{} has no toys".format(self.name)
-   232:     a = Pet('Fido')
-   233:     try:
---&gt;234:         str(a)
-   235:     except NameError as e:
+   257:                 return "{} has no toys".format(self.name)
+   259:     a = Pet('Fido')
+   260:     try:
+--&gt;261:         str(a)
+   262:     except NameError as e:
 
         a:  &lt;Pet object&gt;
             defined in &lt;function test_name_error.test_Missing_self_2&gt;
         str:  &lt;class str&gt;
 
-Exception raised on line 226 of file TESTS:\runtime\test_name_error.py.
+Exception raised on line 253 of file TESTS:\runtime\test_name_error.py.
 
-   224:         def __str__(self):
-   225:             # Missing self.
---&gt;226:             toys_list = add_toy('something')
+   251:         def __str__(self):
+   252:             # Missing self.
+--&gt;253:             toys_list = add_toy('something')
                                 ^^^^^^^
-   227:             if self.toys:
+   254:             if self.toys:
 </pre></div>
 </div>
 </div>
@@ -1962,7 +1975,7 @@ before being defined or given a value.
 
 In your program, no object with the name `cost` exists.
 Instead of writing `cost`, perhaps you meant one of the following:
-*   Global scope: `cos`, `cosh`, `acos`
+*   Global scope: `cos`, `cosh`
 
 Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
 
@@ -1971,6 +1984,61 @@ Exception raised on line 89 of file TESTS:\runtime\test_name_error.py.
    88:     try:
 --&gt;89:         cost  # wrote from math import * above
    90:     except NameError as e:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-import2">
+<h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 143, in test_missing_import2
+    ABCMeta
+NameError: name 'ABCMeta' is not defined
+
+A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+
+In your program, no object with the name `ABCMeta` exists.
+`ABCMeta` is a name found in the following modules from the standard library:
+abc, numbers, selectors, typing.
+Perhaps you forgot to import `ABCMeta` from one of these modules.
+
+Exception raised on line 143 of file TESTS:\runtime\test_name_error.py.
+
+   141: def test_missing_import2():
+   142:     try:
+--&gt;143:         ABCMeta
+   144:     except NameError as e:
+</pre></div>
+</div>
+</div>
+<div class="section" id="missing-import3">
+<h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 157, in test_missing_import3
+    AF_APPLETALK
+NameError: name 'AF_APPLETALK' is not defined
+
+A `NameError` exception indicates that a variable or
+function name is not known to Python.
+Most often, this is because there is a spelling mistake.
+However, sometimes it is because the name is used
+before being defined or given a value.
+
+In your program, no object with the name `AF_APPLETALK` exists.
+`AF_APPLETALK` is a name found in module `socket`.
+Perhaps you forgot to write
+
+    from socket import AF_APPLETALK
+
+Exception raised on line 157 of file TESTS:\runtime\test_name_error.py.
+
+   155: def test_missing_import3():
+   156:     try:
+--&gt;157:         AF_APPLETALK
+   158:     except NameError as e:
 </pre></div>
 </div>
 </div>
@@ -3712,6 +3780,8 @@ Exception raised on line 170 of file TESTS:\runtime\test_zero_division_error.py.
 <li><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
 <li><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
 <li><a class="reference internal" href="#synonym">Synonym</a></li>
+<li><a class="reference internal" href="#missing-import2">missing import2</a></li>
+<li><a class="reference internal" href="#missing-import3">missing import3</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#oserror">OsError</a><ul>

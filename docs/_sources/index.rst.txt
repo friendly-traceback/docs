@@ -396,3 +396,12 @@ could easily be added.
 
    tracebacks_fr
    syntax_tracebacks_fr
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: In italiano
+
+   tracebacks_it
+   syntax_tracebacks_it

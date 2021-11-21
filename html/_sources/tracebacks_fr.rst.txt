@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly-traceback version: 0.4.78
+Friendly-traceback version: 0.4.82
 Python version: 3.9.5
 
 
@@ -380,7 +380,7 @@ Module attribute typo
     
     Au lieu d’écrire `math.cost`, peut-être que vous vouliez écrire
     l'un des attributs suivants du module `math` :
-    cos, cosh, acos
+    cos, cosh
     
     Exception levée à la ligne 142 du fichier TESTS:\runtime\test_attribute_error.py.
     
@@ -874,7 +874,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 58, in test_Circular_import
+      File "TESTS:\runtime\test_import_error.py", line 59, in test_Circular_import
         import circular_a
       File "TESTS:\circular_a.py", line 2, in <module>
         import circular_b
@@ -899,12 +899,12 @@ Circular import
     pour importer le module d’origine `circular_a`
     une deuxième fois, avant que Python n’ait terminé la première importation.
     
-    L'exécution s'est arrêtée à la ligne 58 du fichier TESTS:\runtime\test_import_error.py
+    L'exécution s'est arrêtée à la ligne 59 du fichier TESTS:\runtime\test_import_error.py
     
-       56: def test_Circular_import():
-       57:     try:
-    -->58:         import circular_a
-       59:     except ImportError as e:
+       57: def test_Circular_import():
+       58:     try:
+    -->59:         import circular_a
+       60:     except ImportError as e:
 
     Exception levée à la ligne 2 du fichier TESTS:\circular_b.py.
     
@@ -919,7 +919,7 @@ Simple import error
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 44, in test_Simple_import_error
+      File "TESTS:\runtime\test_import_error.py", line 45, in test_Simple_import_error
         from math import Pi
     ImportError: cannot import name 'Pi' from 'math' (unknown location)
     
@@ -931,13 +931,13 @@ Simple import error
     
     Peut-être que vous vouliez importer `pi` (de `math`) au lieu de `Pi`.
     
-    Exception levée à la ligne 44 du fichier TESTS:\runtime\test_import_error.py.
+    Exception levée à la ligne 45 du fichier TESTS:\runtime\test_import_error.py.
     
-       40:     no_suggestion()
-       41:     multiple_import_on_same_line()
-       43:     try:
-    -->44:         from math import Pi
-       45:     except ImportError as e:
+       41:     no_suggestion()
+       42:     multiple_import_on_same_line()
+       44:     try:
+    -->45:         from math import Pi
+       46:     except ImportError as e:
 
 
 IndexError
@@ -1269,7 +1269,7 @@ Similar names
     
     La clé `'alpha'` est introuvable dans le dict `second`.
     `second` a quelques clés similaires à `'alpha'` dont :
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
     
@@ -1430,8 +1430,6 @@ Not a package similar name
     Peut-être que vous vouliez dire `import os.path`.
     `path` est un nom semblable à `pathh` et est un module qui
     peut être importé de `os`.
-    D’autres objets avec des noms similaires qui font partie de
-    `os` comprennent `fspath`.
     
     Exception levée à la ligne 36 du fichier TESTS:\runtime\test_module_not_found_error.py.
     
@@ -1494,7 +1492,7 @@ Similar object not module
     `open` est un nom similaire à `opend` et est un objet qui
     peut être importé de `os`.
     D’autres objets avec des noms similaires qui font partie de
-    `os` comprennent `popen, fdopen`.
+    `os` comprennent `popen`.
     
     Exception levée à la ligne 62 du fichier TESTS:\runtime\test_module_not_found_error.py.
     
@@ -1612,7 +1610,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 165, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 192, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1624,12 +1622,12 @@ Custom name
     utilisé avant qu'on ne lui ait associé une valeur.
     
     Vous utilisez déjà Python!
-    Exception levée à la ligne 165 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne 192 du fichier TESTS:\runtime\test_name_error.py.
     
-       163: def test_Custom_name():
-       164:     try:
-    -->165:         python
-       166:     except NameError as e:
+       190: def test_Custom_name():
+       191:     try:
+    -->192:         python
+       193:     except NameError as e:
 
 
 Free variable referenced
@@ -1639,11 +1637,11 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 149, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 176, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 145, in outer
+      File "TESTS:\runtime\test_name_error.py", line 172, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 144, in inner
+      File "TESTS:\runtime\test_name_error.py", line 171, in inner
         return var
     NameError: free variable 'var' referenced before assignment in enclosing scope
     
@@ -1657,21 +1655,21 @@ Free variable referenced
     qui existe dans une portée englobante,
     mais qui n'a pas encore reçu de valeur.
     
-    L'exécution s'est arrêtée à la ligne 149 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne 176 du fichier TESTS:\runtime\test_name_error.py
     
-       145:         inner()
-       146:         var = 4
-       148:     try:
-    -->149:         outer()
-       150:     except NameError as e:
+       172:         inner()
+       173:         var = 4
+       175:     try:
+    -->176:         outer()
+       177:     except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Exception levée à la ligne 144 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne 171 du fichier TESTS:\runtime\test_name_error.py.
     
-       143:         def inner():
-    -->144:             return var
+       170:         def inner():
+    -->171:             return var
                                ^^^
 
 
@@ -1723,9 +1721,15 @@ Missing import
     Cependant, cela peut également indiquer que le nom a été
     utilisé avant qu'on ne lui ait associé une valeur.
     
+    
     Le nom `unicodedata` n’est pas défini dans votre programme.
     Peut-être avez-vous oublié d’importer `unicodedata` qui se trouve
     dans la bibliothèque standard de Python.
+    
+    `unicodedata` est un nom trouvé dans le module `stringprep`.
+    Vous avez peut-être oublié d'écrire
+    
+        from stringprep import unicodedata
     
     Exception levée à la ligne 129 du fichier TESTS:\runtime\test_name_error.py.
     
@@ -1744,7 +1748,7 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 249, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 276, in test_Missing_module_name
         frame = Frame()
     NameError: name 'Frame' is not defined
     
@@ -1763,14 +1767,18 @@ Missing module name
     Peut-être que vous auriez dû écrire `tkinter.Frame`
     au lieu de `Frame`.
     
-    Exception levée à la ligne 249 du fichier TESTS:\runtime\test_name_error.py.
+    `Frame` est un nom trouvé dans les modules suivants de la bibliothèque standard :
+    tkinter, tracemalloc.
+    Vous avez peut-être oublié d'importer `Frame` de l'un de ces modules.
     
-       246: def test_Missing_module_name():
-       247:     import tkinter
-       248:     try:
-    -->249:         frame = Frame()
+    Exception levée à la ligne 276 du fichier TESTS:\runtime\test_name_error.py.
+    
+       273: def test_Missing_module_name():
+       274:     import tkinter
+       275:     try:
+    -->276:         frame = Frame()
                             ^^^^^
-       250:     except NameError as e:
+       277:     except NameError as e:
 
 
 Missing self 1
@@ -1780,9 +1788,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 200, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 227, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 191, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 218, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1800,26 +1808,26 @@ Missing self 1
     Peut-être que vous auriez dû écrire `self.add_toy(...`
     au lieu de `add_toy(self, ...`.
     
-    L'exécution s'est arrêtée à la ligne 200 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne 227 du fichier TESTS:\runtime\test_name_error.py
     
-       196:                 return "{} has no toys".format(self.name)
-       198:     a = Pet('Fido')
-       199:     try:
-    -->200:         str(a)
-       201:     except NameError as e:
+       223:                 return "{} has no toys".format(self.name)
+       225:     a = Pet('Fido')
+       226:     try:
+    -->227:         str(a)
+       228:     except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception levée à la ligne 191 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne 218 du fichier TESTS:\runtime\test_name_error.py.
     
-       189:         def __str__(self):
-       190:             # self at the wrong place
-    -->191:             toys_list = add_toy(  # ensure that it can see 'self' on following line
+       216:         def __str__(self):
+       217:             # self at the wrong place
+    -->218:             toys_list = add_toy(  # ensure that it can see 'self' on following line
                                     ^^^^^^^
-       192:                                 self, 'something')
-       193:             if self.toys:
+       219:                                 self, 'something')
+       220:             if self.toys:
 
 
 Missing self 2
@@ -1829,9 +1837,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 234, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 261, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 226, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 253, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1850,25 +1858,25 @@ Missing self 2
     Peut-être que vous auriez dû écrire `self.add_toy`
     au lieu de `add_toy`.
     
-    L'exécution s'est arrêtée à la ligne 234 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne 261 du fichier TESTS:\runtime\test_name_error.py
     
-       230:                 return "{} has no toys".format(self.name)
-       232:     a = Pet('Fido')
-       233:     try:
-    -->234:         str(a)
-       235:     except NameError as e:
+       257:                 return "{} has no toys".format(self.name)
+       259:     a = Pet('Fido')
+       260:     try:
+    -->261:         str(a)
+       262:     except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception levée à la ligne 226 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne 253 du fichier TESTS:\runtime\test_name_error.py.
     
-       224:         def __str__(self):
-       225:             # Missing self.
-    -->226:             toys_list = add_toy('something')
+       251:         def __str__(self):
+       252:             # Missing self.
+    -->253:             toys_list = add_toy('something')
                                     ^^^^^^^
-       227:             if self.toys:
+       254:             if self.toys:
 
 
 Synonym
@@ -1892,7 +1900,7 @@ Synonym
     
     Dans votre programme, aucun objet portant le nom `cost` n'existe.
     Au lieu d’écrire `cost`, peut-être que vous vouliez écrire l'un des noms suivants :
-    *    Portée globale : `cos`, `cosh`, `acos`
+    *    Portée globale : `cos`, `cosh`
     
     Exception levée à la ligne 89 du fichier TESTS:\runtime\test_name_error.py.
     
@@ -1901,6 +1909,67 @@ Synonym
        88:     try:
     -->89:         cost  # wrote from math import * above
        90:     except NameError as e:
+
+
+missing import2
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 143, in test_missing_import2
+        ABCMeta
+    NameError: name 'ABCMeta' is not defined
+    
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `ABCMeta` n'existe.
+    `ABCMeta` est un nom trouvé dans les modules suivants de la bibliothèque standard :
+    abc, numbers, selectors, typing.
+    Vous avez peut-être oublié d'importer `ABCMeta` de l'un de ces modules.
+    
+    Exception levée à la ligne 143 du fichier TESTS:\runtime\test_name_error.py.
+    
+       141: def test_missing_import2():
+       142:     try:
+    -->143:         ABCMeta
+       144:     except NameError as e:
+
+
+missing import3
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 157, in test_missing_import3
+        AF_APPLETALK
+    NameError: name 'AF_APPLETALK' is not defined
+    
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `AF_APPLETALK` n'existe.
+    `AF_APPLETALK` est un nom trouvé dans le module `socket`.
+    Vous avez peut-être oublié d'écrire
+    
+        from socket import AF_APPLETALK
+    
+    Exception levée à la ligne 157 du fichier TESTS:\runtime\test_name_error.py.
+    
+       155: def test_missing_import3():
+       156:     try:
+    -->157:         AF_APPLETALK
+       158:     except NameError as e:
 
 
 OsError
