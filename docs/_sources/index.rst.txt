@@ -361,23 +361,10 @@ could easily be added.
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: All the tracebacks!
+   :caption: In English
 
-   known
-   friendly tracebacks - Python 3.6 in English <tracebacks_en_3.6>
-   SyntaxError - Python 3.6 in English <syntax_tracebacks_en_3.6>
-   friendly tracebacks - Python 3.7 in English <tracebacks_en_3.7>
-   SyntaxError - Python 3.7 in English <syntax_tracebacks_en_3.7>
-   friendly tracebacks - Python 3.8 in English <tracebacks_en_3.8>
-   SyntaxError - Python 3.8 in English <syntax_tracebacks_en_3.8>
-   friendly tracebacks - Python 3.9 in English <tracebacks_en_3.9>
-   SyntaxError - Python 3.9 in English <syntax_tracebacks_en_3.9>
-   friendly tracebacks - Python 3.10 in English <tracebacks_en_3.10>
-   SyntaxError - Python 3.10 in English <syntax_tracebacks_en_3.10>
-   friendly tracebacks - Python 3.11 in English <tracebacks_en_3.11>
-   SyntaxError - Python 3.11 in English <syntax_tracebacks_en_3.11>
-   compare_exceptions
-   compare
+   friendly tracebacks - Python 3.9 <tracebacks_en_3.9>
+   SyntaxError - Python 3.9 <syntax_tracebacks_en_3.9>
 
 
 .. toctree::
@@ -405,3 +392,23 @@ could easily be added.
 
    tracebacks_it
    syntax_tracebacks_it
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: More tracebacks
+
+   known
+   friendly tracebacks - Python 3.6 in English <tracebacks_en_3.6>
+   SyntaxError - Python 3.6 in English <syntax_tracebacks_en_3.6>
+   friendly tracebacks - Python 3.7 in English <tracebacks_en_3.7>
+   SyntaxError - Python 3.7 in English <syntax_tracebacks_en_3.7>
+   friendly tracebacks - Python 3.8 in English <tracebacks_en_3.8>
+   SyntaxError - Python 3.8 in English <syntax_tracebacks_en_3.8>
+   friendly tracebacks - Python 3.10 in English <tracebacks_en_3.10>
+   SyntaxError - Python 3.10 in English <syntax_tracebacks_en_3.10>
+   friendly tracebacks - Python 3.11 in English <tracebacks_en_3.11>
+   SyntaxError - Python 3.11 in English <syntax_tracebacks_en_3.11>
+   compare_exceptions
+   compare
