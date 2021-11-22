@@ -1,4 +1,4 @@
-IPython tracebacks
+Jupyter tracebacks
 ====================
 
 Add explanation.

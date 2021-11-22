@@ -353,14 +353,6 @@ could easily be added.
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Contribute
-
-   suggest
-   translation_notes
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
    :caption: In English
 
    friendly tracebacks - Python 3.9 <tracebacks_en_3.9>
@@ -412,3 +404,12 @@ could easily be added.
    SyntaxError - Python 3.11 in English <syntax_tracebacks_en_3.11>
    compare_exceptions
    compare
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Contribute
+
+   suggest
+   translation_notes
