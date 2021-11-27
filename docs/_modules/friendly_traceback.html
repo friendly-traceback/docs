@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>friendly_traceback - friendly-traceback 0.4.82</title>
+        <title>friendly_traceback - friendly-traceback 0.4.87</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">friendly-traceback 0.4.82</div></a>
+      <a href="../index.html"><div class="brand">friendly-traceback 0.4.87</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.82</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.87</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -227,9 +227,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../custom_errors.html">Registering custom error types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins.html">Editor plugins</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">In English</span></p>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.9.html">friendly tracebacks - Python 3.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.9.html">Friendly tracebacks - Python 3.9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">En español</span></p>
@@ -250,15 +250,15 @@
 <p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../known.html">Generic information about various exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.6.html">friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.6.html">Friendly tracebacks - Python 3.6 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.7.html">friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.7.html">Friendly tracebacks - Python 3.7 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.8.html">friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.8.html">Friendly tracebacks - Python 3.8 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.10.html">friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.10.html">Friendly tracebacks - Python 3.10 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.11.html">friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracebacks_en_3.11.html">Friendly tracebacks - Python 3.11 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compare.html">Comparison between Python versions: SyntaxErrors</a></li>
@@ -326,7 +326,7 @@
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
 <span class="k">del</span> <span class="n">valid_version</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.4.82"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.4.87"</span>
 
 
 <span class="c1"># ===========================================</span>
@@ -338,7 +338,7 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">base_formatters</span><span class="p">,</span> <span class="n">debug_helper</span><span class="p">,</span> <span class="n">editors_helpers</span><span class="p">,</span> <span class="n">path_info</span>
 <span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">session</span>
 <span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
-<span class="kn">from</span> <span class="nn">.typing</span> <span class="kn">import</span> <span class="n">Formatter</span><span class="p">,</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">StrPath</span><span class="p">,</span> <span class="n">Writer</span>
+<span class="kn">from</span> <span class="nn">.typing_info</span> <span class="kn">import</span> <span class="n">Formatter</span><span class="p">,</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">StrPath</span><span class="p">,</span> <span class="n">Writer</span>
 
 <span class="c1"># Ensure that warnings are not shown to the end user, as they could</span>
 <span class="c1"># cause confusion.  Eventually, we might want to interpret them like</span>

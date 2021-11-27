@@ -17,7 +17,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.4.82
+Friendly-traceback version: 0.4.87
 Python version: 3.9.5
 
 
@@ -478,10 +478,10 @@ Perhaps comma
         objeto.x
     y `x` no es un método o atributo (variable) perteneciente al `objeto`.
     
-    `defg` is not an attribute of `abcd`.
-    However, both `abcd` and `defg` are known objects.
-    Perhaps you wrote a period to separate these two objects, 
-    instead of using a comma.
+    `defg` no es un atributo de `abcd`.
+    Sin embargo, tanto `abcd` como `defg` son objetos conocidos.
+    Tal vez utilizaste un punto para separar estos dos objetos 
+    en lugar de usar una coma.
     
     Excepción elevada en la linea 201 del archivo TESTS:\runtime\test_attribute_error.py.
     
@@ -580,10 +580,10 @@ Tuple by accident
         objeto.x
     y `x` no es un método o atributo (variable) perteneciente al `objeto`.
     
-    `something` is a tuple that contains a single item
-    which does have `'upper'` as an attribute.
-    Perhaps you added a trailing comma by mistake at the end of the line
-    where you defined `something`.
+    `something` es una tupla que contiene un único elemento
+    que tiene `upper` como atributo.
+    Tal vez haya añadido por error una coma al final de la línea
+    donde definiste `something`.
     
     Excepción elevada en la linea 293 del archivo TESTS:\runtime\test_attribute_error.py.
     
@@ -609,14 +609,14 @@ Use builtin
         a.length()
     AttributeError: 'list' object has no attribute 'length'
     
-        Did you mean `len(a)`?
+        ¿Te refieres a `len(a)`?
         
     Un `AttributeError` ocurre cuando el código contiene algo como
         objeto.x
     y `x` no es un método o atributo (variable) perteneciente al `objeto`.
     
-    The object `a` has no attribute named `length`.
-    Perhaps you can use the Python builtin function `len` instead:
+    El objeto `a` no tiene ningún atributo llamado `length`.
+    Tal vez pueda utilizar la función incorporada de Python `len` en su lugar:
     `len(a)`.
     Excepción elevada en la linea 97 del archivo TESTS:\runtime\test_attribute_error.py.
     
@@ -643,14 +643,14 @@ Use join with str
         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
     AttributeError: 'list' object has no attribute 'join'
     
-        Did you mean `'abc'.join(['a', '2'])`?
+        ¿Te refieres a `'abc'.join(['a', '2'])`?
         
     Un `AttributeError` ocurre cuando el código contiene algo como
         objeto.x
     y `x` no es un método o atributo (variable) perteneciente al `objeto`.
     
-    The object `['a', '2']` has no attribute named `join`.
-    Perhaps you wanted something like `'abc'.join(['a', '2'])`.
+    El objeto `['a', '2']` no tiene un atributo llamado `join`.
+    Tal vez querías algo como `'abc'.join(['a', '2'])`.
     
     Excepción elevada en la linea 337 del archivo TESTS:\runtime\test_attribute_error.py.
     
@@ -890,19 +890,19 @@ Circular import
     importarse de un módulo o paquete. La mayoría de las veces, esto se debe a que
     porque el nombre del objeto no está escrito correctamente.
     
-    The object that could not be imported is `a`.
-    The module or package where it was 
-    expected to be found is `circular_a`.
+    El objeto que no se ha podido importar es `a`.
+    El módulo o paquete donde se esperaba encontrar 
+    se esperaba encontrar es `circular_a`.
     
-    The problem was likely caused by what is known as a 'circular import'.
-    First, Python imported and started executing the code in file
+    El problema fue probablemente causado por lo que se conoce como una 'importación circular'.
+    Primero, Python importó y comenzó a ejecutar el código en el archivo
        'TESTS:\runtime\test_import_error.py'.
-    which imports module `circular_a`.
-    During this process, the code in another file,
+    que importa al módulo `circular_a`.
+    Durante este proceso, el código en el otro archivo
        'TESTS:\circular_b.py'
-    was executed. However in this last file, an attempt was made
-    to import the original module `circular_a`
-    a second time, before Python had completed the first import.
+    fue ejecutado. Sin embargo, en este último archivo, se intentó
+    de importar el módulo original `circular_a`
+    por segunda vez, antes de que Python hubiera completado la primera importación.
     
     La ejecución se detuvo en la linea 59 del archivo TESTS:\runtime\test_import_error.py.
     
@@ -934,7 +934,7 @@ Simple import error
     importarse de un módulo o paquete. La mayoría de las veces, esto se debe a que
     porque el nombre del objeto no está escrito correctamente.
     
-    Perhaps you meant to import `pi` (from `math`) instead of `Pi`
+    Tal vez quiso importar `pi` (de `math`) en lugar de `Pi`
     
     Excepción elevada en la linea 45 del archivo TESTS:\runtime\test_import_error.py.
     
@@ -965,10 +965,10 @@ Assignment
     no existe; normalmente, esto ocurre porque el índice que se da
     es mayor que la longitud de la secuencia.
     
-    You have tried to assign a value to index `13` of `a`,
-    una `list` of length `10`.
-    The valid index values of `a` are integers ranging from
-    `-10` to `9`.
+    Ha intentado asignar un valor al índice `13` de `a`,
+    una `list` de longitud `10`.
+    Los valores de índice válidos de `a` son números enteros que van desde
+    `-10` a `9`.
     
     Excepción elevada en la linea 76 del archivo TESTS:\runtime\test_index_error.py.
     
@@ -1000,8 +1000,8 @@ Empty
     no existe; normalmente, esto ocurre porque el índice que se da
     es mayor que la longitud de la secuencia.
     
-    You have tried to get the item with index `1` of `a`,
-    una `list` which contains no item.
+    Ha intentado obtener el elemento con índice `1` de `a`,
+    una `list` que no contiene ningún elemento.
     
     Excepción elevada en la linea 38 del archivo TESTS:\runtime\test_index_error.py.
     
@@ -1032,10 +1032,10 @@ Long list
     no existe; normalmente, esto ocurre porque el índice que se da
     es mayor que la longitud de la secuencia.
     
-    You have tried to get the item with index `60` of `a`,
-    una `list` of length `40`.
-    The valid index values of `a` are integers ranging from
-    `-40` to `39`.
+    Ha intentado obtener el elemento con índice `60` de `a`,
+    una `list` de longitud `40`.
+    Los valores de índice válidos de `a` son números enteros que van desde
+    `-40` a `39`.
     
     Excepción elevada en la linea 24 del archivo TESTS:\runtime\test_index_error.py.
     
@@ -1063,17 +1063,17 @@ Short tuple
         print(a[3], b[2])
     IndexError: tuple index out of range
     
-        Remember: the first item of una `tuple` is not at index 1 but at index 0.
+        Recuerda: el primer elemento de una `tuple` no está en la posición 1 sino en la número 0.
         
     Un `IndexError` se produce cuando se intenta obtener un elemento de una lista
     una tupla, o un objeto similar (secuencia), y utiliza un índice que
     no existe; normalmente, esto ocurre porque el índice que se da
     es mayor que la longitud de la secuencia.
     
-    You have tried to get the item with index `3` of `a`,
-    una `tuple` of length `3`.
-    The valid index values of `a` are integers ranging from
-    `-3` to `2`.
+    Ha intentado obtener el elemento con índice `3` de `a`,
+    una `tuple` de longitud `3`.
+    Los valores de índice válidos de `a` son números enteros que van desde
+    `-3` a `2`.
     
     Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_index_error.py.
     
@@ -1113,7 +1113,7 @@ ChainMap
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    The key `42` cannot be found in `d`, an object of type `ChainMap`.
+    La clave `42` no se encuentra en `d`, un objeto de tipo `ChainMap`.
     
     Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1139,14 +1139,14 @@ Forgot to convert to string
         print(squares[2])
     KeyError: 2
     
-        Did you forget to convert `2` into a string?
+        ¿Olvidaste convertir `2` en una cadena?
         
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    The key `2` cannot be found in the dict `squares`.
-    `squares` contains a string key which is identical to `str(2)`.
-    Perhaps you forgot to convert the key into a string.
+    La clave `2` no se encuentra en el dict `squares`.
+    `squares` contiene una clave de cadena que es idéntica a `str(2)`.
+    Tal vez te olvidaste de convertir la clave en una cadena.
     
     Excepción elevada en la linea 115 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1175,7 +1175,7 @@ Generic key error
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    The key `'c'` cannot be found in the dict `d`.
+    La clave `'c'` no se encuentra en el dict `d`.
     
     Excepción elevada en la linea 44 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1243,7 +1243,7 @@ Popitem empty dict
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    You tried to retrieve an item from `d` which is an empty `dict`.
+    Has intentado recuperar un elemento de d` que es un `dict` vacío.
     
     Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1274,8 +1274,8 @@ Similar names
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    The key `'alpha'` cannot be found in the dict `second`.
-    `second` has some keys similar to `'alpha'` including:
+    La clave `'alpha'` no se encuentra en el dict `second`.
+    `second` tiene algunas claves similares a `'alpha'` incluyendo:
     `'alpha0', 'alpha11', 'alpha12'`.
     
     Excepción elevada en la linea 145 del archivo TESTS:\runtime\test_key_error.py.
@@ -1302,15 +1302,15 @@ String by mistake
         d["(0, 0)"]
     KeyError: '(0, 0)'
     
-        Did you convert `(0, 0)` into a string by mistake?
+        ¿Has convertido `(0, 0)` en una cadena por error?
         
     Se produce un `KeyError` cuando no se encuentra un valor como llave
     en un dict de Python o en un objeto similar.
     
-    The key `'(0, 0)'` cannot be found in the dict `d`.
-    `'(0, 0)'` is a string.
-    There is a key of `d` whose string representation
-    is identical to `'(0, 0)'`.
+    La clave `'(0, 0)'` no se encuentra en el dict `d`.
+    `'(0, 0)'` es una cadena.
+    Existe una clave de `d` cuya representación en cadena
+    es idéntica a `'(0, 0)'`.
     
     Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_key_error.py.
     
@@ -1426,16 +1426,16 @@ Not a package similar name
         import os.pathh
     ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
     
-        Did you mean `import os.path`?
+        ¿Quieres decir `import os.path`?
         
     Una excepción `ModuleNotFoundError` indica que estás
     está tratando de importar un módulo que no puede ser encontrado por Python.
     Esto puede deberse a que has escrito mal el nombre del módulo
     o porque no está instalado en tu computadora.
     
-    Perhaps you meant `import os.path`.
-    `path` is a name similar to `pathh` and is a module that
-    can be imported from `os`.
+    Tal vez se refiera a `importar os.path`.
+    `path` es un nombre similar a `pathh` y es un módulo que
+    puede ser importado desde `os`.
     
     Excepción elevada en la linea 36 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
@@ -1456,14 +1456,14 @@ Object not module
         import os.open
     ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
     
-        Did you mean `from os import open`?
+        ¿Quieres decir `from os import open`?
         
     Una excepción `ModuleNotFoundError` indica que estás
     está tratando de importar un módulo que no puede ser encontrado por Python.
     Esto puede deberse a que has escrito mal el nombre del módulo
     o porque no está instalado en tu computadora.
     
-    `open` is not a separate module but an object that is part of `os`.
+    `open` no es un módulo independiente, sino un objeto que forma parte de `os`.
     
     Excepción elevada en la linea 49 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
@@ -1487,18 +1487,18 @@ Similar object not module
         import os.opend
     ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
     
-        Did you mean `from os import open`?
+        ¿Quieres decir `from os import open`?
         
     Una excepción `ModuleNotFoundError` indica que estás
     está tratando de importar un módulo que no puede ser encontrado por Python.
     Esto puede deberse a que has escrito mal el nombre del módulo
     o porque no está instalado en tu computadora.
     
-    Perhaps you meant `from os import open`.
-    `open` is a name similar to `opend` and is an object that
-    can be imported from `os`.
-    Other objects with similar names that are part of
-     `os` include `popen`.
+    Tal vez quieras decir `from os import open`.
+    `open` es un nombre similar a `opend` y es un objeto que
+    puede ser importado desde `os`.
+    Otros objetos con nombres similares que forman parte de
+    `os` incluyen a `popen`.
     
     Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_module_not_found_error.py.
     
@@ -1590,7 +1590,7 @@ Annotated variable
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `x` exists.
+    En su programa, no existe ningún objeto con el nombre `x`.
     Se ha encontrado un type hint para `x` en el ámbito global.
     Tal vez haya utilizado dos puntos en lugar de un signo de igualdad y haya escrito
     
@@ -1657,9 +1657,9 @@ Free variable referenced
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, `var` is an unknown name
-    that exists in an enclosing scope,
-    but has not yet been assigned a value.
+    En tu programa, `var` es un nombre desconocido
+    que existe en un ámbito de aplicación
+    pero aún no se le ha asignado un valor.
     
     La ejecución se detuvo en la linea 176 del archivo TESTS:\runtime\test_name_error.py.
     
@@ -1696,7 +1696,7 @@ Generic
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `something` exists.
+    En su programa, no existe ningún objeto con el nombre `something`.
     No tengo información adicional para usted.
     
     Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_name_error.py.
@@ -1728,9 +1728,9 @@ Missing import
     antes de ser definido o de recibir un valor.
     
     
-    The name `unicodedata` is not defined in your program.
-    Perhaps you forgot to import `unicodedata` which is found
-    in Python's standard library.
+    El nombre `unicodedata` no está definido en su programa.
+    Tal vez se olvidó de importar `unicodedata` que se encuentra
+    en la biblioteca estándar de Python.
     
     `unicodedata` is a name found in module `stringprep`.
     Perhaps you forgot to write
@@ -1766,12 +1766,12 @@ Missing module name
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `Frame` exists.
+    En su programa, no existe ningún objeto con el nombre `Frame`.
     
-    The local object `tkinter`
-    has an attribute named `Frame`.
-    Perhaps you should have written `tkinter.Frame`
-    instead of `Frame`.
+    El objeto local `tkinter`
+    tiene un atributo llamado `Frame`.
+    Quizás deberías haber escrito `tkinter.Frame`
+    en lugar de `Frame`.
     
     `Frame` is a name found in the following modules from the standard library:
     tkinter, tracemalloc.
@@ -1808,12 +1808,12 @@ Missing self 1
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `add_toy` exists.
+    En su programa, no existe ningún objeto con el nombre `add_toy`.
     
-    The local object `<Pet object> defined in <function test_name_error.test_Missing_self_1>`
-    has an attribute named `add_toy`.
-    Perhaps you should have written `self.add_toy(...`
-    instead of `add_toy(self, ...`.
+    El objeto local `<Pet object> defined in <function test_name_error.test_Missing_self_1>`
+    tiene un atributo llamado `add_toy`.
+    Quizás deberías haber escrito `self.add_toy(...`
+    en lugar de `add_toy(self, ...`.
     
     La ejecución se detuvo en la linea 227 del archivo TESTS:\runtime\test_name_error.py.
     
@@ -1858,12 +1858,12 @@ Missing self 2
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `add_toy` exists.
+    En su programa, no existe ningún objeto con el nombre `add_toy`.
     
-    A local object, `<Pet object> defined in <function test_name_error.test_Missing_self_2>`,
-    has an attribute named `add_toy`.
-    Perhaps you should have written `self.add_toy`
-    instead of `add_toy`.
+    Un objeto de local, `<Pet object> defined in <function test_name_error.test_Missing_self_2>`,
+    tiene un atributo llamado `add_toy`.
+    Tal vez deberías haber escrito `self.add_toy`
+    en lugar de `add_toy`.
     
     La ejecución se detuvo en la linea 261 del archivo TESTS:\runtime\test_name_error.py.
     
@@ -1905,8 +1905,8 @@ Synonym
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `cost` exists.
-    Instead of writing `cost`, perhaps you meant one of the following:
+    En su programa, no existe ningún objeto con el nombre `cost`.
+    En lugar de escribir `cost`, tal vez quiso decir uno de los siguientes:
     *   alcance global: `cos`, `cosh`
     
     Excepción elevada en la linea 89 del archivo TESTS:\runtime\test_name_error.py.
@@ -1935,7 +1935,7 @@ missing import2
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `ABCMeta` exists.
+    En su programa, no existe ningún objeto con el nombre `ABCMeta`.
     `ABCMeta` is a name found in the following modules from the standard library:
     abc, numbers, selectors, typing.
     Perhaps you forgot to import `ABCMeta` from one of these modules.
@@ -1965,7 +1965,7 @@ missing import3
     Sin embargo, a veces es porque el nombre se utiliza
     antes de ser definido o de recibir un valor.
     
-    In your program, no object with the name `AF_APPLETALK` exists.
+    En su programa, no existe ningún objeto con el nombre `AF_APPLETALK`.
     `AF_APPLETALK` is a name found in module `socket`.
     Perhaps you forgot to write
     
@@ -2046,14 +2046,14 @@ invalid argument
     para indicar que una operación no está permitida o que
     un recurso no está disponible.
     
-    I suspect that you wrote a filename or path that contains
-    at least one backslash character, `\`.
-    Python likely interpreted this as indicating the beginning of
-    what is known as an escape sequence.
-    To solve the problem, either write a so-called 'raw string'
-    by adding the letter `r` as a prefix in
-    front of the filename or path, or replace all single backslash
-    characters, `\`, by double ones: `\\`.
+    Sospecho que ha escrito un nombre de archivo o ruta que contiene
+    por lo menos un carácter de barra invertida, `\`.
+    Python probablemente interpretó esto como el comienzo de
+    lo que se conoce como una secuencia de escape.
+    Para resolver el problema, escriba la llamada 'cadena cruda'
+    añadiendo la letra `r` como prefijo delante
+    delante del nombre del archivo o de la ruta, o reemplazar todas las barras invertidas
+    simples, "barra invertida", por otras dobles: `\\`.
     
     Excepción elevada en la linea 46 del archivo TESTS:\runtime\test_os_error.py.
     
@@ -2190,17 +2190,17 @@ Bad type for unary operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
-        Perhaps you meant to write `+=` instead of `=+`
+        Tal vez quiso escribir `+=` en lugar de `=+`
     Un `TypeError` suele producirse al intentar
     combinar dos tipos de objetos incompatibles,
     por llamar a una función con el tipo de objeto equivocado,
     o por intentar realizar una operación no permitida en un tipo de objeto determinado.
     
-    You tried to use the unary operator '+'
-    with the following type of object: un string (`str`).
-    This operation is not defined for this type of object.
+    Has intentado utilizar el operador unario '+'
+    con el siguiente tipo de objeto un string (`str`).
+    La operación no está definida para este tipo de objeto.
     
-    Perhaps you meant to write `+=` instead of `=+`
+    Tal vez quiso escribir `+=` en lugar de `=+`
     
     Excepción elevada en la linea 371 del archivo TESTS:\runtime\test_type_error.py.
     
@@ -2263,8 +2263,8 @@ Can only concatenate
     por llamar a una función con el tipo de objeto equivocado,
     o por intentar realizar una operación no permitida en un tipo de objeto determinado.
     
-    You tried to concatenate (add) two different types of objects:
-    una `tuple` and una `list`.
+    Has intentado concatenar (sumar) dos tipos de objetos diferentes:
+    `una `tuple`` y `una `list``.
     
     Excepción elevada en la linea 37 del archivo TESTS:\runtime\test_type_error.py.
     
@@ -2394,10 +2394,10 @@ Comparison not supported
     por llamar a una función con el tipo de objeto equivocado,
     o por intentar realizar una operación no permitida en un tipo de objeto determinado.
     
-    You tried to do an order comparison (>=)
-    between two incompatible types of objects:
-    un número entero (`int`) and un string (`str`).
-    Perhaps you forgot to convert the string `a` into un número entero (`int`).
+    Has intentado hacer una comparación de orden (>=)
+    entre dos tipos de objetos incompatibles:
+    `un número entero (`int`)` y `un string (`str`)`.
+    Tal vez haya olvidado convertir la cadena `a` en un número entero (`int`).
     
     Excepción elevada en la linea 320 del archivo TESTS:\runtime\test_type_error.py.
     
@@ -2797,11 +2797,11 @@ Unsupported operand types
     por llamar a una función con el tipo de objeto equivocado,
     o por intentar realizar una operación no permitida en un tipo de objeto determinado.
     
-    You tried to use the operator @=
-    using two incompatible types of objects:
-    un string (`str`) and un número entero (`int`).
-    This operator is normally used only
-    for multiplication of matrices.
+    Has intentado utilizar el operador @=
+    utilizando dos tipos de objetos incompatibles:
+    `un string (`str`)` y `un número entero (`int`)`.
+    Este operador se emplea normalmente sólo
+    para la multiplicación de matrices.
     
     Excepción elevada en la linea 283 del archivo TESTS:\runtime\test_type_error.py.
     
@@ -3019,6 +3019,9 @@ Missing both
     Python que se trata de una variable global, de lo contrario verá
     un `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_both` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_both` exists in both the global and nonlocal scope.
     This can be rather confusing and is not recommended.
     Depending on which variable you wanted to refer to, you needed to add either
@@ -3075,6 +3078,9 @@ Missing global
     Python que se trata de una variable global, de lo contrario verá
     un `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_global` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_global` exists in the global scope.
     Perhaps the statement
     
@@ -3126,6 +3132,9 @@ Missing nonlocal
     Python que se trata de una variable global, de lo contrario verá
     un `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_nonlocal` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_nonlocal` exists in the nonlocal scope.
     Perhaps the statement
     
@@ -3172,7 +3181,7 @@ Typo in local
     Python que se trata de una variable global, de lo contrario verá
     un `UnboundLocalError`.
     
-    Instead of writing `alpha3`, perhaps you meant one of the following:
+    En lugar de escribir `alpha3`, tal vez quiso decir uno de los siguientes:
     *   alcance local: `alpha1`, `alpha2`
     
     La ejecución se detuvo en la linea 101 del archivo TESTS:\runtime\test_unbound_local_error.py.
@@ -3282,6 +3291,64 @@ ValueError
 ----------
 
 
+Convert to int
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 178, in test_Convert_to_int
+        int('13a')
+    ValueError: invalid literal for int() with base 10: '13a'
+    
+    Un `ValueError` indica que una función o una operación
+    recibió un argumento del tipo correcto, pero un valor inapropiado.
+    
+    `'13a'` is an invalid argument for `int()` in base `10`.
+    In base `10`, `int()` is most often use to convert a string
+    containing the digits `0` to `9` into an integer.
+    The following characters are not allowed: `a`.
+    
+    Excepción elevada en la linea 178 del archivo TESTS:\runtime\test_value_error.py.
+    
+       174:     if english:
+       175:         assert "needs to be first converted using `float()`" in result
+       177:     try:
+    -->178:         int('13a')
+       179:     except ValueError as e:
+
+            int:  <class int>
+        
+
+
+Could not convert to float
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+        float("42b")
+    ValueError: could not convert string to float: '42b'
+    
+    Un `ValueError` indica que una función o una operación
+    recibió un argumento del tipo correcto, pero un valor inapropiado.
+    
+    The string `42b` cannot be converted to a `float`.
+    
+    Excepción elevada en la linea 88 del archivo TESTS:\runtime\test_value_error.py.
+    
+       86: def test_Could_not_convert_to_float():
+       87:     try:
+    -->88:         float("42b")
+       89:     except ValueError as e:
+
+            float:  <class float>
+        
+
+
 Date invalid month
 ~~~~~~~~~~~~~~~~~~
 
@@ -3345,6 +3412,61 @@ Not enough values to unpack
         
 
 
+Pow third arg cannot be zero
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+        pow(2, 4, a)
+    ValueError: pow() 3rd argument cannot be 0
+    
+    Un `ValueError` indica que una función o una operación
+    recibió un argumento del tipo correcto, pero un valor inapropiado.
+    
+    The third argument of the function `pow()` cannot be zero.
+    
+    Excepción elevada en la linea 103 del archivo TESTS:\runtime\test_value_error.py.
+    
+       100: def test_Pow_third_arg_cannot_be_zero():
+       101:     a = 0
+       102:     try:
+    -->103:         pow(2, 4, a)
+       104:     except ValueError as e:
+
+            a:  0
+            pow:  <builtin function pow>
+        
+
+
+Slots conflicts with class variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+        class F:
+    ValueError: 'a' in __slots__ conflicts with class variable
+    
+    Un `ValueError` indica que una función o una operación
+    recibió un argumento del tipo correcto, pero un valor inapropiado.
+    
+    The name `a` is used both as the name of a class variable
+    and as a string item in the class `__slots__`;
+    this is not allowed.
+    
+    Excepción elevada en la linea 72 del archivo TESTS:\runtime\test_value_error.py.
+    
+       70: def test_Slots_conflicts_with_class_variable():
+       71:     try:
+    -->72:         class F:
+       73:             __slots__ = ["a", "b"]
+
+
 Too many values to unpack
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3376,30 +3498,33 @@ Too many values to unpack
         
 
 
-slots conflicts with class variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int base not in range
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
-        class F:
-    ValueError: 'a' in __slots__ conflicts with class variable
+      File "TESTS:\runtime\test_value_error.py", line 192, in test_int_base_not_in_range
+        int('18', base=37)
+    ValueError: int() base must be >= 2 and <= 36, or 0
     
     Un `ValueError` indica que una función o una operación
     recibió un argumento del tipo correcto, pero un valor inapropiado.
     
-    The name `a` is used both as the name of a class variable
-    and as a string item in the class `__slots__`;
-    this is not allowed.
+    The argument `base` of `int()` must be either zero
+    or any integer from 2 to 36.
+    You wrote 37 which is not allowed.
     
-    Excepción elevada en la linea 72 del archivo TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 192 del archivo TESTS:\runtime\test_value_error.py.
     
-       70: def test_slots_conflicts_with_class_variable():
-       71:     try:
-    -->72:         class F:
-       73:             __slots__ = ["a", "b"]
+       190: def test_int_base_not_in_range():
+       191:     try:
+    -->192:         int('18', base=37)
+       193:     except ValueError as e:
+
+            int:  <class int>
+        
 
 
 time strptime incorrect format
@@ -3409,7 +3534,7 @@ time strptime incorrect format
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 98, in test_time_strptime_incorrect_format
+      File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
         time.strptime("2020-01-01", "%d %m %Y")
     ValueError: time data '2020-01-01' does not match format '%d %m %Y'
     
@@ -3424,13 +3549,13 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     The following site might also be useful: https://www.strfti.me/
     
-    Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_value_error.py.
+    Excepción elevada en la linea 127 del archivo TESTS:\runtime\test_value_error.py.
     
-       94:         return
-       96:     import time
-       97:     try:
-    -->98:         time.strptime("2020-01-01", "%d %m %Y")
-       99:     except ValueError as e:
+       123:         return
+       125:     import time
+       126:     try:
+    -->127:         time.strptime("2020-01-01", "%d %m %Y")
+       128:     except ValueError as e:
 
             time:  <module time (builtin)>
             time.strptime:  <builtin function strptime>

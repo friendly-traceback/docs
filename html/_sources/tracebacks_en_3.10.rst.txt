@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.4.82
+Friendly-traceback version: 0.4.87
 Python version: 3.10.0
 
 
@@ -1245,7 +1245,7 @@ Similar names
     
     The key `'alpha'` cannot be found in the dict `second`.
     `second` has some keys similar to `'alpha'` including:
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
     
@@ -1867,7 +1867,7 @@ Synonym
         cost  # wrote from math import * above
     NameError: name 'cost' is not defined
     
-        Did you mean `cosh`?
+        Did you mean `cos`?
         
     A `NameError` exception indicates that a variable or
     function name is not known to Python.
@@ -2989,6 +2989,9 @@ Missing both
     Python that this is a global variable, otherwise you will see
     an `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_both` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_both` exists in both the global and nonlocal scope.
     This can be rather confusing and is not recommended.
     Depending on which variable you wanted to refer to, you needed to add either
@@ -3045,6 +3048,9 @@ Missing global
     Python that this is a global variable, otherwise you will see
     an `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_global` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_global` exists in the global scope.
     Perhaps the statement
     
@@ -3096,6 +3102,9 @@ Missing nonlocal
     Python that this is a global variable, otherwise you will see
     an `UnboundLocalError`.
     
+    You're trying to use the name `spam_missing_nonlocal` identified by Python as being
+    in the local scope of a function before having assigned it a value.
+    
     The name `spam_missing_nonlocal` exists in the nonlocal scope.
     Perhaps the statement
     
@@ -3131,7 +3140,7 @@ Typo in local
         alpha3 += 1
     UnboundLocalError: local variable 'alpha3' referenced before assignment
     
-        Did you mean `alpha2`?
+        Did you mean `alpha1`?
         
     In Python, variables that are used inside a function are known as 
     local variables. Before they are used, they must be assigned a value.
@@ -3143,7 +3152,7 @@ Typo in local
     an `UnboundLocalError`.
     
     Instead of writing `alpha3`, perhaps you meant one of the following:
-    *   Local scope: `alpha2`, `alpha1`
+    *   Local scope: `alpha1`, `alpha2`
     
     Execution stopped on line 101 of file TESTS:\runtime\test_unbound_local_error.py.
     
@@ -3252,6 +3261,64 @@ ValueError
 ----------
 
 
+Convert to int
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 178, in test_Convert_to_int
+        int('13a')
+    ValueError: invalid literal for int() with base 10: '13a'
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    `'13a'` is an invalid argument for `int()` in base `10`.
+    In base `10`, `int()` is most often use to convert a string
+    containing the digits `0` to `9` into an integer.
+    The following characters are not allowed: `a`.
+    
+    Exception raised on line 178 of file TESTS:\runtime\test_value_error.py.
+    
+       174:     if english:
+       175:         assert "needs to be first converted using `float()`" in result
+       177:     try:
+    -->178:         int('13a')
+       179:     except ValueError as e:
+
+            int:  <class int>
+        
+
+
+Could not convert to float
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+        float("42b")
+    ValueError: could not convert string to float: '42b'
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The string `42b` cannot be converted to a `float`.
+    
+    Exception raised on line 88 of file TESTS:\runtime\test_value_error.py.
+    
+       86: def test_Could_not_convert_to_float():
+       87:     try:
+    -->88:         float("42b")
+       89:     except ValueError as e:
+
+            float:  <class float>
+        
+
+
 Date invalid month
 ~~~~~~~~~~~~~~~~~~
 
@@ -3315,6 +3382,61 @@ Not enough values to unpack
         
 
 
+Pow third arg cannot be zero
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+        pow(2, 4, a)
+    ValueError: pow() 3rd argument cannot be 0
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The third argument of the function `pow()` cannot be zero.
+    
+    Exception raised on line 103 of file TESTS:\runtime\test_value_error.py.
+    
+       100: def test_Pow_third_arg_cannot_be_zero():
+       101:     a = 0
+       102:     try:
+    -->103:         pow(2, 4, a)
+       104:     except ValueError as e:
+
+            a:  0
+            pow:  <builtin function pow>
+        
+
+
+Slots conflicts with class variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+        class F:
+    ValueError: 'a' in __slots__ conflicts with class variable
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    The name `a` is used both as the name of a class variable
+    and as a string item in the class `__slots__`;
+    this is not allowed.
+    
+    Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+    
+       70: def test_Slots_conflicts_with_class_variable():
+       71:     try:
+    -->72:         class F:
+       73:             __slots__ = ["a", "b"]
+
+
 Too many values to unpack
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3346,30 +3468,33 @@ Too many values to unpack
         
 
 
-slots conflicts with class variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int base not in range
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
-        class F:
-    ValueError: 'a' in __slots__ conflicts with class variable
+      File "TESTS:\runtime\test_value_error.py", line 192, in test_int_base_not_in_range
+        int('18', base=37)
+    ValueError: int() base must be >= 2 and <= 36, or 0
     
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
     
-    The name `a` is used both as the name of a class variable
-    and as a string item in the class `__slots__`;
-    this is not allowed.
+    The argument `base` of `int()` must be either zero
+    or any integer from 2 to 36.
+    You wrote 37 which is not allowed.
     
-    Exception raised on line 72 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 192 of file TESTS:\runtime\test_value_error.py.
     
-       70: def test_slots_conflicts_with_class_variable():
-       71:     try:
-    -->72:         class F:
-       73:             __slots__ = ["a", "b"]
+       190: def test_int_base_not_in_range():
+       191:     try:
+    -->192:         int('18', base=37)
+       193:     except ValueError as e:
+
+            int:  <class int>
+        
 
 
 time strptime incorrect format
@@ -3379,7 +3504,7 @@ time strptime incorrect format
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 98, in test_time_strptime_incorrect_format
+      File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
         time.strptime("2020-01-01", "%d %m %Y")
     ValueError: time data '2020-01-01' does not match format '%d %m %Y'
     
@@ -3394,13 +3519,13 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     The following site might also be useful: https://www.strfti.me/
     
-    Exception raised on line 98 of file TESTS:\runtime\test_value_error.py.
+    Exception raised on line 127 of file TESTS:\runtime\test_value_error.py.
     
-       94:         return
-       96:     import time
-       97:     try:
-    -->98:         time.strptime("2020-01-01", "%d %m %Y")
-       99:     except ValueError as e:
+       123:         return
+       125:     import time
+       126:     try:
+    -->127:         time.strptime("2020-01-01", "%d %m %Y")
+       128:     except ValueError as e:
 
             time:  <module time (builtin)>
             time.strptime:  <builtin function strptime>

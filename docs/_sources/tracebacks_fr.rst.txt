@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly-traceback version: 0.4.82
+Friendly-traceback version: 0.4.87
 Python version: 3.9.5
 
 
@@ -372,7 +372,7 @@ Module attribute typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'
     
-        Vouliez-vous dire `cosh` ?
+        Vouliez-vous dire `cos` ?
         
     Une exception `AttributeError` se produit lorsque le code contient quelque chose comme
         `object.x`
@@ -380,7 +380,7 @@ Module attribute typo
     
     Au lieu d’écrire `math.cost`, peut-être que vous vouliez écrire
     l'un des attributs suivants du module `math` :
-    cosh, cos
+    cos, cosh
     
     Exception levée à la ligne 142 du fichier TESTS:\runtime\test_attribute_error.py.
     
@@ -1269,7 +1269,7 @@ Similar names
     
     La clé `'alpha'` est introuvable dans le dict `second`.
     `second` a quelques clés similaires à `'alpha'` dont :
-    `'alpha0', 'alpha12', 'alpha11'`.
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
     
@@ -1900,7 +1900,7 @@ Synonym
     
     Dans votre programme, aucun objet portant le nom `cost` n'existe.
     Au lieu d’écrire `cost`, peut-être que vous vouliez écrire l'un des noms suivants :
-    *    Portée globale : `cosh`, `cos`
+    *    Portée globale : `cos`, `cosh`
     
     Exception levée à la ligne 89 du fichier TESTS:\runtime\test_name_error.py.
     
@@ -3012,6 +3012,9 @@ Missing both
     à l’intérieur d’une fonction sans d’abord confirmer à python
     qu’il s’agit d’une variable globale, sinon vous verrez une exception `UnboundLocalError`.
     
+    Vous essayez d'utiliser le nom `spam_missing_both` identifié par Python comme se trouvant
+    dans la portée locale d'une fonction avant de lui avoir attribué une valeur.
+    
     Le nom `spam_missing_both` existe à la fois dans la portée globale et non locale.
     Cela peut être assez déroutant et n’est pas recommandé.
     Selon la variable à laquelle vous vouliez vous référer, vous deviez ajouter
@@ -3069,6 +3072,9 @@ Missing global
     à l’intérieur d’une fonction sans d’abord confirmer à python
     qu’il s’agit d’une variable globale, sinon vous verrez une exception `UnboundLocalError`.
     
+    Vous essayez d'utiliser le nom `spam_missing_global` identifié par Python comme se trouvant
+    dans la portée locale d'une fonction avant de lui avoir attribué une valeur.
+    
     Le nom `spam_missing_global` existe dans la portée global.
     Peut-être la déclaration
     
@@ -3120,6 +3126,9 @@ Missing nonlocal
     Vous ne pouvez pas assigner une valeur à une telle variable globale
     à l’intérieur d’une fonction sans d’abord confirmer à python
     qu’il s’agit d’une variable globale, sinon vous verrez une exception `UnboundLocalError`.
+    
+    Vous essayez d'utiliser le nom `spam_missing_nonlocal` identifié par Python comme se trouvant
+    dans la portée locale d'une fonction avant de lui avoir attribué une valeur.
     
     Le nom `spam_missing_nonlocal` existe dans la portée nonlocal.
     Peut-être la déclaration
@@ -3279,6 +3288,64 @@ ValueError
 ----------
 
 
+Convert to int
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 178, in test_Convert_to_int
+        int('13a')
+    ValueError: invalid literal for int() with base 10: '13a'
+    
+    Une exception `ValueError` indique qu'une fonction ou une opération
+    a reçu un argument du bon type, mais une valeur inappropriée.
+    
+    `'13a'` est un argument invalide pour `int()` dans la base `10`.
+    En base `10`, `int()` est le plus souvent utilisé pour convertir une chaîne de caractères
+    contenant les chiffres `0` à `9` en un nombre entier.
+    Les caractères suivants ne sont pas permis : `a`.
+    
+    Exception levée à la ligne 178 du fichier TESTS:\runtime\test_value_error.py.
+    
+       174:     if english:
+       175:         assert "needs to be first converted using `float()`" in result
+       177:     try:
+    -->178:         int('13a')
+       179:     except ValueError as e:
+
+            int:  <class int>
+        
+
+
+Could not convert to float
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+        float("42b")
+    ValueError: could not convert string to float: '42b'
+    
+    Une exception `ValueError` indique qu'une fonction ou une opération
+    a reçu un argument du bon type, mais une valeur inappropriée.
+    
+    La chaîne `42b` ne peut pas être convertie en un nombre décimal (`float`).
+    
+    Exception levée à la ligne 88 du fichier TESTS:\runtime\test_value_error.py.
+    
+       86: def test_Could_not_convert_to_float():
+       87:     try:
+    -->88:         float("42b")
+       89:     except ValueError as e:
+
+            float:  <class float>
+        
+
+
 Date invalid month
 ~~~~~~~~~~~~~~~~~~
 
@@ -3342,6 +3409,61 @@ Not enough values to unpack
         
 
 
+Pow third arg cannot be zero
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+        pow(2, 4, a)
+    ValueError: pow() 3rd argument cannot be 0
+    
+    Une exception `ValueError` indique qu'une fonction ou une opération
+    a reçu un argument du bon type, mais une valeur inappropriée.
+    
+    Le troisième argument de la fonction `pow()` ne peut pas être zéro.
+    
+    Exception levée à la ligne 103 du fichier TESTS:\runtime\test_value_error.py.
+    
+       100: def test_Pow_third_arg_cannot_be_zero():
+       101:     a = 0
+       102:     try:
+    -->103:         pow(2, 4, a)
+       104:     except ValueError as e:
+
+            a:  0
+            pow:  <builtin function pow>
+        
+
+
+Slots conflicts with class variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+        class F:
+    ValueError: 'a' in __slots__ conflicts with class variable
+    
+    Une exception `ValueError` indique qu'une fonction ou une opération
+    a reçu un argument du bon type, mais une valeur inappropriée.
+    
+    Le nom `a` est utilisé à la fois comme nom d'une variable de classe
+    et comme élément de chaîne de caractères dans l'attribut `__slots__` d'une classe ;
+    ceci n'est pas autorisé.
+    
+    Exception levée à la ligne 72 du fichier TESTS:\runtime\test_value_error.py.
+    
+       70: def test_Slots_conflicts_with_class_variable():
+       71:     try:
+    -->72:         class F:
+       73:             __slots__ = ["a", "b"]
+
+
 Too many values to unpack
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -3373,30 +3495,33 @@ Too many values to unpack
         
 
 
-slots conflicts with class variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int base not in range
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 72, in test_slots_conflicts_with_class_variable
-        class F:
-    ValueError: 'a' in __slots__ conflicts with class variable
+      File "TESTS:\runtime\test_value_error.py", line 192, in test_int_base_not_in_range
+        int('18', base=37)
+    ValueError: int() base must be >= 2 and <= 36, or 0
     
     Une exception `ValueError` indique qu'une fonction ou une opération
     a reçu un argument du bon type, mais une valeur inappropriée.
     
-    Le nom `a` est utilisé à la fois comme nom d'une variable de classe
-    et comme élément de chaîne de caractères dans l'attribut `__slots__` d'une classe ;
-    ceci n'est pas autorisé.
+    L'argument `base` de `int()` doit être soit zéro
+    ou un nombre entier de 2 à 36.
+    Vous avez écrit 37, ce qui n'est pas valide.
     
-    Exception levée à la ligne 72 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne 192 du fichier TESTS:\runtime\test_value_error.py.
     
-       70: def test_slots_conflicts_with_class_variable():
-       71:     try:
-    -->72:         class F:
-       73:             __slots__ = ["a", "b"]
+       190: def test_int_base_not_in_range():
+       191:     try:
+    -->192:         int('18', base=37)
+       193:     except ValueError as e:
+
+            int:  <class int>
+        
 
 
 time strptime incorrect format
@@ -3406,7 +3531,7 @@ time strptime incorrect format
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 98, in test_time_strptime_incorrect_format
+      File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
         time.strptime("2020-01-01", "%d %m %Y")
     ValueError: time data '2020-01-01' does not match format '%d %m %Y'
     
@@ -3421,13 +3546,13 @@ time strptime incorrect format
     https://docs.python.org/fr/3/library/time.html#time.strftime
     Le site suivant peut également être utile : https://www.strfti.me/ (anglais seulement).
     
-    Exception levée à la ligne 98 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne 127 du fichier TESTS:\runtime\test_value_error.py.
     
-       94:         return
-       96:     import time
-       97:     try:
-    -->98:         time.strptime("2020-01-01", "%d %m %Y")
-       99:     except ValueError as e:
+       123:         return
+       125:     import time
+       126:     try:
+    -->127:         time.strptime("2020-01-01", "%d %m %Y")
+       128:     except ValueError as e:
 
             time:  <module time (builtin)>
             time.strptime:  <builtin function strptime>
