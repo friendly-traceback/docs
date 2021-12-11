@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.89
+Friendly-traceback version: 0.4.91
 Python version: 3.11.0a3
 
 
@@ -1095,7 +1095,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: a = 3 \ 4.0
-                  ^
+                  ^^^
 
     You are using the continuation character `\` outside of a string,
     and it is followed by some other character(s).
@@ -2306,7 +2306,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: def test()
-                    ^
+                   ^
 
     You wrote a statement beginning with
     `def` but forgot to add a colon `:` at the end.
@@ -2592,7 +2592,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: def test(**):
-                      ^
+                     ^
 
     The `**` operator needs to be followed by an identifier (variable name).
     
@@ -3333,7 +3333,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: a = {1:2, 3}
-                     ^
+                    ^
 
     It looks like the error occurred as you were writing a Python dict.
     Perhaps you wrote a dict key without writing the corresponding value.
@@ -3363,7 +3363,7 @@ Python version: 3.11.0a3
     
        1: # a = {1:2, 3}
     -->2: a = {1:2, 3:}
-                      ^
+                     ^
 
     It looks like the error occurred as you were writing a Python dict.
     Perhaps you forgot to write a value after a colon.
@@ -3672,7 +3672,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: EOL while scanning string literal"""
        2: 
     -->3: alphabet = 'abc
-                      ^
+                     ^
 
     You started writing a string with a single or double quote
     but never ended the string with another quote on that line.
@@ -3765,7 +3765,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: print(1 / 2) ==
-                         ^
+                       ^^
 
     I am guessing that you wrote `==` by mistake.
     Removing it and writing `print(1 / 2)` seems to fix the error.
@@ -3821,7 +3821,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: f"ab}"
-                ^
+          ^^^^^^
 
     You have written an f-string which has an unmatched `}`.
     If you want to print a single `}`, you need to write `}}` in the f-string;
@@ -3849,7 +3849,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: f"{ab"
-                ^
+          ^^^^^^
 
     You have written an f-string which has an unmatched `{`.
     If you want to print a single `{`, you need to write `{{` in the f-string;
@@ -3979,7 +3979,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: from __future__ import braces
-          ^
+          ^^^^
 
     I suspect you wrote `from __future__ import braces` following
     someone else's suggestion. This will never work.
@@ -4009,7 +4009,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: from __future__ import *
-          ^
+          ^^^^
 
     When using a `from __future__ import` statement,
     you must import specific named features.
@@ -4078,7 +4078,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: from __future__ import divisio
-          ^
+          ^^^^
 
     Instead of `divisio`, perhaps you meant to import `division`.
     
@@ -4104,7 +4104,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: from __future__ import something
-          ^
+          ^^^^
 
     `something` is not a valid feature of module `__future__`.
     
@@ -4245,7 +4245,7 @@ Python version: 3.11.0a3
        1: # SyntaxError: invalid syntax
        2: 
     -->3: a = 3.0i
-                 ^
+              ^^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4349,7 +4349,7 @@ Python version: 3.11.0a3
        2: if True:
        3:     pass
     -->4:       pass
-                ^
+                ^^^^
 
     Line `4` identified above is more indented than expected.
     
@@ -4380,7 +4380,7 @@ Python version: 3.11.0a3
        3: if True:
        4:       pass
     -->5:     pass
-                  ^
+              ^^^^
 
     Line `5` identified above is less indented than expected.
     
@@ -4411,7 +4411,7 @@ Python version: 3.11.0a3
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                   ^
+                   ^^^
 
     Line `6` identified above is more indented than expected.
     
@@ -4445,7 +4445,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: x = 01
-               ^
+              ^
 
     Perhaps you meant to write the octal number `0o1`
     and forgot the letter 'o', or perhaps you meant to write
@@ -4534,7 +4534,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: a = 1e
-               ^
+              ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4592,7 +4592,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = 0x123g4
-                   ^
+              ^^^^^
 
     It looks like you used an invalid character (`g`) in an hexadecimal number.
     
@@ -4628,7 +4628,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: 36abc = 3
-           ^
+          ^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4661,7 +4661,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: tau = 2pi
-                 ^
+                ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4694,7 +4694,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: 3job  # could be entered in a repl
-            ^
+          ^^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `3 * job`.
@@ -4726,7 +4726,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: 3job = 1
-           ^
+          ^^
 
     Valid names cannot begin with a number.
     
@@ -4754,7 +4754,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: print(42java)
-                  ^
+                ^^^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `42 * java`.
@@ -4852,7 +4852,7 @@ Python version: 3.11.0a3
        1: 
        2: 
     -->3: b = 0O1876
-                 ^
+                 ^^^
 
     It looks like you used an invalid character (`8`) in an octal number.
     
@@ -5147,7 +5147,7 @@ Python version: 3.11.0a3
        2: 
        3: for i in range(10):
     -->4: 
-          ^
+                            ^
 
     Line `4` identified above was expected to begin a new indented block.
     
@@ -5176,7 +5176,7 @@ Python version: 3.11.0a3
        4:    #
        5:    #
     -->6: 
-          ^
+                         ^
 
     Line `6` identified above was expected to begin a new indented block.
     
@@ -5206,7 +5206,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError"""
        2: 
     -->3: if True
-                 ^
+             ^^^^
 
     You wrote a statement beginning with
     `if` but forgot to add a colon `:` at the end.
@@ -5504,7 +5504,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: for i in range 3:
-                          ^
+                         ^
 
     Python told us that it expected a colon at the position indicated.
     However, adding a colon or replacing something else by a colon
@@ -6563,7 +6563,7 @@ Python version: 3.11.0a3
     
        1: # See also and_in_import_statement_2.py which gives the same error message
     -->2: from math import sin, cos,
-                                    ^
+                                   ^
 
     Python indicates that you need to surround an expression
     ending with a comma by parentheses.
@@ -6695,7 +6695,7 @@ Python version: 3.11.0a3
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: a = (b+c
-                ^
+               ^
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6795,7 +6795,7 @@ Python version: 3.11.0a3
        3: """
        4: 
     -->5: print(\t)
-                  ^
+                 ^
 
     You are using the continuation character `\` outside of a string,
     and it is followed by some other character(s).
@@ -6893,7 +6893,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: a = 1½  # 1 1/2
-               ^
+              ^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -7310,7 +7310,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: some_text = """In a land
-                      ^
+                    ^
 
     You started writing a triple-quoted string but never wrote
     the triple quotes needed to end the string.
@@ -7346,7 +7346,7 @@ Python version: 3.11.0a3
        5: def test_tab_error():
        6:     if True:
     -->7: 	pass
-           ^
+           ^^^^
 
 (229) EOL unescaped backslash
 -----------------------------
@@ -7434,7 +7434,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: path = "c:\Users\andre"
-                                 ^
+                 ^^^^^^^^^^^^^^^^
 
     I suspect that you wrote a string that contains
     one backslash character, `\` followed by an uppercase `U`

@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.4.89
+Friendly version: 0.4.91
 Python version: 3.9.5
 
 
@@ -48,7 +48,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from math import sin and cos
-                               ^
+                               ^^^
 
     Le mot-clé Python `and` ne peut être utilisé que pour les expressions booléennes.
     Vous vouliez peut-être écrire
@@ -77,7 +77,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from math import sin, tan, and cos
-                                     ^
+                                     ^^^
 
     Python indique que vous devez utiliser des parenthèses
     pour entourer une expression se terminant par une virgule.
@@ -140,7 +140,7 @@ Python version: 3.9.5
     
        1: # issue 158
     -->2: from math import (sin, cos) as funcs
-                                      ^
+                                      ^^
 
     Je suppose que vous essayez d’importer au moins un objet
     à partir du module `math` pour le renommer en utilisant le mot clé Python `as`;
@@ -207,7 +207,7 @@ Python version: 3.9.5
        5: def fn():
        6:     p = 1
     -->7:     global p
-              ^
+              ^^^^^^
 
     Vous avez attribué une valeur à la variable `p`
     avant de la déclarer comme une variable globale.
@@ -238,7 +238,7 @@ Python version: 3.9.5
        5: def fn():
        6:     print(r)
     -->7:     global r
-              ^
+              ^^^^^^
 
     Vous avez utilisé la variable `r`
     avant de la déclarer comme une variable globale.
@@ -271,7 +271,7 @@ Python version: 3.9.5
        7:     def g():
        8:         print(q)
     -->9:         nonlocal q
-                  ^
+                  ^^^^^^^^
 
     Vous avez utilisé la variable `q`
     avant de la déclarer comme variable non locale.
@@ -304,7 +304,7 @@ Python version: 3.9.5
        7:     def g():
        8:         s = 2
     -->9:         nonlocal s
-                  ^
+                  ^^^^^^^^
 
     Vous avez attribué une valeur à la variable `s`
     avant de la déclarer comme variable non locale.
@@ -371,7 +371,7 @@ Python version: 3.9.5
        2:    and assignment to keyword before."""
        3: 
     -->4: __debug__ = 1
-          ^
+          ^^^^^^^^^
 
     `__debug__` est une constante dans python; vous ne pouvez pas lui assigner une valeur différente.
     
@@ -435,7 +435,7 @@ Python version: 3.9.5
        2:    and assignment to keyword before."""
        3: 
     -->4: ... = 1
-          ^
+          ^^^
 
     Le symbole `...` est une constante dans python; vous ne pouvez pas lui assigner une valeur différente.
     
@@ -465,7 +465,7 @@ Python version: 3.9.5
     
        5: 
     -->6: f'{x}' = 42
-          ^
+          ^^^^^^
 
     Vous avez écrit une expression qui a la chaine de
     caractères formatés `f'{x}'`
@@ -498,7 +498,7 @@ Python version: 3.9.5
     
        5: 
     -->6: len('a') = 3
-          ^
+          ^^^
 
     Vous avez écrit une expression comme
     
@@ -534,7 +534,7 @@ Python version: 3.9.5
     
        5: 
     -->6: func(a, b=3) = 4
-          ^
+          ^^^^
 
     Vous avez écrit une expression comme
     
@@ -819,7 +819,7 @@ Python version: 3.9.5
        1: """ Should raise SyntaxError"""
        2: 
     -->3: else = 1
-          ^
+          ^^^^
 
     Vous essayiez d’assigner une valeur au mot clé Python `else`.
     Ceci n’est pas permis.
@@ -852,7 +852,7 @@ Python version: 3.9.5
        2:    and can't assign to keyword before."""
        3: 
     -->4: None = 1
-          ^
+          ^^^^
 
     `None` est une constante dans python; vous ne pouvez pas lui assigner une valeur différente.
     
@@ -914,7 +914,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: (yield i) = 3
-           ^
+           ^^^^^
 
     Vous avez écrit une expression qui inclut le mot-clé `yield`
     du côté gauche du signe égal.
@@ -1039,7 +1039,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: if "word" := True:
-             ^
+             ^^^^^^
 
     Vous ne pouvez pas utiliser l’opérateur d’affectation augmentée `:=`,
     parfois appelé l’opérateur morse, avec des littéraux comme `"word"`.
@@ -1072,7 +1072,7 @@ Python version: 3.9.5
        2: or (Python 3.8) cannot use named assignment with True"""
        3: 
     -->4: (True := 1)
-           ^
+           ^^^^
 
     `True` est une constante dans python; vous ne pouvez pas lui assigner une valeur différente.
     
@@ -1101,7 +1101,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: a = 3 \ 4.0
-                    ^
+                  ^^^
 
     Vous utilisez le caractère de continuation `\` en dehors d'une chaîne de caractères,
     et il est suivi par au moins un autre caractère.
@@ -1131,7 +1131,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print(sum[i for i in [1, 2, 3] if i%2==0])
-                      ^
+                      ^^^
 
     Vous avez utilisé des crochets, `[...]` au lieu de parenthèses.
     Écrivez plutôt ce qui suit :
@@ -1162,7 +1162,7 @@ Python version: 3.9.5
        2: 
        3: if True:
     -->4:     break
-              ^
+              ^^^^^
 
     Le mot-clé Python `break` ne peut être utilisé qu'à l'intérieur d'une boucle `for` ou à l'intérieur d'une boucle `while`.
     
@@ -1220,7 +1220,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: SyntaxErrors can be annoying!
-                       ^
+                       ^^^
 
     Présentement, je ne peux pas deviner la cause probable de cette erreur.
     Essayez d’examiner attentivement la ligne indiquée ainsi que celle
@@ -1257,7 +1257,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-           ^
+          ^
 
     L’opérateur astérisque `*` est interprété comme signifiant que
     le déballage itérable doit être utilisé pour attribuer un nom
@@ -1285,7 +1285,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: (**k)
-           ^
+           ^^
 
     L’opérateur double astérisque, `**` est probablement interprété comme signifiant
     qu'un déballage de `dict` doit être utilisé ce qui n'est soit par permis
@@ -1347,7 +1347,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: x = [i, i**2 for i in range(10)]
-                       ^
+                       ^^^
 
     Je suppose que vous écriviez une compréhension ou une expression génératrice
     et vous avez oublié d’inclure des parenthèses autour des tuples.
@@ -1382,7 +1382,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: a = [f(x) if condition for x in sequence]
-                                 ^
+                                 ^^^
 
     Je suppose que vous écriviez une compréhension ou une expression génératrice
     et avez utiliser le mauvais ordre pour une condition.
@@ -1419,7 +1419,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: a = [f(x) for x in sequence if condition else other]
-                                                   ^
+                                                   ^^^^
 
     Je suppose que vous écriviez une compréhension ou une expression génératrice
     et avez utiliser le mauvais ordre pour une condition.
@@ -1459,7 +1459,7 @@ Python version: 3.9.5
        2: 
        3: if True:
     -->4:     continue
-              ^
+              ^^^^^^^^
 
     Le mot-clé Python `continue` ne peut être utilisé qu'à l'intérieur d'une boucle `for` ou à l'intérieur d'une boucle `while`.
     
@@ -1488,7 +1488,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: >>> print("Hello World!")
-          ^
+          ^^
 
     On dirait que vous avez copié-collé le code d’un interprète interactif.
     L’invite Python, `>>>`, ne doit pas être incluse dans votre code.
@@ -1518,7 +1518,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: ... print("Hello World!")
-              ^
+              ^^^^^
 
     On dirait que vous avez copié-collé le code d’un interprète interactif.
     L’invite Python, `...`, ne doit pas être incluse dans votre code.
@@ -1580,7 +1580,7 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: def f(*):
-                  ^
+                 ^
 
     En supposant que vous définissiez une fonction, vous avez besoin
     de remplacer `*` soit par `*arguments` ou
@@ -1795,7 +1795,7 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: def f(aa=1, aa=2):
-          ^
+          ^^^
 
     Vous avez défini une fonction répétant l'argument
     
@@ -2044,7 +2044,7 @@ Python version: 3.9.5
        1: 
        2: 
     -->3: def "function"():
-              ^
+              ^^^^^^^^^^
 
     Le nom d’une fonction doit être un identificateur Python valide,
     c’est-à-dire un nom qui commence par une lettre ou un caractère de soulignement, `_`,
@@ -2077,7 +2077,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def f(None=1):
-                ^
+                ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `None` comme argument
     dans la définition d'une fonction où un identificateur
@@ -2109,7 +2109,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def f(x, True):
-                   ^
+                   ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `True` comme argument
     dans la définition d'une fonction où un identificateur
@@ -2141,7 +2141,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def f(*None):
-                 ^
+                 ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `None` comme argument
     dans la définition d'une fonction où un identificateur
@@ -2173,7 +2173,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def f(**None):
-                  ^
+                  ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `None` comme argument
     dans la définition d'une fonction où un identificateur
@@ -2205,7 +2205,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: def pass():
-              ^
+              ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `pass` comme nom de fonction.
     Ceci n’est pas permis.
@@ -2293,7 +2293,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: def test()
-                    ^
+                   ^
 
     Une définition de fonction doit se terminer par deux point, `:`.
     
@@ -2454,7 +2454,7 @@ Python version: 3.9.5
        4: 
        5: def f(x):
     -->6:     global x
-              ^
+              ^^^^^^
 
     Vous avec inclus l'énoncé
     
@@ -2492,7 +2492,7 @@ Python version: 3.9.5
        3: 
        4: 
     -->5: def test(a=1, b):
-                          ^
+                         ^
 
     Dans Python, vous pouvez définir les fonctions avec seulement des arguments de position
     
@@ -2560,7 +2560,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: def test(**):
-                      ^
+                     ^
 
     L'opérateur `**` doit être suivi d'un identifiant (nom de variable).
     
@@ -2954,7 +2954,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: def f("1"):
-                ^
+                ^^^
 
     Vous avez utilisé une chaîne comme argument lors de la définition d’une fonction.
     Vous ne pouvez utiliser que des identificateurs (noms de variables) comme arguments de fonction.
@@ -3103,7 +3103,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: del True
-              ^
+              ^^^^
 
     Vous ne pouvez pas supprimer la constante `True`.
     Vous ne pouvez supprimer que les noms d'objets, ou des éléments
@@ -3228,7 +3228,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: del a += b
-                ^
+                ^^
 
     Vous ne pouvez supprimer que les noms d'objets, ou des éléments
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
@@ -3255,7 +3255,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: del "Hello world!"
-              ^
+              ^^^^^^^^^^^^^^
 
     Vous ne pouvez pas supprimer le littéral `"Hello world!"`.
     Vous ne pouvez supprimer que les noms d'objets, ou des éléments
@@ -3493,7 +3493,7 @@ Python version: 3.9.5
        1: if True:
        2:    pass
     -->3:    elif True:
-             ^
+             ^^^^
 
     Le mot clé `elif` ne commence pas un bloc de code qui correspond à un bloc
     un bloc `if`, peut-être parce que `elif` n'est pas indenté correctement.
@@ -3522,7 +3522,7 @@ Python version: 3.9.5
        1: if True:
        2:    pass
     -->3:    else:
-             ^
+             ^^^^
 
     Le mot-clé `else` ne commence pas un bloc de code qui correspond à
     un bloc de code valide, peut-être parce que `else` n'est pas indenté correctement.
@@ -3555,7 +3555,7 @@ Python version: 3.9.5
        3: if False:
        4:     pass
     -->5: else if True:
-               ^
+               ^^
 
     Vous avez écrit `else if`
     au lieu d'utiliser le mot-clé `elif`.
@@ -3589,7 +3589,7 @@ Python version: 3.9.5
        3: if False:
        4:     pass
     -->5: elseif True:
-                 ^
+                 ^^^^
 
     Vous avez écrit `elseif`
     au lieu d'utiliser le mot-clé `elif`.
@@ -3621,7 +3621,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: EOL while scanning string literal"""
        2: 
     -->3: alphabet = 'abc
-                         ^
+                      ^^^
 
     Vous aviez commencé à écrire une chaîne de caractères
     avec un guillemet simple ou double, mais n'avez jamais
@@ -3714,7 +3714,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print(1 / 2) ==
-                         ^
+                       ^^
 
     Je suppose que vous avez écrit `==` par erreur.
     Écrire simplement `print(1 / 2)` semble corriger l’erreur.
@@ -3743,7 +3743,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: greet = bf"Hello {name}"
-                    ^
+                    ^^^^^^^^^^^^^^
 
     Je devine que vous vouliez une chaîne de caractères formatés (f-string) binaire;
     ceci n’est pas permis.
@@ -3770,7 +3770,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: f"ab}"
-                ^
+          ^^^^^^
 
     Vous avez écrit une chaîne f-string qui contient un `}` non apparié.
     Si vous voulez imprimer un seul `}`, vous devez écrire `}}` dans la chaîne de caractères ;
@@ -3798,7 +3798,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: f"{ab"
-                ^
+          ^^^^^^
 
     Vous avez écrit une chaîne f-string qui contient un `{` non apparié.
     Si vous voulez imprimer un seul `{`, vous devez écrire `{{` dans la chaîne f-string ;
@@ -3928,7 +3928,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from __future__ import braces
-          ^
+          ^^^^
 
     Je soupçonne que vous avez écrit `from __future__ import braces`
     suivant une suggestion de quelqu’un d’autre. Ça ne marchera jamais.
@@ -3958,7 +3958,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from __future__ import *
-          ^
+          ^^^^
 
     Lors de l’utilisation d’un énoncé `from __future__ import`,
     vous devez importer des noms spécifiques.
@@ -3998,7 +3998,7 @@ Python version: 3.9.5
        1: 
        2: def fn():
     -->3:     from __future__ import generators
-              ^
+              ^^^^
 
     Une instruction `from __future__ import` change la façon dont Python
     interprète le code dans un fichier.
@@ -4027,7 +4027,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from __future__ import divisio
-          ^
+          ^^^^
 
     Au lieu de `divisio`, peut-être que vous vouliez plutôt importer `division`.
     
@@ -4053,7 +4053,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: from __future__ import something
-          ^
+          ^^^^
 
     `something` n’est pas un attribut valide du module `__future__`.
     
@@ -4228,7 +4228,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^
+                     ^^^^
 
     Vous avez écrit quelque chose comme
         import pen from turtle
@@ -4263,7 +4263,7 @@ Python version: 3.9.5
        2: 
        3: if True:
     -->4: pass
-          ^
+          ^^^^
 
     La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
@@ -4294,7 +4294,7 @@ Python version: 3.9.5
        2: if True:
        3:     pass
     -->4:       pass
-                ^
+                ^^^^
 
     La ligne `4` indiquée ci-dessus est plus indentée que prévu.
     
@@ -4326,7 +4326,7 @@ Python version: 3.9.5
        3: if True:
        4:       pass
     -->5:     pass
-                  ^
+              ^^^^
 
     La ligne `5` identifiée ci-dessus est moins indentée que prévu.
     
@@ -4358,7 +4358,7 @@ Python version: 3.9.5
        4:      s = "a"\
        5:          "b"
     -->6:          "c"
-                   ^
+                   ^^^
 
     La ligne `6` indiquée ci-dessus est plus indentée que prévu.
     
@@ -4422,7 +4422,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: x = 000_123_456
-                        ^
+                 ^^^^^^^^
 
     Peut-être que vous vouliez écrire l'entier décimal `123_456`
     et ne saviez pas qu’il ne pouvait pas commencer par des zéros.
@@ -4531,7 +4531,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = 0x123g4
-                   ^
+                   ^^
 
     On dirait que vous avez utilisé un caractère invalide ('g') dans un nombre hexadecimal.
     
@@ -4567,7 +4567,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: 36abc = 3
-            ^
+            ^^^
 
     Les noms valides ne peuvent pas commencer par un chiffre.
     
@@ -4597,7 +4597,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: tau = 2pi
-                 ^
+                 ^^
 
     Les noms valides ne peuvent pas commencer par un chiffre.
     Peut-être avez-vous oublié un opérateur de multiplication, `2 * pi`.
@@ -4627,7 +4627,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: 3job  # could be entered in a repl
-            ^
+            ^^
 
     Les noms valides ne peuvent pas commencer par un chiffre.
     Peut-être avez-vous oublié un opérateur de multiplication, `3 * job`.
@@ -4659,7 +4659,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: 3job = 1
-            ^
+            ^^
 
     Les noms valides ne peuvent pas commencer par un chiffre.
     
@@ -4687,7 +4687,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print(42java)
-                   ^
+                   ^^^
 
     Les noms valides ne peuvent pas commencer par un chiffre.
     Peut-être avez-vous oublié un opérateur de multiplication, `42 * java`.
@@ -4719,7 +4719,7 @@ Python version: 3.9.5
        5: 
        6: 
     -->7: a = dict('key'=1)
-                   ^
+                   ^^^^^
 
     Vous avez probablement appelé une fonction avec un argument :
     
@@ -4755,7 +4755,7 @@ Python version: 3.9.5
        5: 
        6: 
     -->7: a = dict(True=1)
-                   ^
+                   ^^^^
 
     Vous avez probablement invoqué une fonction en utilisant le mot-clé Python `True` comme argument :
     
@@ -4791,7 +4791,7 @@ Python version: 3.9.5
        1: 
        2: 
     -->3: b = 0O1876
-                 ^
+                 ^^^
 
     On dirait que vous avez utilisé un caractère invalide ('8') dans un nombre octal.
     
@@ -4918,7 +4918,7 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: f(ad=1, ad=2)
-                  ^
+                  ^^
 
     Vous avez invoqué une fonction en répétant le même argument nommé (`ad`).
     Chaque argument de ce type ne peut apparaître qu'une seule fois.
@@ -4952,7 +4952,7 @@ Python version: 3.9.5
        10: 
        11: a.x = 1
     -->12: a.pass = 2
-             ^
+             ^^^^
 
     Vous avez tenté d'utiliser le mot clé Python `pass` comme attribut.
     Ceci n’est pas permis.
@@ -5039,7 +5039,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: for "char" in "word":
-              ^
+              ^^^^^^
 
     Une boucle for doit avoir la forme:
     
@@ -5073,7 +5073,7 @@ Python version: 3.9.5
        2: 
        3: for i in range(10):
     -->4: 
-          ^
+                            ^
 
     La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
@@ -5103,7 +5103,7 @@ Python version: 3.9.5
        4:    #
        5:    #
     -->6: 
-          ^
+                         ^
 
     La ligne `6` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
@@ -5133,7 +5133,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError"""
        2: 
     -->3: if True
-                 ^
+             ^^^^
 
     Vous avez écrit un énoncé débutant avec
     `if` mais vous avez oublié d’ajouter deux points `:` à la fin.
@@ -5165,7 +5165,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                      ^
+                ^^^^
 
     Vous vouliez débuter une boucle `while`
     mais vous avez oublié d’ajouter deux points `:` à la fin.
@@ -5199,7 +5199,7 @@ Python version: 3.9.5
        3: a = {'a': 1,
        4:      'b': 2
     -->5:      'c': 3,
-               ^
+               ^^^
 
     Python indique que l’erreur est causée par `'c'` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'un ensemble (set)
@@ -5275,7 +5275,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = [1, 2  3]
-                      ^
+                     ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'une liste
@@ -5317,7 +5317,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = {1, 2  3}
-                      ^
+                     ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'un ensemble (set)
@@ -5359,7 +5359,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = (1, 2  3)
-                      ^
+                     ^
 
     Python indique que l’erreur est causée par `3` écrit tout juste après `2`.
     Il est également possible que vous ayez oublié une virgule entre les éléments d'un tuple,
@@ -5399,7 +5399,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: for i in range 3:
-                          ^
+                         ^
 
     Il semble que vous avez oublié d’utiliser des parenthèses
     avec `range`. Peut-être que vous vouliez dire:
@@ -5432,7 +5432,7 @@ Python version: 3.9.5
     
        1: i = 3
     -->2: is i in range(3):
-          ^
+          ^^
 
     Peut-être que vous vouliez écrire `if` et que vous avez fait une faute.
     Si c'est le cas, la ligne correcte pourrait être `if i in range(3):`.
@@ -5463,7 +5463,7 @@ Python version: 3.9.5
        5: 
        6: def f():
     -->7:     global xy
-              ^
+              ^^^^^^
 
     Vous avez utilisé `xy` comme étant une variable non locale et globale.
     Une variable peut être d'un seul type à la fois: soit globale, soit non locale, ou soit locale.
@@ -5494,7 +5494,7 @@ Python version: 3.9.5
        3: 
        4: def f(x):
     -->5:     nonlocal x
-              ^
+              ^^^^^^^^
 
     Vous avez utilisé `x` comme paramètre pour une fonction
     avant de la déclarer également comme une variable non locale :
@@ -5526,7 +5526,7 @@ Python version: 3.9.5
        3: 
        4: def f():
     -->5:     nonlocal ab
-              ^
+              ^^^^^^^^
 
     Vous avez déclaré la variable `ab` comme non locale
     mais elle n'existe pas ailleurs.
@@ -5556,7 +5556,7 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: nonlocal cd
-          ^
+          ^^^^^^^^
 
     Vous avez utilisé le mot clé nonlocal au niveau d'un module.
     Le mot clé nonlocal fait référence à une variable à l'intérieur d'une fonction
@@ -5583,7 +5583,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: 4****5
-             ^
+             ^^
 
     Vous ne pouvez pas écrire le même opérateur, `**`, deux fois de suite.
     Peut-être avez-vous écrit l’un d’eux par erreur
@@ -5614,7 +5614,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: pip install friendly
-              ^
+              ^^^^^^^
 
     Il semble que vous essayez d’utiliser pip pour installer un module.
     `pip` est une commande qui doit être invoquée dans un terminal,
@@ -5645,7 +5645,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: python -m pip install friendly
-                    ^
+                    ^^^
 
     Il semble que vous essayez d’utiliser pip pour installer un module.
     `pip` est une commande qui doit être invoquée dans un terminal,
@@ -5676,7 +5676,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
     -->2: print 'hello'
-                ^
+                ^^^^^^^
 
     Peut-être que vous avez besoin d'écrire
     
@@ -5710,7 +5710,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('hello')
-                ^
+                ^^^
 
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5739,7 +5739,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print """This is a very long string which results in a very long error message."""
-                ^
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Peut-être que vous avez besoin d'écrire
     
@@ -5773,7 +5773,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
-                ^
+                ^^^
 
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5803,7 +5803,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('This is a long string that fits on a single line.')
-                ^
+                ^^^
 
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5832,7 +5832,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print hello world!
-                ^
+                ^^^^^
 
     Peut-être que vous avez besoin d'écrire
     
@@ -5866,7 +5866,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: print len("hello") hello
-                ^
+                ^^^
 
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5894,7 +5894,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: python -i friendly
-                    ^
+                    ^^^^^^^^
 
     Je suppose que vous essayez d’utiliser Python pour exécuter un programme.
     Vous devez le faire à partir d’un terminal et non d’un interprète Python.
@@ -5963,7 +5963,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: message = 'don't'
-                          ^
+                         ^
 
     Il semble y avoir un identificateur Python (nom de variable)
     immédiatement après une chaîne.
@@ -6021,7 +6021,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: 'return' outside function"""
        2: 
     -->3: return
-          ^
+          ^^^^^^
 
     Vous ne pouvez utiliser un énoncé `return` qu'à l’intérieur d’une fonction ou d’une méthode.
     
@@ -6135,7 +6135,7 @@ Python version: 3.9.5
     
        1: a = [
     -->2:     for i in 1, 2, 3:
-              ^
+              ^^^
 
     Vous avez peut-être écrit un énoncé au début d'un bloc de code
     destiné à faire partie d'une compréhension de liste.
@@ -6325,7 +6325,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: my name = André
-             ^
+             ^^^^
 
     Vous ne pouvez pas avoir d’espaces dans les identifiants (noms de variables).
     
@@ -6384,7 +6384,7 @@ Python version: 3.9.5
        20:                    while 20:
        21:                     while 21:
     -->22:                      while 22:
-                                ^
+                                ^^^^^
 
     Votre code est trop complexe pour Python :
     vous devez réduire le nombre de blocs de code indentés
@@ -6446,7 +6446,7 @@ Python version: 3.9.5
     
        1: # See also and_in_import_statement_2.py which gives the same error message
     -->2: from math import sin, cos,
-                                    ^
+                                   ^
 
     Python indique que vous devez utiliser des parenthèses
     pour entourer une expression se terminant par une virgule.
@@ -6514,7 +6514,7 @@ Python version: 3.9.5
        5:     return [1, 2, 3
        6: 
     -->7: print(foo())
-          ^
+          ^^^^^
 
     Le symbole crochet `[` à la ligne 5 n'est pas fermé par le symbole correspondant.
     
@@ -6643,7 +6643,7 @@ Python version: 3.9.5
        2: print('hello'
        3: 
     -->4: def test():
-          ^
+          ^^^
 
     Le symbole parenthèse `(` à la ligne 2 n'est pas fermé par le symbole correspondant.
     
@@ -6706,7 +6706,7 @@ Python version: 3.9.5
        6: 
        7: print(foo())
     -->8: 
-          ^
+                     ^
 
     Python nous dit qu'il a atteint la fin du fichier
     et s'attendait à plus de contenu.
@@ -7234,7 +7234,7 @@ Python version: 3.9.5
        5: def test_tab_error():
        6:     if True:
     -->7: 	pass
-         ^
+           ^^^^
 
 (228) EOL unescaped backslash
 -----------------------------
@@ -7259,7 +7259,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: a = "abc\"
-                    ^
+                   ^
 
     Vous aviez commencé à écrire une chaîne de caractères
     avec un guillemet simple ou double, mais n'avez jamais
@@ -7324,7 +7324,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: path = "c:\Users\andre"
-                                 ^
+                 ^^^^^^^^^^^^^^^^
 
     Je pense que vous avez écrit une chaîne qui contient
     une barre oblique inversée, `\` suivie d'un "U" majuscule et d'autres caractères.
@@ -7358,7 +7358,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: a := 3
-                ^
+               ^
 
     Vous utilisez l’opérateur d’affectation augmentée `:=` là où
     l’opérateur d’affectation normal `=` était requis.
@@ -7421,7 +7421,7 @@ Python version: 3.9.5
        1: begin, end = 1, 2
        2: 
     -->3: if var start := begin < end:
-                 ^
+                 ^^^^^
 
     Il semble que vous essayiez de déclarer que `start` est
     une variable utilisant le mot `var`.
@@ -7455,7 +7455,7 @@ Python version: 3.9.5
        3: 
        4: if (
     -->5:     var start := begin < end
-                  ^
+                  ^^^^^
 
     Il semble que vous essayiez de déclarer que `start` est
     une variable utilisant le mot `var`.
@@ -7484,7 +7484,7 @@ Python version: 3.9.5
     à l'endroit indiqué par ^.
     
     -->1: (yield i) == 3
-           ^
+           ^^^^^
 
     Vous ne pouvez utiliser une instruction `yield` qu'à l'intérieur d'une fonction.
     

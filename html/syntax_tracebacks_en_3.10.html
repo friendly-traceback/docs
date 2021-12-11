@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.11.html" /><link rel="prev" title="Friendly tracebacks - in English" href="tracebacks_en_3.10.html" />
 
     <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.4.90</title>
+        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.4.91</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.90</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +149,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.90</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -309,7 +309,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.4.89
+<p>Friendly-traceback version: 0.4.91
 Python version: 3.10.1</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -1272,7 +1272,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = 3 \ 4.0
-              ^
+              ^^^
 
 You are using the continuation character `\` outside of a string,
 and it is followed by some other character(s).
@@ -2360,7 +2360,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def test()
-                ^
+               ^
 
 You wrote a statement beginning with
 `def` but forgot to add a colon `:` at the end.
@@ -2605,7 +2605,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def test(**):
-                  ^
+                 ^
 
 The `**` operator needs to be followed by an identifier (variable name).
 </pre></div>
@@ -3260,7 +3260,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = {1:2, 3}
-                 ^
+                ^
 
 It looks like the error occurred as you were writing a Python dict.
 Perhaps you wrote a dict key without writing the corresponding value.
@@ -3287,7 +3287,7 @@ at the location indicated by ^.
 
    1: # a = {1:2, 3}
 --&gt;2: a = {1:2, 3:}
-                  ^
+                 ^
 
 It looks like the error occurred as you were writing a Python dict.
 Perhaps you forgot to write a value after a colon.
@@ -3564,7 +3564,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: EOL while scanning string literal"""
    2:
 --&gt;3: alphabet = 'abc
-                  ^
+                 ^
 
 You started writing a string with a single or double quote
 but never ended the string with another quote on that line.
@@ -3647,7 +3647,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print(1 / 2) ==
-                     ^
+                   ^^
 
 I am guessing that you wrote `==` by mistake.
 Removing it and writing `print(1 / 2)` seems to fix the error.
@@ -3697,7 +3697,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: f"ab}"
-            ^
+      ^^^^^^
 
 You have written an f-string which has an unmatched `}`.
 If you want to print a single `}`, you need to write `}}` in the f-string;
@@ -3722,7 +3722,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: f"{ab"
-            ^
+      ^^^^^^
 
 You have written an f-string which has an unmatched `{`.
 If you want to print a single `{`, you need to write `{{` in the f-string;
@@ -3839,7 +3839,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from __future__ import braces
-      ^
+      ^^^^
 
 I suspect you wrote `from __future__ import braces` following
 someone else's suggestion. This will never work.
@@ -3866,7 +3866,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from __future__ import *
-      ^
+      ^^^^
 
 When using a `from __future__ import` statement,
 you must import specific named features.
@@ -3930,7 +3930,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from __future__ import divisio
-      ^
+      ^^^^
 
 Instead of `divisio`, perhaps you meant to import `division`.
 </pre></div>
@@ -3953,7 +3953,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from __future__ import something
-      ^
+      ^^^^
 
 `something` is not a valid feature of module `__future__`.
 
@@ -4081,7 +4081,7 @@ at the location indicated by ^.
    1: # SyntaxError: invalid syntax
    2:
 --&gt;3: a = 3.0i
-             ^
+          ^^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4174,7 +4174,7 @@ at the location indicated by ^.
    2: if True:
    3:     pass
 --&gt;4:       pass
-            ^
+            ^^^^
 
 Line `4` identified above is more indented than expected.
 </pre></div>
@@ -4202,7 +4202,7 @@ at the location indicated by ^.
    3: if True:
    4:       pass
 --&gt;5:     pass
-              ^
+          ^^^^
 
 Line `5` identified above is less indented than expected.
 </pre></div>
@@ -4230,7 +4230,7 @@ at the location indicated by ^.
    4:      s = "a"\
    5:          "b"
 --&gt;6:          "c"
-               ^
+               ^^^
 
 Line `6` identified above is more indented than expected.
 
@@ -4261,7 +4261,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: x = 01
-           ^
+          ^
 
 Perhaps you meant to write the octal number `0o1`
 and forgot the letter 'o', or perhaps you meant to write
@@ -4341,7 +4341,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = 1e
-           ^
+          ^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4392,7 +4392,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = 0x123g4
-               ^
+          ^^^^^
 
 It looks like you used an invalid character (`g`) in an hexadecimal number.
 
@@ -4425,7 +4425,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: 36abc = 3
-       ^
+      ^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4455,7 +4455,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: tau = 2pi
-             ^
+            ^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4484,7 +4484,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: 3job  # could be entered in a repl
-        ^
+      ^^
 
 Valid names cannot begin with a number.
 Perhaps you forgot a multiplication operator, `3 * job`.
@@ -4513,7 +4513,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: 3job = 1
-       ^
+      ^^
 
 Valid names cannot begin with a number.
 </pre></div>
@@ -4538,7 +4538,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print(42java)
-              ^
+            ^^^
 
 Valid names cannot begin with a number.
 Perhaps you forgot a multiplication operator, `42 * java`.
@@ -4627,7 +4627,7 @@ at the location indicated by ^.
    1:
    2:
 --&gt;3: b = 0O1876
-             ^
+             ^^^
 
 It looks like you used an invalid character (`8`) in an octal number.
 
@@ -4878,7 +4878,7 @@ at the location indicated by ^.
    2:
    3: for i in range(10):
 --&gt;4:
-      ^
+                        ^
 
 Line `4` identified above was expected to begin a new indented block.
 </pre></div>
@@ -4904,7 +4904,7 @@ at the location indicated by ^.
    4:    #
    5:    #
 --&gt;6:
-      ^
+                     ^
 
 Line `6` identified above was expected to begin a new indented block.
 </pre></div>
@@ -4931,7 +4931,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: if True
-             ^
+         ^^^^
 
 You wrote a statement beginning with
 `if` but forgot to add a colon `:` at the end.
@@ -5175,7 +5175,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: for i in range 3:
-                      ^
+                     ^
 
 Python told us that it expected a colon at the position indicated.
 However, adding a colon or replacing something else by a colon
@@ -6131,7 +6131,7 @@ at the location indicated by ^.
 
    1: # See also and_in_import_statement_2.py which gives the same error message
 --&gt;2: from math import sin, cos,
-                                ^
+                               ^
 
 Python indicates that you need to surround an expression
 ending with a comma by parentheses.
@@ -6251,7 +6251,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: a = (b+c
-            ^
+           ^
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6342,7 +6342,7 @@ at the location indicated by ^.
    3: """
    4:
 --&gt;5: print(\t)
-              ^
+             ^
 
 You are using the continuation character `\` outside of a string,
 and it is followed by some other character(s).
@@ -6431,7 +6431,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = 1½  # 1 1/2
-           ^
+          ^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -6809,7 +6809,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: some_text = """In a land
-                  ^
+                ^
 
 You started writing a triple-quoted string but never wrote
 the triple quotes needed to end the string.
@@ -6842,7 +6842,7 @@ at the location indicated by ^.
    5: def test_tab_error():
    6:     if True:
 --&gt;7:       pass
-       ^
+       ^^^^
 </pre></div>
 </div>
 </div>
@@ -6923,7 +6923,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: path = "c:\Users\andre"
-                             ^
+             ^^^^^^^^^^^^^^^^
 
 I suspect that you wrote a string that contains
 one backslash character, `\` followed by an uppercase `U`
