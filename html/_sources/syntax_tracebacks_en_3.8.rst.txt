@@ -1756,8 +1756,8 @@ Python version: 3.8.10
     You can only use identifiers (variable names) as function arguments.
     
 
-(55) def: Keyword arg only once in function definition
-------------------------------------------------------
+(55) def: arguments must be unique in function definition
+---------------------------------------------------------
 
 .. code-block:: none
 

@@ -309,8 +309,8 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.4.87
-Python version: 3.11.0a2</p>
+<p>Friendly-traceback version: 0.4.89
+Python version: 3.11.0a3</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -328,7 +328,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from math import sin and cos
-                           ^
+                           ^^^
 
 The Python keyword `and` can only be used for boolean expressions.
 Perhaps you meant to write
@@ -354,7 +354,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from math import sin, tan, and cos
-                                 ^
+                                 ^^^
 
 The Python keyword `and` can only be used for boolean expressions.
 Perhaps you meant to write
@@ -383,7 +383,7 @@ at the location indicated by ^.
    2: def foo():
    3:     global x
 --&gt;4:     x:int = 1
-          ^
+          ^^^^^^^^^
 
 The object named `x` is defined with type annotation
 as a local variable. It cannot be declared to be a global variable.
@@ -408,7 +408,7 @@ at the location indicated by ^.
 
    1: # issue 158
 --&gt;2: from math import (sin, cos) as funcs
-                                  ^
+                                  ^^
 
 I am guessing that you are trying to import at least one object
 from module `math` and rename it using the Python keyword `as`;
@@ -469,7 +469,7 @@ at the location indicated by ^.
    5: def fn():
    6:     p = 1
 --&gt;7:     global p
-          ^
+          ^^^^^^^^
 
 You assigned a value to the variable `p`
 before declaring it as a global variable.
@@ -497,7 +497,7 @@ at the location indicated by ^.
    5: def fn():
    6:     print(r)
 --&gt;7:     global r
-          ^
+          ^^^^^^^^
 
 You used the variable `r`
 before declaring it as a global variable.
@@ -522,12 +522,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
 at the location indicated by ^.
 
-    5:     q = 1
-    6:
-    7:     def g():
-    8:         print(q)
---&gt; 9:         nonlocal q
-               ^
+   5:     q = 1
+   6:
+   7:     def g():
+   8:         print(q)
+--&gt;9:         nonlocal q
+              ^^^^^^^^^^
 
 You used the variable `q`
 before declaring it as a nonlocal variable.
@@ -552,12 +552,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
 at the location indicated by ^.
 
-    5:     s = 1
-    6:
-    7:     def g():
-    8:         s = 2
---&gt; 9:         nonlocal s
-               ^
+   5:     s = 1
+   6:
+   7:     def g():
+   8:         s = 2
+--&gt;9:         nonlocal s
+              ^^^^^^^^^^
 
 You assigned a value to the variable `s`
 before declaring it as a nonlocal variable.
@@ -585,7 +585,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
    2:
 --&gt;3: a if 1 else b = 1
-      ^
+      ^^^^^^^^^^^^^
 
 On the left-hand side of an equal sign, you have a
 conditional expression instead of the name of a variable.
@@ -618,7 +618,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: __debug__ = 1
-      ^
+      ^^^^^^^^^
 
 `__debug__` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -646,7 +646,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: a.__debug__ = 1
-      ^
+      ^^^^^^^^^^^
 
 `__debug__` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -674,7 +674,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: ... = 1
-      ^
+      ^^^
 
 The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
 </pre></div>
@@ -698,13 +698,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_f_string.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: can't assign to literal
-   3: Python &gt;= 3.8: SyntaxError: cannot assign to f-string expression
-   4: """
    5:
 --&gt;6: f'{x}' = 42
-      ^
+      ^^^^^^
 
 You wrote an expression that has the f-string `f'{x}'`
 on the left-hand side of the equal sign.
@@ -731,13 +727,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_function_call_1.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: can't assign to function call
-   2:
-   3: Python 3.8: SyntaxError: cannot assign to function call
-   4: """
    5:
 --&gt;6: len('a') = 3
-      ^
+      ^^^^^^^^
 
 You wrote the expression
 
@@ -767,13 +759,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_function_call_2.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: can't assign to function call
-   2:
-   3: Python 3.8: SyntaxError: cannot assign to function call
-   4: """
    5:
 --&gt;6: func(a, b=3) = 4
-      ^
+      ^^^^^^^^^^^^
 
 You wrote an expression like
 
@@ -806,7 +794,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
    2:
 --&gt;3: (x for x in x) = 1
-      ^
+      ^^^^^^^^^^^^^^
 
 On the left-hand side of an equal sign, you have a
 generator expression instead of the name of a variable.
@@ -832,14 +820,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_literal_dict.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError:
-   2: Python 3.8: cannot assign to dict display
-   3: Python 3.6, 3.7: can't assign to literal
-   4:
-   5:  """
    6:
 --&gt;7: {1 : 2, 2 : 4} = 5
-      ^
+      ^^^^^^^^^^^^^^
 
 You wrote an expression like
 
@@ -973,14 +956,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_literal_set.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError:
-   2: Python 3.8: cannot assign to set display
-   3: Python 3.6, 3.7: can't assign to literal
-   4:
-   5:  """
    6:
 --&gt;7: {1, 2, 3} = 4
-      ^
+      ^^^^^^^^^
 
 You wrote an expression like
 
@@ -1042,7 +1020,7 @@ at the location indicated by ^.
    1: """ Should raise SyntaxError"""
    2:
 --&gt;3: else = 1
-      ^
+      ^^^^
 
 You were trying to assign a value to the Python keyword `else`.
 This is not allowed.
@@ -1071,7 +1049,7 @@ at the location indicated by ^.
    2:    and can't assign to keyword before."""
    3:
 --&gt;4: None = 1
-      ^
+      ^^^^
 
 `None` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -1099,7 +1077,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot assign to operator"""
    3:
 --&gt;4: a + 1 = 2
-      ^
+      ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -1125,8 +1103,8 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_yield_expression.py'
 at the location indicated by ^.
 
---&gt;1: (yield
-       ^
+--&gt;1: (yield i) = 3
+       ^^^^^^^
 
 You wrote an expression that includes the `yield` keyword
 on the left-hand side of the equal sign.
@@ -1181,7 +1159,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You are using the augmented assignment operator `:=` inside
 a comprehension to assign a value to the iteration variable `j`.
@@ -1200,7 +1178,7 @@ This is not possible for variable `j`.
   File "TESTS:\syntax\async_def_missing_parens.py", line 1
     async def name:
                   ^
-SyntaxError: invalid syntax
+SyntaxError: expected '('
 
     Did you forget parentheses?
 
@@ -1212,6 +1190,14 @@ at the location indicated by ^.
 
 --&gt;1: async def name:
                     ^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    expected '('
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 Perhaps you forgot to include parentheses.
 You might have meant to write
@@ -1239,7 +1225,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: if "word" := True:
-         ^
+         ^^^^^^
 
 You cannot use the augmented assignment operator `:=`,
 sometimes called the walrus operator, with literals like `"word"`.
@@ -1269,7 +1255,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot use named assignment with True"""
    3:
 --&gt;4: (True := 1)
-       ^
+       ^^^^
 
 `True` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -1282,7 +1268,7 @@ at the location indicated by ^.
     __import__(name)
   File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
     a = 3 \ 4.0
-    ^
+           ^^^^--&gt;
 SyntaxError: unexpected character after line continuation character
 
     Did you mean to divide by 4.0?
@@ -1294,15 +1280,14 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = 3 \ 4.0
-</pre></div>
-</div>
-<p>^</p>
-<blockquote>
-<div><p>You are using the continuation character <a href="#id2"><span class="problematic" id="id3">`</span></a>` outside of a string,
+              ^
+
+You are using the continuation character `\` outside of a string,
 and it is followed by some other character(s).
 I am guessing that you wanted to divide by the number 4.0
-and wrote instead of /.</p>
-</div></blockquote>
+and wrote \ instead of /.
+</pre></div>
+</div>
 </div>
 <div class="section" id="brackets-instead-of-parentheses">
 <h2>(34) Brackets instead of parentheses<a class="headerlink" href="#brackets-instead-of-parentheses" title="Permalink to this headline">¶</a></h2>
@@ -1323,7 +1308,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print(sum[i for i in [1, 2, 3] if i%2==0])
-            ^
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python indicates that the error is caused by `[` written immediately after `sum`.
 It is possible that you forgot a comma between items in a tuple,
@@ -1368,7 +1353,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4:     break
-          ^
+          ^^^^^
 
 The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
 </pre></div>
@@ -1393,7 +1378,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: if x.a = 1:
-         ^
+         ^^^
 
 You likely used an assignment operator `=` instead of an equality operator `==`.
 The following statement would not contain a syntax error:
@@ -1409,8 +1394,8 @@ The following statement would not contain a syntax error:
     __import__(name)
   File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
     SyntaxErrors can be annoying!
-                     ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                 ^^^
+SyntaxError: invalid syntax
 
     Friendly-traceback does not know the cause of this error.
 
@@ -1421,7 +1406,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: SyntaxErrors can be annoying!
-                       ^
+                   ^^^
 
 Currently, I cannot guess the likely cause of this error.
 Try to examine closely the line indicated as well as the line
@@ -1454,7 +1439,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't use starred expression here"""
    2:
 --&gt;3: *a
-       ^
+       ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -1482,7 +1467,7 @@ at the location indicated by ^.
    2:
    3: def test(**k):
 --&gt;4:     print(f"{**k}")
-       ^
+       ^^
 
 The double star operator `**` is likely interpreted to mean that
 dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1536,7 +1521,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: x = [i, i**2 for i in range(10)]
-           ^
+           ^^^^^^^
 
 I am guessing that you were writing a comprehension or a generator expression
 and forgot to include parentheses around tuples.
@@ -1569,7 +1554,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = [f(x) if condition for x in sequence]
-           ^
+           ^^^^^^^^^^^^^^^^^
 
 An `else some_value` clause was expected after the `if` expression.
 </pre></div>
@@ -1592,7 +1577,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = [f(x) for x in sequence if condition else other]
-                                               ^
+                                               ^^^^
 
 I am guessing that you were writing a comprehension or a generator expression
 and use the wrong order for a condition.
@@ -1628,7 +1613,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4:     continue
-          ^
+          ^^^^^^^^
 
 The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
 </pre></div>
@@ -1654,7 +1639,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: &gt;&gt;&gt; print("Hello World!")
-      ^
+      ^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
@@ -1668,8 +1653,8 @@ The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
     __import__(name)
   File "TESTS:\syntax\copy_pasted_code_2.py", line 2
     ... print("Hello World!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^
+SyntaxError: invalid syntax
 
     Did you use copy-paste?
 
@@ -1681,7 +1666,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: ... print("Hello World!")
-      ^
+          ^^^^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `...`, should not be included in your code.
@@ -1832,8 +1817,8 @@ Perhaps you meant to write a comma.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>(52) Dotted name as function argument<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>(52) Dotted name as function argument<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1866,7 +1851,7 @@ You cannot use dotted names as function arguments.
   File "TESTS:\syntax\def_dotted_function_name.py", line 3
     def test.x():
             ^
-SyntaxError: invalid syntax
+SyntaxError: expected '('
 
     You cannot use dots in function names.
 
@@ -1880,6 +1865,14 @@ at the location indicated by ^.
    2:
 --&gt;3: def test.x():
               ^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    expected '('
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 You cannot use dots in function names.
 </pre></div>
@@ -1911,8 +1904,8 @@ You can only use identifiers (variable names) as function arguments.
 </pre></div>
 </div>
 </div>
-<div class="section" id="def-keyword-arg-only-once-in-function-definition">
-<h2>(55) def: Keyword arg only once in function definition<a class="headerlink" href="#def-keyword-arg-only-once-in-function-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="def-arguments-must-be-unique-in-function-definition">
+<h2>(55) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1930,13 +1923,13 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
    2:
    3:
---&gt;4: def f(aa
-      ^
+--&gt;4: def f(aa=1, aa=2):
+      ^^^^^^^^
 
-You have defined a function repeating the keyword argument
+You have defined a function repeating the argument
 
     aa
-twice; each keyword argument should appear only once in a function definition.
+twice; each argument should appear only once in a function definition.
 </pre></div>
 </div>
 </div>
@@ -2160,7 +2153,7 @@ at the location indicated by ^.
    1:
    2:
 --&gt;3: def "function"():
-          ^
+          ^^^^^^^^^^
 
 The name of a function must be a valid Python identifier,
 that is a name that begins with a letter or an underscore character, `_`,
@@ -2190,7 +2183,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(None=1):
-            ^
+            ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2219,7 +2212,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(x, True):
-               ^
+               ^^^^
 
 I am guessing that you tried to use the Python keyword
 `True` as an argument in the definition of a function
@@ -2248,7 +2241,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(*None):
-             ^
+             ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2277,7 +2270,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(**None):
-              ^
+              ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2306,7 +2299,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: def pass():
-          ^
+          ^^^^
 
 You tried to use the Python keyword `pass` as a function name.
 </pre></div>
@@ -2424,15 +2417,15 @@ Perhaps you meant
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>(73) def: missing parentheses<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>(73) def: missing parentheses<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\def_missing_parens.py", line 3
     def name:
             ^
-SyntaxError: invalid syntax
+SyntaxError: expected '('
 
     Did you forget parentheses?
 
@@ -2446,6 +2439,14 @@ at the location indicated by ^.
    2:
 --&gt;3: def name:
               ^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    expected '('
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 Perhaps you forgot to include parentheses.
 You might have meant to write
@@ -2462,7 +2463,7 @@ You might have meant to write
   File "TESTS:\syntax\def_missing_parens_2.py", line 2
     def name a, b:
              ^
-SyntaxError: invalid syntax
+SyntaxError: expected '('
 
     Did you forget parentheses?
 
@@ -2475,6 +2476,14 @@ at the location indicated by ^.
    1:
 --&gt;2: def name a, b:
                ^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    expected '('
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 Perhaps you forgot to include parentheses.
 You might have meant to write
@@ -2527,13 +2536,11 @@ Python could not understand the code in the file
 'TESTS:\syntax\def_name_is_parameter_and_global.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: name 'x' is parameter and global
-   2: """
    3:
    4:
    5: def f(x):
 --&gt;6:     global x
-          ^
+          ^^^^^^^^
 
 You are including the statement
 
@@ -2840,8 +2847,8 @@ are positional arguments.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>(87) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>(87) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2867,8 +2874,8 @@ or in the form `*arg`, but not both.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2892,8 +2899,8 @@ You can only use `*` once in a function definition.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2943,8 +2950,8 @@ at the location indicated by ^.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2987,7 +2994,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def f("1"):
-            ^
+            ^^^
 
 You used a string as an argument when defining a function.
 You can only use identifiers (variable names) as function arguments.
@@ -3001,8 +3008,8 @@ You can only use identifiers (variable names) as function arguments.
     __import__(name)
   File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
     def test((a, b), c):
-             ^
-SyntaxError: invalid syntax
+             ^^^^^^
+SyntaxError: Function parameters cannot be parenthesized
 
     You cannot have explicit tuples as function arguments.
 
@@ -3013,7 +3020,15 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def test((a, b), c):
-               ^
+               ^^^^^^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    Function parameters cannot be parenthesized
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 You cannot have explicit tuples as function arguments.
 You can only use identifiers (variable names) as function arguments.
@@ -3029,8 +3044,8 @@ within the body of the function.
     __import__(name)
   File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
     def test(a, (b, c)):
-                ^
-SyntaxError: invalid syntax
+                ^^^^^^
+SyntaxError: Function parameters cannot be parenthesized
 
     You cannot have explicit tuples as function arguments.
 
@@ -3041,7 +3056,15 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def test(a, (b, c)):
-                  ^
+                  ^^^^^^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    Function parameters cannot be parenthesized
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 You cannot have explicit tuples as function arguments.
 You can only use identifiers (variable names) as function arguments.
@@ -3067,7 +3090,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (*x)
-           ^
+           ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -3094,7 +3117,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (*x,)
-           ^
+           ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -3121,7 +3144,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del True
-          ^
+          ^^^^
 
 You cannot delete the constant `True`.
 You can only delete names of objects, or items in mutable containers
@@ -3149,7 +3172,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del a.b.c[0] + 2
-          ^
+          ^^^^^^^^^^^^
 
 You cannot delete the expression `a.b.c[0] + 2`.
 You can only delete names of objects, or items in mutable containers
@@ -3178,7 +3201,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: del f(a)
-          ^
+          ^^^^
 
 You attempted to delete a function call
 
@@ -3209,7 +3232,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (a := 5)
-           ^
+           ^^^^^^
 
 You cannot delete the named expression `(a := 5)`.
 You can only delete names of objects, or items in mutable containers
@@ -3234,7 +3257,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del a += b
-            ^
+            ^^
 
 You can only delete names of objects, or items in mutable containers
 such as `list`, `set`, or `dict`.
@@ -3258,7 +3281,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del "Hello world!"
-          ^
+          ^^^^^^^^^^^^^^
 
 You cannot delete the literal `"Hello world!"`.
 You can only delete names of objects, or items in mutable containers
@@ -3472,7 +3495,7 @@ at the location indicated by ^.
    1: if True:
    2:    pass
 --&gt;3:    elif True:
-         ^
+         ^^^^
 
 The `elif` keyword does not begin a code block that matches
 an `if` block, possibly because `elif` is not indented correctly.
@@ -3498,7 +3521,7 @@ at the location indicated by ^.
    1: if True:
    2:    pass
 --&gt;3:    else:
-         ^
+         ^^^^
 
 The `else` keyword does not begin a code block that matches
 a valid code block, possibly because `else` is not indented correctly.
@@ -3528,7 +3551,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: else if True:
-           ^
+           ^^
 
 Python told us that it expected a colon at the position indicated.
 However, adding a colon or replacing something else by a colon
@@ -3545,8 +3568,8 @@ but wrote `else if` instead.
     __import__(name)
   File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
     elseif True:
-    ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+           ^^^^
+SyntaxError: invalid syntax
 
     Perhaps you meant to write `elif`.
 
@@ -3561,7 +3584,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: elseif True:
-      ^
+             ^^^^
 
 You likely meant to use Python's `elif` keyword
 but wrote `elseif` instead.
@@ -3645,7 +3668,7 @@ at the location indicated by ^.
    1: try:
    2:     pass
 --&gt;3: except NameError, ValueError as err:
-             ^
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 I am guessing that you wanted to use an `except` statement
 with multiple exception types. If that is the case, you must
@@ -3653,8 +3676,8 @@ surround them with parentheses.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>(117) Extra token<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>(117) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3698,7 +3721,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: greet = bf"Hello {name}"
-                ^
+                ^^^^^^^^^^^^^^
 
 I am guessing that you wanted a binary f-string;
 this is not allowed.
@@ -3928,7 +3951,7 @@ at the location indicated by ^.
    1:
    2: def fn():
 --&gt;3:     from __future__ import generators
-          ^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A `from __future__ import` statement changes the way Python
 interprets the code in a file.
@@ -4016,7 +4039,7 @@ at the location indicated by ^.
    4:
    5: L = range(10)
 --&gt;6: f(x for x in L, 1)
-        ^
+        ^^^^^^^
 
 You are using a generator expression, something of the form
 
@@ -4048,7 +4071,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot assign to operator"""
    3:
 --&gt;4: a-b = 2
-      ^
+      ^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -4140,7 +4163,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: import pen from turtle
-                 ^
+                 ^^^^
 
 You wrote something like
 
@@ -4172,7 +4195,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4: pass
-      ^
+      ^^^^
 
 Line `4` identified above was expected to begin a new indented block.
 </pre></div>
@@ -4313,7 +4336,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: x = 000_123_456
-          ^
+          ^^^^
 
 Perhaps you meant to write the integer `123_456`
 and did not know that it could not start with zeros.
@@ -4336,8 +4359,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_character_in_identifier.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid character in identifier
-   2: """
    3:
    4: # Robot-face character below
    5:
@@ -4591,14 +4612,10 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_keyword_argument.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: keyword can't be an expression
-   3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-   4: """
    5:
    6:
 --&gt;7: a = dict('key'=1)
-               ^
+               ^^^^^^
 
 You likely called a function with a named argument:
 
@@ -4628,14 +4645,10 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_keyword_argument_2.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: keyword can't be an expression
-   3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-   4: """
    5:
    6:
 --&gt;7: a = dict(True=1)
-               ^
+               ^^^^^
 
 `True` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -4746,7 +4759,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: [*x for x in xs]
-       ^
+       ^^
 
 You cannot use the `*` operator to unpack the iteration variable
 in a comprehension.
@@ -4777,7 +4790,7 @@ at the location indicated by ^.
    2:
    3:
 --&gt;4: f(ad=1, ad=2)
-              ^
+              ^^^^
 
 You have called a function repeating the same keyword argument (`ad`).
 Each keyword argument should appear only once in a function call.
@@ -4807,7 +4820,7 @@ at the location indicated by ^.
    10:
    11: a.x = 1
 --&gt;12: a.pass = 2
-         ^
+         ^^^^
 
 You cannot use the Python keyword `pass` as an attribute.
 </pre></div>
@@ -4820,8 +4833,8 @@ You cannot use the Python keyword `pass` as an attribute.
     __import__(name)
   File "TESTS:\syntax\lambda_with_parens.py", line 2
     x = lambda (a, b): a + b
-               ^
-SyntaxError: invalid syntax
+               ^^^^^^
+SyntaxError: Lambda expression parameters cannot be parenthesized
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -4831,7 +4844,15 @@ at the location indicated by ^.
 
    1:
 --&gt;2: x = lambda (a, b): a + b
-                 ^
+                 ^^^^^^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    Lambda expression parameters cannot be parenthesized
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 `lambda` does not allow parentheses around its arguments.
 This was allowed in Python 2 but it not allowed in Python 3.
@@ -4845,8 +4866,8 @@ This was allowed in Python 2 but it not allowed in Python 3.
     __import__(name)
   File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
     x = lambda a, (b, c): a + b + b
-                  ^
-SyntaxError: invalid syntax
+                  ^^^^^^
+SyntaxError: Lambda expression parameters cannot be parenthesized
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -4856,7 +4877,15 @@ at the location indicated by ^.
 
    1:
 --&gt;2: x = lambda a, (b, c): a + b + b
-                    ^
+                    ^^^^^^
+
+Python gave us the following informative message
+about the possible cause of the error:
+
+    Lambda expression parameters cannot be parenthesized
+
+However, I do not recognize this information and I have
+to guess what caused the problem, but I might be wrong.
 
 You cannot have explicit tuples as arguments.
 Assign any tuple to a parameter and unpack it
@@ -4883,7 +4912,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: for "char" in "word":
-          ^
+          ^^^^^^
 
 A for loop must have the form:
 
@@ -4934,7 +4963,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\missing_code_block_2.py'
 at the location indicated by ^.
 
-   1: # issue #83
    2: a = 1
    3: for i in "test":
    4:    #
@@ -4995,7 +5023,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: while True  # a comment
-                  ^
+                  ^^^^^^^^^^^
 
 You wrote a `while` loop but
 forgot to add a colon `:` at the end
@@ -5020,12 +5048,11 @@ Python could not understand the code in the file
 'TESTS:\syntax\missing_comma_in_dict.py'
 at the location indicated by ^.
 
+   1: """Should raise SyntaxError: invalid syntax"""
    2:
    3: a = {'a': 1,
 --&gt;4:      'b': 2
                 ^
-   5:      'c': 3,
-   6: }
 
 Python indicates that the error is caused by `'c'` written immediately after `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -5062,7 +5089,6 @@ at the location indicated by ^.
    3:      'b': '2'
 --&gt;4:      'c': '3',
               ^
-   5: }
 
 I am guessing that you forgot a comma between two strings
 when defining a dict.
@@ -5097,7 +5123,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = [1, 2  3]
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a list
@@ -5136,7 +5162,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = {1, 2  3}
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -5175,7 +5201,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = (1, 2  3)
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a tuple,
@@ -5201,8 +5227,8 @@ some of them might raise other types of exceptions.
     __import__(name)
   File "TESTS:\syntax\missing_in_with_for.py", line 1
     for x range(4):
-        ^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+          ^^^^^
+SyntaxError: invalid syntax
 
     Did you forget to write `in`?
 
@@ -5213,7 +5239,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: for x range(4):
-          ^
+            ^^^^^
 
 It looks as though you forgot to use the keyword `in`
 as part of a `for` statement. Perhaps you meant:
@@ -5273,7 +5299,7 @@ at the location indicated by ^.
 
    1: i = 3
 --&gt;2: is i in range(3):
-      ^
+      ^^
 
 Perhaps you meant to write `if` and made a typo.
 The correct line might be `if i in range(3):`
@@ -5301,7 +5327,7 @@ at the location indicated by ^.
    5:
    6: def f():
 --&gt;7:     global xy
-          ^
+          ^^^^^^^^^
 
 You declared `xy` as being both a global and nonlocal variable.
 A variable can be global, or nonlocal, but not both at the same time.
@@ -5329,7 +5355,7 @@ at the location indicated by ^.
    3:
    4: def f(x):
 --&gt;5:     nonlocal x
-          ^
+          ^^^^^^^^^^
 
 You used `x` as a parameter for a function
 before declaring it also as a nonlocal variable:
@@ -5358,7 +5384,7 @@ at the location indicated by ^.
    3:
    4: def f():
 --&gt;5:     nonlocal ab
-          ^
+          ^^^^^^^^^^^
 
 You declared the variable `ab` as being a
 nonlocal variable but it cannot be found.
@@ -5385,7 +5411,7 @@ at the location indicated by ^.
    2:
    3:
 --&gt;4: nonlocal cd
-      ^
+      ^^^^^^^^^^^
 
 You used the nonlocal keyword at a module level.
 The nonlocal keyword refers to a variable inside a function
@@ -5410,7 +5436,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: 4****5
-         ^
+         ^^
 
 You cannot have write the same operator, `**`, twice in a row.
 Perhaps you wrote one of them by mistake
@@ -5425,8 +5451,8 @@ or forgot to write something between them.
     __import__(name)
   File "TESTS:\syntax\pip_install_1.py", line 2
     pip install friendly
-        ^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^^^
+SyntaxError: invalid syntax
 
     Pip cannot be used in a Python interpreter.
 
@@ -5438,7 +5464,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: pip install friendly
-          ^
+          ^^^^^^^
 
 It looks as if you are attempting to use pip to install a module.
 `pip` is a command that needs to run in a terminal,
@@ -5453,8 +5479,8 @@ not from a Python interpreter.
     __import__(name)
   File "TESTS:\syntax\pip_install_2.py", line 2
     python -m pip install friendly
-           ^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+              ^^^
+SyntaxError: invalid syntax
 
     Pip cannot be used in a Python interpreter.
 
@@ -5466,7 +5492,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: python -m pip install friendly
-             ^
+                ^^^
 
 It looks as if you are attempting to use pip to install a module.
 `pip` is a command that needs to run in a terminal,
@@ -5494,7 +5520,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
 --&gt;2: print 'hello'
-      ^
+      ^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5525,7 +5551,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len('hello')
-      ^
+      ^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5555,7 +5581,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print """This is a very long string which results in a very long error message."""
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5586,8 +5612,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len("""This is a long string
-      ^
-   3:           that spans multiple lines.""")
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5618,7 +5643,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len('This is a long string that fits on a single line.')
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5636,10 +5661,10 @@ Now, `print` is a function; you need to use parentheses to call it.
     __import__(name)
   File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
     print hello world!
-          ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    ^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
 
-    Did you mean `print("hello world!")`?
+    Did you mean `print(...)`?
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5648,11 +5673,14 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print hello world!
-            ^
+      ^^^^^^^^^^^
+
+Perhaps you need to type
+
+     print(...)
 
 In older version of Python, `print` was a keyword.
 Now, `print` is a function; you need to use parentheses to call it.
-Note that arguments of `print` must be separated by commas.
 </pre></div>
 </div>
 </div>
@@ -5663,10 +5691,10 @@ Note that arguments of `print` must be separated by commas.
     __import__(name)
   File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
     print len("hello") hello
-          ^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    ^^^^^^^^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
 
-    Did you mean `print('len("hello") hello')`?
+    Did you mean `print(...)`?
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5675,11 +5703,14 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print len("hello") hello
-            ^
+      ^^^^^^^^^^^^^^^^^^
+
+Perhaps you need to type
+
+     print(...)
 
 In older version of Python, `print` was a keyword.
 Now, `print` is a function; you need to use parentheses to call it.
-Note that arguments of `print` must be separated by commas.
 </pre></div>
 </div>
 </div>
@@ -5690,8 +5721,8 @@ Note that arguments of `print` must be separated by commas.
     __import__(name)
   File "TESTS:\syntax\python_interpreter.py", line 1
     python -i friendly
-           ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+              ^^^^^^^^
+SyntaxError: invalid syntax
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5700,7 +5731,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: python -i friendly
-             ^
+                ^^^^^^^^
 
 I am guessing that you are attempting to use Python to run a program.
 You must do so from a terminal and not from a Python interpreter.
@@ -5714,8 +5745,8 @@ You must do so from a terminal and not from a Python interpreter.
     __import__(name)
   File "TESTS:\syntax\python_not_interpreter.py", line 1
     python = a b
-             ^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+               ^
+SyntaxError: invalid syntax
 
     Did you forget something between `a` and `b`?
 
@@ -5726,7 +5757,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: python = a b
-               ^
+                 ^
 
 Python indicates that the error is caused by `b` written immediately after `a`.
 Perhaps you meant to insert an operator like `+; -; *; ,`
@@ -5813,7 +5844,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: 'return' outside function"""
    2:
 --&gt;3: return
-      ^
+      ^^^^^^
 
 You can only use a `return` statement inside a function or method.
 </pre></div>
@@ -5912,9 +5943,7 @@ at the location indicated by ^.
 
    1: a = [
 --&gt;2:     for i in 1, 2, 3:
-          ^
-   3:         i**2
-   4: ]
+          ^^^
 
 Perhaps you wrote a statement beginning a code block
 intended to be part of a list comprehension.
@@ -5945,7 +5974,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2: for i in range(101):
 --&gt;3:     if i % 2 = 0:
-             ^
+             ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -5976,7 +6005,7 @@ at the location indicated by ^.
    3:     if False:
    4:         pass
 --&gt;5:     elif i % 2 = 0:
-               ^
+               ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -6006,7 +6035,7 @@ at the location indicated by ^.
    2: a = 1
    3:
 --&gt;4: while a = 1:
-            ^
+            ^^^^^
 
 You used an assignment operator `=`; perhaps you meant to use
 an equality operator, `==`, or the walrus operator `:=`.
@@ -6074,8 +6103,8 @@ and meant to write `/=` as a single operator.
     __import__(name)
   File "TESTS:\syntax\space_in_variable_name.py", line 1
     my name = André
-    ^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+       ^^^^
+SyntaxError: invalid syntax
 
     Did you mean `my_name`?
 
@@ -6086,7 +6115,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: my name = André
-      ^
+         ^^^^
 
 You cannot have spaces in identifiers (variable names).
 </pre></div>
@@ -6109,7 +6138,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: *a = 1
-      ^
+      ^^
 
 A star assignment must be of the form:
 
@@ -6138,7 +6167,7 @@ at the location indicated by ^.
    20:                    while 20:
    21:                     while 21:
 --&gt;22:                      while 22:
-                            ^
+                            ^^^^^^
 
 Your code is too complex for Python:
 you need to reduce the number of indented code blocks
@@ -6167,9 +6196,6 @@ at the location indicated by ^.
    3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
 --&gt;4:             ((((((((((((((((((((((((((((((((((
                                                    ^
-   5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
-   6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-   7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 Your code is too complex for Python:
 you need to reduce the number of parentheses
@@ -6256,10 +6282,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unclosed_bracket.py'
 at the location indicated by ^.
 
-    3:
-    4: def foo():
---&gt; 5:     return [1, 2, 3
-                  ^
+   1: """Should raise SyntaxError: f-string: invalid syntax
+   2: """
+   3:
+   4: def foo():
+--&gt;5:     return [1, 2, 3
+                 ^
 
 The opening square bracket `[` on line 5 is not closed.
 
@@ -6289,8 +6317,6 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: x = int('1'
              ^
-   3: if x == 1:
-   4:     print('yes')
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6306,7 +6332,7 @@ The opening parenthesis `(` on line 2 is not closed.
     __import__(name)
   File "TESTS:\syntax\unclosed_paren_2.py", line 2
     a = (b+c
-          ^^--&gt;
+         ^^^--&gt;
 SyntaxError: invalid syntax. Perhaps you forgot a comma?
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -6318,7 +6344,6 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: a = (b+c
             ^
-   3: d = a*a
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6343,12 +6368,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unclosed_paren_3.py'
 at the location indicated by ^.
 
+   3: if 3:
    4:     if 1:
    5:         print(((123))
    6:
 --&gt;7: if 2:
           ^
-   8:     print(123))
 
 The opening parenthesis `(` on line 5 is not closed.
 
@@ -6378,8 +6403,8 @@ at the location indicated by ^.
    1: # equal number of ( and ) in file
    2: print('hello'
    3:
---&gt;4: def
-      ^
+--&gt;4: def test():
+      ^^^
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6395,7 +6420,7 @@ The opening parenthesis `(` on line 2 is not closed.
     __import__(name)
   File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
     print(\t)
-    ^
+           ^^--&gt;
 SyntaxError: unexpected character after line continuation character
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -6409,7 +6434,7 @@ at the location indicated by ^.
    3: """
    4:
 --&gt;5: print(\t)
-     ^
+              ^
 
 You are using the continuation character `\` outside of a string,
 and it is followed by some other character(s).
@@ -6435,10 +6460,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unexpected_eof.py'
 at the location indicated by ^.
 
-    3:
-    4: def foo():
---&gt; 5:     return [1, 2, 3,
-                  ^
+   1: """Should raise SyntaxError: unexpected EOF while parsing
+   2: """
+   3:
+   4: def foo():
+--&gt;5:     return [1, 2, 3,
+                 ^
 
 The opening square bracket `[` on line 5 is not closed.
 
@@ -6632,8 +6659,8 @@ Or perhaps, you meant to write a less than sign, `&lt;`.
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>(219) Invalid character (mistaken &gt;)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>(219) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6712,9 +6739,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\unmatched_closing_curly.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid syntax for Python &lt; 3.8
-   2:    otherwise, SyntaxError: unmatched ')'
-   3: """
    4: a = {1,
    5:     2,
 --&gt;6:     3, 4,}}
@@ -6740,9 +6764,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\unmatched_closing_paren.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid syntax for Python &lt; 3.8
-   2:    otherwise, SyntaxError: unmatched ')'
-   3: """
    4: a = (1,
    5:     2,
 --&gt;6:     3, 4,))
@@ -6852,7 +6873,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: {'a': *(1, 2, 3)}
-            ^
+            ^^^^^^^^^^
 
 It looks like you tried to use a starred expression as a dict value;
 this is not allowed.
@@ -6879,7 +6900,7 @@ Python could not understand the code in the file
 'TESTS:\syntax\unterminated_triple_quote_string.py'
 at the location indicated by ^.
 
---&gt;1: some_text =
+--&gt;1: some_text = """In a land
                   ^
 
 You started writing a triple-quoted string but never wrote
@@ -6913,7 +6934,7 @@ at the location indicated by ^.
    5: def test_tab_error():
    6:     if True:
 --&gt;7:       pass
-     ^
+       ^
 </pre></div>
 </div>
 </div>
@@ -7026,7 +7047,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a := 3
-        ^
+        ^^
 
 You use the augmented assignment operator `:=` where
 the normal assignment operator `=` was required.
@@ -7068,8 +7089,8 @@ A `while` loop requires a condition:
     __import__(name)
   File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
     if var start := begin &lt; end:
-       ^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+           ^^^^^
+SyntaxError: invalid syntax
 
     You do not need to declare variables in Python.
 
@@ -7082,9 +7103,9 @@ at the location indicated by ^.
    1: begin, end = 1, 2
    2:
 --&gt;3: if var start := begin &lt; end:
-         ^
+             ^^^^^
 
-It looks like you were trying to declare that `var` was
+It looks like you were trying to declare that `start` was
 a variable using the word `var`.
 If you remove `var`, you will have a valid Python statement.
 </pre></div>
@@ -7108,12 +7129,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\would_be_type_declaration_2.py'
 at the location indicated by ^.
 
+   1: begin = 3
    2: end = 4
    3:
    4: if (
 --&gt;5:     var start := begin &lt; end
-          ^
-   6:    )
+          ^^^^^^^^^
 
 It looks like you were trying to declare that `var` was
 a variable using the word `var`.
@@ -7138,8 +7159,8 @@ Python could not understand the code in the file
 'TESTS:\syntax\yield_outside_function.py'
 at the location indicated by ^.
 
---&gt;1: (yield
-       ^
+--&gt;1: (yield i) == 3
+       ^^^^^^^
 
 You can only use a `yield` statement inside a function.
 </pre></div>
@@ -7253,10 +7274,10 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#def-misused-as-code-block">(49) def: misused as code block</a></li>
 <li><a class="reference internal" href="#def-misused-as-code-block-2">(50) def: misused as code block - 2</a></li>
 <li><a class="reference internal" href="#dotted-name-as-function-argument">(51) Dotted name as function argument</a></li>
-<li><a class="reference internal" href="#id4">(52) Dotted name as function argument</a></li>
+<li><a class="reference internal" href="#id2">(52) Dotted name as function argument</a></li>
 <li><a class="reference internal" href="#dotted-function-name">(53) Dotted function name</a></li>
 <li><a class="reference internal" href="#def-dict-as-argument">(54) def: dict as argument</a></li>
-<li><a class="reference internal" href="#def-keyword-arg-only-once-in-function-definition">(55) def: Keyword arg only once in function definition</a></li>
+<li><a class="reference internal" href="#def-arguments-must-be-unique-in-function-definition">(55) def: arguments must be unique in function definition</a></li>
 <li><a class="reference internal" href="#def-semi-colon-after-colon">(56) def: semi-colon after colon</a></li>
 <li><a class="reference internal" href="#def-extra-comma">(57) def: extra comma</a></li>
 <li><a class="reference internal" href="#def-unspecified-keywords-before">(58) def: unspecified keywords before /</a></li>
@@ -7274,7 +7295,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#def-list-as-argument-2">(70) def: list as argument - 2</a></li>
 <li><a class="reference internal" href="#def-missing-colon">(71) def: missing colon</a></li>
 <li><a class="reference internal" href="#def-missing-comma-between-function-args">(72) def: missing comma between function args</a></li>
-<li><a class="reference internal" href="#id5">(73) def: missing parentheses</a></li>
+<li><a class="reference internal" href="#id3">(73) def: missing parentheses</a></li>
 <li><a class="reference internal" href="#def-missing-parentheses-around-arguments">(74) def: missing parentheses around arguments</a></li>
 <li><a class="reference internal" href="#def-missing-function-name">(75) def: missing function name</a></li>
 <li><a class="reference internal" href="#def-name-is-parameter-and-global">(76) def: name is parameter and global</a></li>
@@ -7288,11 +7309,11 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#def-semi-colon-instead-of-colon">(84) def: semi-colon instead of colon</a></li>
 <li><a class="reference internal" href="#def-set-as-argument">(85) def: set as argument</a></li>
 <li><a class="reference internal" href="#def-arg-before">(86) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /</a></li>
-<li><a class="reference internal" href="#id6">(87) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
-<li><a class="reference internal" href="#id7">(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
-<li><a class="reference internal" href="#id8">(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id4">(87) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id5">(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id6">(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
 <li><a class="reference internal" href="#def-after">(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
-<li><a class="reference internal" href="#id9">(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#id7">(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
 <li><a class="reference internal" href="#single-string-used-as-arg-in-function-def">(92) Single string used as arg in function def</a></li>
 <li><a class="reference internal" href="#def-tuple-as-function-argument">(93) def: tuple as function argument</a></li>
 <li><a class="reference internal" href="#def-tuple-as-function-argument-2">(94) def: tuple as function argument - 2</a></li>
@@ -7318,7 +7339,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#eol-while-scanning-string-literal">(114) EOL while scanning string literal</a></li>
 <li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(115) Used equal sign instead of colon</a></li>
 <li><a class="reference internal" href="#parens-around-multiple-exceptions">(116) Parens around multiple exceptions</a></li>
-<li><a class="reference internal" href="#id10">(117) Extra token</a></li>
+<li><a class="reference internal" href="#id8">(117) Extra token</a></li>
 <li><a class="reference internal" href="#binary-f-string-not-allowed">(118) Binary f-string not allowed</a></li>
 <li><a class="reference internal" href="#f-string-closing-not-allowed">(119) f-string: closing } not allowed</a></li>
 <li><a class="reference internal" href="#f-string-missing-closing">(120) f-string: missing closing }</a></li>
@@ -7420,7 +7441,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#invalid-character-unicode-quote">(216) Invalid character (unicode quote)</a></li>
 <li><a class="reference internal" href="#invalid-character-unicode-quote2">(217) Invalid character (unicode quote2)</a></li>
 <li><a class="reference internal" href="#invalid-character-mistaken">(218) Invalid character (mistaken &lt;)</a></li>
-<li><a class="reference internal" href="#id11">(219) Invalid character (mistaken &gt;)</a></li>
+<li><a class="reference internal" href="#id9">(219) Invalid character (mistaken &gt;)</a></li>
 <li><a class="reference internal" href="#invalid-character-mistaken-comma">(220) Invalid character (mistaken comma)</a></li>
 <li><a class="reference internal" href="#unmatched-closing-curly-bracket">(221) Unmatched closing curly bracket</a></li>
 <li><a class="reference internal" href="#unmatched-closing-parenthesis">(222) Unmatched closing parenthesis</a></li>

@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.87
+Friendly-traceback version: 0.4.89
 Python version: 3.9.5
 
 
@@ -79,8 +79,8 @@ Python version: 3.9.5
 
     Python indica que hay que rodear una expresión
     que termina con una coma por medio de paréntesis.
-    However, I suspect that you wrote the keyword `and` by mistake.
-    The Python keyword `and` can only be used for boolean expressions.
+    Sin embargo, sospecho que has escrito la palabra clave `and` por error.
+    La palabra clave de Python `and` sólo puede utilizarse para expresiones booleanas.
     Quizás quisiste escribir
     
     `from math import sin, tan,  cos`
@@ -112,8 +112,8 @@ Python version: 3.9.5
     -->4:     x:int = 1
               ^
 
-    The object named `x` is defined with type annotation
-    as a local variable. It cannot be declared to be a global variable.
+    El objeto llamado `x` se define con la anotación de tipo
+    como una variable local. No se puede declarar como una variable global.
     
 
 (4) Incorrect use of 'from module import ... as ...
@@ -207,8 +207,8 @@ Python version: 3.9.5
     -->7:     global p
               ^
 
-    You assigned a value to the variable `p`
-    before declaring it as a global variable.
+    Usted asignó un valor a la variable `p`.
+    antes de declararla como variable global.
     
 
 (7) Name used prior to global declaration
@@ -238,8 +238,8 @@ Python version: 3.9.5
     -->7:     global r
               ^
 
-    You used the variable `r`
-    before declaring it as a global variable.
+    Ha utilizado la variable `r`
+    antes de declararla como variable global.
     
 
 (8) Name used prior to nonlocal declaration
@@ -256,7 +256,7 @@ Python version: 3.9.5
         ^
     SyntaxError: name 'q' is used prior to nonlocal declaration
     
-        Did you forget to write `nonlocal` first?
+        ¿Olvidó escribir primero `nonlocal`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -264,15 +264,15 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     en la ubicación indicada por ^.
     
-        5:     q = 1
-        6: 
-        7:     def g():
-        8:         print(q)
-    --> 9:         nonlocal q
-                   ^
+       5:     q = 1
+       6: 
+       7:     def g():
+       8:         print(q)
+    -->9:         nonlocal q
+                  ^
 
-    You used the variable `q`
-    before declaring it as a nonlocal variable.
+    Ha utilizado la variable `q`
+    antes de declararla como variable no local.
     
 
 (9) Name assigned prior to nonlocal declaration
@@ -289,7 +289,7 @@ Python version: 3.9.5
         ^
     SyntaxError: name 's' is assigned to before nonlocal declaration
     
-        Did you forget to add `nonlocal`?
+        ¿Olvidó añadir `nonlocal`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -297,15 +297,15 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
     en la ubicación indicada por ^.
     
-        5:     s = 1
-        6: 
-        7:     def g():
-        8:         s = 2
-    --> 9:         nonlocal s
-                   ^
+       5:     s = 1
+       6: 
+       7:     def g():
+       8:         s = 2
+    -->9:         nonlocal s
+                  ^
 
-    You assigned a value to the variable `s`
-    before declaring it as a nonlocal variable.
+    Ha asignado un valor a la variable `s`
+    antes de declararla como variable no local.
     
 
 (10) Assign to conditional expression
@@ -322,7 +322,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to conditional expression
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -335,12 +335,12 @@ Python version: 3.9.5
     -->3: a if 1 else b = 1
           ^
 
-    On the left-hand side of an equal sign, you have a
-    conditional expression instead of the name of a variable.
-    A conditional expression has the following form:
+    En el lado izquierdo de un signo igual, tiene una
+    expresión condicional en lugar del nombre de una variable.
+    Una expresión condicional tiene la siguiente forma:
     
-        variable = object if condition else other_object
-    You can only assign objects to identifiers (variable names).
+        variable = objeto if condición else otro_objeto
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (11) Assignment to keyword (__debug__)
@@ -357,7 +357,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to __debug__
     
-        You cannot assign a value to `__debug__`.
+        No se puede asignar un valor a `__debug__`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -371,7 +371,7 @@ Python version: 3.9.5
     -->4: __debug__ = 1
           ^
 
-    `__debug__` is a constant in Python; you cannot assign it a different value.
+    __debug__` es una constante en Python; no puedes asignarle un valor diferente.
     
 
 (12) Assignment to keyword (__debug__)
@@ -388,7 +388,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to __debug__
     
-        You cannot assign a value to `__debug__`.
+        No se puede asignar un valor a `__debug__`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -402,7 +402,7 @@ Python version: 3.9.5
     -->4: a.__debug__ = 1
           ^
 
-    `__debug__` is a constant in Python; you cannot assign it a different value.
+    __debug__` es una constante en Python; no puedes asignarle un valor diferente.
     
 
 (13) Assignment to Ellipsis symbol
@@ -419,7 +419,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to Ellipsis
     
-        You cannot assign a value to the ellipsis symbol [`...`].
+        No se puede asignar un valor al símbolo de elipsis [`...`].
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -433,7 +433,7 @@ Python version: 3.9.5
     -->4: ... = 1
           ^
 
-    The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
+    El símbolo de la elipsis `...` es una constante en Python; no se le puede asignar un valor diferente.
     
 
 (14) Cannot assign to f-string
@@ -450,7 +450,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to f-string expression
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -458,18 +458,14 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_f_string.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: can't assign to literal
-       3: Python >= 3.8: SyntaxError: cannot assign to f-string expression
-       4: """
        5: 
     -->6: f'{x}' = 42
           ^
 
-    You wrote an expression that has the f-string `f'{x}'`
-    on the left-hand side of the equal sign.
-    An f-string should only appear on the right-hand side of an equal sign.
-    You can only assign objects to identifiers (variable names).
+    Has escrito una expresión que tiene la f-string `f'{x}'`` en el lado izquierdo del signo igual
+    en el lado izquierdo del signo igual.
+    Una f-string sólo debe aparecer en el lado derecho de un signo igual.
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (15) Cannot assign to function call: single = sign
@@ -486,7 +482,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to function call
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -494,21 +490,17 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_function_call_1.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: len('a') = 3
           ^
 
-    You wrote the expression
+    Has escrito una expresión como
     
         len('a') = 3
     
-    where `len('a')`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
-    You can only assign objects to identifiers (variable names).
+    donde `len('a')`, a la izquierda del signo igual, es
+    o incluye una llamada a una función y no es simplemente el nombre de una variable.
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (16) Cannot assign to function call: two = signs
@@ -525,7 +517,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to function call
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -533,21 +525,17 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_function_call_2.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: func(a, b=3) = 4
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         func(...) = algún valor
     
-    where `func(...)`, on the left-hand side of the equal sign, is
-    a function call and not the name of a variable.
-    You can only assign objects to identifiers (variable names).
+    en donde `func(...)`, a la izquierda del signo de igualdad, es
+    una llamada a una función y no el nombre de una variable.
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (17) Assign to generator expression
@@ -564,7 +552,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to generator expression
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -577,9 +565,9 @@ Python version: 3.9.5
     -->3: (x for x in x) = 1
           ^
 
-    On the left-hand side of an equal sign, you have a
-    generator expression instead of the name of a variable.
-    You can only assign objects to identifiers (variable names).
+    En el lado izquierdo de un signo igual, tiene una expresión generadora
+    en lugar del nombre de una variable.
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (18) Cannot assign to literal - 4
@@ -596,7 +584,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to dict display
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -604,23 +592,18 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_literal_dict.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to dict display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1 : 2, 2 : 4} = 5
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         {1 : 2, 2 : 4} = 5
-    where `{1 : 2, 2 : 4}`, on the left-hand side of the equal sign,
-    is or includes an actual object de tipo `dict`
-    and is not simply the name of a variable.
+    donde `{1 : 2, 2 : 4}`, a la izquierda del signo de igualdad
+    es o incluye un objeto real de tipo `dict`
+    y no es simplemente el nombre de una variable.
     
-    You can only assign objects to identifiers (variable names).
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (19) Cannot assign to literal int
@@ -637,7 +620,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to literal
     
-        Perhaps you meant to write `a = 1`
+        Tal vez querías escribir `a = 1`
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
@@ -649,13 +632,13 @@ Python version: 3.9.5
     -->3: 1 = a
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         1 = a
-    where `1`, on the left-hand side of the equal sign,
-    is or includes an actual object de tipo `int`
-    and is not simply the name of a variable.
-    Perhaps you meant to write:
+    donde `1`, a la izquierda del signo de igualdad
+    es o incluye un objeto real de tipo `int`
+    y no es simplemente el nombre de una variable.
+    Tal vez querías escribir:
     
         a = 1
     
@@ -675,7 +658,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to literal
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -688,14 +671,14 @@ Python version: 3.9.5
     -->3: 1 = 2
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         1 = 2
-    where `1`, on the left-hand side of the equal sign,
-    is or includes an actual object de tipo `int`
-    and is not simply the name of a variable.
+    donde `1`, a la izquierda del signo de igualdad
+    es o incluye un objeto real de tipo `int`
+    y no es simplemente el nombre de una variable.
     
-    You can only assign objects to identifiers (variable names).
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (21) Cannot assign to literal - 5
@@ -712,7 +695,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to literal
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -726,14 +709,14 @@ Python version: 3.9.5
     -->4: 1 = a = b
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         ... = nombre_de_variable
-    where `...`, on the left-hand side of the equal sign,
-    is or includes an actual object 
-    and is not simply the name of a variable.
+    donde `...`, a la izquierda del signo de igualdad
+    es o incluye un objeto real 
+    y no es simplemente el nombre de una variable.
     
-    You can only assign objects to identifiers (variable names).
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (22) Cannot assign to literal - 3
@@ -750,7 +733,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to set display
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -758,23 +741,18 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_literal_set.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to set display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1, 2, 3} = 4
           ^
 
-    You wrote an expression like
+    Has escrito una expresión como
     
         {1, 2, 3} = 4
-    where `{1, 2, 3}`, on the left-hand side of the equal sign,
-    is or includes an actual object de tipo `set`
-    and is not simply the name of a variable.
+    donde `{1, 2, 3}`, a la izquierda del signo de igualdad
+    es o incluye un objeto real de tipo `set`
+    y no es simplemente el nombre de una variable.
     
-    You can only assign objects to identifiers (variable names).
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (23) Assign to keyword def
@@ -804,8 +782,8 @@ Python version: 3.9.5
     -->3: def = 2
               ^
 
-    You were trying to assign a value to the Python keyword `def`.
-    This is not allowed.
+    Has intentado asignar un valor a la palabra clave de Python `def`.
+    Esto no está permitido.
     
     
 
@@ -836,8 +814,8 @@ Python version: 3.9.5
     -->3: else = 1
           ^
 
-    You were trying to assign a value to the Python keyword `else`.
-    This is not allowed.
+    Has intentado asignar un valor a la palabra clave de Python `else`.
+    Esto no está permitido.
     
     
 
@@ -855,7 +833,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to None
     
-        You cannot assign a value to `None`.
+        No se puede asignar un valor a `None`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -869,7 +847,7 @@ Python version: 3.9.5
     -->4: None = 1
           ^
 
-    `None` is a constant in Python; you cannot assign it a different value.
+    None` es una constante en Python; no puedes asignarle un valor diferente.
     
 
 (26) Assign to math operation
@@ -886,7 +864,7 @@ Python version: 3.9.5
         ^
     SyntaxError: cannot assign to operator
     
-        Perhaps you needed `==` instead of `=`.
+        Tal vez necesitabas `==` en lugar de `=`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -900,9 +878,9 @@ Python version: 3.9.5
     -->4: a + 1 = 2
           ^
 
-    You wrote an expression that includes some mathematical operations
-    on the left-hand side of the equal sign which should be
-    only used to assign a value to a variable.
+    Has escrito una expresión que incluye algunas operaciones matemáticas
+    en el lado izquierdo del signo igual que debería ser
+    sólo utilizarse para asignar un valor a una variable.
     
 
 (27) Assign to yield expression
@@ -919,7 +897,7 @@ Python version: 3.9.5
          ^
     SyntaxError: cannot assign to yield expression
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -927,14 +905,14 @@ Python version: 3.9.5
     'TESTS:\syntax\assign_to_yield_expression.py'
     en la ubicación indicada por ^.
     
-    -->1: (yield
+    -->1: (yield i) = 3
            ^
 
-    You wrote an expression that includes the `yield` keyword
-    on the left-hand side of the equal sign.
-    You cannot assign a value to such an expression.
-    Note that, like the keyword `return`,
-    `yield` can only be used inside a function.
+    Ha escrito una expresión que incluye la palabra clave `yield
+    a la izquierda del signo igual.
+    No se puede asignar un valor a una expresión de este tipo.
+    Tenga en cuenta que, al igual que la palabra clave `return`,
+    `yield` sólo puede usarse dentro de una función.
     
 
 (28) Augmented assignment inside comprehension
@@ -960,12 +938,12 @@ Python version: 3.9.5
     -->1: a = [(i := 1) for i in [1]]
                ^
 
-    You are using the augmented assignment operator `:=` inside
-    a comprehension to assign a value to the iteration variable `i`.
-    This variable is meant to be used only inside the comprehension.
-    The augmented assignment operator is normally used to assign a value
-    to a variable so that the variable can be reused later.
-    This is not possible for variable `i`.
+    Está utilizando el operador de asignación aumentada `:=` dentro de
+    una comprensión para asignar un valor a la variable de iteración `i`.
+    Esta variable está pensada para ser empleada sólo dentro de la comprensión.
+    El operador de asignación aumentada se usa normalmente para asignar un valor
+    a una variable para poder reutilizarla posteriormente.
+    Esto no es posible para la variable `i`.
     
 
 (29) Augmented assignment inside comprehension - inner loop
@@ -991,12 +969,12 @@ Python version: 3.9.5
     -->1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
           ^
 
-    You are using the augmented assignment operator `:=` inside
-    a comprehension to assign a value to the iteration variable `j`.
-    This variable is meant to be used only inside the comprehension.
-    The augmented assignment operator is normally used to assign a value
-    to a variable so that the variable can be reused later.
-    This is not possible for variable `j`.
+    Está utilizando el operador de asignación aumentada `:=` dentro de
+    una comprensión para asignar un valor a la variable de iteración `j`.
+    Esta variable está pensada para ser empleada sólo dentro de la comprensión.
+    El operador de asignación aumentada se usa normalmente para asignar un valor
+    a una variable para poder reutilizarla posteriormente.
+    Esto no es posible para la variable `j`.
     
 
 (30) def: missing parentheses
@@ -1044,7 +1022,7 @@ Python version: 3.9.5
            ^
     SyntaxError: cannot use assignment expressions with literal
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1055,9 +1033,9 @@ Python version: 3.9.5
     -->1: if "word" := True:
              ^
 
-    You cannot use the augmented assignment operator `:=`,
-    sometimes called the walrus operator, with literals like `"word"`.
-    You can only assign objects to identifiers (variable names).
+    No se puede utilizar el operador de asignación aumentada `:=`,
+    a veces llamado operador morsa, con literales como `"word"`.
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
 (32) Walrus/Named assignment depending on Python version
@@ -1074,7 +1052,7 @@ Python version: 3.9.5
          ^
     SyntaxError: cannot use assignment expressions with True
     
-        You cannot assign a value to `True`.
+        No se puede asignar un valor a `True`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1088,7 +1066,7 @@ Python version: 3.9.5
     -->4: (True := 1)
            ^
 
-    `True` is a constant in Python; you cannot assign it a different value.
+    True` es una constante en Python; no puedes asignarle un valor diferente.
     
 
 (33) Backslash instead of slash
@@ -1116,10 +1094,10 @@ Python version: 3.9.5
     -->1: a = 3 \ 4.0
                     ^
 
-    You are using the continuation character `\` outside of a string,
-    and it is followed by some other character(s).
-    I am guessing that you wanted to divide by the number 4.0 
-    and wrote \ instead of /.
+    Está utilizando el carácter de continuación `\` fuera de una cadena
+    y es seguido por algún otro carácter(es).
+    Supongo que querías dividir por el número 4.0 
+    y escribió \ en lugar de /.
 
 (34) Brackets instead of parentheses
 ------------------------------------
@@ -1135,7 +1113,7 @@ Python version: 3.9.5
                     ^
     SyntaxError: invalid syntax
     
-        You used square brackets, `[...]` instead of parentheses.
+        Has utilizado corchetes, `[...]` en lugar de paréntesis.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1146,8 +1124,8 @@ Python version: 3.9.5
     -->1: print(sum[i for i in [1, 2, 3] if i%2==0])
                       ^
 
-    You used square brackets, `[...]` instead of parentheses.
-    Write the following instead:
+    Has utilizado corchetes, `[...]` en lugar de paréntesis.
+    Escriba lo siguiente en su lugar:
     
         print(sum(i for i in [1, 2, 3] if i%2==0))
 
@@ -1177,7 +1155,7 @@ Python version: 3.9.5
     -->4:     break
               ^
 
-    The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
+    La palabra clave de Python `break` sólo puede utilizarse dentro de un bucle `for` o dentro de un bucle `while`.
     
 
 (36) Cannot assign to attribute here.
@@ -1194,7 +1172,7 @@ Python version: 3.9.5
                ^
     SyntaxError: invalid syntax
     
-        Perhaps you needed `==` instead of `=`.
+        Tal vez necesitabas `==` en lugar de `=`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1206,7 +1184,7 @@ Python version: 3.9.5
                  ^
 
     Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
-    The following statement would not contain a syntax error:
+    La siguiente sentencia no contendría un error de sintaxis:
     
         if x.a == 1:
 
@@ -1235,14 +1213,14 @@ Python version: 3.9.5
     -->1: SyntaxErrors can be annoying!
                        ^
 
-    Currently, I cannot guess the likely cause of this error.
-    Try to examine closely the line indicated as well as the line
-    immediately above to see if you can identify some misspelled
-    word, or missing symbols, like (, ), [, ], :, etc.
+    Actualmente, no puedo detectar la causa probable de este error.
+    Intente examinar detenidamente la línea indicada, así como la línea
+    inmediatamente superior para ver si puede identificar alguna palabra mal escrita
+    o símbolos que falten, como (, ), [, ], :, etc.
     
-    Unless your code uses type annotations, which are beyond our scope,
-    if you think that this is something which should be handled
-    by friendly, please report this case to
+    A menos que su código utilice anotaciones de tipo, que están fuera de nuestro alcance,
+    si cree que esto es algo que debería ser manejado
+    por friendly, por favor reporte este caso a
     https://github.com/aroberge/friendly/issues
     
     
@@ -1272,9 +1250,9 @@ Python version: 3.9.5
     -->3: *a
            ^
 
-    The star operator `*` is interpreted to mean that
-    iterable unpacking is to be used to assign a name
-    to each item of an iterable, which does not make sense here.
+    El operador estrella `*` se interpreta como que
+    el desempaquetado de un iterable debe ser usado para asignar un nombre
+    a cada elemento de un iterable, lo que no tiene sentido aquí.
     
 
 (39) Cannot use double star operator
@@ -1300,8 +1278,8 @@ Python version: 3.9.5
     -->1: (**k)
            ^
 
-    The double star operator `**` is likely interpreted to mean that
-    dict unpacking is to be used which is not allowed or does not make sense here.
+    El operador de doble estrella `**` probablemente se interpreta como que
+    que se va a utilizar el desempaquetado del dictado, lo cual no está permitido o no tiene sentido en este caso.
     
 
 (40) Missing class name
@@ -1329,9 +1307,9 @@ Python version: 3.9.5
     -->1: class:
                ^
 
-    A `class` statement requires a name:
+    Una declaración `class` requiere un nombre:
     
-        class SomeName:
+        class AlgunNombre:
             ...
     
     
@@ -1361,13 +1339,13 @@ Python version: 3.9.5
     -->1: x = [i, i**2 for i in range(10)]
                        ^
 
-    I am guessing that you were writing a comprehension or a generator expression
-    and forgot to include parentheses around tuples.
-    As an example, instead of writing
+    Supongo que estabas escribiendo una expresión de comprensión o un generador
+    y olvidaste incluir paréntesis alrededor de las tuplas.
+    Como ejemplo, en lugar de escribir
     
         [i, i**2 for i in range(10)]
     
-    you would need to write
+    tendrías que escribir
     
         [(i, i**2) for i in range(10)]
     
@@ -1473,7 +1451,7 @@ Python version: 3.9.5
     -->4:     continue
               ^
 
-    The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
+    La palabra clave de Python `continue` sólo puede usarse dentro de un bucle `for` o dentro de un bucle `while`.
     
 
 (45) Copy/paste from interpreter
@@ -1562,8 +1540,8 @@ Python version: 3.9.5
                                 ^
 
     Los argumentos posicionales deben ir antes de los argumentos de palabra clave.
-    `b` is a positional argument that appears after one or more
-    keyword arguments in your function definition.
+    `b` es un argumento posicional que aparece después de uno o más
+    argumentos de la palabra clave en la definición de la función.
     
 
 (48) def: named arguments must follow bare *
@@ -1580,7 +1558,7 @@ Python version: 3.9.5
                ^
     SyntaxError: named arguments must follow bare *
     
-        Did you forget something after `*`?
+        ¿Olvidaste algo después de `*`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1594,9 +1572,9 @@ Python version: 3.9.5
     -->4: def f(*):
                   ^
 
-    Assuming you were defining a function, you need
-    to replace `*` by either `*arguments` or
-    by `*, named_argument=value`.
+    Asumiendo que estabas definiendo una función, necesitas
+    sustituir `*` por `*argumentos` o
+    por `*, argumento_nombrado=valor`.
     
 
 (49) def: misused as code block
@@ -1627,7 +1605,7 @@ Python version: 3.9.5
               ^
 
     Has intentado definir una función y no has utilizado la sintaxis correcta.
-    The correct syntax is:
+    La sintaxis correcta es:
     
         def name ( ... ):
     
@@ -1659,7 +1637,7 @@ Python version: 3.9.5
                   ^
 
     Has intentado definir una función o un método y no has utilizado la sintaxis correcta.
-    The correct syntax is:
+    La sintaxis correcta es:
     
         def name ( ... ):
     
@@ -1783,8 +1761,8 @@ Python version: 3.9.5
     Sólo se pueden utilizar identificadores (nombres de variables) como argumentos de funciones.
     
 
-(55) def: Keyword arg only once in function definition
-------------------------------------------------------
+(55) def: arguments must be unique in function definition
+---------------------------------------------------------
 
 .. code-block:: none
 
@@ -1806,13 +1784,13 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
        2: 
        3: 
-    -->4: def f(aa
+    -->4: def f(aa=1, aa=2):
           ^
 
-    You have defined a function repeating the keyword argument
+    Ha definido una función que repite el argumento
     
         aa
-    twice; each keyword argument should appear only once in a function definition.
+    dos veces; cada argumento debe aparecer sólo una vez en la definición de una función.
     
 
 (56) def: semi-colon after colon
@@ -1859,7 +1837,7 @@ Python version: 3.9.5
                    ^
     SyntaxError: invalid syntax
     
-        Did you mean to write `,`?
+        ¿Querías escribir `,`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1870,8 +1848,8 @@ Python version: 3.9.5
     -->1: def test(a,,b):
                      ^
 
-    I suspect you made a typo and added `,` by mistake.
-    The following statement contains no syntax error:
+    Sospecho que has cometido un error tipográfico y has añadido `,` por error.
+    La siguiente declaración no contiene ningún error de sintaxis:
     
         def test(a,b):
 
@@ -1889,7 +1867,7 @@ Python version: 3.9.5
                               ^
     SyntaxError: invalid syntax
     
-        Keyword arguments must appear after the `/` symbol.
+        Los argumentos de las palabras clave deben aparecer después del símbolo `/`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1902,8 +1880,8 @@ Python version: 3.9.5
 
     `/` indica que los argumentos anteriores en una definición de función
     son argumentos posicionales.
-    You have unspecified keyword arguments that appear before
-    the symbol `/`.
+    Tiene argumentos de palabras clave no especificadas que aparecen antes de
+    el símbolo `/`.
     
 
 (59) def: / before star
@@ -1920,7 +1898,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        `*` must appear after `/` in a function definition.
+        El símbolo `*` debe aparecer después de `/` en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1933,9 +1911,9 @@ Python version: 3.9.5
 
     `/` indica que los argumentos anteriores en una definición de función
     son argumentos posicionales.
-    However, `*` indicates that the arguments
-    that follow must be keyword arguments.
-    When they are used together, `/` must appear before `*`.
+    Sin embargo, `*` indica que los argumentos
+    que siguen deben ser argumentos de palabra clave.
+    Cuando se utilizan juntos, `/` debe aparecer antes de `*`.
     
 
 (60) def: / before star arg
@@ -1952,7 +1930,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        `*arg` must appear after `/` in a function definition.
+        La palabra `*arg` debe aparecer después de `/` en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1965,7 +1943,7 @@ Python version: 3.9.5
 
     `/` indica que los argumentos anteriores en una definición de función
     son argumentos posicionales.
-    `*arg` must appear after `/` in a function definition.
+    La palabra `*arg` debe aparecer después de `/` en la definición de una función.
     
 
 (61) def: / used twice
@@ -1982,7 +1960,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        You can only use `/` once in a function definition.
+        Sólo se puede utilizar `/` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1993,7 +1971,7 @@ Python version: 3.9.5
     -->1: def test(a, /, b, /):
                             ^
 
-    You can only use `/` once in a function definition.
+    Sólo se puede utilizar `/` una vez en la definición de una función.
     
 
 (62) def: non-identifier as a function name
@@ -2436,7 +2414,7 @@ Python version: 3.9.5
               ^
 
     Has olvidado nombrar tu función.
-    The correct syntax is:
+    La sintaxis correcta es:
     
         def name ( ... ):
     
@@ -2461,23 +2439,21 @@ Python version: 3.9.5
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: name 'x' is parameter and global
-       2: """
        3: 
        4: 
        5: def f(x):
     -->6:     global x
               ^
 
-    You are including the statement
+    Usted está incluyendo la declaración
     
             global x
     
     
-    indicating that `x` is a variable defined outside a function.
-    You are also using the same `x` as an argument for that
-    function, thus indicating that it should be variable known only
-    inside that function, which is the contrary of what `global` implied.
+    indicando que `x` es una variable definida fuera de una función.
+    También está utilizando el mismo `x` como argumento para esa
+    función, indicando así que debe ser una variable conocida sólo
+    dentro de esa función, que es lo contrario de lo que implica `global`.
     
 
 (77) def: non-default argument follows default argument
@@ -2507,20 +2483,20 @@ Python version: 3.9.5
     -->5: def test(a=1, b):
                           ^
 
-    In Python, you can define functions with only positional arguments
+    En Python, puedes definir funciones con sólo argumentos posicionales
     
-        def test(a, b, c): ...
+        def prueba(a, b, c): ...
     
-    or only keyword arguments
+    o sólo con argumentos de palabra clave
     
-        def test(a=1, b=2, c=3): ...
+        def prueba(a=1, b=2, c=3): ...
     
-    or a combination of the two
+    o una combinación de ambos
     
-        def test(a, b, c=3): ...
+        def prueba(a, b, c=3): ...
     
-    but with the keyword arguments appearing after all the positional ones.
-    According to Python, you used positional arguments after keyword ones.
+    pero con los argumentos de palabra clave apareciendo después de todos los posicionales.
+    Según Python, has utilizado argumentos posicionales después de los de palabra clave.
     
 
 (78) Single number used as arg in function def
@@ -2575,7 +2551,7 @@ Python version: 3.9.5
     -->1: def test(**):
                       ^
 
-    The `**` operator needs to be followed by an identifier (variable name).
+    El operador `**` debe ir seguido de un identificador (nombre de la variable).
     
 
 (80) def: operator instead of comma
@@ -2604,8 +2580,8 @@ Python version: 3.9.5
                      ^
 
     No se pueden tener operadores como argumentos de la función.
-    I suspect you made a typo and wrote `+` instead of a comma.
-    The following statement contains no syntax error:
+    Sospecho que has cometido un error tipográfico y has escrito `+` en lugar de una coma.
+    La siguiente declaración no contiene ningún error de sintaxis:
     
         def test(a , b):
 
@@ -2635,8 +2611,8 @@ Python version: 3.9.5
                             ^
 
     No se pueden tener operadores como argumentos de la función.
-    I suspect you made a typo and wrote `+` instead of an equal sign.
-    The following statement contains no syntax error:
+    Sospecho que has cometido un error tipográfico y has escrito `+` en lugar de un signo de igualdad.
+    La siguiente declaración no contiene ningún error de sintaxis:
     
         def test(a, b=3, c=None):
 
@@ -2665,9 +2641,9 @@ Python version: 3.9.5
     -->1: def test(a, +, b):
                       ^
 
-    I suspect you made a typo and wrote `+` by mistake.
-    If you replace it by a unique variable name, the result
-    will contain no syntax error.
+    Sospecho que has cometido una errata y has escrito `+` por error.
+    Si lo sustituye por un nombre de variable único, el resultado
+    no contendrá ningún error de sintaxis.
     
 
 (83) def: positional argument follows keyword argument
@@ -2697,20 +2673,20 @@ Python version: 3.9.5
     -->5: test(a=1, b)
                      ^
 
-    In Python, you can call functions with only positional arguments
+    En Python, pueden llamar a las funciones solo con argumentos posicionales
     
-        test(1, 2, 3)
+        prueba(1, 2, 3)
     
-    or only keyword arguments
+    o sólo con argumentos de palabra clave
     
-        test(a=1, b=2, c=3)
+        prueba(a=1, b=2, c=3)
     
-    or a combination of the two
+    o una combinación de ambos
     
-        test(1, 2, c=3)
+        prueba(1, 2, c=3)
     
-    but with the keyword arguments appearing after all the positional ones.
-    According to Python, you used positional arguments after keyword ones.
+    pero con los argumentos de palabra clave que aparecen después de los posicionales.
+    Según Python, has utilizado argumentos posicionales después de los de palabra clave.
     
 
 (84) def: semi-colon instead of colon
@@ -2785,7 +2761,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        `*arg` must appear after `/` in a function definition.
+        La palabra `*arg` debe aparecer después de `/` en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2798,7 +2774,7 @@ Python version: 3.9.5
 
     `/` indica que los argumentos anteriores en una definición de función
     son argumentos posicionales.
-    `*arg` must appear after `/` in a function definition.
+    La palabra `*arg` debe aparecer después de `/` en la definición de una función.
     
 
 (87) def: ``*`` used twice
@@ -2815,7 +2791,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        You can only use `*` once in a function definition.
+        Sólo se puede utilizar `*` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2826,9 +2802,9 @@ Python version: 3.9.5
     -->1: def test(a, *arg, *, b=1):
                             ^
 
-    You can only use `*` once in a function definition.
-    It must either be used by itself, `*`,
-    or in the form `*arg`, but not both.
+    Sólo se puede utilizar `*` una vez en la definición de una función.
+    Debe usarse solo, `*`,
+    o en la forma `*arg`, pero no ambas.
     
 
 (88) def: ``*`` used twice
@@ -2845,7 +2821,7 @@ Python version: 3.9.5
                        ^
     SyntaxError: invalid syntax
     
-        You can only use `*` once in a function definition.
+        Sólo se puede utilizar `*` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2856,7 +2832,7 @@ Python version: 3.9.5
     -->1: def test(a, *, *):
                          ^
 
-    You can only use `*` once in a function definition.
+    Sólo se puede utilizar `*` una vez en la definición de una función.
     
 
 (89) def: ``*`` used twice
@@ -2873,7 +2849,7 @@ Python version: 3.9.5
                           ^
     SyntaxError: invalid syntax
     
-        You can only use `*` once in a function definition.
+        Sólo se puede utilizar `*` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2884,8 +2860,8 @@ Python version: 3.9.5
     -->1: def test(a, *arg, *other):
                             ^
 
-    You can only use `*` once in a function definition.
-    You have used it twice, with `*arg` and `*other`.
+    Sólo se puede utilizar `*` una vez en la definición de una función.
+    Lo has utilizado dos veces, con `*arg` y `*other`.
     
 
 (90) def: ``*`` after ``**``
@@ -2902,7 +2878,7 @@ Python version: 3.9.5
                        ^
     SyntaxError: invalid syntax
     
-        You can only use `*` once in a function definition.
+        Sólo se puede utilizar `*` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2913,7 +2889,7 @@ Python version: 3.9.5
     -->1: def test(**kw, *arg):
                          ^
 
-    `*arg` must appear before `**kw`.
+    `*arg` debe aparecer antes de `**kw`.
     
 
 (91) def: ``*`` after ``**``
@@ -2930,7 +2906,7 @@ Python version: 3.9.5
                        ^
     SyntaxError: invalid syntax
     
-        You can only use `*` once in a function definition.
+        Sólo se puede utilizar `*` una vez en la definición de una función.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2941,7 +2917,7 @@ Python version: 3.9.5
     -->1: def test(**kw, *):
                          ^
 
-    `**kw` must appear after the `*` operator.
+    `**kw` debe aparecer después del operador `*`.
     
 
 (92) Single string used as arg in function def
@@ -3058,11 +3034,11 @@ Python version: 3.9.5
     -->1: del (*x)
                ^
 
-    The star operator `*` is interpreted to mean that
-    iterable unpacking is to be used to assign a name
-    to each item of an iterable, which does not make sense here.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    El operador estrella `*` se interpreta como que
+    el desempaquetado de un iterable debe ser usado para asignar un nombre
+    a cada elemento de un iterable, lo que no tiene sentido aquí.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (96) Deleting star expression - 2
@@ -3088,11 +3064,11 @@ Python version: 3.9.5
     -->1: del (*x,)
                ^
 
-    The star operator `*` is interpreted to mean that
-    iterable unpacking is to be used to assign a name
-    to each item of an iterable, which does not make sense here.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    El operador estrella `*` se interpreta como que
+    el desempaquetado de un iterable debe ser usado para asignar un nombre
+    a cada elemento de un iterable, lo que no tiene sentido aquí.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (97) Cannot delete a constant
@@ -3118,9 +3094,9 @@ Python version: 3.9.5
     -->1: del True
               ^
 
-    You cannot delete the constant `True`.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    No se puede eliminar la constante `True`.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (98) Cannot delete expression
@@ -3137,8 +3113,8 @@ Python version: 3.9.5
             ^
     SyntaxError: cannot delete operator
     
-        You can only delete names of objects, or items in mutable containers
-        such as `list`, `set`, or `dict`.
+        Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+        como `list`, `set` o `dict`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3149,9 +3125,9 @@ Python version: 3.9.5
     -->1: del a.b.c[0] + 2
               ^
 
-    You cannot delete the expression `a.b.c[0] + 2`.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    No se puede eliminar la expresión `a.b.c[0] + 2`.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (99) Cannot delete function call
@@ -3181,10 +3157,10 @@ Python version: 3.9.5
     -->5: del f(a)
               ^
 
-    You attempted to delete a function call
+    Has intentado borrar una llamada a una función
     
         del f(a)
-    instead of deleting the function's name
+    en lugar de borrar el nombre de la función
     
         del f
     
@@ -3203,8 +3179,8 @@ Python version: 3.9.5
              ^
     SyntaxError: cannot delete named expression
     
-        You can only delete names of objects, or items in mutable containers
-        such as `list`, `set`, or `dict`.
+        Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+        como `list`, `set` o `dict`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3215,9 +3191,9 @@ Python version: 3.9.5
     -->1: del (a := 5)
                ^
 
-    You cannot delete the named expression `(a := 5)`.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    No se puede eliminar la expresión con nombre `(a := 5)`.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (101) Delete only names or items
@@ -3243,8 +3219,8 @@ Python version: 3.9.5
     -->1: del a += b
                 ^
 
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (102) Deleting string literal
@@ -3270,9 +3246,9 @@ Python version: 3.9.5
     -->1: del "Hello world!"
               ^
 
-    You cannot delete the literal `"Hello world!"`.
-    You can only delete names of objects, or items in mutable containers
-    such as `list`, `set`, or `dict`.
+    No se puede eliminar el literal `"Hello world!"`.
+    Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
+    como `list`, `set` o `dict`.
     
 
 (103) Value missing in dict - 1
@@ -3289,7 +3265,7 @@ Python version: 3.9.5
                    ^
     SyntaxError: invalid syntax
     
-        Did you forget to write a dict value?
+        ¿Olvidaste escribir el valor del dict?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3318,7 +3294,7 @@ Python version: 3.9.5
                     ^
     SyntaxError: invalid syntax
     
-        Did you forget to write a dict value?
+        ¿Olvidaste escribir el valor del dict?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3330,8 +3306,8 @@ Python version: 3.9.5
     -->2: a = {1:2, 3:}
                       ^
 
-    It looks like the error occurred as you were writing a Python dict.
-    Perhaps you forgot to write a value after a colon.
+    Parece que el error se produjo mientras escribías un dict de Python.
+    Tal vez se olvidó de escribir un valor después de dos puntos.
     
 
 (105) Value missing in dict - 3
@@ -3348,7 +3324,7 @@ Python version: 3.9.5
                    ^
     SyntaxError: invalid syntax
     
-        Did you forget to write a dict value?
+        ¿Olvidaste escribir el valor del dict?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3379,7 +3355,7 @@ Python version: 3.9.5
                     ^
     SyntaxError: invalid syntax
     
-        Did you forget to write a dict value?
+        ¿Olvidaste escribir el valor del dict?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3393,8 +3369,8 @@ Python version: 3.9.5
     -->4: a = {1:2, 3:, 4:5}
                       ^
 
-    It looks like the error occurred as you were writing a Python dict.
-    Perhaps you forgot to write a value after a colon.
+    Parece que el error se produjo mientras escribías un dict de Python.
+    Tal vez se olvidó de escribir un valor después de dos puntos.
     
 
 (107) Different operators in a row
@@ -3420,9 +3396,9 @@ Python version: 3.9.5
     -->1: 3 */ 4
              ^
 
-    You cannot have these two operators, `*` and `/`,
-    following each other. Perhaps you wrote one of them by mistake
-    or forgot to write something between them.
+    No puedes tener estos dos operadores, `*` y `/`,
+    siguiéndose el uno al otro. Tal vez usted escribió uno de ellos por error
+    o se olvidó de escribir algo entre ellos.
     
 
 (108) Dot followed by parenthesis
@@ -3508,8 +3484,8 @@ Python version: 3.9.5
     -->3:    elif True:
              ^
 
-    The `elif` keyword does not begin a code block that matches
-    an `if` block, possibly because `elif` is not indented correctly.
+    La palabra clave `elif` no comienza un bloque de código que coincide con
+    un bloque `if`, posiblemente porque `elif` no tiene el indentado correcto.
     
 
 (111) else with no matching statement
@@ -3537,8 +3513,8 @@ Python version: 3.9.5
     -->3:    else:
              ^
 
-    The `else` keyword does not begin a code block that matches
-    a valid code block, possibly because `else` is not indented correctly.
+    La palabra clave `else` no comienza un bloque de código que coincide con
+    un bloque de código válido, posiblemente porque `else` no está indentado correctamente.
     
 
 (112) Write elif, not else if
@@ -3570,8 +3546,8 @@ Python version: 3.9.5
     -->5: else if True:
                ^
 
-    You likely meant to use Python's `elif` keyword
-    but wrote `else if` instead.
+    Probablemente querías usar la palabra clave `elif` de Python
+    pero en su lugar escribiste `else if`.
     
     
 
@@ -3604,8 +3580,8 @@ Python version: 3.9.5
     -->5: elseif True:
                  ^
 
-    You likely meant to use Python's `elif` keyword
-    but wrote `elseif` instead.
+    Probablemente querías usar la palabra clave `elif` de Python
+    pero en su lugar escribiste `elseif`.
     
     
 
@@ -3623,7 +3599,7 @@ Python version: 3.9.5
                        ^
     SyntaxError: EOL while scanning string literal
     
-        Did you forget a closing quote?
+        ¿Olvidaste la comilla de cierre?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3636,8 +3612,8 @@ Python version: 3.9.5
     -->3: alphabet = 'abc
                          ^
 
-    You started writing a string with a single or double quote
-    but never ended the string with another quote on that line.
+    Ha empezado a escribir una cadena con una comilla simple o doble
+    pero nunca terminó la cadena con otra comilla en esa línea.
     
 
 (115) Used equal sign instead of colon
@@ -3698,9 +3674,9 @@ Python version: 3.9.5
     -->3: except NameError, ValueError as err:
                           ^
 
-    I am guessing that you wanted to use an `except` statement
-    with multiple exception types. If that is the case, you must
-    surround them with parentheses.
+    Supongo que querías usar una sentencia `except`
+    con múltiples tipos de excepción. Si ese es el caso, debes
+    rodearlas con paréntesis.
     
 
 (117) Extra token
@@ -3784,9 +3760,9 @@ Python version: 3.9.5
     -->1: f"ab}"
                 ^
 
-    You have written an f-string which has an unmatched `}`.
-    If you want to print a single `}`, you need to write `}}` in the f-string;
-    otherwise, you need to add an opening `{`.
+    Has escrito una f-string que tiene un `}` sin emparejar.
+    Si quieres imprimir un solo `}`, tienes que escribir `}}` en la f-string;
+    de lo contrario, es necesario añadir una apertura `{`.
     
 
 (120) f-string: missing closing }
@@ -3812,9 +3788,9 @@ Python version: 3.9.5
     -->1: f"{ab"
                 ^
 
-    You have written an f-string which has an unmatched `{`.
-    If you want to print a single `{`, you need to write `{{` in the f-string;
-    otherwise, you need to add a closing `}`.
+    Has escrito una f-string que tiene un `{` sin emparejar.
+    Si quieres imprimir un solo `{`, tienes que escribir `{{` en la f-string;
+    de lo contrario, es necesario añadir un cierre `}`.
     
 
 (121) f-string: unterminated string
@@ -3845,9 +3821,9 @@ Python version: 3.9.5
     -->4: print(f"Bob is {age['Bob]} years old.")
                                                 ^
 
-    Inside the f-string `f"Bob is {age['Bob]} years old."`, 
-    you have another string, which starts with either a
-    single quote (') or double quote ("), without a matching closing one.
+    Dentro de la f-string `f"Bob is {age['Bob]} years old."`, 
+    tiene otra cadena, que comienza con una
+    comillas simples (') o comillas dobles ("), sin una comilla de cierre que coincida.
     
 
 (122) f-string with backslash
@@ -3874,17 +3850,17 @@ Python version: 3.9.5
     -->2: print(f"{'\n'.join(names)}")
                                      ^
 
-    You have written an f-string whose content `{...}`
-    includes a backslash; this is not allowed.
-    Perhaps you can replace the part that contains a backslash by
-    some variable. For example, suppose that you have an f-string like:
+    Ha escrito una f-string cuyo contenido `{...}`
+    incluye una barra invertida; esto no está permitido.
+    Tal vez pueda sustituir la parte que contiene una barra invertida por
+    alguna variable. Por ejemplo, suponga que tiene una f-string como:
     
-        f"{... 'hello\n' ...}"
+        f"{... 'hola\n' ...}"
     
-    you could write this as
+    podría escribirla como
     
-        hello = 'hello\n'
-        f"{... hello ...}"
+        hola = 'hola\n'
+        f"{... hola ...}"
     
 
 (123) Missing terms in for statement
@@ -3901,7 +3877,7 @@ Python version: 3.9.5
            ^
     SyntaxError: invalid syntax
     
-        A `for` loop requires at least 3 more terms.
+        Un bucle `for` requiere al menos 3 términos más.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -3912,9 +3888,9 @@ Python version: 3.9.5
     -->1: for:
              ^
 
-    A `for` loop is an iteration over a sequence:
+    Un bucle `for` es una iteración sobre una secuencia:
     
-        for element in sequence:
+        for elemento in secuencia:
             ...
     
     
@@ -3942,11 +3918,11 @@ Python version: 3.9.5
     -->1: from __future__ import braces
           ^
 
-    I suspect you wrote `from __future__ import braces` following
-    someone else's suggestion. This will never work.
+    Sospecho que has escrito `de __future__ import braces` siguiendo
+    la sugerencia de otra persona. Esto nunca funcionará.
     
-    Unlike other programming languages, Python's code block are defined by
-    their indentation level, and not by using some curly braces, like `{...}`.
+    A diferencia de otros lenguajes de programación, los bloques de código de Python se definen por
+    su nivel de indentación, y no por el uso de algunas llaves, como `{...}`.
     
 
 (125) Do not import * from __future__
@@ -3972,10 +3948,10 @@ Python version: 3.9.5
     -->1: from __future__ import *
           ^
 
-    When using a `from __future__ import` statement,
-    you must import specific named features.
+    Cuando se utiliza una sentencia `from __future__ import`,
+    debe importar características específicas por su nombre.
     
-    The available features are `nested_scopes,
+    Las características disponibles son `nested_scopes,
      generators,
      division,
      absolute_import,
@@ -4012,9 +3988,9 @@ Python version: 3.9.5
     -->3:     from __future__ import generators
               ^
 
-    A `from __future__ import` statement changes the way Python
-    interprets the code in a file.
-    It must appear at the beginning of the file.
+    Una sentencia `from __future__ import` cambia la forma en que Python
+    interpreta el código de un archivo.
+    Debe aparecer al principio del archivo.
 
 (127) Typo in __future__
 ------------------------
@@ -4041,7 +4017,7 @@ Python version: 3.9.5
     -->1: from __future__ import divisio
           ^
 
-    Instead of `divisio`, perhaps you meant to import `division`.
+    En lugar de `divisio`, tal vez querías importar `division`.
     
 
 (128) Unknown feature in __future__
@@ -4067,9 +4043,9 @@ Python version: 3.9.5
     -->1: from __future__ import something
           ^
 
-    `something` is not a valid feature of module `__future__`.
+    `something` no es una característica válida del módulo `__future__`.
     
-    The available features are `nested_scopes,
+    Las características disponibles son `nested_scopes,
      generators,
      division,
      absolute_import,
@@ -4108,11 +4084,11 @@ Python version: 3.9.5
     -->6: f(x for x in L, 1)
             ^
 
-    You are using a generator expression, something of the form
+    Estás usando una expresión generadora, algo de la forma
     
-        x for x in thing
+        x for x in cosa
     
-    You must add parentheses enclosing that expression.
+    Debes añadir paréntesis encerrando esa expresión.
     
 
 (130) Space between names
@@ -4143,10 +4119,10 @@ Python version: 3.9.5
     -->4: a-b = 2
           ^
 
-    You wrote an expression that includes some mathematical operations
-    on the left-hand side of the equal sign which should be
-    only used to assign a value to a variable.
-    Perhaps you meant to write `a_b` instead of `a-b`
+    Has escrito una expresión que incluye algunas operaciones matemáticas
+    en el lado izquierdo del signo igual que debería ser
+    sólo utilizarse para asignar un valor a una variable.
+    Tal vez quiso escribir `a_b` en lugar de `a-b`.
     
 
 (131) Missing condition in if statement
@@ -4174,9 +4150,9 @@ Python version: 3.9.5
     -->1: if:
             ^
 
-    An `if` statement requires a condition:
+    Una declaración `if` requiere una condición:
     
-        if condition:
+        if condición:
             ...
     
     
@@ -4229,7 +4205,7 @@ Python version: 3.9.5
                    ^
     SyntaxError: invalid syntax
     
-        Did you mean `from turtle import pen`?
+        ¿Quieres decir `from turtle import pen`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4242,10 +4218,10 @@ Python version: 3.9.5
     -->3: import pen from turtle
                      ^
 
-    You wrote something like
+    Has escrito algo como
     
         import pen from turtle
-    instead of
+    en lugar de
     
         from turtle import pen
     
@@ -4279,7 +4255,7 @@ Python version: 3.9.5
     -->4: pass
           ^
 
-    Line `4` identified above was expected to begin a new indented block.
+    Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloque indentado.
     
 
 (135) IndentationError: unexpected indent
@@ -4309,7 +4285,7 @@ Python version: 3.9.5
     -->4:       pass
                 ^
 
-    Line `4` identified above is more indented than expected.
+    La línea `4` identificada arriba tiene más indentación de la esperada.
     
 
 (136) IndentationError: unindent does not match ...
@@ -4340,7 +4316,7 @@ Python version: 3.9.5
     -->5:     pass
                   ^
 
-    Line `5` identified above is less indented than expected.
+    La línea `5` identificada arriba tiene menos indentación de la esperada.
     
 
 (137) IndentationError: missing continuation line
@@ -4371,13 +4347,13 @@ Python version: 3.9.5
     -->6:          "c"
                    ^
 
-    Line `6` identified above is more indented than expected.
+    La línea `6` identificada arriba tiene más indentación de la esperada.
     
-    However, line 6, which is identified as having a problem,
-    consists of a single string which is also the case
-    for the preceding line.
-    Perhaps you meant to include a continuation character, `\`,
-    at the end of line 5.
+    Sin embargo, la línea 6, que se identifica como
+    consiste en una sola cadena, lo que también ocurre
+    de la línea anterior.
+    Tal vez haya querido incluir un carácter de continuación, ``,
+    al final de la línea 5.
     
 
 (138) Forgot 'o' for octal
@@ -4405,9 +4381,9 @@ Python version: 3.9.5
     -->1: x = 01
                ^
 
-    Perhaps you meant to write the octal number `0o1`
-    and forgot the letter 'o', or perhaps you meant to write
-    a decimal integer and did not know that it could not start with zeros.
+    Tal vez querías escribir el número octal `0o1`
+    y se olvidó de la letra 'o', o tal vez quería escribir
+    un número entero decimal y no sabía que no podía empezar con ceros.
     
 
 (139) Integer with leading zeros
@@ -4435,8 +4411,8 @@ Python version: 3.9.5
     -->1: x = 000_123_456
                         ^
 
-    Perhaps you meant to write the integer `123_456`
-    and did not know that it could not start with zeros.
+    Tal vez usted quiso escribir el número entero `123_456`
+    y no sabía que no podía empezar con ceros.
     
 
 (140) Invalid character in identifier
@@ -4459,16 +4435,14 @@ Python version: 3.9.5
     'TESTS:\syntax\invalid_character_in_identifier.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: invalid character in identifier
-       2: """
        3: 
        4: # Robot-face character below
        5: 
     -->6: 🤖 = 'Reeborg'
           ^
 
-    Python indicates that you used the unicode character `🤖`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `🤖`
+    que no está permitido.
     
 
 (141) Invalid decimal literal - 1
@@ -4485,7 +4459,7 @@ Python version: 3.9.5
              ^
     SyntaxError: invalid syntax
     
-        Perhaps you forgot a multiplication operator, `1 * e`.
+        Tal vez olvidó un operador de multiplicación, `1 * e`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4497,7 +4471,7 @@ Python version: 3.9.5
                ^
 
     Los nombres válidos no pueden empezar por un número.
-    Perhaps you forgot a multiplication operator, `1 * e`.
+    Tal vez olvidó un operador de multiplicación, `1 * e`.
     
     
 
@@ -4599,7 +4573,7 @@ Python version: 3.9.5
                ^
     SyntaxError: invalid syntax
     
-        Perhaps you forgot a multiplication operator, `2 * pi`.
+        Tal vez olvidó un operador de multiplicación, `2 * pi`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4613,7 +4587,7 @@ Python version: 3.9.5
                  ^
 
     Los nombres válidos no pueden empezar por un número.
-    Perhaps you forgot a multiplication operator, `2 * pi`.
+    Tal vez olvidó un operador de multiplicación, `2 * pi`.
     
     
 
@@ -4631,7 +4605,7 @@ Python version: 3.9.5
           ^
     SyntaxError: invalid syntax
     
-        Perhaps you forgot a multiplication operator, `3 * job`.
+        Tal vez olvidó un operador de multiplicación, `3 * job`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4643,10 +4617,10 @@ Python version: 3.9.5
             ^
 
     Los nombres válidos no pueden empezar por un número.
-    Perhaps you forgot a multiplication operator, `3 * job`.
+    Tal vez olvidó un operador de multiplicación, `3 * job`.
     
-    [Note: `3j * ob` would also be valid
-    since `3j` is a complex number.]
+    [Nota: `3j` * ob` también sería válido
+    ya que `3j` es un número complejo].
     
 
 (147) Valid names cannot begin with a number - 4
@@ -4691,7 +4665,7 @@ Python version: 3.9.5
                  ^
     SyntaxError: invalid syntax
     
-        Perhaps you forgot a multiplication operator, `42 * java`.
+        Tal vez olvidó un operador de multiplicación, `42 * java`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4703,10 +4677,10 @@ Python version: 3.9.5
                    ^
 
     Los nombres válidos no pueden empezar por un número.
-    Perhaps you forgot a multiplication operator, `42 * java`.
+    Tal vez olvidó un operador de multiplicación, `42 * java`.
     
-    [Note: `42j * ava` would also be valid
-    since `42j` is a complex number.]
+    [Nota: `42j` * ava` también sería válido
+    ya que `42j` es un número complejo].
     
 
 (149) Keyword can't be an expression
@@ -4729,22 +4703,18 @@ Python version: 3.9.5
     'TESTS:\syntax\invalid_keyword_argument.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict('key'=1)
                    ^
 
-    You likely called a function with a named argument:
+    Es probable que hayas llamado a una función con un argumento con nombre:
     
-        a_function(invalid=something) 
+        unaa_función(inválido=algo) 
     
-    where `invalid` is not a valid variable name in Python
-    either because it starts with a number, or is a string,
-    or contains a period, etc.
+    donde `inválido` no es un nombre de variable válido en Python
+    ya sea porque comienza con un número, o es una cadena
+    o contiene un punto, etc.
     
 
 (150) Named argument can't be a Python keyword
@@ -4761,7 +4731,7 @@ Python version: 3.9.5
                  ^
     SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
     
-        You cannot assign a value to `True`.
+        No se puede asignar un valor a `True`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4769,22 +4739,18 @@ Python version: 3.9.5
     'TESTS:\syntax\invalid_keyword_argument_2.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict(True=1)
                    ^
 
-    You likely called a function using the Python keyword `True` as an argument:
+    Es probable que hayas llamado a una función utilizando la palabra clave de Python `True` como argumento:
     
-        a_function(True=something) 
+        una_function(True=algo) 
     
-    which Python interpreted as trying to assign a value to a Python keyword.
+    que Python interpretó como un intento de asignar un valor a una palabra clave de Python.
     
-    You cannot assign a value to `True`.
+    No se puede asignar un valor a `True`.
     
 
 (151) Invalid octal number
@@ -4837,7 +4803,7 @@ Python version: 3.9.5
            ^
     SyntaxError: invalid syntax
     
-        Did you write operators in an incorrect order?
+        ¿Has escrito los operadores en un orden incorrecto?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4848,8 +4814,8 @@ Python version: 3.9.5
     -->1: a =< 3
              ^
 
-    It looks like you wrote two operators (`=` and `<`)
-    in the wrong order: `=<` instead of `<=`.
+    Parece que has escrito dos operadores (`=` y `<`)
+    en el orden equivocado: `=<` en lugar de `<=`.
     
 
 (153) Inverted operators 2
@@ -4866,7 +4832,7 @@ Python version: 3.9.5
            ^
     SyntaxError: invalid syntax
     
-        Did you write operators in an incorrect order?
+        ¿Has escrito los operadores en un orden incorrecto?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4877,11 +4843,11 @@ Python version: 3.9.5
     -->1: a =<* 3
              ^
 
-    It looks like you wrote two operators (`=` and `<`)
-    in the wrong order: `=<` instead of `<=`.
+    Parece que has escrito dos operadores (`=` y `<`)
+    en el orden equivocado: `=<` en lugar de `<=`.
     
-    However, making such a change would still not correct
-    all the syntax errors in the code you wrote.
+    Sin embargo, hacer tal cambio no corregiría
+    todos los errores de sintaxis en el código que escribiste.
     
 
 (154) Iteration variable unpacking in comprehension
@@ -4907,10 +4873,10 @@ Python version: 3.9.5
     -->1: [*x for x in xs]
            ^
 
-    You cannot use the `*` operator to unpack the iteration variable
-    in a comprehension.
+    No se puede utilizar el operador `*` para descomponer la variable de iteración
+    en una comprensión.
     
-    The following statement has no syntax error:
+    La siguiente declaración no tiene ningún error de sintaxis:
     
         [x for x in xs]
     
@@ -4941,8 +4907,8 @@ Python version: 3.9.5
     -->4: f(ad=1, ad=2)
                   ^
 
-    You have called a function repeating the same keyword argument (`ad`).
-    Each keyword argument should appear only once in a function call.
+    Ha llamado a una función repitiendo el mismo argumento de palabra clave (`ad`).
+    Cada argumento de palabra clave debe aparecer sólo una vez en una llamada a una función.
     
 
 (156) Keyword as attribute
@@ -4959,7 +4925,7 @@ Python version: 3.9.5
           ^
     SyntaxError: invalid syntax
     
-        `pass` cannot be used as an attribute.
+        `pass` no puede utilizarse como atributo.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4974,7 +4940,7 @@ Python version: 3.9.5
     -->12: a.pass = 2
              ^
 
-    You cannot use the Python keyword `pass` as an attribute.
+    No se puede utilizar la palabra clave de Python `pass` como atributo.
     
     
 
@@ -5049,7 +5015,7 @@ Python version: 3.9.5
             ^
     SyntaxError: cannot assign to literal
     
-        You can only assign objects to identifiers (variable names).
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5060,12 +5026,12 @@ Python version: 3.9.5
     -->1: for "char" in "word":
               ^
 
-    A for loop must have the form:
+    Un bucle for debe tener la forma
     
-        for ... in sequence:
+        for ... in secuencia:
     
-    where `...` must contain only identifiers (variable names)
-    and not literals like `"char"`.
+    donde `...` debe contener sólo identificadores (nombres de variables)
+    y no literales como `"char"`.
     
 
 (160) IndentationError/SyntaxError depending on version
@@ -5093,7 +5059,7 @@ Python version: 3.9.5
     -->4: 
           ^
 
-    Line `4` identified above was expected to begin a new indented block.
+    Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloque indentado.
     
 
 (161) IndentationError/SyntaxError depending on version - 2
@@ -5115,7 +5081,6 @@ Python version: 3.9.5
     'TESTS:\syntax\missing_code_block_2.py'
     en la ubicación indicada por ^.
     
-       1: # issue #83
        2: a = 1
        3: for i in "test":
        4:    #
@@ -5123,7 +5088,7 @@ Python version: 3.9.5
     -->6: 
           ^
 
-    Line `6` identified above was expected to begin a new indented block.
+    Se esperaba que la línea `6` identificada anteriormente comenzara un nuevo bloque indentado.
     
 
 (162) Missing colon - if
@@ -5212,12 +5177,12 @@ Python version: 3.9.5
     'TESTS:\syntax\missing_comma_in_dict.py'
     en la ubicación indicada por ^.
     
+       1: """Should raise SyntaxError: invalid syntax"""
        2: 
        3: a = {'a': 1,
        4:      'b': 2
     -->5:      'c': 3,
                ^
-       6: }
 
     Python indica que el error es causado por `'c'` escrito inmediatamente después de `2`.
     Es posible que haya olvidado una coma entre los elementos de un set o dict
@@ -5257,7 +5222,6 @@ Python version: 3.9.5
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
-       5: }
 
     Supongo que has olvidado una coma entre dos cadenas
     al definir un dict.
@@ -5396,39 +5360,7 @@ Python version: 3.9.5
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(169) For loop missing 'in' operator
-------------------------------------
-
-.. code-block:: none
-
-
-    Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
-        __import__(name)
-      File "TESTS:\syntax\missing_in_with_for.py", line 1
-        for x range(4):
-              ^
-    SyntaxError: invalid syntax
-    
-        ¿Olvidaste escribir `in`?
-        
-    Un `SyntaxError` ocurre cuando Python no puede entender tu código.
-    
-    Python no pudo entender el código en el archivo
-    'TESTS:\syntax\missing_in_with_for.py'
-    en la ubicación indicada por ^.
-    
-    -->1: for x range(4):
-                ^
-
-    It looks as though you forgot to use the keyword `in`
-    as part of a `for` statement. Perhaps you meant:
-    
-        for x in range(4):
-    
-    
-
-(170) Missing parenthesis for range
+(169) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
@@ -5460,7 +5392,7 @@ Python version: 3.9.5
     
     
 
-(171) Misspelled Python keyword
+(170) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
@@ -5490,7 +5422,7 @@ Python version: 3.9.5
     La línea correcta podría ser `if i in range(3):`
     
 
-(172) Name is global and nonlocal
+(171) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
@@ -5517,11 +5449,11 @@ Python version: 3.9.5
     -->7:     global xy
               ^
 
-    You declared `xy` as being both a global and nonlocal variable.
-    A variable can be global, or nonlocal, but not both at the same time.
+    Has declarado que xy` es una variable global y no local.
+    Una variable puede ser global o no local, pero no ambas cosas a la vez.
     
 
-(173) Name is parameter and nonlocal
+(172) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
@@ -5548,12 +5480,12 @@ Python version: 3.9.5
     -->5:     nonlocal x
               ^
 
-    You used `x` as a parameter for a function
-    before declaring it also as a nonlocal variable:
-    `x` cannot be both at the same time.
+    Ha utilizado `x` como parámetro de una función
+    antes de declararla también como variable no local:
+    x` no puede ser ambas cosas a la vez.
     
 
-(174) nonlocal variable not found
+(173) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
@@ -5580,11 +5512,11 @@ Python version: 3.9.5
     -->5:     nonlocal ab
               ^
 
-    You declared the variable `ab` as being a
-    nonlocal variable but it cannot be found.
+    Ha declarado la variable `ab` como una variable
+    variable no local, pero no se puede encontrar.
     
 
-(175) nonlocal variable not found at module level
+(174) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
@@ -5610,11 +5542,11 @@ Python version: 3.9.5
     -->4: nonlocal cd
           ^
 
-    You used the nonlocal keyword at a module level.
-    The nonlocal keyword refers to a variable inside a function
-    given a value outside that function.
+    Ha utilizado la palabra clave nonlocal a nivel de módulo.
+    La palabra clave nonlocal se refiere a una variable dentro de una función
+    con un valor fuera de esa función.
 
-(176) Same operator twice in a row
+(175) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
@@ -5637,12 +5569,12 @@ Python version: 3.9.5
     -->1: 4****5
              ^
 
-    You cannot have write the same operator, `**`, twice in a row.
-    Perhaps you wrote one of them by mistake
-    or forgot to write something between them.
+    No se puede escribir el mismo operador, `**`, dos veces seguidas.
+    Tal vez usted escribió uno de ellos por error
+    o se olvidó de escribir algo entre ellos.
     
 
-(177) Using pip from interpreter
+(176) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -5673,7 +5605,7 @@ Python version: 3.9.5
     no desde un intérprete de Python.
     
 
-(178) Using pip from interpreter 2
+(177) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
@@ -5704,7 +5636,7 @@ Python version: 3.9.5
     no desde un intérprete de Python.
     
 
-(179) print is a function
+(178) print is a function
 -------------------------
 
 .. code-block:: none
@@ -5718,7 +5650,7 @@ Python version: 3.9.5
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello')?
     
-        Did you mean `print('hello')`?
+        ¿Quieres decir `print('hello')`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5730,15 +5662,15 @@ Python version: 3.9.5
     -->2: print 'hello'
                 ^
 
-    Perhaps you need to type
+    Tal vez tenga que escribir
     
          print('hello')
     
-    In older version of Python, `print` was a keyword.
-    Now, `print` is a function; you need to use parentheses to call it.
+    En la versión anterior de Python, `print` era una palabra clave.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(180) print is a function 2
+(179) print is a function 2
 ---------------------------
 
 .. code-block:: none
@@ -5768,7 +5700,7 @@ Python version: 3.9.5
     Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
     
 
-(181) print is a function 3
+(180) print is a function 3
 ---------------------------
 
 .. code-block:: none
@@ -5782,7 +5714,7 @@ Python version: 3.9.5
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
     
-        Did you mean `print("""This is a very long st ... )`?
+        ¿Quieres decir `print("""This is a very long st ... )`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5793,15 +5725,15 @@ Python version: 3.9.5
     -->1: print """This is a very long string which results in a very long error message."""
                 ^
 
-    Perhaps you need to type
+    Tal vez tenga que escribir
     
          print("""This is a very long st ... )
     
-    In older version of Python, `print` was a keyword.
-    Now, `print` is a function; you need to use parentheses to call it.
+    En la versión anterior de Python, `print` era una palabra clave.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(182) print is a function 4
+(181) print is a function 4
 ---------------------------
 
 .. code-block:: none
@@ -5826,13 +5758,12 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                 ^
-       3:           that spans multiple lines.""")
 
     En la versión anterior de Python, `print` era una palabra clave.
     Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
     
 
-(183) print is a function 5
+(182) print is a function 5
 ---------------------------
 
 .. code-block:: none
@@ -5862,7 +5793,7 @@ Python version: 3.9.5
     Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
     
 
-(184) print is a function 6
+(183) print is a function 6
 ---------------------------
 
 .. code-block:: none
@@ -5876,7 +5807,7 @@ Python version: 3.9.5
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
     
-        Did you mean `print("hello world!")`?
+        ¿Quieres decir `print("hello world!")`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5887,16 +5818,16 @@ Python version: 3.9.5
     -->1: print hello world!
                 ^
 
-    Perhaps you need to type
+    Tal vez tenga que escribir
     
          print("hello world!")
     
-    In older version of Python, `print` was a keyword.
-    Now, `print` is a function; you need to use parentheses to call it.
-    Note that arguments of `print` must be separated by commas.
+    En la versión anterior de Python, `print` era una palabra clave.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
+    Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
     
 
-(185) print is a function 7
+(184) print is a function 7
 ---------------------------
 
 .. code-block:: none
@@ -5923,10 +5854,10 @@ Python version: 3.9.5
 
     En la versión anterior de Python, `print` era una palabra clave.
     Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
-    Note that arguments of `print` must be separated by commas.
+    Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
     
 
-(186) Calling python from interpreter
+(185) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
@@ -5953,7 +5884,7 @@ Python version: 3.9.5
     Debe hacerlo desde un terminal y no desde un intérprete de Python.
     
 
-(187) problem with assigning a variable to Python
+(186) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
@@ -5991,7 +5922,7 @@ Python version: 3.9.5
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(188) Quote inside a string
+(187) Quote inside a string
 ---------------------------
 
 .. code-block:: none
@@ -6005,7 +5936,7 @@ Python version: 3.9.5
                        ^
     SyntaxError: invalid syntax
     
-        Perhaps you misplaced a quote.
+        Tal vez ubicaste en el lugar incorrecto una comilla.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6018,13 +5949,13 @@ Python version: 3.9.5
     -->3: message = 'don't'
                           ^
 
-    There appears to be a Python identifier (variable name)
-    immediately following a string.
-    I suspect that you were trying to use a quote inside a string
-    that was enclosed in quotes of the same kind.
+    Parece que hay un identificador Python (nombre de variable)
+    inmediatamente después de una cadena.
+    Sospecho que estabas tratando de usar una comilla dentro de una cadena
+    que estaba encerrada entre comillas del mismo tipo.
     
 
-(189) Raising multiple exceptions
+(188) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
@@ -6051,7 +5982,7 @@ Python version: 3.9.5
     Parece que estás intentando lanzar una excepción utilizando la sintaxis de Python 2.
     
 
-(190) Cannot use return outside function
+(189) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
@@ -6076,10 +6007,10 @@ Python version: 3.9.5
     -->3: return
           ^
 
-    You can only use a `return` statement inside a function or method.
+    Sólo se puede utilizar una sentencia `return` dentro de una función o método.
     
 
-(191) Semi-colon instead of comma - 1
+(190) Semi-colon instead of comma - 1
 -------------------------------------
 
 .. code-block:: none
@@ -6107,7 +6038,7 @@ Python version: 3.9.5
     Has escrito un punto y coma, `;`, donde se esperaba una coma.
     
 
-(192) Semi-colon instead of commas - 2
+(191) Semi-colon instead of commas - 2
 --------------------------------------
 
 .. code-block:: none
@@ -6135,7 +6066,7 @@ Python version: 3.9.5
     Has escrito punto y coma, `;`, donde se esperaban comas.
     
 
-(193) Semi-colon instead of commas - 3
+(192) Semi-colon instead of commas - 3
 --------------------------------------
 
 .. code-block:: none
@@ -6163,7 +6094,7 @@ Python version: 3.9.5
     Has escrito punto y coma, `;`, donde se esperaban comas.
     
 
-(194) Code block inside comprehension
+(193) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -6186,17 +6117,15 @@ Python version: 3.9.5
        1: a = [
     -->2:     for i in 1, 2, 3:
               ^
-       3:         i**2
-       4: ]
 
-    Perhaps you wrote a statement beginning a code block
-    intended to be part of a list comprehension.
-    You cannot have separate code blocks inside list comprehensions.
+    Tal vez usted escribió una declaración que comienza un bloque de código
+    destinado a formar parte de una comprensión de lista.
+    No se pueden tener bloques de código separados dentro de las comprensiones de listas.
     
-    If this explanation is incorrect, please report this case.
+    Si esta explicación es incorrecta, por favor informe de este caso.
     
 
-(195) Single = instead of double == with if
+(194) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6210,7 +6139,7 @@ Python version: 3.9.5
                  ^
     SyntaxError: invalid syntax
     
-        Perhaps you needed `==` instead of `=`.
+        Tal vez necesitabas `==` en lugar de `=`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6224,11 +6153,11 @@ Python version: 3.9.5
                        ^
 
     Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
-    The following statement would not contain a syntax error:
+    La siguiente sentencia no contendría un error de sintaxis:
     
         if i % 2 == 0:
 
-(196) Single = instead of double == with elif
+(195) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6242,7 +6171,7 @@ Python version: 3.9.5
                    ^
     SyntaxError: invalid syntax
     
-        Perhaps you needed `==` instead of `=`.
+        Tal vez necesitabas `==` en lugar de `=`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6258,11 +6187,11 @@ Python version: 3.9.5
                          ^
 
     Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
-    The following statement would not contain a syntax error:
+    La siguiente sentencia no contendría un error de sintaxis:
     
         elif i % 2 == 0:
 
-(197) Single = instead of double == with while
+(196) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6294,7 +6223,7 @@ Python version: 3.9.5
     un operador de igualdad, `==`, o el operador de asignación aumentado `:=`.
     
 
-(198) Space between operators 1
+(197) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6317,14 +6246,14 @@ Python version: 3.9.5
     -->1: a = 2 * * 5
                   ^
 
-    You cannot have write the same operator, `*`, twice in a row.
-    Perhaps you wrote one of them by mistake
-    or forgot to write something between them.
+    No se puede escribir el mismo operador, `*`, dos veces seguidas.
+    Tal vez usted escribió uno de ellos por error
+    o se olvidó de escribir algo entre ellos.
     O quizás incluyó un espacio por error entre los dos operadores
     y quiso escribir `**` como un solo operador.
     
 
-(199) Space between operators 2
+(198) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6347,14 +6276,14 @@ Python version: 3.9.5
     -->1: a / = b
               ^
 
-    You cannot have these two operators, `/` and `=`,
-    following each other. Perhaps you wrote one of them by mistake
-    or forgot to write something between them.
+    No puedes tener estos dos operadores, `/` y `=`,
+    siguiéndose el uno al otro. Tal vez usted escribió uno de ellos por error
+    o se olvidó de escribir algo entre ellos.
     O quizás incluyó un espacio por error entre los dos operadores
     y quiso escribir `/=` como un solo operador.
     
 
-(200) Space in variable name
+(199) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6382,7 +6311,7 @@ Python version: 3.9.5
     No puede haber espacios en los identificadores (nombres de variables).
     
 
-(201) Wrong target for star assignment
+(200) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6405,13 +6334,13 @@ Python version: 3.9.5
     -->1: *a = 1
           ^
 
-    A star assignment must be of the form:
+    Una asignación estrella debe ser de la forma:
     
-        ... *name = list_or_tuple
+        ... *nombre = lista_o_tupla
     
     
 
-(202) Too many nested blocks
+(201) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6443,7 +6372,7 @@ Python version: 3.9.5
     contenidos dentro de otros bloques de código.
     
 
-(203) Too many nested parentheses.
+(202) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
@@ -6468,16 +6397,13 @@ Python version: 3.9.5
        3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
     -->4:             ((((((((((((((((((((((((((((((((((
                                                        ^
-       5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
-       6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-       7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
     Tu código es demasiado complejo para Python:
     necesitas reducir el número de paréntesis
     contenidos dentro de otros paréntesis.
     
 
-(204) Trailing comma in import statement
+(203) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6505,13 +6431,13 @@ Python version: 3.9.5
 
     Python indica que hay que rodear una expresión
     que termina con una coma por medio de paréntesis.
-    However, if you remove the last comma, there will be no syntax error.
+    Sin embargo, si eliminas la última coma, no habrá ningún error de sintaxis.
     Quizás quisiste escribir
     
     `from math import sin, cos`
     
 
-(205) Triple-equal sign
+(204) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6525,7 +6451,7 @@ Python version: 3.9.5
                 ^
     SyntaxError: invalid syntax
     
-        Did you mean to use `is` instead of `===`?
+        ¿Querías usar `is` en lugar de `===`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6538,13 +6464,13 @@ Python version: 3.9.5
     -->3: x = y === z
                   ^
 
-    You wrote three equal signs in a row which is allowed in some
-    programming languages, but not in Python. To check if two objects
-    are equal, use two equal signs, `==`; to see if two names represent
-    the exact same object, use the operator `is`.
+    Has escrito tres signos de igualdad seguidos, lo que está permitido en algunos
+    lenguajes de programación, pero no en Python. Para comprobar si dos objetos
+    son iguales, usa dos signos de igualdad, `==`; para ver si dos nombres representan
+    exactamente el mismo objeto, utiliza el operador `is`.
     
 
-(206) Unclosed bracket
+(205) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6564,12 +6490,12 @@ Python version: 3.9.5
     'TESTS:\syntax\unclosed_bracket.py'
     en la ubicación indicada por ^.
     
-        3: 
-        4: def foo():
-        5:     return [1, 2, 3
-        6: 
-    --> 7: print(foo())
-           ^
+       3: 
+       4: def foo():
+       5:     return [1, 2, 3
+       6: 
+    -->7: print(foo())
+          ^
 
     El corchete `[` de apertura en la línea 5 no está cerrado.
     
@@ -6577,7 +6503,7 @@ Python version: 3.9.5
                       ^
     
 
-(207) Unclosed parenthesis - 1
+(206) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6601,7 +6527,6 @@ Python version: 3.9.5
        2: x = int('1'
     -->3: if x == 1:
                    ^
-       4:     print('yes')
 
     El paréntesis `(` de apertura en la línea 2 no está cerrado.
     
@@ -6609,7 +6534,7 @@ Python version: 3.9.5
                   ^
     
 
-(208) Unclosed parenthesis - 2
+(207) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6640,7 +6565,7 @@ Python version: 3.9.5
                ^
     
 
-(209) Unclosed parenthesis - 3
+(208) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6660,12 +6585,12 @@ Python version: 3.9.5
     'TESTS:\syntax\unclosed_paren_3.py'
     en la ubicación indicada por ^.
     
+       3: if 3:
        4:     if 1:
        5:         print(((123))
        6: 
     -->7: if 2:
               ^
-       8:     print(123))
 
     El paréntesis `(` de apertura en la línea 5 no está cerrado.
     
@@ -6675,7 +6600,7 @@ Python version: 3.9.5
     Si esto es incorrecto, por favor reporte este caso.
     
 
-(210) Unclosed parenthesis - 4
+(209) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6698,7 +6623,7 @@ Python version: 3.9.5
        1: # equal number of ( and ) in file
        2: print('hello'
        3: 
-    -->4: def
+    -->4: def test():
           ^
 
     El paréntesis `(` de apertura en la línea 2 no está cerrado.
@@ -6707,7 +6632,7 @@ Python version: 3.9.5
                 ^
     
 
-(211) Content passed continuation line character
+(210) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6734,12 +6659,12 @@ Python version: 3.9.5
     -->5: print(\t)
                   ^
 
-    You are using the continuation character `\` outside of a string,
-    and it is followed by some other character(s).
+    Está utilizando el carácter de continuación `\` fuera de una cadena
+    y es seguido por algún otro carácter(es).
     Supongo que has olvidado encerrar algún contenido en una cadena.
     
 
-(212) Unexpected EOF while parsing
+(211) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6757,13 +6682,12 @@ Python version: 3.9.5
     'TESTS:\syntax\unexpected_eof.py'
     en la ubicación indicada por ^.
     
-        3: 
-        4: def foo():
-        5:     return [1, 2, 3,
-        6: 
-        7: print(foo())
-    --> 8: 
-           ^
+       4: def foo():
+       5:     return [1, 2, 3,
+       6: 
+       7: print(foo())
+    -->8: 
+          ^
 
     Python nos dice que llegó al final del archivo
     y que esperaba más contenido.
@@ -6776,7 +6700,7 @@ Python version: 3.9.5
                       ^
     
 
-(213) Invalid character (unicode fraction 3/4)
+(212) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6802,14 +6726,14 @@ Python version: 3.9.5
               ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `¾`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `¾`
+    que no está permitido.
     Has utilizado el carácter unicode ¾ que se conoce como
     VULGAR FRACTION THREE QUARTERS
     Sospecho que querías escribir la fracción `3/4` en su lugar.
     
 
-(214) Invalid character (unicode fraction 1/2)
+(213) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6835,14 +6759,14 @@ Python version: 3.9.5
                ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `½`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `½`
+    que no está permitido.
     Has utilizado el carácter unicode ½ que se conoce como
     VULGAR FRACTION ONE HALF
     Sospecho que querías escribir la fracción `1/2` en su lugar.
     
 
-(215) Invalid character (unicode fraction slash)
+(214) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6868,14 +6792,14 @@ Python version: 3.9.5
                  ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `⁄`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `⁄`
+    que no está permitido.
     Sospecho que has utilizado el carácter unicode conocido como
     'FRACTION SLASH', que es similar a
     pero es diferente del operador de división `/`.
     
 
-(216) Invalid character (unicode quote)
+(215) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6903,14 +6827,14 @@ Python version: 3.9.5
               ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `«`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `«`
+    que no está permitido.
     Sospecho que has utilizado una comilla unicode de fantasía
     cuyo nombre es LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
     en lugar de una comilla simple o doble normal para una cadena.
     
 
-(217) Invalid character (unicode quote2)
+(216) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6937,14 +6861,14 @@ Python version: 3.9.5
               ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `‹`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `‹`
+    que no está permitido.
     Sospecho que has utilizado una comilla unicode de fantasía
     cuyo nombre es SINGLE LEFT-POINTING ANGLE QUOTATION MARK
     en lugar de una comilla simple o doble normal para una cadena.
     
 
-(218) Invalid character (mistaken <)
+(217) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6971,15 +6895,15 @@ Python version: 3.9.5
                ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `‹`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `‹`
+    que no está permitido.
     Sospecho que has utilizado una comilla unicode de fantasía
     cuyo nombre es SINGLE LEFT-POINTING ANGLE QUOTATION MARK
     en lugar de una comilla simple o doble normal para una cadena.
     O tal vez, quisiste escribir un signo menos que, `<`.
     
 
-(219) Invalid character (mistaken >)
+(218) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -7006,15 +6930,15 @@ Python version: 3.9.5
                ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `›`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `›`
+    que no está permitido.
     Sospecho que has utilizado una comilla unicode de fantasía
     cuyo nombre es SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
     en lugar de una comilla simple o doble normal para una cadena.
     O tal vez, quisiste escribir un signo mayor que, `>`.
     
 
-(220) Invalid character (mistaken comma)
+(219) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -7041,15 +6965,15 @@ Python version: 3.9.5
                 ^
 
     ¿Usaste copiar y pegar?
-    Python indicates that you used the unicode character `‚`
-    which is not allowed.
+    Python indica que has utilizado el carácter unicode `‚`
+    que no está permitido.
     Sospecho que has utilizado una comilla unicode de fantasía
     cuyo nombre es SINGLE LOW-9 QUOTATION MARK
     en lugar de una comilla simple o doble normal para una cadena.
     O tal vez, quisiste escribir una coma.
     
 
-(221) Unmatched closing curly bracket
+(220) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -7069,18 +6993,15 @@ Python version: 3.9.5
     'TESTS:\syntax\unmatched_closing_curly.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = {1,
        5:     2,
     -->6:     3, 4,}}
                     ^
 
-    The closing llave `}` on line 6 does not match anything.
+    El llave `}` de cierre de la línea 6 no coincide con nada.
     
 
-(222) Unmatched closing parenthesis
+(221) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -7100,18 +7021,15 @@ Python version: 3.9.5
     'TESTS:\syntax\unmatched_closing_paren.py'
     en la ubicación indicada por ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = (1,
        5:     2,
     -->6:     3, 4,))
                     ^
 
-    The closing paréntesis `)` on line 6 does not match anything.
+    El paréntesis `)` de cierre de la línea 6 no coincide con nada.
     
 
-(223) Mismatched brackets - 1
+(222) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -7135,13 +7053,13 @@ Python version: 3.9.5
     -->2: x = (1, 2, 3]
                       ^
 
-    The closing corchete `]` on line 2 does not match the opening paréntesis `(` on line 2.
+    El corchete `]` de cierre de la línea 2 no coincide con el paréntesis `(` de apertura de la línea 2.
     
         2: x = (1, 2, 3]
                ^       ^
     
 
-(224) Mismatched brackets - 2
+(223) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -7167,7 +7085,7 @@ Python version: 3.9.5
     -->4:      3]
                 ^
 
-    The closing corchete `]` on line 4 does not match the opening paréntesis `(` on line 2.
+    El corchete `]` de cierre de la línea 4 no coincide con el paréntesis `(` de apertura de la línea 2.
     
         2: x = (1,
                ^
@@ -7175,7 +7093,7 @@ Python version: 3.9.5
                  ^
     
 
-(225) Unmatched brackets - 3
+(224) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -7200,10 +7118,10 @@ Python version: 3.9.5
     -->3:      3]]
                  ^
 
-    The closing corchete `]` on line 3 does not match anything.
+    El corchete `]` de cierre de la línea 3 no coincide con nada.
     
 
-(226) Unpacking a dict value
+(225) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -7226,17 +7144,17 @@ Python version: 3.9.5
     -->1: {'a': *(1, 2, 3)}
                 ^
 
-    You cannot have these two operators, `:` and `*`,
-    following each other.
-    It looks like you tried to use a starred expression as a dict value;
-    this is not allowed.
+    No puedes tener estos dos operadores, `:` y `*`,
+    siguiéndose el uno al otro.
+    Parece que usted trató de usar una expresión estelar como un valor de dict;
+    esto no está permitido.
     
-    The following statement has no syntax error:
+    La siguiente declaración no tiene ningún error de sintaxis:
     
         {'a': (1, 2, 3)}
     
 
-(227) Unterminated triple quoted string
+(226) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -7258,13 +7176,14 @@ Python version: 3.9.5
     'TESTS:\syntax\unterminated_triple_quote_string.py'
     .
     
-       1: some_text =
+       1: some_text = """In a land
+       2: 
 
-    You started writing a triple-quoted string but never wrote
-    the triple quotes needed to end the string.
+    Empezó a escribir una cadena con comillas triples pero nunca escribió
+    las comillas triples necesarias para terminar la cadena.
     
 
-(228) TabError
+(227) TabError
 --------------
 
 .. code-block:: none
@@ -7296,7 +7215,7 @@ Python version: 3.9.5
     -->7: 	pass
          ^
 
-(229) EOL unescaped backslash
+(228) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7310,7 +7229,7 @@ Python version: 3.9.5
                   ^
     SyntaxError: EOL while scanning string literal
     
-        Did you forget to escape a backslash character?
+        ¿Olvidaste escapar un carácter de barra invertida?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -7321,14 +7240,14 @@ Python version: 3.9.5
     -->1: a = "abc\"
                     ^
 
-    You started writing a string with a single or double quote
-    but never ended the string with another quote on that line.
-    Perhaps you meant to write the backslash character, `\`
-    as the last character in the string and forgot that you
-    needed to escape it by writing two `\` in a row.
+    Ha empezado a escribir una cadena con una comilla simple o doble
+    pero nunca terminó la cadena con otra comilla en esa línea.
+    Tal vez quiso escribir el carácter de la barra diagonal inversa, `\`
+    como el último carácter de la cadena y se olvidó de que
+    que necesitaba escapar escribiendo dos `\` seguidas.
     
 
-(230) Using the backquote character
+(229) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7359,7 +7278,7 @@ Python version: 3.9.5
     O bien has querido escribir una comilla simple, ', o has copiado el código de Python 2;
     en este último caso, utiliza la función `repr(x)`.
 
-(231) unicode error
+(230) unicode error
 -------------------
 
 .. code-block:: none
@@ -7384,17 +7303,17 @@ Python version: 3.9.5
     -->1: path = "c:\Users\andre"
                                  ^
 
-    I suspect that you wrote a string that contains
-    one backslash character, `\` followed by an uppercase `U`
-    and some more characters.
-    Python likely interpreted this as indicating the beginning of
-    what is known as an escape sequence for special unicode characters.
-    To solve the problem, either write a so-called 'raw string'
-    by adding the letter `r` as a prefix in
-    front of the string, or replace `\U`, by `\\U`.
+    Sospecho que has escrito una cadena que contiene
+    un carácter de barra invertida, `\` seguida de una `U` mayúscula
+    y algunos caracteres más.
+    Python probablemente interpretó esto como el comienzo de
+    lo que se conoce como una secuencia de escape para caracteres especiales unicode.
+    Para resolver el problema, escriba la llamada 'cadena cruda'
+    añadiendo la letra `r` como prefijo en
+    delante de la cadena, o reemplazar `\U`, por `\\U`.
     
 
-(232) Walrus instead of equal
+(231) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7423,7 +7342,7 @@ Python version: 3.9.5
     el operador de asignación normal `=` era necesario.
     
 
-(233) Missing condition in while statement
+(232) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7448,14 +7367,14 @@ Python version: 3.9.5
     -->1: while:
                ^
 
-    A `while` loop requires a condition:
+    Un bucle `while` requiere una condición:
     
-        while condition:
+        while condición:
             ...
     
     
 
-(234) Would-be variable declaration
+(233) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7482,12 +7401,12 @@ Python version: 3.9.5
     -->3: if var start := begin < end:
                  ^
 
-    It looks like you were trying to declare that `start` was
-    a variable using the word `var`.
-    If you remove `var`, you will have a valid Python statement.
+    Parece que estabas intentando declarar que `start` era
+    una variable utilizando la palabra `var`.
+    Si eliminas `var`, tendrás una declaración válida de Python.
     
 
-(235) Would-be variable declaration - 2
+(234) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7509,20 +7428,20 @@ Python version: 3.9.5
     'TESTS:\syntax\would_be_type_declaration_2.py'
     en la ubicación indicada por ^.
     
+       1: begin = 3
        2: end = 4
        3: 
        4: if (
     -->5:     var start := begin < end
                   ^
-       6:    )
 
-    It looks like you were trying to declare that `start` was
-    a variable using the word `var`.
-    However, even if you remove `var`, there would still be some
-    some syntax errors.
+    Parece que estabas intentando declarar que `start` era
+    una variable utilizando la palabra `var`.
+    Sin embargo, incluso si se elimina `var`, todavía habría algunos
+    algunos errores de sintaxis.
     
 
-(236) Cannot use yield outside function
+(235) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
@@ -7542,7 +7461,7 @@ Python version: 3.9.5
     'TESTS:\syntax\yield_outside_function.py'
     en la ubicación indicada por ^.
     
-    -->1: (yield
+    -->1: (yield i) == 3
            ^
 
     Sólo se puede utilizar una sentencia `yield` dentro de una función.

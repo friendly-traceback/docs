@@ -309,8 +309,8 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.4.87
-Python version: 3.10.0</p>
+<p>Friendly-traceback version: 0.4.89
+Python version: 3.10.1</p>
 <div class="section" id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -328,7 +328,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from math import sin and cos
-                           ^
+                           ^^^
 
 The Python keyword `and` can only be used for boolean expressions.
 Perhaps you meant to write
@@ -354,7 +354,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: from math import sin, tan, and cos
-                                 ^
+                                 ^^^
 
 The Python keyword `and` can only be used for boolean expressions.
 Perhaps you meant to write
@@ -383,7 +383,7 @@ at the location indicated by ^.
    2: def foo():
    3:     global x
 --&gt;4:     x:int = 1
-          ^
+          ^^^^^^^^^
 
 The object named `x` is defined with type annotation
 as a local variable. It cannot be declared to be a global variable.
@@ -408,7 +408,7 @@ at the location indicated by ^.
 
    1: # issue 158
 --&gt;2: from math import (sin, cos) as funcs
-                                  ^
+                                  ^^
 
 I am guessing that you are trying to import at least one object
 from module `math` and rename it using the Python keyword `as`;
@@ -469,7 +469,7 @@ at the location indicated by ^.
    5: def fn():
    6:     p = 1
 --&gt;7:     global p
-          ^
+          ^^^^^^^^
 
 You assigned a value to the variable `p`
 before declaring it as a global variable.
@@ -497,7 +497,7 @@ at the location indicated by ^.
    5: def fn():
    6:     print(r)
 --&gt;7:     global r
-          ^
+          ^^^^^^^^
 
 You used the variable `r`
 before declaring it as a global variable.
@@ -522,12 +522,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
 at the location indicated by ^.
 
-    5:     q = 1
-    6:
-    7:     def g():
-    8:         print(q)
---&gt; 9:         nonlocal q
-               ^
+   5:     q = 1
+   6:
+   7:     def g():
+   8:         print(q)
+--&gt;9:         nonlocal q
+              ^^^^^^^^^^
 
 You used the variable `q`
 before declaring it as a nonlocal variable.
@@ -552,12 +552,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
 at the location indicated by ^.
 
-    5:     s = 1
-    6:
-    7:     def g():
-    8:         s = 2
---&gt; 9:         nonlocal s
-               ^
+   5:     s = 1
+   6:
+   7:     def g():
+   8:         s = 2
+--&gt;9:         nonlocal s
+              ^^^^^^^^^^
 
 You assigned a value to the variable `s`
 before declaring it as a nonlocal variable.
@@ -585,7 +585,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
    2:
 --&gt;3: a if 1 else b = 1
-      ^
+      ^^^^^^^^^^^^^
 
 On the left-hand side of an equal sign, you have a
 conditional expression instead of the name of a variable.
@@ -618,7 +618,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: __debug__ = 1
-      ^
+      ^^^^^^^^^
 
 `__debug__` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -646,7 +646,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: a.__debug__ = 1
-      ^
+      ^^^^^^^^^^^
 
 `__debug__` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -674,7 +674,7 @@ at the location indicated by ^.
    2:    and assignment to keyword before."""
    3:
 --&gt;4: ... = 1
-      ^
+      ^^^
 
 The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
 </pre></div>
@@ -698,13 +698,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_f_string.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: can't assign to literal
-   3: Python &gt;= 3.8: SyntaxError: cannot assign to f-string expression
-   4: """
    5:
 --&gt;6: f'{x}' = 42
-      ^
+      ^^^^^^
 
 You wrote an expression that has the f-string `f'{x}'`
 on the left-hand side of the equal sign.
@@ -731,13 +727,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_function_call_1.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: can't assign to function call
-   2:
-   3: Python 3.8: SyntaxError: cannot assign to function call
-   4: """
    5:
 --&gt;6: len('a') = 3
-      ^
+      ^^^^^^^^
 
 You wrote the expression
 
@@ -767,13 +759,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_function_call_2.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: can't assign to function call
-   2:
-   3: Python 3.8: SyntaxError: cannot assign to function call
-   4: """
    5:
 --&gt;6: func(a, b=3) = 4
-      ^
+      ^^^^^^^^^^^^
 
 You wrote an expression like
 
@@ -806,7 +794,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
    2:
 --&gt;3: (x for x in x) = 1
-      ^
+      ^^^^^^^^^^^^^^
 
 On the left-hand side of an equal sign, you have a
 generator expression instead of the name of a variable.
@@ -832,14 +820,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_literal_dict.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError:
-   2: Python 3.8: cannot assign to dict display
-   3: Python 3.6, 3.7: can't assign to literal
-   4:
-   5:  """
    6:
 --&gt;7: {1 : 2, 2 : 4} = 5
-      ^
+      ^^^^^^^^^^^^^^
 
 You wrote an expression like
 
@@ -973,14 +956,9 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_literal_set.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError:
-   2: Python 3.8: cannot assign to set display
-   3: Python 3.6, 3.7: can't assign to literal
-   4:
-   5:  """
    6:
 --&gt;7: {1, 2, 3} = 4
-      ^
+      ^^^^^^^^^
 
 You wrote an expression like
 
@@ -1042,7 +1020,7 @@ at the location indicated by ^.
    1: """ Should raise SyntaxError"""
    2:
 --&gt;3: else = 1
-      ^
+      ^^^^
 
 You were trying to assign a value to the Python keyword `else`.
 This is not allowed.
@@ -1071,7 +1049,7 @@ at the location indicated by ^.
    2:    and can't assign to keyword before."""
    3:
 --&gt;4: None = 1
-      ^
+      ^^^^
 
 `None` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -1099,7 +1077,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot assign to operator"""
    3:
 --&gt;4: a + 1 = 2
-      ^
+      ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -1125,8 +1103,8 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_to_yield_expression.py'
 at the location indicated by ^.
 
---&gt;1: (yield
-       ^
+--&gt;1: (yield i) = 3
+       ^^^^^^^
 
 You wrote an expression that includes the `yield` keyword
 on the left-hand side of the equal sign.
@@ -1181,7 +1159,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You are using the augmented assignment operator `:=` inside
 a comprehension to assign a value to the iteration variable `j`.
@@ -1239,7 +1217,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: if "word" := True:
-         ^
+         ^^^^^^
 
 You cannot use the augmented assignment operator `:=`,
 sometimes called the walrus operator, with literals like `"word"`.
@@ -1269,7 +1247,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot use named assignment with True"""
    3:
 --&gt;4: (True := 1)
-       ^
+       ^^^^
 
 `True` is a constant in Python; you cannot assign it a different value.
 </pre></div>
@@ -1282,7 +1260,7 @@ at the location indicated by ^.
     __import__(name)
   File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
     a = 3 \ 4.0
-              ^--&gt;
+           ^^^^--&gt;
 SyntaxError: unexpected character after line continuation character
 
     Did you mean to divide by 4.0?
@@ -1294,7 +1272,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = 3 \ 4.0
-                ^
+              ^
 
 You are using the continuation character `\` outside of a string,
 and it is followed by some other character(s).
@@ -1322,7 +1300,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print(sum[i for i in [1, 2, 3] if i%2==0])
-            ^
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python indicates that the error is caused by `[` written immediately after `sum`.
 It is possible that you forgot a comma between items in a tuple,
@@ -1367,7 +1345,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4:     break
-          ^
+          ^^^^^
 
 The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
 </pre></div>
@@ -1392,7 +1370,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: if x.a = 1:
-         ^
+         ^^^
 
 You likely used an assignment operator `=` instead of an equality operator `==`.
 The following statement would not contain a syntax error:
@@ -1408,8 +1386,8 @@ The following statement would not contain a syntax error:
     __import__(name)
   File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
     SyntaxErrors can be annoying!
-                     ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                 ^^^
+SyntaxError: invalid syntax
 
     Friendly-traceback does not know the cause of this error.
 
@@ -1420,7 +1398,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: SyntaxErrors can be annoying!
-                       ^
+                   ^^^
 
 Currently, I cannot guess the likely cause of this error.
 Try to examine closely the line indicated as well as the line
@@ -1453,7 +1431,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: can't use starred expression here"""
    2:
 --&gt;3: *a
-       ^
+       ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -1481,7 +1459,7 @@ at the location indicated by ^.
    2:
    3: def test(**k):
 --&gt;4:     print(f"{**k}")
-       ^
+       ^^
 
 The double star operator `**` is likely interpreted to mean that
 dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1535,7 +1513,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: x = [i, i**2 for i in range(10)]
-           ^
+           ^^^^^^^
 
 I am guessing that you were writing a comprehension or a generator expression
 and forgot to include parentheses around tuples.
@@ -1568,7 +1546,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = [f(x) if condition for x in sequence]
-           ^
+           ^^^^^^^^^^^^^^^^^
 
 An `else some_value` clause was expected after the `if` expression.
 </pre></div>
@@ -1591,7 +1569,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a = [f(x) for x in sequence if condition else other]
-                                               ^
+                                               ^^^^
 
 I am guessing that you were writing a comprehension or a generator expression
 and use the wrong order for a condition.
@@ -1627,7 +1605,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4:     continue
-          ^
+          ^^^^^^^^
 
 The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
 </pre></div>
@@ -1653,7 +1631,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: &gt;&gt;&gt; print("Hello World!")
-      ^
+      ^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
@@ -1667,8 +1645,8 @@ The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
     __import__(name)
   File "TESTS:\syntax\copy_pasted_code_2.py", line 2
     ... print("Hello World!")
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^
+SyntaxError: invalid syntax
 
     Did you use copy-paste?
 
@@ -1680,7 +1658,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: ... print("Hello World!")
-      ^
+          ^^^^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `...`, should not be included in your code.
@@ -1910,8 +1888,8 @@ You can only use identifiers (variable names) as function arguments.
 </pre></div>
 </div>
 </div>
-<div class="section" id="def-keyword-arg-only-once-in-function-definition">
-<h2>(55) def: Keyword arg only once in function definition<a class="headerlink" href="#def-keyword-arg-only-once-in-function-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="def-arguments-must-be-unique-in-function-definition">
+<h2>(55) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1929,13 +1907,13 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
    2:
    3:
---&gt;4: def f(aa
-      ^
+--&gt;4: def f(aa=1, aa=2):
+      ^^^^^^^^
 
-You have defined a function repeating the keyword argument
+You have defined a function repeating the argument
 
     aa
-twice; each keyword argument should appear only once in a function definition.
+twice; each argument should appear only once in a function definition.
 </pre></div>
 </div>
 </div>
@@ -2159,7 +2137,7 @@ at the location indicated by ^.
    1:
    2:
 --&gt;3: def "function"():
-          ^
+          ^^^^^^^^^^
 
 The name of a function must be a valid Python identifier,
 that is a name that begins with a letter or an underscore character, `_`,
@@ -2189,7 +2167,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(None=1):
-            ^
+            ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2218,7 +2196,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(x, True):
-               ^
+               ^^^^
 
 I am guessing that you tried to use the Python keyword
 `True` as an argument in the definition of a function
@@ -2247,7 +2225,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(*None):
-             ^
+             ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2276,7 +2254,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: def f(**None):
-              ^
+              ^^^^
 
 I am guessing that you tried to use the Python keyword
 `None` as an argument in the definition of a function
@@ -2305,7 +2283,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: def pass():
-          ^
+          ^^^^
 
 You tried to use the Python keyword `pass` as a function name.
 </pre></div>
@@ -2526,13 +2504,11 @@ Python could not understand the code in the file
 'TESTS:\syntax\def_name_is_parameter_and_global.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: name 'x' is parameter and global
-   2: """
    3:
    4:
    5: def f(x):
 --&gt;6:     global x
-          ^
+          ^^^^^^^^
 
 You are including the statement
 
@@ -2986,7 +2962,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: def f("1"):
-            ^
+            ^^^
 
 You used a string as an argument when defining a function.
 You can only use identifiers (variable names) as function arguments.
@@ -3066,7 +3042,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (*x)
-           ^
+           ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -3093,7 +3069,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (*x,)
-           ^
+           ^^
 
 The star operator `*` is interpreted to mean that
 iterable unpacking is to be used to assign a name
@@ -3120,7 +3096,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del True
-          ^
+          ^^^^
 
 You cannot delete the constant `True`.
 You can only delete names of objects, or items in mutable containers
@@ -3148,7 +3124,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del a.b.c[0] + 2
-          ^
+          ^^^^^^^^^^^^
 
 You cannot delete the expression `a.b.c[0] + 2`.
 You can only delete names of objects, or items in mutable containers
@@ -3177,7 +3153,7 @@ at the location indicated by ^.
    3:
    4:
 --&gt;5: del f(a)
-          ^
+          ^^^^
 
 You attempted to delete a function call
 
@@ -3208,7 +3184,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del (a := 5)
-           ^
+           ^^^^^^
 
 You cannot delete the named expression `(a := 5)`.
 You can only delete names of objects, or items in mutable containers
@@ -3233,7 +3209,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del a += b
-            ^
+            ^^
 
 You can only delete names of objects, or items in mutable containers
 such as `list`, `set`, or `dict`.
@@ -3257,7 +3233,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: del "Hello world!"
-          ^
+          ^^^^^^^^^^^^^^
 
 You cannot delete the literal `"Hello world!"`.
 You can only delete names of objects, or items in mutable containers
@@ -3471,7 +3447,7 @@ at the location indicated by ^.
    1: if True:
    2:    pass
 --&gt;3:    elif True:
-         ^
+         ^^^^
 
 The `elif` keyword does not begin a code block that matches
 an `if` block, possibly because `elif` is not indented correctly.
@@ -3497,7 +3473,7 @@ at the location indicated by ^.
    1: if True:
    2:    pass
 --&gt;3:    else:
-         ^
+         ^^^^
 
 The `else` keyword does not begin a code block that matches
 a valid code block, possibly because `else` is not indented correctly.
@@ -3527,7 +3503,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: else if True:
-           ^
+           ^^
 
 Python told us that it expected a colon at the position indicated.
 However, adding a colon or replacing something else by a colon
@@ -3544,8 +3520,8 @@ but wrote `else if` instead.
     __import__(name)
   File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
     elseif True:
-    ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+           ^^^^
+SyntaxError: invalid syntax
 
     Perhaps you meant to write `elif`.
 
@@ -3560,7 +3536,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: elseif True:
-      ^
+             ^^^^
 
 You likely meant to use Python's `elif` keyword
 but wrote `elseif` instead.
@@ -3644,7 +3620,7 @@ at the location indicated by ^.
    1: try:
    2:     pass
 --&gt;3: except NameError, ValueError as err:
-             ^
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 I am guessing that you wanted to use an `except` statement
 with multiple exception types. If that is the case, you must
@@ -3697,7 +3673,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: greet = bf"Hello {name}"
-                ^
+                ^^^^^^^^^^^^^^
 
 I am guessing that you wanted a binary f-string;
 this is not allowed.
@@ -3927,7 +3903,7 @@ at the location indicated by ^.
    1:
    2: def fn():
 --&gt;3:     from __future__ import generators
-          ^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A `from __future__ import` statement changes the way Python
 interprets the code in a file.
@@ -4015,7 +3991,7 @@ at the location indicated by ^.
    4:
    5: L = range(10)
 --&gt;6: f(x for x in L, 1)
-        ^
+        ^^^^^^^
 
 You are using a generator expression, something of the form
 
@@ -4047,7 +4023,7 @@ at the location indicated by ^.
    2: or (Python 3.8) cannot assign to operator"""
    3:
 --&gt;4: a-b = 2
-      ^
+      ^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -4139,7 +4115,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: import pen from turtle
-                 ^
+                 ^^^^
 
 You wrote something like
 
@@ -4171,7 +4147,7 @@ at the location indicated by ^.
    2:
    3: if True:
 --&gt;4: pass
-      ^
+      ^^^^
 
 Line `4` identified above was expected to begin a new indented block.
 </pre></div>
@@ -4312,7 +4288,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: x = 000_123_456
-          ^
+          ^^^^
 
 Perhaps you meant to write the integer `123_456`
 and did not know that it could not start with zeros.
@@ -4335,8 +4311,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_character_in_identifier.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid character in identifier
-   2: """
    3:
    4: # Robot-face character below
    5:
@@ -4590,14 +4564,10 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_keyword_argument.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: keyword can't be an expression
-   3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-   4: """
    5:
    6:
 --&gt;7: a = dict('key'=1)
-               ^
+               ^^^^^^
 
 You likely called a function with a named argument:
 
@@ -4617,7 +4587,7 @@ or contains a period, etc.
   File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
     a = dict(True=1)
              ^^^^^
-SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+SyntaxError: cannot assign to True
 
     You cannot assign a value to `True`.
 
@@ -4627,22 +4597,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\invalid_keyword_argument_2.py'
 at the location indicated by ^.
 
-   1: """Should raise
-   2: Python &lt; 3.8: SyntaxError: keyword can't be an expression
-   3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-   4: """
    5:
    6:
 --&gt;7: a = dict(True=1)
-               ^
+               ^^^^^
 
-You likely called a function using the Python keyword `True` as an argument:
-
-    a_function(True=something)
-
-which Python interpreted as trying to assign a value to a Python keyword.
-
-You cannot assign a value to `True`.
+`True` is a constant in Python; you cannot assign it a different value.
 </pre></div>
 </div>
 </div>
@@ -4751,7 +4711,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: [*x for x in xs]
-       ^
+       ^^
 
 You cannot use the `*` operator to unpack the iteration variable
 in a comprehension.
@@ -4782,7 +4742,7 @@ at the location indicated by ^.
    2:
    3:
 --&gt;4: f(ad=1, ad=2)
-              ^
+              ^^^^
 
 You have called a function repeating the same keyword argument (`ad`).
 Each keyword argument should appear only once in a function call.
@@ -4812,7 +4772,7 @@ at the location indicated by ^.
    10:
    11: a.x = 1
 --&gt;12: a.pass = 2
-         ^
+         ^^^^
 
 You cannot use the Python keyword `pass` as an attribute.
 </pre></div>
@@ -4888,7 +4848,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: for "char" in "word":
-          ^
+          ^^^^^^
 
 A for loop must have the form:
 
@@ -4939,7 +4899,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\missing_code_block_2.py'
 at the location indicated by ^.
 
-   1: # issue #83
    2: a = 1
    3: for i in "test":
    4:    #
@@ -5000,7 +4959,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: while True  # a comment
-                  ^
+                  ^^^^^^^^^^^
 
 You wrote a `while` loop but
 forgot to add a colon `:` at the end
@@ -5025,12 +4984,11 @@ Python could not understand the code in the file
 'TESTS:\syntax\missing_comma_in_dict.py'
 at the location indicated by ^.
 
+   1: """Should raise SyntaxError: invalid syntax"""
    2:
    3: a = {'a': 1,
 --&gt;4:      'b': 2
                 ^
-   5:      'c': 3,
-   6: }
 
 Python indicates that the error is caused by `'c'` written immediately after `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -5067,7 +5025,6 @@ at the location indicated by ^.
    3:      'b': '2'
 --&gt;4:      'c': '3',
               ^
-   5: }
 
 I am guessing that you forgot a comma between two strings
 when defining a dict.
@@ -5102,7 +5059,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = [1, 2  3]
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a list
@@ -5141,7 +5098,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = {1, 2  3}
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -5180,7 +5137,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2:
 --&gt;3: a = (1, 2  3)
-              ^
+              ^^^^
 
 Python indicates that the error is caused by `3` written immediately after `2`.
 It is possible that you forgot a comma between items in a tuple,
@@ -5199,36 +5156,8 @@ some of them might raise other types of exceptions.
 </pre></div>
 </div>
 </div>
-<div class="section" id="for-loop-missing-in-operator">
-<h2>(169) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
-    __import__(name)
-  File "TESTS:\syntax\missing_in_with_for.py", line 1
-    for x range(4):
-        ^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
-
-    Did you forget to write `in`?
-
-A `SyntaxError` occurs when Python cannot understand your code.
-
-Python could not understand the code in the file
-'TESTS:\syntax\missing_in_with_for.py'
-at the location indicated by ^.
-
---&gt;1: for x range(4):
-          ^
-
-It looks as though you forgot to use the keyword `in`
-as part of a `for` statement. Perhaps you meant:
-
-    for x in range(4):
-</pre></div>
-</div>
-</div>
 <div class="section" id="missing-parenthesis-for-range">
-<h2>(170) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
+<h2>(169) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5259,7 +5188,7 @@ Perhaps you meant:
 </div>
 </div>
 <div class="section" id="misspelled-python-keyword">
-<h2>(171) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(170) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5278,7 +5207,7 @@ at the location indicated by ^.
 
    1: i = 3
 --&gt;2: is i in range(3):
-      ^
+      ^^
 
 Perhaps you meant to write `if` and made a typo.
 The correct line might be `if i in range(3):`
@@ -5286,7 +5215,7 @@ The correct line might be `if i in range(3):`
 </div>
 </div>
 <div class="section" id="name-is-global-and-nonlocal">
-<h2>(172) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(171) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5306,7 +5235,7 @@ at the location indicated by ^.
    5:
    6: def f():
 --&gt;7:     global xy
-          ^
+          ^^^^^^^^^
 
 You declared `xy` as being both a global and nonlocal variable.
 A variable can be global, or nonlocal, but not both at the same time.
@@ -5314,7 +5243,7 @@ A variable can be global, or nonlocal, but not both at the same time.
 </div>
 </div>
 <div class="section" id="name-is-parameter-and-nonlocal">
-<h2>(173) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(172) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5334,7 +5263,7 @@ at the location indicated by ^.
    3:
    4: def f(x):
 --&gt;5:     nonlocal x
-          ^
+          ^^^^^^^^^^
 
 You used `x` as a parameter for a function
 before declaring it also as a nonlocal variable:
@@ -5343,7 +5272,7 @@ before declaring it also as a nonlocal variable:
 </div>
 </div>
 <div class="section" id="nonlocal-variable-not-found">
-<h2>(174) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
+<h2>(173) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5363,7 +5292,7 @@ at the location indicated by ^.
    3:
    4: def f():
 --&gt;5:     nonlocal ab
-          ^
+          ^^^^^^^^^^^
 
 You declared the variable `ab` as being a
 nonlocal variable but it cannot be found.
@@ -5371,7 +5300,7 @@ nonlocal variable but it cannot be found.
 </div>
 </div>
 <div class="section" id="nonlocal-variable-not-found-at-module-level">
-<h2>(175) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
+<h2>(174) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5390,7 +5319,7 @@ at the location indicated by ^.
    2:
    3:
 --&gt;4: nonlocal cd
-      ^
+      ^^^^^^^^^^^
 
 You used the nonlocal keyword at a module level.
 The nonlocal keyword refers to a variable inside a function
@@ -5399,7 +5328,7 @@ given a value outside that function.
 </div>
 </div>
 <div class="section" id="same-operator-twice-in-a-row">
-<h2>(176) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
+<h2>(175) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5415,7 +5344,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: 4****5
-         ^
+         ^^
 
 You cannot have write the same operator, `**`, twice in a row.
 Perhaps you wrote one of them by mistake
@@ -5424,14 +5353,14 @@ or forgot to write something between them.
 </div>
 </div>
 <div class="section" id="using-pip-from-interpreter">
-<h2>(177) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(176) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\pip_install_1.py", line 2
     pip install friendly
-        ^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^^^
+SyntaxError: invalid syntax
 
     Pip cannot be used in a Python interpreter.
 
@@ -5443,7 +5372,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: pip install friendly
-          ^
+          ^^^^^^^
 
 It looks as if you are attempting to use pip to install a module.
 `pip` is a command that needs to run in a terminal,
@@ -5452,14 +5381,14 @@ not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="using-pip-from-interpreter-2">
-<h2>(178) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<h2>(177) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\pip_install_2.py", line 2
     python -m pip install friendly
-           ^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+              ^^^
+SyntaxError: invalid syntax
 
     Pip cannot be used in a Python interpreter.
 
@@ -5471,7 +5400,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: python -m pip install friendly
-             ^
+                ^^^
 
 It looks as if you are attempting to use pip to install a module.
 `pip` is a command that needs to run in a terminal,
@@ -5480,7 +5409,7 @@ not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="print-is-a-function">
-<h2>(179) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
+<h2>(178) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5499,7 +5428,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
 --&gt;2: print 'hello'
-      ^
+      ^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5511,7 +5440,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-2">
-<h2>(180) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
+<h2>(179) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5530,7 +5459,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len('hello')
-      ^
+      ^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5542,7 +5471,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-3">
-<h2>(181) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
+<h2>(180) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5560,7 +5489,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print """This is a very long string which results in a very long error message."""
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5572,7 +5501,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-4">
-<h2>(182) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
+<h2>(181) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5591,8 +5520,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len("""This is a long string
-      ^
-   3:           that spans multiple lines.""")
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5604,7 +5532,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-5">
-<h2>(183) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
+<h2>(182) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5623,7 +5551,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: print len('This is a long string that fits on a single line.')
-      ^
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Perhaps you need to type
 
@@ -5635,16 +5563,16 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </div>
 <div class="section" id="print-is-a-function-6">
-<h2>(184) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
+<h2>(183) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
     print hello world!
-          ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    ^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
 
-    Did you mean `print("hello world!")`?
+    Did you mean `print(...)`?
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5653,25 +5581,28 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print hello world!
-            ^
+      ^^^^^^^^^^^
+
+Perhaps you need to type
+
+     print(...)
 
 In older version of Python, `print` was a keyword.
 Now, `print` is a function; you need to use parentheses to call it.
-Note that arguments of `print` must be separated by commas.
 </pre></div>
 </div>
 </div>
 <div class="section" id="print-is-a-function-7">
-<h2>(185) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
+<h2>(184) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
     print len("hello") hello
-          ^^^^^^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    ^^^^^^^^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
 
-    Did you mean `print('len("hello") hello')`?
+    Did you mean `print(...)`?
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5680,23 +5611,26 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: print len("hello") hello
-            ^
+      ^^^^^^^^^^^^^^^^^^
+
+Perhaps you need to type
+
+     print(...)
 
 In older version of Python, `print` was a keyword.
 Now, `print` is a function; you need to use parentheses to call it.
-Note that arguments of `print` must be separated by commas.
 </pre></div>
 </div>
 </div>
 <div class="section" id="calling-python-from-interpreter">
-<h2>(186) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(185) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\python_interpreter.py", line 1
     python -i friendly
-           ^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+              ^^^^^^^^
+SyntaxError: invalid syntax
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -5705,7 +5639,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: python -i friendly
-             ^
+                ^^^^^^^^
 
 I am guessing that you are attempting to use Python to run a program.
 You must do so from a terminal and not from a Python interpreter.
@@ -5713,14 +5647,14 @@ You must do so from a terminal and not from a Python interpreter.
 </div>
 </div>
 <div class="section" id="problem-with-assigning-a-variable-to-python">
-<h2>(187) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
+<h2>(186) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\python_not_interpreter.py", line 1
     python = a b
-             ^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+               ^
+SyntaxError: invalid syntax
 
     Did you forget something between `a` and `b`?
 
@@ -5731,7 +5665,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: python = a b
-               ^
+                 ^
 
 Python indicates that the error is caused by `b` written immediately after `a`.
 Perhaps you meant to insert an operator like `+; -; *; ,`
@@ -5748,7 +5682,7 @@ some of them might raise other types of exceptions.
 </div>
 </div>
 <div class="section" id="quote-inside-a-string">
-<h2>(188) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
+<h2>(187) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5776,7 +5710,7 @@ but never ended the string with another quote on that line.
 </div>
 </div>
 <div class="section" id="raising-multiple-exceptions">
-<h2>(189) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(188) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5800,7 +5734,7 @@ It looks like you are trying to raise an exception using Python 2 syntax.
 </div>
 </div>
 <div class="section" id="cannot-use-return-outside-function">
-<h2>(190) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(189) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5818,14 +5752,14 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: 'return' outside function"""
    2:
 --&gt;3: return
-      ^
+      ^^^^^^
 
 You can only use a `return` statement inside a function or method.
 </pre></div>
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-comma-1">
-<h2>(191) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<h2>(190) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5850,7 +5784,7 @@ You wrote a semi-colon, `;`, where a comma was expected.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-2">
-<h2>(192) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<h2>(191) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5875,7 +5809,7 @@ You wrote semi-colons, `;`, where commas were expected.
 </div>
 </div>
 <div class="section" id="semi-colon-instead-of-commas-3">
-<h2>(193) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<h2>(192) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5900,7 +5834,7 @@ You wrote semi-colons, `;`, where commas were expected.
 </div>
 </div>
 <div class="section" id="code-block-inside-comprehension">
-<h2>(194) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(193) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5917,9 +5851,7 @@ at the location indicated by ^.
 
    1: a = [
 --&gt;2:     for i in 1, 2, 3:
-          ^
-   3:         i**2
-   4: ]
+          ^^^
 
 Perhaps you wrote a statement beginning a code block
 intended to be part of a list comprehension.
@@ -5930,7 +5862,7 @@ If this explanation is incorrect, please report this case.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-if">
-<h2>(195) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
+<h2>(194) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5950,7 +5882,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
    2: for i in range(101):
 --&gt;3:     if i % 2 = 0:
-             ^
+             ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -5959,7 +5891,7 @@ only used to assign a value to a variable.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-elif">
-<h2>(196) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
+<h2>(195) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5981,7 +5913,7 @@ at the location indicated by ^.
    3:     if False:
    4:         pass
 --&gt;5:     elif i % 2 = 0:
-               ^
+               ^^^^^
 
 You wrote an expression that includes some mathematical operations
 on the left-hand side of the equal sign which should be
@@ -5990,7 +5922,7 @@ only used to assign a value to a variable.
 </div>
 </div>
 <div class="section" id="single-instead-of-double-with-while">
-<h2>(197) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
+<h2>(196) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6011,7 +5943,7 @@ at the location indicated by ^.
    2: a = 1
    3:
 --&gt;4: while a = 1:
-            ^
+            ^^^^^
 
 You used an assignment operator `=`; perhaps you meant to use
 an equality operator, `==`, or the walrus operator `:=`.
@@ -6019,7 +5951,7 @@ an equality operator, `==`, or the walrus operator `:=`.
 </div>
 </div>
 <div class="section" id="space-between-operators-1">
-<h2>(198) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(197) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6046,7 +5978,7 @@ and meant to write `**` as a single operator.
 </div>
 </div>
 <div class="section" id="space-between-operators-2">
-<h2>(199) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(198) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6073,14 +6005,14 @@ and meant to write `/=` as a single operator.
 </div>
 </div>
 <div class="section" id="space-in-variable-name">
-<h2>(200) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
+<h2>(199) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\space_in_variable_name.py", line 1
     my name = André
-    ^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+       ^^^^
+SyntaxError: invalid syntax
 
     Did you mean `my_name`?
 
@@ -6091,14 +6023,14 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: my name = André
-      ^
+         ^^^^
 
 You cannot have spaces in identifiers (variable names).
 </pre></div>
 </div>
 </div>
 <div class="section" id="wrong-target-for-star-assignment">
-<h2>(201) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this headline">¶</a></h2>
+<h2>(200) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6114,7 +6046,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: *a = 1
-      ^
+      ^^
 
 A star assignment must be of the form:
 
@@ -6123,7 +6055,7 @@ A star assignment must be of the form:
 </div>
 </div>
 <div class="section" id="too-many-nested-blocks">
-<h2>(202) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>(201) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6143,7 +6075,7 @@ at the location indicated by ^.
    20:                    while 20:
    21:                     while 21:
 --&gt;22:                      while 22:
-                            ^
+                            ^^^^^^
 
 Your code is too complex for Python:
 you need to reduce the number of indented code blocks
@@ -6152,7 +6084,7 @@ contained inside other code blocks.
 </div>
 </div>
 <div class="section" id="too-many-nested-parentheses">
-<h2>(203) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this headline">¶</a></h2>
+<h2>(202) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6172,9 +6104,6 @@ at the location indicated by ^.
    3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
 --&gt;4:             ((((((((((((((((((((((((((((((((((
                                                    ^
-   5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
-   6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-   7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 Your code is too complex for Python:
 you need to reduce the number of parentheses
@@ -6183,7 +6112,7 @@ contained inside other parentheses.
 </div>
 </div>
 <div class="section" id="trailing-comma-in-import-statement">
-<h2>(204) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(203) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6214,7 +6143,7 @@ Perhaps you meant to write
 </div>
 </div>
 <div class="section" id="triple-equal-sign">
-<h2>(205) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(204) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6244,7 +6173,7 @@ the exact same object, use the operator `is`.
 </div>
 </div>
 <div class="section" id="unclosed-bracket">
-<h2>(206) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(205) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6261,10 +6190,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unclosed_bracket.py'
 at the location indicated by ^.
 
-    3:
-    4: def foo():
---&gt; 5:     return [1, 2, 3
-                  ^
+   1: """Should raise SyntaxError: f-string: invalid syntax
+   2: """
+   3:
+   4: def foo():
+--&gt;5:     return [1, 2, 3
+                 ^
 
 The opening square bracket `[` on line 5 is not closed.
 
@@ -6274,7 +6205,7 @@ The opening square bracket `[` on line 5 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-1">
-<h2>(207) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
+<h2>(206) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6294,8 +6225,6 @@ at the location indicated by ^.
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: x = int('1'
              ^
-   3: if x == 1:
-   4:     print('yes')
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6305,16 +6234,14 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-2">
-<h2>(208) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
+<h2>(207) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\unclosed_paren_2.py", line 2
     a = (b+c
-        ^^^^--&gt;
-SyntaxError: '(' was never closed
-
-    The parenthesis `(` was never closed.
+         ^^^--&gt;
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -6324,8 +6251,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: a = (b+c
-          ^
-   3: d = a*a
+            ^
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6335,7 +6261,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-3">
-<h2>(209) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
+<h2>(208) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6350,12 +6276,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unclosed_paren_3.py'
 at the location indicated by ^.
 
+   3: if 3:
    4:     if 1:
    5:         print(((123))
    6:
 --&gt;7: if 2:
           ^
-   8:     print(123))
 
 The opening parenthesis `(` on line 5 is not closed.
 
@@ -6367,7 +6293,7 @@ If this is incorrect, please report this case.
 </div>
 </div>
 <div class="section" id="unclosed-parenthesis-4">
-<h2>(210) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
+<h2>(209) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6385,8 +6311,8 @@ at the location indicated by ^.
    1: # equal number of ( and ) in file
    2: print('hello'
    3:
---&gt;4: def
-      ^
+--&gt;4: def test():
+      ^^^
 
 The opening parenthesis `(` on line 2 is not closed.
 
@@ -6396,13 +6322,13 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </div>
 <div class="section" id="content-passed-continuation-line-character">
-<h2>(211) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
+<h2>(210) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
     print(\t)
-            ^--&gt;
+           ^^--&gt;
 SyntaxError: unexpected character after line continuation character
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -6425,7 +6351,7 @@ I am guessing that you forgot to enclose some content in a string.
 </div>
 </div>
 <div class="section" id="unexpected-eof-while-parsing">
-<h2>(212) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
+<h2>(211) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6442,10 +6368,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\unexpected_eof.py'
 at the location indicated by ^.
 
-    3:
-    4: def foo():
---&gt; 5:     return [1, 2, 3,
-                  ^
+   1: """Should raise SyntaxError: unexpected EOF while parsing
+   2: """
+   3:
+   4: def foo():
+--&gt;5:     return [1, 2, 3,
+                 ^
 
 The opening square bracket `[` on line 5 is not closed.
 
@@ -6455,7 +6383,7 @@ The opening square bracket `[` on line 5 is not closed.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-3-4">
-<h2>(213) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
+<h2>(212) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6485,7 +6413,7 @@ I suspect that you meant to write the fraction `3/4` instead.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-1-2">
-<h2>(214) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
+<h2>(213) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6515,7 +6443,7 @@ I suspect that you meant to write the fraction `1/2` instead.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-fraction-slash">
-<h2>(215) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
+<h2>(214) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6545,7 +6473,7 @@ but is different from the division operator `/`.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-quote">
-<h2>(216) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
+<h2>(215) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6577,7 +6505,7 @@ instead of a normal single or double quote for a string.
 </div>
 </div>
 <div class="section" id="invalid-character-unicode-quote2">
-<h2>(217) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
+<h2>(216) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6608,7 +6536,7 @@ instead of a normal single or double quote for a string.
 </div>
 </div>
 <div class="section" id="invalid-character-mistaken">
-<h2>(218) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
+<h2>(217) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6640,7 +6568,7 @@ Or perhaps, you meant to write a less than sign, `&lt;`.
 </div>
 </div>
 <div class="section" id="id9">
-<h2>(219) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>(218) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6672,7 +6600,7 @@ Or perhaps, you meant to write a greater than sign, `&gt;`.
 </div>
 </div>
 <div class="section" id="invalid-character-mistaken-comma">
-<h2>(220) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(219) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6704,7 +6632,7 @@ Perhaps, you meant to write a comma.
 </div>
 </div>
 <div class="section" id="unmatched-closing-curly-bracket">
-<h2>(221) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(220) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6719,9 +6647,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\unmatched_closing_curly.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid syntax for Python &lt; 3.8
-   2:    otherwise, SyntaxError: unmatched ')'
-   3: """
    4: a = {1,
    5:     2,
 --&gt;6:     3, 4,}}
@@ -6732,7 +6657,7 @@ The closing curly bracket `}` on line 6 does not match anything.
 </div>
 </div>
 <div class="section" id="unmatched-closing-parenthesis">
-<h2>(222) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(221) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6747,9 +6672,6 @@ Python could not understand the code in the file
 'TESTS:\syntax\unmatched_closing_paren.py'
 at the location indicated by ^.
 
-   1: """Should raise SyntaxError: invalid syntax for Python &lt; 3.8
-   2:    otherwise, SyntaxError: unmatched ')'
-   3: """
    4: a = (1,
    5:     2,
 --&gt;6:     3, 4,))
@@ -6760,7 +6682,7 @@ The closing parenthesis `)` on line 6 does not match anything.
 </div>
 </div>
 <div class="section" id="mismatched-brackets-1">
-<h2>(223) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
+<h2>(222) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6787,7 +6709,7 @@ The closing square bracket `]` on line 2 does not match the opening parenthesis 
 </div>
 </div>
 <div class="section" id="mismatched-brackets-2">
-<h2>(224) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
+<h2>(223) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6818,7 +6740,7 @@ The closing square bracket `]` on line 4 does not match the opening parenthesis 
 </div>
 </div>
 <div class="section" id="unmatched-brackets-3">
-<h2>(225) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
+<h2>(224) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6843,7 +6765,7 @@ The closing square bracket `]` on line 3 does not match anything.
 </div>
 </div>
 <div class="section" id="unpacking-a-dict-value">
-<h2>(226) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this headline">¶</a></h2>
+<h2>(225) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6859,7 +6781,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: {'a': *(1, 2, 3)}
-            ^
+            ^^^^^^^^^^
 
 It looks like you tried to use a starred expression as a dict value;
 this is not allowed.
@@ -6871,7 +6793,7 @@ The following statement has no syntax error:
 </div>
 </div>
 <div class="section" id="unterminated-triple-quoted-string">
-<h2>(227) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
+<h2>(226) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6886,7 +6808,7 @@ Python could not understand the code in the file
 'TESTS:\syntax\unterminated_triple_quote_string.py'
 at the location indicated by ^.
 
---&gt;1: some_text =
+--&gt;1: some_text = """In a land
                   ^
 
 You started writing a triple-quoted string but never wrote
@@ -6895,7 +6817,7 @@ the triple quotes needed to end the string.
 </div>
 </div>
 <div class="section" id="taberror">
-<h2>(228) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
+<h2>(227) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6920,12 +6842,12 @@ at the location indicated by ^.
    5: def test_tab_error():
    6:     if True:
 --&gt;7:       pass
-     ^
+       ^
 </pre></div>
 </div>
 </div>
 <div class="section" id="eol-unescaped-backslash">
-<h2>(229) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(228) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6954,7 +6876,7 @@ needed to escape it by writing two `\` in a row.
 </div>
 </div>
 <div class="section" id="using-the-backquote-character">
-<h2>(230) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
+<h2>(229) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6983,7 +6905,7 @@ in this latter case, use the function `repr(x)`.
 </div>
 </div>
 <div class="section" id="unicode-error">
-<h2>(231) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
+<h2>(230) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7015,7 +6937,7 @@ front of the string, or replace `\U`, by `\\U`.
 </div>
 </div>
 <div class="section" id="walrus-instead-of-equal">
-<h2>(232) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(231) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7033,7 +6955,7 @@ Python could not understand the code in the file
 at the location indicated by ^.
 
 --&gt;1: a := 3
-        ^
+        ^^
 
 You use the augmented assignment operator `:=` where
 the normal assignment operator `=` was required.
@@ -7041,7 +6963,7 @@ the normal assignment operator `=` was required.
 </div>
 </div>
 <div class="section" id="missing-condition-in-while-statement">
-<h2>(233) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(232) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7069,14 +6991,14 @@ A `while` loop requires a condition:
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration">
-<h2>(234) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(233) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
     if var start := begin &lt; end:
-       ^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+           ^^^^^
+SyntaxError: invalid syntax
 
     You do not need to declare variables in Python.
 
@@ -7089,16 +7011,16 @@ at the location indicated by ^.
    1: begin, end = 1, 2
    2:
 --&gt;3: if var start := begin &lt; end:
-         ^
+             ^^^^^
 
-It looks like you were trying to declare that `var` was
+It looks like you were trying to declare that `start` was
 a variable using the word `var`.
 If you remove `var`, you will have a valid Python statement.
 </pre></div>
 </div>
 </div>
 <div class="section" id="would-be-variable-declaration-2">
-<h2>(235) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
+<h2>(234) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7115,12 +7037,12 @@ Python could not understand the code in the file
 'TESTS:\syntax\would_be_type_declaration_2.py'
 at the location indicated by ^.
 
+   1: begin = 3
    2: end = 4
    3:
    4: if (
 --&gt;5:     var start := begin &lt; end
-          ^
-   6:    )
+          ^^^^^^^^^
 
 It looks like you were trying to declare that `var` was
 a variable using the word `var`.
@@ -7130,7 +7052,7 @@ some syntax errors.
 </div>
 </div>
 <div class="section" id="cannot-use-yield-outside-function">
-<h2>(236) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(235) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7145,8 +7067,8 @@ Python could not understand the code in the file
 'TESTS:\syntax\yield_outside_function.py'
 at the location indicated by ^.
 
---&gt;1: (yield
-       ^
+--&gt;1: (yield i) == 3
+       ^^^^^^^
 
 You can only use a `yield` statement inside a function.
 </pre></div>
@@ -7263,7 +7185,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#id2">(52) Dotted name as function argument</a></li>
 <li><a class="reference internal" href="#dotted-function-name">(53) Dotted function name</a></li>
 <li><a class="reference internal" href="#def-dict-as-argument">(54) def: dict as argument</a></li>
-<li><a class="reference internal" href="#def-keyword-arg-only-once-in-function-definition">(55) def: Keyword arg only once in function definition</a></li>
+<li><a class="reference internal" href="#def-arguments-must-be-unique-in-function-definition">(55) def: arguments must be unique in function definition</a></li>
 <li><a class="reference internal" href="#def-semi-colon-after-colon">(56) def: semi-colon after colon</a></li>
 <li><a class="reference internal" href="#def-extra-comma">(57) def: extra comma</a></li>
 <li><a class="reference internal" href="#def-unspecified-keywords-before">(58) def: unspecified keywords before /</a></li>
@@ -7377,74 +7299,73 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#missing-comma-in-a-list">(166) Missing comma in a list</a></li>
 <li><a class="reference internal" href="#missing-comma-in-a-set">(167) Missing comma in a set</a></li>
 <li><a class="reference internal" href="#missing-comma-in-a-tuple">(168) Missing comma in a tuple</a></li>
-<li><a class="reference internal" href="#for-loop-missing-in-operator">(169) For loop missing ‘in’ operator</a></li>
-<li><a class="reference internal" href="#missing-parenthesis-for-range">(170) Missing parenthesis for range</a></li>
-<li><a class="reference internal" href="#misspelled-python-keyword">(171) Misspelled Python keyword</a></li>
-<li><a class="reference internal" href="#name-is-global-and-nonlocal">(172) Name is global and nonlocal</a></li>
-<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(173) Name is parameter and nonlocal</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found">(174) nonlocal variable not found</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(175) nonlocal variable not found at module level</a></li>
-<li><a class="reference internal" href="#same-operator-twice-in-a-row">(176) Same operator twice in a row</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter">(177) Using pip from interpreter</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter-2">(178) Using pip from interpreter 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function">(179) print is a function</a></li>
-<li><a class="reference internal" href="#print-is-a-function-2">(180) print is a function 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function-3">(181) print is a function 3</a></li>
-<li><a class="reference internal" href="#print-is-a-function-4">(182) print is a function 4</a></li>
-<li><a class="reference internal" href="#print-is-a-function-5">(183) print is a function 5</a></li>
-<li><a class="reference internal" href="#print-is-a-function-6">(184) print is a function 6</a></li>
-<li><a class="reference internal" href="#print-is-a-function-7">(185) print is a function 7</a></li>
-<li><a class="reference internal" href="#calling-python-from-interpreter">(186) Calling python from interpreter</a></li>
-<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(187) problem with assigning a variable to Python</a></li>
-<li><a class="reference internal" href="#quote-inside-a-string">(188) Quote inside a string</a></li>
-<li><a class="reference internal" href="#raising-multiple-exceptions">(189) Raising multiple exceptions</a></li>
-<li><a class="reference internal" href="#cannot-use-return-outside-function">(190) Cannot use return outside function</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-comma-1">(191) Semi-colon instead of comma - 1</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-commas-2">(192) Semi-colon instead of commas - 2</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-commas-3">(193) Semi-colon instead of commas - 3</a></li>
-<li><a class="reference internal" href="#code-block-inside-comprehension">(194) Code block inside comprehension</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-if">(195) Single = instead of double == with if</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-elif">(196) Single = instead of double == with elif</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-while">(197) Single = instead of double == with while</a></li>
-<li><a class="reference internal" href="#space-between-operators-1">(198) Space between operators 1</a></li>
-<li><a class="reference internal" href="#space-between-operators-2">(199) Space between operators 2</a></li>
-<li><a class="reference internal" href="#space-in-variable-name">(200) Space in variable name</a></li>
-<li><a class="reference internal" href="#wrong-target-for-star-assignment">(201) Wrong target for star assignment</a></li>
-<li><a class="reference internal" href="#too-many-nested-blocks">(202) Too many nested blocks</a></li>
-<li><a class="reference internal" href="#too-many-nested-parentheses">(203) Too many nested parentheses.</a></li>
-<li><a class="reference internal" href="#trailing-comma-in-import-statement">(204) Trailing comma in import statement</a></li>
-<li><a class="reference internal" href="#triple-equal-sign">(205) Triple-equal sign</a></li>
-<li><a class="reference internal" href="#unclosed-bracket">(206) Unclosed bracket</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-1">(207) Unclosed parenthesis - 1</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-2">(208) Unclosed parenthesis - 2</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-3">(209) Unclosed parenthesis - 3</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-4">(210) Unclosed parenthesis - 4</a></li>
-<li><a class="reference internal" href="#content-passed-continuation-line-character">(211) Content passed continuation line character</a></li>
-<li><a class="reference internal" href="#unexpected-eof-while-parsing">(212) Unexpected EOF while parsing</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(213) Invalid character (unicode fraction 3/4)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(214) Invalid character (unicode fraction 1/2)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(215) Invalid character (unicode fraction slash)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote">(216) Invalid character (unicode quote)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote2">(217) Invalid character (unicode quote2)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken">(218) Invalid character (mistaken &lt;)</a></li>
-<li><a class="reference internal" href="#id9">(219) Invalid character (mistaken &gt;)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken-comma">(220) Invalid character (mistaken comma)</a></li>
-<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(221) Unmatched closing curly bracket</a></li>
-<li><a class="reference internal" href="#unmatched-closing-parenthesis">(222) Unmatched closing parenthesis</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-1">(223) Mismatched brackets - 1</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-2">(224) Mismatched brackets - 2</a></li>
-<li><a class="reference internal" href="#unmatched-brackets-3">(225) Unmatched brackets - 3</a></li>
-<li><a class="reference internal" href="#unpacking-a-dict-value">(226) Unpacking a dict value</a></li>
-<li><a class="reference internal" href="#unterminated-triple-quoted-string">(227) Unterminated triple quoted string</a></li>
-<li><a class="reference internal" href="#taberror">(228) TabError</a></li>
-<li><a class="reference internal" href="#eol-unescaped-backslash">(229) EOL unescaped backslash</a></li>
-<li><a class="reference internal" href="#using-the-backquote-character">(230) Using the backquote character</a></li>
-<li><a class="reference internal" href="#unicode-error">(231) unicode error</a></li>
-<li><a class="reference internal" href="#walrus-instead-of-equal">(232) Walrus instead of equal</a></li>
-<li><a class="reference internal" href="#missing-condition-in-while-statement">(233) Missing condition in while statement</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration">(234) Would-be variable declaration</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration-2">(235) Would-be variable declaration - 2</a></li>
-<li><a class="reference internal" href="#cannot-use-yield-outside-function">(236) Cannot use yield outside function</a></li>
+<li><a class="reference internal" href="#missing-parenthesis-for-range">(169) Missing parenthesis for range</a></li>
+<li><a class="reference internal" href="#misspelled-python-keyword">(170) Misspelled Python keyword</a></li>
+<li><a class="reference internal" href="#name-is-global-and-nonlocal">(171) Name is global and nonlocal</a></li>
+<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(172) Name is parameter and nonlocal</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found">(173) nonlocal variable not found</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(174) nonlocal variable not found at module level</a></li>
+<li><a class="reference internal" href="#same-operator-twice-in-a-row">(175) Same operator twice in a row</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter">(176) Using pip from interpreter</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter-2">(177) Using pip from interpreter 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function">(178) print is a function</a></li>
+<li><a class="reference internal" href="#print-is-a-function-2">(179) print is a function 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function-3">(180) print is a function 3</a></li>
+<li><a class="reference internal" href="#print-is-a-function-4">(181) print is a function 4</a></li>
+<li><a class="reference internal" href="#print-is-a-function-5">(182) print is a function 5</a></li>
+<li><a class="reference internal" href="#print-is-a-function-6">(183) print is a function 6</a></li>
+<li><a class="reference internal" href="#print-is-a-function-7">(184) print is a function 7</a></li>
+<li><a class="reference internal" href="#calling-python-from-interpreter">(185) Calling python from interpreter</a></li>
+<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(186) problem with assigning a variable to Python</a></li>
+<li><a class="reference internal" href="#quote-inside-a-string">(187) Quote inside a string</a></li>
+<li><a class="reference internal" href="#raising-multiple-exceptions">(188) Raising multiple exceptions</a></li>
+<li><a class="reference internal" href="#cannot-use-return-outside-function">(189) Cannot use return outside function</a></li>
+<li><a class="reference internal" href="#semi-colon-instead-of-comma-1">(190) Semi-colon instead of comma - 1</a></li>
+<li><a class="reference internal" href="#semi-colon-instead-of-commas-2">(191) Semi-colon instead of commas - 2</a></li>
+<li><a class="reference internal" href="#semi-colon-instead-of-commas-3">(192) Semi-colon instead of commas - 3</a></li>
+<li><a class="reference internal" href="#code-block-inside-comprehension">(193) Code block inside comprehension</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-if">(194) Single = instead of double == with if</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-elif">(195) Single = instead of double == with elif</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-while">(196) Single = instead of double == with while</a></li>
+<li><a class="reference internal" href="#space-between-operators-1">(197) Space between operators 1</a></li>
+<li><a class="reference internal" href="#space-between-operators-2">(198) Space between operators 2</a></li>
+<li><a class="reference internal" href="#space-in-variable-name">(199) Space in variable name</a></li>
+<li><a class="reference internal" href="#wrong-target-for-star-assignment">(200) Wrong target for star assignment</a></li>
+<li><a class="reference internal" href="#too-many-nested-blocks">(201) Too many nested blocks</a></li>
+<li><a class="reference internal" href="#too-many-nested-parentheses">(202) Too many nested parentheses.</a></li>
+<li><a class="reference internal" href="#trailing-comma-in-import-statement">(203) Trailing comma in import statement</a></li>
+<li><a class="reference internal" href="#triple-equal-sign">(204) Triple-equal sign</a></li>
+<li><a class="reference internal" href="#unclosed-bracket">(205) Unclosed bracket</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-1">(206) Unclosed parenthesis - 1</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-2">(207) Unclosed parenthesis - 2</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-3">(208) Unclosed parenthesis - 3</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-4">(209) Unclosed parenthesis - 4</a></li>
+<li><a class="reference internal" href="#content-passed-continuation-line-character">(210) Content passed continuation line character</a></li>
+<li><a class="reference internal" href="#unexpected-eof-while-parsing">(211) Unexpected EOF while parsing</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(212) Invalid character (unicode fraction 3/4)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(213) Invalid character (unicode fraction 1/2)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(214) Invalid character (unicode fraction slash)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote">(215) Invalid character (unicode quote)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote2">(216) Invalid character (unicode quote2)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken">(217) Invalid character (mistaken &lt;)</a></li>
+<li><a class="reference internal" href="#id9">(218) Invalid character (mistaken &gt;)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken-comma">(219) Invalid character (mistaken comma)</a></li>
+<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(220) Unmatched closing curly bracket</a></li>
+<li><a class="reference internal" href="#unmatched-closing-parenthesis">(221) Unmatched closing parenthesis</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-1">(222) Mismatched brackets - 1</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-2">(223) Mismatched brackets - 2</a></li>
+<li><a class="reference internal" href="#unmatched-brackets-3">(224) Unmatched brackets - 3</a></li>
+<li><a class="reference internal" href="#unpacking-a-dict-value">(225) Unpacking a dict value</a></li>
+<li><a class="reference internal" href="#unterminated-triple-quoted-string">(226) Unterminated triple quoted string</a></li>
+<li><a class="reference internal" href="#taberror">(227) TabError</a></li>
+<li><a class="reference internal" href="#eol-unescaped-backslash">(228) EOL unescaped backslash</a></li>
+<li><a class="reference internal" href="#using-the-backquote-character">(229) Using the backquote character</a></li>
+<li><a class="reference internal" href="#unicode-error">(230) unicode error</a></li>
+<li><a class="reference internal" href="#walrus-instead-of-equal">(231) Walrus instead of equal</a></li>
+<li><a class="reference internal" href="#missing-condition-in-while-statement">(232) Missing condition in while statement</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration">(233) Would-be variable declaration</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration-2">(234) Would-be variable declaration - 2</a></li>
+<li><a class="reference internal" href="#cannot-use-yield-outside-function">(235) Cannot use yield outside function</a></li>
 </ul>
 </li>
 </ul>

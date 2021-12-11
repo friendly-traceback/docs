@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.87
+Friendly-traceback version: 0.4.89
 Python version: 3.7.8
 
 
@@ -260,12 +260,12 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     at the location indicated by ^.
     
-        5:     q = 1
-        6: 
-        7:     def g():
-        8:         print(q)
-    --> 9:         nonlocal q
-                  ^
+       5:     q = 1
+       6: 
+       7:     def g():
+       8:         print(q)
+    -->9:         nonlocal q
+                 ^
 
     You used the variable `q`
     before declaring it as a nonlocal variable.
@@ -293,12 +293,12 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
     at the location indicated by ^.
     
-        5:     s = 1
-        6: 
-        7:     def g():
-        8:         s = 2
-    --> 9:         nonlocal s
-                  ^
+       5:     s = 1
+       6: 
+       7:     def g():
+       8:         s = 2
+    -->9:         nonlocal s
+                 ^
 
     You assigned a value to the variable `s`
     before declaring it as a nonlocal variable.
@@ -452,10 +452,6 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_to_f_string.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: can't assign to literal
-       3: Python >= 3.8: SyntaxError: cannot assign to f-string expression
-       4: """
        5: 
     -->6: f'{x}' = 42
          ^
@@ -487,10 +483,6 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_to_function_call_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: len('a') = 3
          ^
@@ -526,10 +518,6 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_to_function_call_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: func(a, b=3) = 4
          ^
@@ -597,11 +585,6 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_to_literal_dict.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to dict display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1 : 2, 2 : 4} = 5
          ^
@@ -751,11 +734,6 @@ Python version: 3.7.8
     'TESTS:\syntax\assign_to_literal_set.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to set display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1, 2, 3} = 4
          ^
@@ -1805,8 +1783,8 @@ Python version: 3.7.8
     You can only use identifiers (variable names) as function arguments.
     
 
-(56) def: Keyword arg only once in function definition
-------------------------------------------------------
+(56) def: arguments must be unique in function definition
+---------------------------------------------------------
 
 .. code-block:: none
 
@@ -1828,13 +1806,13 @@ Python version: 3.7.8
        1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
        2: 
        3: 
-    -->4: def f(aa
+    -->4: def f(aa=1, aa=2):
          ^
 
-    You have defined a function repeating the keyword argument
+    You have defined a function repeating the argument
     
         aa
-    twice; each keyword argument should appear only once in a function definition.
+    twice; each argument should appear only once in a function definition.
     
 
 (57) def: semi-colon after colon
@@ -2486,8 +2464,6 @@ Python version: 3.7.8
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: name 'x' is parameter and global
-       2: """
        3: 
        4: 
        5: def f(x):
@@ -4511,8 +4487,6 @@ Python version: 3.7.8
     'TESTS:\syntax\invalid_character_in_identifier.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid character in identifier
-       2: """
        3: 
        4: # Robot-face character below
        5: 
@@ -4786,10 +4760,6 @@ Python version: 3.7.8
     'TESTS:\syntax\invalid_keyword_argument.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict('key'=1)
@@ -4826,10 +4796,6 @@ Python version: 3.7.8
     'TESTS:\syntax\invalid_keyword_argument_2.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict(True=1)
@@ -5172,7 +5138,6 @@ Python version: 3.7.8
     'TESTS:\syntax\missing_code_block_2.py'
     at the location indicated by ^.
     
-       1: # issue #83
        2: a = 1
        3: for i in "test":
        4:    #
@@ -5271,12 +5236,12 @@ Python version: 3.7.8
     'TESTS:\syntax\missing_comma_in_dict.py'
     at the location indicated by ^.
     
+       1: """Should raise SyntaxError: invalid syntax"""
        2: 
        3: a = {'a': 1,
        4:      'b': 2
     -->5:      'c': 3,
                  ^
-       6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5316,7 +5281,6 @@ Python version: 3.7.8
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
-       5: }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5885,7 +5849,6 @@ Python version: 3.7.8
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                   ^
-       3:           that spans multiple lines.""")
 
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
@@ -6245,8 +6208,6 @@ Python version: 3.7.8
        1: a = [
     -->2:     for i in 1, 2, 3:
                 ^
-       3:         i**2
-       4: ]
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -6576,12 +6537,12 @@ Python version: 3.7.8
     'TESTS:\syntax\unclosed_bracket.py'
     at the location indicated by ^.
     
-        3: 
-        4: def foo():
-        5:     return [1, 2, 3
-        6: 
-    --> 7: print(foo())
-               ^
+       3: 
+       4: def foo():
+       5:     return [1, 2, 3
+       6: 
+    -->7: print(foo())
+              ^
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6613,7 +6574,6 @@ Python version: 3.7.8
        2: x = int('1'
     -->3: if x == 1:
                    ^
-       4:     print('yes')
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6672,12 +6632,12 @@ Python version: 3.7.8
     'TESTS:\syntax\unclosed_paren_3.py'
     at the location indicated by ^.
     
+       3: if 3:
        4:     if 1:
        5:         print(((123))
        6: 
     -->7: if 2:
               ^
-       8:     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -6710,7 +6670,7 @@ Python version: 3.7.8
        1: # equal number of ( and ) in file
        2: print('hello'
        3: 
-    -->4: def
+    -->4: def test():
             ^
 
     The opening parenthesis `(` on line 2 is not closed.
@@ -6769,13 +6729,12 @@ Python version: 3.7.8
     'TESTS:\syntax\unexpected_eof.py'
     at the location indicated by ^.
     
-        3: 
-        4: def foo():
-        5:     return [1, 2, 3,
-        6: 
-        7: print(foo())
-    --> 8: 
-           ^
+       4: def foo():
+       5:     return [1, 2, 3,
+       6: 
+       7: print(foo())
+    -->8: 
+          ^
 
     Python tells us that it reached the end of the file
     and expected more content.
@@ -7081,9 +7040,6 @@ Python version: 3.7.8
     'TESTS:\syntax\unmatched_closing_curly.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = {1,
        5:     2,
     -->6:     3, 4,}}
@@ -7115,9 +7071,6 @@ Python version: 3.7.8
     'TESTS:\syntax\unmatched_closing_paren.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = (1,
        5:     2,
     -->6:     3, 4,))
@@ -7279,7 +7232,8 @@ Python version: 3.7.8
     'TESTS:\syntax\unterminated_triple_quote_string.py'
     .
     
-       1: some_text =
+       1: some_text = """In a land
+       2: 
 
     You started writing a triple-quoted string but never wrote
     the triple quotes needed to end the string.
@@ -7564,12 +7518,12 @@ Python version: 3.7.8
     'TESTS:\syntax\would_be_type_declaration_2.py'
     at the location indicated by ^.
     
+       1: begin = 3
        2: end = 4
        3: 
        4: if (
     -->5:     var start := begin < end
                       ^
-       6:    )
 
     It looks like you were trying to declare that `start` was
     a variable using the word `var`.

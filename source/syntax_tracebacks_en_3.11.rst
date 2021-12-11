@@ -18,8 +18,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.87
-Python version: 3.11.0a2
+Friendly-traceback version: 0.4.89
+Python version: 3.11.0a3
 
 
 
@@ -44,7 +44,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: from math import sin and cos
-                               ^
+                               ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
     Perhaps you meant to write
@@ -73,7 +73,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: from math import sin, tan, and cos
-                                     ^
+                                     ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
     Perhaps you meant to write
@@ -105,7 +105,7 @@ Python version: 3.11.0a2
        2: def foo():
        3:     global x
     -->4:     x:int = 1
-              ^
+              ^^^^^^^^^
 
     The object named `x` is defined with type annotation
     as a local variable. It cannot be declared to be a global variable.
@@ -133,7 +133,7 @@ Python version: 3.11.0a2
     
        1: # issue 158
     -->2: from math import (sin, cos) as funcs
-                                      ^
+                                      ^^
 
     I am guessing that you are trying to import at least one object
     from module `math` and rename it using the Python keyword `as`;
@@ -200,7 +200,7 @@ Python version: 3.11.0a2
        5: def fn():
        6:     p = 1
     -->7:     global p
-              ^
+              ^^^^^^^^
 
     You assigned a value to the variable `p`
     before declaring it as a global variable.
@@ -231,7 +231,7 @@ Python version: 3.11.0a2
        5: def fn():
        6:     print(r)
     -->7:     global r
-              ^
+              ^^^^^^^^
 
     You used the variable `r`
     before declaring it as a global variable.
@@ -259,12 +259,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     at the location indicated by ^.
     
-        5:     q = 1
-        6: 
-        7:     def g():
-        8:         print(q)
-    --> 9:         nonlocal q
-                   ^
+       5:     q = 1
+       6: 
+       7:     def g():
+       8:         print(q)
+    -->9:         nonlocal q
+                  ^^^^^^^^^^
 
     You used the variable `q`
     before declaring it as a nonlocal variable.
@@ -292,12 +292,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
     at the location indicated by ^.
     
-        5:     s = 1
-        6: 
-        7:     def g():
-        8:         s = 2
-    --> 9:         nonlocal s
-                   ^
+       5:     s = 1
+       6: 
+       7:     def g():
+       8:         s = 2
+    -->9:         nonlocal s
+                  ^^^^^^^^^^
 
     You assigned a value to the variable `s`
     before declaring it as a nonlocal variable.
@@ -328,7 +328,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
        2: 
     -->3: a if 1 else b = 1
-          ^
+          ^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
     conditional expression instead of the name of a variable.
@@ -364,7 +364,7 @@ Python version: 3.11.0a2
        2:    and assignment to keyword before."""
        3: 
     -->4: __debug__ = 1
-          ^
+          ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
     
@@ -395,7 +395,7 @@ Python version: 3.11.0a2
        2:    and assignment to keyword before."""
        3: 
     -->4: a.__debug__ = 1
-          ^
+          ^^^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
     
@@ -426,7 +426,7 @@ Python version: 3.11.0a2
        2:    and assignment to keyword before."""
        3: 
     -->4: ... = 1
-          ^
+          ^^^
 
     The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
     
@@ -453,13 +453,9 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_f_string.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: can't assign to literal
-       3: Python >= 3.8: SyntaxError: cannot assign to f-string expression
-       4: """
        5: 
     -->6: f'{x}' = 42
-          ^
+          ^^^^^^
 
     You wrote an expression that has the f-string `f'{x}'`
     on the left-hand side of the equal sign.
@@ -489,13 +485,9 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_function_call_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: len('a') = 3
-          ^
+          ^^^^^^^^
 
     You wrote the expression
     
@@ -528,13 +520,9 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_function_call_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to function call
-       2: 
-       3: Python 3.8: SyntaxError: cannot assign to function call
-       4: """
        5: 
     -->6: func(a, b=3) = 4
-          ^
+          ^^^^^^^^^^^^
 
     You wrote an expression like
     
@@ -570,7 +558,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
        2: 
     -->3: (x for x in x) = 1
-          ^
+          ^^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
     generator expression instead of the name of a variable.
@@ -599,14 +587,9 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_literal_dict.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to dict display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1 : 2, 2 : 4} = 5
-          ^
+          ^^^^^^^^^^^^^^
 
     You wrote an expression like
     
@@ -753,14 +736,9 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_literal_set.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:
-       2: Python 3.8: cannot assign to set display
-       3: Python 3.6, 3.7: can't assign to literal
-       4: 
-       5:  """
        6: 
     -->7: {1, 2, 3} = 4
-          ^
+          ^^^^^^^^^
 
     You wrote an expression like
     
@@ -829,7 +807,7 @@ Python version: 3.11.0a2
        1: """ Should raise SyntaxError"""
        2: 
     -->3: else = 1
-          ^
+          ^^^^
 
     You were trying to assign a value to the Python keyword `else`.
     This is not allowed.
@@ -862,7 +840,7 @@ Python version: 3.11.0a2
        2:    and can't assign to keyword before."""
        3: 
     -->4: None = 1
-          ^
+          ^^^^
 
     `None` is a constant in Python; you cannot assign it a different value.
     
@@ -893,7 +871,7 @@ Python version: 3.11.0a2
        2: or (Python 3.8) cannot assign to operator"""
        3: 
     -->4: a + 1 = 2
-          ^
+          ^^^^^
 
     You wrote an expression that includes some mathematical operations
     on the left-hand side of the equal sign which should be
@@ -922,8 +900,8 @@ Python version: 3.11.0a2
     'TESTS:\syntax\assign_to_yield_expression.py'
     at the location indicated by ^.
     
-    -->1: (yield
-           ^
+    -->1: (yield i) = 3
+           ^^^^^^^
 
     You wrote an expression that includes the `yield` keyword
     on the left-hand side of the equal sign.
@@ -984,7 +962,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-          ^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     You are using the augmented assignment operator `:=` inside
     a comprehension to assign a value to the iteration variable `j`.
@@ -1006,7 +984,7 @@ Python version: 3.11.0a2
       File "TESTS:\syntax\async_def_missing_parens.py", line 1
         async def name:
                       ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected '('
     
         Did you forget parentheses?
         
@@ -1019,6 +997,14 @@ Python version: 3.11.0a2
     -->1: async def name:
                         ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        expected '('
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -1048,7 +1034,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: if "word" := True:
-             ^
+             ^^^^^^
 
     You cannot use the augmented assignment operator `:=`,
     sometimes called the walrus operator, with literals like `"word"`.
@@ -1081,7 +1067,7 @@ Python version: 3.11.0a2
        2: or (Python 3.8) cannot use named assignment with True"""
        3: 
     -->4: (True := 1)
-           ^
+           ^^^^
 
     `True` is a constant in Python; you cannot assign it a different value.
     
@@ -1097,7 +1083,7 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
         a = 3 \ 4.0
-        ^
+               ^^^^-->
     SyntaxError: unexpected character after line continuation character
     
         Did you mean to divide by 4.0?
@@ -1109,7 +1095,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: a = 3 \ 4.0
-^
+                  ^
 
     You are using the continuation character `\` outside of a string,
     and it is followed by some other character(s).
@@ -1139,7 +1125,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: print(sum[i for i in [1, 2, 3] if i%2==0])
-                ^
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Python indicates that the error is caused by `[` written immediately after `sum`.
     It is possible that you forgot a comma between items in a tuple, 
@@ -1186,7 +1172,7 @@ Python version: 3.11.0a2
        2: 
        3: if True:
     -->4:     break
-              ^
+              ^^^^^
 
     The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
     
@@ -1214,7 +1200,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: if x.a = 1:
-             ^
+             ^^^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
     The following statement would not contain a syntax error:
@@ -1233,8 +1219,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
         SyntaxErrors can be annoying!
-                         ^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                     ^^^
+    SyntaxError: invalid syntax
     
         Friendly-traceback does not know the cause of this error.
         
@@ -1245,7 +1231,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: SyntaxErrors can be annoying!
-                           ^
+                       ^^^
 
     Currently, I cannot guess the likely cause of this error.
     Try to examine closely the line indicated as well as the line
@@ -1282,7 +1268,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-           ^
+           ^^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -1313,7 +1299,7 @@ Python version: 3.11.0a2
        2: 
        3: def test(**k):
     -->4:     print(f"{**k}")
-           ^
+           ^^
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1374,7 +1360,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: x = [i, i**2 for i in range(10)]
-               ^
+               ^^^^^^^
 
     I am guessing that you were writing a comprehension or a generator expression
     and forgot to include parentheses around tuples.
@@ -1411,7 +1397,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: a = [f(x) if condition for x in sequence]
-               ^
+               ^^^^^^^^^^^^^^^^^
 
     An `else some_value` clause was expected after the `if` expression.
     
@@ -1437,7 +1423,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: a = [f(x) for x in sequence if condition else other]
-                                                   ^
+                                                   ^^^^
 
     I am guessing that you were writing a comprehension or a generator expression
     and use the wrong order for a condition.
@@ -1477,7 +1463,7 @@ Python version: 3.11.0a2
        2: 
        3: if True:
     -->4:     continue
-              ^
+              ^^^^^^^^
 
     The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
     
@@ -1506,7 +1492,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: >>> print("Hello World!")
-          ^
+          ^^
 
     It looks like you copy-pasted code from an interactive interpreter.
     The Python prompt, `>>>`, should not be included in your code.
@@ -1523,8 +1509,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\copy_pasted_code_2.py", line 2
         ... print("Hello World!")
-        ^^^^^^^^^^^^^^^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+            ^^^^^
+    SyntaxError: invalid syntax
     
         Did you use copy-paste?
         
@@ -1536,7 +1522,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: ... print("Hello World!")
-          ^
+              ^^^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
     The Python prompt, `...`, should not be included in your code.
@@ -1742,7 +1728,7 @@ Python version: 3.11.0a2
       File "TESTS:\syntax\def_dotted_function_name.py", line 3
         def test.x():
                 ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected '('
     
         You cannot use dots in function names.
         
@@ -1757,6 +1743,14 @@ Python version: 3.11.0a2
     -->3: def test.x():
                   ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        expected '('
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You cannot use dots in function names.
     
 
@@ -1789,8 +1783,8 @@ Python version: 3.11.0a2
     You can only use identifiers (variable names) as function arguments.
     
 
-(55) def: Keyword arg only once in function definition
-------------------------------------------------------
+(55) def: arguments must be unique in function definition
+---------------------------------------------------------
 
 .. code-block:: none
 
@@ -1812,13 +1806,13 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
        2: 
        3: 
-    -->4: def f(aa
-          ^
+    -->4: def f(aa=1, aa=2):
+          ^^^^^^^^
 
-    You have defined a function repeating the keyword argument
+    You have defined a function repeating the argument
     
         aa
-    twice; each keyword argument should appear only once in a function definition.
+    twice; each argument should appear only once in a function definition.
     
 
 (56) def: semi-colon after colon
@@ -2065,7 +2059,7 @@ Python version: 3.11.0a2
        1: 
        2: 
     -->3: def "function"():
-              ^
+              ^^^^^^^^^^
 
     The name of a function must be a valid Python identifier,
     that is a name that begins with a letter or an underscore character, `_`,
@@ -2098,7 +2092,7 @@ Python version: 3.11.0a2
        3: 
        4: 
     -->5: def f(None=1):
-                ^
+                ^^^^
 
     I am guessing that you tried to use the Python keyword
     `None` as an argument in the definition of a function
@@ -2130,7 +2124,7 @@ Python version: 3.11.0a2
        3: 
        4: 
     -->5: def f(x, True):
-                   ^
+                   ^^^^
 
     I am guessing that you tried to use the Python keyword
     `True` as an argument in the definition of a function
@@ -2162,7 +2156,7 @@ Python version: 3.11.0a2
        3: 
        4: 
     -->5: def f(*None):
-                 ^
+                 ^^^^
 
     I am guessing that you tried to use the Python keyword
     `None` as an argument in the definition of a function
@@ -2194,7 +2188,7 @@ Python version: 3.11.0a2
        3: 
        4: 
     -->5: def f(**None):
-                  ^
+                  ^^^^
 
     I am guessing that you tried to use the Python keyword
     `None` as an argument in the definition of a function
@@ -2226,7 +2220,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: def pass():
-              ^
+              ^^^^
 
     You tried to use the Python keyword `pass` as a function name.
     
@@ -2368,7 +2362,7 @@ Python version: 3.11.0a2
       File "TESTS:\syntax\def_missing_parens.py", line 3
         def name:
                 ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected '('
     
         Did you forget parentheses?
         
@@ -2383,6 +2377,14 @@ Python version: 3.11.0a2
     -->3: def name:
                   ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        expected '('
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -2401,7 +2403,7 @@ Python version: 3.11.0a2
       File "TESTS:\syntax\def_missing_parens_2.py", line 2
         def name a, b:
                  ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected '('
     
         Did you forget parentheses?
         
@@ -2415,6 +2417,14 @@ Python version: 3.11.0a2
     -->2: def name a, b:
                    ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        expected '('
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -2472,13 +2482,11 @@ Python version: 3.11.0a2
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: name 'x' is parameter and global
-       2: """
        3: 
        4: 
        5: def f(x):
     -->6:     global x
-              ^
+              ^^^^^^^^
 
     You are including the statement
     
@@ -2978,7 +2986,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: def f("1"):
-                ^
+                ^^^
 
     You used a string as an argument when defining a function.
     You can only use identifiers (variable names) as function arguments.
@@ -2995,8 +3003,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
         def test((a, b), c):
-                 ^
-    SyntaxError: invalid syntax
+                 ^^^^^^
+    SyntaxError: Function parameters cannot be parenthesized
     
         You cannot have explicit tuples as function arguments.
         
@@ -3007,8 +3015,16 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: def test((a, b), c):
-                   ^
+                   ^^^^^^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        Function parameters cannot be parenthesized
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You cannot have explicit tuples as function arguments.
     You can only use identifiers (variable names) as function arguments.
     Assign any tuple to a parameter and unpack it
@@ -3026,8 +3042,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
         def test(a, (b, c)):
-                    ^
-    SyntaxError: invalid syntax
+                    ^^^^^^
+    SyntaxError: Function parameters cannot be parenthesized
     
         You cannot have explicit tuples as function arguments.
         
@@ -3038,8 +3054,16 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: def test(a, (b, c)):
-                      ^
+                      ^^^^^^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        Function parameters cannot be parenthesized
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You cannot have explicit tuples as function arguments.
     You can only use identifiers (variable names) as function arguments.
     Assign any tuple to a parameter and unpack it
@@ -3067,7 +3091,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del (*x)
-               ^
+               ^^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -3097,7 +3121,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del (*x,)
-               ^
+               ^^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -3127,7 +3151,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del True
-              ^
+              ^^^^
 
     You cannot delete the constant `True`.
     You can only delete names of objects, or items in mutable containers
@@ -3158,7 +3182,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del a.b.c[0] + 2
-              ^
+              ^^^^^^^^^^^^
 
     You cannot delete the expression `a.b.c[0] + 2`.
     You can only delete names of objects, or items in mutable containers
@@ -3190,7 +3214,7 @@ Python version: 3.11.0a2
        3: 
        4: 
     -->5: del f(a)
-              ^
+              ^^^^
 
     You attempted to delete a function call
     
@@ -3224,7 +3248,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del (a := 5)
-               ^
+               ^^^^^^
 
     You cannot delete the named expression `(a := 5)`.
     You can only delete names of objects, or items in mutable containers
@@ -3252,7 +3276,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del a += b
-                ^
+                ^^
 
     You can only delete names of objects, or items in mutable containers
     such as `list`, `set`, or `dict`.
@@ -3279,7 +3303,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: del "Hello world!"
-              ^
+              ^^^^^^^^^^^^^^
 
     You cannot delete the literal `"Hello world!"`.
     You can only delete names of objects, or items in mutable containers
@@ -3517,7 +3541,7 @@ Python version: 3.11.0a2
        1: if True:
        2:    pass
     -->3:    elif True:
-             ^
+             ^^^^
 
     The `elif` keyword does not begin a code block that matches
     an `if` block, possibly because `elif` is not indented correctly.
@@ -3546,7 +3570,7 @@ Python version: 3.11.0a2
        1: if True:
        2:    pass
     -->3:    else:
-             ^
+             ^^^^
 
     The `else` keyword does not begin a code block that matches
     a valid code block, possibly because `else` is not indented correctly.
@@ -3579,7 +3603,7 @@ Python version: 3.11.0a2
        3: if False:
        4:     pass
     -->5: else if True:
-               ^
+               ^^
 
     Python told us that it expected a colon at the position indicated.
     However, adding a colon or replacing something else by a colon
@@ -3600,8 +3624,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
         elseif True:
-        ^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+               ^^^^
+    SyntaxError: invalid syntax
     
         Perhaps you meant to write `elif`.
         
@@ -3616,7 +3640,7 @@ Python version: 3.11.0a2
        3: if False:
        4:     pass
     -->5: elseif True:
-          ^
+                 ^^^^
 
     You likely meant to use Python's `elif` keyword
     but wrote `elseif` instead.
@@ -3710,7 +3734,7 @@ Python version: 3.11.0a2
        1: try:
        2:     pass
     -->3: except NameError, ValueError as err:
-                 ^
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     I am guessing that you wanted to use an `except` statement
     with multiple exception types. If that is the case, you must
@@ -3770,7 +3794,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: greet = bf"Hello {name}"
-                    ^
+                    ^^^^^^^^^^^^^^
 
     I am guessing that you wanted a binary f-string;
     this is not allowed.
@@ -4025,7 +4049,7 @@ Python version: 3.11.0a2
        1: 
        2: def fn():
     -->3:     from __future__ import generators
-              ^
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     A `from __future__ import` statement changes the way Python
     interprets the code in a file.
@@ -4121,7 +4145,7 @@ Python version: 3.11.0a2
        4: 
        5: L = range(10)
     -->6: f(x for x in L, 1)
-            ^
+            ^^^^^^^
 
     You are using a generator expression, something of the form
     
@@ -4156,7 +4180,7 @@ Python version: 3.11.0a2
        2: or (Python 3.8) cannot assign to operator"""
        3: 
     -->4: a-b = 2
-          ^
+          ^^^
 
     You wrote an expression that includes some mathematical operations
     on the left-hand side of the equal sign which should be
@@ -4258,7 +4282,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^
+                     ^^^^
 
     You wrote something like
     
@@ -4295,7 +4319,7 @@ Python version: 3.11.0a2
        2: 
        3: if True:
     -->4: pass
-          ^
+          ^^^^
 
     Line `4` identified above was expected to begin a new indented block.
     
@@ -4451,7 +4475,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: x = 000_123_456
-              ^
+              ^^^^
 
     Perhaps you meant to write the integer `123_456`
     and did not know that it could not start with zeros.
@@ -4477,8 +4501,6 @@ Python version: 3.11.0a2
     'TESTS:\syntax\invalid_character_in_identifier.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid character in identifier
-       2: """
        3: 
        4: # Robot-face character below
        5: 
@@ -4761,14 +4783,10 @@ Python version: 3.11.0a2
     'TESTS:\syntax\invalid_keyword_argument.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict('key'=1)
-                   ^
+                   ^^^^^^
 
     You likely called a function with a named argument:
     
@@ -4801,14 +4819,10 @@ Python version: 3.11.0a2
     'TESTS:\syntax\invalid_keyword_argument_2.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: Python < 3.8: SyntaxError: keyword can't be an expression
-       3: Python 3.8:  expression cannot contain assignment, perhaps you meant "=="?
-       4: """
        5: 
        6: 
     -->7: a = dict(True=1)
-                   ^
+                   ^^^^^
 
     `True` is a constant in Python; you cannot assign it a different value.
     
@@ -4931,7 +4945,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: [*x for x in xs]
-           ^
+           ^^
 
     You cannot use the `*` operator to unpack the iteration variable
     in a comprehension.
@@ -4965,7 +4979,7 @@ Python version: 3.11.0a2
        2: 
        3: 
     -->4: f(ad=1, ad=2)
-                  ^
+                  ^^^^
 
     You have called a function repeating the same keyword argument (`ad`).
     Each keyword argument should appear only once in a function call.
@@ -4998,7 +5012,7 @@ Python version: 3.11.0a2
        10: 
        11: a.x = 1
     -->12: a.pass = 2
-             ^
+             ^^^^
 
     You cannot use the Python keyword `pass` as an attribute.
     
@@ -5015,8 +5029,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\lambda_with_parens.py", line 2
         x = lambda (a, b): a + b
-                   ^
-    SyntaxError: invalid syntax
+                   ^^^^^^
+    SyntaxError: Lambda expression parameters cannot be parenthesized
     
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5026,8 +5040,16 @@ Python version: 3.11.0a2
     
        1: 
     -->2: x = lambda (a, b): a + b
-                     ^
+                     ^^^^^^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        Lambda expression parameters cannot be parenthesized
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `lambda` does not allow parentheses around its arguments.
     This was allowed in Python 2 but it not allowed in Python 3.
     
@@ -5043,8 +5065,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
         x = lambda a, (b, c): a + b + b
-                      ^
-    SyntaxError: invalid syntax
+                      ^^^^^^
+    SyntaxError: Lambda expression parameters cannot be parenthesized
     
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5054,8 +5076,16 @@ Python version: 3.11.0a2
     
        1: 
     -->2: x = lambda a, (b, c): a + b + b
-                        ^
+                        ^^^^^^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        Lambda expression parameters cannot be parenthesized
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You cannot have explicit tuples as arguments.
     Assign any tuple to a parameter and unpack it
     within the body of the function.
@@ -5084,7 +5114,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: for "char" in "word":
-              ^
+              ^^^^^^
 
     A for loop must have the form:
     
@@ -5141,7 +5171,6 @@ Python version: 3.11.0a2
     'TESTS:\syntax\missing_code_block_2.py'
     at the location indicated by ^.
     
-       1: # issue #83
        2: a = 1
        3: for i in "test":
        4:    #
@@ -5209,7 +5238,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                      ^
+                      ^^^^^^^^^^^
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -5238,12 +5267,11 @@ Python version: 3.11.0a2
     'TESTS:\syntax\missing_comma_in_dict.py'
     at the location indicated by ^.
     
+       1: """Should raise SyntaxError: invalid syntax"""
        2: 
        3: a = {'a': 1,
     -->4:      'b': 2
                     ^
-       5:      'c': 3,
-       6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5283,7 +5311,6 @@ Python version: 3.11.0a2
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
-       5: }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5320,7 +5347,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = [1, 2  3]
-                  ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a list
@@ -5362,7 +5389,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = {1, 2  3}
-                  ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5404,7 +5431,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: a = (1, 2  3)
-                  ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a tuple, 
@@ -5433,8 +5460,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\missing_in_with_for.py", line 1
         for x range(4):
-            ^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+              ^^^^^
+    SyntaxError: invalid syntax
     
         Did you forget to write `in`?
         
@@ -5445,7 +5472,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: for x range(4):
-              ^
+                ^^^^^
 
     It looks as though you forgot to use the keyword `in`
     as part of a `for` statement. Perhaps you meant:
@@ -5513,7 +5540,7 @@ Python version: 3.11.0a2
     
        1: i = 3
     -->2: is i in range(3):
-          ^
+          ^^
 
     Perhaps you meant to write `if` and made a typo.
     The correct line might be `if i in range(3):`
@@ -5544,7 +5571,7 @@ Python version: 3.11.0a2
        5: 
        6: def f():
     -->7:     global xy
-              ^
+              ^^^^^^^^^
 
     You declared `xy` as being both a global and nonlocal variable.
     A variable can be global, or nonlocal, but not both at the same time.
@@ -5575,7 +5602,7 @@ Python version: 3.11.0a2
        3: 
        4: def f(x):
     -->5:     nonlocal x
-              ^
+              ^^^^^^^^^^
 
     You used `x` as a parameter for a function
     before declaring it also as a nonlocal variable:
@@ -5607,7 +5634,7 @@ Python version: 3.11.0a2
        3: 
        4: def f():
     -->5:     nonlocal ab
-              ^
+              ^^^^^^^^^^^
 
     You declared the variable `ab` as being a
     nonlocal variable but it cannot be found.
@@ -5637,7 +5664,7 @@ Python version: 3.11.0a2
        2: 
        3: 
     -->4: nonlocal cd
-          ^
+          ^^^^^^^^^^^
 
     You used the nonlocal keyword at a module level.
     The nonlocal keyword refers to a variable inside a function
@@ -5664,7 +5691,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: 4****5
-             ^
+             ^^
 
     You cannot have write the same operator, `**`, twice in a row.
     Perhaps you wrote one of them by mistake
@@ -5682,8 +5709,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\pip_install_1.py", line 2
         pip install friendly
-            ^^^^^^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+            ^^^^^^^
+    SyntaxError: invalid syntax
     
         Pip cannot be used in a Python interpreter.
         
@@ -5695,7 +5722,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: pip install friendly
-              ^
+              ^^^^^^^
 
     It looks as if you are attempting to use pip to install a module.
     `pip` is a command that needs to run in a terminal,
@@ -5713,8 +5740,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\pip_install_2.py", line 2
         python -m pip install friendly
-               ^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                  ^^^
+    SyntaxError: invalid syntax
     
         Pip cannot be used in a Python interpreter.
         
@@ -5726,7 +5753,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: python -m pip install friendly
-                 ^
+                    ^^^
 
     It looks as if you are attempting to use pip to install a module.
     `pip` is a command that needs to run in a terminal,
@@ -5757,7 +5784,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
     -->2: print 'hello'
-          ^
+          ^^^^^^^^^^^^^
 
     Perhaps you need to type
     
@@ -5791,7 +5818,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('hello')
-          ^
+          ^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
     
@@ -5824,7 +5851,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: print """This is a very long string which results in a very long error message."""
-          ^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
     
@@ -5858,8 +5885,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
-          ^
-       3:           that spans multiple lines.""")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
     
@@ -5893,7 +5919,7 @@ Python version: 3.11.0a2
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('This is a long string that fits on a single line.')
-          ^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
     
@@ -5914,10 +5940,10 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
         print hello world!
-              ^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
-        Did you mean `print("hello world!")`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5926,11 +5952,14 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: print hello world!
-                ^
+          ^^^^^^^^^^^
 
+    Perhaps you need to type
+    
+         print(...)
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
-    Note that arguments of `print` must be separated by commas.
     
 
 (185) print is a function 7
@@ -5944,10 +5973,10 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
         print len("hello") hello
-              ^^^^^^^^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
-        Did you mean `print('len("hello") hello')`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5956,11 +5985,14 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: print len("hello") hello
-                ^
+          ^^^^^^^^^^^^^^^^^^
 
+    Perhaps you need to type
+    
+         print(...)
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
-    Note that arguments of `print` must be separated by commas.
     
 
 (186) Calling python from interpreter
@@ -5974,8 +6006,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\python_interpreter.py", line 1
         python -i friendly
-               ^^^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                  ^^^^^^^^
+    SyntaxError: invalid syntax
     
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5984,7 +6016,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: python -i friendly
-                 ^
+                    ^^^^^^^^
 
     I am guessing that you are attempting to use Python to run a program.
     You must do so from a terminal and not from a Python interpreter.
@@ -6001,8 +6033,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\python_not_interpreter.py", line 1
         python = a b
-                 ^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+                   ^
+    SyntaxError: invalid syntax
     
         Did you forget something between `a` and `b`?
         
@@ -6013,7 +6045,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: python = a b
-                   ^
+                     ^
 
     Python indicates that the error is caused by `b` written immediately after `a`.
     Perhaps you meant to insert an operator like `+; -; *; ,`
@@ -6109,7 +6141,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: 'return' outside function"""
        2: 
     -->3: return
-          ^
+          ^^^^^^
 
     You can only use a `return` statement inside a function or method.
     
@@ -6220,9 +6252,7 @@ Python version: 3.11.0a2
     
        1: a = [
     -->2:     for i in 1, 2, 3:
-              ^
-       3:         i**2
-       4: ]
+              ^^^
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -6256,7 +6286,7 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
        2: for i in range(101):
     -->3:     if i % 2 = 0:
-                 ^
+                 ^^^^^
 
     You wrote an expression that includes some mathematical operations
     on the left-hand side of the equal sign which should be
@@ -6290,7 +6320,7 @@ Python version: 3.11.0a2
        3:     if False:
        4:         pass
     -->5:     elif i % 2 = 0:
-                   ^
+                   ^^^^^
 
     You wrote an expression that includes some mathematical operations
     on the left-hand side of the equal sign which should be
@@ -6323,7 +6353,7 @@ Python version: 3.11.0a2
        2: a = 1
        3: 
     -->4: while a = 1:
-                ^
+                ^^^^^
 
     You used an assignment operator `=`; perhaps you meant to use 
     an equality operator, `==`, or the walrus operator `:=`.
@@ -6400,8 +6430,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\space_in_variable_name.py", line 1
         my name = André
-        ^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+           ^^^^
+    SyntaxError: invalid syntax
     
         Did you mean `my_name`?
         
@@ -6412,7 +6442,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: my name = André
-          ^
+             ^^^^
 
     You cannot have spaces in identifiers (variable names).
     
@@ -6438,7 +6468,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: *a = 1
-          ^
+          ^^
 
     A star assignment must be of the form:
     
@@ -6471,7 +6501,7 @@ Python version: 3.11.0a2
        20:                    while 20:
        21:                     while 21:
     -->22:                      while 22:
-                                ^
+                                ^^^^^^
 
     Your code is too complex for Python:
     you need to reduce the number of indented code blocks
@@ -6503,9 +6533,6 @@ Python version: 3.11.0a2
        3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
     -->4:             ((((((((((((((((((((((((((((((((((
                                                        ^
-       5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
-       6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-       7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
     Your code is too complex for Python:
     you need to reduce the number of parentheses
@@ -6601,10 +6628,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unclosed_bracket.py'
     at the location indicated by ^.
     
-        3: 
-        4: def foo():
-    --> 5:     return [1, 2, 3
-                      ^
+       1: """Should raise SyntaxError: f-string: invalid syntax
+       2: """
+       3: 
+       4: def foo():
+    -->5:     return [1, 2, 3
+                     ^
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6637,8 +6666,6 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = int('1'
                  ^
-       3: if x == 1:
-       4:     print('yes')
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6657,7 +6684,7 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\unclosed_paren_2.py", line 2
         a = (b+c
-              ^^-->
+             ^^^-->
     SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -6669,7 +6696,6 @@ Python version: 3.11.0a2
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: a = (b+c
                 ^
-       3: d = a*a
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6697,12 +6723,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unclosed_paren_3.py'
     at the location indicated by ^.
     
+       3: if 3:
        4:     if 1:
        5:         print(((123))
        6: 
     -->7: if 2:
               ^
-       8:     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -6735,8 +6761,8 @@ Python version: 3.11.0a2
        1: # equal number of ( and ) in file
        2: print('hello'
        3: 
-    -->4: def
-          ^
+    -->4: def test():
+          ^^^
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6755,7 +6781,7 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
         print(\t)
-        ^
+               ^^-->
     SyntaxError: unexpected character after line continuation character
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -6769,7 +6795,7 @@ Python version: 3.11.0a2
        3: """
        4: 
     -->5: print(\t)
-         ^
+                  ^
 
     You are using the continuation character `\` outside of a string,
     and it is followed by some other character(s).
@@ -6798,10 +6824,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unexpected_eof.py'
     at the location indicated by ^.
     
-        3: 
-        4: def foo():
-    --> 5:     return [1, 2, 3,
-                      ^
+       1: """Should raise SyntaxError: unexpected EOF while parsing
+       2: """
+       3: 
+       4: def foo():
+    -->5:     return [1, 2, 3,
+                     ^
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -7102,9 +7130,6 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unmatched_closing_curly.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = {1,
        5:     2,
     -->6:     3, 4,}}
@@ -7133,9 +7158,6 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unmatched_closing_paren.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax for Python < 3.8
-       2:    otherwise, SyntaxError: unmatched ')'
-       3: """
        4: a = (1,
        5:     2,
     -->6:     3, 4,))
@@ -7257,7 +7279,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: {'a': *(1, 2, 3)}
-                ^
+                ^^^^^^^^^^
 
     It looks like you tried to use a starred expression as a dict value;
     this is not allowed.
@@ -7287,7 +7309,7 @@ Python version: 3.11.0a2
     'TESTS:\syntax\unterminated_triple_quote_string.py'
     at the location indicated by ^.
     
-    -->1: some_text =
+    -->1: some_text = """In a land
                       ^
 
     You started writing a triple-quoted string but never wrote
@@ -7324,7 +7346,7 @@ Python version: 3.11.0a2
        5: def test_tab_error():
        6:     if True:
     -->7: 	pass
-         ^
+           ^
 
 (229) EOL unescaped backslash
 -----------------------------
@@ -7447,7 +7469,7 @@ Python version: 3.11.0a2
     at the location indicated by ^.
     
     -->1: a := 3
-            ^
+            ^^
 
     You use the augmented assignment operator `:=` where
     the normal assignment operator `=` was required.
@@ -7496,8 +7518,8 @@ Python version: 3.11.0a2
         __import__(name)
       File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
         if var start := begin < end:
-           ^^^^^^^^^
-    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+               ^^^^^
+    SyntaxError: invalid syntax
     
         You do not need to declare variables in Python.
         
@@ -7510,9 +7532,9 @@ Python version: 3.11.0a2
        1: begin, end = 1, 2
        2: 
     -->3: if var start := begin < end:
-             ^
+                 ^^^^^
 
-    It looks like you were trying to declare that `var` was
+    It looks like you were trying to declare that `start` was
     a variable using the word `var`.
     If you remove `var`, you will have a valid Python statement.
     
@@ -7539,12 +7561,12 @@ Python version: 3.11.0a2
     'TESTS:\syntax\would_be_type_declaration_2.py'
     at the location indicated by ^.
     
+       1: begin = 3
        2: end = 4
        3: 
        4: if (
     -->5:     var start := begin < end
-              ^
-       6:    )
+              ^^^^^^^^^
 
     It looks like you were trying to declare that `var` was
     a variable using the word `var`.
@@ -7572,8 +7594,8 @@ Python version: 3.11.0a2
     'TESTS:\syntax\yield_outside_function.py'
     at the location indicated by ^.
     
-    -->1: (yield
-           ^
+    -->1: (yield i) == 3
+           ^^^^^^^
 
     You can only use a `yield` statement inside a function.
     
