@@ -27,7 +27,7 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 ``BaseException``, ``Exception``, and ``ArithmeticError`` are base classes which
 are also not normally seen: some derived classes are normally used instead.
 
-Information compiled using Friendly version: 0.4.91,
+Information compiled using Friendly version: 0.5.0,
 Python version: 3.6.8
 
 
@@ -360,12 +360,9 @@ NotImplementedError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `NotImplementedError` is a subclass of `RuntimeError`.
+    A `RuntimeError` is raised when an error is detected that doesn't fall in any
+    of the more specific exception types defined by Python.
 
 OSError
 ~~~~~~~
@@ -431,12 +428,8 @@ RuntimeError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    A `RuntimeError` is raised when an error is detected that doesn't fall in any
+    of the more specific exception types defined by Python.
 
 StopAsyncIteration
 ~~~~~~~~~~~~~~~~~~

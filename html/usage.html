@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Other details for advanced users" href="usage_adv.html" /><link rel="prev" title="Getting Friendly" href="install.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Other details for advanced users" href="usage_adv.html" /><link rel="prev" title="Getting Friendly" href="install.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Basic usage - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Basic usage - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,7 +295,8 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="basic-usage">
+        <article role="main">
+          <section id="basic-usage">
 <h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
 <p>There are various ways of using <strong>Friendly</strong>.
 I only list here the basic scenarios available from a
@@ -348,13 +352,13 @@ a program:</p></li>
 </div>
 </div>
 </div>
-<div class="sidebar">
+<aside class="sidebar">
 <p class="sidebar-title">Suggestion</p>
 <p>If you are a Windows user I <strong>very strongly suggest</strong> that you use the new
 <a class="reference external" href="https://github.com/microsoft/terminal">Windows Terminal</a>
 that you can get from the Windows Store; this is
 what I have used for various screen captures.</p>
-</div>
+</aside>
 <ol class="arabic" start="4">
 <li><p>(New) If you run a program that raises an error and leaves you at an
 interactive prompt, you can import friendly “after the fact”.
@@ -428,7 +432,7 @@ as a command line option:</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">start_console()</span></code> function
 accept various parameters, including <code class="docutils literal notranslate"><span class="pre">formatter</span></code> for <strong>friendly</strong>
 which can be specified to be either <code class="docutils literal notranslate"><span class="pre">dark</span></code> or <code class="docutils literal notranslate"><span class="pre">light</span></code>.</p>
-<div class="section" id="using-in-other-environments">
+<section id="using-in-other-environments">
 <h2>Using in other environments<a class="headerlink" href="#using-in-other-environments" title="Permalink to this headline">¶</a></h2>
 <p>If you want to use <strong>Friendly</strong> elsewhere than from a terminal,
 you likely will need to use a custom mode designed for that
@@ -452,8 +456,8 @@ or <a class="reference external" href="https://futurecoder.io">futurecoder</a>
 then you likely only need to install <strong>friendly_traceback</strong>.
 Compared with <strong>friendly_traceback</strong>, <strong>friendly</strong> has
 quite a few additional dependencies that you would likely not need.</p>
-</div>
-<div class="section" id="france-en-francais">
+</section>
+<section id="france-en-francais">
 <h2><img alt="france" src="_images/france.png"/> En Français<a class="headerlink" href="#france-en-francais" title="Permalink to this headline">¶</a></h2>
 <p><strong>Friendly</strong> offre la possibilité de présenter l’information en
 Français.
@@ -489,17 +493,18 @@ Python, on utilise le paramètre
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="other-languages">
+</section>
+<section id="other-languages">
 <h2>Other languages<a class="headerlink" href="#other-languages" title="Permalink to this headline">¶</a></h2>
 <p>In principle, <strong>Friendly</strong> could support languages other than English
 and French. Contributions from native speakers of other languages
 are welcome.  Note that this is not a small task as
 there is a lot of text that needs to be translated.</p>
-</div>
-</div>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -526,14 +531,10 @@ there is a lot of text that needs to be translated.</p>
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/usage.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/usage.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -572,7 +573,7 @@ there is a lot of text that needs to be translated.</p>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

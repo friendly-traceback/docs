@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en español" href="syntax_tracebacks_es.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en español" href="syntax_tracebacks_es.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Friendly tracebacks - en Français - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Friendly tracebacks - en Français - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,7 +295,8 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="france-friendly-tracebacks-en-francais">
+        <article role="main">
+          <section id="france-friendly-tracebacks-en-francais">
 <h1><img alt="france" src="_images/france.png"/> Friendly tracebacks - en Français<a class="headerlink" href="#france-friendly-tracebacks-en-francais" title="Permalink to this headline">¶</a></h1>
 <p>Le but principal de friendly est de fournir des rétroactions plus
 conviviales que les fameux <strong>tracebacks</strong> de Python lorsqu’une exception survient.</p>
@@ -304,11 +308,11 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.4.91
-Python version: 3.9.5</p>
-<div class="section" id="arithmeticerror">
+<p>Friendly-traceback version: 0.5.0
+Python version: 3.9.9</p>
+<section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="generic">
+<section id="generic">
 <h3>Generic<a class="headerlink" href="#generic" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_arithmetic_error.py", line 9, in test_Generic
@@ -333,11 +337,11 @@ Exception levée à la ligne 9 du fichier TESTS:\runtime\test_arithmetic_error.p
         ArithmeticError:  &lt;class ArithmeticError&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="assertionerror">
+</section>
+</section>
+<section id="assertionerror">
 <h2>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Generic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_assertion_error.py", line 8, in test_Generic
@@ -362,11 +366,11 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_assertion_error.py
         AssertionError:  &lt;class AssertionError&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="attributeerror">
+</section>
+</section>
+<section id="attributeerror">
 <h2>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="attribute-from-other-module">
+<section id="attribute-from-other-module">
 <h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 325, in test_Attribute_from_other_module
@@ -393,8 +397,8 @@ Exception levée à la ligne 325 du fichier TESTS:\runtime\test_attribute_error.
         keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="builtin-function">
+</section>
+<section id="builtin-function">
 <h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
@@ -422,8 +426,8 @@ Exception levée à la ligne 223 du fichier TESTS:\runtime\test_attribute_error.
         len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="builtin-module-with-no-file">
+</section>
+<section id="builtin-module-with-no-file">
 <h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
@@ -448,8 +452,8 @@ Exception levée à la ligne 240 du fichier TESTS:\runtime\test_attribute_error.
         sys:  &lt;module sys (builtin)&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="circular-import">
+</section>
+<section id="circular-import">
 <h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
@@ -487,8 +491,8 @@ Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
         my_turtle1:  &lt;module my_turtle1&gt; from TESTS:\my_turtle1.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="circular-import-b">
+</section>
+<section id="circular-import-b">
 <h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
@@ -524,8 +528,8 @@ Exception levée à la ligne 4 du fichier TESTS:\circular_c.py.
         circular_c:  &lt;module circular_c&gt; from TESTS:\circular_c.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>Generic<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 26, in test_Generic
@@ -549,8 +553,8 @@ Exception levée à la ligne 26 du fichier TESTS:\runtime\test_attribute_error.p
         A:  &lt;class A&gt; defined in &lt;function test_attribute_error.test_Generic&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="generic-different-frame">
+</section>
+<section id="generic-different-frame">
 <h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
@@ -578,8 +582,8 @@ Exception levée à la ligne 49 du fichier TESTS:\runtime\test_attribute_error.p
             defined in &lt;function test_attribute_error.test_Generic_different_frame.&lt;locals&gt;.f&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="generic-instance">
+</section>
+<section id="generic-instance">
 <h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
@@ -604,8 +608,8 @@ Exception levée à la ligne 67 du fichier TESTS:\runtime\test_attribute_error.p
             defined in &lt;function test_attribute_error.test_Generic_instance&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="module-attribute-typo">
+</section>
+<section id="module-attribute-typo">
 <h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
@@ -633,8 +637,8 @@ Exception levée à la ligne 144 du fichier TESTS:\runtime\test_attribute_error.
         math:  &lt;module math (builtin)&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="nonetype">
+</section>
+<section id="nonetype">
 <h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
@@ -658,8 +662,8 @@ Exception levée à la ligne 183 du fichier TESTS:\runtime\test_attribute_error.
         a:  None
 </pre></div>
 </div>
-</div>
-<div class="section" id="object-attribute-typo">
+</section>
+<section id="object-attribute-typo">
 <h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
@@ -688,8 +692,8 @@ Exception levée à la ligne 83 du fichier TESTS:\runtime\test_attribute_error.p
         a:  [1, 2, 3]
 </pre></div>
 </div>
-</div>
-<div class="section" id="perhaps-comma">
+</section>
+<section id="perhaps-comma">
 <h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
@@ -720,8 +724,8 @@ Exception levée à la ligne 203 du fichier TESTS:\runtime\test_attribute_error.
         defg:  'world'
 </pre></div>
 </div>
-</div>
-<div class="section" id="read-only">
+</section>
+<section id="read-only">
 <h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
@@ -749,8 +753,8 @@ Exception levée à la ligne 280 du fichier TESTS:\runtime\test_attribute_error.
         f.b:  2
 </pre></div>
 </div>
-</div>
-<div class="section" id="shadow-stdlib-module">
+</section>
+<section id="shadow-stdlib-module">
 <h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
@@ -778,8 +782,8 @@ Exception levée à la ligne 165 du fichier TESTS:\runtime\test_attribute_error.
         turtle:  &lt;module turtle&gt; from TESTS:\turtle.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="tuple-by-accident">
+</section>
+<section id="tuple-by-accident">
 <h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
@@ -809,8 +813,8 @@ Exception levée à la ligne 295 du fichier TESTS:\runtime\test_attribute_error.
         something:  ('abc',)
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-builtin">
+</section>
+<section id="use-builtin">
 <h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
@@ -839,8 +843,8 @@ Exception levée à la ligne 99 du fichier TESTS:\runtime\test_attribute_error.p
         a:  [1, 2, 3]
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-join-with-str">
+</section>
+<section id="use-join-with-str">
 <h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
@@ -865,8 +869,8 @@ Exception levée à la ligne 339 du fichier TESTS:\runtime\test_attribute_error.
    340:     except AttributeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-synonym">
+</section>
+<section id="use-synonym">
 <h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
@@ -896,8 +900,8 @@ Exception levée à la ligne 115 du fichier TESTS:\runtime\test_attribute_error.
         a:  [1, 2, 3]
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-slots">
+</section>
+<section id="using-slots">
 <h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
@@ -925,11 +929,11 @@ Exception levée à la ligne 260 du fichier TESTS:\runtime\test_attribute_error.
             defined in &lt;function test_attribute_error.test_Using_slots&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="filenotfounderror">
+</section>
+</section>
+<section id="filenotfounderror">
 <h2>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="directory-not-found">
+<section id="directory-not-found">
 <h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
@@ -955,8 +959,8 @@ Exception levée à la ligne 70 du fichier TESTS:\runtime\test_file_not_found_er
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="filename-not-found">
+</section>
+<section id="filename-not-found">
 <h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
@@ -970,7 +974,7 @@ Cela pourrait être parce que vous fait une faute d'orthographe en
 
 Dans votre programme, le nom du fichier inconnu est `does_not_exist`.
 On s'attendait à ce qu'il soit trouvé dans le répertoire
-`C:\Users\andre\friendly-traceback\friendly-traceback\tests`.
+`C:\Users\Andre\github\friendly-traceback\tests`.
 Je n’ai pas d’informations supplémentaires pour vous.
 
 Exception levée à la ligne 7 du fichier TESTS:\runtime\test_file_not_found_error.py.
@@ -983,8 +987,8 @@ Exception levée à la ligne 7 du fichier TESTS:\runtime\test_file_not_found_err
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="filename-not-found-2">
+</section>
+<section id="filename-not-found-2">
 <h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
@@ -1000,7 +1004,7 @@ Cela pourrait être parce que vous fait une faute d'orthographe en
 
 Dans votre programme, le nom du fichier inconnu est `setupp.py`.
 On s'attendait à ce qu'il soit trouvé dans le répertoire
-`C:\Users\andre\friendly-traceback\friendly-traceback`.
+`C:\Users\Andre\github\friendly-traceback`.
 Le fichier `setup.py` a un nom semblable.
 
 Exception levée à la ligne 30 du fichier TESTS:\runtime\test_file_not_found_error.py.
@@ -1014,8 +1018,8 @@ Exception levée à la ligne 30 du fichier TESTS:\runtime\test_file_not_found_er
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="filename-not-found-3">
+</section>
+<section id="filename-not-found-3">
 <h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
@@ -1031,7 +1035,7 @@ Cela pourrait être parce que vous fait une faute d'orthographe en
 
 Dans votre programme, le nom du fichier inconnu est `setup.pyg`.
 On s'attendait à ce qu'il soit trouvé dans le répertoire
-`C:\Users\andre\friendly-traceback\friendly-traceback`.
+`C:\Users\Andre\github\friendly-traceback`.
 Vous vouliez peut-être un des fichiers suivants ayant des noms semblables :
 `setup.py`, `setup.cfg`
 
@@ -1046,20 +1050,20 @@ Exception levée à la ligne 52 du fichier TESTS:\runtime\test_file_not_found_er
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="importerror">
+</section>
+</section>
+<section id="importerror">
 <h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
+<section id="id3">
 <h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 59, in test_Circular_import
+  File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
     import circular_a
   File "TESTS:\circular_a.py", line 2, in &lt;module&gt;
     import circular_b
   File "TESTS:\circular_b.py", line 2, in &lt;module&gt;
     from circular_a import a
-ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
+ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\Andre\github\friendly-traceback\tests\circular_a.py)
 
 L'exception `ImportError` indique qu’un certain objet n’a pas pu
 être importé à partir d’un module ou d’un paquet. Très souvent, c’est
@@ -1078,24 +1082,25 @@ a été exécuté. Toutefois, dans ce dernier dossier, une tentative a été
 pour importer le module d’origine `circular_a`
 une deuxième fois, avant que Python n’ait terminé la première importation.
 
-L'exécution s'est arrêtée à la ligne 59 du fichier TESTS:\runtime\test_import_error.py
+L'exécution s'est arrêtée à la ligne 70 du fichier TESTS:\runtime\test_import_error.py
 
-   57: def test_Circular_import():
-   58:     try:
---&gt;59:         import circular_a
-   60:     except ImportError as e:
+   68: def test_Circular_import():
+   69:     try:
+--&gt;70:         import circular_a
+   71:     except ImportError as e:
 
 Exception levée à la ligne 2 du fichier TESTS:\circular_b.py.
 
    1: """File used in for test_circular_import() in test_import_error.py"""
 --&gt;2: from circular_a import a
+                 ^
 </pre></div>
 </div>
-</div>
-<div class="section" id="simple-import-error">
+</section>
+<section id="simple-import-error">
 <h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 45, in test_Simple_import_error
+  File "TESTS:\runtime\test_import_error.py", line 56, in test_Simple_import_error
     from math import Pi
 ImportError: cannot import name 'Pi' from 'math' (unknown location)
 
@@ -1107,20 +1112,20 @@ parce que le nom de l’objet n’est pas écrit correctement.
 
 Peut-être que vous vouliez importer `pi` (de `math`) au lieu de `Pi`.
 
-Exception levée à la ligne 45 du fichier TESTS:\runtime\test_import_error.py.
+Exception levée à la ligne 56 du fichier TESTS:\runtime\test_import_error.py.
 
-   41:     no_suggestion()
-   42:     multiple_import_on_same_line()
-   44:     try:
---&gt;45:         from math import Pi
-   46:     except ImportError as e:
+   52:     multiple_import_on_same_line()
+   53:     wrong_case()
+   55:     try:
+--&gt;56:         from math import Pi
+   57:     except ImportError as e:
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="indexerror">
+</section>
+</section>
+<section id="indexerror">
 <h2>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="assignment">
+<section id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
@@ -1147,8 +1152,8 @@ Exception levée à la ligne 87 du fichier TESTS:\runtime\test_index_error.py.
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
-</div>
-<div class="section" id="empty">
+</section>
+<section id="empty">
 <h3>Empty<a class="headerlink" href="#empty" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 46, in test_Empty
@@ -1177,8 +1182,8 @@ Exception levée à la ligne 46 du fichier TESTS:\runtime\test_index_error.py.
         a:  []
 </pre></div>
 </div>
-</div>
-<div class="section" id="long-list">
+</section>
+<section id="long-list">
 <h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 29, in test_Long_list
@@ -1207,8 +1212,8 @@ Exception levée à la ligne 29 du fichier TESTS:\runtime\test_index_error.py.
             len(a): 40
 </pre></div>
 </div>
-</div>
-<div class="section" id="short-tuple">
+</section>
+<section id="short-tuple">
 <h3>Short tuple<a class="headerlink" href="#short-tuple" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 10, in test_Short_tuple
@@ -1239,11 +1244,11 @@ Exception levée à la ligne 10 du fichier TESTS:\runtime\test_index_error.py.
         a:  (1, 2, 3)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="keyerror">
+</section>
+</section>
+<section id="keyerror">
 <h2>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="chainmap">
+<section id="chainmap">
 <h3>ChainMap<a class="headerlink" href="#chainmap" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\collections\__init__.py", line 1008, in pop
@@ -1274,8 +1279,8 @@ Exception levée à la ligne 62 du fichier TESTS:\runtime\test_key_error.py.
         d.pop:  &lt;bound method ChainMap.pop&gt; of ChainMap({}, {})
 </pre></div>
 </div>
-</div>
-<div class="section" id="forgot-to-convert-to-string">
+</section>
+<section id="forgot-to-convert-to-string">
 <h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
@@ -1303,8 +1308,8 @@ Exception levée à la ligne 115 du fichier TESTS:\runtime\test_key_error.py.
         squares:  {'1': 1, '2': 4, '3': 9}
 </pre></div>
 </div>
-</div>
-<div class="section" id="generic-key-error">
+</section>
+<section id="generic-key-error">
 <h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
@@ -1327,8 +1332,8 @@ Exception levée à la ligne 44 du fichier TESTS:\runtime\test_key_error.py.
         d:  {'a': 1, 'b': 2}
 </pre></div>
 </div>
-</div>
-<div class="section" id="popitem-empty-chainmap">
+</section>
+<section id="popitem-empty-chainmap">
 <h3>Popitem empty ChainMap<a class="headerlink" href="#popitem-empty-chainmap" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\collections\__init__.py", line 1001, in popitem
@@ -1361,8 +1366,8 @@ Exception levée à la ligne 26 du fichier TESTS:\runtime\test_key_error.py.
         alpha.popitem:  &lt;bound method ChainMap.popitem&gt; of ChainMap({}, {})
 </pre></div>
 </div>
-</div>
-<div class="section" id="popitem-empty-dict">
+</section>
+<section id="popitem-empty-dict">
 <h3>Popitem empty dict<a class="headerlink" href="#popitem-empty-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 8, in test_Popitem_empty_dict
@@ -1388,8 +1393,8 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_key_error.py.
         d.popitem:  &lt;builtin method popitem of dict object&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="similar-names">
+</section>
+<section id="similar-names">
 <h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
@@ -1417,8 +1422,8 @@ Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
         second:  {'alpha0': 1, 'alpha11': 2, 'alpha12': 3}
 </pre></div>
 </div>
-</div>
-<div class="section" id="string-by-mistake">
+</section>
+<section id="string-by-mistake">
 <h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
@@ -1446,11 +1451,11 @@ Exception levée à la ligne 98 du fichier TESTS:\runtime\test_key_error.py.
         d:  {(0, 0): 'origin'}
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="lookuperror">
+</section>
+</section>
+<section id="lookuperror">
 <h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
+<section id="id4">
 <h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
@@ -1475,11 +1480,11 @@ Exception levée à la ligne 10 du fichier TESTS:\runtime\test_lookup_error.py.
         LookupError:  &lt;class LookupError&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="modulenotfounderror">
+</section>
+</section>
+<section id="modulenotfounderror">
 <h2>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="need-to-install-module">
+<section id="need-to-install-module">
 <h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
@@ -1502,8 +1507,8 @@ Exception levée à la ligne 76 du fichier TESTS:\runtime\test_module_not_found_
    77:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="not-a-package">
+</section>
+<section id="not-a-package">
 <h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
@@ -1526,8 +1531,8 @@ Exception levée à la ligne 22 du fichier TESTS:\runtime\test_module_not_found_
    23:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="not-a-package-similar-name">
+</section>
+<section id="not-a-package-similar-name">
 <h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
@@ -1553,8 +1558,8 @@ Exception levée à la ligne 36 du fichier TESTS:\runtime\test_module_not_found_
    37:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="object-not-module">
+</section>
+<section id="object-not-module">
 <h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
@@ -1580,8 +1585,8 @@ Exception levée à la ligne 49 du fichier TESTS:\runtime\test_module_not_found_
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="similar-object-not-module">
+</section>
+<section id="similar-object-not-module">
 <h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
@@ -1609,8 +1614,8 @@ Exception levée à la ligne 62 du fichier TESTS:\runtime\test_module_not_found_
    63:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="standard-library-module">
+</section>
+<section id="standard-library-module">
 <h3>Standard library module<a class="headerlink" href="#standard-library-module" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 7, in test_Standard_library_module
@@ -1636,8 +1641,8 @@ Exception levée à la ligne 7 du fichier TESTS:\runtime\test_module_not_found_e
    8:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="no-curses">
+</section>
+<section id="no-curses">
 <h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
@@ -1662,11 +1667,11 @@ Exception levée à la ligne 92 du fichier TESTS:\runtime\test_module_not_found_
    93:         except ModuleNotFoundError as e:
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="nameerror">
+</section>
+</section>
+<section id="nameerror">
 <h2>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="annotated-variable">
+<section id="annotated-variable">
 <h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 25, in test_Annotated_variable
@@ -1700,8 +1705,8 @@ Exception levée à la ligne 25 du fichier TESTS:\runtime\test_name_error.py.
    26:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="custom-name">
+</section>
+<section id="custom-name">
 <h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 193, in test_Custom_name
@@ -1724,8 +1729,8 @@ Exception levée à la ligne 193 du fichier TESTS:\runtime\test_name_error.py.
    194:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="free-variable-referenced">
+</section>
+<section id="free-variable-referenced">
 <h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 177, in test_Free_variable_referenced
@@ -1764,8 +1769,8 @@ Exception levée à la ligne 172 du fichier TESTS:\runtime\test_name_error.py.
                            ^^^
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 10, in test_Generic
@@ -1790,8 +1795,8 @@ Exception levée à la ligne 10 du fichier TESTS:\runtime\test_name_error.py.
    11:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-import">
+</section>
+<section id="missing-import">
 <h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 130, in test_Missing_import
@@ -1826,8 +1831,8 @@ Exception levée à la ligne 130 du fichier TESTS:\runtime\test_name_error.py.
    131:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-module-name">
+</section>
+<section id="missing-module-name">
 <h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 277, in test_Missing_module_name
@@ -1863,8 +1868,8 @@ Exception levée à la ligne 277 du fichier TESTS:\runtime\test_name_error.py.
    278:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-self-1">
+</section>
+<section id="missing-self-1">
 <h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 228, in test_Missing_self_1
@@ -1909,8 +1914,8 @@ Exception levée à la ligne 219 du fichier TESTS:\runtime\test_name_error.py.
    221:             if self.toys:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-self-2">
+</section>
+<section id="missing-self-2">
 <h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 262, in test_Missing_self_2
@@ -1955,8 +1960,8 @@ Exception levée à la ligne 254 du fichier TESTS:\runtime\test_name_error.py.
    255:             if self.toys:
 </pre></div>
 </div>
-</div>
-<div class="section" id="synonym">
+</section>
+<section id="synonym">
 <h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 90, in test_Synonym
@@ -1984,8 +1989,8 @@ Exception levée à la ligne 90 du fichier TESTS:\runtime\test_name_error.py.
    91:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-import2">
+</section>
+<section id="missing-import2">
 <h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 144, in test_missing_import2
@@ -2011,8 +2016,8 @@ Exception levée à la ligne 144 du fichier TESTS:\runtime\test_name_error.py.
    145:     except NameError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-import3">
+</section>
+<section id="missing-import3">
 <h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 158, in test_missing_import3
@@ -2039,18 +2044,18 @@ Exception levée à la ligne 158 du fichier TESTS:\runtime\test_name_error.py.
    159:     except NameError as e:
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="oserror">
+</section>
+</section>
+<section id="oserror">
 <h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="urllib-error">
+<section id="urllib-error">
 <h3>Urllib error<a class="headerlink" href="#urllib-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
        ... Plus de lignes non affichées. ...
-  File "PYTHON_LIB:\socket.py", line 822, in create_connection
+  File "PYTHON_LIB:\socket.py", line 823, in create_connection
     for res in getaddrinfo(host, port, 0, SOCK_STREAM):
-  File "PYTHON_LIB:\socket.py", line 953, in getaddrinfo
+  File "PYTHON_LIB:\socket.py", line 954, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
 socket.gaierror: [Errno 11001] getaddrinfo failed
 
@@ -2084,8 +2089,8 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py.
         request.urlopen:  &lt;function urlopen&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="invalid-argument">
+</section>
+<section id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
@@ -2105,7 +2110,7 @@ ce que l'on appelle une séquence d'échappement.
 Pour résoudre ce problème, écrivez une "chaîne brute" (raw string)
 en ajoutant la lettre `r` comme préfixe devant le nom de
 fichier ou du chemin d'accès, ou remplacer tous les caractères
-simples, `\`, par des caractères doubles : `\\`.
+simples, `\`, par des caractères doubles : `\\`.
 
 Exception levée à la ligne 46 du fichier TESTS:\runtime\test_os_error.py.
 
@@ -2118,8 +2123,8 @@ Exception levée à la ligne 46 du fichier TESTS:\runtime\test_os_error.py.
         open:  &lt;builtin function open&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="no-information">
+</section>
+<section id="no-information">
 <h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
@@ -2151,11 +2156,11 @@ Exception levée à la ligne 27 du fichier TESTS:\runtime\test_os_error.py.
         OSError:  &lt;class OSError&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="overflowerror">
+</section>
+</section>
+<section id="overflowerror">
 <h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id6">
+<section id="id6">
 <h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
@@ -2173,11 +2178,11 @@ Exception levée à la ligne 6 du fichier TESTS:\runtime\test_overflow_error.py.
    7:     except OverflowError as e:
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="recursionerror">
+</section>
+</section>
+<section id="recursionerror">
 <h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
+<section id="id7">
 <h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
@@ -2213,11 +2218,11 @@ Exception levée à la ligne 6 du fichier TESTS:\runtime\test_recursion_error.py
         a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="typeerror">
+</section>
+</section>
+<section id="typeerror">
 <h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="bad-type-for-unary-operator">
+<section id="bad-type-for-unary-operator">
 <h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 376, in test_Bad_type_for_unary_operator
@@ -2247,8 +2252,8 @@ Exception levée à la ligne 376 du fichier TESTS:\runtime\test_type_error.py.
    377:         # fmt: on
 </pre></div>
 </div>
-</div>
-<div class="section" id="builtin-has-no-len">
+</section>
+<section id="builtin-has-no-len">
 <h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 808, in test_Builtin_has_no_len
@@ -2277,8 +2282,8 @@ Exception levée à la ligne 808 du fichier TESTS:\runtime\test_type_error.py.
         "Hello world".split:  &lt;builtin method split of str object&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="can-only-concatenate">
+</section>
+<section id="can-only-concatenate">
 <h3>Can only concatenate<a class="headerlink" href="#can-only-concatenate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 39, in test_Can_only_concatenate
@@ -2306,8 +2311,8 @@ Exception levée à la ligne 39 du fichier TESTS:\runtime\test_type_error.py.
         a_tuple:  (1, 2, 3)
 </pre></div>
 </div>
-</div>
-<div class="section" id="cannot-convert-dictionary-update-sequence">
+</section>
+<section id="cannot-convert-dictionary-update-sequence">
 <h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 794, in test_Cannot_convert_dictionary_update_sequence
@@ -2337,8 +2342,8 @@ Exception levée à la ligne 794 du fichier TESTS:\runtime\test_type_error.py.
         dd.update:  &lt;builtin method update of dict object&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="cannot-multiply-by-non-int">
+</section>
+<section id="cannot-multiply-by-non-int">
 <h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 592, in test_Cannot_multiply_by_non_int
@@ -2365,8 +2370,8 @@ Exception levée à la ligne 592 du fichier TESTS:\runtime\test_type_error.py.
    593:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="cannot-unpack-non-iterable-object">
+</section>
+<section id="cannot-unpack-non-iterable-object">
 <h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 766, in test_Cannot_unpack_non_iterable_object
@@ -2392,8 +2397,8 @@ Exception levée à la ligne 766 du fichier TESTS:\runtime\test_type_error.py.
    767:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="comparison-not-supported">
+</section>
+<section id="comparison-not-supported">
 <h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 325, in test_Comparison_not_supported
@@ -2424,8 +2429,8 @@ Exception levée à la ligne 325 du fichier TESTS:\runtime\test_type_error.py.
         b:  42
 </pre></div>
 </div>
-</div>
-<div class="section" id="derive-from-baseexception">
+</section>
+<section id="derive-from-baseexception">
 <h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 535, in test_Derive_from_BaseException
@@ -2447,8 +2452,8 @@ Exception levée à la ligne 535 du fichier TESTS:\runtime\test_type_error.py.
    536:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="indices-must-be-integers-or-slices">
+</section>
+<section id="indices-must-be-integers-or-slices">
 <h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 674, in test_Indices_must_be_integers_or_slices
@@ -2479,8 +2484,8 @@ Exception levée à la ligne 674 du fichier TESTS:\runtime\test_type_error.py.
    675:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="not-an-integer">
+</section>
+<section id="not-an-integer">
 <h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 637, in test_Not_an_integer
@@ -2509,8 +2514,8 @@ Exception levée à la ligne 637 du fichier TESTS:\runtime\test_type_error.py.
         range:  &lt;class range&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="not-callable">
+</section>
+<section id="not-callable">
 <h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 519, in test_Not_callable
@@ -2547,8 +2552,8 @@ Exception levée à la ligne 519 du fichier TESTS:\runtime\test_type_error.py.
         a + b:  10
 </pre></div>
 </div>
-</div>
-<div class="section" id="object-is-not-iterable">
+</section>
+<section id="object-is-not-iterable">
 <h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 752, in test_Object_is_not_iterable
@@ -2574,8 +2579,8 @@ Exception levée à la ligne 752 du fichier TESTS:\runtime\test_type_error.py.
         list:  &lt;class list&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="object-is-not-subscriptable">
+</section>
+<section id="object-is-not-subscriptable">
 <h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 735, in test_Object_is_not_subscriptable
@@ -2607,8 +2612,8 @@ Exception levée à la ligne 735 du fichier TESTS:\runtime\test_type_error.py.
             defined in &lt;function test_Object_is_not_subscriptable&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="slice-indices-must-be-integers-or-none">
+</section>
+<section id="slice-indices-must-be-integers-or-none">
 <h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 688, in test_Slice_indices_must_be_integers_or_None
@@ -2634,8 +2639,8 @@ Exception levée à la ligne 688 du fichier TESTS:\runtime\test_type_error.py.
    689:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="too-few-positional-argument">
+</section>
+<section id="too-few-positional-argument">
 <h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 449, in test_Too_few_positional_argument
@@ -2662,8 +2667,8 @@ Exception levée à la ligne 449 du fichier TESTS:\runtime\test_type_error.py.
             defined in &lt;function test_Too_few_positional_argument&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="too-many-positional-argument">
+</section>
+<section id="too-many-positional-argument">
 <h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 430, in test_Too_many_positional_argument
@@ -2693,8 +2698,8 @@ Exception levée à la ligne 430 du fichier TESTS:\runtime\test_type_error.py.
             defined in &lt;function test_type_error.test_Too_many_positional_argument&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="tuple-no-item-assignment">
+</section>
+<section id="tuple-no-item-assignment">
 <h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 397, in test_Tuple_no_item_assignment
@@ -2726,8 +2731,8 @@ Exception levée à la ligne 397 du fichier TESTS:\runtime\test_type_error.py.
         a[0]:  1
 </pre></div>
 </div>
-</div>
-<div class="section" id="unhachable-type">
+</section>
+<section id="unhachable-type">
 <h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 705, in test_Unhachable_type
@@ -2752,8 +2757,8 @@ Exception levée à la ligne 705 du fichier TESTS:\runtime\test_type_error.py.
    706:     except TypeError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="unsupported-operand-types">
+</section>
+<section id="unsupported-operand-types">
 <h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 288, in test_Unsupported_operand_types
@@ -2783,8 +2788,8 @@ Exception levée à la ligne 288 du fichier TESTS:\runtime\test_type_error.py.
         b:  2
 </pre></div>
 </div>
-</div>
-<div class="section" id="function-got-multiple-argument">
+</section>
+<section id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 900, in test_function_got_multiple_argument
@@ -2813,8 +2818,8 @@ Exception levée à la ligne 900 du fichier TESTS:\runtime\test_type_error.py.
             defined in &lt;function test_function_got_multiple_argument&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="function-has-no-len">
+</section>
+<section id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 825, in test_function_has_no_len
@@ -2844,8 +2849,8 @@ Exception levée à la ligne 825 du fichier TESTS:\runtime\test_type_error.py.
         len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="getattr-attribute-name-must-be-string">
+</section>
+<section id="getattr-attribute-name-must-be-string">
 <h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 946, in test_getattr_attribute_name_must_be_string
@@ -2873,8 +2878,8 @@ Exception levée à la ligne 946 du fichier TESTS:\runtime\test_type_error.py.
         getattr:  &lt;builtin function getattr&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="method-got-multiple-argument">
+</section>
+<section id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 919, in test_method_got_multiple_argument
@@ -2905,8 +2910,8 @@ Exception levée à la ligne 919 du fichier TESTS:\runtime\test_type_error.py.
             defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="vars-arg-must-have-dict">
+</section>
+<section id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 869, in test_vars_arg_must_have_dict
@@ -2935,11 +2940,11 @@ Exception levée à la ligne 869 du fichier TESTS:\runtime\test_type_error.py.
         vars:  &lt;builtin function vars&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="unboundlocalerror">
+</section>
+</section>
+<section id="unboundlocalerror">
 <h2>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="missing-both">
+<section id="missing-both">
 <h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
@@ -2995,8 +3000,8 @@ Exception levée à la ligne 21 du fichier TESTS:\runtime\test_unbound_local_err
         global spam_missing_both:  1
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-global">
+</section>
+<section id="missing-global">
 <h3>Missing global<a class="headerlink" href="#missing-global" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 27, in test_Missing_global
@@ -3046,8 +3051,8 @@ Exception levée à la ligne 9 du fichier TESTS:\runtime\test_unbound_local_erro
         global spam_missing_global:  1
 </pre></div>
 </div>
-</div>
-<div class="section" id="missing-nonlocal">
+</section>
+<section id="missing-nonlocal">
 <h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
@@ -3095,8 +3100,8 @@ Exception levée à la ligne 15 du fichier TESTS:\runtime\test_unbound_local_err
 --&gt;15:         spam_missing_nonlocal += 1
 </pre></div>
 </div>
-</div>
-<div class="section" id="typo-in-local">
+</section>
+<section id="typo-in-local">
 <h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
@@ -3138,8 +3143,8 @@ Exception levée à la ligne 98 du fichier TESTS:\runtime\test_unbound_local_err
 --&gt;98:         alpha3 += 1
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-name-of-builtin">
+</section>
+<section id="using-name-of-builtin">
 <h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
@@ -3185,11 +3190,11 @@ Exception levée à la ligne 117 du fichier TESTS:\runtime\test_unbound_local_er
         max:  &lt;builtin function max&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="unknownerror">
+</section>
+</section>
+<section id="unknownerror">
 <h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
+<section id="id8">
 <h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
@@ -3215,11 +3220,11 @@ Exception levée à la ligne 12 du fichier TESTS:\runtime\test_unknown_error.py.
         global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="valueerror">
+</section>
+</section>
+<section id="valueerror">
 <h2>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="convert-to-int">
+<section id="convert-to-int">
 <h3>Convert to int<a class="headerlink" href="#convert-to-int" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 187, in test_Convert_to_int
@@ -3245,8 +3250,8 @@ Exception levée à la ligne 187 du fichier TESTS:\runtime\test_value_error.py.
         int:  &lt;class int&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="could-not-convert-to-float">
+</section>
+<section id="could-not-convert-to-float">
 <h3>Could not convert to float<a class="headerlink" href="#could-not-convert-to-float" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
@@ -3268,8 +3273,8 @@ Exception levée à la ligne 88 du fichier TESTS:\runtime\test_value_error.py.
         float:  &lt;class float&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="date-invalid-month">
+</section>
+<section id="date-invalid-month">
 <h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
@@ -3296,8 +3301,8 @@ Exception levée à la ligne 58 du fichier TESTS:\runtime\test_value_error.py.
         date:  &lt;class datetime.date&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="not-enough-values-to-unpack">
+</section>
+<section id="not-enough-values-to-unpack">
 <h3>Not enough values to unpack<a class="headerlink" href="#not-enough-values-to-unpack" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 28, in test_Not_enough_values_to_unpack
@@ -3323,8 +3328,8 @@ Exception levée à la ligne 28 du fichier TESTS:\runtime\test_value_error.py.
         d:  'ab'
 </pre></div>
 </div>
-</div>
-<div class="section" id="pow-third-arg-cannot-be-zero">
+</section>
+<section id="pow-third-arg-cannot-be-zero">
 <h3>Pow third arg cannot be zero<a class="headerlink" href="#pow-third-arg-cannot-be-zero" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
@@ -3348,8 +3353,8 @@ Exception levée à la ligne 103 du fichier TESTS:\runtime\test_value_error.py.
         pow:  &lt;builtin function pow&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="slots-conflicts-with-class-variable">
+</section>
+<section id="slots-conflicts-with-class-variable">
 <h3>Slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
@@ -3371,8 +3376,8 @@ Exception levée à la ligne 72 du fichier TESTS:\runtime\test_value_error.py.
    73:             __slots__ = ["a", "b"]
 </pre></div>
 </div>
-</div>
-<div class="section" id="too-many-values-to-unpack">
+</section>
+<section id="too-many-values-to-unpack">
 <h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
@@ -3398,8 +3403,8 @@ Exception levée à la ligne 43 du fichier TESTS:\runtime\test_value_error.py.
         c:  [1, 2, 3]
 </pre></div>
 </div>
-</div>
-<div class="section" id="int-base-not-in-range">
+</section>
+<section id="int-base-not-in-range">
 <h3>int base not in range<a class="headerlink" href="#int-base-not-in-range" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 201, in test_int_base_not_in_range
@@ -3423,8 +3428,8 @@ Exception levée à la ligne 201 du fichier TESTS:\runtime\test_value_error.py.
         int:  &lt;class int&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="time-strptime-incorrect-format">
+</section>
+<section id="time-strptime-incorrect-format">
 <h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
@@ -3454,11 +3459,11 @@ Exception levée à la ligne 127 du fichier TESTS:\runtime\test_value_error.py.
         time.strptime:  &lt;builtin function strptime&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="zerodivisionerror">
+</section>
+</section>
+<section id="zerodivisionerror">
 <h2>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="complex-division">
+<section id="complex-division">
 <h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
@@ -3485,8 +3490,8 @@ Exception levée à la ligne 155 du fichier TESTS:\runtime\test_zero_division_er
         zero:  0j
 </pre></div>
 </div>
-</div>
-<div class="section" id="division-by-zero-literal">
+</section>
+<section id="division-by-zero-literal">
 <h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 199, in test_Division_by_zero_literal
@@ -3507,8 +3512,8 @@ Exception levée à la ligne 199 du fichier TESTS:\runtime\test_zero_division_er
    200:     except ZeroDivisionError as e:
 </pre></div>
 </div>
-</div>
-<div class="section" id="division-operator">
+</section>
+<section id="division-operator">
 <h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 17, in test_Division_operator
@@ -3535,8 +3540,8 @@ Exception levée à la ligne 17 du fichier TESTS:\runtime\test_zero_division_err
         zero:  0
 </pre></div>
 </div>
-</div>
-<div class="section" id="divmod">
+</section>
+<section id="divmod">
 <h3>Divmod<a class="headerlink" href="#divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
@@ -3560,8 +3565,8 @@ Exception levée à la ligne 82 du fichier TESTS:\runtime\test_zero_division_err
         divmod:  &lt;builtin function divmod&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="float-division">
+</section>
+<section id="float-division">
 <h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 125, in test_Float_division
@@ -3588,8 +3593,8 @@ Exception levée à la ligne 125 du fichier TESTS:\runtime\test_zero_division_er
         zero:  0.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="float-divmod">
+</section>
+<section id="float-divmod">
 <h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 140, in test_Float_divmod
@@ -3613,8 +3618,8 @@ Exception levée à la ligne 140 du fichier TESTS:\runtime\test_zero_division_er
         divmod:  &lt;builtin function divmod&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="float-modulo">
+</section>
+<section id="float-modulo">
 <h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 110, in test_Float_modulo
@@ -3641,8 +3646,8 @@ Exception levée à la ligne 110 du fichier TESTS:\runtime\test_zero_division_er
         zero:  0.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="integer-division-operator">
+</section>
+<section id="integer-division-operator">
 <h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 42, in test_Integer_division_operator
@@ -3669,8 +3674,8 @@ Exception levée à la ligne 42 du fichier TESTS:\runtime\test_zero_division_err
         zero:  0
 </pre></div>
 </div>
-</div>
-<div class="section" id="mixed-operations">
+</section>
+<section id="mixed-operations">
 <h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 212, in test_Mixed_operations
@@ -3696,8 +3701,8 @@ Exception levée à la ligne 212 du fichier TESTS:\runtime\test_zero_division_er
         1 // 2:  0
 </pre></div>
 </div>
-</div>
-<div class="section" id="modulo-operator">
+</section>
+<section id="modulo-operator">
 <h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 67, in test_Modulo_operator
@@ -3724,8 +3729,8 @@ Exception levée à la ligne 67 du fichier TESTS:\runtime\test_zero_division_err
         zero:  0
 </pre></div>
 </div>
-</div>
-<div class="section" id="raise-zero-negative-power">
+</section>
+<section id="raise-zero-negative-power">
 <h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 170, in test_Raise_zero_negative_power
@@ -3749,11 +3754,12 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
         zero:  0
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -3780,14 +3786,10 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/tracebacks_fr.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/tracebacks_fr.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -3989,7 +3991,7 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

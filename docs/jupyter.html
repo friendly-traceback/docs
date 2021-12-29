@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visual Studio Code" href="vs_code.html" /><link rel="prev" title="Using with an editor or IDE" href="editor.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visual Studio Code" href="vs_code.html" /><link rel="prev" title="Using with an editor or IDE" href="editor.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Jupyter notebooks and JupyterLab - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Jupyter notebooks and JupyterLab - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,14 +295,15 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="jupyter-notebooks-and-jupyterlab">
+        <article role="main">
+          <section id="jupyter-notebooks-and-jupyterlab">
 <h1>Jupyter notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this headline">¶</a></h1>
 <p>Friendly supports Jupyter notebooks and variants.
 Note that, other than when I specifically do work to improve
 friendly’s integration with Jupyter, I do not use Jupyter
 and may not notice any bugs due to changes in Jupyter and iPython;
 please feel free to report any issues.</p>
-<div class="section" id="suggested-usage">
+<section id="suggested-usage">
 <h2>Suggested usage<a class="headerlink" href="#suggested-usage" title="Permalink to this headline">¶</a></h2>
 <p>If you are using a Classic notebook, or JupyterLab
 with a light theme, I suggest that use the following:</p>
@@ -352,12 +356,12 @@ type in and execute some function calls.</p>
 only the exception message is shown in addition to the <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">...</span></code>
 button.</p>
 </div>
-</div>
-<div class="section" id="available-formatters">
+</section>
+<section id="available-formatters">
 <h2>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this headline">¶</a></h2>
 <p>To be added</p>
-</div>
-<div class="section" id="normal-jupyter-tracebacks">
+</section>
+<section id="normal-jupyter-tracebacks">
 <h2>Normal Jupyter tracebacks.<a class="headerlink" href="#normal-jupyter-tracebacks" title="Permalink to this headline">¶</a></h2>
 <p>By default, tracebacks in JupyterLab notebooks (or Juypter notebooks)
 displayed in a browser are given a pink background (1).
@@ -395,8 +399,8 @@ content displayed with <code class="docutils literal notranslate"><span class="p
 <p>When using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly.jupyter</span> <span class="pre">import</span> <span class="pre">*</span></code>,
 the default formatter is known as <code class="docutils literal notranslate"><span class="pre">'jupyter'</span></code>.</p>
 <a class="reference internal image-reference" href="_images/jupyter-lab-default3.png"><img alt="_images/jupyter-lab-default3.png" src="_images/jupyter-lab-default3.png" style="width: 723.6px; height: 517.8px;"/></a>
-</div>
-<div class="section" id="dark-background">
+</section>
+<section id="dark-background">
 <h2>Dark background<a class="headerlink" href="#dark-background" title="Permalink to this headline">¶</a></h2>
 <p>JupyterLab also gives the choice of a dark background theme.
 Here’s how the previous example look with this dark theme.</p>
@@ -411,7 +415,7 @@ which is the default for the friendly console when used in a terminal.</p>
 are very difficult to read.
 For this reason, I much prefer using the <code class="docutils literal notranslate"><span class="pre">'dark'</span></code> friendly
 formatter in this case.</p>
-<div class="section" id="about-the-hash-digest">
+<section id="about-the-hash-digest">
 <h3>About the hash_digest<a class="headerlink" href="#about-the-hash-digest" title="Permalink to this headline">¶</a></h3>
 <p>The hash_digest is meant to uniquely identify the content of a code block.
 However, this does not appear the case when the same code is entered
@@ -423,9 +427,9 @@ However, IPython developers are certainly swamped with issues to consider
 and would be right not to consider this a high priority item to look at,
 although it might prevent some messages one occasionally gets about
 the need to restart a kernel.</p>
-</div>
-</div>
-<div class="section" id="developer-s-notes">
+</section>
+</section>
+<section id="developer-s-notes">
 <h2>Developer’s notes<a class="headerlink" href="#developer-s-notes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-design_choice admonition" id="id5">
 <p class="admonition-title">Design Choice: Jupyter font family with Rich</p>
@@ -436,10 +440,11 @@ larger when using Rich than without.  To avoid this,
 I override the default from Rich to give a more consistent
 look and feel.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -466,14 +471,10 @@ look and feel.</p>
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/jupyter.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/jupyter.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -517,7 +518,7 @@ look and feel.</p>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

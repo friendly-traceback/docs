@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.6.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in italiano" href="syntax_tracebacks_it.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.6.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in italiano" href="syntax_tracebacks_it.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Generic information about various exceptions - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Generic information about various exceptions - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,7 +295,8 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="generic-information-about-various-exceptions">
+        <article role="main">
+          <section id="generic-information-about-various-exceptions">
 <h1>Generic information about various exceptions<a class="headerlink" href="#generic-information-about-various-exceptions" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -314,11 +318,11 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 <a class="reference external" href="https://docs.python.org/3.7/library/exceptions.html#FloatingPointError">not used by Python</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">BaseException</span></code>, <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, and <code class="docutils literal notranslate"><span class="pre">ArithmeticError</span></code> are base classes which
 are also not normally seen: some derived classes are normally used instead.</p>
-<p>Information compiled using Friendly version: 0.4.91,
+<p>Information compiled using Friendly version: 0.5.0,
 Python version: 3.6.8</p>
-<div class="section" id="exceptions">
+<section id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="arithmeticerror">
+<section id="arithmeticerror">
 <h3>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`ArithmeticError` is the base class for those built-in exceptions
 that are raised for various arithmetic errors.
@@ -326,8 +330,8 @@ It is unusual that you are seeing this exception;
 normally, a more specific exception should have been raised.
 </pre></div>
 </div>
-</div>
-<div class="section" id="assertionerror">
+</section>
+<section id="assertionerror">
 <h3>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In Python, the keyword `assert` is used in statements of the form
 `assert condition`, to confirm that `condition` is not `False`,
@@ -335,16 +339,16 @@ nor equivalent to `False` such as an empty list, etc.
 If `condition` is `False` or equivalent, an `AssertionError` is raised.
 </pre></div>
 </div>
-</div>
-<div class="section" id="attributeerror">
+</section>
+<section id="attributeerror">
 <h3>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `AttributeError` occurs when the code contains something like
     `object.x`
 and `x` is not a method or attribute (variable) belonging to `object`.
 </pre></div>
 </div>
-</div>
-<div class="section" id="baseexception">
+</section>
+<section id="baseexception">
 <h3>BaseException<a class="headerlink" href="#baseexception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -354,8 +358,8 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="blockingioerror">
+</section>
+<section id="blockingioerror">
 <h3>BlockingIOError<a class="headerlink" href="#blockingioerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `BlockingIOError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -363,8 +367,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="brokenpipeerror">
+</section>
+<section id="brokenpipeerror">
 <h3>BrokenPipeError<a class="headerlink" href="#brokenpipeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `BrokenPipeError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -372,8 +376,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="buffererror">
+</section>
+<section id="buffererror">
 <h3>BufferError<a class="headerlink" href="#buffererror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -383,8 +387,8 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="childprocesserror">
+</section>
+<section id="childprocesserror">
 <h3>ChildProcessError<a class="headerlink" href="#childprocesserror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ChildProcessError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -392,8 +396,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="connectionabortederror">
+</section>
+<section id="connectionabortederror">
 <h3>ConnectionAbortedError<a class="headerlink" href="#connectionabortederror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionAbortedError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -401,8 +405,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="connectionerror">
+</section>
+<section id="connectionerror">
 <h3>ConnectionError<a class="headerlink" href="#connectionerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -410,8 +414,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="connectionrefusederror">
+</section>
+<section id="connectionrefusederror">
 <h3>ConnectionRefusedError<a class="headerlink" href="#connectionrefusederror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionRefusedError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -419,8 +423,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="connectionreseterror">
+</section>
+<section id="connectionreseterror">
 <h3>ConnectionResetError<a class="headerlink" href="#connectionreseterror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ConnectionResetError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -428,23 +432,23 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="eoferror">
+</section>
+<section id="eoferror">
 <h3>EOFError<a class="headerlink" href="#eoferror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `EOFError` is raised when the `input()` function hits
 an end-of-file condition (EOF) without reading any data.
 </pre></div>
 </div>
-</div>
-<div class="section" id="environmenterror">
+</section>
+<section id="environmenterror">
 <h3>EnvironmentError<a class="headerlink" href="#environmenterror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
 to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="exception">
+</section>
+<section id="exception">
 <h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -454,8 +458,8 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="fileexistserror">
+</section>
+<section id="fileexistserror">
 <h3>FileExistsError<a class="headerlink" href="#fileexistserror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `FileExistsError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -463,16 +467,16 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="filenotfounderror">
+</section>
+<section id="filenotfounderror">
 <h3>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `FileNotFoundError` exception indicates that you
 are trying to open a file that cannot be found by Python.
 This could be because you misspelled the name of the file.
 </pre></div>
 </div>
-</div>
-<div class="section" id="floatingpointerror">
+</section>
+<section id="floatingpointerror">
 <h3>FloatingPointError<a class="headerlink" href="#floatingpointerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `FloatingPointError` is a subclass of `ArithmeticError`.
 `ArithmeticError` is the base class for those built-in exceptions
@@ -481,8 +485,8 @@ It is unusual that you are seeing this exception;
 normally, a more specific exception should have been raised.
 </pre></div>
 </div>
-</div>
-<div class="section" id="generatorexit">
+</section>
+<section id="generatorexit">
 <h3>GeneratorExit<a class="headerlink" href="#generatorexit" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -492,31 +496,31 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="ioerror">
+</section>
+<section id="ioerror">
 <h3>IOError<a class="headerlink" href="#ioerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
 to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="importerror">
+</section>
+<section id="importerror">
 <h3>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `ImportError` exception indicates that a certain object could not
 be imported from a module or package. Most often, this is
 because the name of the object is not spelled correctly.
 </pre></div>
 </div>
-</div>
-<div class="section" id="indentationerror">
+</section>
+<section id="indentationerror">
 <h3>IndentationError<a class="headerlink" href="#indentationerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `IndentationError` occurs when a given line of code is
 not indented (aligned vertically with other lines) as expected.
 </pre></div>
 </div>
-</div>
-<div class="section" id="indexerror">
+</section>
+<section id="indexerror">
 <h3>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `IndexError` occurs when you try to get an item from a list,
 a tuple, or a similar object (sequence), and use an index which
@@ -524,8 +528,8 @@ does not exist; typically, this happens because the index you give
 is greater than the length of the sequence.
 </pre></div>
 </div>
-</div>
-<div class="section" id="interruptederror">
+</section>
+<section id="interruptederror">
 <h3>InterruptedError<a class="headerlink" href="#interruptederror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `InterruptedError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -533,8 +537,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="isadirectoryerror">
+</section>
+<section id="isadirectoryerror">
 <h3>IsADirectoryError<a class="headerlink" href="#isadirectoryerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `IsADirectoryError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -542,15 +546,15 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="keyerror">
+</section>
+<section id="keyerror">
 <h3>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `KeyError` is raised when a value is not found as a
 key in a Python dict or in a similar object.
 </pre></div>
 </div>
-</div>
-<div class="section" id="keyboardinterrupt">
+</section>
+<section id="keyboardinterrupt">
 <h3>KeyboardInterrupt<a class="headerlink" href="#keyboardinterrupt" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -560,24 +564,24 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="lookuperror">
+</section>
+<section id="lookuperror">
 <h3>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`LookupError` is the base class for the exceptions that are raised
 when a key or index used on a mapping or sequence is invalid.
 It can also be raised directly by codecs.lookup().
 </pre></div>
 </div>
-</div>
-<div class="section" id="memoryerror">
+</section>
+<section id="memoryerror">
 <h3>MemoryError<a class="headerlink" href="#memoryerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Like the name indicates, a `MemoryError` occurs when Python
 runs out of memory. This can happen if you create an object
 that is too big, like a list with too many items.
 </pre></div>
 </div>
-</div>
-<div class="section" id="modulenotfounderror">
+</section>
+<section id="modulenotfounderror">
 <h3>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ModuleNotFoundError` exception indicates that you
 are trying to import a module that cannot be found by Python.
@@ -585,8 +589,8 @@ This could be because you misspelled the name of the module
 or because it is not installed on your computer.
 </pre></div>
 </div>
-</div>
-<div class="section" id="nameerror">
+</section>
+<section id="nameerror">
 <h3>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `NameError` exception indicates that a variable or
 function name is not known to Python.
@@ -595,8 +599,8 @@ However, sometimes it is because the name is used
 before being defined or given a value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="notadirectoryerror">
+</section>
+<section id="notadirectoryerror">
 <h3>NotADirectoryError<a class="headerlink" href="#notadirectoryerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `NotADirectoryError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -604,34 +608,31 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="notimplementederror">
+</section>
+<section id="notimplementederror">
 <h3>NotImplementedError<a class="headerlink" href="#notimplementederror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to
-https://github.com/friendly-traceback/friendly-traceback/issues/new
-If you are using a REPL, use `www('bug')` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `NotImplementedError` is a subclass of `RuntimeError`.
+A `RuntimeError` is raised when an error is detected that doesn't fall in any
+of the more specific exception types defined by Python.
 </pre></div>
 </div>
-</div>
-<div class="section" id="oserror">
+</section>
+<section id="oserror">
 <h3>OSError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
 to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="overflowerror">
+</section>
+<section id="overflowerror">
 <h3>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OverflowError` is raised when the result of an arithmetic operation
 is too large to be handled by the computer's processor.
 </pre></div>
 </div>
-</div>
-<div class="section" id="permissionerror">
+</section>
+<section id="permissionerror">
 <h3>PermissionError<a class="headerlink" href="#permissionerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `PermissionError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -639,8 +640,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="processlookuperror">
+</section>
+<section id="processlookuperror">
 <h3>ProcessLookupError<a class="headerlink" href="#processlookuperror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `ProcessLookupError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -648,8 +649,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="recursionerror">
+</section>
+<section id="recursionerror">
 <h3>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `RecursionError` is raised when a function calls itself,
 directly or indirectly, too many times.
@@ -657,8 +658,8 @@ It almost always indicates that you made an error in your code
 and that your program would never stop.
 </pre></div>
 </div>
-</div>
-<div class="section" id="referenceerror">
+</section>
+<section id="referenceerror">
 <h3>ReferenceError<a class="headerlink" href="#referenceerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -668,19 +669,15 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="runtimeerror">
+</section>
+<section id="runtimeerror">
 <h3>RuntimeError<a class="headerlink" href="#runtimeerror" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
-Please report this example to
-https://github.com/friendly-traceback/friendly-traceback/issues/new
-If you are using a REPL, use `www('bug')` to do so.
-If you are using the Friendly console, use `www()` to
-do an Internet search for this particular case.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `RuntimeError` is raised when an error is detected that doesn't fall in any
+of the more specific exception types defined by Python.
 </pre></div>
 </div>
-</div>
-<div class="section" id="stopasynciteration">
+</section>
+<section id="stopasynciteration">
 <h3>StopAsyncIteration<a class="headerlink" href="#stopasynciteration" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -690,22 +687,22 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="stopiteration">
+</section>
+<section id="stopiteration">
 <h3>StopIteration<a class="headerlink" href="#stopiteration" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`StopIteration` is raised to indicate that an iterator has no more
 item to provide when its `__next__` method is called by
 the `next()` builtin function.
 </pre></div>
 </div>
-</div>
-<div class="section" id="syntaxerror">
+</section>
+<section id="syntaxerror">
 <h3>SyntaxError<a class="headerlink" href="#syntaxerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `SyntaxError` occurs when Python cannot understand your code.
 </pre></div>
 </div>
-</div>
-<div class="section" id="systemerror">
+</section>
+<section id="systemerror">
 <h3>SystemError<a class="headerlink" href="#systemerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -715,8 +712,8 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="systemexit">
+</section>
+<section id="systemexit">
 <h3>SystemExit<a class="headerlink" href="#systemexit" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is known about this exception.
 Please report this example to
@@ -726,8 +723,8 @@ If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 </pre></div>
 </div>
-</div>
-<div class="section" id="taberror">
+</section>
+<section id="taberror">
 <h3>TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `TabError` indicates that you have used both spaces
 and tab characters to indent your code.
@@ -737,8 +734,8 @@ by inserting either spaces or tab characters at the beginning of lines.
 Python's recommendation is to always use spaces to indent your code.
 </pre></div>
 </div>
-</div>
-<div class="section" id="timeouterror">
+</section>
+<section id="timeouterror">
 <h3>TimeoutError<a class="headerlink" href="#timeouterror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `TimeoutError` is a subclass of `OSError`.
 An `OSError` exception is usually raised by the Operating System
@@ -746,8 +743,8 @@ to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="typeerror">
+</section>
+<section id="typeerror">
 <h3>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `TypeError` is usually caused by trying
 to combine two incompatible types of objects,
@@ -755,8 +752,8 @@ by calling a function with the wrong type of object,
 or by trying to do an operation not allowed on a given type of object.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unboundlocalerror">
+</section>
+<section id="unboundlocalerror">
 <h3>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In Python, variables that are used inside a function are known as
 local variables. Before they are used, they must be assigned a value.
@@ -768,134 +765,135 @@ Python that this is a global variable, otherwise you will see
 an `UnboundLocalError`.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodedecodeerror">
+</section>
+<section id="unicodedecodeerror">
 <h3>UnicodeDecodeError<a class="headerlink" href="#unicodedecodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `UnicodeDecodeError` is a subclass of `ValueError`.
 A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodeencodeerror">
+</section>
+<section id="unicodeencodeerror">
 <h3>UnicodeEncodeError<a class="headerlink" href="#unicodeencodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `UnicodeEncodeError` is a subclass of `ValueError`.
 A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodeerror">
+</section>
+<section id="unicodeerror">
 <h3>UnicodeError<a class="headerlink" href="#unicodeerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `UnicodeError` is a subclass of `ValueError`.
 A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodetranslateerror">
+</section>
+<section id="unicodetranslateerror">
 <h3>UnicodeTranslateError<a class="headerlink" href="#unicodetranslateerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An exception of type `UnicodeTranslateError` is a subclass of `ValueError`.
 A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="valueerror">
+</section>
+<section id="valueerror">
 <h3>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ValueError` indicates that a function or an operation
 received an argument of the right type, but an inappropriate value.
 </pre></div>
 </div>
-</div>
-<div class="section" id="windowserror">
+</section>
+<section id="windowserror">
 <h3>WindowsError<a class="headerlink" href="#windowserror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An `OSError` exception is usually raised by the Operating System
 to indicate that an operation is not allowed or that
 a resource is not available.
 </pre></div>
 </div>
-</div>
-<div class="section" id="zerodivisionerror">
+</section>
+<section id="zerodivisionerror">
 <h3>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A `ZeroDivisionError` occurs when you are attempting to divide a value
 by zero either directly or by using some other mathematical operation.
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="warnings">
+</section>
+</section>
+<section id="warnings">
 <h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="byteswarning">
+<section id="byteswarning">
 <h3>BytesWarning<a class="headerlink" href="#byteswarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="deprecationwarning">
+</section>
+<section id="deprecationwarning">
 <h3>DeprecationWarning<a class="headerlink" href="#deprecationwarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="futurewarning">
+</section>
+<section id="futurewarning">
 <h3>FutureWarning<a class="headerlink" href="#futurewarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="importwarning">
+</section>
+<section id="importwarning">
 <h3>ImportWarning<a class="headerlink" href="#importwarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="pendingdeprecationwarning">
+</section>
+<section id="pendingdeprecationwarning">
 <h3>PendingDeprecationWarning<a class="headerlink" href="#pendingdeprecationwarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="resourcewarning">
+</section>
+<section id="resourcewarning">
 <h3>ResourceWarning<a class="headerlink" href="#resourcewarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="runtimewarning">
+</section>
+<section id="runtimewarning">
 <h3>RuntimeWarning<a class="headerlink" href="#runtimewarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="syntaxwarning">
+</section>
+<section id="syntaxwarning">
 <h3>SyntaxWarning<a class="headerlink" href="#syntaxwarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicodewarning">
+</section>
+<section id="unicodewarning">
 <h3>UnicodeWarning<a class="headerlink" href="#unicodewarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="userwarning">
+</section>
+<section id="userwarning">
 <h3>UserWarning<a class="headerlink" href="#userwarning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-<div class="section" id="warning">
+</section>
+<section id="warning">
 <h3>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No information is available about this warning.
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -922,14 +920,10 @@ by zero either directly or by using some other mathematical operation.
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/known.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/known.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -1038,7 +1032,7 @@ by zero either directly or by using some other mathematical operation.
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

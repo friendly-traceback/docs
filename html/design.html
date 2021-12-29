@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Themes, Styles, and Colours" href="themes.html" /><link rel="prev" title="Google’s colab" href="colab.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Themes, Styles, and Colours" href="themes.html" /><link rel="prev" title="Google’s colab" href="colab.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Some thoughts on the design of friendly - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Some thoughts on the design of friendly - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,14 +295,15 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="some-thoughts-on-the-design-of-friendly">
+        <article role="main">
+          <section id="some-thoughts-on-the-design-of-friendly">
 <h1>Some thoughts on the design of friendly<a class="headerlink" href="#some-thoughts-on-the-design-of-friendly" title="Permalink to this headline">¶</a></h1>
 <p>The following are thoughts on the design of this project.
 More information about various design choices are scattered
 throughout this documentation.
 If you can think of better design choices,
 please feel free to file an issue.</p>
-<div class="section" id="original-purpose">
+<section id="original-purpose">
 <h2>Original purpose<a class="headerlink" href="#original-purpose" title="Permalink to this headline">¶</a></h2>
 <p>friendly’s primary purpose is to make it easier for
 beginners and/or for people that have limited knowledge of English
@@ -307,8 +311,8 @@ to understand what caused a program to generate a traceback.</p>
 <p>A secondary goal is to help them learn how to decipher a normal Python
 traceback and use the information <strong>provided by Python</strong>
 to understand what went wrong and how to fix it.</p>
-</div>
-<div class="section" id="revised-purpose">
+</section>
+<section id="revised-purpose">
 <h2>Revised purpose<a class="headerlink" href="#revised-purpose" title="Permalink to this headline">¶</a></h2>
 <p>As friendly was developed, we found that going beyond
 providing an explanation for the traceback printed by Python
@@ -324,8 +328,8 @@ or revealed by clicking on a button.</p>
 <p>For now, friendly usually tries to identify the most likely cause
 of the exception, but makes some additional suggestions in
 a few relatively rare cases.</p>
-</div>
-<div class="section" id="gradual-reveal">
+</section>
+<section id="gradual-reveal">
 <h2>Gradual reveal<a class="headerlink" href="#gradual-reveal" title="Permalink to this headline">¶</a></h2>
 <p>Initially, it was thought that the information provided by friendly
 should be shown all at once. As we accumulated more and more cases,
@@ -340,8 +344,8 @@ a possible cause or remedy to the exception that was raised.
 This has been inspired in parts by the
 <a class="reference external" href="https://github.com/SylvainDe/DidYouMean-Python">DidYouMean-Python (aka BetterErrorMessages)</a>
 project.</p>
-</div>
-<div class="section" id="summary-of-design-choices">
+</section>
+<section id="summary-of-design-choices">
 <h2>Summary of design choices<a class="headerlink" href="#summary-of-design-choices" title="Permalink to this headline">¶</a></h2>
 <p>Scattered throughout this documentation, we added notes about choices
 that were made in designing friendly and friendly-traceback.
@@ -354,7 +358,7 @@ For this reason, friendly is automatically installed when
 <code class="docutils literal notranslate"><span class="pre">friendly.jupyter</span></code> is imported, instead of requiring users
 to call <code class="docutils literal notranslate"><span class="pre">install()</span></code> after the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
 </div>
-<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id2"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 64.)</p>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id2"><em>original entry</em></a> is located in C:\Users\Andre\github\docs\source\jupyter.rst, line 64.)</p>
 <div class="admonition-design_choice admonition">
 <p class="admonition-title">UI Design Choice: buttons instead of function calls for Jupyter</p>
 <p>friendly aims to be as easy to use as possible for beginners.
@@ -362,14 +366,14 @@ Having them clicking on buttons to reveal some additional information
 when needed is more user-friendly than requiring them to
 type in and execute some function calls.</p>
 </div>
-<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id3"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 74.)</p>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id3"><em>original entry</em></a> is located in C:\Users\Andre\github\docs\source\jupyter.rst, line 74.)</p>
 <div class="admonition-design_choice admonition">
 <p class="admonition-title">Design Choice: only message shown by default for Jupyter</p>
 <p>Rather than showing the friendly traceback by default,
 only the exception message is shown in addition to the <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">...</span></code>
 button.</p>
 </div>
-<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id4"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 85.)</p>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id4"><em>original entry</em></a> is located in C:\Users\Andre\github\docs\source\jupyter.rst, line 85.)</p>
 <div class="admonition-design_choice admonition">
 <p class="admonition-title">Design Choice: Jupyter font family with Rich</p>
 <p>Instead of using the Jupyter default, Rich specifies a
@@ -379,39 +383,39 @@ larger when using Rich than without.  To avoid this,
 I override the default from Rich to give a more consistent
 look and feel.</p>
 </div>
-<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id5"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\jupyter.rst, line 217.)</p>
+<p class="design_choice-source">(The <a class="reference internal" href="jupyter.html#id5"><em>original entry</em></a> is located in C:\Users\Andre\github\docs\source\jupyter.rst, line 217.)</p>
 <div class="admonition-design_choice admonition">
 <p class="admonition-title">UI Design Choice: Red means exception or error</p>
 <p>For both themes, I have chosen to use the colour red only for
 exception names, such as <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, for traceback headings,
 and for headings showing where an exception occurred.</p>
 </div>
-<p class="design_choice-source">(The <a class="reference internal" href="themes.html#id1"><em>original entry</em></a> is located in C:\Users\andre\friendly-traceback\docs\source\themes.rst, line 26.)</p>
+<p class="design_choice-source">(The <a class="reference internal" href="themes.html#id1"><em>original entry</em></a> is located in C:\Users\Andre\github\docs\source\themes.rst, line 26.)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The sections shown below will likely be moved elsewhere</p>
 </div>
-</div>
-<div class="section" id="about-warnings">
+</section>
+<section id="about-warnings">
 <h2>About Warnings<a class="headerlink" href="#about-warnings" title="Permalink to this headline">¶</a></h2>
 <p>In addition to generating exceptions, Python can provide some Warnings
 to users. For now, these are simply silenced but we would like to
 consider including them in the information provided by
 friendly.</p>
-</div>
-<div class="section" id="location-of-the-exception">
+</section>
+<section id="location-of-the-exception">
 <h2>Location of the exception<a class="headerlink" href="#location-of-the-exception" title="Permalink to this headline">¶</a></h2>
 <p>While a Python traceback includes the information from all the frames
 that were involved, friendly focus on the first and last frame,
 as these are more likely to contain the relevant information to the user.</p>
-</div>
-<div class="section" id="variable-information">
+</section>
+<section id="variable-information">
 <h2>Variable information<a class="headerlink" href="#variable-information" title="Permalink to this headline">¶</a></h2>
-<div class="sidebar">
+<aside class="sidebar">
 <p class="sidebar-title">Very old version!</p>
 <p>The screenshots on this page have been done with a very old
 version of friendly (likely before version 0.1).</p>
-</div>
+</aside>
 <p>friendly include the value of all known variables found
 on the lines of code shown; earlier versions, such
 as that shown in the example below, included only variable information
@@ -425,8 +429,8 @@ To avoid this situation, we truncate any value that exceeds a predetermined
 length. However, when we do so, if the variable has a <code class="docutils literal notranslate"><span class="pre">__len__</span></code> attribute,
 we show its value as it can sometimes be helpful in identifying the problem.</p>
 <a class="reference internal image-reference" href="_images/index_error2.png"><img alt="IndexError traceback" src="_images/index_error2.png" style="width: 561.0px; height: 123.5px;"/></a>
-</div>
-<div class="section" id="syntaxerror-invalid-syntax">
+</section>
+<section id="syntaxerror-invalid-syntax">
 <h2>SyntaxError: invalid syntax<a class="headerlink" href="#syntaxerror-invalid-syntax" title="Permalink to this headline">¶</a></h2>
 <p>For <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, Python often offers very little useful information
 beyond where it finally identified that a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> occurred.
@@ -437,8 +441,8 @@ the absence of the corresponding closing bracket was noted to cause an error.</p
 of the code and tries to identify a single cause which produced the
 error.</p>
 <a class="reference internal image-reference" href="_images/syntax_error.png"><img alt="SyntaxError traceback" src="_images/syntax_error.png" style="width: 556.0px; height: 275.0px;"/></a>
-</div>
-<div class="section" id="localization">
+</section>
+<section id="localization">
 <h2>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to translate almost all the text provided
 by friendly.</p>
@@ -467,8 +471,8 @@ English version could be found.  See the related open question above, as to
 whether or not this should be provided in addition to any region
 specific version.</p>
 </div>
-</div>
-<div class="section" id="other-similar-projects">
+</section>
+<section id="other-similar-projects">
 <h2>Other similar projects<a class="headerlink" href="#other-similar-projects" title="Permalink to this headline">¶</a></h2>
 <p>Many other projects do some enhanced traceback formatting, however
 <strong>none that we know of</strong> aim at</p>
@@ -501,10 +505,11 @@ The following is an incomplete list of projects or modules to look at:</p>
 <li><p>use Mu to show numbered prompt</p></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -531,14 +536,10 @@ The following is an incomplete list of projects or modules to look at:</p>
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/design.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/design.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -584,7 +585,7 @@ The following is an incomplete list of projects or modules to look at:</p>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

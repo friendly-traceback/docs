@@ -19,8 +19,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.91
-Python version: 3.9.5
+Friendly-traceback version: 0.5.0
+Python version: 3.9.9
 
 
 
@@ -64,7 +64,7 @@ Python version: 3.9.5
       File "TESTS:\syntax\and_in_import_statement_2.py", line 1
         from math import sin, tan, and cos
                                    ^
-    SyntaxError: trailing comma not allowed without surrounding parentheses
+    SyntaxError: invalid syntax
     
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
@@ -74,9 +74,6 @@ Python version: 3.9.5
     -->1: from math import sin, tan, and cos
                                      ^^^
 
-    Python indicates that you need to surround an expression
-    ending with a comma by parentheses.
-    However, I suspect that you wrote the keyword `and` by mistake.
     The Python keyword `and` can only be used for boolean expressions.
     Perhaps you meant to write
     
@@ -1047,7 +1044,7 @@ Python version: 3.9.5
         __import__(name)
       File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
         a = 3 \ 4.0
-                  ^
+               ^
     SyntaxError: unexpected character after line continuation character
     
         Did you mean to divide by 4.0?
@@ -1729,12 +1726,12 @@ Python version: 3.9.5
        2: 
        3: 
     -->4: def f(aa=1, aa=2):
-          ^^^
+                ^^    ^^
 
     You have defined a function repeating the argument
     
         aa
-    twice; each argument should appear only once in a function definition.
+    Each argument should appear only once in a function definition.
     
 
 (56) def: semi-colon after colon
@@ -4339,14 +4336,18 @@ Python version: 3.9.5
 .. code-block:: none
 
 
+    Traceback (most recent call last):
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_encoding.py", line 2, in <module>
         compile(source, filename="example.py", mode="exec")
-      File "TESTS:\None", line TESTS:\None
+      File "TESTS:\example.py", line 0
     SyntaxError: encoding problem: utf8 with BOM
     
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
+    
+    Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\example.py'
+    .
     
     L'encoding del file non è valido.
     
@@ -5019,6 +5020,7 @@ Python version: 3.9.5
        4:      'b': 2
     -->5:      'c': 3,
                ^^^
+       6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5057,6 +5059,7 @@ Python version: 3.9.5
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
+       5: }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5577,6 +5580,7 @@ Python version: 3.9.5
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                 ^^^
+       3:           that spans multiple lines.""")
 
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
@@ -5924,6 +5928,8 @@ Python version: 3.9.5
        1: a = [
     -->2:     for i in 1, 2, 3:
               ^^^
+       3:         i**2
+       4: ]
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -6195,6 +6201,9 @@ Python version: 3.9.5
        3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
     -->4:             ((((((((((((((((((((((((((((((((((
                                                        ^
+       5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+       6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+       7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
     Your code is too complex for Python:
     you need to reduce the number of parentheses
@@ -6291,6 +6300,7 @@ Python version: 3.9.5
        6: 
     -->7: print(foo())
           ^^^^^
+       8: 
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6321,6 +6331,8 @@ Python version: 3.9.5
        2: x = int('1'
     -->3: if x == 1:
                    ^
+       4:     print('yes')
+       5: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6351,6 +6363,7 @@ Python version: 3.9.5
        2: a = (b+c
     -->3: d = a*a
           ^
+       4: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6383,6 +6396,7 @@ Python version: 3.9.5
        6: 
     -->7: if 2:
               ^
+       8:     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -6434,7 +6448,7 @@ Python version: 3.9.5
         __import__(name)
       File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
         print(\t)
-                ^
+               ^
     SyntaxError: unexpected character after line continuation character
     
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
@@ -6447,7 +6461,7 @@ Python version: 3.9.5
        3: """
        4: 
     -->5: print(\t)
-                  ^
+                 ^
 
     You are using the continuation character `\` outside of a string,
     and it is followed by some other character(s).
@@ -6829,7 +6843,7 @@ Python version: 3.9.5
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1, 2, 3]
-                      ^
+              ^       ^
 
     The closing square bracket `]` on line 2 does not match the opening parenthesis `(` on line 2.
     
@@ -6857,7 +6871,8 @@ Python version: 3.9.5
     al punto indicato da ^.
     
        1: """Should raise SyntaxError: invalid syntax"""
-       2: x = (1,
+    -->2: x = (1,
+              ^
        3:      2,
     -->4:      3]
                 ^
@@ -7200,6 +7215,7 @@ Python version: 3.9.5
        4: if (
     -->5:     var start := begin < end
                   ^^^^^
+       6:    ):
 
     It looks like you were trying to declare that `start` was
     a variable using the word `var`.

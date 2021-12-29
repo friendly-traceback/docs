@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.91
+Friendly-traceback version: 0.5.0
 Python version: 3.11.0a3
 
 
@@ -997,14 +997,6 @@ Python version: 3.11.0a3
     -->1: async def name:
                         ^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        expected '('
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -1743,14 +1735,6 @@ Python version: 3.11.0a3
     -->3: def test.x():
                   ^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        expected '('
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     You cannot use dots in function names.
     
 
@@ -1807,12 +1791,12 @@ Python version: 3.11.0a3
        2: 
        3: 
     -->4: def f(aa=1, aa=2):
-          ^^^^^^^^
+                ^^    ^^
 
     You have defined a function repeating the argument
     
         aa
-    twice; each argument should appear only once in a function definition.
+    Each argument should appear only once in a function definition.
     
 
 (56) def: semi-colon after colon
@@ -2377,14 +2361,6 @@ Python version: 3.11.0a3
     -->3: def name:
                   ^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        expected '('
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -2417,14 +2393,6 @@ Python version: 3.11.0a3
     -->2: def name a, b:
                    ^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        expected '('
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     Perhaps you forgot to include parentheses.
     You might have meant to write
     
@@ -3017,14 +2985,6 @@ Python version: 3.11.0a3
     -->1: def test((a, b), c):
                    ^^^^^^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        Function parameters cannot be parenthesized
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     You cannot have explicit tuples as function arguments.
     You can only use identifiers (variable names) as function arguments.
     Assign any tuple to a parameter and unpack it
@@ -3056,14 +3016,6 @@ Python version: 3.11.0a3
     -->1: def test(a, (b, c)):
                       ^^^^^^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        Function parameters cannot be parenthesized
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     You cannot have explicit tuples as function arguments.
     You can only use identifiers (variable names) as function arguments.
     Assign any tuple to a parameter and unpack it
@@ -5042,14 +4994,6 @@ Python version: 3.11.0a3
     -->2: x = lambda (a, b): a + b
                      ^^^^^^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        Lambda expression parameters cannot be parenthesized
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     `lambda` does not allow parentheses around its arguments.
     This was allowed in Python 2 but it not allowed in Python 3.
     
@@ -5078,14 +5022,6 @@ Python version: 3.11.0a3
     -->2: x = lambda a, (b, c): a + b + b
                         ^^^^^^
 
-    Python gave us the following informative message
-    about the possible cause of the error:
-    
-        Lambda expression parameters cannot be parenthesized
-    
-    However, I do not recognize this information and I have
-    to guess what caused the problem, but I might be wrong.
-    
     You cannot have explicit tuples as arguments.
     Assign any tuple to a parameter and unpack it
     within the body of the function.
@@ -5272,6 +5208,8 @@ Python version: 3.11.0a3
        3: a = {'a': 1,
     -->4:      'b': 2
                     ^
+       5:      'c': 3,
+       6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5311,6 +5249,7 @@ Python version: 3.11.0a3
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
+       5: }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5886,6 +5825,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       3:           that spans multiple lines.""")
 
     Perhaps you need to type
     
@@ -6253,6 +6193,8 @@ Python version: 3.11.0a3
        1: a = [
     -->2:     for i in 1, 2, 3:
               ^^^
+       3:         i**2
+       4: ]
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -6533,6 +6475,9 @@ Python version: 3.11.0a3
        3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
     -->4:             ((((((((((((((((((((((((((((((((((
                                                        ^
+       5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+       6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+       7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
     Your code is too complex for Python:
     you need to reduce the number of parentheses
@@ -6634,6 +6579,9 @@ Python version: 3.11.0a3
        4: def foo():
     -->5:     return [1, 2, 3
                      ^
+       6: 
+       7: print(foo())
+       8: 
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6666,6 +6614,9 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = int('1'
                  ^
+       3: if x == 1:
+       4:     print('yes')
+       5: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6696,6 +6647,8 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: a = (b+c
                ^
+       3: d = a*a
+       4: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6729,6 +6682,7 @@ Python version: 3.11.0a3
        6: 
     -->7: if 2:
               ^
+       8:     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -6830,6 +6784,9 @@ Python version: 3.11.0a3
        4: def foo():
     -->5:     return [1, 2, 3,
                      ^
+       6: 
+       7: print(foo())
+       8: 
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -7188,7 +7145,7 @@ Python version: 3.11.0a3
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1, 2, 3]
-                      ^
+              ^       ^
 
     The closing square bracket `]` on line 2 does not match the opening parenthesis `(` on line 2.
     
@@ -7217,7 +7174,8 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
        1: """Should raise SyntaxError: invalid syntax"""
-       2: x = (1,
+    -->2: x = (1,
+              ^
        3:      2,
     -->4:      3]
                 ^
@@ -7567,6 +7525,7 @@ Python version: 3.11.0a3
        4: if (
     -->5:     var start := begin < end
               ^^^^^^^^^
+       6:    ):
 
     It looks like you were trying to declare that `var` was
     a variable using the word `var`.

@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.4.91
+Friendly-traceback version: 0.5.0
 Python version: 3.6.8
 
 
@@ -1807,12 +1807,12 @@ Python version: 3.6.8
        2: 
        3: 
     -->4: def f(aa=1, aa=2):
-          ^^^
+                ^^    ^^
 
     You have defined a function repeating the argument
     
         aa
-    twice; each argument should appear only once in a function definition.
+    Each argument should appear only once in a function definition.
     
 
 (57) def: semi-colon after colon
@@ -5240,6 +5240,7 @@ Python version: 3.6.8
        4:      'b': 2
     -->5:      'c': 3,
                ^^^
+       6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5279,6 +5280,7 @@ Python version: 3.6.8
        3:      'b': '2'
     -->4:      'c': '3',
                   ^
+       5: }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5847,6 +5849,7 @@ Python version: 3.6.8
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                 ^^^
+       3:           that spans multiple lines.""")
 
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
@@ -6206,6 +6209,8 @@ Python version: 3.6.8
        1: a = [
     -->2:     for i in 1, 2, 3:
               ^^^
+       3:         i**2
+       4: ]
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -6541,6 +6546,7 @@ Python version: 3.6.8
        6: 
     -->7: print(foo())
           ^^^^^
+       8: 
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6572,6 +6578,8 @@ Python version: 3.6.8
        2: x = int('1'
     -->3: if x == 1:
                    ^
+       4:     print('yes')
+       5: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6603,6 +6611,7 @@ Python version: 3.6.8
        2: a = (b+c
     -->3: d = a*a
           ^
+       4: 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6636,6 +6645,7 @@ Python version: 3.6.8
        6: 
     -->7: if 2:
               ^
+       8:     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -7102,7 +7112,7 @@ Python version: 3.6.8
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1, 2, 3]
-                      ^
+              ^       ^
 
     The closing square bracket `]` on line 2 does not match the opening parenthesis `(` on line 2.
     
@@ -7131,7 +7141,8 @@ Python version: 3.6.8
     at the location indicated by ^.
     
        1: """Should raise SyntaxError: invalid syntax"""
-       2: x = (1,
+    -->2: x = (1,
+              ^
        3:      2,
     -->4:      3]
                 ^
@@ -7522,6 +7533,7 @@ Python version: 3.6.8
        4: if (
     -->5:     var start := begin < end
                   ^^^^^
+       6:    ):
 
     It looks like you were trying to declare that `start` was
     a variable using the word `var`.

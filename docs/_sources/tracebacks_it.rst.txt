@@ -16,8 +16,8 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.4.91
-Python version: 3.9.5
+Friendly-traceback version: 0.5.0
+Python version: 3.9.9
 
 
 
@@ -777,7 +777,7 @@ Filename not found
     In your program, the name of the
     file that cannot be found is `does_not_exist`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
+    `C:\Users\Andre\github\friendly-traceback\tests` directory.
     I have no additional information for you.
     
     Eccezione rilevata alla linea 7 del file TESTS:\runtime\test_file_not_found_error.py.
@@ -809,7 +809,7 @@ Filename not found 2
     In your program, the name of the
     file that cannot be found is `setupp.py`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    `C:\Users\Andre\github\friendly-traceback` directory.
     The file `setup.py` has a similar name.
     
     Eccezione rilevata alla linea 30 del file TESTS:\runtime\test_file_not_found_error.py.
@@ -842,7 +842,7 @@ Filename not found 3
     In your program, the name of the
     file that cannot be found is `setup.pyg`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    `C:\Users\Andre\github\friendly-traceback` directory.
     Perhaps you meant one of the following files with similar names:
     `setup.py`, `setup.cfg`
     
@@ -869,13 +869,13 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 59, in test_Circular_import
+      File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
         import circular_a
       File "TESTS:\circular_a.py", line 2, in <module>
         import circular_b
       File "TESTS:\circular_b.py", line 2, in <module>
         from circular_a import a
-    ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
+    ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\Andre\github\friendly-traceback\tests\circular_a.py)
     
     An `ImportError` exception indicates that a certain object could not
     be imported from a module or package. Most often, this is
@@ -895,17 +895,18 @@ Circular import
     to import the original module `circular_a`
     a second time, before Python had completed the first import.
     
-    L'esecuzione si è arrestata alla linea 59 del file TESTS:\runtime\test_import_error.py.
+    L'esecuzione si è arrestata alla linea 70 del file TESTS:\runtime\test_import_error.py.
     
-       57: def test_Circular_import():
-       58:     try:
-    -->59:         import circular_a
-       60:     except ImportError as e:
+       68: def test_Circular_import():
+       69:     try:
+    -->70:         import circular_a
+       71:     except ImportError as e:
 
     Eccezione rilevata alla linea 2 del file TESTS:\circular_b.py.
     
        1: """File used in for test_circular_import() in test_import_error.py"""
     -->2: from circular_a import a
+                     ^
 
 
 Simple import error
@@ -915,7 +916,7 @@ Simple import error
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 45, in test_Simple_import_error
+      File "TESTS:\runtime\test_import_error.py", line 56, in test_Simple_import_error
         from math import Pi
     ImportError: cannot import name 'Pi' from 'math' (unknown location)
     
@@ -927,13 +928,13 @@ Simple import error
     
     Perhaps you meant to import `pi` (from `math`) instead of `Pi`
     
-    Eccezione rilevata alla linea 45 del file TESTS:\runtime\test_import_error.py.
+    Eccezione rilevata alla linea 56 del file TESTS:\runtime\test_import_error.py.
     
-       41:     no_suggestion()
-       42:     multiple_import_on_same_line()
-       44:     try:
-    -->45:         from math import Pi
-       46:     except ImportError as e:
+       52:     multiple_import_on_same_line()
+       53:     wrong_case()
+       55:     try:
+    -->56:         from math import Pi
+       57:     except ImportError as e:
 
 
 IndexError
@@ -1976,9 +1977,9 @@ Urllib error
     Traceback (most recent call last):
       File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
            ... Ci sono altre linee non visibili. ...
-      File "PYTHON_LIB:\socket.py", line 822, in create_connection
+      File "PYTHON_LIB:\socket.py", line 823, in create_connection
         for res in getaddrinfo(host, port, 0, SOCK_STREAM):
-      File "PYTHON_LIB:\socket.py", line 953, in getaddrinfo
+      File "PYTHON_LIB:\socket.py", line 954, in getaddrinfo
         for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
     socket.gaierror: [Errno 11001] getaddrinfo failed
     

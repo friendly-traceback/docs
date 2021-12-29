@@ -15,8 +15,8 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.4.91
-Python version: 3.7.8
+Friendly-traceback version: 0.5.0
+Python version: 3.7.9
 
 
 
@@ -783,7 +783,7 @@ Filename not found
     In your program, the name of the
     file that cannot be found is `does_not_exist`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback\tests` directory.
+    `C:\Users\Andre\github\friendly-traceback\tests` directory.
     I have no additional information for you.
     
     Exception raised on line 7 of file TESTS:\runtime\test_file_not_found_error.py.
@@ -817,7 +817,7 @@ Filename not found 2
     In your program, the name of the
     file that cannot be found is `setupp.py`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    `C:\Users\Andre\github\friendly-traceback` directory.
     The file `setup.py` has a similar name.
     
     Exception raised on line 30 of file TESTS:\runtime\test_file_not_found_error.py.
@@ -852,7 +852,7 @@ Filename not found 3
     In your program, the name of the
     file that cannot be found is `setup.pyg`.
     It was expected to be found in the
-    `C:\Users\andre\friendly-traceback\friendly-traceback` directory.
+    `C:\Users\Andre\github\friendly-traceback` directory.
     Perhaps you meant one of the following files with similar names:
     `setup.py`, `setup.cfg`
     
@@ -879,13 +879,13 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 59, in test_Circular_import
+      File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
         import circular_a
       File "TESTS:\circular_a.py", line 2, in <module>
         import circular_b
       File "TESTS:\circular_b.py", line 2, in <module>
         from circular_a import a
-    ImportError: cannot import name 'a' from 'circular_a' (C:\Users\andre\friendly-traceback\friendly-traceback\tests\circular_a.py)
+    ImportError: cannot import name 'a' from 'circular_a' (C:\Users\Andre\github\friendly-traceback\tests\circular_a.py)
     
         You have a circular import.
         
@@ -907,17 +907,18 @@ Circular import
     to import the original module `circular_a`
     a second time, before Python had completed the first import.
     
-    Execution stopped on line 59 of file TESTS:\runtime\test_import_error.py.
+    Execution stopped on line 70 of file TESTS:\runtime\test_import_error.py.
     
-       57: def test_Circular_import():
-       58:     try:
-    -->59:         import circular_a
-       60:     except ImportError as e:
+       68: def test_Circular_import():
+       69:     try:
+    -->70:         import circular_a
+       71:     except ImportError as e:
 
     Exception raised on line 2 of file TESTS:\circular_b.py.
     
        1: """File used in for test_circular_import() in test_import_error.py"""
     -->2: from circular_a import a
+                     ^
 
 
 Simple import error
@@ -927,7 +928,7 @@ Simple import error
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 45, in test_Simple_import_error
+      File "TESTS:\runtime\test_import_error.py", line 56, in test_Simple_import_error
         from math import Pi
     ImportError: cannot import name 'Pi' from 'math' (unknown location)
     
@@ -939,13 +940,13 @@ Simple import error
     
     Perhaps you meant to import `pi` (from `math`) instead of `Pi`
     
-    Exception raised on line 45 of file TESTS:\runtime\test_import_error.py.
+    Exception raised on line 56 of file TESTS:\runtime\test_import_error.py.
     
-       41:     no_suggestion()
-       42:     multiple_import_on_same_line()
-       44:     try:
-    -->45:         from math import Pi
-       46:     except ImportError as e:
+       52:     multiple_import_on_same_line()
+       53:     wrong_case()
+       55:     try:
+    -->56:         from math import Pi
+       57:     except ImportError as e:
 
 
 IndexError

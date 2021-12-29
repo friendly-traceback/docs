@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Suggest an addition" href="suggest.html" /><link rel="prev" title="Comparing Exception messages between Python versions" href="compare_exceptions.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Suggest an addition" href="suggest.html" /><link rel="prev" title="Comparing Exception messages between Python versions" href="compare_exceptions.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>Comparison between Python versions: SyntaxErrors - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Comparison between Python versions: SyntaxErrors - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,7 +295,8 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="comparison-between-python-versions-syntaxerrors">
+        <article role="main">
+          <section id="comparison-between-python-versions-syntaxerrors">
 <h1>Comparison between Python versions: SyntaxErrors<a class="headerlink" href="#comparison-between-python-versions-syntaxerrors" title="Permalink to this headline">¶</a></h1>
 <p>In this file, we highlight differences between the information
 given by different versions of Python when it comes to <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.
@@ -312,258 +316,30 @@ If the information is the same for Python 3.6 and
 3.7, but changes for Python 3.8, we only show the differences
 between 3.7 and 3.8.</p>
 <div>
-<div class="filename-header">
-augmented_assigment_with_true</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: invalid syntax
-
-<b>3.8: </b>SyntaxError: cannot use assignment expressions with True
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.6: </b>You appear to be using the operator `:=`, sometimes called
-the walrus operator. This operator requires the use of
-Python 3.8 or newer. You are using version 3.6.
-
-<b>3.7: </b>You appear to be using the operator `:=`, sometimes called
-the walrus operator. This operator requires the use of
-Python 3.8 or newer. You are using version 3.7.
-
-</pre>
-<pre class="highlight friendly-small-pre"><b>3.8: </b>`True` is a constant in Python; you cannot assign it a different value.
-
-</pre>
-<div class="filename-header">
-literal_in_for_loop</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: can't assign to literal
-
-<b>3.8: </b>SyntaxError: cannot assign to literal
-
-</pre>
-<div class="filename-header">
-assign_to_literal_int_3</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: can't assign to literal
-
-<b>3.8: </b>SyntaxError: cannot assign to literal
-
-</pre>
-<div class="filename-header">def_function_name_invalid</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: invalid decimal literal
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>The name of a function must be a valid Python identifier,
-that is a name that begins with a letter or an underscore character, `_`,
-and which contains only letters, digits or the underscore character.
-
-<b>3.10: </b>Python tells us that you have written an invalid number.
-However, I think that the problem might be the following.
-
-The name of a function must be a valid Python identifier,
-that is a name that begins with a letter or an underscore character, `_`,
-and which contains only letters, digits or the underscore character.
-
-</pre>
-<div class="filename-header">unicode_quote2</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.8: </b>SyntaxError: invalid character in identifier
-
-<b>3.9: </b>SyntaxError: invalid character '‹' (U+2039)
-
-</pre>
-<div class="filename-header">except_multiple_exceptions</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: multiple exception types must be parenthesized
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>I am guessing that you wanted to use an `except` statement
-with multiple exception types. If that is the case, you must
-surround them with parentheses.
-
-<b>3.10: </b>I am guessing that you wanted to use an `except` statement
-with multiple exception types. If that is the case, you must
-surround them with parentheses.
-
-
-</pre>
-<div class="filename-header">
-assign_to_conditional</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: can't assign to conditional expression
-
-<b>3.8: </b>SyntaxError: cannot assign to conditional expression
-
-</pre>
-<div class="filename-header">dict_value_missing_1</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: ':' expected after dictionary key
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>It looks like the error occurred as you were writing a Python dict.
-Perhaps wrote a dict key without writing the corresponding value.
-
-<b>3.10: </b>It looks like the error occurred as you were writing a Python dict.
-Perhaps you wrote a dict key without writing the corresponding value.
-
-</pre>
-<div class="filename-header">unclosed_paren_1</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: '(' was never closed
-
-</pre>
-<div class="filename-header">invalid_identifier</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: invalid decimal literal
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>Valid names cannot begin with a number.
-
-<b>3.10: </b>Python tells us that you have written an invalid number.
-However, I think that the problem might be the following.
-
-Valid names cannot begin with a number.
-
-</pre>
-<div class="filename-header">
-assign_to_keyword_none</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: can't assign to keyword
-
-<b>3.8: </b>SyntaxError: cannot assign to None
-
-</pre>
-<div class="filename-header">comprehension_with_condition_no_else</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
-
-<b>3.10: </b>SyntaxError: expected 'else' after 'if' expression
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>I am guessing that you were writing a comprehension or a generator expression
-and use the wrong order for a condition.
-The correct order depends if there is an `else` clause or not.
-For example, the correct order for a list comprehensions with
-condition can be either
-
-    [f(x) if condition else other for x in sequence]  # 'if' before 'for'
-
-or, if there is no `else`
-
-    [f(x) for x in sequence if condition]  # 'if' after 'for'
-
-
-<b>3.10: </b>An `else some_value` clause was expected after the `if` expression.
-
-</pre>
-<div class="filename-header">
-unmatched_closing_curly</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: invalid syntax
-
-<b>3.8: </b>SyntaxError: unmatched '}'
-
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>The closing curly bracket `}` on line 6 does not match anything.
-
-    6:     3, 4,}}
-                 ^
-
-<b>3.8: </b>The closing curly bracket `}` on line 6 does not match anything.
-
-</pre>
-<div class="filename-header">def_semi_colon_instead_of_colon</div>
+<div class="filename-header">missing_colon_if</div>
 <h5>Different messages - from Python</h5>
 <pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
 
 <b>3.10: </b>SyntaxError: expected ':'
 
 </pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>A function definition statement must end with a colon.
-You wrote `;` instead of a colon.
-
-<b>3.10: </b>Python expected a colon at the position indicated.
-You wrote `;` instead of a colon.
-
-</pre>
-<div class="filename-header">unicode_quote4</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.8: </b>SyntaxError: invalid character in identifier
-
-<b>3.9: </b>SyntaxError: invalid character '›' (U+203A)
-
-</pre>
-<div class="filename-header">del_paren_star_1</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: can't use starred expression here
-
-<b>3.10: </b>SyntaxError: cannot use starred expression here
-
-</pre>
 <div class="filename-header">
-delete_named_expression</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: invalid syntax
-
-<b>3.8: </b>SyntaxError: cannot delete named expression
-
-</pre>
+assign_instead_of_equal</div>
 <h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.6: </b>You appear to be using the operator `:=`, sometimes called
-the walrus operator. This operator requires the use of
-Python 3.8 or newer. You are using version 3.6.
+<pre class="highlight friendly-small-pre"><b>3.7: </b>You likely used an assignment operator `=` instead of an equality operator `==`.
+The following statement would not contain a syntax error:
 
-<b>3.7: </b>You appear to be using the operator `:=`, sometimes called
-the walrus operator. This operator requires the use of
-Python 3.8 or newer. You are using version 3.7.
-
-</pre>
-<pre class="highlight friendly-small-pre"><b>3.8: </b>You cannot delete the named expression `(a := 5)`.
-You can only delete names of objects, or items in mutable containers
-such as `list`, `set`, or `dict`.
+    a = (b == 2)  # issue #65
+<b>3.8: </b>You used an assignment operator `=`; perhaps you meant to use 
+an equality operator, `==`, or the walrus operator `:=`.
 
 </pre>
-<div class="filename-header">unclosed_paren_2</div>
+<div class="filename-header">dict_value_missing_4</div>
 <h5>Different messages - from Python</h5>
 <pre class="highlight friendly-small-pre"><b>3.9: </b>SyntaxError: invalid syntax
 
-<b>3.10: </b>SyntaxError: invalid syntax. Perhaps you forgot a comma?
+<b>3.10: </b>SyntaxError: expression expected after dictionary key and ':'
 
-</pre>
-<div class="filename-header">
-debug_fstring_not_supported</div>
-<h5>Different messages - from Python</h5>
-<pre class="highlight friendly-small-pre"><b>3.7: </b>SyntaxError: invalid syntax
-
-<b>3.8: </b>Either not a SyntaxError for this Python version, or case excluded for some other reason.
-</pre>
-<h5>Different explanation - by Friendly-traceback</h5>
-<pre class="highlight friendly-small-pre"><b>3.6: </b>You are likely using a 'debug' syntax of f-strings introduced
-in Python version 3.8. You are using version 3.6.
-
-<b>3.7: </b>You are likely using a 'debug' syntax of f-strings introduced
-in Python version 3.8. You are using version 3.7.
-
-</pre>
-<pre class="highlight friendly-small-pre"><b>3.8: </b>Either not a SyntaxError for this Python version, or case excluded for some other reason.
 </pre>
 <div class="filename-header">
 invalid_keyword_argument_2</div>
@@ -600,9 +376,10 @@ which Python interpreted as trying to assign a value to a Python keyword.
 You cannot assign a value to `True`.
 
 </pre>
-</div>
-</div>
-      </article>
+</div></section>
+
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -629,14 +406,10 @@ You cannot assign a value to `True`.
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/compare.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/compare.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -654,7 +427,7 @@ You cannot assign a value to `True`.
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>

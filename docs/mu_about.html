@@ -2,15 +2,16 @@
 <html class="no-js">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Using with Mu: installation" href="mu_install.html" /><link rel="prev" title="IDLE: using the editor" href="idle_run.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Using with Mu: installation" href="mu_install.html" /><link rel="prev" title="IDLE: using the editor" href="idle_run.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.08.17.beta43"/>
-        <title>About Mu - friendly-traceback 0.4.91</title>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>About Mu - friendly-traceback 0.5.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=910ac4ccc9d7c023151c34010d7b500fb9777a51" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     
     
@@ -34,9 +35,11 @@
   
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style></head>
   <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -123,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.4.91</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -149,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.4.91</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -277,7 +280,7 @@
   </aside>
   <div class="main">
     <div class="content">
-      <article role="main">
+      <div class="article-container">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
@@ -292,7 +295,8 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <div class="section" id="about-mu">
+        <article role="main">
+          <section id="about-mu">
 <h1>About Mu<a class="headerlink" href="#about-mu" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://codewith.mu/">Mu</a> is a fantastic editor for absolute beginners.
 Its design philosophy is to enable beginners to download a single
@@ -310,7 +314,7 @@ It should work when using the Pygame zero or the Web mode.</p>
 <p>Unfortunately, I am not able at present to provide any support
 for the other modes (BBC micro:bit, CircuitPython, ESP MicroPython).</p>
 </div>
-<div class="section" id="two-ways-to-use-python">
+<section id="two-ways-to-use-python">
 <h2>Two ways to use Python<a class="headerlink" href="#two-ways-to-use-python" title="Permalink to this headline">¶</a></h2>
 <p>Using the Python 3 mode, there are two ways to execute Python code:</p>
 <ol class="arabic simple">
@@ -318,15 +322,15 @@ for the other modes (BBC micro:bit, CircuitPython, ESP MicroPython).</p>
 <li><p>Using a REPL to execute code interactively.</p></li>
 </ol>
 <a class="reference internal image-reference" href="_images/mu_ui1.png"><img alt="Mu basic user interface" src="_images/mu_ui1.png" style="width: 752.0px; height: 530.0px;"/></a>
-<div class="section" id="running-a-program-in-the-editor">
+<section id="running-a-program-in-the-editor">
 <h3>Running a program in the editor<a class="headerlink" href="#running-a-program-in-the-editor" title="Permalink to this headline">¶</a></h3>
 <p>First, I show what happens using the “run” method.</p>
 <a class="reference internal image-reference" href="_images/mu_ui2.png"><img alt="Mu basic user interface - running a program" src="_images/mu_ui2.png" style="width: 752.0px; height: 530.0px;"/></a>
 <p>After clicking on the “run” button, the icon (1) changes to an “X”.
 The code in the editor (2) is executed and the result is
 shown in the output pane (3) where we can continue entering commands.</p>
-</div>
-<div class="section" id="using-the-repl">
+</section>
+<section id="using-the-repl">
 <h3>Using the REPL<a class="headerlink" href="#using-the-repl" title="Permalink to this headline">¶</a></h3>
 <a class="reference internal image-reference" href="_images/mu_ui3.png"><img alt="Mu basic user interface - using the REPL" src="_images/mu_ui3.png" style="width: 752.0px; height: 530.0px;"/></a>
 <p>After clicking on the REPL button (1), a panel (2) opens where you can
@@ -343,11 +347,12 @@ but behaves as though more code is expected to have a complete
 statement.</p>
 <a class="reference internal image-reference" href="_images/ipython_bug.png"><img alt="IPython bug" src="_images/ipython_bug.png" style="width: 289.2px; height: 106.8px;"/></a>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
-      </article>
+        </article>
+      </div>
       <footer>
         
         <div class="related-pages">
@@ -374,14 +379,10 @@ statement.</p>
         </div>
 
         <div class="related-information">
-              Copyright &#169; André Roberge
-            |
-            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
-              and
-              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            |
-            <a class="muted-link" href="_sources/mu_about.rst.txt"
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/mu_about.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -422,7 +423,7 @@ statement.</p>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
