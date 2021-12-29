@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.0
+Friendly-traceback version: 0.5.0a
 Python version: 3.11.0a3
 
 

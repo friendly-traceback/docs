@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.5.0
+Friendly version: 0.5.0a
 Python version: 3.9.9
 
 
@@ -95,9 +95,9 @@ Python version: 3.9.9
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\annotated_name_global.py", line 4
-        x:int = 1
+        var:int = 1
         ^
-    SyntaxError: annotated name 'x' can't be global
+    SyntaxError: annotated name 'var' can't be global
     
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -105,13 +105,13 @@ Python version: 3.9.9
     'TESTS:\syntax\annotated_name_global.py'
     à l'endroit indiqué par ^.
     
-       1: # SyntaxError: annotated name 'x' can't be global
+       1: # SyntaxError: annotated name 'var' can't be global
        2: def foo():
-       3:     global x
-    -->4:     x:int = 1
-              ^
+       3:     global var
+    -->4:     var:int = 1
+              ^^^
 
-    L’objet nommé `x` est défini avec une annotation de type
+    L’objet nommé `var` est défini avec une annotation de type
     comme une variable locale. Il ne peut pas être déclaré variable globale.
     
 
@@ -189,9 +189,9 @@ Python version: 3.9.9
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_1.py", line 7
-        global p
+        global aa, bb, cc, dd
         ^
-    SyntaxError: name 'p' is assigned to before global declaration
+    SyntaxError: name 'cc' is assigned to before global declaration
     
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -199,14 +199,14 @@ Python version: 3.9.9
     'TESTS:\syntax\assign_name_before_global_1.py'
     à l'endroit indiqué par ^.
     
-       3: 
+       3: aa, bb, cc, dd = 1, 2, 3, 4
        4: 
        5: def fn():
-       6:     p = 1
-    -->7:     global p
-              ^^^^^^
+       6:     cc = 1
+    -->7:     global aa, bb, cc, dd
+              ------         ^^
 
-    Vous avez attribué une valeur à la variable `p`
+    Vous avez attribué une valeur à la variable `cc`
     avant de la déclarer comme une variable globale.
     
 
@@ -220,9 +220,9 @@ Python version: 3.9.9
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_2.py", line 7
-        global r
+        global var
         ^
-    SyntaxError: name 'r' is used prior to global declaration
+    SyntaxError: name 'var' is used prior to global declaration
     
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -233,11 +233,11 @@ Python version: 3.9.9
        3: 
        4: 
        5: def fn():
-       6:     print(r)
-    -->7:     global r
-              ^^^^^^
+       6:     print(var)
+    -->7:     global var
+              ------ ^^^
 
-    Vous avez utilisé la variable `r`
+    Vous avez utilisé la variable `var`
     avant de la déclarer comme une variable globale.
     
 
@@ -250,10 +250,10 @@ Python version: 3.9.9
     Traceback (most recent call last):
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 9
-        nonlocal q
+      File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
+        nonlocal pp, qq
         ^
-    SyntaxError: name 'q' is used prior to nonlocal declaration
+    SyntaxError: name 'qq' is used prior to nonlocal declaration
     
         Avez-vous oublié d’ajouter `nonlocal` en premier ?
         
@@ -263,14 +263,14 @@ Python version: 3.9.9
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     à l'endroit indiqué par ^.
     
-       5:     q = 1
-       6: 
-       7:     def g():
-       8:         print(q)
-    -->9:         nonlocal q
-                  ^^^^^^^^
+        7: 
+        8: 
+        9:     def g():
+       10:         print(qq)
+    -->11:         nonlocal pp, qq
+                   --------     ^^
 
-    Vous avez utilisé la variable `q`
+    Vous avez utilisé la variable `qq`
     avant de la déclarer comme variable non locale.
     
 
@@ -301,7 +301,7 @@ Python version: 3.9.9
        7:     def g():
        8:         s = 2
     -->9:         nonlocal s
-                  ^^^^^^^^
+                  -------- ^
 
     Vous avez attribué une valeur à la variable `s`
     avant de la déclarer comme variable non locale.

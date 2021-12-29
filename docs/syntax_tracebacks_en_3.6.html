@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.7.html" /><link rel="prev" title="Friendly tracebacks - in English" href="tracebacks_en_3.6.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.5.0</title>
+        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.5.0a</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.0</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.0a</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.0</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.0a</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -313,7 +313,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.5.0
+<p>Friendly-traceback version: 0.5.0a
 Python version: 3.6.8</p>
 <section id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -373,9 +373,9 @@ Perhaps you meant to write
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\annotated_name_global.py", line 4
-    x:int = 1
+    var:int = 1
     ^
-SyntaxError: annotated name 'x' can't be global
+SyntaxError: annotated name 'var' can't be global
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -383,13 +383,13 @@ Python could not understand the code in the file
 'TESTS:\syntax\annotated_name_global.py'
 at the location indicated by ^.
 
-   1: # SyntaxError: annotated name 'x' can't be global
+   1: # SyntaxError: annotated name 'var' can't be global
    2: def foo():
-   3:     global x
---&gt;4:     x:int = 1
-          ^
+   3:     global var
+--&gt;4:     var:int = 1
+          ^^^
 
-The object named `x` is defined with type annotation
+The object named `var` is defined with type annotation
 as a local variable. It cannot be declared to be a global variable.
 </pre></div>
 </div>
@@ -460,9 +460,9 @@ The following statement would not contain a syntax error:
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\assign_name_before_global_1.py", line 7
-    global p
+    global aa, bb, cc, dd
     ^
-SyntaxError: name 'p' is assigned to before global declaration
+SyntaxError: name 'cc' is assigned to before global declaration
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -470,14 +470,14 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_global_1.py'
 at the location indicated by ^.
 
-   3:
+   3: aa, bb, cc, dd = 1, 2, 3, 4
    4:
    5: def fn():
-   6:     p = 1
---&gt;7:     global p
-          ^^^^^^
+   6:     cc = 1
+--&gt;7:     global aa, bb, cc, dd
+          ------         ^^
 
-You assigned a value to the variable `p`
+You assigned a value to the variable `cc`
 before declaring it as a global variable.
 </pre></div>
 </div>
@@ -488,9 +488,9 @@ before declaring it as a global variable.
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\syntax\assign_name_before_global_2.py", line 7
-    global r
+    global var
     ^
-SyntaxError: name 'r' is used prior to global declaration
+SyntaxError: name 'var' is used prior to global declaration
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -501,11 +501,11 @@ at the location indicated by ^.
    3:
    4:
    5: def fn():
-   6:     print(r)
---&gt;7:     global r
-          ^^^^^^
+   6:     print(var)
+--&gt;7:     global var
+          ------ ^^^
 
-You used the variable `r`
+You used the variable `var`
 before declaring it as a global variable.
 </pre></div>
 </div>
@@ -515,10 +515,10 @@ before declaring it as a global variable.
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
-  File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 9
-    nonlocal q
+  File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
+    nonlocal pp, qq
     ^
-SyntaxError: name 'q' is used prior to nonlocal declaration
+SyntaxError: name 'qq' is used prior to nonlocal declaration
 
     Did you forget to write `nonlocal` first?
 
@@ -528,14 +528,14 @@ Python could not understand the code in the file
 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
 at the location indicated by ^.
 
-   5:     q = 1
-   6:
-   7:     def g():
-   8:         print(q)
---&gt;9:         nonlocal q
-              ^^^^^^^^
+    7:
+    8:
+    9:     def g():
+   10:         print(qq)
+--&gt;11:         nonlocal pp, qq
+               --------     ^^
 
-You used the variable `q`
+You used the variable `qq`
 before declaring it as a nonlocal variable.
 </pre></div>
 </div>
@@ -563,7 +563,7 @@ at the location indicated by ^.
    7:     def g():
    8:         s = 2
 --&gt;9:         nonlocal s
-              ^^^^^^^^
+              -------- ^
 
 You assigned a value to the variable `s`
 before declaring it as a nonlocal variable.
