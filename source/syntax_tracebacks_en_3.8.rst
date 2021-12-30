@@ -328,7 +328,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
        2: 
     -->3: a if 1 else b = 1
-          ^
+          ^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
     conditional expression instead of the name of a variable.
@@ -395,7 +395,7 @@ Python version: 3.8.10
        2:    and assignment to keyword before."""
        3: 
     -->4: a.__debug__ = 1
-          ^
+            ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
     
@@ -487,12 +487,12 @@ Python version: 3.8.10
     
        5: 
     -->6: len('a') = 3
-          ^^^
+          ^^^^^^^^
 
     You wrote the expression
     
-        len('a') = 3
-    
+        len('a') = ...
+        ^^^^^^^^
     where `len('a')`, on the left-hand side of the equal sign, either is
     or includes a function call and is not simply the name of a variable.
     You can only assign objects to identifiers (variable names).
@@ -522,14 +522,14 @@ Python version: 3.8.10
     
        5: 
     -->6: func(a, b=3) = 4
-          ^^^^
+          ^^^^^^^^^^^^
 
-    You wrote an expression like
+    You wrote the expression
     
-        func(...) = some value
-    
-    where `func(...)`, on the left-hand side of the equal sign, is
-    a function call and not the name of a variable.
+        func(a, b=3) = ...
+        ^^^^^^^^^^^^
+    where `func(a, b=3)`, on the left-hand side of the equal sign, either is
+    or includes a function call and is not simply the name of a variable.
     You can only assign objects to identifiers (variable names).
     
 
