@@ -332,7 +332,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
        2: 
     -->3: a if 1 else b = 1
-          ^
+          ^^^^^^^^^^^^^
 
     Du côté gauche d'un signe d'égalité, vous avez une
     expression conditionnelle au lieu du nom d'une variable.
@@ -400,7 +400,7 @@ Python version: 3.9.9
        2:    and assignment to keyword before."""
        3: 
     -->4: a.__debug__ = 1
-          ^
+            ^^^^^^^^^
 
     `__debug__` est une constante dans python; vous ne pouvez pas lui assigner une valeur différente.
     
@@ -495,15 +495,14 @@ Python version: 3.9.9
     
        5: 
     -->6: len('a') = 3
-          ^^^
+          ^^^^^^^^
 
-    Vous avez écrit une expression comme
+    You wrote the expression
     
-        len('a') = 3
-    
-    où `len('a')`, à la gauche du signe d'égalité est soit l'invocation
-    d'une fonction, ou inclus une telle invocation,
-    et n'est pas simplement le nom d'une variable.
+        len('a') = ...
+        ^^^^^^^^
+    where `len('a')`, on the left-hand side of the equal sign, either is
+    or includes a function call and is not simply the name of a variable.
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
@@ -529,20 +528,56 @@ Python version: 3.9.9
     'TESTS:\syntax\assign_to_function_call_2.py'
     à l'endroit indiqué par ^.
     
-       5: 
+       5: # Test to confirm that '=' inside function args is not misidentified.
     -->6: func(a, b=3) = 4
-          ^^^^
+          ^^^^^^^^^^^^
 
-    Vous avez écrit une expression comme
+    You wrote the expression
     
-        func(...) = une certaine valeur
-    
-    où `func(...)`, du côté gauche du signe d'égalité
-    est une fonction et non le nom d’une variable.
+        func(a, b=3) = ...
+        ^^^^^^^^^^^^
+    where `func(a, b=3)`, on the left-hand side of the equal sign, either is
+    or includes a function call and is not simply the name of a variable.
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(17) Assign to generator expression
+(17) Cannot assign to function call: continues on second line
+-------------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_function_call_3.py", line 6
+        a = f(1, 2,  # this is a comment
+            ^
+    SyntaxError: cannot assign to function call
+    
+        Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
+        
+    Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
+    
+    Python ne peut pas comprendre le code du fichier
+    'TESTS:\syntax\assign_to_function_call_3.py'
+    à l'endroit indiqué par ^.
+    
+       5: # tests for continuation marker
+    -->6: a = f(1, 2,  # this is a comment
+              ^^^^^^^-->
+       7:       3, 4) = 5
+
+    You wrote the expression
+    
+        f(1, 2,...) = ...
+        ^^^^^^^-->
+    where `f(1, 2,...)`, on the left-hand side of the equal sign, either is
+    or includes a function call and is not simply the name of a variable.
+    Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
+    
+
+(18) Assign to generator expression
 -----------------------------------
 
 .. code-block:: none
@@ -574,7 +609,7 @@ Python version: 3.9.9
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(18) Cannot assign to literal - 4
+(19) Cannot assign to literal - 4
 ---------------------------------
 
 .. code-block:: none
@@ -610,7 +645,7 @@ Python version: 3.9.9
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(19) Cannot assign to literal int
+(20) Cannot assign to literal int
 ---------------------------------
 
 .. code-block:: none
@@ -648,7 +683,7 @@ Python version: 3.9.9
     
     
 
-(20) Cannot assign to literal int - 2
+(21) Cannot assign to literal int - 2
 -------------------------------------
 
 .. code-block:: none
@@ -685,7 +720,7 @@ Python version: 3.9.9
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(21) Cannot assign to literal - 5
+(22) Cannot assign to literal - 5
 ---------------------------------
 
 .. code-block:: none
@@ -723,7 +758,7 @@ Python version: 3.9.9
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(22) Cannot assign to literal - 3
+(23) Cannot assign to literal - 3
 ---------------------------------
 
 .. code-block:: none
@@ -759,7 +794,7 @@ Python version: 3.9.9
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
-(23) Assign to keyword def
+(24) Assign to keyword def
 --------------------------
 
 .. code-block:: none
@@ -791,7 +826,7 @@ Python version: 3.9.9
     
     
 
-(24) Assign to keyword else
+(25) Assign to keyword else
 ---------------------------
 
 .. code-block:: none
@@ -823,7 +858,7 @@ Python version: 3.9.9
     
     
 
-(25) Assignment to keyword (None)
+(26) Assignment to keyword (None)
 ---------------------------------
 
 .. code-block:: none
@@ -855,7 +890,7 @@ Python version: 3.9.9
     
     
 
-(26) Assign to math operation
+(27) Assign to math operation
 -----------------------------
 
 .. code-block:: none
@@ -888,7 +923,7 @@ Python version: 3.9.9
     utilisé uniquement pour attribuer une valeur à une variable.
     
 
-(27) Assign to yield expression
+(28) Assign to yield expression
 -------------------------------
 
 .. code-block:: none
@@ -920,7 +955,7 @@ Python version: 3.9.9
     `yield` ne peut être utilisé qu'à l'intérieur d'une fonction.
     
 
-(28) Augmented assignment inside comprehension
+(29) Augmented assignment inside comprehension
 ----------------------------------------------
 
 .. code-block:: none
@@ -951,7 +986,7 @@ Python version: 3.9.9
     Ceci n'est pas possible pour la variable `i`.
     
 
-(29) Augmented assignment inside comprehension - inner loop
+(30) Augmented assignment inside comprehension - inner loop
 -----------------------------------------------------------
 
 .. code-block:: none
@@ -982,7 +1017,7 @@ Python version: 3.9.9
     Ceci n'est pas possible pour la variable `j`.
     
 
-(30) def: missing parentheses
+(31) def: missing parentheses
 -----------------------------
 
 .. code-block:: none
@@ -1013,7 +1048,7 @@ Python version: 3.9.9
         async def name():
     
 
-(31) Augmented assignment to literal
+(32) Augmented assignment to literal
 ------------------------------------
 
 .. code-block:: none
@@ -1043,7 +1078,7 @@ Python version: 3.9.9
     Vous ne pouvez attribuer des objets qu’à des identifiants (noms de variables).
     
 
-(32) Walrus/Named assignment depending on Python version
+(33) Walrus/Named assignment depending on Python version
 --------------------------------------------------------
 
 .. code-block:: none
@@ -1075,7 +1110,7 @@ Python version: 3.9.9
     
     
 
-(33) Backslash instead of slash
+(34) Backslash instead of slash
 -------------------------------
 
 .. code-block:: none
@@ -1105,7 +1140,7 @@ Python version: 3.9.9
     Je suppose que vous vouliez diviser par le nombre 4.0
     et avez écrit \ au lieu de /.
 
-(34) Brackets instead of parentheses
+(35) Brackets instead of parentheses
 ------------------------------------
 
 .. code-block:: none
@@ -1135,7 +1170,7 @@ Python version: 3.9.9
     
         print(sum(i for i in [1, 2, 3] if i%2==0))
 
-(35) break outside loop
+(36) break outside loop
 -----------------------
 
 .. code-block:: none
@@ -1164,7 +1199,7 @@ Python version: 3.9.9
     Le mot-clé Python `break` ne peut être utilisé qu'à l'intérieur d'une boucle `for` ou à l'intérieur d'une boucle `while`.
     
 
-(36) Cannot assign to attribute here.
+(37) Cannot assign to attribute here.
 -------------------------------------
 
 .. code-block:: none
@@ -1194,7 +1229,7 @@ Python version: 3.9.9
     
         if x.a == 1:
 
-(37) Cannot guess the cause
+(38) Cannot guess the cause
 ---------------------------
 
 .. code-block:: none
@@ -1231,7 +1266,7 @@ Python version: 3.9.9
     
     
 
-(38) Cannot use star operator
+(39) Cannot use star operator
 -----------------------------
 
 .. code-block:: none
@@ -1261,7 +1296,7 @@ Python version: 3.9.9
     à chaque élément d’un itérable, ce qui n’a pas de sens ici.
     
 
-(39) Cannot use double star operator
+(40) Cannot use double star operator
 ------------------------------------
 
 .. code-block:: none
@@ -1282,14 +1317,14 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: (**k)
-           ^^
+          ^-->
 
     L’opérateur double astérisque, `**` est probablement interprété comme signifiant
     qu'un déballage de `dict` doit être utilisé ce qui n'est soit par permis
     ou n’a pas de sens ici.
     
 
-(40) Missing class name
+(41) Missing class name
 -----------------------
 
 .. code-block:: none
@@ -1321,7 +1356,7 @@ Python version: 3.9.9
     
     
 
-(41) Missing () for tuples in comprehension
+(42) Missing () for tuples in comprehension
 -------------------------------------------
 
 .. code-block:: none
@@ -1358,7 +1393,7 @@ Python version: 3.9.9
     
     
 
-(42) Comprehension with condition (no else)
+(43) Comprehension with condition (no else)
 -------------------------------------------
 
 .. code-block:: none
@@ -1395,7 +1430,7 @@ Python version: 3.9.9
     
     
 
-(43) Comprehension with condition (with else)
+(44) Comprehension with condition (with else)
 ---------------------------------------------
 
 .. code-block:: none
@@ -1432,7 +1467,7 @@ Python version: 3.9.9
     
     
 
-(44) continue outside loop
+(45) continue outside loop
 --------------------------
 
 .. code-block:: none
@@ -1461,7 +1496,7 @@ Python version: 3.9.9
     Le mot-clé Python `continue` ne peut être utilisé qu'à l'intérieur d'une boucle `for` ou à l'intérieur d'une boucle `while`.
     
 
-(45) Copy/paste from interpreter
+(46) Copy/paste from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -1491,7 +1526,7 @@ Python version: 3.9.9
     L’invite Python, `>>>`, ne doit pas être incluse dans votre code.
     
 
-(46) Copy/paste from interpreter - 2
+(47) Copy/paste from interpreter - 2
 ------------------------------------
 
 .. code-block:: none
@@ -1521,7 +1556,7 @@ Python version: 3.9.9
     L’invite Python, `...`, ne doit pas être incluse dans votre code.
     
 
-(47) def: positional arg after kwargs
+(48) def: positional arg after kwargs
 -------------------------------------
 
 .. code-block:: none
@@ -1551,7 +1586,7 @@ Python version: 3.9.9
     arguments nommés dans votre définition de fonction.
     
 
-(48) def: named arguments must follow bare *
+(49) def: named arguments must follow bare *
 --------------------------------------------
 
 .. code-block:: none
@@ -1584,7 +1619,7 @@ Python version: 3.9.9
     par `*, argument=valeur`.
     
 
-(49) def: misused as code block
+(50) def: misused as code block
 -------------------------------
 
 .. code-block:: none
@@ -1617,7 +1652,7 @@ Python version: 3.9.9
         def nom ( ... ):
     
 
-(50) def: misused as code block - 2
+(51) def: misused as code block - 2
 -----------------------------------
 
 .. code-block:: none
@@ -1649,7 +1684,7 @@ Python version: 3.9.9
         def nom ( ... ):
     
 
-(51) Dotted name as function argument
+(52) Dotted name as function argument
 -------------------------------------
 
 .. code-block:: none
@@ -1680,7 +1715,7 @@ Python version: 3.9.9
     Vous vouliez peut-être écrire une virgule.
     
 
-(52) Dotted name as function argument
+(53) Dotted name as function argument
 -------------------------------------
 
 .. code-block:: none
@@ -1709,7 +1744,7 @@ Python version: 3.9.9
     Vous avez tenté d'utiliser un objet avec un attribut comme argument de fonction.
     
 
-(53) Dotted function name
+(54) Dotted function name
 -------------------------
 
 .. code-block:: none
@@ -1739,7 +1774,7 @@ Python version: 3.9.9
     Vous avez tenté d'utiliser un objet avec un attribut comme nom de fonction.
     
 
-(54) def: dict as argument
+(55) def: dict as argument
 --------------------------
 
 .. code-block:: none
@@ -1768,7 +1803,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identifiants (noms de variables) comme arguments de fonction.
     
 
-(55) def: arguments must be unique in function definition
+(56) def: arguments must be unique in function definition
 ---------------------------------------------------------
 
 .. code-block:: none
@@ -1800,7 +1835,7 @@ Python version: 3.9.9
     Chaque argument ne doit apparaître qu'une seule fois dans une définition de fonction.
     
 
-(56) def: semi-colon after colon
+(57) def: semi-colon after colon
 --------------------------------
 
 .. code-block:: none
@@ -1830,7 +1865,7 @@ Python version: 3.9.9
     Si vous supprimez `;`, cela pourrait possiblement résoudre le problème.
     
 
-(57) def: extra comma
+(58) def: extra comma
 ---------------------
 
 .. code-block:: none
@@ -1860,7 +1895,7 @@ Python version: 3.9.9
     
         def test(a,b):
 
-(58) def: unspecified keywords before /
+(59) def: unspecified keywords before /
 ---------------------------------------
 
 .. code-block:: none
@@ -1891,7 +1926,7 @@ Python version: 3.9.9
     le symbole `/`.
     
 
-(59) def: / before star
+(60) def: / before star
 -----------------------
 
 .. code-block:: none
@@ -1923,7 +1958,7 @@ Python version: 3.9.9
     Lorsqu’ils sont utilisés ensemble, `/` doit apparaître avant `*`.
     
 
-(60) def: / before star arg
+(61) def: / before star arg
 ---------------------------
 
 .. code-block:: none
@@ -1953,7 +1988,7 @@ Python version: 3.9.9
     `*arg` doit apparaître après `/` dans une définition de fonction.
     
 
-(61) def: / used twice
+(62) def: / used twice
 ----------------------
 
 .. code-block:: none
@@ -1981,7 +2016,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser `/` qu’une seule fois dans une définition de fonction.
     
 
-(62) def: non-identifier as a function name
+(63) def: non-identifier as a function name
 -------------------------------------------
 
 .. code-block:: none
@@ -2013,7 +2048,7 @@ Python version: 3.9.9
     et qui ne contient que des lettres, des chiffres ou le caractère de soulignement.
     
 
-(63) def: using a string as a function name
+(64) def: using a string as a function name
 -------------------------------------------
 
 .. code-block:: none
@@ -2049,7 +2084,7 @@ Python version: 3.9.9
     Vous avez essayé d’utiliser une chaîne de caractères comme nom de fonction.
     
 
-(64) def: keyword cannot be argument in def - 1
+(65) def: keyword cannot be argument in def - 1
 -----------------------------------------------
 
 .. code-block:: none
@@ -2081,7 +2116,7 @@ Python version: 3.9.9
     (nom de variable) était attendu.
     
 
-(65) def: keyword cannot be argument in def - 2
+(66) def: keyword cannot be argument in def - 2
 -----------------------------------------------
 
 .. code-block:: none
@@ -2113,7 +2148,7 @@ Python version: 3.9.9
     (nom de variable) était attendu.
     
 
-(66) def: keyword cannot be argument in def - 3
+(67) def: keyword cannot be argument in def - 3
 -----------------------------------------------
 
 .. code-block:: none
@@ -2145,7 +2180,7 @@ Python version: 3.9.9
     (nom de variable) était attendu.
     
 
-(67) def: keyword cannot be argument in def - 4
+(68) def: keyword cannot be argument in def - 4
 -----------------------------------------------
 
 .. code-block:: none
@@ -2177,7 +2212,7 @@ Python version: 3.9.9
     (nom de variable) était attendu.
     
 
-(68) def: Python keyword as function name
+(69) def: Python keyword as function name
 -----------------------------------------
 
 .. code-block:: none
@@ -2209,7 +2244,7 @@ Python version: 3.9.9
     
     
 
-(69) def: list as argument - 1
+(70) def: list as argument - 1
 ------------------------------
 
 .. code-block:: none
@@ -2238,7 +2273,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identifiants (noms de variables) comme arguments de fonction.
     
 
-(70) def: list as argument - 2
+(71) def: list as argument - 2
 ------------------------------
 
 .. code-block:: none
@@ -2267,7 +2302,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identifiants (noms de variables) comme arguments de fonction.
     
 
-(71) def: missing colon
+(72) def: missing colon
 -----------------------
 
 .. code-block:: none
@@ -2295,7 +2330,7 @@ Python version: 3.9.9
     Une définition de fonction doit se terminer par deux point, `:`.
     
 
-(72) def: missing comma between function args
+(73) def: missing comma between function args
 ---------------------------------------------
 
 .. code-block:: none
@@ -2331,7 +2366,7 @@ Python version: 3.9.9
         def a(b, c, d):
     
 
-(73) def: missing parentheses
+(74) def: missing parentheses
 -----------------------------
 
 .. code-block:: none
@@ -2364,7 +2399,7 @@ Python version: 3.9.9
         def name():
     
 
-(74) def: missing parentheses around arguments
+(75) def: missing parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
@@ -2396,7 +2431,7 @@ Python version: 3.9.9
         def name (a, b):
     
 
-(75) def: missing function name
+(76) def: missing function name
 -------------------------------
 
 .. code-block:: none
@@ -2427,7 +2462,7 @@ Python version: 3.9.9
         def nom ( ... ):
     
 
-(76) def: name is parameter and global
+(77) def: name is parameter and global
 --------------------------------------
 
 .. code-block:: none
@@ -2464,7 +2499,7 @@ Python version: 3.9.9
     à l'intérieur de cette fonction, ce qui est le contraire de ce que `global` sous-entendait.
     
 
-(77) def: non-default argument follows default argument
+(78) def: non-default argument follows default argument
 -------------------------------------------------------
 
 .. code-block:: none
@@ -2507,7 +2542,7 @@ Python version: 3.9.9
     Selon Python, vous avez utilisé des arguments positionnels après des arguments nommés.
     
 
-(78) Single number used as arg in function def
+(79) Single number used as arg in function def
 ----------------------------------------------
 
 .. code-block:: none
@@ -2536,7 +2571,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identificateurs (noms de variables) comme arguments de fonction.
     
 
-(79) Operator after ``**``
+(80) Operator after ``**``
 --------------------------
 
 .. code-block:: none
@@ -2562,7 +2597,7 @@ Python version: 3.9.9
     L'opérateur `**` doit être suivi d'un identifiant (nom de variable).
     
 
-(80) def: operator instead of comma
+(81) def: operator instead of comma
 -----------------------------------
 
 .. code-block:: none
@@ -2593,7 +2628,7 @@ Python version: 3.9.9
     
         def test(a , b):
 
-(81) def: operator instead of equal
+(82) def: operator instead of equal
 -----------------------------------
 
 .. code-block:: none
@@ -2624,7 +2659,7 @@ Python version: 3.9.9
     
         def test(a, b=3, c=None):
 
-(82) def: operator instead of name
+(83) def: operator instead of name
 ----------------------------------
 
 .. code-block:: none
@@ -2654,7 +2689,7 @@ Python version: 3.9.9
     le résultat n'aura aucun erreur de syntaxe.
     
 
-(83) def: positional argument follows keyword argument
+(84) def: positional argument follows keyword argument
 ------------------------------------------------------
 
 .. code-block:: none
@@ -2697,7 +2732,7 @@ Python version: 3.9.9
     Selon Python, vous avez utilisé des arguments positionnels après des arguments nommés.
     
 
-(84) def: semi-colon instead of colon
+(85) def: semi-colon instead of colon
 -------------------------------------
 
 .. code-block:: none
@@ -2726,7 +2761,7 @@ Python version: 3.9.9
     Tu as écrit `;` au lieu de deux points, `:`.
     
 
-(85) def: set as argument
+(86) def: set as argument
 -------------------------
 
 .. code-block:: none
@@ -2755,7 +2790,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identifiants (noms de variables) comme arguments de fonction.
     
 
-(86) def: ``*arg`` before /
+(87) def: ``*arg`` before /
 ---------------------------
 
 .. code-block:: none
@@ -2785,7 +2820,7 @@ Python version: 3.9.9
     `*arg` doit apparaître après `/` dans une définition de fonction.
     
 
-(87) def: ``*`` used twice
+(88) def: ``*`` used twice
 --------------------------
 
 .. code-block:: none
@@ -2815,7 +2850,7 @@ Python version: 3.9.9
     soit sous la forme `*arg`, mais pas les deux.
     
 
-(88) def: ``*`` used twice
+(89) def: ``*`` used twice
 --------------------------
 
 .. code-block:: none
@@ -2843,7 +2878,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser `*` qu’une seule fois dans une définition de fonction.
     
 
-(89) def: ``*`` used twice
+(90) def: ``*`` used twice
 --------------------------
 
 .. code-block:: none
@@ -2872,7 +2907,7 @@ Python version: 3.9.9
     Vous l'avez utilisé deux fois, avec `*arg` et `*other`.
     
 
-(90) def: ``*`` after ``**``
+(91) def: ``*`` after ``**``
 ----------------------------
 
 .. code-block:: none
@@ -2900,7 +2935,7 @@ Python version: 3.9.9
     `*arg` doit apparaître avant `**kw`.
     
 
-(91) def: ``*`` after ``**``
+(92) def: ``*`` after ``**``
 ----------------------------
 
 .. code-block:: none
@@ -2928,7 +2963,7 @@ Python version: 3.9.9
     `**kw` doit apparaître après l'opérateur `*`.
     
 
-(92) Single string used as arg in function def
+(93) Single string used as arg in function def
 ----------------------------------------------
 
 .. code-block:: none
@@ -2957,7 +2992,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser que des identificateurs (noms de variables) comme arguments de fonction.
     
 
-(93) def: tuple as function argument
+(94) def: tuple as function argument
 ------------------------------------
 
 .. code-block:: none
@@ -2988,7 +3023,7 @@ Python version: 3.9.9
     dans le corps de la fonction.
     
 
-(94) def: tuple as function argument - 2
+(95) def: tuple as function argument - 2
 ----------------------------------------
 
 .. code-block:: none
@@ -3019,7 +3054,7 @@ Python version: 3.9.9
     dans le corps de la fonction.
     
 
-(95) Deleting star expression - 1
+(96) Deleting star expression - 1
 ---------------------------------
 
 .. code-block:: none
@@ -3049,7 +3084,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(96) Deleting star expression - 2
+(97) Deleting star expression - 2
 ---------------------------------
 
 .. code-block:: none
@@ -3079,7 +3114,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(97) Cannot delete a constant
+(98) Cannot delete a constant
 -----------------------------
 
 .. code-block:: none
@@ -3107,7 +3142,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(98) Cannot delete expression
+(99) Cannot delete expression
 -----------------------------
 
 .. code-block:: none
@@ -3138,8 +3173,8 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(99) Cannot delete function call
---------------------------------
+(100) Cannot delete function call
+---------------------------------
 
 .. code-block:: none
 
@@ -3173,7 +3208,7 @@ Python version: 3.9.9
         del f
     
 
-(100) Cannot delete named expression
+(101) Cannot delete named expression
 ------------------------------------
 
 .. code-block:: none
@@ -3204,7 +3239,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(101) Delete only names or items
+(102) Delete only names or items
 --------------------------------
 
 .. code-block:: none
@@ -3231,7 +3266,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(102) Deleting string literal
+(103) Deleting string literal
 -----------------------------
 
 .. code-block:: none
@@ -3259,7 +3294,7 @@ Python version: 3.9.9
     dans des conteneurs mutables comme `list`, `set`, ou `dict`.
     
 
-(103) Value missing in dict - 1
+(104) Value missing in dict - 1
 -------------------------------
 
 .. code-block:: none
@@ -3288,7 +3323,7 @@ Python version: 3.9.9
     Vous avez peut-être écrit une clé de `dict` sans écrire la valeur correspondante.
     
 
-(104) Value missing in dict - 2
+(105) Value missing in dict - 2
 -------------------------------
 
 .. code-block:: none
@@ -3318,7 +3353,7 @@ Python version: 3.9.9
     Vous avez peut-être oublié d'écrire une valeur après les deux points.
     
 
-(105) Value missing in dict - 3
+(106) Value missing in dict - 3
 -------------------------------
 
 .. code-block:: none
@@ -3349,7 +3384,7 @@ Python version: 3.9.9
     Vous avez peut-être écrit une clé de `dict` sans écrire la valeur correspondante.
     
 
-(106) Value missing in dict - 4
+(107) Value missing in dict - 4
 -------------------------------
 
 .. code-block:: none
@@ -3381,7 +3416,7 @@ Python version: 3.9.9
     Vous avez peut-être oublié d'écrire une valeur après les deux points.
     
 
-(107) Different operators in a row
+(108) Different operators in a row
 ----------------------------------
 
 .. code-block:: none
@@ -3409,7 +3444,7 @@ Python version: 3.9.9
     ou vous avez oublié d’écrire quelque chose entre les deux.
     
 
-(108) Dot followed by parenthesis
+(109) Dot followed by parenthesis
 ---------------------------------
 
 .. code-block:: none
@@ -3438,7 +3473,7 @@ Python version: 3.9.9
     Peut-être que vous devez remplacer le point par une virgule.
     
 
-(109) Extra token
+(110) Extra token
 -----------------
 
 .. code-block:: none
@@ -3467,7 +3502,7 @@ Python version: 3.9.9
     Si c’est le cas, vous devez supprimer le second.
     
 
-(110) elif with no matching if
+(111) elif with no matching if
 ------------------------------
 
 .. code-block:: none
@@ -3496,7 +3531,7 @@ Python version: 3.9.9
     un bloc `if`, peut-être parce que `elif` n'est pas indenté correctement.
     
 
-(111) else with no matching statement
+(112) else with no matching statement
 -------------------------------------
 
 .. code-block:: none
@@ -3525,7 +3560,7 @@ Python version: 3.9.9
     un bloc de code valide, peut-être parce que `else` n'est pas indenté correctement.
     
 
-(112) Write elif, not else if
+(113) Write elif, not else if
 -----------------------------
 
 .. code-block:: none
@@ -3559,7 +3594,7 @@ Python version: 3.9.9
     
     
 
-(113) Write elif, not elseif
+(114) Write elif, not elseif
 ----------------------------
 
 .. code-block:: none
@@ -3593,7 +3628,7 @@ Python version: 3.9.9
     
     
 
-(114) EOL while scanning string literal
+(115) EOL while scanning string literal
 ---------------------------------------
 
 .. code-block:: none
@@ -3625,7 +3660,7 @@ Python version: 3.9.9
     terminé la chaîne avec un autre guillemet sur cette ligne.
     
 
-(115) Used equal sign instead of colon
+(116) Used equal sign instead of colon
 --------------------------------------
 
 .. code-block:: none
@@ -3656,7 +3691,7 @@ Python version: 3.9.9
     avant ou exactement à la position indiquée par ^.
     
 
-(116) Parens around multiple exceptions
+(117) Parens around multiple exceptions
 ---------------------------------------
 
 .. code-block:: none
@@ -3688,7 +3723,7 @@ Python version: 3.9.9
     les entourer de parenthèses.
     
 
-(117) Extra token
+(118) Extra token
 -----------------
 
 .. code-block:: none
@@ -3717,7 +3752,7 @@ Python version: 3.9.9
     Écrire simplement `print(1 / 2)` semble corriger l’erreur.
     
 
-(118) Binary f-string not allowed
+(119) Binary f-string not allowed
 ---------------------------------
 
 .. code-block:: none
@@ -3746,7 +3781,7 @@ Python version: 3.9.9
     ceci n’est pas permis.
     
 
-(119) f-string: closing } not allowed
+(120) f-string: closing } not allowed
 -------------------------------------
 
 .. code-block:: none
@@ -3774,7 +3809,7 @@ Python version: 3.9.9
     sinon, vous devez ajouter un `{` d'ouverture.
     
 
-(120) f-string: missing closing }
+(121) f-string: missing closing }
 ---------------------------------
 
 .. code-block:: none
@@ -3802,7 +3837,7 @@ Python version: 3.9.9
     sinon, vous devez ajouter un `}` de fermeture.
     
 
-(121) f-string: unterminated string
+(122) f-string: unterminated string
 -----------------------------------
 
 .. code-block:: none
@@ -3835,7 +3870,7 @@ Python version: 3.9.9
     ou des guillemets ("), mais n'est pas terminé par un autre caractère semblable.
     
 
-(122) f-string with backslash
+(123) f-string with backslash
 -----------------------------
 
 .. code-block:: none
@@ -3872,7 +3907,7 @@ Python version: 3.9.9
         f"{... bonjour ...}"
     
 
-(123) Missing terms in for statement
+(124) Missing terms in for statement
 ------------------------------------
 
 .. code-block:: none
@@ -3904,7 +3939,7 @@ Python version: 3.9.9
     
     
 
-(124) Not a chance!
+(125) Not a chance!
 -------------------
 
 .. code-block:: none
@@ -3934,7 +3969,7 @@ Python version: 3.9.9
     leur niveau d’indentation, et non pas en utilisant des accolades, comme `{...}`.
     
 
-(125) Do not import * from __future__
+(126) Do not import * from __future__
 -------------------------------------
 
 .. code-block:: none
@@ -3972,7 +4007,7 @@ Python version: 3.9.9
      annotations`.
     
 
-(126) __future__ at beginning
+(127) __future__ at beginning
 -----------------------------
 
 .. code-block:: none
@@ -4001,7 +4036,7 @@ Python version: 3.9.9
     interprète le code dans un fichier.
     Une telle instruction doit apparaître au début du fichier.
 
-(127) Typo in __future__
+(128) Typo in __future__
 ------------------------
 
 .. code-block:: none
@@ -4029,7 +4064,7 @@ Python version: 3.9.9
     Au lieu de `divisio`, peut-être que vous vouliez plutôt importer `division`.
     
 
-(128) Unknown feature in __future__
+(129) Unknown feature in __future__
 -----------------------------------
 
 .. code-block:: none
@@ -4066,7 +4101,7 @@ Python version: 3.9.9
      annotations`.
     
 
-(129) Parenthesis around generator expression
+(130) Parenthesis around generator expression
 ---------------------------------------------
 
 .. code-block:: none
@@ -4100,7 +4135,7 @@ Python version: 3.9.9
     Vous devez ajouter des parenthèses qui entourent cette expression.
     
 
-(130) Space between names
+(131) Space between names
 -------------------------
 
 .. code-block:: none
@@ -4134,7 +4169,7 @@ Python version: 3.9.9
     Peut-être que vous vouliez plutôt écrire `a_b` au lieu de `a-b`.
     
 
-(131) Missing condition in if statement
+(132) Missing condition in if statement
 ---------------------------------------
 
 .. code-block:: none
@@ -4166,7 +4201,7 @@ Python version: 3.9.9
     
     
 
-(132) use j instead of i
+(133) use j instead of i
 ------------------------
 
 .. code-block:: none
@@ -4200,7 +4235,7 @@ Python version: 3.9.9
     Peut-être que vous vouliez écrire `3.0j`.
     
 
-(133) Import inversion: import X from Y
+(134) Import inversion: import X from Y
 ---------------------------------------
 
 .. code-block:: none
@@ -4234,7 +4269,7 @@ Python version: 3.9.9
     
     
 
-(134) IndentationError: expected an indented block
+(135) IndentationError: expected an indented block
 --------------------------------------------------
 
 .. code-block:: none
@@ -4265,7 +4300,7 @@ Python version: 3.9.9
     La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
 
-(135) IndentationError: unexpected indent
+(136) IndentationError: unexpected indent
 -----------------------------------------
 
 .. code-block:: none
@@ -4296,7 +4331,7 @@ Python version: 3.9.9
     La ligne `4` indiquée ci-dessus est plus indentée que prévu.
     
 
-(136) IndentationError: unindent does not match ...
+(137) IndentationError: unindent does not match ...
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4328,7 +4363,7 @@ Python version: 3.9.9
     La ligne `5` identifiée ci-dessus est moins indentée que prévu.
     
 
-(137) IndentationError: missing continuation line
+(138) IndentationError: missing continuation line
 -------------------------------------------------
 
 .. code-block:: none
@@ -4366,7 +4401,7 @@ Python version: 3.9.9
     à la fin de la ligne 5.
     
 
-(138) Forgot 'o' for octal
+(139) Forgot 'o' for octal
 --------------------------
 
 .. code-block:: none
@@ -4396,7 +4431,7 @@ Python version: 3.9.9
     un entier décimal et ne saviez pas qu’il ne pouvait pas commencer par des zéros.
     
 
-(139) Integer with leading zeros
+(140) Integer with leading zeros
 --------------------------------
 
 .. code-block:: none
@@ -4425,7 +4460,7 @@ Python version: 3.9.9
     et ne saviez pas qu’il ne pouvait pas commencer par des zéros.
     
 
-(140) Invalid character in identifier
+(141) Invalid character in identifier
 -------------------------------------
 
 .. code-block:: none
@@ -4455,7 +4490,7 @@ Python version: 3.9.9
     ce qui n’est pas permis.
     
 
-(141) Invalid decimal literal - 1
+(142) Invalid decimal literal - 1
 ---------------------------------
 
 .. code-block:: none
@@ -4485,7 +4520,7 @@ Python version: 3.9.9
     
     
 
-(142) Invalid encoding
+(143) Invalid encoding
 ----------------------
 
 .. code-block:: none
@@ -4508,7 +4543,7 @@ Python version: 3.9.9
     L'encodage du fichier n'était pas valide.
     
 
-(143) Invalid hexadecimal number
+(144) Invalid hexadecimal number
 --------------------------------
 
 .. code-block:: none
@@ -4544,7 +4579,7 @@ Python version: 3.9.9
     suivi des caractères utilisés pour représenter la valeur du nombre.
     
 
-(144) Valid names cannot begin with a number
+(145) Valid names cannot begin with a number
 --------------------------------------------
 
 .. code-block:: none
@@ -4574,7 +4609,7 @@ Python version: 3.9.9
     Les noms valides ne peuvent pas commencer par un chiffre.
     
 
-(145) Valid names cannot begin with a number - 2
+(146) Valid names cannot begin with a number - 2
 ------------------------------------------------
 
 .. code-block:: none
@@ -4606,7 +4641,7 @@ Python version: 3.9.9
     
     
 
-(146) Valid names cannot begin with a number - 3
+(147) Valid names cannot begin with a number - 3
 ------------------------------------------------
 
 .. code-block:: none
@@ -4638,7 +4673,7 @@ Python version: 3.9.9
     puisque `3j` est un nombre complexe.]
     
 
-(147) Valid names cannot begin with a number - 4
+(148) Valid names cannot begin with a number - 4
 ------------------------------------------------
 
 .. code-block:: none
@@ -4666,7 +4701,7 @@ Python version: 3.9.9
     Les noms valides ne peuvent pas commencer par un chiffre.
     
 
-(148) Valid names cannot begin with a number - 5
+(149) Valid names cannot begin with a number - 5
 ------------------------------------------------
 
 .. code-block:: none
@@ -4698,7 +4733,7 @@ Python version: 3.9.9
     puisque `42j` est un nombre complexe.]
     
 
-(149) Keyword can't be an expression
+(150) Keyword can't be an expression
 ------------------------------------
 
 .. code-block:: none
@@ -4732,7 +4767,7 @@ Python version: 3.9.9
     ou qu'il contient un point, etc.
     
 
-(150) Named argument can't be a Python keyword
+(151) Named argument can't be a Python keyword
 ----------------------------------------------
 
 .. code-block:: none
@@ -4768,7 +4803,7 @@ Python version: 3.9.9
     Vous ne pouvez pas attribuer une valeur à `True`.
     
 
-(151) Invalid octal number
+(152) Invalid octal number
 --------------------------
 
 .. code-block:: none
@@ -4804,7 +4839,7 @@ Python version: 3.9.9
     suivi des caractères utilisés pour représenter la valeur de cet entier.
     
 
-(152) Inverted operators 1
+(153) Inverted operators 1
 --------------------------
 
 .. code-block:: none
@@ -4833,7 +4868,7 @@ Python version: 3.9.9
     dans le mauvais ordre: `=<` au lieu de `<=`.
     
 
-(153) Inverted operators 2
+(154) Inverted operators 2
 --------------------------
 
 .. code-block:: none
@@ -4865,7 +4900,7 @@ Python version: 3.9.9
     toutes les erreurs de syntaxe dans le code que vous avez écrit.
     
 
-(154) Iteration variable unpacking in comprehension
+(155) Iteration variable unpacking in comprehension
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4896,7 +4931,7 @@ Python version: 3.9.9
         [x for x in xs]
     
 
-(155) Keyword arg only once in function call
+(156) Keyword arg only once in function call
 --------------------------------------------
 
 .. code-block:: none
@@ -4926,7 +4961,7 @@ Python version: 3.9.9
     Chaque argument de ce type ne peut apparaître qu'une seule fois.
     
 
-(156) Keyword as attribute
+(157) Keyword as attribute
 --------------------------
 
 .. code-block:: none
@@ -4961,7 +4996,7 @@ Python version: 3.9.9
     
     
 
-(157) lambda with parentheses around arguments
+(158) lambda with parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
@@ -4989,7 +5024,7 @@ Python version: 3.9.9
     Cela était permis dans Python 2, mais il ne l'est plus dans Python 3.
     
 
-(158) lambda with tuple as argument
+(159) lambda with tuple as argument
 -----------------------------------
 
 .. code-block:: none
@@ -5018,7 +5053,7 @@ Python version: 3.9.9
     dans le corps de la fonction.
     
 
-(159) Assign to literal in for loop
+(160) Assign to literal in for loop
 -----------------------------------
 
 .. code-block:: none
@@ -5051,7 +5086,7 @@ Python version: 3.9.9
     et non pas des littéraux comme `"char"`.
     
 
-(160) IndentationError/SyntaxError depending on version
+(161) IndentationError/SyntaxError depending on version
 -------------------------------------------------------
 
 .. code-block:: none
@@ -5080,7 +5115,7 @@ Python version: 3.9.9
     La ligne `4` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
 
-(161) IndentationError/SyntaxError depending on version - 2
+(162) IndentationError/SyntaxError depending on version - 2
 -----------------------------------------------------------
 
 .. code-block:: none
@@ -5110,7 +5145,7 @@ Python version: 3.9.9
     La ligne `6` identifiée ci-dessus était censée commencer un nouveau bloc indenté.
     
 
-(162) Missing colon - if
+(163) Missing colon - if
 ------------------------
 
 .. code-block:: none
@@ -5142,7 +5177,7 @@ Python version: 3.9.9
     
     
 
-(163) Missing colon - while
+(164) Missing colon - while
 ---------------------------
 
 .. code-block:: none
@@ -5174,7 +5209,7 @@ Python version: 3.9.9
     
     
 
-(164) Missing comma in a dict
+(165) Missing comma in a dict
 -----------------------------
 
 .. code-block:: none
@@ -5215,7 +5250,7 @@ Python version: 3.9.9
     }
     
 
-(165) Missing comma between strings in a dict
+(166) Missing comma between strings in a dict
 ---------------------------------------------
 
 .. code-block:: none
@@ -5254,7 +5289,7 @@ Python version: 3.9.9
     }
     ```
 
-(166) Missing comma in a list
+(167) Missing comma in a list
 -----------------------------
 
 .. code-block:: none
@@ -5296,7 +5331,7 @@ Python version: 3.9.9
     certains d’entre eux pourraient soulever d’autres types d’exceptions.
     
 
-(167) Missing comma in a set
+(168) Missing comma in a set
 ----------------------------
 
 .. code-block:: none
@@ -5338,7 +5373,7 @@ Python version: 3.9.9
     certains d’entre eux pourraient soulever d’autres types d’exceptions.
     
 
-(168) Missing comma in a tuple
+(169) Missing comma in a tuple
 ------------------------------
 
 .. code-block:: none
@@ -5380,7 +5415,7 @@ Python version: 3.9.9
     certains d’entre eux pourraient soulever d’autres types d’exceptions.
     
 
-(169) Missing parenthesis for range
+(170) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
@@ -5412,7 +5447,7 @@ Python version: 3.9.9
     
     
 
-(170) Misspelled Python keyword
+(171) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
@@ -5442,7 +5477,7 @@ Python version: 3.9.9
     Si c'est le cas, la ligne correcte pourrait être `if i in range(3):`.
     
 
-(171) Name is global and nonlocal
+(172) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
@@ -5473,7 +5508,7 @@ Python version: 3.9.9
     Une variable peut être d'un seul type à la fois: soit globale, soit non locale, ou soit locale.
     
 
-(172) Name is parameter and nonlocal
+(173) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
@@ -5505,7 +5540,7 @@ Python version: 3.9.9
     `x` ne peut pas être les deux en même temps.
     
 
-(173) nonlocal variable not found
+(174) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
@@ -5536,7 +5571,7 @@ Python version: 3.9.9
     mais elle n'existe pas ailleurs.
     
 
-(174) nonlocal variable not found at module level
+(175) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
@@ -5566,7 +5601,7 @@ Python version: 3.9.9
     Le mot clé nonlocal fait référence à une variable à l'intérieur d'une fonction
     qui a une valeur attribuée à l'extérieur de cette fonction.
 
-(175) Same operator twice in a row
+(176) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
@@ -5594,7 +5629,7 @@ Python version: 3.9.9
     ou vous avez oublié d’écrire quelque chose entre les deux.
     
 
-(176) Using pip from interpreter
+(177) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -5625,7 +5660,7 @@ Python version: 3.9.9
     pas dans un interprète Python.
     
 
-(177) Using pip from interpreter 2
+(178) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
@@ -5656,7 +5691,7 @@ Python version: 3.9.9
     pas dans un interprète Python.
     
 
-(178) print is a function
+(179) print is a function
 -------------------------
 
 .. code-block:: none
@@ -5690,7 +5725,7 @@ Python version: 3.9.9
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
 
-(179) print is a function 2
+(180) print is a function 2
 ---------------------------
 
 .. code-block:: none
@@ -5720,7 +5755,7 @@ Python version: 3.9.9
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
 
-(180) print is a function 3
+(181) print is a function 3
 ---------------------------
 
 .. code-block:: none
@@ -5753,7 +5788,7 @@ Python version: 3.9.9
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
 
-(181) print is a function 4
+(182) print is a function 4
 ---------------------------
 
 .. code-block:: none
@@ -5784,7 +5819,7 @@ Python version: 3.9.9
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
 
-(182) print is a function 5
+(183) print is a function 5
 ---------------------------
 
 .. code-block:: none
@@ -5814,7 +5849,7 @@ Python version: 3.9.9
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
 
-(183) print is a function 6
+(184) print is a function 6
 ---------------------------
 
 .. code-block:: none
@@ -5848,7 +5883,7 @@ Python version: 3.9.9
     Notez que les arguments de `print` doivent être séparés par des virgules.
     
 
-(184) print is a function 7
+(185) print is a function 7
 ---------------------------
 
 .. code-block:: none
@@ -5878,7 +5913,7 @@ Python version: 3.9.9
     Notez que les arguments de `print` doivent être séparés par des virgules.
     
 
-(185) Calling python from interpreter
+(186) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
@@ -5905,7 +5940,7 @@ Python version: 3.9.9
     Vous devez le faire à partir d’un terminal et non d’un interprète Python.
     
 
-(186) problem with assigning a variable to Python
+(187) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
@@ -5943,7 +5978,7 @@ Python version: 3.9.9
     certains d’entre eux pourraient soulever d’autres types d’exceptions.
     
 
-(187) Quote inside a string
+(188) Quote inside a string
 ---------------------------
 
 .. code-block:: none
@@ -5976,7 +6011,7 @@ Python version: 3.9.9
     à l'intérieur d'une chaîne qui était délimitée par ces mêmes caractères.
     
 
-(188) Raising multiple exceptions
+(189) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
@@ -6003,7 +6038,7 @@ Python version: 3.9.9
     Je crois que vous essayez de lever une exception en utilisant la syntaxe de Python 2.
     
 
-(189) Cannot use return outside function
+(190) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
@@ -6031,7 +6066,7 @@ Python version: 3.9.9
     Vous ne pouvez utiliser un énoncé `return` qu'à l’intérieur d’une fonction ou d’une méthode.
     
 
-(190) Semi-colon instead of comma - 1
+(191) Semi-colon instead of comma - 1
 -------------------------------------
 
 .. code-block:: none
@@ -6060,7 +6095,7 @@ Python version: 3.9.9
     
     
 
-(191) Semi-colon instead of commas - 2
+(192) Semi-colon instead of commas - 2
 --------------------------------------
 
 .. code-block:: none
@@ -6089,7 +6124,7 @@ Python version: 3.9.9
     
     
 
-(192) Semi-colon instead of commas - 3
+(193) Semi-colon instead of commas - 3
 --------------------------------------
 
 .. code-block:: none
@@ -6118,7 +6153,7 @@ Python version: 3.9.9
     
     
 
-(193) Code block inside comprehension
+(194) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -6151,7 +6186,7 @@ Python version: 3.9.9
     Si cette explication est incorrecte, veuillez signaler ce cas.
     
 
-(194) Single = instead of double == with if
+(195) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6183,7 +6218,7 @@ Python version: 3.9.9
     
         if i % 2 == 0:
 
-(195) Single = instead of double == with elif
+(196) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6217,7 +6252,7 @@ Python version: 3.9.9
     
         elif i % 2 == 0:
 
-(196) Single = instead of double == with while
+(197) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6249,7 +6284,7 @@ Python version: 3.9.9
     un opérateur d'égalité, `==`, ou l'opérateur `:=`.
     
 
-(197) Space between operators 1
+(198) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6279,7 +6314,7 @@ Python version: 3.9.9
     et vouliez écrire l'opérateur `**`.
     
 
-(198) Space between operators 2
+(199) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6309,7 +6344,7 @@ Python version: 3.9.9
     et vouliez écrire l'opérateur `/=`.
     
 
-(199) Space in variable name
+(200) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6337,7 +6372,7 @@ Python version: 3.9.9
     Vous ne pouvez pas avoir d’espaces dans les identifiants (noms de variables).
     
 
-(200) Wrong target for star assignment
+(201) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6366,7 +6401,7 @@ Python version: 3.9.9
     
     
 
-(201) Too many nested blocks
+(202) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6398,7 +6433,7 @@ Python version: 3.9.9
     contenus dans d'autres blocs de code.
     
 
-(202) Too many nested parentheses.
+(203) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
@@ -6432,7 +6467,7 @@ Python version: 3.9.9
     contenues dans d'autres parenthèses.
     
 
-(203) Trailing comma in import statement
+(204) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6466,7 +6501,7 @@ Python version: 3.9.9
     `from math import sin, cos`
     
 
-(204) Triple-equal sign
+(205) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6499,7 +6534,7 @@ Python version: 3.9.9
     exactement le même objet, utilisez l’opérateur `is`.
     
 
-(205) Unclosed bracket
+(206) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6533,7 +6568,7 @@ Python version: 3.9.9
                       ^
     
 
-(206) Unclosed parenthesis - 1
+(207) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6566,7 +6601,7 @@ Python version: 3.9.9
                   ^
     
 
-(207) Unclosed parenthesis - 2
+(208) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6598,7 +6633,7 @@ Python version: 3.9.9
                ^
     
 
-(208) Unclosed parenthesis - 3
+(209) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6634,7 +6669,7 @@ Python version: 3.9.9
     Si cela est incorrect, veuillez signaler ce cas.
     
 
-(209) Unclosed parenthesis - 4
+(210) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6666,7 +6701,7 @@ Python version: 3.9.9
                 ^
     
 
-(210) Content passed continuation line character
+(211) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6698,7 +6733,7 @@ Python version: 3.9.9
     Je suppose que vous avez oublié d’enfermer du contenu dans une chaîne de caractères.
     
 
-(211) Unexpected EOF while parsing
+(212) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6735,7 +6770,7 @@ Python version: 3.9.9
                       ^
     
 
-(212) Invalid character (unicode fraction 3/4)
+(213) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6768,7 +6803,7 @@ Python version: 3.9.9
     Je pense que vous vouliez plutôt écrire la fraction `3/4`.
     
 
-(213) Invalid character (unicode fraction 1/2)
+(214) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6801,7 +6836,7 @@ Python version: 3.9.9
     Je pense que vous vouliez plutôt écrire la fraction `1/2`.
     
 
-(214) Invalid character (unicode fraction slash)
+(215) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6834,7 +6869,7 @@ Python version: 3.9.9
     mais est différent de l'opérateur de division `/`.
     
 
-(215) Invalid character (unicode quote)
+(216) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6869,7 +6904,7 @@ Python version: 3.9.9
     au lieu d'un guillemet normal (simple ou double) pour une chaîne de caractères.
     
 
-(216) Invalid character (unicode quote2)
+(217) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6903,7 +6938,7 @@ Python version: 3.9.9
     au lieu d'un guillemet normal (simple ou double) pour une chaîne de caractères.
     
 
-(217) Invalid character (mistaken <)
+(218) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6938,7 +6973,7 @@ Python version: 3.9.9
     Ou peut-être avez-vous voulu écrire un signe plus petit que, `<`.
     
 
-(218) Invalid character (mistaken >)
+(219) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -6973,7 +7008,7 @@ Python version: 3.9.9
     Ou peut-être avez-vous voulu écrire un signe plus grand que, `>`.
     
 
-(219) Invalid character (mistaken comma)
+(220) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -7008,7 +7043,7 @@ Python version: 3.9.9
     Ou peut-être, vous vouliez écrire une virgule.
     
 
-(220) Unmatched closing curly bracket
+(221) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -7036,7 +7071,7 @@ Python version: 3.9.9
     Le symbole accolade `}` à la ligne 6 n'a pas de symbole ouvrant qui lui correspond.
     
 
-(221) Unmatched closing parenthesis
+(222) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -7064,7 +7099,7 @@ Python version: 3.9.9
     Le symbole parenthèse `)` à la ligne 6 n'a pas de symbole ouvrant qui lui correspond.
     
 
-(222) Mismatched brackets - 1
+(223) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -7094,7 +7129,7 @@ Python version: 3.9.9
                ^       ^
     
 
-(223) Mismatched brackets - 2
+(224) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -7129,7 +7164,7 @@ Python version: 3.9.9
                  ^
     
 
-(224) Unmatched brackets - 3
+(225) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -7157,7 +7192,7 @@ Python version: 3.9.9
     Le symbole crochet `]` à la ligne 3 n'a pas de symbole ouvrant qui lui correspond.
     
 
-(225) Unpacking a dict value
+(226) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -7190,7 +7225,7 @@ Python version: 3.9.9
         {'a': (1, 2, 3)}
     
 
-(226) Unterminated triple quoted string
+(227) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -7219,7 +7254,7 @@ Python version: 3.9.9
     sans inclure les triples guillemets nécessaires pour mettre fin à la chaîne.
     
 
-(227) TabError
+(228) TabError
 --------------
 
 .. code-block:: none
@@ -7252,7 +7287,7 @@ Python version: 3.9.9
     -->7: 	pass
            ^^^^
 
-(228) EOL unescaped backslash
+(229) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7285,7 +7320,7 @@ Python version: 3.9.9
     deviez en écrire deux `\` d’affilée.
     
 
-(229) Using the backquote character
+(230) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7317,7 +7352,7 @@ Python version: 3.9.9
     ou que vous avez copié du code de Python 2;
     dans ce dernier cas, utilisez la fonction `repr(x)`.
 
-(230) unicode error
+(231) unicode error
 -------------------
 
 .. code-block:: none
@@ -7351,7 +7386,7 @@ Python version: 3.9.9
     la chaîne de caractères, ou remplacez `\U` par `\\U`.
     
 
-(231) Walrus instead of equal
+(232) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7380,7 +7415,7 @@ Python version: 3.9.9
     l’opérateur d’affectation normal `=` était requis.
     
 
-(232) Missing condition in while statement
+(233) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7412,7 +7447,7 @@ Python version: 3.9.9
     
     
 
-(233) Would-be variable declaration
+(234) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7444,7 +7479,7 @@ Python version: 3.9.9
     Si vous supprimez `var`, vous aurez une instruction Python valide.
     
 
-(234) Would-be variable declaration - 2
+(235) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7480,7 +7515,7 @@ Python version: 3.9.9
     au moins une autre erreur de syntaxe.
     
 
-(235) Cannot use yield outside function
+(236) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
