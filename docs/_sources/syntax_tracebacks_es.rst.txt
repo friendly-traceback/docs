@@ -491,12 +491,13 @@ Python version: 3.9.9
     -->6: len('a') = 3
           ^^^^^^^^
 
-    You wrote the expression
+    Has escrito una expresión como
     
         len('a') = ...
         ^^^^^^^^
-    where `len('a')`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    
+    donde `len('a')`, a la izquierda del signo igual, es
+    o incluye una llamada a una función y no es simplemente el nombre de una variable.
     Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
@@ -526,12 +527,13 @@ Python version: 3.9.9
     -->6: func(a, b=3) = 4
           ^^^^^^^^^^^^
 
-    You wrote the expression
+    Has escrito una expresión como
     
         func(a, b=3) = ...
         ^^^^^^^^^^^^
-    where `func(a, b=3)`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    
+    donde `func(a, b=3)`, a la izquierda del signo igual, es
+    o incluye una llamada a una función y no es simplemente el nombre de una variable.
     Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
@@ -562,12 +564,13 @@ Python version: 3.9.9
               ^^^^^^^-->
        7:       3, 4) = 5
 
-    You wrote the expression
+    Has escrito una expresión como
     
         f(1, 2,...) = ...
         ^^^^^^^-->
-    where `f(1, 2,...)`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    
+    donde `f(1, 2,...)`, a la izquierda del signo igual, es
+    o incluye una llamada a una función y no es simplemente el nombre de una variable.
     Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
