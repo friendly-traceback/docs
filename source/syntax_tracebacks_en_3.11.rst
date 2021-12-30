@@ -742,9 +742,9 @@ Python version: 3.11.0a3
 
     You wrote an expression like
     
-        ... = variable_name
-    where `...`, on the left-hand side of the equal sign,
-    is or includes an actual object 
+        1 = variable_name
+    where `1`, on the left-hand side of the equal sign,
+    is or includes an actual object of type `int`
     and is not simply the name of a variable.
     
     You can only assign objects to identifiers (variable names).

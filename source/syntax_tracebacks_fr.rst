@@ -608,7 +608,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
        2: 
     -->3: (x for x in x) = 1
-          ^
+          ^^^^^^^^^^^^^^
 
     Du côté gauche d'un signe d'égalité, vous avez une
     expression génératrice au lieu du nom d'une variable.
@@ -639,7 +639,7 @@ Python version: 3.9.9
     
        6: 
     -->7: {1 : 2, 2 : 4} = 5
-          ^
+          ^^^^^^^^^^^^^^
 
     Vous avez écrit une expression comme
     
@@ -756,9 +756,9 @@ Python version: 3.9.9
 
     Vous avez écrit une expression comme
     
-        ... = nom_de_variable
-    où `...`, du côté gauche du signe d'égalité
-    est ou inclut un objet 
+        1 = nom_de_variable
+    où `1`, du côté gauche du signe d'égalité
+    est ou inclut un objet de type `int`
     et n'est pas simplement le nom d'une variable.
     
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
@@ -788,7 +788,7 @@ Python version: 3.9.9
     
        6: 
     -->7: {1, 2, 3} = 4
-          ^
+          ^^^^^^^^^
 
     Vous avez écrit une expression comme
     
