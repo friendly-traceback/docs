@@ -594,7 +594,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
        2: 
     -->3: (x for x in x) = 1
-          ^
+          ^^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
     generator expression instead of the name of a variable.
@@ -625,7 +625,7 @@ Python version: 3.8.10
     
        6: 
     -->7: {1 : 2, 2 : 4} = 5
-          ^
+          ^^^^^^^^^^^^^^
 
     You wrote an expression like
     
@@ -774,7 +774,7 @@ Python version: 3.8.10
     
        6: 
     -->7: {1, 2, 3} = 4
-          ^
+          ^^^^^^^^^
 
     You wrote an expression like
     
