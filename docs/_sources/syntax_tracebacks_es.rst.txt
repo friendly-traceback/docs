@@ -332,11 +332,10 @@ Python version: 3.9.9
     -->3: a if 1 else b = 1
           ^^^^^^^^^^^^^
 
-    En el lado izquierdo de un signo igual, tiene una
-    expresión condicional en lugar del nombre de una variable.
-    Una expresión condicional tiene la siguiente forma:
-    
-        variable = objeto if condición else otro_objeto
+    En el lado izquierdo de un signo igual, tiene una expresión generadora
+    en lugar del nombre de una variable.
+        a if 1 else b = ...
+        ^^^^^^^^^^^^^
     Sólo se pueden asignar objetos a identificadores (nombres de variables).
     
 
@@ -816,7 +815,7 @@ Python version: 3.9.9
        1: """ Should raise SyntaxError"""
        2: 
     -->3: def = 2
-              ^
+          ^^^
 
     Has intentado asignar un valor a la palabra clave de Python `def`.
     Esto no está permitido.
@@ -1312,7 +1311,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: (**k)
-          ^-->
+           ^-->
 
     El operador de doble estrella `**` probablemente se interpreta como que
     que se va a utilizar el desempaquetado del dictado, lo cual no está permitido o no tiene sentido en este caso.
@@ -1829,8 +1828,8 @@ Python version: 3.9.9
     Cada argumento debe aparecer sólo una vez en la definición de una función.
     
 
-(57) def: semi-colon after colon
---------------------------------
+(57) def: semicolon after colon
+-------------------------------
 
 .. code-block:: none
 
@@ -2725,8 +2724,8 @@ Python version: 3.9.9
     Según Python, has utilizado argumentos posicionales después de los de palabra clave.
     
 
-(85) def: semi-colon instead of colon
--------------------------------------
+(85) def: semicolon instead of colon
+------------------------------------
 
 .. code-block:: none
 
@@ -5189,7 +5188,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                ^^^^
+                ----^^-->
 
     Has escrito un bucle `while` pero
     olvidó añadir dos puntos `:` al final
@@ -6054,8 +6053,8 @@ Python version: 3.9.9
     Sólo se puede utilizar una sentencia `return` dentro de una función o método.
     
 
-(191) Semi-colon instead of comma - 1
--------------------------------------
+(191) semicolon instead of comma - 1
+------------------------------------
 
 .. code-block:: none
 
@@ -6079,11 +6078,11 @@ Python version: 3.9.9
     -->1: a = [1, 2; 3]
                    ^
 
-    Has escrito un punto y coma, `;`, donde se esperaba una coma.
+    You wrote a semicolon, `;`, where a comma was expected.
     
 
-(192) Semi-colon instead of commas - 2
---------------------------------------
+(192) semicolon instead of commas - 2
+-------------------------------------
 
 .. code-block:: none
 
@@ -6107,11 +6106,11 @@ Python version: 3.9.9
     -->1: a = [1; 2; 3]
                 ^
 
-    Has escrito punto y coma, `;`, donde se esperaban comas.
+    You wrote semicolons, `;`, where commas were expected.
     
 
-(193) Semi-colon instead of commas - 3
---------------------------------------
+(193) semicolon instead of commas - 3
+-------------------------------------
 
 .. code-block:: none
 
@@ -6135,7 +6134,7 @@ Python version: 3.9.9
     -->1: a = [1; 2; 3];
                 ^
 
-    Has escrito punto y coma, `;`, donde se esperaban comas.
+    You wrote semicolons, `;`, where commas were expected.
     
 
 (194) Code block inside comprehension
@@ -6355,6 +6354,7 @@ Python version: 3.9.9
              ^^^^
 
     No puede haber espacios en los identificadores (nombres de variables).
+    ¿Quizás se refería a `my_name`?
     
 
 (201) Wrong target for star assignment

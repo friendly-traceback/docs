@@ -335,10 +335,9 @@ Python version: 3.9.9
           ^^^^^^^^^^^^^
 
     Du côté gauche d'un signe d'égalité, vous avez une
-    expression conditionnelle au lieu du nom d'une variable.
-    Une expression conditionnelle doit avoir la forme suivante:
-    
-        variable = objet if condition else autre_objet
+    expression génératrice au lieu du nom d'une variable.
+        a if 1 else b = ...
+        ^^^^^^^^^^^^^
     Vous ne pouvez assigner des objets qu’à des identifiants (noms de variables).
     
 
@@ -825,7 +824,7 @@ Python version: 3.9.9
        1: """ Should raise SyntaxError"""
        2: 
     -->3: def = 2
-              ^
+          ^^^
 
     Vous essayiez d’assigner une valeur au mot clé Python `def`.
     Ceci n’est pas permis.
@@ -1323,7 +1322,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: (**k)
-          ^-->
+           ^-->
 
     L’opérateur double astérisque, `**` est probablement interprété comme signifiant
     qu'un déballage de `dict` doit être utilisé ce qui n'est soit par permis
@@ -1841,8 +1840,8 @@ Python version: 3.9.9
     Chaque argument ne doit apparaître qu'une seule fois dans une définition de fonction.
     
 
-(57) def: semi-colon after colon
---------------------------------
+(57) def: semicolon after colon
+-------------------------------
 
 .. code-block:: none
 
@@ -2738,8 +2737,8 @@ Python version: 3.9.9
     Selon Python, vous avez utilisé des arguments positionnels après des arguments nommés.
     
 
-(85) def: semi-colon instead of colon
--------------------------------------
+(85) def: semicolon instead of colon
+------------------------------------
 
 .. code-block:: none
 
@@ -5208,7 +5207,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                ^^^^
+                ----^^-->
 
     Vous vouliez débuter une boucle `while`
     mais vous avez oublié d’ajouter deux points `:` à la fin.
@@ -6072,8 +6071,8 @@ Python version: 3.9.9
     Vous ne pouvez utiliser un énoncé `return` qu'à l’intérieur d’une fonction ou d’une méthode.
     
 
-(191) Semi-colon instead of comma - 1
--------------------------------------
+(191) semicolon instead of comma - 1
+------------------------------------
 
 .. code-block:: none
 
@@ -6097,12 +6096,11 @@ Python version: 3.9.9
     -->1: a = [1, 2; 3]
                    ^
 
-    Vous avez écrit un point-virgule, `;`, au lieu d'une virgule.
-    
+    You wrote a semicolon, `;`, where a comma was expected.
     
 
-(192) Semi-colon instead of commas - 2
---------------------------------------
+(192) semicolon instead of commas - 2
+-------------------------------------
 
 .. code-block:: none
 
@@ -6126,12 +6124,11 @@ Python version: 3.9.9
     -->1: a = [1; 2; 3]
                 ^
 
-    Vous avez écrit des points-virgules, `;`, au lieu de virgules.
-    
+    You wrote semicolons, `;`, where commas were expected.
     
 
-(193) Semi-colon instead of commas - 3
---------------------------------------
+(193) semicolon instead of commas - 3
+-------------------------------------
 
 .. code-block:: none
 
@@ -6155,8 +6152,7 @@ Python version: 3.9.9
     -->1: a = [1; 2; 3];
                 ^
 
-    Vous avez écrit des points-virgules, `;`, au lieu de virgules.
-    
+    You wrote semicolons, `;`, where commas were expected.
     
 
 (194) Code block inside comprehension
@@ -6375,7 +6371,8 @@ Python version: 3.9.9
     -->1: my name = André
              ^^^^
 
-    Vous ne pouvez pas avoir d’espaces dans les identifiants (noms de variables).
+    Vous ne pouvez pas avoir d'espaces dans les identifiants (noms de variables).
+    Peut-être vouliez-vous écrire `my_name` ?
     
 
 (201) Wrong target for star assignment

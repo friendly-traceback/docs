@@ -332,9 +332,8 @@ Python version: 3.8.10
 
     On the left-hand side of an equal sign, you have a
     conditional expression instead of the name of a variable.
-    A conditional expression has the following form:
-    
-        variable = object if condition else other_object
+        a if 1 else b = ...
+        ^^^^^^^^^^^^^
     You can only assign objects to identifiers (variable names).
     
 
@@ -811,7 +810,7 @@ Python version: 3.8.10
        1: """ Should raise SyntaxError"""
        2: 
     -->3: def = 2
-              ^
+          ^^^
 
     You were trying to assign a value to the Python keyword `def`.
     This is not allowed.
@@ -1824,8 +1823,8 @@ Python version: 3.8.10
     Each argument should appear only once in a function definition.
     
 
-(57) def: semi-colon after colon
---------------------------------
+(57) def: semicolon after colon
+-------------------------------
 
 .. code-block:: none
 
@@ -2720,8 +2719,8 @@ Python version: 3.8.10
     According to Python, you used positional arguments after keyword ones.
     
 
-(85) def: semi-colon instead of colon
--------------------------------------
+(85) def: semicolon instead of colon
+------------------------------------
 
 .. code-block:: none
 
@@ -5180,7 +5179,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                ^^^^
+                ----^^-->
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -6077,8 +6076,8 @@ Python version: 3.8.10
     You can only use a `return` statement inside a function or method.
     
 
-(192) Semi-colon instead of comma - 1
--------------------------------------
+(192) semicolon instead of comma - 1
+------------------------------------
 
 .. code-block:: none
 
@@ -6102,11 +6101,11 @@ Python version: 3.8.10
     -->1: a = [1, 2; 3]
                    ^
 
-    You wrote a semi-colon, `;`, where a comma was expected.
+    You wrote a semicolon, `;`, where a comma was expected.
     
 
-(193) Semi-colon instead of commas - 2
---------------------------------------
+(193) semicolon instead of commas - 2
+-------------------------------------
 
 .. code-block:: none
 
@@ -6130,11 +6129,11 @@ Python version: 3.8.10
     -->1: a = [1; 2; 3]
                 ^
 
-    You wrote semi-colons, `;`, where commas were expected.
+    You wrote semicolons, `;`, where commas were expected.
     
 
-(194) Semi-colon instead of commas - 3
---------------------------------------
+(194) semicolon instead of commas - 3
+-------------------------------------
 
 .. code-block:: none
 
@@ -6158,7 +6157,7 @@ Python version: 3.8.10
     -->1: a = [1; 2; 3];
                 ^
 
-    You wrote semi-colons, `;`, where commas were expected.
+    You wrote semicolons, `;`, where commas were expected.
     
 
 (195) Code block inside comprehension
@@ -6378,6 +6377,7 @@ Python version: 3.8.10
              ^^^^
 
     You cannot have spaces in identifiers (variable names).
+    Perhaps you meant `my_name`?
     
 
 (202) Wrong target for star assignment

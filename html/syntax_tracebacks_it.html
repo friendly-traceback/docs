@@ -583,9 +583,8 @@ al punto indicato da ^.
 
 On the left-hand side of an equal sign, you have a
 conditional expression instead of the name of a variable.
-A conditional expression has the following form:
-
-    variable = object if condition else other_object
+    a if 1 else b = ...
+    ^^^^^^^^^^^^^
 You can only assign objects to identifiers (variable names).
 </pre></div>
 </div>
@@ -1005,7 +1004,7 @@ al punto indicato da ^.
    1: """ Should raise SyntaxError"""
    2:
 --&gt;3: def = 2
-          ^
+      ^^^
 
 You were trying to assign a value to the Python keyword `def`.
 This is not allowed.
@@ -1437,7 +1436,7 @@ Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\ca
 al punto indicato da ^.
 
 --&gt;1: (**k)
-      ^--&gt;
+       ^--&gt;
 
 The double star operator `**` is likely interpreted to mean that
 dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1887,8 +1886,8 @@ Each argument should appear only once in a function definition.
 </pre></div>
 </div>
 </section>
-<section id="def-semi-colon-after-colon">
-<h2>(57) def: semi-colon after colon<a class="headerlink" href="#def-semi-colon-after-colon" title="Permalink to this headline">¶</a></h2>
+<section id="def-semicolon-after-colon">
+<h2>(57) def: semicolon after colon<a class="headerlink" href="#def-semicolon-after-colon" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2674,8 +2673,8 @@ According to Python, you used positional arguments after keyword ones.
 </pre></div>
 </div>
 </section>
-<section id="def-semi-colon-instead-of-colon">
-<h2>(85) def: semi-colon instead of colon<a class="headerlink" href="#def-semi-colon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<section id="def-semicolon-instead-of-colon">
+<h2>(85) def: semicolon instead of colon<a class="headerlink" href="#def-semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4808,7 +4807,7 @@ al punto indicato da ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: while True  # a comment
-            ^^^^
+            ----^^--&gt;
 
 You wrote a `while` loop but
 forgot to add a colon `:` at the end
@@ -5570,8 +5569,8 @@ You can only use a `return` statement inside a function or method.
 </pre></div>
 </div>
 </section>
-<section id="semi-colon-instead-of-comma-1">
-<h2>(191) Semi-colon instead of comma - 1<a class="headerlink" href="#semi-colon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<section id="semicolon-instead-of-comma-1">
+<h2>(191) semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5590,12 +5589,12 @@ al punto indicato da ^.
 --&gt;1: a = [1, 2; 3]
                ^
 
-You wrote a semi-colon, `;`, where a comma was expected.
+You wrote a semicolon, `;`, where a comma was expected.
 </pre></div>
 </div>
 </section>
-<section id="semi-colon-instead-of-commas-2">
-<h2>(192) Semi-colon instead of commas - 2<a class="headerlink" href="#semi-colon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<section id="semicolon-instead-of-commas-2">
+<h2>(192) semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5614,12 +5613,12 @@ al punto indicato da ^.
 --&gt;1: a = [1; 2; 3]
             ^
 
-You wrote semi-colons, `;`, where commas were expected.
+You wrote semicolons, `;`, where commas were expected.
 </pre></div>
 </div>
 </section>
-<section id="semi-colon-instead-of-commas-3">
-<h2>(193) Semi-colon instead of commas - 3<a class="headerlink" href="#semi-colon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<section id="semicolon-instead-of-commas-3">
+<h2>(193) semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5638,7 +5637,7 @@ al punto indicato da ^.
 --&gt;1: a = [1; 2; 3];
             ^
 
-You wrote semi-colons, `;`, where commas were expected.
+You wrote semicolons, `;`, where commas were expected.
 </pre></div>
 </div>
 </section>
@@ -5832,6 +5831,7 @@ al punto indicato da ^.
          ^^^^
 
 You cannot have spaces in identifiers (variable names).
+Perhaps you meant `my_name`?
 </pre></div>
 </div>
 </section>
@@ -6967,7 +6967,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#dotted-function-name">(54) Dotted function name</a></li>
 <li><a class="reference internal" href="#def-dict-as-argument">(55) def: dict as argument</a></li>
 <li><a class="reference internal" href="#def-arguments-must-be-unique-in-function-definition">(56) def: arguments must be unique in function definition</a></li>
-<li><a class="reference internal" href="#def-semi-colon-after-colon">(57) def: semi-colon after colon</a></li>
+<li><a class="reference internal" href="#def-semicolon-after-colon">(57) def: semicolon after colon</a></li>
 <li><a class="reference internal" href="#def-extra-comma">(58) def: extra comma</a></li>
 <li><a class="reference internal" href="#def-unspecified-keywords-before">(59) def: unspecified keywords before /</a></li>
 <li><a class="reference internal" href="#def-before-star">(60) def: / before star</a></li>
@@ -6995,7 +6995,7 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#def-operator-instead-of-equal">(82) def: operator instead of equal</a></li>
 <li><a class="reference internal" href="#def-operator-instead-of-name">(83) def: operator instead of name</a></li>
 <li><a class="reference internal" href="#def-positional-argument-follows-keyword-argument">(84) def: positional argument follows keyword argument</a></li>
-<li><a class="reference internal" href="#def-semi-colon-instead-of-colon">(85) def: semi-colon instead of colon</a></li>
+<li><a class="reference internal" href="#def-semicolon-instead-of-colon">(85) def: semicolon instead of colon</a></li>
 <li><a class="reference internal" href="#def-set-as-argument">(86) def: set as argument</a></li>
 <li><a class="reference internal" href="#def-arg-before">(87) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /</a></li>
 <li><a class="reference internal" href="#id4">(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
@@ -7101,9 +7101,9 @@ You can only use a `yield` statement inside a function.
 <li><a class="reference internal" href="#quote-inside-a-string">(188) Quote inside a string</a></li>
 <li><a class="reference internal" href="#raising-multiple-exceptions">(189) Raising multiple exceptions</a></li>
 <li><a class="reference internal" href="#cannot-use-return-outside-function">(190) Cannot use return outside function</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-comma-1">(191) Semi-colon instead of comma - 1</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-commas-2">(192) Semi-colon instead of commas - 2</a></li>
-<li><a class="reference internal" href="#semi-colon-instead-of-commas-3">(193) Semi-colon instead of commas - 3</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-comma-1">(191) semicolon instead of comma - 1</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-2">(192) semicolon instead of commas - 2</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-3">(193) semicolon instead of commas - 3</a></li>
 <li><a class="reference internal" href="#code-block-inside-comprehension">(194) Code block inside comprehension</a></li>
 <li><a class="reference internal" href="#single-instead-of-double-with-if">(195) Single = instead of double == with if</a></li>
 <li><a class="reference internal" href="#single-instead-of-double-with-elif">(196) Single = instead of double == with elif</a></li>
