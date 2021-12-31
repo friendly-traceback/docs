@@ -332,9 +332,8 @@ Python version: 3.11.0a3
 
     On the left-hand side of an equal sign, you have a
     conditional expression instead of the name of a variable.
-    A conditional expression has the following form:
-    
-        variable = object if condition else other_object
+        a if 1 else b = ...
+        ^^^^^^^^^^^^^
     You can only assign objects to identifiers (variable names).
     
 
@@ -811,7 +810,7 @@ Python version: 3.11.0a3
        1: """ Should raise SyntaxError"""
        2: 
     -->3: def = 2
-              ^
+          ^^^
 
     You were trying to assign a value to the Python keyword `def`.
     This is not allowed.
@@ -937,7 +936,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: (yield i) = 3
-           ^^^^^^^
+           ^^^^^
 
     You wrote an expression that includes the `yield` keyword
     on the left-hand side of the equal sign.
@@ -1296,7 +1295,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: can't use starred expression here"""
        2: 
     -->3: *a
-           ^^
+          ^^
 
     The star operator `*` is interpreted to mean that
     iterable unpacking is to be used to assign a name
@@ -1327,7 +1326,7 @@ Python version: 3.11.0a3
        2: 
        3: def test(**k):
     -->4:     print(f"{**k}")
-           ^^
+                            ^
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1835,8 +1834,8 @@ Python version: 3.11.0a3
     Each argument should appear only once in a function definition.
     
 
-(57) def: semi-colon after colon
---------------------------------
+(57) def: semicolon after colon
+-------------------------------
 
 .. code-block:: none
 
@@ -2736,8 +2735,8 @@ Python version: 3.11.0a3
     According to Python, you used positional arguments after keyword ones.
     
 
-(85) def: semi-colon instead of colon
--------------------------------------
+(85) def: semicolon instead of colon
+------------------------------------
 
 .. code-block:: none
 
@@ -4463,7 +4462,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: x = 000_123_456
-              ^^^^
+              ^^^
 
     Perhaps you meant to write the integer `123_456`
     and did not know that it could not start with zeros.
@@ -5210,7 +5209,7 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                      ^^^^^^^^^^^
+                ----^^-->
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -5243,7 +5242,7 @@ Python version: 3.11.0a3
        2: 
        3: a = {'a': 1,
     -->4:      'b': 2
-                   ^-->
+                    ^-->
        5:      'c': 3,
        6: }
 
@@ -6122,8 +6121,8 @@ Python version: 3.11.0a3
     You can only use a `return` statement inside a function or method.
     
 
-(192) Semi-colon instead of comma - 1
--------------------------------------
+(192) semicolon instead of comma - 1
+------------------------------------
 
 .. code-block:: none
 
@@ -6147,11 +6146,11 @@ Python version: 3.11.0a3
     -->1: a = [1, 2; 3]
                    ^
 
-    You wrote a semi-colon, `;`, where a comma was expected.
+    You wrote a semicolon, `;`, where a comma was expected.
     
 
-(193) Semi-colon instead of commas - 2
---------------------------------------
+(193) semicolon instead of commas - 2
+-------------------------------------
 
 .. code-block:: none
 
@@ -6175,11 +6174,11 @@ Python version: 3.11.0a3
     -->1: a = [1; 2; 3]
                 ^
 
-    You wrote semi-colons, `;`, where commas were expected.
+    You wrote semicolons, `;`, where commas were expected.
     
 
-(194) Semi-colon instead of commas - 3
---------------------------------------
+(194) semicolon instead of commas - 3
+-------------------------------------
 
 .. code-block:: none
 
@@ -6203,7 +6202,7 @@ Python version: 3.11.0a3
     -->1: a = [1; 2; 3];
                 ^
 
-    You wrote semi-colons, `;`, where commas were expected.
+    You wrote semicolons, `;`, where commas were expected.
     
 
 (195) Code block inside comprehension
@@ -6423,6 +6422,7 @@ Python version: 3.11.0a3
              ^^^^
 
     You cannot have spaces in identifiers (variable names).
+    Perhaps you meant `my_name`?
     
 
 (202) Wrong target for star assignment
@@ -7590,7 +7590,7 @@ Python version: 3.11.0a3
     at the location indicated by ^.
     
     -->1: (yield i) == 3
-           ^^^^^^^
+           ^^^^^
 
     You can only use a `yield` statement inside a function.
     

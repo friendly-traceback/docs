@@ -7553,14 +7553,14 @@ Python version: 3.11.0a3
     
     Python could not understand the code in the file
     'TESTS:\syntax\would_be_type_declaration_2.py'
-    .
+    at the location indicated by ^.
     
        1: begin = 3
        2: end = 4
        3: 
        4: if (
     -->5:     var start := begin < end
-              -->
+              ^^^^^^^^^
        6:    ):
 
     It looks like you were trying to declare that `var` was
