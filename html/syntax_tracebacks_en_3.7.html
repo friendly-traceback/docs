@@ -1655,7 +1655,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: &gt;&gt;&gt; print("Hello World!")
-      ^^
+      ^^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
@@ -1682,7 +1682,7 @@ at the location indicated by ^.
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: ... print("Hello World!")
-          ^^^^^
+      ----^^^^^
 
 It looks like you copy-pasted code from an interactive interpreter.
 The Python prompt, `...`, should not be included in your code.
@@ -3554,7 +3554,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: else if True:
-           ^^
+      ^^^^-^^
 
 You likely meant to use Python's `elif` keyword
 but wrote `else if` instead.
@@ -3584,7 +3584,7 @@ at the location indicated by ^.
    3: if False:
    4:     pass
 --&gt;5: elseif True:
-             ^^^^
+      ^^^^^^
 
 You likely meant to use Python's `elif` keyword
 but wrote `elseif` instead.

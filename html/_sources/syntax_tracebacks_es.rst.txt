@@ -1513,7 +1513,7 @@ Python version: 3.9.9
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: >>> print("Hello World!")
-          ^^
+          ^^^
 
     Parece que has copiado y pegado código de un intérprete interactivo.
     El prompt de Python, `>>>`, no debería estar incluido en tu código.
@@ -1543,7 +1543,7 @@ Python version: 3.9.9
     
        1: """Should raise SyntaxError: invalid syntax"""
     -->2: ... print("Hello World!")
-              ^^^^^
+          ----^^^^^
 
     Parece que has copiado y pegado código de un intérprete interactivo.
     El prompt de Python, `...`, no debería estar incluido en tu código.
@@ -3581,7 +3581,7 @@ Python version: 3.9.9
        3: if False:
        4:     pass
     -->5: else if True:
-               ^^
+          ^^^^-^^
 
     Probablemente querías usar la palabra clave `elif` de Python
     pero en su lugar escribiste `else if`.
@@ -3615,7 +3615,7 @@ Python version: 3.9.9
        3: if False:
        4:     pass
     -->5: elseif True:
-                 ^^^^
+          ^^^^^^
 
     Probablemente querías usar la palabra clave `elif` de Python
     pero en su lugar escribiste `elseif`.

@@ -1668,7 +1668,7 @@ Python ne peut pas comprendre le code du fichier
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: &gt;&gt;&gt; print("Hello World!")
-      ^^
+      ^^^
 
 On dirait que vous avez copié-collé le code d’un interprète interactif.
 L’invite Python, `&gt;&gt;&gt;`, ne doit pas être incluse dans votre code.
@@ -1695,7 +1695,7 @@ Python ne peut pas comprendre le code du fichier
 
    1: """Should raise SyntaxError: invalid syntax"""
 --&gt;2: ... print("Hello World!")
-          ^^^^^
+      ----^^^^^
 
 On dirait que vous avez copié-collé le code d’un interprète interactif.
 L’invite Python, `...`, ne doit pas être incluse dans votre code.
@@ -3539,7 +3539,7 @@ Python ne peut pas comprendre le code du fichier
    3: if False:
    4:     pass
 --&gt;5: else if True:
-           ^^
+      ^^^^-^^
 
 Vous avez écrit `else if`
 au lieu d'utiliser le mot-clé `elif`.
@@ -3569,7 +3569,7 @@ Python ne peut pas comprendre le code du fichier
    3: if False:
    4:     pass
 --&gt;5: elseif True:
-             ^^^^
+      ^^^^^^
 
 Vous avez écrit `elseif`
 au lieu d'utiliser le mot-clé `elif`.
