@@ -19,7 +19,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.0a
+Friendly-traceback version: 0.5.1
 Python version: 3.9.9
 
 
@@ -2161,6 +2161,8 @@ Python version: 3.9.9
 
     You tried to use the Python keyword `pass` as a function name.
     
+    There are more syntax errors later in your code.
+    
 
 (70) def: list as argument - 1
 ------------------------------
@@ -2240,7 +2242,7 @@ Python version: 3.9.9
     al punto indicato da ^.
     
     -->1: def test()
-                   ^
+                   -^
 
     A function definition statement must end with a colon.
     
@@ -4989,7 +4991,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError"""
        2: 
     -->3: if True
-             ^^^^
+             ----^
 
     You wrote a statement beginning with
     `if` but forgot to add a colon `:` at the end.
@@ -5020,7 +5022,7 @@ Python version: 3.9.9
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                ----^^-->
+                ----^
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -5859,7 +5861,34 @@ Python version: 3.9.9
     You can only use a `return` statement inside a function or method.
     
 
-(191) semicolon instead of comma - 1
+(191) Semicolon instead of colon
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_colon.py", line 1
+        if True;  # A comment
+               ^
+    SyntaxError: invalid syntax
+    
+        Did you mean to write a colon?
+        
+    Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
+    
+    Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\semi_colon_instead_of_colon.py'
+    al punto indicato da ^.
+    
+    -->1: if True;  # A comment
+                 ^
+
+    You wrote a semicolon, `;`, where a colon was expected.
+    
+
+(192) Semicolon instead of comma - 1
 ------------------------------------
 
 .. code-block:: none
@@ -5886,7 +5915,7 @@ Python version: 3.9.9
     You wrote a semicolon, `;`, where a comma was expected.
     
 
-(192) semicolon instead of commas - 2
+(193) Semicolon instead of commas - 2
 -------------------------------------
 
 .. code-block:: none
@@ -5913,7 +5942,7 @@ Python version: 3.9.9
     You wrote semicolons, `;`, where commas were expected.
     
 
-(193) semicolon instead of commas - 3
+(194) Semicolon instead of commas - 3
 -------------------------------------
 
 .. code-block:: none
@@ -5940,7 +5969,7 @@ Python version: 3.9.9
     You wrote semicolons, `;`, where commas were expected.
     
 
-(194) Code block inside comprehension
+(195) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -5972,7 +6001,7 @@ Python version: 3.9.9
     If this explanation is incorrect, please report this case.
     
 
-(195) Single = instead of double == with if
+(196) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6003,7 +6032,7 @@ Python version: 3.9.9
     
         if i % 2 == 0:
 
-(196) Single = instead of double == with elif
+(197) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6036,7 +6065,7 @@ Python version: 3.9.9
     
         elif i % 2 == 0:
 
-(197) Single = instead of double == with while
+(198) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6067,7 +6096,7 @@ Python version: 3.9.9
     an equality operator, `==`, or the walrus operator `:=`.
     
 
-(198) Space between operators 1
+(199) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6096,7 +6125,7 @@ Python version: 3.9.9
     and meant to write `**` as a single operator.
     
 
-(199) Space between operators 2
+(200) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6125,7 +6154,7 @@ Python version: 3.9.9
     and meant to write `/=` as a single operator.
     
 
-(200) Space in variable name
+(201) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6153,7 +6182,7 @@ Python version: 3.9.9
     Perhaps you meant `my_name`?
     
 
-(201) Wrong target for star assignment
+(202) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6181,7 +6210,7 @@ Python version: 3.9.9
     
     
 
-(202) Too many nested blocks
+(203) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6212,7 +6241,7 @@ Python version: 3.9.9
     contained inside other code blocks.
     
 
-(203) Too many nested parentheses.
+(204) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
@@ -6245,7 +6274,7 @@ Python version: 3.9.9
     contained inside other parentheses.
     
 
-(204) Trailing comma in import statement
+(205) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6278,7 +6307,7 @@ Python version: 3.9.9
     `from math import sin, cos`
     
 
-(205) Triple-equal sign
+(206) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6310,7 +6339,7 @@ Python version: 3.9.9
     the exact same object, use the operator `is`.
     
 
-(206) Unclosed bracket
+(207) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6343,7 +6372,7 @@ Python version: 3.9.9
                       ^
     
 
-(207) Unclosed parenthesis - 1
+(208) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6375,7 +6404,7 @@ Python version: 3.9.9
                   ^
     
 
-(208) Unclosed parenthesis - 2
+(209) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6406,7 +6435,7 @@ Python version: 3.9.9
                ^
     
 
-(209) Unclosed parenthesis - 3
+(210) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6441,7 +6470,7 @@ Python version: 3.9.9
     If this is incorrect, please report this case.
     
 
-(210) Unclosed parenthesis - 4
+(211) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6472,7 +6501,7 @@ Python version: 3.9.9
                 ^
     
 
-(211) Content passed continuation line character
+(212) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6503,7 +6532,7 @@ Python version: 3.9.9
     I am guessing that you forgot to enclose some content in a string.
     
 
-(212) Unexpected EOF while parsing
+(213) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6538,7 +6567,7 @@ Python version: 3.9.9
                       ^
     
 
-(213) Invalid character (unicode fraction 3/4)
+(214) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6570,7 +6599,7 @@ Python version: 3.9.9
     I suspect that you meant to write the fraction `3/4` instead.
     
 
-(214) Invalid character (unicode fraction 1/2)
+(215) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6602,7 +6631,7 @@ Python version: 3.9.9
     I suspect that you meant to write the fraction `1/2` instead.
     
 
-(215) Invalid character (unicode fraction slash)
+(216) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6634,7 +6663,7 @@ Python version: 3.9.9
     but is different from the division operator `/`.
     
 
-(216) Invalid character (unicode quote)
+(217) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6668,7 +6697,7 @@ Python version: 3.9.9
     instead of a normal single or double quote for a string.
     
 
-(217) Invalid character (unicode quote2)
+(218) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6701,7 +6730,7 @@ Python version: 3.9.9
     instead of a normal single or double quote for a string.
     
 
-(218) Invalid character (mistaken <)
+(219) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6735,7 +6764,7 @@ Python version: 3.9.9
     Or perhaps, you meant to write a less than sign, `<`.
     
 
-(219) Invalid character (mistaken >)
+(220) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -6769,7 +6798,7 @@ Python version: 3.9.9
     Or perhaps, you meant to write a greater than sign, `>`.
     
 
-(220) Invalid character (mistaken comma)
+(221) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -6803,7 +6832,7 @@ Python version: 3.9.9
     Or perhaps, you meant to write a comma.
     
 
-(221) Unmatched closing curly bracket
+(222) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -6830,7 +6859,7 @@ Python version: 3.9.9
     The closing curly bracket `}` on line 6 does not match anything.
     
 
-(222) Unmatched closing parenthesis
+(223) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -6857,7 +6886,7 @@ Python version: 3.9.9
     The closing parenthesis `)` on line 6 does not match anything.
     
 
-(223) Mismatched brackets - 1
+(224) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -6886,7 +6915,7 @@ Python version: 3.9.9
                ^       ^
     
 
-(224) Mismatched brackets - 2
+(225) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -6920,7 +6949,7 @@ Python version: 3.9.9
                  ^
     
 
-(225) Unmatched brackets - 3
+(226) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -6947,7 +6976,7 @@ Python version: 3.9.9
     The closing square bracket `]` on line 3 does not match anything.
     
 
-(226) Unpacking a dict value
+(227) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -6979,7 +7008,7 @@ Python version: 3.9.9
         {'a': (1, 2, 3)}
     
 
-(227) Unterminated triple quoted string
+(228) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -7007,7 +7036,7 @@ Python version: 3.9.9
     the triple quotes needed to end the string.
     
 
-(228) TabError
+(229) TabError
 --------------
 
 .. code-block:: none
@@ -7038,7 +7067,7 @@ Python version: 3.9.9
     -->7: 	pass
            ^^^^
 
-(229) EOL unescaped backslash
+(230) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7069,7 +7098,7 @@ Python version: 3.9.9
     needed to escape it by writing two `\` in a row.
     
 
-(230) Using the backquote character
+(231) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7099,7 +7128,7 @@ Python version: 3.9.9
     Either you meant to write a single quote, ', or copied Python 2 code;
     in this latter case, use the function `repr(x)`.
 
-(231) unicode error
+(232) unicode error
 -------------------
 
 .. code-block:: none
@@ -7133,7 +7162,7 @@ Python version: 3.9.9
     front of the string, or replace `\U`, by `\\U`.
     
 
-(232) Walrus instead of equal
+(233) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7161,7 +7190,7 @@ Python version: 3.9.9
     the normal assignment operator `=` was required.
     
 
-(233) Missing condition in while statement
+(234) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7192,7 +7221,7 @@ Python version: 3.9.9
     
     
 
-(234) Would-be variable declaration
+(235) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7223,7 +7252,7 @@ Python version: 3.9.9
     If you remove `var`, you will have a valid Python statement.
     
 
-(235) Would-be variable declaration - 2
+(236) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7258,7 +7287,7 @@ Python version: 3.9.9
     some syntax errors.
     
 
-(236) Cannot use yield outside function
+(237) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
