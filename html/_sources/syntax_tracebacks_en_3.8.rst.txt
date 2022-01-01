@@ -2229,6 +2229,8 @@ Python version: 3.8.10
 
     You tried to use the Python keyword `pass` as a function name.
     
+    There are more syntax errors later in your code.
+    
 
 (70) def: list as argument - 1
 ------------------------------
@@ -5147,7 +5149,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError"""
        2: 
     -->3: if True
-             ^^^^
+             ----^
 
     You wrote a statement beginning with
     `if` but forgot to add a colon `:` at the end.
@@ -5179,7 +5181,7 @@ Python version: 3.8.10
        1: """Should raise SyntaxError"""
        2: 
     -->3: while True  # a comment
-                ----^^-->
+                ----^
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end

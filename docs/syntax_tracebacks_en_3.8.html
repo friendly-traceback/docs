@@ -2308,6 +2308,8 @@ at the location indicated by ^.
           ^^^^
 
 You tried to use the Python keyword `pass` as a function name.
+
+There are more syntax errors later in your code.
 </pre></div>
 </div>
 </section>
@@ -4937,7 +4939,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: if True
-         ^^^^
+         ----^
 
 You wrote a statement beginning with
 `if` but forgot to add a colon `:` at the end.
@@ -4965,7 +4967,7 @@ at the location indicated by ^.
    1: """Should raise SyntaxError"""
    2:
 --&gt;3: while True  # a comment
-            ----^^--&gt;
+            ----^
 
 You wrote a `while` loop but
 forgot to add a colon `:` at the end

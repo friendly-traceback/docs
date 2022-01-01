@@ -1306,7 +1306,7 @@ Python version: 3.9.9
     at the location indicated by ^.
     
     -->1: (**k)
-          ^-->
+           ^-->
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.

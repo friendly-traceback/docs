@@ -936,7 +936,7 @@ Python version: 3.10.1
     at the location indicated by ^.
     
     -->1: (yield i) = 3
-           ^^^^^^^
+           ^^^^^
 
     You wrote an expression that includes the `yield` keyword
     on the left-hand side of the equal sign.
@@ -1326,7 +1326,7 @@ Python version: 3.10.1
        2: 
        3: def test(**k):
     -->4:     print(f"{**k}")
-           ^^
+                            ^
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.
@@ -7558,7 +7558,7 @@ Python version: 3.10.1
     at the location indicated by ^.
     
     -->1: (yield i) == 3
-           ^^^^^^^
+           ^^^^^
 
     You can only use a `yield` statement inside a function.
     
