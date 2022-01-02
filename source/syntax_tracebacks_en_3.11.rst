@@ -4271,15 +4271,15 @@ Python version: 3.11.0a3
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^^^^
+          ^^^^^^     ^^^^
 
     You wrote something like
     
         import pen from turtle
+    
     instead of
     
         from turtle import pen
-    
     
     
 
@@ -6047,11 +6047,11 @@ Python version: 3.11.0a3
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\quote_inside_string.py", line 3
-        message = 'don't'
-                        ^
+        message = 'I don't mind.'
+                                ^
     SyntaxError: unterminated string literal (detected at line 3)
     
-        Did you forget a closing quote?
+        Perhaps you forgot to escape a quote character.
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -6061,11 +6061,15 @@ Python version: 3.11.0a3
     
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
-    -->3: message = 'don't'
-                          ^
+    -->3: message = 'I don't mind.'
+                                  ^
 
-    You started writing a string with a single or double quote
-    but never ended the string with another quote on that line.
+    I suspect that you were trying to use a quote character inside a string
+    that was enclosed in quotes of the same kind.
+    Perhaps you should have escaped the inner quote character:
+    
+        message = 'I don\'t mind.'
+                        ^^
     
 
 (190) Raising multiple exceptions

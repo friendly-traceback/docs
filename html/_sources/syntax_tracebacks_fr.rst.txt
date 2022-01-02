@@ -4267,11 +4267,13 @@ Python version: 3.9.9
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^^^^
+          ^^^^^^     ^^^^
 
     Vous avez écrit quelque chose comme
+    
         import pen from turtle
     au lieu de
+    
         from turtle import pen
     
     
@@ -5995,11 +5997,11 @@ Python version: 3.9.9
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\quote_inside_string.py", line 3
-        message = 'don't'
-                       ^
+        message = 'I don't mind.'
+                         ^
     SyntaxError: invalid syntax
     
-        Vous avez peut-être un guillemet écrit au mauvais endroit.
+        Vous avez peut-être oublié d'échapper un guillemet.
         
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -6009,13 +6011,15 @@ Python version: 3.9.9
     
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
-    -->3: message = 'don't'
-                         ^
+    -->3: message = 'I don't mind.'
+                           ^
 
-    Il semble y avoir un identificateur Python (nom de variable)
-    immédiatement après une chaîne.
-    Je soupçonne que vous essayiez d'utiliser un apostrophe ou un guillemet
-    à l'intérieur d'une chaîne qui était délimitée par ces mêmes caractères.
+    Je soupçonne que vous avez essayé d'utiliser un guillemet à l'intérieur d'une chaîne de caractères
+    qui était entourée de guillemets du même type.
+    Vous auriez peut-être dû échapper ce guillemet interne :
+    
+        message = 'I don\'t mind.'
+                        ^^
     
 
 (189) Raising multiple exceptions

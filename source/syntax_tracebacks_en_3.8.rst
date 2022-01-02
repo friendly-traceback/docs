@@ -4248,15 +4248,15 @@ Python version: 3.8.10
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^^^^
+          ^^^^^^     ^^^^
 
     You wrote something like
     
         import pen from turtle
+    
     instead of
     
         from turtle import pen
-    
     
     
 
@@ -6000,11 +6000,11 @@ Python version: 3.8.10
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\quote_inside_string.py", line 3
-        message = 'don't'
-                       ^
+        message = 'I don't mind.'
+                         ^
     SyntaxError: invalid syntax
     
-        Perhaps you misplaced a quote.
+        Perhaps you forgot to escape a quote character.
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -6014,13 +6014,15 @@ Python version: 3.8.10
     
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
-    -->3: message = 'don't'
-                         ^
+    -->3: message = 'I don't mind.'
+                           ^
 
-    There appears to be a Python identifier (variable name)
-    immediately following a string.
-    I suspect that you were trying to use a quote inside a string
+    I suspect that you were trying to use a quote character inside a string
     that was enclosed in quotes of the same kind.
+    Perhaps you should have escaped the inner quote character:
+    
+        message = 'I don\'t mind.'
+                        ^^
     
 
 (190) Raising multiple exceptions

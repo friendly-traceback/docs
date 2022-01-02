@@ -4253,15 +4253,15 @@ Python version: 3.9.9
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
     -->3: import pen from turtle
-                     ^^^^
+          ^^^^^^     ^^^^
 
     Has escrito algo como
     
         import pen from turtle
+    
     en lugar de
     
         from turtle import pen
-    
     
     
 
@@ -5977,11 +5977,11 @@ Python version: 3.9.9
       File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\quote_inside_string.py", line 3
-        message = 'don't'
-                       ^
+        message = 'I don't mind.'
+                         ^
     SyntaxError: invalid syntax
     
-        Tal vez ubicaste en el lugar incorrecto una comilla.
+        Perhaps you forgot to escape a quote character.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5991,13 +5991,15 @@ Python version: 3.9.9
     
        1: """Should raise SyntaxError: invalid syntax"""
        2: 
-    -->3: message = 'don't'
-                         ^
+    -->3: message = 'I don't mind.'
+                           ^
 
-    Parece que hay un identificador Python (nombre de variable)
-    inmediatamente después de una cadena.
-    Sospecho que estabas tratando de usar una comilla dentro de una cadena
-    que estaba encerrada entre comillas del mismo tipo.
+    I suspect that you were trying to use a quote character inside a string
+    that was enclosed in quotes of the same kind.
+    Perhaps you should have escaped the inner quote character:
+    
+        message = 'I don\'t mind.'
+                        ^^
     
 
 (189) Raising multiple exceptions
