@@ -3426,7 +3426,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: 3 */ 4
-             ^
+            ^^
 
     You cannot have these two operators, `*` and `/`,
     following each other. Perhaps you wrote one of them by mistake
@@ -4843,7 +4843,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: a =< 3
-             ^
+            ^^
 
     It looks like you wrote two operators (`=` and `<`)
     in the wrong order: `=<` instead of `<=`.
@@ -4872,7 +4872,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: a =<* 3
-             ^
+            ^^
 
     It looks like you wrote two operators (`=` and `<`)
     in the wrong order: `=<` instead of `<=`.
@@ -5634,7 +5634,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: 4****5
-             ^^
+           ^^^^
 
     You cannot have write the same operator, `**`, twice in a row.
     Perhaps you wrote one of them by mistake
@@ -5763,6 +5763,10 @@ Python version: 3.8.10
     -->2: print len('hello')
                 ^^^
 
+    Perhaps you need to type
+    
+         print(len('hello'))
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
     
@@ -5781,7 +5785,7 @@ Python version: 3.8.10
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
     
-        Did you mean `print("""This is a very long st ... )`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5794,7 +5798,7 @@ Python version: 3.8.10
 
     Perhaps you need to type
     
-         print("""This is a very long st ... )
+         print(...)
     
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
@@ -5827,6 +5831,10 @@ Python version: 3.8.10
                 ^^^
        3:           that spans multiple lines.""")
 
+    Perhaps you need to type
+    
+         print(...)
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
     
@@ -5845,7 +5853,7 @@ Python version: 3.8.10
               ^
     SyntaxError: invalid syntax
     
-        Did you mean `print(len('This ... line.'))`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5857,6 +5865,10 @@ Python version: 3.8.10
     -->2: print len('This is a long string that fits on a single line.')
                 ^^^
 
+    Perhaps you need to type
+    
+         print(...)
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
     
@@ -5875,7 +5887,7 @@ Python version: 3.8.10
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
     
-        Did you mean `print("hello world!")`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5888,7 +5900,7 @@ Python version: 3.8.10
 
     Perhaps you need to type
     
-         print("hello world!")
+         print(...)
     
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
@@ -5909,7 +5921,7 @@ Python version: 3.8.10
               ^
     SyntaxError: invalid syntax
     
-        Did you mean `print('len("hello") hello')`?
+        Did you mean `print(...)`?
         
     A `SyntaxError` occurs when Python cannot understand your code.
     
@@ -5920,6 +5932,10 @@ Python version: 3.8.10
     -->1: print len("hello") hello
                 ^^^
 
+    Perhaps you need to type
+    
+         print(...)
+    
     In older version of Python, `print` was a keyword.
     Now, `print` is a function; you need to use parentheses to call it.
     Note that arguments of `print` must be separated by commas.
@@ -6344,7 +6360,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: a = 2 * * 5
-                  ^
+                ^ ^
 
     You cannot have write the same operator, `*`, twice in a row.
     Perhaps you wrote one of them by mistake
@@ -6374,7 +6390,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: a / = b
-              ^
+            ^ ^
 
     You cannot have these two operators, `/` and `=`,
     following each other. Perhaps you wrote one of them by mistake
@@ -6518,7 +6534,7 @@ Python version: 3.8.10
        1: 
        2: 
     -->3: x = y === z
-                  ^
+                ^^^
 
     You wrote three equal signs in a row which is allowed in some
     programming languages, but not in Python. To check if two objects
@@ -7204,7 +7220,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: {'a': *(1, 2, 3)}
-                ^
+              ^ ^
 
     You cannot have these two operators, `:` and `*`,
     following each other.
@@ -7500,8 +7516,7 @@ Python version: 3.8.10
 
     It looks like you were trying to declare that `start` was
     a variable using the word `var`.
-    However, even if you remove `var`, there would still be some
-    some syntax errors.
+    If you remove `var`, you will have a valid Python statement.
     
 
 (237) Cannot use yield outside function
