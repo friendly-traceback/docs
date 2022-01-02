@@ -3431,7 +3431,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: 3 */ 4
-             ^
+            ^^
 
     No puedes tener estos dos operadores, `*` y `/`,
     siguiéndose el uno al otro. Tal vez usted escribió uno de ellos por error
@@ -4854,7 +4854,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: a =< 3
-             ^
+            ^^
 
     Parece que has escrito dos operadores (`=` y `<`)
     en el orden equivocado: `=<` en lugar de `<=`.
@@ -4883,7 +4883,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: a =<* 3
-             ^
+            ^^
 
     Parece que has escrito dos operadores (`=` y `<`)
     en el orden equivocado: `=<` en lugar de `<=`.
@@ -5611,7 +5611,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: 4****5
-             ^^
+           ^^^^
 
     No se puede escribir el mismo operador, `**`, dos veces seguidas.
     Tal vez usted escribió uno de ellos por error
@@ -5728,7 +5728,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        ¿Quiere decir `print(len('hello'))`?
+        ¿Quieres decir `print(len('hello'))`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5740,8 +5740,12 @@ Python version: 3.9.9
     -->2: print len('hello')
                 ^^^
 
+    Tal vez tenga que escribir
+    
+         print(len('hello'))
+    
     En la versión anterior de Python, `print` era una palabra clave.
-    Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
 (181) print is a function 3
@@ -5758,7 +5762,7 @@ Python version: 3.9.9
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
     
-        ¿Quieres decir `print("""This is a very long st ... )`?
+        ¿Quieres decir `print(...)`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5771,7 +5775,7 @@ Python version: 3.9.9
 
     Tal vez tenga que escribir
     
-         print("""This is a very long st ... )
+         print(...)
     
     En la versión anterior de Python, `print` era una palabra clave.
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
@@ -5791,7 +5795,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        ¿Quiere decir `print(...)`?
+        ¿Quieres decir `print(...)`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5804,8 +5808,12 @@ Python version: 3.9.9
                 ^^^
        3:           that spans multiple lines.""")
 
+    Tal vez tenga que escribir
+    
+         print(...)
+    
     En la versión anterior de Python, `print` era una palabra clave.
-    Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
 (183) print is a function 5
@@ -5822,7 +5830,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        ¿Quiere decir `print(len('This ... line.'))`?
+        ¿Quieres decir `print(...)`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5834,8 +5842,12 @@ Python version: 3.9.9
     -->2: print len('This is a long string that fits on a single line.')
                 ^^^
 
+    Tal vez tenga que escribir
+    
+         print(...)
+    
     En la versión anterior de Python, `print` era una palabra clave.
-    Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
 (184) print is a function 6
@@ -5852,7 +5864,7 @@ Python version: 3.9.9
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
     
-        ¿Quieres decir `print("hello world!")`?
+        ¿Quieres decir `print(...)`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5865,7 +5877,7 @@ Python version: 3.9.9
 
     Tal vez tenga que escribir
     
-         print("hello world!")
+         print(...)
     
     En la versión anterior de Python, `print` era una palabra clave.
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
@@ -5886,7 +5898,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        ¿Quiere decir `print('len("hello") hello')`?
+        ¿Quieres decir `print(...)`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -5897,8 +5909,12 @@ Python version: 3.9.9
     -->1: print len("hello") hello
                 ^^^
 
+    Tal vez tenga que escribir
+    
+         print(...)
+    
     En la versión anterior de Python, `print` era una palabra clave.
-    Ahora, `print` es una función; necesitas usar paréntesis para llamarla.
+    Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
     
 
@@ -6321,7 +6337,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: a = 2 * * 5
-                  ^
+                ^ ^
 
     No se puede escribir el mismo operador, `*`, dos veces seguidas.
     Tal vez usted escribió uno de ellos por error
@@ -6351,7 +6367,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: a / = b
-              ^
+            ^ ^
 
     No puedes tener estos dos operadores, `/` y `=`,
     siguiéndose el uno al otro. Tal vez usted escribió uno de ellos por error
@@ -6543,7 +6559,7 @@ Python version: 3.9.9
        1: 
        2: 
     -->3: x = y === z
-                  ^
+                ^^^
 
     Has escrito tres signos de igualdad seguidos, lo que está permitido en algunos
     lenguajes de programación, pero no en Python. Para comprobar si dos objetos
@@ -7229,7 +7245,7 @@ Python version: 3.9.9
     en la ubicación indicada por ^.
     
     -->1: {'a': *(1, 2, 3)}
-                ^
+              ^ ^
 
     No puedes tener estos dos operadores, `:` y `*`,
     siguiéndose el uno al otro.
@@ -7525,8 +7541,7 @@ Python version: 3.9.9
 
     Parece que estabas intentando declarar que `start` era
     una variable utilizando la palabra `var`.
-    Sin embargo, incluso si se elimina `var`, todavía habría algunos
-    algunos errores de sintaxis.
+    Si eliminas `var`, tendrás una declaración válida de Python.
     
 
 (237) Cannot use yield outside function

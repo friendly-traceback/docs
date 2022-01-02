@@ -3444,7 +3444,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: 3 */ 4
-             ^
+            ^^
 
     Vous ne pouvez pas avoir ces deux opérateurs, `*` et `/`,
     qui se suivent. Peut-être avez-vous écrit l’un d’eux par erreur
@@ -4871,7 +4871,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: a =< 3
-             ^
+            ^^
 
     On dirait que vous avez écrit deux opérateurs (`=` et `<`)
     dans le mauvais ordre: `=<` au lieu de `<=`.
@@ -4900,7 +4900,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: a =<* 3
-             ^
+            ^^
 
     On dirait que vous avez écrit deux opérateurs (`=` et `<`)
     dans le mauvais ordre: `=<` au lieu de `<=`.
@@ -5631,7 +5631,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: 4****5
-             ^^
+           ^^^^
 
     Vous ne pouvez pas écrire le même opérateur, `**`, deux fois de suite.
     Peut-être avez-vous écrit l’un d’eux par erreur
@@ -5760,6 +5760,10 @@ Python version: 3.9.9
     -->2: print len('hello')
                 ^^^
 
+    Peut-être que vous avez besoin d'écrire
+    
+         print(len('hello'))
+    
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
@@ -5778,7 +5782,7 @@ Python version: 3.9.9
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
     
-        Vouliez-vous dire `print("""This is a very long st ... )` ?
+        Vouliez-vous dire `print(...)` ?
         
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -5791,7 +5795,7 @@ Python version: 3.9.9
 
     Peut-être que vous avez besoin d'écrire
     
-         print("""This is a very long st ... )
+         print(...)
     
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5824,6 +5828,10 @@ Python version: 3.9.9
                 ^^^
        3:           that spans multiple lines.""")
 
+    Peut-être que vous avez besoin d'écrire
+    
+         print(...)
+    
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
@@ -5842,7 +5850,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        Vouliez-vous dire `print(len('This ... line.'))` ?
+        Vouliez-vous dire `print(...)` ?
         
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -5854,6 +5862,10 @@ Python version: 3.9.9
     -->2: print len('This is a long string that fits on a single line.')
                 ^^^
 
+    Peut-être que vous avez besoin d'écrire
+    
+         print(...)
+    
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     
@@ -5872,7 +5884,7 @@ Python version: 3.9.9
               ^
     SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
     
-        Vouliez-vous dire `print("hello world!")` ?
+        Vouliez-vous dire `print(...)` ?
         
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -5885,7 +5897,7 @@ Python version: 3.9.9
 
     Peut-être que vous avez besoin d'écrire
     
-         print("hello world!")
+         print(...)
     
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
@@ -5906,7 +5918,7 @@ Python version: 3.9.9
               ^
     SyntaxError: invalid syntax
     
-        Vouliez-vous dire `print('len("hello") hello')` ?
+        Vouliez-vous dire `print(...)` ?
         
     Une exception de type `SyntaxError` se produit lorsque Python ne peut pas comprendre votre code.
     
@@ -5917,6 +5929,10 @@ Python version: 3.9.9
     -->1: print len("hello") hello
                 ^^^
 
+    Peut-être que vous avez besoin d'écrire
+    
+         print(...)
+    
     Dans l'ancienne version de Python, `print` était un mot clé.
     Maintenant, `print` est une fonction; vous devez utiliser des parenthèses pour l'invoquer.
     Notez que les arguments de `print` doivent être séparés par des virgules.
@@ -6341,7 +6357,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: a = 2 * * 5
-                  ^
+                ^ ^
 
     Vous ne pouvez pas écrire le même opérateur, `*`, deux fois de suite.
     Peut-être avez-vous écrit l’un d’eux par erreur
@@ -6371,7 +6387,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: a / = b
-              ^
+            ^ ^
 
     Vous ne pouvez pas avoir ces deux opérateurs, `/` et `=`,
     qui se suivent. Peut-être avez-vous écrit l’un d’eux par erreur
@@ -6563,7 +6579,7 @@ Python version: 3.9.9
        1: 
        2: 
     -->3: x = y === z
-                  ^
+                ^^^
 
     Vous avez écrit trois signes égaux de suite ce qui est utilisé dans certains
     langages de programmation, mais pas en Python. Pour vérifier si deux objets
@@ -7250,7 +7266,7 @@ Python version: 3.9.9
     à l'endroit indiqué par ^.
     
     -->1: {'a': *(1, 2, 3)}
-                ^
+              ^ ^
 
     Vous ne pouvez pas avoir ces deux opérateurs, `:` et `*`,
     l'un après l'autre.
@@ -7548,8 +7564,7 @@ Python version: 3.9.9
 
     Il semble que vous essayiez de déclarer que `start` est
     une variable utilisant le mot `var`.
-    Toutefois, même si vous supprimez `var`, il y aurait encore
-    au moins une autre erreur de syntaxe.
+    Si vous supprimez `var`, vous aurez une instruction Python valide.
     
 
 (237) Cannot use yield outside function
