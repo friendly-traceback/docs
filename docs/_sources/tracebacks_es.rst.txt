@@ -120,6 +120,7 @@ Attribute from other module
        323:     import cmath
        324:     try:
     -->325:         keyword.pi
+                    ^^^^^^^^^^
        326:     except AttributeError as e:
 
             keyword:  <module keyword> from PYTHON_LIB:\keyword.py
@@ -152,6 +153,7 @@ Builtin function
        221:     text = 'Hello world!'
        222:     try:
     -->223:         len.text
+                    ^^^^^^^^
        224:     except AttributeError as e:
 
             text:  'Hello world!'
@@ -183,6 +185,7 @@ Builtin module with no file
        237:     import sys
        239:     try:
     -->240:         sys.foo
+                    ^^^^^^^
        241:     except AttributeError as e:
 
             sys:  <module sys (builtin)>
@@ -296,6 +299,7 @@ Generic
        23:         pass
        25:     try:
     -->26:         A.x  # testing type
+                   ^^^
        27:     except AttributeError as e:
 
             A:  <class A> defined in <function test_attribute_error.test_Generic>
@@ -328,6 +332,7 @@ Generic different frame
        47:     a = f()
        48:     try:
     -->49:         a.attr
+                   ^^^^^^
        50:     except AttributeError as e:
 
             a:  <A object>
@@ -358,6 +363,7 @@ Generic instance
        65:     a = A()
        66:     try:
     -->67:         a.x
+                   ^^^
        68:     except AttributeError as e:
 
             a:  <A object>
@@ -392,6 +398,7 @@ Module attribute typo
        141:     import math
        143:     try:
     -->144:         math.cost
+                    ^^^^^^^^^
        145:     except AttributeError as e:
 
             math:  <module math (builtin)>
@@ -421,6 +428,7 @@ Nonetype
        181:     a = None
        182:     try:
     -->183:         a.b
+                    ^^^
        184:     except AttributeError as e:
 
             a:  None
@@ -557,6 +565,7 @@ Shadow stdlib module
        162:     import turtle
        164:     try:
     -->165:         turtle.Pen
+                    ^^^^^^^^^^
        166:     except AttributeError as e:
 
             turtle:  <module turtle> from TESTS:\turtle.py
@@ -758,6 +767,7 @@ Directory not found
        68: def test_Directory_not_found():
        69:     try:
     -->70:         open("does_not_exist/file.txt")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        71:     except FileNotFoundError as e:
 
             open:  <builtin function open>
@@ -790,6 +800,7 @@ Filename not found
        5: def test_Filename_not_found():
        6:     try:
     -->7:         open("does_not_exist")
+                  ^^^^^^^^^^^^^^^^^^^^^^
        8:     except FileNotFoundError as e:
 
             open:  <builtin function open>
@@ -825,6 +836,7 @@ Filename not found 2
        27:         os.chdir("..")
        29:     try:
     -->30:         open("setupp.py")
+                   ^^^^^^^^^^^^^^^^^
        31:     except FileNotFoundError as e:
 
             open:  <builtin function open>
@@ -861,6 +873,7 @@ Filename not found 3
        50:         os.chdir("..")
        51:     try:
     -->52:         open("setup.pyg")
+                   ^^^^^^^^^^^^^^^^^
        53:     except FileNotFoundError as e:
 
             open:  <builtin function open>
@@ -1122,6 +1135,7 @@ ChainMap
        60:     d = ChainMap({}, {})
        61:     try:
     -->62:         d.pop(42)
+                   ^^^^^^^^^
        63:     except KeyError as e:
 
             d:  ChainMap({}, {})
@@ -1184,6 +1198,7 @@ Generic key error
        42:     d = {"a": 1, "b": 2}
        43:     try:
     -->44:         d["c"]
+                   ^^^^^^
        45:     except KeyError as e:
 
             d:  {'a': 1, 'b': 2}
@@ -1221,6 +1236,7 @@ Popitem empty ChainMap
        24:     alpha = ChainMap({}, {})
        25:     try:
     -->26:         alpha.popitem()
+                   ^^^^^^^^^^^^^^^
        27:     except KeyError as e:
 
             alpha:  ChainMap({}, {})
@@ -1252,6 +1268,7 @@ Popitem empty dict
        6:     d = {}
        7:     try:
     -->8:         d.popitem()
+                  ^^^^^^^^^^^
        9:     except KeyError as e:
 
             d:  {}
@@ -1319,6 +1336,7 @@ String by mistake
        96:     d = {(0, 0): "origin"}
        97:     try:
     -->98:         d["(0, 0)"]
+                   ^^^^^^^^^^^
        99:     except KeyError as e:
 
             d:  {(0, 0): 'origin'}
@@ -1634,6 +1652,7 @@ Custom name
        191: def test_Custom_name():
        192:     try:
     -->193:         python
+                    ^^^^^^
        194:     except NameError as e:
 
 
@@ -1668,6 +1687,7 @@ Free variable referenced
        174:         var = 4
        176:     try:
     -->177:         outer()
+                    ^^^^^^^
        178:     except NameError as e:
 
             outer:  <function outer>
@@ -1822,6 +1842,7 @@ Missing self 1
        226:     a = Pet('Fido')
        227:     try:
     -->228:         str(a)
+                    ^^^^^^
        229:     except NameError as e:
 
             a:  <Pet object>
@@ -1872,6 +1893,7 @@ Missing self 2
        260:     a = Pet('Fido')
        261:     try:
     -->262:         str(a)
+                    ^^^^^^
        263:     except NameError as e:
 
             a:  <Pet object>
@@ -1916,6 +1938,7 @@ Synonym
        87:         assert "The Python builtin `chr` has a similar name." in result
        89:     try:
     -->90:         cost  # wrote from math import * above
+                   ^^^^
        91:     except NameError as e:
 
 
@@ -1946,6 +1969,7 @@ missing import2
        142: def test_missing_import2():
        143:     try:
     -->144:         ABCMeta
+                    ^^^^^^^
        145:     except NameError as e:
 
 
@@ -1977,6 +2001,7 @@ missing import3
        156: def test_missing_import3():
        157:     try:
     -->158:         AF_APPLETALK
+                    ^^^^^^^^^^^^
        159:     except NameError as e:
 
 
@@ -2023,6 +2048,7 @@ Urllib error
        6:     from urllib import request, error
        7:     try:
     -->8:         request.urlopen("http://does_not_exist")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        9:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
@@ -2062,6 +2088,7 @@ invalid argument
        44:         return "Windows test only", "No result"
        45:     try:
     -->46:         open("c:\test.txt")
+                   ^^^^^^^^^^^^^^^^^^^
        47:     except OSError as e:
 
             open:  <builtin function open>
@@ -2128,6 +2155,7 @@ Generic
        4: def test_Generic():
        5:     try:
     -->6:         2.0 ** 1600
+                  ^^^^^^^^^^^
        7:     except OverflowError as e:
 
 
@@ -2162,6 +2190,7 @@ Generic
        6:         return a()
        7:     try:
     -->8:         a()
+                  ^^^
        9:     except RecursionError as e:
 
             a:  <function a> defined in <function test_Generic>
@@ -2241,6 +2270,7 @@ Builtin has no len
        806: def test_Builtin_has_no_len():
        807:     try:
     -->808:         len("Hello world".split)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
        809:     except TypeError as e:
 
             len:  <builtin function len>
@@ -2309,6 +2339,7 @@ Cannot convert dictionary update sequence
        792:     dd = {"a": "a"}
        793:     try:
     -->794:         dd.update([1, 2, 3])
+                    ^^^^^^^^^^^^^^^^^^^^
        795:     except TypeError as e:
 
             dd:  {'a': 'a'}
@@ -2344,6 +2375,7 @@ Cannot multiply by non int
        589:         assert "Did you forget to convert `c` into an integer?" in result
        591:     try:
     -->592:         "a" * "2"
+                    ^^^^^^^^^
        593:     except TypeError as e:
 
 
@@ -2406,6 +2438,7 @@ Comparison not supported
        323:         a = "2"
        324:         b = 42
     -->325:         b >= a
+                    ^^^^^^
        326:     except TypeError as e:
 
             a:  '2'
@@ -2471,6 +2504,7 @@ Indices must be integers or slices
        671:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
        673:     try:
     -->674:         [1, 2, 3]["2"]
+                    ^^^^^^^^^^^^^^
        675:     except TypeError as e:
 
 
@@ -2500,6 +2534,7 @@ Not an integer
        635:     c, d = "2", "3"
        636:     try:
     -->637:         range(c, d)
+                    ^^^^^^^^^^^
        638:     except TypeError as e:
 
             c:  '2'
@@ -2575,6 +2610,7 @@ Object is not iterable
        750: def test_Object_is_not_iterable():
        751:     try:
     -->752:         list(42)
+                    ^^^^^^^^
        753:     except TypeError as e:
 
             list:  <class list>
@@ -2645,6 +2681,7 @@ Slice indices must be integers or None
        686: def test_Slice_indices_must_be_integers_or_None():
        687:     try:
     -->688:         [1, 2, 3][1.0:2.0]
+                    ^^^^^^^^^^^^^^^^^^
        689:     except TypeError as e:
 
 
@@ -2673,6 +2710,7 @@ Too few positional argument
        446:         pass
        448:     try:
     -->449:         fn(1)
+                    ^^^^^
        450:     except TypeError as e:
 
             fn:  <function fn>
@@ -2709,6 +2747,7 @@ Too many positional argument
        427:             pass
        429:     try:
     -->430:         A().f(1)
+                    ^^^^^^^^
        431:     except TypeError as e:
 
             A:  <class A>
@@ -2844,6 +2883,7 @@ function got multiple argument
        897:         pass
        899:     try:
     -->900:         fn2(0, a=1)
+                    ^^^^^^^^^^^
        901:     except TypeError as e:
 
             fn2:  <function fn2>
@@ -2879,6 +2919,7 @@ function has no len
        822:         pass
        824:     try:
     -->825:         len(bad)
+                    ^^^^^^^^
        826:     except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
@@ -2913,6 +2954,7 @@ getattr attribute name must be string
        943:         )
        945:     try:
     -->946:         getattr("__repr__", 1)  # as reported in issue #77
+                    ^^^^^^^^^^^^^^^^^^^^^^
        947:     except TypeError as e:
 
             getattr:  <builtin function getattr>
@@ -2945,6 +2987,7 @@ method got multiple argument
        917:     t = T()
        918:     try:
     -->919:         t.some_method(0, a=1)
+                    ^^^^^^^^^^^^^^^^^^^^^
        920:     except TypeError as e:
 
             t:  <T object>
@@ -2981,6 +3024,7 @@ vars arg must have dict
        866:         assert use_slots not in result
        868:     try:
     -->869:         vars(f)
+                    ^^^^^^^
        870:     except TypeError as e:
 
             f:  <F object>
@@ -3040,6 +3084,7 @@ Missing both
        61: def test_Missing_both():
        62:     try:
     -->63:         outer_missing_both()
+                   ^^^^^^^^^^^^^^^^^^^^
        64:     except UnboundLocalError as e:
 
             global outer_missing_both:  <function outer_missing_both>
@@ -3094,6 +3139,7 @@ Missing global
        25: def test_Missing_global():
        26:     try:
     -->27:         outer_missing_global()
+                   ^^^^^^^^^^^^^^^^^^^^^^
        28:     except UnboundLocalError as e:
 
             global outer_missing_global:  <function outer_missing_global>
@@ -3148,6 +3194,7 @@ Missing nonlocal
        43: def test_Missing_nonlocal():
        44:     try:
     -->45:         outer_missing_nonlocal()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
        46:     except UnboundLocalError as e:
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
@@ -3191,6 +3238,7 @@ Typo in local
         98:         alpha3 += 1
        100:     try:
     -->101:         test2()
+                    ^^^^^^^
        102:     except UnboundLocalError as e:
 
             test2:  <function test2> defined in <function test_Typo_in_local>
@@ -3238,6 +3286,7 @@ Using name of builtin
        119:         return max - min
        120:     try:
     -->121:         dist([])
+                    ^^^^^^^^
        122:     except UnboundLocalError as e:
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
@@ -3317,6 +3366,7 @@ Convert to int
        184:         assert "needs to be first converted using `float()`" in result
        186:     try:
     -->187:         int('13a')
+                    ^^^^^^^^^^
        188:     except ValueError as e:
 
             int:  <class int>
@@ -3344,6 +3394,7 @@ Could not convert to float
        86: def test_Could_not_convert_to_float():
        87:     try:
     -->88:         float("42b")
+                   ^^^^^^^^^^^^
        89:     except ValueError as e:
 
             float:  <class float>
@@ -3435,6 +3486,7 @@ Pow third arg cannot be zero
        101:     a = 0
        102:     try:
     -->103:         pow(2, 4, a)
+                    ^^^^^^^^^^^^
        104:     except ValueError as e:
 
             a:  0
@@ -3522,6 +3574,7 @@ int base not in range
        199: def test_int_base_not_in_range():
        200:     try:
     -->201:         int('18', base=37)
+                    ^^^^^^^^^^^^^^^^^^
        202:     except ValueError as e:
 
             int:  <class int>
@@ -3556,6 +3609,7 @@ time strptime incorrect format
        125:     import time
        126:     try:
     -->127:         time.strptime("2020-01-01", "%d %m %Y")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        128:     except ValueError as e:
 
             time:  <module time (builtin)>
@@ -3593,6 +3647,7 @@ Complex division
        153:     zero = 0j
        154:     try:
     -->155:         1 / zero
+                    ^^^^^^^^
        156:     except ZeroDivisionError as e:
 
             zero:  0j
@@ -3621,6 +3676,7 @@ Division by zero literal
        195:         assert "Using the modulo operator, you are dividing by zero" in result
        198:     try:
     -->199:         1. / 0
+                    ^^^^^^
        200:     except ZeroDivisionError as e:
 
 
@@ -3650,6 +3706,7 @@ Division operator
        14:         assert "The following mathematical expression includes a division by zero" in result
        16:     try:
     -->17:         1 / zero
+                   ^^^^^^^^
        18:     except ZeroDivisionError as e:
 
             zero:  0
@@ -3678,6 +3735,7 @@ Divmod
        80:     zero = 0
        81:     try:
     -->82:         divmod(1, zero)
+                   ^^^^^^^^^^^^^^^
        83:     except ZeroDivisionError as e:
 
             zero:  0
@@ -3711,6 +3769,7 @@ Float division
        123:     zero = 0.
        124:     try:
     -->125:         1 / zero
+                    ^^^^^^^^
        126:     except ZeroDivisionError as e:
 
             zero:  0.0
@@ -3739,6 +3798,7 @@ Float divmod
        138:     zero = 0.
        139:     try:
     -->140:         divmod(1, zero)
+                    ^^^^^^^^^^^^^^^
        141:     except ZeroDivisionError as e:
 
             zero:  0.0
@@ -3772,6 +3832,7 @@ Float modulo
        107:         assert "done using the modulo operator" in result
        109:     try:
     -->110:         1 % zero
+                    ^^^^^^^^
        111:     except ZeroDivisionError as e:
 
             zero:  0.0
@@ -3804,6 +3865,7 @@ Integer division operator
        39:         assert "The following mathematical expression includes a division by zero" in result
        41:     try:
     -->42:         1 // zero
+                   ^^^^^^^^^
        43:     except ZeroDivisionError as e:
 
             zero:  0
@@ -3867,6 +3929,7 @@ Modulo operator
        64:         assert "The following mathematical expression includes a division by zero" in result
        66:     try:
     -->67:         1 % zero
+                   ^^^^^^^^
        68:     except ZeroDivisionError as e:
 
             zero:  0
@@ -3896,6 +3959,7 @@ Raise zero negative power
        168:     zero = 0
        169:     try:
     -->170:         zero ** -1
+                    ^^^^^^^^^^
        171:     except ZeroDivisionError as e:
 
             zero:  0

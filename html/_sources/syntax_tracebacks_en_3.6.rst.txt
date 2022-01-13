@@ -41,9 +41,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\and_in_import_statement.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from math import sin and cos
+       1: from math import sin and cos
                                ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
@@ -70,9 +70,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\and_in_import_statement_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from math import sin, tan, and cos
+       1: from math import sin, tan, and cos
                                      ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
@@ -99,12 +99,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\annotated_name_global.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # SyntaxError: annotated name 'var' can't be global
-       2: def foo():
-       3:     global var
-    -->4:     var:int = 1
+       4:     var:int = 1
               ^^^
 
     The object named `var` is defined with type annotation
@@ -129,10 +126,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\as_instead_of_comma_in_import.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # issue 158
-    -->2: from math import (sin, cos) as funcs
+       2: from math import (sin, cos) as funcs
                                       ^^
 
     I am guessing that you are trying to import at least one object
@@ -166,9 +162,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_instead_of_equal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = (b = 2)  # issue #65
+       1: a = (b = 2)  # issue #65
                  ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -194,13 +190,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_global_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: aa, bb, cc, dd = 1, 2, 3, 4
-       4: 
-       5: def fn():
-       6:     cc = 1
-    -->7:     global aa, bb, cc, dd
+       7:     global aa, bb, cc, dd
               ------         ^^
 
     You assigned a value to the variable `cc`
@@ -225,13 +217,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_global_2.py'
-    at the location indicated by ^.
+    .
     
-       3: 
-       4: 
-       5: def fn():
-       6:     print(var)
-    -->7:     global var
+       7:     global var
               ------ ^^^
 
     You used the variable `var`
@@ -258,13 +246,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-        7: 
-        8: 
-        9:     def g():
-       10:         print(qq)
-    -->11:         nonlocal pp, qq
+       11:         nonlocal pp, qq
                    --------     ^^
 
     You used the variable `qq`
@@ -291,13 +275,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    at the location indicated by ^.
+    .
     
-       5:     s = 1
-       6: 
-       7:     def g():
-       8:         s = 2
-    -->9:         nonlocal s
+       9:         nonlocal s
                   -------- ^
 
     You assigned a value to the variable `s`
@@ -324,11 +304,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_conditional.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
-       2: 
-    -->3: a if 1 else b = 1
+       3: a if 1 else b = 1
           ^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
@@ -358,12 +336,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_debug.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
-    -->4: __debug__ = 1
+       4: __debug__ = 1
           ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
@@ -389,12 +364,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_debug2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
-    -->4: a.__debug__ = 1
+       4: a.__debug__ = 1
             ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
@@ -420,12 +392,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_ellipsis.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: cannot assign to Ellipsis in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
-    -->4: ... = 1
+       4: ... = 1
           ^^^
 
     The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
@@ -449,10 +418,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_f_string.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: 
-    -->6: f'{x}' = 42
+       6: f'{x}' = 42
           ^^^^^^
 
     You wrote an expression that has the f-string `f'{x}'`
@@ -480,10 +448,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_function_call_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: 
-    -->6: len('a') = 3
+       6: len('a') = 3
           ^^^^^^^^
 
     You wrote the expression
@@ -515,10 +482,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_function_call_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: # Test to confirm that '=' inside function args is not misidentified.
-    -->6: func(a, b=3) = 4
+       6: func(a, b=3) = 4
           ^^^^^^^^^^^^
 
     You wrote the expression
@@ -550,9 +516,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_function_call_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: # tests for continuation marker
     -->6: a = f(1, 2,  # this is a comment
               ^^^^^^^-->
        7:       3, 4) = 5
@@ -586,11 +551,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_generator.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
-       2: 
-    -->3: (x for x in x) = 1
+       3: (x for x in x) = 1
           ^^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
@@ -618,10 +581,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_literal_dict.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       6: 
-    -->7: {1 : 2, 2 : 4} = 5
+       7: {1 : 2, 2 : 4} = 5
           ^^^^^^^^^^^^^^
 
     You wrote an expression like
@@ -653,11 +615,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_literal_int.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't assign to literal"""
-       2: 
-    -->3: 1 = a
+       3: 1 = a
           ^
 
     You wrote an expression like
@@ -692,11 +652,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_literal_int_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't assign to literal"""
-       2: 
-    -->3: 1 = 2
+       3: 1 = 2
           ^
 
     You wrote an expression like
@@ -729,12 +687,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_literal_int_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't assign to literal
-       2: or (Python 3.8) cannot assign to literal"""
-       3: 
-    -->4: 1 = a = b
+       4: 1 = a = b
           ^
 
     You wrote an expression like
@@ -767,10 +722,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_literal_set.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       6: 
-    -->7: {1, 2, 3} = 4
+       7: {1, 2, 3} = 4
           ^^^^^^^^^
 
     You wrote an expression like
@@ -803,11 +757,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_keyword_def.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """ Should raise SyntaxError"""
-       2: 
-    -->3: def = 2
+       3: def = 2
           ^^^
 
     You were trying to assign a value to the Python keyword `def`.
@@ -835,11 +787,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_keyword_else.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """ Should raise SyntaxError"""
-       2: 
-    -->3: else = 1
+       3: else = 1
           ^^^^
 
     You were trying to assign a value to the Python keyword `else`.
@@ -867,12 +817,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_keyword_none.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: cannot assign to None in Py 3.8
-       2:    and can't assign to keyword before."""
-       3: 
-    -->4: None = 1
+       4: None = 1
           ^^^^
 
     `None` is a constant in Python; you cannot assign it a different value.
@@ -898,12 +845,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_operation.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't assign to operator
-       2: or (Python 3.8) cannot assign to operator"""
-       3: 
-    -->4: a + 1 = 2
+       4: a + 1 = 2
           ^
 
     You wrote an expression that includes some mathematical operations
@@ -931,9 +875,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_to_yield_expression.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: (yield i) = 3
+       1: (yield i) = 3
           ^
 
     You wrote an expression that includes the `yield` keyword
@@ -963,9 +907,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assignment_expression_cannot_rebind.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [(i := 1) for i in [1]]
+       1: a = [(i := 1) for i in [1]]
                   ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -993,9 +937,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+       1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
                                      ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -1023,9 +967,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\async_def_missing_parens.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: async def name:
+       1: async def name:
                         ^
 
     Perhaps you forgot to include parentheses.
@@ -1054,9 +998,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\augmented_assignment_to_literal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: if "word" := True:
+       1: if "word" := True:
                      ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -1084,12 +1028,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\augmented_assigment_with_true.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: or (Python 3.8) cannot use named assignment with True"""
-       3: 
-    -->4: (True := 1)
+       4: (True := 1)
                 ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -1117,9 +1058,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\backslash_instead_of_slash.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = 3 \ 4.0
+       1: a = 3 \ 4.0
                   ^^^
 
     You are using the continuation character `\` outside of a string,
@@ -1147,9 +1088,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\bracket_instead_of_paren.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print(sum[i for i in [1, 2, 3] if i%2==0])
+       1: print(sum[i for i in [1, 2, 3] if i%2==0])
                       ^^^
 
     You used square brackets, `[...]` instead of parentheses.
@@ -1175,12 +1116,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\break_outside_loop.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: 'break' outside loop"""
-       2: 
-       3: if True:
-    -->4:     break
+       4:     break
               ^^^^^
 
     The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
@@ -1206,9 +1144,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\cannot_assign_to_attribute_here.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: if x.a = 1:
+       1: if x.a = 1:
                  ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -1236,9 +1174,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\cannot_guess_the_cause.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: SyntaxErrors can be annoying!
+       1: SyntaxErrors can be annoying!
                        ^^^
 
     Currently, I cannot guess the likely cause of this error.
@@ -1271,11 +1209,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\cannot_use_star.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't use starred expression here"""
-       2: 
-    -->3: *a
+       3: *a
           ^
 
     The star operator `*` is interpreted to mean that
@@ -1301,9 +1237,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\<fstring>'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: (**k)
+       1: (**k)
            ^^
 
     The double star operator `**` is likely interpreted to mean that
@@ -1330,9 +1266,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\class_missing_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: class:
+       1: class:
                ^
 
     A `class` statement requires a name:
@@ -1362,9 +1298,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\comprehension_missing_tuple_paren.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: x = [i, i**2 for i in range(10)]
+       1: x = [i, i**2 for i in range(10)]
                        ^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1397,9 +1333,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\comprehension_with_condition_no_else.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [f(x) if condition for x in sequence]
+       1: a = [f(x) if condition for x in sequence]
                                  ^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1434,9 +1370,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\comprehension_with_condition_with_else.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [f(x) for x in sequence if condition else other]
+       1: a = [f(x) for x in sequence if condition else other]
                                                    ^^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1471,12 +1407,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\continue_outside_loop.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: 'continue' outside loop"""
-       2: 
-       3: if True:
-    -->4:     continue
+       4:     continue
               ^^^^^^^^
 
     The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
@@ -1502,10 +1435,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\copy_pasted_code.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: >>> print("Hello World!")
+       2: >>> print("Hello World!")
           ^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
@@ -1532,10 +1464,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\copy_pasted_code_2.py'
-    at the location indicated by ^.
+    .
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: ... print("Hello World!")
+       2: ... print("Hello World!")
           ----^^^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
@@ -1562,9 +1493,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\<fstring>'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: (a=)
+       1: (a=)
             ^
 
     You are likely using a 'debug' syntax of f-strings introduced
@@ -1591,9 +1522,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_arg_after_kwarg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, **kwargs, b):
+       1: def test(a, **kwargs, b):
                                 ^
 
     Positional arguments must come before keyword arguments.
@@ -1621,12 +1552,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_bare_star_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # SyntaxError: named arguments must follow bare *
-       2: 
-       3: 
-    -->4: def f(*):
+       4: def f(*):
                ^
 
     Assuming you were defining a function, you need
@@ -1654,11 +1582,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_code_block.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-    -->3: def :
+       3: def :
               ^
 
     You tried to define a function and did not use the correct syntax.
@@ -1687,10 +1613,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_code_block_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: class A:
-    -->2:     def :
+       2:     def :
                   ^
 
     You tried to define a function or method and did not use the correct syntax.
@@ -1719,11 +1644,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_dotted_argument.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: def test(x.y):
+       3: def test(x.y):
                     ^
 
     You cannot use dotted names as function arguments.
@@ -1750,10 +1673,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_dotted_argument_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-    -->2: def test(x., y):
+       2: def test(x., y):
                     ^
 
     You cannot use dotted names as function arguments.
@@ -1779,11 +1701,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_dotted_function_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: def test.x():
+       3: def test.x():
                   ^
 
     You cannot use dots in function names.
@@ -1809,9 +1729,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_dict_as_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test({'a': 1}, y):  # dict as first argument
+       1: def test({'a': 1}, y):  # dict as first argument
                    ^
 
     You cannot have any explicit dict or set as function arguments.
@@ -1836,12 +1756,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_duplicate_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
-       2: 
-       3: 
-    -->4: def f(aa=1, aa=2):
+       4: def f(aa=1, aa=2):
                 ^^    ^^
 
     You have defined a function repeating the argument
@@ -1870,9 +1787,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_extra_semi_colon.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test():;
+       1: def test():;
                      ^
 
     A function definition statement must end with a colon.
@@ -1900,9 +1817,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_extra_comma.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a,,b):
+       1: def test(a,,b):
                      ^
 
     I suspect you made a typo and added `,` by mistake.
@@ -1930,9 +1847,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_forward_slash_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, **kwargs, /):
+       1: def test(a, **kwargs, /):
                                 ^
 
     `/` indicates that the previous arguments in a function definition
@@ -1961,9 +1878,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_forward_slash_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *, b, /):
+       1: def test(a, *, b, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -1992,9 +1909,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_forward_slash_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *arg, /):
+       1: def test(a, *arg, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -2023,9 +1940,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_forward_slash_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, /, b, /):
+       1: def test(a, /, b, /):
                       ^
 
     `/` indicates that the previous arguments in a function definition
@@ -2054,11 +1971,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_function_name_invalid.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: def 2be():
+       3: def 2be():
               ^
 
     The name of a function must be a valid Python identifier,
@@ -2089,11 +2004,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_function_name_string.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: def "function"():
+       3: def "function"():
               ^^^^^^^^^^
 
     The name of a function must be a valid Python identifier,
@@ -2120,13 +2033,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_keyword_as_arg_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
-    -->5: def f(None=1):
+       5: def f(None=1):
                 ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2152,13 +2061,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_keyword_as_arg_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
-    -->5: def f(x, True):
+       5: def f(x, True):
                    ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2184,13 +2089,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_keyword_as_arg_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
-    -->5: def f(*None):
+       5: def f(*None):
                  ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2216,13 +2117,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_keyword_as_arg_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
-    -->5: def f(**None):
+       5: def f(**None):
                   ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2250,11 +2147,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_keyword_as_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: def pass():
+       3: def pass():
               ^^^^
 
     You tried to use the Python keyword `pass` as a function name.
@@ -2282,9 +2177,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_list_as_arg_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test([x], y):  # list as first argument
+       1: def test([x], y):  # list as first argument
                    ^
 
     You cannot have explicit lists as function arguments.
@@ -2311,9 +2206,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_list_as_arg_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(x, [y]):  # list as second argument, after comma
+       1: def test(x, [y]):  # list as second argument, after comma
                       ^
 
     You cannot have explicit lists as function arguments.
@@ -2340,10 +2235,10 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_missing_colon.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test()
-                   -^
+       1: def test()
+                    ^
 
     A function definition statement must end with a colon.
     
@@ -2368,21 +2263,20 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_missing_comma.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-       3: 
-    -->4: def a(b, c d):
-                     ^
+       4: def a(b, c d):
+                   ^^^
 
     Python indicates that the error is caused by `d` written immediately after `c`.
     It is possible that you forgot a comma between items in a tuple, 
     or between function arguments, 
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant
     
         def a(b, c, d):
+                  ^
+    
     
 
 (75) def: missing parentheses
@@ -2405,11 +2299,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_missing_parens.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-    -->3: def name:
+       3: def name:
                   ^
 
     Perhaps you forgot to include parentheses.
@@ -2438,10 +2330,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_missing_parens_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-    -->2: def name a, b:
+       2: def name a, b:
                    ^
 
     Perhaps you forgot to include parentheses.
@@ -2468,11 +2359,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_missing_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-    -->3: def ( arg )  :
+       3: def ( arg )  :
               ^
 
     You forgot to name your function.
@@ -2499,12 +2388,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: 
-       4: 
-       5: def f(x):
-    -->6:     global x
+       6:     global x
               ^^^^^^
 
     You are including the statement
@@ -2536,13 +2422,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_non_default_after_default.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: non-default argument follows default argument
-       2: """
-       3: 
-       4: 
-    -->5: def test(a=1, b):
+       5: def test(a=1, b):
                   ^
 
     In Python, you can define functions with only positional arguments
@@ -2581,9 +2463,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_number_as_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def f(1):
+       1: def f(1):
                 ^
 
     You used a number as an argument when defining a function.
@@ -2608,9 +2490,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_operator_after_2star.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(**):
+       1: def test(**):
                      ^
 
     The `**` operator needs to be followed by an identifier (variable name).
@@ -2636,9 +2518,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_operator_instead_of_comma.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a + b):
+       1: def test(a + b):
                      ^
 
     You cannot have operators as function arguments.
@@ -2667,9 +2549,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_operator_instead_of_equal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, b=3, c+None):
+       1: def test(a, b=3, c+None):
                             ^
 
     You cannot have operators as function arguments.
@@ -2698,9 +2580,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_operator_instead_of_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, +, b):
+       1: def test(a, +, b):
                       ^
 
     I suspect you made a typo and wrote `+` by mistake.
@@ -2726,13 +2608,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_positional_after_keyword_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: positional argument follows keyword argument
-       2: """
-       3: 
-       4: 
-    -->5: test(a=1, b)
+       5: test(a=1, b)
                     ^
 
     In Python, you can call functions with only positional arguments
@@ -2771,9 +2649,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test();
+       1: def test();
                     ^
 
     A function definition statement must end with a colon.
@@ -2800,9 +2678,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_set_as_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(y, {'a', 'b'}):  # set as second argument, after comma
+       1: def test(y, {'a', 'b'}):  # set as second argument, after comma
                       ^
 
     You cannot have any explicit dict or set as function arguments.
@@ -2829,9 +2707,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_arg_before_slash.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *arg, /):
+       1: def test(a, *arg, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -2860,9 +2738,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_used_only_once.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *arg, *, b=1):
+       1: def test(a, *arg, *, b=1):
                             ^
 
     You can only use `*` once in a function definition.
@@ -2890,9 +2768,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_used_only_once_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *, *):
+       1: def test(a, *, *):
                          ^
 
     You can only use `*` once in a function definition.
@@ -2918,9 +2796,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_used_only_once_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, *arg, *other):
+       1: def test(a, *arg, *other):
                             ^
 
     You can only use `*` once in a function definition.
@@ -2947,9 +2825,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_after_2star.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(**kw, *arg):
+       1: def test(**kw, *arg):
                          ^
 
     `*arg` must appear before `**kw`.
@@ -2975,9 +2853,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_star_after_2star_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(**kw, *):
+       1: def test(**kw, *):
                          ^
 
     `**kw` must appear after the `*` operator.
@@ -3003,9 +2881,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_string_as_arg.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def f("1"):
+       1: def f("1"):
                 ^^^
 
     You used a string as an argument when defining a function.
@@ -3032,9 +2910,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_tuple_as_arg_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test((a, b), c):
+       1: def test((a, b), c):
                    ^
 
     You cannot have explicit tuples as function arguments.
@@ -3063,9 +2941,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\def_tuple_as_arg_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: def test(a, (b, c)):
+       1: def test(a, (b, c)):
                       ^
 
     You cannot have explicit tuples as function arguments.
@@ -3092,9 +2970,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\del_paren_star_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del (*x)
+       1: del (*x)
               ^
 
     The star operator `*` is interpreted to mean that
@@ -3122,9 +3000,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\del_paren_star_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del (*x,)
+       1: del (*x,)
               ^
 
     The star operator `*` is interpreted to mean that
@@ -3152,9 +3030,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_constant_keyword.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del True
+       1: del True
               ^^^^
 
     You cannot delete the constant `True`.
@@ -3183,9 +3061,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_expression.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del a.b.c[0] + 2
+       1: del a.b.c[0] + 2
               ^
 
     You cannot delete the expression `a.b.c[0] + 2`.
@@ -3211,13 +3089,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_function_call.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't or cannot delete function call
-       2: """
-       3: 
-       4: 
-    -->5: del f(a)
+       5: del f(a)
               ^
 
     You attempted to delete a function call
@@ -3248,9 +3122,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_named_expression.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del (a := 5)
+       1: del (a := 5)
                  ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -3276,9 +3150,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_names_or_items.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del a += b
+       1: del a += b
                 ^^
 
     You can only delete names of objects, or items in mutable containers
@@ -3303,9 +3177,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\delete_string_literal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: del "Hello world!"
+       1: del "Hello world!"
               ^^^^^^^^^^^^^^
 
     You cannot delete the literal `"Hello world!"`.
@@ -3333,9 +3207,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\dict_value_missing_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = {1:2, 3}
+       1: a = {1:2, 3}
                      ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3362,10 +3236,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\dict_value_missing_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # a = {1:2, 3}
-    -->2: a = {1:2, 3:}
+       2: a = {1:2, 3:}
                       ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3392,11 +3265,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\dict_value_missing_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # a = {1:2, 3}
-       2: # a = {1:2, 3:}
-    -->3: a = {1:2, 3, 4:5}
+       3: a = {1:2, 3, 4:5}
                      ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3423,12 +3294,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\dict_value_missing_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # a = {1:2, 3}
-       2: # a = {1:2, 3:}
-       3: # a = {1:2, 3, 4:5}
-    -->4: a = {1:2, 3:, 4:5}
+       4: a = {1:2, 3:, 4:5}
                       ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3453,9 +3321,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\different_operators_in_a_row.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: 3 */ 4
+       1: 3 */ 4
             ^^
 
     You cannot have these two operators, `*` and `/`,
@@ -3481,11 +3349,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\dot_before_paren.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: Reported by Hackinscience."""
-    -->3: print(len.('hello'))
+       3: print(len.('hello'))
                     ^
 
     You cannot have a dot `.` followed by `(`.
@@ -3512,9 +3378,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\duplicate_token.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print(1 , , 2)
+       1: print(1 , , 2)
                     ^
 
     I am guessing that you wrote `,` twice in a row by mistake.
@@ -3539,11 +3405,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\elif_not_matching_if.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: if True:
-       2:    pass
-    -->3:    elif True:
+       3:    elif True:
              ^^^^
 
     The `elif` keyword does not begin a code block that matches
@@ -3568,11 +3432,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\else_no_matching_statement.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: if True:
-       2:    pass
-    -->3:    else:
+       3:    else:
              ^^^^
 
     The `else` keyword does not begin a code block that matches
@@ -3599,13 +3461,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\else_if_instead_of_elif.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-       3: if False:
-       4:     pass
-    -->5: else if True:
+       5: else if True:
           ^^^^-^^
 
     You likely meant to use Python's `elif` keyword
@@ -3633,13 +3491,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\elseif_instead_of_elif.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-       3: if False:
-       4:     pass
-    -->5: elseif True:
+       5: elseif True:
           ^^^^^^
 
     You likely meant to use Python's `elif` keyword
@@ -3667,11 +3521,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\eol_string_literal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: EOL while scanning string literal"""
-       2: 
-    -->3: alphabet = 'abc
+       3: alphabet = 'abc
                       ^^^
 
     You started writing a string with a single or double quote
@@ -3696,12 +3548,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\equal_sign_instead_of_colon.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-    -->4: ages = {'Alice'=22, 'Bob'=24}
+       4: ages = {'Alice'=22, 'Bob'=24}
                          ^
 
     It is possible that you used an equal sign `=` instead of a colon `:`
@@ -3729,11 +3578,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\except_multiple_exceptions.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: try:
-       2:     pass
-    -->3: except NameError, ValueError as err:
+       3: except NameError, ValueError as err:
                           ^
 
     I am guessing that you wanted to use an `except` statement
@@ -3761,9 +3608,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\extra_token.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print(1 / 2) ==
+       1: print(1 / 2) ==
                        ^^
 
     I am guessing that you wrote `==` by mistake.
@@ -3788,9 +3635,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\<fstring>'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: (b=3)
+       1: (b=3)
             ^
 
     You are likely trying to assign a value within an f-string.
@@ -3817,9 +3664,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\f_string_binary.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: greet = bf"Hello {name}"
+       1: greet = bf"Hello {name}"
                     ^^^^^^^^^^^^^^
 
     I am guessing that you wanted a binary f-string;
@@ -3844,9 +3691,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\f_string_curly_not_allowed.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: f"ab}"
+       1: f"ab}"
           ^^^^^^
 
     You have written an f-string which has an unmatched `}`.
@@ -3872,9 +3719,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\f_string_expected_curly.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: f"{ab"
+       1: f"{ab"
           ^^^^^^
 
     You have written an f-string which has an unmatched `{`.
@@ -3902,12 +3749,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\f_string_unterminated.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: f-string: unterminated string
-       2: """
-       3: 
-    -->4: print(f"Bob is {age['Bob]} years old.")
+       4: print(f"Bob is {age['Bob]} years old.")
                ^
 
     Inside the f-string `f"Bob is {age['Bob]} years old."`, 
@@ -3933,10 +3777,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\f_string_with_backslash.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: names = ['a', 'b']
-    -->2: print(f"{'\n'.join(names)}")
+       2: print(f"{'\n'.join(names)}")
                ^
 
     You have written an f-string whose content `{...}`
@@ -3972,9 +3815,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\for_missing_terms.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: for:
+       1: for:
              ^
 
     A `for` loop is an iteration over a sequence:
@@ -4002,9 +3845,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\future_braces.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from __future__ import braces
+       1: from __future__ import braces
           ^^^^
 
     I suspect you wrote `from __future__ import braces` following
@@ -4032,9 +3875,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\future_import_star.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from __future__ import *
+       1: from __future__ import *
           ^^^^
 
     When using a `from __future__ import` statement,
@@ -4069,11 +3912,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\future_must_be_first.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: def fn():
-    -->3:     from __future__ import generators
+       3:     from __future__ import generators
               ^^^^
 
     A `from __future__ import` statement changes the way Python
@@ -4100,9 +3941,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\future_typo.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from __future__ import divisio
+       1: from __future__ import divisio
           ^^^^
 
     Instead of `divisio`, perhaps you meant to import `division`.
@@ -4126,9 +3967,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\future_unknown.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: from __future__ import something
+       1: from __future__ import something
           ^^^^
 
     `something` is not a valid feature of module `__future__`.
@@ -4162,13 +4003,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\generator_expression_parens.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       2: def f(it, *varargs, **kwargs):
-       3:     return list(it)
-       4: 
-       5: L = range(10)
-    -->6: f(x for x in L, 1)
+       6: f(x for x in L, 1)
            ^
 
     You are using a generator expression, something of the form
@@ -4198,12 +4035,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\hyphen_instead_of_underscore.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: can't assign to operator
-       2: or (Python 3.8) cannot assign to operator"""
-       3: 
-    -->4: a-b = 2
+       4: a-b = 2
           ^
 
     You wrote an expression that includes some mathematical operations
@@ -4232,9 +4066,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\if_missing_condition.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: if:
+       1: if:
             ^
 
     An `if` statement requires a condition:
@@ -4264,11 +4098,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\imaginary_i.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # SyntaxError: invalid syntax
-       2: 
-    -->3: a = 3.0i
+       3: a = 3.0i
                  ^
 
     Perhaps you thought that `i` could be used to represent
@@ -4298,11 +4130,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\import_from.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: import pen from turtle
+       3: import pen from turtle
           ^^^^^^     ^^^^
 
     You wrote something like
@@ -4334,12 +4164,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\indentation_error_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: '''Should raise IndentationError'''
-       2: 
-       3: if True:
-    -->4: pass
+       4: pass
           ^^^^
 
     Line `4` identified above was expected to begin a new indented block.
@@ -4364,12 +4191,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\indentation_error_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: '''Should raise IndentationError'''
-       2: if True:
-       3:     pass
-    -->4:       pass
+       4:       pass
                 ^^^^
 
     Line `4` identified above is more indented than expected.
@@ -4394,13 +4218,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\indentation_error_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: '''Should raise IndentationError'''
-       2: 
-       3: if True:
-       4:       pass
-    -->5:     pass
+       5:     pass
               ^^^^
 
     Line `5` identified above is less indented than expected.
@@ -4425,13 +4245,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\indentation_error_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       2: 
-       3: def f():
-       4:      s = "a"\
-       5:          "b"
-    -->6:          "c"
+       6:          "c"
                    ^^^
 
     Line `6` identified above is more indented than expected.
@@ -4463,9 +4279,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\integer_with_leading_zero_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: x = 01
+       1: x = 01
                ^
 
     Perhaps you meant to write the octal number `0o1`
@@ -4493,9 +4309,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\integer_with_leading_zero_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: x = 000_123_456
+       1: x = 000_123_456
                  ^^^^^^^^
 
     Perhaps you meant to write the integer `123_456`
@@ -4520,12 +4336,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_character_in_identifier.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: 
-       4: # Robot-face character below
-       5: 
-    -->6: 🤖 = 'Reeborg'
+       6: 🤖 = 'Reeborg'
           ^
 
     Python indicates that you used the unicode character `🤖`
@@ -4552,9 +4365,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_decimal_literal1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = 1e
+       1: a = 1e
                ^
 
     Valid names cannot begin with a number.
@@ -4605,11 +4418,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_hexadecimal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: a = 0x123g4
+       3: a = 0x123g4
                    ^^
 
     It looks like you used an invalid character (`g`) in an hexadecimal number.
@@ -4641,11 +4452,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_identifier.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: 36abc = 3
+       3: 36abc = 3
             ^^^
 
     Valid names cannot begin with a number.
@@ -4671,11 +4480,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_identifier_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: tau = 2pi
+       3: tau = 2pi
                  ^^
 
     Valid names cannot begin with a number.
@@ -4703,9 +4510,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_identifier_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: 3job  # could be entered in a repl
+       1: 3job  # could be entered in a repl
             ^^
 
     Valid names cannot begin with a number.
@@ -4735,9 +4542,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_identifier_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: 3job = 1
+       1: 3job = 1
             ^^
 
     Valid names cannot begin with a number.
@@ -4763,9 +4570,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_identifier_5.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print(42java)
+       1: print(42java)
                    ^^^
 
     Valid names cannot begin with a number.
@@ -4793,11 +4600,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_keyword_argument.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: 
-       6: 
-    -->7: a = dict('key'=1)
+       7: a = dict('key'=1)
                   ^
 
     You likely called a function with a named argument:
@@ -4829,11 +4634,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_keyword_argument_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       5: 
-       6: 
-    -->7: a = dict(True=1)
+       7: a = dict(True=1)
                   ^
 
     You likely called a function using the Python keyword `True` as an argument:
@@ -4865,11 +4668,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\invalid_octal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: b = 0O1876
+       3: b = 0O1876
                  ^^^
 
     It looks like you used an invalid character (`8`) in an octal number.
@@ -4901,9 +4702,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\inverted_operators.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a =< 3
+       1: a =< 3
             ^^
 
     It looks like you wrote two operators (`=` and `<`)
@@ -4930,9 +4731,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\inverted_operators_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a =<* 3
+       1: a =<* 3
             ^^
 
     It looks like you wrote two operators (`=` and `<`)
@@ -4960,9 +4761,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\iteration_unpacking_in_comprehension.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: [*x for x in xs]
+       1: [*x for x in xs]
           ^
 
     You cannot use the `*` operator to unpack the iteration variable
@@ -4991,12 +4792,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\keyword_arg_repeated.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError:  keyword argument repeated"""
-       2: 
-       3: 
-    -->4: f(ad=1, ad=2)
+       4: f(ad=1, ad=2)
                   ^^
 
     You have called a function repeating the same keyword argument (`ad`).
@@ -5023,13 +4821,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\keyword_as_attribute.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-        8: 
-        9: a = A()
-       10: 
-       11: a.x = 1
-    -->12: a.pass = 2
+       12: a.pass = 2
              ^^^^
 
     You cannot use the Python keyword `pass` as an attribute.
@@ -5054,10 +4848,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\lambda_with_parens.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-    -->2: x = lambda (a, b): a + b
+       2: x = lambda (a, b): a + b
                      ^
 
     `lambda` does not allow parentheses around its arguments.
@@ -5082,10 +4875,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\lambda_with_tuple_argument.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-    -->2: x = lambda a, (b, c): a + b + b
+       2: x = lambda a, (b, c): a + b + b
                         ^
 
     You cannot have explicit tuples as arguments.
@@ -5113,9 +4905,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\literal_in_for_loop.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: for "char" in "word":
+       1: for "char" in "word":
               ^^^^^^
 
     A for loop must have the form:
@@ -5142,10 +4934,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_code_block.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: '''Should raise SyntaxError: unexpected EOF while parsing'''
-       2: 
        3: for i in range(10):
     -->4: 
                             ^
@@ -5171,14 +4961,10 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_code_block_2.py'
-    at the location indicated by ^.
+    .
     
-       2: a = 1
        3: for i in "test":
-       4:    #
-       5:    #
-    -->6: 
-                         ^
+       4: 
 
     Python tells us that it reached the end of the file
     and expected more content.
@@ -5205,12 +4991,10 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_colon_if.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-    -->3: if True
-             ----^
+       3: if True
+                 ^
 
     You wrote a statement beginning with
     `if` but forgot to add a colon `:` at the end.
@@ -5237,12 +5021,10 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_colon_while.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError"""
-       2: 
-    -->3: while True  # a comment
-                ----^
+       3: while True  # a comment
+                    ^
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -5269,25 +5051,26 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_comma_in_dict.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
        3: a = {'a': 1,
-       4:      'b': 2
+    -->4:      'b': 2
+                    ^-->
     -->5:      'c': 3,
                ^^^
        6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant
     
         a = {'a': 1,
-     'b': 2, 
-     'c': 3,
-    }
+             'b': 2, 
+                   ^
+             'c': 3,
+        }
+    
     
 
 (168) Missing comma between strings in a dict
@@ -5310,9 +5093,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_comma_in_dict_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
        2: a = {'a': '1',
        3:      'b': '2'
     -->4:      'c': '3',
@@ -5324,8 +5106,9 @@ Python version: 3.6.8
     
     ```
     a = {'a': '1',
-         'b': '2'
-          «,» 'c': '3',
+         'b': '2',
+                 ^
+         'c': '3',
     }
     ```
 
@@ -5349,16 +5132,14 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_comma_in_list.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: a = [1, 2  3]
-                     ^
+       3: a = [1, 2  3]
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a list
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5391,16 +5172,14 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_comma_in_set.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: a = {1, 2  3}
-                     ^
+       3: a = {1, 2  3}
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5433,17 +5212,15 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_comma_in_tuple.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: a = (1, 2  3)
-                     ^
+       3: a = (1, 2  3)
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a tuple, 
     or between function arguments, 
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5476,9 +5253,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_in_with_for.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: for x range(4):
+       1: for x range(4):
                 ^^^^^
 
     It looks as though you forgot to use the keyword `in`
@@ -5508,9 +5285,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_parens_for_range.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: for i in range 3:
+       1: for i in range 3:
                          ^
 
     It looks as though you forgot to use to use parenthesis with `range`.
@@ -5540,10 +5317,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\misspelled_keyword.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: i = 3
-    -->2: is i in range(3):
+       2: is i in range(3):
           ^^
 
     Perhaps you meant to write `if` and made a typo.
@@ -5568,13 +5344,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\name_is_global_and_nonlocal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: xy = 1
-       4: 
-       5: 
-       6: def f():
-    -->7:     global xy
+       7:     global xy
               ^^^^^^
 
     You declared `xy` as being both a global and nonlocal variable.
@@ -5599,13 +5371,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\name_is_param_and_nonlocal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: name 'x' is parameter and nonlocal"""
-       2: 
-       3: 
-       4: def f(x):
-    -->5:     nonlocal x
+       5:     nonlocal x
               ^^^^^^^^
 
     You used `x` as a parameter for a function
@@ -5631,13 +5399,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\no_binding_for_nonlocal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: no binding for nonlocal 'ab' found"""
-       2: 
-       3: 
-       4: def f():
-    -->5:     nonlocal ab
+       5:     nonlocal ab
               ^^^^^^^^
 
     You declared the variable `ab` as being a
@@ -5662,12 +5426,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\nonlocal_at_module.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError:  nonlocal declaration not allowed at module level"""
-       2: 
-       3: 
-    -->4: nonlocal cd
+       4: nonlocal cd
           ^^^^^^^^
 
     You used the nonlocal keyword at a module level.
@@ -5692,9 +5453,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\operator_twice_in_a_row.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: 4****5
+       1: 4****5
            ^^^^
 
     You cannot have write the same operator, `**`, twice in a row.
@@ -5722,10 +5483,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\pip_install_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: pip install friendly
+       2: pip install friendly
               ^^^^^^^
 
     It looks as if you are attempting to use pip to install a module.
@@ -5753,10 +5513,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\pip_install_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: python -m pip install friendly
+       2: python -m pip install friendly
                     ^^^
 
     It looks as if you are attempting to use pip to install a module.
@@ -5784,10 +5543,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_is_a_function.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
-    -->2: print 'hello'
+       2: print 'hello'
                 ^^^^^^^
 
     Perhaps you need to type
@@ -5818,10 +5576,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_is_a_function_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: print len('hello')
+       2: print len('hello')
                 ^^^
 
     Perhaps you need to type
@@ -5852,9 +5609,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_is_a_function_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print """This is a very long string which results in a very long error message."""
+       1: print """This is a very long string which results in a very long error message."""
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
@@ -5885,9 +5642,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_is_a_function_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                 ^^^
        3:           that spans multiple lines.""")
@@ -5920,10 +5676,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_is_a_function_5.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: print len('This is a long string that fits on a single line.')
+       2: print len('This is a long string that fits on a single line.')
                 ^^^
 
     Perhaps you need to type
@@ -5954,9 +5709,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_non_paren_non_string1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print hello world!
+       1: print hello world!
                 ^^^^^
 
     Perhaps you need to type
@@ -5988,9 +5743,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\print_non_paren_non_string2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: print len("hello") hello
+       1: print len("hello") hello
                 ^^^
 
     Perhaps you need to type
@@ -6020,9 +5775,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\python_interpreter.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: python -i friendly
+       1: python -i friendly
                     ^^^^^^^^
 
     I am guessing that you are attempting to use Python to run a program.
@@ -6049,10 +5804,10 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\python_not_interpreter.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: python = a b
-                     ^
+       1: python = a b
+                   ^^^
 
     Python indicates that the error is caused by `b` written immediately after `a`.
     Perhaps you meant to insert an operator like `+; -; *; ,`
@@ -6087,11 +5842,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\quote_inside_string.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: message = 'I don't mind.'
+       3: message = 'I don't mind.'
                            ^
 
     I suspect that you were trying to use a quote character inside a string
@@ -6120,10 +5873,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\raise_multiple_exceptions.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: raise X, Y
+       2: raise X, Y
                  ^
 
     It looks like you are trying to raise an exception using Python 2 syntax.
@@ -6147,11 +5899,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\return_outside_function.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: 'return' outside function"""
-       2: 
-    -->3: return
+       3: return
           ^^^^^^
 
     You can only use a `return` statement inside a function or method.
@@ -6177,9 +5927,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\semi_colon_instead_of_colon.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: if True;  # A comment
+       1: if True;  # A comment
                  ^
 
     You wrote a semicolon, `;`, where a colon was expected.
@@ -6205,9 +5955,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\semi_colon_instead_of_comma_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [1, 2; 3]
+       1: a = [1, 2; 3]
                    ^
 
     You wrote a semicolon, `;`, where a comma was expected.
@@ -6233,9 +5983,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\semi_colon_instead_of_comma_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [1; 2; 3]
+       1: a = [1; 2; 3]
                 ^
 
     You wrote semicolons, `;`, where commas were expected.
@@ -6261,9 +6011,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\semi_colon_instead_of_comma_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = [1; 2; 3];
+       1: a = [1; 2; 3];
                 ^
 
     You wrote semicolons, `;`, where commas were expected.
@@ -6287,7 +6037,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\should_be_comprehension.py'
-    at the location indicated by ^.
+    at the location indicated.
     
        1: a = [
     -->2:     for i in 1, 2, 3:
@@ -6322,11 +6072,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\single_equal_with_if.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: for i in range(101):
-    -->3:     if i % 2 = 0:
+       3:     if i % 2 = 0:
                        ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -6354,13 +6102,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\single_equal_with_elif.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: for i in range(101):
-       3:     if False:
-       4:         pass
-    -->5:     elif i % 2 = 0:
+       5:     elif i % 2 = 0:
                          ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -6388,12 +6132,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\single_equal_with_while.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: a = 1
-       3: 
-    -->4: while a = 1:
+       4: while a = 1:
                   ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -6419,9 +6160,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\space_between_operators_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = 2 * * 5
+       1: a = 2 * * 5
                 ^ ^
 
     You cannot have write the same operator, `*`, twice in a row.
@@ -6449,9 +6190,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\space_between_operators_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a / = b
+       1: a / = b
             ^ ^
 
     You cannot have these two operators, `/` and `=`,
@@ -6481,9 +6222,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\space_in_variable_name.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: my name = André
+       1: my name = André
              ^^^^
 
     You cannot have spaces in identifiers (variable names).
@@ -6508,9 +6249,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\star_assignment_target.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: *a = 1
+       1: *a = 1
           ^
 
     A star assignment must be of the form:
@@ -6557,10 +6298,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\trailing_comma_in_import.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # See also and_in_import_statement_2.py which gives the same error message
-    -->2: from math import sin, cos,
+       2: from math import sin, cos,
                            ^^^
 
     Python indicates that you need to surround an expression
@@ -6591,11 +6331,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\triple_equal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: 
-       2: 
-    -->3: x = y === z
+       3: x = y === z
                 ^^^
 
     You wrote three equal signs in a row which is allowed in some
@@ -6622,10 +6360,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unclosed_bracket.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: 
-       4: def foo():
        5:     return [1, 2, 3
        6: 
     -->7: print(foo())
@@ -6656,9 +6392,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unclosed_paren_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
        2: x = int('1'
     -->3: if x == 1:
                    ^
@@ -6689,9 +6424,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unclosed_paren_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
        2: a = (b+c
     -->3: d = a*a
           ^
@@ -6721,10 +6455,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unclosed_paren_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: if 3:
-       4:     if 1:
        5:         print(((123))
        6: 
     -->7: if 2:
@@ -6757,9 +6489,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unclosed_paren_4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # equal number of ( and ) in file
        2: print('hello'
        3: 
     -->4: def test():
@@ -6789,13 +6520,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unexpected_after_continuation_character.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise
-       2: SyntaxError: unexpected character after line continuation character
-       3: """
-       4: 
-    -->5: print(\t)
+       5: print(\t)
                   ^
 
     You are using the continuation character `\` outside of a string,
@@ -6819,9 +6546,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unexpected_eof.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       4: def foo():
        5:     return [1, 2, 3,
        6: 
        7: print(foo())
@@ -6859,9 +6585,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_fraction.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = ¾  # 3/4
+       1: a = ¾  # 3/4
               ^
 
     Did you use copy-paste?
@@ -6892,9 +6618,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_fraction2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = 1½  # 1 1/2
+       1: a = 1½  # 1 1/2
                ^
 
     Did you use copy-paste?
@@ -6925,9 +6651,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_fraction3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = 22 ⁄ 7
+       1: a = 22 ⁄ 7
                  ^
 
     Did you use copy-paste?
@@ -6958,11 +6684,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_quote.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid character in identifier for Python <=3.8
-       2:    and  SyntaxError: invalid character '«' (U+00AB) in Python 3.9"""
-    -->3: a = « hello »
+       3: a = « hello »
               ^
 
     Did you use copy-paste?
@@ -6993,10 +6717,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_quote2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # matching unicode quotes in pair; not mistaken for < and > (less/greater)
-    -->2: a = ‹ hello ›
+       2: a = ‹ hello ›
               ^
 
     Did you use copy-paste?
@@ -7027,10 +6750,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_quote3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # unicode quote not in pair; mistaken <
-    -->2: if a ‹ hello:
+       2: if a ‹ hello:
                ^
 
     Did you use copy-paste?
@@ -7062,10 +6784,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_quote4.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # unicode quote not in pair; mistaken >
-    -->2: if a › hello:
+       2: if a › hello:
                ^
 
     Did you use copy-paste?
@@ -7097,10 +6818,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_quote5.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: # unicode quote not in pair; mistaken comma
-    -->2: a = (1‚ 2)
+       2: a = (1‚ 2)
                 ^
 
     Did you use copy-paste?
@@ -7130,7 +6850,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unmatched_closing_curly.py'
-    at the location indicated by ^.
+    at the location indicated.
     
        4: a = {1,
        5:     2,
@@ -7161,7 +6881,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unmatched_closing_paren.py'
-    at the location indicated by ^.
+    at the location indicated.
     
        4: a = (1,
        5:     2,
@@ -7192,10 +6912,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unmatched_closing_bracket_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-    -->2: x = (1, 2, 3]
+       2: x = (1, 2, 3]
               ^       ^
 
     The closing square bracket `]` on line 2 does not match the opening parenthesis `(` on line 2.
@@ -7222,9 +6941,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unmatched_closing_bracket_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1,
               ^
        3:      2,
@@ -7257,7 +6975,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unmatched_closing_bracket_3.py'
-    at the location indicated by ^.
+    at the location indicated.
     
        1: x = [1,
        2:      2,
@@ -7288,9 +7006,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unpacking_dict_value.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: {'a': *(1, 2, 3)}
+       1: {'a': *(1, 2, 3)}
               ^ ^
 
     You cannot have these two operators, `:` and `*`,
@@ -7355,13 +7073,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\tab_error.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       3: 
-       4: 
-       5: def test_tab_error():
-       6:     if True:
-    -->7: 	pass
+       7: 	pass
            ^^^^
 
 (232) EOL unescaped backslash
@@ -7384,9 +7098,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unescaped_backslash.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a = "abc\"
+       1: a = "abc\"
                    ^
 
     You started writing a string with a single or double quote
@@ -7416,11 +7130,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\use_backquote.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: a = `1`
+       3: a = `1`
               ^
 
     You are using the backquote character.
@@ -7447,9 +7159,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unicode_error.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: path = "c:\Users\andre"
+       1: path = "c:\Users\andre"
                  ^^^^^^^^^^^^^^^^
 
     I suspect that you wrote a string that contains
@@ -7482,11 +7194,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\walrus_does_not_exist.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: """Prior to Python 3.8, this should raise SyntaxError: invalid syntax"""
-       2: 
-    -->3: print(walrus := True)
+       3: print(walrus := True)
                        ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -7514,9 +7224,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\walrus_instead_of_equal.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: a := 3
+       1: a := 3
              ^
 
     You appear to be using the operator `:=`, sometimes called
@@ -7544,9 +7254,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\while_missing_condition.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: while:
+       1: while:
                ^
 
     A `while` loop requires a condition:
@@ -7576,11 +7286,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\would_be_type_declaration_1.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: begin, end = 1, 2
-       2: 
-    -->3: if var start := begin < end:
+       3: if var start := begin < end:
                  ^^^^^
 
     It looks like you were trying to declare that `start` was
@@ -7609,11 +7317,8 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\would_be_type_declaration_2.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-       1: begin = 3
-       2: end = 4
-       3: 
        4: if (
     -->5:     var start := begin < end
                   ^^^^^
@@ -7643,9 +7348,9 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\yield_outside_function.py'
-    at the location indicated by ^.
+    at the location indicated.
     
-    -->1: (yield i) == 3
+       1: (yield i) == 3
           ^
 
     You can only use a `yield` statement inside a function.

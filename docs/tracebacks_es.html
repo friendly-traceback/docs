@@ -395,6 +395,7 @@ Excepción elevada en la linea 325 del archivo TESTS:\runtime\test_attribute_err
    323:     import cmath
    324:     try:
 --&gt;325:         keyword.pi
+                ^^^^^^^^^^
    326:     except AttributeError as e:
 
         keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
@@ -423,6 +424,7 @@ Excepción elevada en la linea 223 del archivo TESTS:\runtime\test_attribute_err
    221:     text = 'Hello world!'
    222:     try:
 --&gt;223:         len.text
+                ^^^^^^^^
    224:     except AttributeError as e:
 
         text:  'Hello world!'
@@ -450,6 +452,7 @@ Excepción elevada en la linea 240 del archivo TESTS:\runtime\test_attribute_err
    237:     import sys
    239:     try:
 --&gt;240:         sys.foo
+                ^^^^^^^
    241:     except AttributeError as e:
 
         sys:  &lt;module sys (builtin)&gt;
@@ -551,6 +554,7 @@ Excepción elevada en la linea 26 del archivo TESTS:\runtime\test_attribute_erro
    23:         pass
    25:     try:
 --&gt;26:         A.x  # testing type
+               ^^^
    27:     except AttributeError as e:
 
         A:  &lt;class A&gt; defined in &lt;function test_attribute_error.test_Generic&gt;
@@ -579,6 +583,7 @@ Excepción elevada en la linea 49 del archivo TESTS:\runtime\test_attribute_erro
    47:     a = f()
    48:     try:
 --&gt;49:         a.attr
+               ^^^^^^
    50:     except AttributeError as e:
 
         a:  &lt;A object&gt;
@@ -605,6 +610,7 @@ Excepción elevada en la linea 67 del archivo TESTS:\runtime\test_attribute_erro
    65:     a = A()
    66:     try:
 --&gt;67:         a.x
+               ^^^
    68:     except AttributeError as e:
 
         a:  &lt;A object&gt;
@@ -635,6 +641,7 @@ Excepción elevada en la linea 144 del archivo TESTS:\runtime\test_attribute_err
    141:     import math
    143:     try:
 --&gt;144:         math.cost
+                ^^^^^^^^^
    145:     except AttributeError as e:
 
         math:  &lt;module math (builtin)&gt;
@@ -660,6 +667,7 @@ Excepción elevada en la linea 183 del archivo TESTS:\runtime\test_attribute_err
    181:     a = None
    182:     try:
 --&gt;183:         a.b
+                ^^^
    184:     except AttributeError as e:
 
         a:  None
@@ -780,6 +788,7 @@ Excepción elevada en la linea 165 del archivo TESTS:\runtime\test_attribute_err
    162:     import turtle
    164:     try:
 --&gt;165:         turtle.Pen
+                ^^^^^^^^^^
    166:     except AttributeError as e:
 
         turtle:  &lt;module turtle&gt; from TESTS:\turtle.py
@@ -957,6 +966,7 @@ Excepción elevada en la linea 70 del archivo TESTS:\runtime\test_file_not_found
    68: def test_Directory_not_found():
    69:     try:
 --&gt;70:         open("does_not_exist/file.txt")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    71:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -985,6 +995,7 @@ Excepción elevada en la linea 7 del archivo TESTS:\runtime\test_file_not_found_
    5: def test_Filename_not_found():
    6:     try:
 --&gt;7:         open("does_not_exist")
+              ^^^^^^^^^^^^^^^^^^^^^^
    8:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1016,6 +1027,7 @@ Excepción elevada en la linea 30 del archivo TESTS:\runtime\test_file_not_found
    27:         os.chdir("..")
    29:     try:
 --&gt;30:         open("setupp.py")
+               ^^^^^^^^^^^^^^^^^
    31:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1048,6 +1060,7 @@ Excepción elevada en la linea 52 del archivo TESTS:\runtime\test_file_not_found
    50:         os.chdir("..")
    51:     try:
 --&gt;52:         open("setup.pyg")
+               ^^^^^^^^^^^^^^^^^
    53:     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1279,6 +1292,7 @@ Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_key_error.py.
    60:     d = ChainMap({}, {})
    61:     try:
 --&gt;62:         d.pop(42)
+               ^^^^^^^^^
    63:     except KeyError as e:
 
         d:  ChainMap({}, {})
@@ -1333,6 +1347,7 @@ Excepción elevada en la linea 44 del archivo TESTS:\runtime\test_key_error.py.
    42:     d = {"a": 1, "b": 2}
    43:     try:
 --&gt;44:         d["c"]
+               ^^^^^^
    45:     except KeyError as e:
 
         d:  {'a': 1, 'b': 2}
@@ -1366,6 +1381,7 @@ Excepción elevada en la linea 26 del archivo TESTS:\runtime\test_key_error.py.
    24:     alpha = ChainMap({}, {})
    25:     try:
 --&gt;26:         alpha.popitem()
+               ^^^^^^^^^^^^^^^
    27:     except KeyError as e:
 
         alpha:  ChainMap({}, {})
@@ -1393,6 +1409,7 @@ Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_key_error.py.
    6:     d = {}
    7:     try:
 --&gt;8:         d.popitem()
+              ^^^^^^^^^^^
    9:     except KeyError as e:
 
         d:  {}
@@ -1452,6 +1469,7 @@ Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_key_error.py.
    96:     d = {(0, 0): "origin"}
    97:     try:
 --&gt;98:         d["(0, 0)"]
+               ^^^^^^^^^^^
    99:     except KeyError as e:
 
         d:  {(0, 0): 'origin'}
@@ -1731,6 +1749,7 @@ Excepción elevada en la linea 193 del archivo TESTS:\runtime\test_name_error.py
    191: def test_Custom_name():
    192:     try:
 --&gt;193:         python
+                ^^^^^^
    194:     except NameError as e:
 </pre></div>
 </div>
@@ -1762,6 +1781,7 @@ La ejecución se detuvo en la linea 177 del archivo TESTS:\runtime\test_name_err
    174:         var = 4
    176:     try:
 --&gt;177:         outer()
+                ^^^^^^^
    178:     except NameError as e:
 
         outer:  &lt;function outer&gt;
@@ -1904,6 +1924,7 @@ La ejecución se detuvo en la linea 228 del archivo TESTS:\runtime\test_name_err
    226:     a = Pet('Fido')
    227:     try:
 --&gt;228:         str(a)
+                ^^^^^^
    229:     except NameError as e:
 
         a:  &lt;Pet object&gt;
@@ -1951,6 +1972,7 @@ La ejecución se detuvo en la linea 262 del archivo TESTS:\runtime\test_name_err
    260:     a = Pet('Fido')
    261:     try:
 --&gt;262:         str(a)
+                ^^^^^^
    263:     except NameError as e:
 
         a:  &lt;Pet object&gt;
@@ -1992,6 +2014,7 @@ Excepción elevada en la linea 90 del archivo TESTS:\runtime\test_name_error.py.
    87:         assert "The Python builtin `chr` has a similar name." in result
    89:     try:
 --&gt;90:         cost  # wrote from math import * above
+               ^^^^
    91:     except NameError as e:
 </pre></div>
 </div>
@@ -2019,6 +2042,7 @@ Excepción elevada en la linea 144 del archivo TESTS:\runtime\test_name_error.py
    142: def test_missing_import2():
    143:     try:
 --&gt;144:         ABCMeta
+                ^^^^^^^
    145:     except NameError as e:
 </pre></div>
 </div>
@@ -2047,6 +2071,7 @@ Excepción elevada en la linea 158 del archivo TESTS:\runtime\test_name_error.py
    156: def test_missing_import3():
    157:     try:
 --&gt;158:         AF_APPLETALK
+                ^^^^^^^^^^^^
    159:     except NameError as e:
 </pre></div>
 </div>
@@ -2089,6 +2114,7 @@ Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_os_error.py.
    6:     from urllib import request, error
    7:     try:
 --&gt;8:         request.urlopen("http://does_not_exist")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    9:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
@@ -2124,6 +2150,7 @@ Excepción elevada en la linea 46 del archivo TESTS:\runtime\test_os_error.py.
    44:         return "Windows test only", "No result"
    45:     try:
 --&gt;46:         open("c:\test.txt")
+               ^^^^^^^^^^^^^^^^^^^
    47:     except OSError as e:
 
         open:  &lt;builtin function open&gt;
@@ -2181,6 +2208,7 @@ Excepción elevada en la linea 6 del archivo TESTS:\runtime\test_overflow_error.
    4: def test_Generic():
    5:     try:
 --&gt;6:         2.0 ** 1600
+              ^^^^^^^^^^^
    7:     except OverflowError as e:
 </pre></div>
 </div>
@@ -2211,6 +2239,7 @@ La ejecución se detuvo en la linea 8 del archivo TESTS:\runtime\test_recursion_
    6:         return a()
    7:     try:
 --&gt;8:         a()
+              ^^^
    9:     except RecursionError as e:
 
         a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
@@ -2282,6 +2311,7 @@ Excepción elevada en la linea 808 del archivo TESTS:\runtime\test_type_error.py
    806: def test_Builtin_has_no_len():
    807:     try:
 --&gt;808:         len("Hello world".split)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
    809:     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
@@ -2342,6 +2372,7 @@ Excepción elevada en la linea 794 del archivo TESTS:\runtime\test_type_error.py
    792:     dd = {"a": "a"}
    793:     try:
 --&gt;794:         dd.update([1, 2, 3])
+                ^^^^^^^^^^^^^^^^^^^^
    795:     except TypeError as e:
 
         dd:  {'a': 'a'}
@@ -2373,6 +2404,7 @@ Excepción elevada en la linea 592 del archivo TESTS:\runtime\test_type_error.py
    589:         assert "Did you forget to convert `c` into an integer?" in result
    591:     try:
 --&gt;592:         "a" * "2"
+                ^^^^^^^^^
    593:     except TypeError as e:
 </pre></div>
 </div>
@@ -2429,6 +2461,7 @@ Excepción elevada en la linea 325 del archivo TESTS:\runtime\test_type_error.py
    323:         a = "2"
    324:         b = 42
 --&gt;325:         b &gt;= a
+                ^^^^^^
    326:     except TypeError as e:
 
         a:  '2'
@@ -2487,6 +2520,7 @@ Excepción elevada en la linea 674 del archivo TESTS:\runtime\test_type_error.py
    671:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
    673:     try:
 --&gt;674:         [1, 2, 3]["2"]
+                ^^^^^^^^^^^^^^
    675:     except TypeError as e:
 </pre></div>
 </div>
@@ -2513,6 +2547,7 @@ Excepción elevada en la linea 637 del archivo TESTS:\runtime\test_type_error.py
    635:     c, d = "2", "3"
    636:     try:
 --&gt;637:         range(c, d)
+                ^^^^^^^^^^^
    638:     except TypeError as e:
 
         c:  '2'
@@ -2580,6 +2615,7 @@ Excepción elevada en la linea 752 del archivo TESTS:\runtime\test_type_error.py
    750: def test_Object_is_not_iterable():
    751:     try:
 --&gt;752:         list(42)
+                ^^^^^^^^
    753:     except TypeError as e:
 
         list:  &lt;class list&gt;
@@ -2642,6 +2678,7 @@ Excepción elevada en la linea 688 del archivo TESTS:\runtime\test_type_error.py
    686: def test_Slice_indices_must_be_integers_or_None():
    687:     try:
 --&gt;688:         [1, 2, 3][1.0:2.0]
+                ^^^^^^^^^^^^^^^^^^
    689:     except TypeError as e:
 </pre></div>
 </div>
@@ -2667,6 +2704,7 @@ Excepción elevada en la linea 449 del archivo TESTS:\runtime\test_type_error.py
    446:         pass
    448:     try:
 --&gt;449:         fn(1)
+                ^^^^^
    450:     except TypeError as e:
 
         fn:  &lt;function fn&gt;
@@ -2699,6 +2737,7 @@ Excepción elevada en la linea 430 del archivo TESTS:\runtime\test_type_error.py
    427:             pass
    429:     try:
 --&gt;430:         A().f(1)
+                ^^^^^^^^
    431:     except TypeError as e:
 
         A:  &lt;class A&gt;
@@ -2819,6 +2858,7 @@ Excepción elevada en la linea 900 del archivo TESTS:\runtime\test_type_error.py
    897:         pass
    899:     try:
 --&gt;900:         fn2(0, a=1)
+                ^^^^^^^^^^^
    901:     except TypeError as e:
 
         fn2:  &lt;function fn2&gt;
@@ -2850,6 +2890,7 @@ Excepción elevada en la linea 825 del archivo TESTS:\runtime\test_type_error.py
    822:         pass
    824:     try:
 --&gt;825:         len(bad)
+                ^^^^^^^^
    826:     except TypeError as e:
 
         bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
@@ -2880,6 +2921,7 @@ Excepción elevada en la linea 946 del archivo TESTS:\runtime\test_type_error.py
    943:         )
    945:     try:
 --&gt;946:         getattr("__repr__", 1)  # as reported in issue #77
+                ^^^^^^^^^^^^^^^^^^^^^^
    947:     except TypeError as e:
 
         getattr:  &lt;builtin function getattr&gt;
@@ -2908,6 +2950,7 @@ Excepción elevada en la linea 919 del archivo TESTS:\runtime\test_type_error.py
    917:     t = T()
    918:     try:
 --&gt;919:         t.some_method(0, a=1)
+                ^^^^^^^^^^^^^^^^^^^^^
    920:     except TypeError as e:
 
         t:  &lt;T object&gt;
@@ -2940,6 +2983,7 @@ Excepción elevada en la linea 869 del archivo TESTS:\runtime\test_type_error.py
    866:         assert use_slots not in result
    868:     try:
 --&gt;869:         vars(f)
+                ^^^^^^^
    870:     except TypeError as e:
 
         f:  &lt;F object&gt;
@@ -2994,6 +3038,7 @@ La ejecución se detuvo en la linea 63 del archivo TESTS:\runtime\test_unbound_l
    61: def test_Missing_both():
    62:     try:
 --&gt;63:         outer_missing_both()
+               ^^^^^^^^^^^^^^^^^^^^
    64:     except UnboundLocalError as e:
 
         global outer_missing_both:  &lt;function outer_missing_both&gt;
@@ -3044,6 +3089,7 @@ La ejecución se detuvo en la linea 27 del archivo TESTS:\runtime\test_unbound_l
    25: def test_Missing_global():
    26:     try:
 --&gt;27:         outer_missing_global()
+               ^^^^^^^^^^^^^^^^^^^^^^
    28:     except UnboundLocalError as e:
 
         global outer_missing_global:  &lt;function outer_missing_global&gt;
@@ -3094,6 +3140,7 @@ La ejecución se detuvo en la linea 45 del archivo TESTS:\runtime\test_unbound_l
    43: def test_Missing_nonlocal():
    44:     try:
 --&gt;45:         outer_missing_nonlocal()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
    46:     except UnboundLocalError as e:
 
         global outer_missing_nonlocal:  &lt;function outer_missing_nonlocal&gt;
@@ -3134,6 +3181,7 @@ La ejecución se detuvo en la linea 101 del archivo TESTS:\runtime\test_unbound_
     98:         alpha3 += 1
    100:     try:
 --&gt;101:         test2()
+                ^^^^^^^
    102:     except UnboundLocalError as e:
 
         test2:  &lt;function test2&gt; defined in &lt;function test_Typo_in_local&gt;
@@ -3178,6 +3226,7 @@ La ejecución se detuvo en la linea 121 del archivo TESTS:\runtime\test_unbound_
    119:         return max - min
    120:     try:
 --&gt;121:         dist([])
+                ^^^^^^^^
    122:     except UnboundLocalError as e:
 
         dist:  &lt;function dist&gt; defined in &lt;function test_Using_name_of_builtin&gt;
@@ -3247,6 +3296,7 @@ Excepción elevada en la linea 187 del archivo TESTS:\runtime\test_value_error.p
    184:         assert "needs to be first converted using `float()`" in result
    186:     try:
 --&gt;187:         int('13a')
+                ^^^^^^^^^^
    188:     except ValueError as e:
 
         int:  &lt;class int&gt;
@@ -3270,6 +3320,7 @@ Excepción elevada en la linea 88 del archivo TESTS:\runtime\test_value_error.py
    86: def test_Could_not_convert_to_float():
    87:     try:
 --&gt;88:         float("42b")
+               ^^^^^^^^^^^^
    89:     except ValueError as e:
 
         float:  &lt;class float&gt;
@@ -3349,6 +3400,7 @@ Excepción elevada en la linea 103 del archivo TESTS:\runtime\test_value_error.p
    101:     a = 0
    102:     try:
 --&gt;103:         pow(2, 4, a)
+                ^^^^^^^^^^^^
    104:     except ValueError as e:
 
         a:  0
@@ -3425,6 +3477,7 @@ Excepción elevada en la linea 201 del archivo TESTS:\runtime\test_value_error.p
    199: def test_int_base_not_in_range():
    200:     try:
 --&gt;201:         int('18', base=37)
+                ^^^^^^^^^^^^^^^^^^
    202:     except ValueError as e:
 
         int:  &lt;class int&gt;
@@ -3455,6 +3508,7 @@ Excepción elevada en la linea 127 del archivo TESTS:\runtime\test_value_error.p
    125:     import time
    126:     try:
 --&gt;127:         time.strptime("2020-01-01", "%d %m %Y")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    128:     except ValueError as e:
 
         time:  &lt;module time (builtin)&gt;
@@ -3487,6 +3541,7 @@ Excepción elevada en la linea 155 del archivo TESTS:\runtime\test_zero_division
    153:     zero = 0j
    154:     try:
 --&gt;155:         1 / zero
+                ^^^^^^^^
    156:     except ZeroDivisionError as e:
 
         zero:  0j
@@ -3511,6 +3566,7 @@ Excepción elevada en la linea 199 del archivo TESTS:\runtime\test_zero_division
    195:         assert "Using the modulo operator, you are dividing by zero" in result
    198:     try:
 --&gt;199:         1. / 0
+                ^^^^^^
    200:     except ZeroDivisionError as e:
 </pre></div>
 </div>
@@ -3537,6 +3593,7 @@ Excepción elevada en la linea 17 del archivo TESTS:\runtime\test_zero_division_
    14:         assert "The following mathematical expression includes a division by zero" in result
    16:     try:
 --&gt;17:         1 / zero
+               ^^^^^^^^
    18:     except ZeroDivisionError as e:
 
         zero:  0
@@ -3561,6 +3618,7 @@ Excepción elevada en la linea 82 del archivo TESTS:\runtime\test_zero_division_
    80:     zero = 0
    81:     try:
 --&gt;82:         divmod(1, zero)
+               ^^^^^^^^^^^^^^^
    83:     except ZeroDivisionError as e:
 
         zero:  0
@@ -3590,6 +3648,7 @@ Excepción elevada en la linea 125 del archivo TESTS:\runtime\test_zero_division
    123:     zero = 0.
    124:     try:
 --&gt;125:         1 / zero
+                ^^^^^^^^
    126:     except ZeroDivisionError as e:
 
         zero:  0.0
@@ -3614,6 +3673,7 @@ Excepción elevada en la linea 140 del archivo TESTS:\runtime\test_zero_division
    138:     zero = 0.
    139:     try:
 --&gt;140:         divmod(1, zero)
+                ^^^^^^^^^^^^^^^
    141:     except ZeroDivisionError as e:
 
         zero:  0.0
@@ -3643,6 +3703,7 @@ Excepción elevada en la linea 110 del archivo TESTS:\runtime\test_zero_division
    107:         assert "done using the modulo operator" in result
    109:     try:
 --&gt;110:         1 % zero
+                ^^^^^^^^
    111:     except ZeroDivisionError as e:
 
         zero:  0.0
@@ -3671,6 +3732,7 @@ Excepción elevada en la linea 42 del archivo TESTS:\runtime\test_zero_division_
    39:         assert "The following mathematical expression includes a division by zero" in result
    41:     try:
 --&gt;42:         1 // zero
+               ^^^^^^^^^
    43:     except ZeroDivisionError as e:
 
         zero:  0
@@ -3726,6 +3788,7 @@ Excepción elevada en la linea 67 del archivo TESTS:\runtime\test_zero_division_
    64:         assert "The following mathematical expression includes a division by zero" in result
    66:     try:
 --&gt;67:         1 % zero
+               ^^^^^^^^
    68:     except ZeroDivisionError as e:
 
         zero:  0
@@ -3751,6 +3814,7 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
    168:     zero = 0
    169:     try:
 --&gt;170:         zero ** -1
+                ^^^^^^^^^^
    171:     except ZeroDivisionError as e:
 
         zero:  0
