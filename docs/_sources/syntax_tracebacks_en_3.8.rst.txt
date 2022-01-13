@@ -101,9 +101,6 @@ Python version: 3.8.10
     'TESTS:\syntax\annotated_name_global.py'
     at the location indicated by ^.
     
-       1: # SyntaxError: annotated name 'var' can't be global
-       2: def foo():
-       3:     global var
     -->4:     var:int = 1
               ^^^
 
@@ -131,7 +128,6 @@ Python version: 3.8.10
     'TESTS:\syntax\as_instead_of_comma_in_import.py'
     at the location indicated by ^.
     
-       1: # issue 158
     -->2: from math import (sin, cos) as funcs
                                       ^^
 
@@ -195,10 +191,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_global_1.py'
     at the location indicated by ^.
     
-       3: aa, bb, cc, dd = 1, 2, 3, 4
-       4: 
-       5: def fn():
-       6:     cc = 1
     -->7:     global aa, bb, cc, dd
               ------         ^^
 
@@ -226,10 +218,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_global_2.py'
     at the location indicated by ^.
     
-       3: 
-       4: 
-       5: def fn():
-       6:     print(var)
     -->7:     global var
               ------ ^^^
 
@@ -259,10 +247,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     at the location indicated by ^.
     
-        7: 
-        8: 
-        9:     def g():
-       10:         print(qq)
     -->11:         nonlocal pp, qq
                    --------     ^^
 
@@ -292,10 +276,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
     at the location indicated by ^.
     
-       5:     s = 1
-       6: 
-       7:     def g():
-       8:         s = 2
     -->9:         nonlocal s
                   -------- ^
 
@@ -325,8 +305,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_conditional.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't [cannot] assign to conditional expression"""
-       2: 
     -->3: a if 1 else b = 1
           ^^^^^^^^^^^^^
 
@@ -359,9 +337,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_debug.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
     -->4: __debug__ = 1
           ^^^^^^^^^
 
@@ -390,9 +365,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_debug2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: cannot assign to __debug__ in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
     -->4: a.__debug__ = 1
             ^^^^^^^^^
 
@@ -421,9 +393,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_ellipsis.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: cannot assign to Ellipsis in Py 3.8
-       2:    and assignment to keyword before."""
-       3: 
     -->4: ... = 1
           ^^^
 
@@ -452,7 +421,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_f_string.py'
     at the location indicated by ^.
     
-       5: 
     -->6: f'{x}' = 42
           ^^^^^^
 
@@ -484,7 +452,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_1.py'
     at the location indicated by ^.
     
-       5: 
     -->6: len('a') = 3
           ^^^^^^^^
 
@@ -519,7 +486,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_2.py'
     at the location indicated by ^.
     
-       5: # Test to confirm that '=' inside function args is not misidentified.
     -->6: func(a, b=3) = 4
           ^^^^^^^^^^^^
 
@@ -554,7 +520,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_3.py'
     at the location indicated by ^.
     
-       5: # tests for continuation marker
     -->6: a = f(1, 2,  # this is a comment
               ^^^^^^^-->
        7:       3, 4) = 5
@@ -590,8 +555,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_generator.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't [cannot] assign to generator expression"""
-       2: 
     -->3: (x for x in x) = 1
           ^^^^^^^^^^^^^^
 
@@ -622,7 +585,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_dict.py'
     at the location indicated by ^.
     
-       6: 
     -->7: {1 : 2, 2 : 4} = 5
           ^^^^^^^^^^^^^^
 
@@ -657,8 +619,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to literal"""
-       2: 
     -->3: 1 = a
           ^
 
@@ -696,8 +656,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to literal"""
-       2: 
     -->3: 1 = 2
           ^
 
@@ -733,9 +691,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int_3.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to literal
-       2: or (Python 3.8) cannot assign to literal"""
-       3: 
     -->4: 1 = a = b
           ^
 
@@ -771,7 +726,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_set.py'
     at the location indicated by ^.
     
-       6: 
     -->7: {1, 2, 3} = 4
           ^^^^^^^^^
 
@@ -807,8 +761,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_def.py'
     at the location indicated by ^.
     
-       1: """ Should raise SyntaxError"""
-       2: 
     -->3: def = 2
           ^^^
 
@@ -839,8 +791,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_else.py'
     at the location indicated by ^.
     
-       1: """ Should raise SyntaxError"""
-       2: 
     -->3: else = 1
           ^^^^
 
@@ -871,9 +821,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_none.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: cannot assign to None in Py 3.8
-       2:    and can't assign to keyword before."""
-       3: 
     -->4: None = 1
           ^^^^
 
@@ -902,9 +849,6 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_operation.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to operator
-       2: or (Python 3.8) cannot assign to operator"""
-       3: 
     -->4: a + 1 = 2
           ^
 
@@ -1090,9 +1034,6 @@ Python version: 3.8.10
     'TESTS:\syntax\augmented_assigment_with_true.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: or (Python 3.8) cannot use named assignment with True"""
-       3: 
     -->4: (True := 1)
            ^^^^
 
@@ -1179,9 +1120,6 @@ Python version: 3.8.10
     'TESTS:\syntax\break_outside_loop.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: 'break' outside loop"""
-       2: 
-       3: if True:
     -->4:     break
               ^^^^^
 
@@ -1275,8 +1213,6 @@ Python version: 3.8.10
     'TESTS:\syntax\cannot_use_star.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't use starred expression here"""
-       2: 
     -->3: *a
           ^
 
@@ -1475,9 +1411,6 @@ Python version: 3.8.10
     'TESTS:\syntax\continue_outside_loop.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: 'continue' outside loop"""
-       2: 
-       3: if True:
     -->4:     continue
               ^^^^^^^^
 
@@ -1506,7 +1439,6 @@ Python version: 3.8.10
     'TESTS:\syntax\copy_pasted_code.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: >>> print("Hello World!")
           ^^^
 
@@ -1536,7 +1468,6 @@ Python version: 3.8.10
     'TESTS:\syntax\copy_pasted_code_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: ... print("Hello World!")
           ----^^^^^
 
@@ -1596,9 +1527,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_bare_star_arg.py'
     at the location indicated by ^.
     
-       1: # SyntaxError: named arguments must follow bare *
-       2: 
-       3: 
     -->4: def f(*):
                 ^
 
@@ -1629,8 +1557,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_code_block.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
     -->3: def :
               ^
 
@@ -1662,7 +1588,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_code_block_2.py'
     at the location indicated by ^.
     
-       1: class A:
     -->2:     def :
                   ^
 
@@ -1694,8 +1619,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_argument.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: def test(x.y):
                     ^
 
@@ -1725,7 +1648,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_argument_2.py'
     at the location indicated by ^.
     
-       1: 
     -->2: def test(x., y):
                     ^
 
@@ -1754,8 +1676,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_function_name.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: def test.x():
                   ^
 
@@ -1811,9 +1731,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_duplicate_arg.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: duplicate argument 'aa' in function definition"""
-       2: 
-       3: 
     -->4: def f(aa=1, aa=2):
                 ^^    ^^
 
@@ -2026,8 +1943,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_function_name_invalid.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: def 2be():
               ^
 
@@ -2061,8 +1976,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_function_name_string.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: def "function"():
               ^^^^^^^^^^
 
@@ -2092,10 +2005,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
     -->5: def f(None=1):
                 ^^^^
 
@@ -2124,10 +2033,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
     -->5: def f(x, True):
                    ^^^^
 
@@ -2156,10 +2061,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_3.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
     -->5: def f(*None):
                  ^^^^
 
@@ -2188,10 +2089,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_4.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
-       4: 
     -->5: def f(**None):
                   ^^^^
 
@@ -2222,8 +2119,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_name.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: def pass():
               ^^^^
 
@@ -2313,7 +2208,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: def test()
-                   -^
+                    ^
 
     A function definition statement must end with a colon.
     
@@ -2340,19 +2235,18 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_comma.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
-       3: 
     -->4: def a(b, c d):
-                     ^
+                   ^^^
 
     Python indicates that the error is caused by `d` written immediately after `c`.
     It is possible that you forgot a comma between items in a tuple, 
     or between function arguments, 
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant
     
         def a(b, c, d):
+                  ^
+    
     
 
 (74) def: missing parentheses
@@ -2377,8 +2271,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_parens.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
     -->3: def name:
                   ^
 
@@ -2410,7 +2302,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_parens_2.py'
     at the location indicated by ^.
     
-       1: 
     -->2: def name a, b:
                    ^
 
@@ -2440,8 +2331,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_name.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
     -->3: def ( arg )  :
               ^
 
@@ -2471,9 +2360,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
     at the location indicated by ^.
     
-       3: 
-       4: 
-       5: def f(x):
     -->6:     global x
               ^^^^^^
 
@@ -2508,10 +2394,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_non_default_after_default.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: non-default argument follows default argument
-       2: """
-       3: 
-       4: 
     -->5: def test(a=1, b):
                    ^
 
@@ -2698,10 +2580,6 @@ Python version: 3.8.10
     'TESTS:\syntax\def_positional_after_keyword_arg.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: positional argument follows keyword argument
-       2: """
-       3: 
-       4: 
     -->5: test(a=1, b)
                     ^
 
@@ -3182,10 +3060,6 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_function_call.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't or cannot delete function call
-       2: """
-       3: 
-       4: 
     -->5: del f(a)
               ^
 
@@ -3334,7 +3208,6 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_2.py'
     at the location indicated by ^.
     
-       1: # a = {1:2, 3}
     -->2: a = {1:2, 3:}
                       ^
 
@@ -3364,8 +3237,6 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_3.py'
     at the location indicated by ^.
     
-       1: # a = {1:2, 3}
-       2: # a = {1:2, 3:}
     -->3: a = {1:2, 3, 4:5}
                      ^
 
@@ -3395,9 +3266,6 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_4.py'
     at the location indicated by ^.
     
-       1: # a = {1:2, 3}
-       2: # a = {1:2, 3:}
-       3: # a = {1:2, 3, 4:5}
     -->4: a = {1:2, 3:, 4:5}
                       ^
 
@@ -3453,8 +3321,6 @@ Python version: 3.8.10
     'TESTS:\syntax\dot_before_paren.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: Reported by Hackinscience."""
     -->3: print(len.('hello'))
                     ^
 
@@ -3511,8 +3377,6 @@ Python version: 3.8.10
     'TESTS:\syntax\elif_not_matching_if.py'
     at the location indicated by ^.
     
-       1: if True:
-       2:    pass
     -->3:    elif True:
              ^^^^
 
@@ -3540,8 +3404,6 @@ Python version: 3.8.10
     'TESTS:\syntax\else_no_matching_statement.py'
     at the location indicated by ^.
     
-       1: if True:
-       2:    pass
     -->3:    else:
              ^^^^
 
@@ -3571,10 +3433,6 @@ Python version: 3.8.10
     'TESTS:\syntax\else_if_instead_of_elif.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
-       3: if False:
-       4:     pass
     -->5: else if True:
           ^^^^-^^
 
@@ -3605,10 +3463,6 @@ Python version: 3.8.10
     'TESTS:\syntax\elseif_instead_of_elif.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
-       3: if False:
-       4:     pass
     -->5: elseif True:
           ^^^^^^
 
@@ -3639,8 +3493,6 @@ Python version: 3.8.10
     'TESTS:\syntax\eol_string_literal.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: EOL while scanning string literal"""
-       2: 
     -->3: alphabet = 'abc
                       ^^^
 
@@ -3668,9 +3520,6 @@ Python version: 3.8.10
     'TESTS:\syntax\equal_sign_instead_of_colon.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax
-       2: """
-       3: 
     -->4: ages = {'Alice'=22, 'Bob'=24}
                          ^
 
@@ -3701,8 +3550,6 @@ Python version: 3.8.10
     'TESTS:\syntax\except_multiple_exceptions.py'
     at the location indicated by ^.
     
-       1: try:
-       2:     pass
     -->3: except NameError, ValueError as err:
                           ^
 
@@ -3847,9 +3694,6 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_unterminated.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: f-string: unterminated string
-       2: """
-       3: 
     -->4: print(f"Bob is {age['Bob]} years old.")
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -3878,7 +3722,6 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_with_backslash.py'
     at the location indicated by ^.
     
-       1: names = ['a', 'b']
     -->2: print(f"{'\n'.join(names)}")
                 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -4015,8 +3858,6 @@ Python version: 3.8.10
     'TESTS:\syntax\future_must_be_first.py'
     at the location indicated by ^.
     
-       1: 
-       2: def fn():
     -->3:     from __future__ import generators
               ^^^^
 
@@ -4109,10 +3950,6 @@ Python version: 3.8.10
     'TESTS:\syntax\generator_expression_parens.py'
     at the location indicated by ^.
     
-       2: def f(it, *varargs, **kwargs):
-       3:     return list(it)
-       4: 
-       5: L = range(10)
     -->6: f(x for x in L, 1)
             ^
 
@@ -4145,9 +3982,6 @@ Python version: 3.8.10
     'TESTS:\syntax\hyphen_instead_of_underscore.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: can't assign to operator
-       2: or (Python 3.8) cannot assign to operator"""
-       3: 
     -->4: a-b = 2
           ^
 
@@ -4211,8 +4045,6 @@ Python version: 3.8.10
     'TESTS:\syntax\imaginary_i.py'
     at the location indicated by ^.
     
-       1: # SyntaxError: invalid syntax
-       2: 
     -->3: a = 3.0i
                  ^
 
@@ -4245,8 +4077,6 @@ Python version: 3.8.10
     'TESTS:\syntax\import_from.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: import pen from turtle
           ^^^^^^     ^^^^
 
@@ -4281,9 +4111,6 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_1.py'
     at the location indicated by ^.
     
-       1: '''Should raise IndentationError'''
-       2: 
-       3: if True:
     -->4: pass
           ^^^^
 
@@ -4311,9 +4138,6 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_2.py'
     at the location indicated by ^.
     
-       1: '''Should raise IndentationError'''
-       2: if True:
-       3:     pass
     -->4:       pass
                 ^^^^
 
@@ -4341,10 +4165,6 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_3.py'
     at the location indicated by ^.
     
-       1: '''Should raise IndentationError'''
-       2: 
-       3: if True:
-       4:       pass
     -->5:     pass
               ^^^^
 
@@ -4372,10 +4192,6 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_4.py'
     at the location indicated by ^.
     
-       2: 
-       3: def f():
-       4:      s = "a"\
-       5:          "b"
     -->6:          "c"
                    ^^^
 
@@ -4467,9 +4283,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_character_in_identifier.py'
     at the location indicated by ^.
     
-       3: 
-       4: # Robot-face character below
-       5: 
     -->6: 🤖 = 'Reeborg'
           ^
 
@@ -4552,8 +4365,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_hexadecimal.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: a = 0x123g4
                    ^^
 
@@ -4588,8 +4399,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: 36abc = 3
             ^^^
 
@@ -4618,8 +4427,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: tau = 2pi
                  ^^
 
@@ -4740,8 +4547,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_keyword_argument.py'
     at the location indicated by ^.
     
-       5: 
-       6: 
     -->7: a = dict('key'=1)
                    ^^^^^
 
@@ -4776,8 +4581,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_keyword_argument_2.py'
     at the location indicated by ^.
     
-       5: 
-       6: 
     -->7: a = dict(True=1)
                    ^^^^
 
@@ -4806,8 +4609,6 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_octal.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: b = 0O1876
                  ^^^
 
@@ -4932,9 +4733,6 @@ Python version: 3.8.10
     'TESTS:\syntax\keyword_arg_repeated.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:  keyword argument repeated"""
-       2: 
-       3: 
     -->4: f(ad=1, ad=2)
                   ^^
 
@@ -4964,10 +4762,6 @@ Python version: 3.8.10
     'TESTS:\syntax\keyword_as_attribute.py'
     at the location indicated by ^.
     
-        8: 
-        9: a = A()
-       10: 
-       11: a.x = 1
     -->12: a.pass = 2
              ^^^^
 
@@ -4995,7 +4789,6 @@ Python version: 3.8.10
     'TESTS:\syntax\lambda_with_parens.py'
     at the location indicated by ^.
     
-       1: 
     -->2: x = lambda (a, b): a + b
                      ^
 
@@ -5023,7 +4816,6 @@ Python version: 3.8.10
     'TESTS:\syntax\lambda_with_tuple_argument.py'
     at the location indicated by ^.
     
-       1: 
     -->2: x = lambda a, (b, c): a + b + b
                         ^
 
@@ -5083,8 +4875,6 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_code_block.py'
     at the location indicated by ^.
     
-       1: '''Should raise SyntaxError: unexpected EOF while parsing'''
-       2: 
        3: for i in range(10):
     -->4: 
                             ^
@@ -5110,14 +4900,10 @@ Python version: 3.8.10
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_code_block_2.py'
-    at the location indicated by ^.
+    .
     
-       2: a = 1
        3: for i in "test":
-       4:    #
-       5:    #
-    -->6: 
-                         ^
+       4: 
 
     Python tells us that it reached the end of the file
     and expected more content.
@@ -5146,10 +4932,8 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_colon_if.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
     -->3: if True
-             ----^
+                 ^
 
     You wrote a statement beginning with
     `if` but forgot to add a colon `:` at the end.
@@ -5178,10 +4962,8 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_colon_while.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError"""
-       2: 
     -->3: while True  # a comment
-                ----^
+                    ^
 
     You wrote a `while` loop but
     forgot to add a colon `:` at the end
@@ -5210,23 +4992,24 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_dict.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
        3: a = {'a': 1,
-       4:      'b': 2
+    -->4:      'b': 2
+                    ^-->
     -->5:      'c': 3,
                ^^^
        6: }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant
     
         a = {'a': 1,
-     'b': 2, 
-     'c': 3,
-    }
+             'b': 2, 
+                   ^
+             'c': 3,
+        }
+    
     
 
 (166) Missing comma between strings in a dict
@@ -5251,7 +5034,6 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_dict_2.py'
     at the location indicated by ^.
     
-       1: 
        2: a = {'a': '1',
        3:      'b': '2'
     -->4:      'c': '3',
@@ -5263,8 +5045,9 @@ Python version: 3.8.10
     
     ```
     a = {'a': '1',
-         'b': '2'
-          «,» 'c': '3',
+         'b': '2',
+                 ^
+         'c': '3',
     }
     ```
 
@@ -5290,14 +5073,12 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_list.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: a = [1, 2  3]
-                     ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a list
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5332,14 +5113,12 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_set.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: a = {1, 2  3}
-                     ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5374,15 +5153,13 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_tuple.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: a = (1, 2  3)
-                     ^
+                  ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
     It is possible that you forgot a comma between items in a tuple, 
     or between function arguments, 
-    before the position indicated by ^.
+    at the position indicated by ^.
     Perhaps you meant to insert an operator like `+, -, *`
     between `2` and `3`.
     The following lines of code would not cause any `SyntaxError`:
@@ -5481,7 +5258,6 @@ Python version: 3.8.10
     'TESTS:\syntax\misspelled_keyword.py'
     at the location indicated by ^.
     
-       1: i = 3
     -->2: is i in range(3):
           ^^
 
@@ -5509,10 +5285,6 @@ Python version: 3.8.10
     'TESTS:\syntax\name_is_global_and_nonlocal.py'
     at the location indicated by ^.
     
-       3: xy = 1
-       4: 
-       5: 
-       6: def f():
     -->7:     global xy
               ^^^^^^
 
@@ -5540,10 +5312,6 @@ Python version: 3.8.10
     'TESTS:\syntax\name_is_param_and_nonlocal.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: name 'x' is parameter and nonlocal"""
-       2: 
-       3: 
-       4: def f(x):
     -->5:     nonlocal x
               ^^^^^^^^
 
@@ -5572,10 +5340,6 @@ Python version: 3.8.10
     'TESTS:\syntax\no_binding_for_nonlocal.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: no binding for nonlocal 'ab' found"""
-       2: 
-       3: 
-       4: def f():
     -->5:     nonlocal ab
               ^^^^^^^^
 
@@ -5603,9 +5367,6 @@ Python version: 3.8.10
     'TESTS:\syntax\nonlocal_at_module.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError:  nonlocal declaration not allowed at module level"""
-       2: 
-       3: 
     -->4: nonlocal cd
           ^^^^^^^^
 
@@ -5663,7 +5424,6 @@ Python version: 3.8.10
     'TESTS:\syntax\pip_install_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: pip install friendly
               ^^^^^^^
 
@@ -5694,7 +5454,6 @@ Python version: 3.8.10
     'TESTS:\syntax\pip_install_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: python -m pip install friendly
                     ^^^
 
@@ -5725,7 +5484,6 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: Missing parentheses in call to 'print' ..."""
     -->2: print 'hello'
                 ^^^^^^^
 
@@ -5759,7 +5517,6 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('hello')
                 ^^^
 
@@ -5826,7 +5583,6 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_4.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len("""This is a long string
                 ^^^
        3:           that spans multiple lines.""")
@@ -5861,7 +5617,6 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_5.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: print len('This is a long string that fits on a single line.')
                 ^^^
 
@@ -5991,7 +5746,7 @@ Python version: 3.8.10
     at the location indicated by ^.
     
     -->1: python = a b
-                     ^
+                   ^^^
 
     Python indicates that the error is caused by `b` written immediately after `a`.
     Perhaps you meant to insert an operator like `+; -; *; ,`
@@ -6028,8 +5783,6 @@ Python version: 3.8.10
     'TESTS:\syntax\quote_inside_string.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: message = 'I don't mind.'
                            ^
 
@@ -6061,7 +5814,6 @@ Python version: 3.8.10
     'TESTS:\syntax\raise_multiple_exceptions.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: raise X, Y
                  ^
 
@@ -6088,8 +5840,6 @@ Python version: 3.8.10
     'TESTS:\syntax\return_outside_function.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: 'return' outside function"""
-       2: 
     -->3: return
           ^^^^^^
 
@@ -6263,8 +6013,6 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_if.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: for i in range(101):
     -->3:     if i % 2 = 0:
                        ^
 
@@ -6295,10 +6043,6 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_elif.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: for i in range(101):
-       3:     if False:
-       4:         pass
     -->5:     elif i % 2 = 0:
                          ^
 
@@ -6329,9 +6073,6 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_while.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: a = 1
-       3: 
     -->4: while a = 1:
                   ^
 
@@ -6497,7 +6238,6 @@ Python version: 3.8.10
     'TESTS:\syntax\trailing_comma_in_import.py'
     at the location indicated by ^.
     
-       1: # See also and_in_import_statement_2.py which gives the same error message
     -->2: from math import sin, cos,
                            ^^^
 
@@ -6531,8 +6271,6 @@ Python version: 3.8.10
     'TESTS:\syntax\triple_equal.py'
     at the location indicated by ^.
     
-       1: 
-       2: 
     -->3: x = y === z
                 ^^^
 
@@ -6562,8 +6300,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_bracket.py'
     at the location indicated by ^.
     
-       3: 
-       4: def foo():
        5:     return [1, 2, 3
        6: 
     -->7: print(foo())
@@ -6596,7 +6332,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
        2: x = int('1'
     -->3: if x == 1:
                    ^
@@ -6629,7 +6364,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
        2: a = (b+c
     -->3: d = a*a
           ^
@@ -6661,8 +6395,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_3.py'
     at the location indicated by ^.
     
-       3: if 3:
-       4:     if 1:
        5:         print(((123))
        6: 
     -->7: if 2:
@@ -6697,7 +6429,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_4.py'
     at the location indicated by ^.
     
-       1: # equal number of ( and ) in file
        2: print('hello'
        3: 
     -->4: def test():
@@ -6729,10 +6460,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unexpected_after_continuation_character.py'
     at the location indicated by ^.
     
-       1: """Should raise
-       2: SyntaxError: unexpected character after line continuation character
-       3: """
-       4: 
     -->5: print(\t)
                   ^
 
@@ -6759,7 +6486,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unexpected_eof.py'
     at the location indicated by ^.
     
-       4: def foo():
        5:     return [1, 2, 3,
        6: 
        7: print(foo())
@@ -6898,8 +6624,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid character in identifier for Python <=3.8
-       2:    and  SyntaxError: invalid character '«' (U+00AB) in Python 3.9"""
     -->3: a = « hello »
               ^
 
@@ -6933,7 +6657,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote2.py'
     at the location indicated by ^.
     
-       1: # matching unicode quotes in pair; not mistaken for < and > (less/greater)
     -->2: a = ‹ hello ›
               ^
 
@@ -6967,7 +6690,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote3.py'
     at the location indicated by ^.
     
-       1: # unicode quote not in pair; mistaken <
     -->2: if a ‹ hello:
                ^
 
@@ -7002,7 +6724,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote4.py'
     at the location indicated by ^.
     
-       1: # unicode quote not in pair; mistaken >
     -->2: if a › hello:
                ^
 
@@ -7037,7 +6758,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote5.py'
     at the location indicated by ^.
     
-       1: # unicode quote not in pair; mistaken comma
     -->2: a = (1‚ 2)
                 ^
 
@@ -7126,7 +6846,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_bracket_1.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1, 2, 3]
               ^       ^
 
@@ -7156,7 +6875,6 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_bracket_2.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
     -->2: x = (1,
               ^
        3:      2,
@@ -7286,10 +7004,6 @@ Python version: 3.8.10
     'TESTS:\syntax\tab_error.py'
     at the location indicated by ^.
     
-       3: 
-       4: 
-       5: def test_tab_error():
-       6:     if True:
     -->7: 	pass
            ^^^^
 
@@ -7347,8 +7061,6 @@ Python version: 3.8.10
     'TESTS:\syntax\use_backquote.py'
     at the location indicated by ^.
     
-       1: """Should raise SyntaxError: invalid syntax"""
-       2: 
     -->3: a = `1`
               ^
 
@@ -7474,8 +7186,6 @@ Python version: 3.8.10
     'TESTS:\syntax\would_be_type_declaration_1.py'
     at the location indicated by ^.
     
-       1: begin, end = 1, 2
-       2: 
     -->3: if var start := begin < end:
                  ^^^^^
 
@@ -7506,9 +7216,6 @@ Python version: 3.8.10
     'TESTS:\syntax\would_be_type_declaration_2.py'
     at the location indicated by ^.
     
-       1: begin = 3
-       2: end = 4
-       3: 
        4: if (
     -->5:     var start := begin < end
                   ^^^^^
