@@ -380,6 +380,15 @@ could easily be added.
 .. toctree::
    :maxdepth: 1
    :hidden:
+   :caption: בעברית
+
+   tracebacks_he
+   syntax_tracebacks_he
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
    :caption: In italiano
 
    tracebacks_it

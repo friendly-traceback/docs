@@ -20,8 +20,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.1
-Python version: 3.9.9
+Friendly-traceback version: 0.5.13
+Python version: 3.9.10
 
 
 
@@ -2244,9 +2244,9 @@ Python version: 3.9.9
                    ^^^
 
     Python indica que el error es causado por `d` escrito inmediatamente después de `c`.
-    Es posible que haya olvidado una coma entre los elementos de una tupla, 
-    o entre los argumentos de una función, 
-    en la posición indicada por ^.
+    It is possible that you forgot a comma between items in a tuple, 
+    or between function arguments, 
+    at the position indicated by ^.
     Tal vez quiso decir
     
         def a(b, c, d):
@@ -5009,8 +5009,8 @@ Python version: 3.9.9
        6: }
 
     Python indica que el error es causado por `'c'` escrito inmediatamente después de `2`.
-    Es posible que haya olvidado una coma entre los elementos de un set o dict
-    en la posición indicada por ^.
+    It is possible that you forgot a comma between items in a set or dict
+    at the position indicated by ^.
     Tal vez quiso decir
     
         a = {'a': 1,
@@ -5086,8 +5086,8 @@ Python version: 3.9.9
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    Es posible que haya olvidado una coma entre los elementos de una lista
-    en la posición indicada por ^.
+    It is possible that you forgot a comma between items in a list
+    at the position indicated by ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:
@@ -5126,8 +5126,8 @@ Python version: 3.9.9
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    Es posible que haya olvidado una coma entre los elementos de un set o dict
-    en la posición indicada por ^.
+    It is possible that you forgot a comma between items in a set or dict
+    at the position indicated by ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:
@@ -5166,9 +5166,9 @@ Python version: 3.9.9
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    Es posible que haya olvidado una coma entre los elementos de una tupla, 
-    o entre los argumentos de una función, 
-    en la posición indicada por ^.
+    It is possible that you forgot a comma between items in a tuple, 
+    or between function arguments, 
+    at the position indicated by ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:

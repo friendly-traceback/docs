@@ -1,0 +1,942 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in italiano" href="tracebacks_it.html" /><link rel="prev" title="Friendly tracebacks - בעברית" href="tracebacks_he.html" />
+
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Friendly SyntaxError tracebacks - בעברית - friendly-traceback 0.5.13</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #FFFFFF;
+  --color-code-foreground: #101010;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.13</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.5.13</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.9.html">Friendly tracebacks - Python 3.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En español</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_es.html">Friendly tracebacks - en español</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_es.html">Friendly SyntaxError tracebacks - en español</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Friendly SyntaxError tracebacks - בעברית</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_it.html">Friendly tracebacks - in italiano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">Friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.7.html">Friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">Friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">Friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">Friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="friendly-syntaxerror-tracebacks">
+<h1>Friendly SyntaxError tracebacks - בעברית<a class="headerlink" href="#friendly-syntaxerror-tracebacks" title="Permalink to this headline">¶</a></h1>
+<p>Friendly שואפת לספק משוב ידידותי יותר כאשר מדובר בחריג
+מוגדל ממה שנעשה על ידי Python.
+(translated by Google Translate).</p>
+<p>This file contains only examples of SyntaxError and its sub-classes.
+Some tests may appear to be repetitive to a human reader
+but they are may be included to ensure more complete test coverage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The content of this page is generated by running
+<cite>trb_syntax_hebrew.py</cite> located in the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.
+This needs to be done explicitly, independently of updating the
+documentation using Sphinx.
+On Windows, if Sphinx is installed on your computer, it is suggested
+instead to run make_trb.bat in the root directory as it will create
+similar files for all languages <em>and</em> update the documentation.</p>
+</div>
+<p>Friendly-traceback version: 0.5.13
+Python version: 3.9.10</p>
+<section id="using-and-in-import-statement">
+<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\and_in_import_statement.py", line 1
+    from math import sin and cos
+                         ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\and_in_import_statement.py'
+at the location indicated.
+
+   1: from math import sin and cos
+                           ^^^
+
+The Python keyword `and` can only be used for boolean expressions.
+Perhaps you meant to write
+
+`from math import sin , cos`
+</pre></div>
+</div>
+</section>
+<section id="using-and-after-comma-in-import-statement">
+<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\and_in_import_statement_2.py", line 1
+    from math import sin, tan, and cos
+                               ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\and_in_import_statement_2.py'
+at the location indicated.
+
+   1: from math import sin, tan, and cos
+                                 ^^^
+
+The Python keyword `and` can only be used for boolean expressions.
+Perhaps you meant to write
+
+`from math import sin, tan,  cos`
+</pre></div>
+</div>
+</section>
+<section id="annotated-name-cannot-be-global">
+<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\annotated_name_global.py", line 4
+    var:int = 1
+    ^
+SyntaxError: annotated name 'var' can't be global
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\annotated_name_global.py'
+at the location indicated.
+
+   4:     var:int = 1
+          ^^^
+
+האובייקט בשם 'var' מוגדר עם ביאור סוג
+כמשתנה מקומי. לא ניתן להכריז עליו כמשתנה עולמי.
+</pre></div>
+</div>
+</section>
+<section id="incorrect-use-of-from-module-import-as">
+<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\as_instead_of_comma_in_import.py", line 2
+    from math import (sin, cos) as funcs
+                                ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\as_instead_of_comma_in_import.py'
+at the location indicated.
+
+   2: from math import (sin, cos) as funcs
+                                  ^^
+
+I am guessing that you are trying to import at least one object
+from module `math` and rename it using the Python keyword `as`;
+this keyword can only be used to rename one object at a time
+using a well defined syntax.
+I suggest that you split up any such import statement with each object
+renamed on a separate line as follows:
+
+    from math import object_1 as name_1
+    from math import object_2 as name_2  # if needed
+</pre></div>
+</div>
+</section>
+<section id="assign-instead-of-equal-or-walrus">
+<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_instead_of_equal.py", line 1
+    a = (b = 2)  # issue #65
+           ^
+SyntaxError: invalid syntax
+
+    אולי היית צריך '==' או ': =' במקום '='.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_instead_of_equal.py'
+at the location indicated.
+
+   1: a = (b = 2)  # issue #65
+             ^
+
+השתמשת באופרטור מקוצר  `=`; אולי התכוונת להשתמש
+במפעיל שוויון, `==`, או במפעיל ישיר `: =`.
+</pre></div>
+</div>
+</section>
+<section id="name-assigned-prior-to-global-declaration">
+<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_global_1.py", line 7
+    global aa, bb, cc, dd
+    ^
+SyntaxError: name 'cc' is assigned to before global declaration
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_name_before_global_1.py'
+at the location indicated.
+
+   7:     global aa, bb, cc, dd
+          ------         ^^
+
+הקצית ערך למשתנה 'cc'
+לפני הכרזתו כמשתנה גלובלי.
+</pre></div>
+</div>
+</section>
+<section id="name-used-prior-to-global-declaration">
+<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_global_2.py", line 7
+    global var
+    ^
+SyntaxError: name 'var' is used prior to global declaration
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_name_before_global_2.py'
+.
+
+   7:     global var
+          ------ ^^^
+
+השתמשת במשתנה 'var'
+לפני הכרזתו כמשתנה גלובלי.
+</pre></div>
+</div>
+</section>
+<section id="name-used-prior-to-nonlocal-declaration">
+<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
+    nonlocal pp, qq
+    ^
+SyntaxError: name 'qq' is used prior to nonlocal declaration
+
+    האם שכחת לכתוב 'nonlocal' קודם?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
+at the location indicated.
+
+   11:         nonlocal pp, qq
+               --------     ^^
+
+השתמשת במשתנה 'qq'
+לפני הכרזתו כמשתנה לא -מקומי. (nonlocal )
+</pre></div>
+</div>
+</section>
+<section id="name-assigned-prior-to-nonlocal-declaration">
+<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_nonlocal_2.py", line 9
+    nonlocal s
+    ^
+SyntaxError: name 's' is assigned to before nonlocal declaration
+
+    שכחת להוסיף `nonlocal`?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
+.
+
+   9:         nonlocal s
+              -------- ^
+
+הקצית ערך למשתנה 's'
+לפני הכרזתו כמשתנה לא -מקומי (nonlocal).
+</pre></div>
+</div>
+</section>
+<section id="assign-to-conditional-expression">
+<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_conditional.py", line 3
+    a if 1 else b = 1
+    ^
+SyntaxError: cannot assign to conditional expression
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_conditional.py'
+at the location indicated.
+
+   3: a if 1 else b = 1
+      ^^^^^^^^^^^^^
+
+On the left-hand side of an equal sign, you have a
+conditional expression instead of the name of a variable.
+    a if 1 else b = ...
+    ^^^^^^^^^^^^^
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-keyword-debug">
+<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_debug.py", line 4
+    __debug__ = 1
+    ^
+SyntaxError: cannot assign to __debug__
+
+    You cannot assign a value to `__debug__`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_debug.py'
+at the location indicated.
+
+   4: __debug__ = 1
+      ^^^^^^^^^
+
+`__debug__` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_debug2.py", line 4
+    a.__debug__ = 1
+    ^
+SyntaxError: cannot assign to __debug__
+
+    You cannot assign a value to `__debug__`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_debug2.py'
+at the location indicated.
+
+   4: a.__debug__ = 1
+        ^^^^^^^^^
+
+`__debug__` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-ellipsis-symbol">
+<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_ellipsis.py", line 4
+    ... = 1
+    ^
+SyntaxError: cannot assign to Ellipsis
+
+    לא ניתן להקצות ערך לסמל האליפסיס (ellipsis) ['...'].
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_ellipsis.py'
+at the location indicated.
+
+   4: ... = 1
+      ^^^
+
+סמל האליפסיס (ellipsis ) '...' הוא קבוע בפייתון; אינך יכול\ה להקצות לו ערך אחר.
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-f-string">
+<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_f_string.py", line 6
+    f'{x}' = 42
+    ^
+SyntaxError: cannot assign to f-string expression
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_f_string.py'
+at the location indicated.
+
+   6: f'{x}' = 42
+      ^^^^^^
+
+כתבת ביטוי המכיל את מחרוזת f 'f'{x}''
+בצד שמאל של סימן השוויון.
+מחרוזת f צריכה להופיע רק בצד ימין של סימן שווה.
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-single-sign">
+<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_1.py", line 6
+    len('a') = 3
+    ^
+SyntaxError: cannot assign to function call
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_function_call_1.py'
+at the location indicated.
+
+   6: len('a') = 3
+      ^^^^^^^^
+
+You wrote the expression
+
+    len('a') = ...
+    ^^^^^^^^
+where `len('a')`, on the left-hand side of the equal sign, either is
+or includes a function call and is not simply the name of a variable.
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-two-signs">
+<h2>(16) Cannot assign to function call: two = signs<a class="headerlink" href="#cannot-assign-to-function-call-two-signs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_2.py", line 6
+    func(a, b=3) = 4
+    ^
+SyntaxError: cannot assign to function call
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_function_call_2.py'
+at the location indicated.
+
+   6: func(a, b=3) = 4
+      ^^^^^^^^^^^^
+
+You wrote the expression
+
+    func(a, b=3) = ...
+    ^^^^^^^^^^^^
+where `func(a, b=3)`, on the left-hand side of the equal sign, either is
+or includes a function call and is not simply the name of a variable.
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-continues-on-second-line">
+<h2>(17) Cannot assign to function call: continues on second line<a class="headerlink" href="#cannot-assign-to-function-call-continues-on-second-line" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_3.py", line 6
+    a = f(1, 2,  # this is a comment
+        ^
+SyntaxError: cannot assign to function call
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_function_call_3.py'
+at the location indicated.
+
+--&gt;6: a = f(1, 2,  # this is a comment
+          ^^^^^^^--&gt;
+   7:       3, 4) = 5
+
+You wrote the expression
+
+    f(1, 2,...) = ...
+    ^^^^^^^--&gt;
+where `f(1, 2,...)`, on the left-hand side of the equal sign, either is
+or includes a function call and is not simply the name of a variable.
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="assign-to-generator-expression">
+<h2>(18) Assign to generator expression<a class="headerlink" href="#assign-to-generator-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_generator.py", line 3
+    (x for x in x) = 1
+    ^
+SyntaxError: cannot assign to generator expression
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_generator.py'
+at the location indicated.
+
+   3: (x for x in x) = 1
+      ^^^^^^^^^^^^^^
+
+בצד שמאל של סימן שוויון, יש לך
+ביטוי גנרטור במקום שם של משתנה.
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-4">
+<h2>(19) Cannot assign to literal - 4<a class="headerlink" href="#cannot-assign-to-literal-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_dict.py", line 7
+    {1 : 2, 2 : 4} = 5
+    ^
+SyntaxError: cannot assign to dict display
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_literal_dict.py'
+at the location indicated.
+
+   7: {1 : 2, 2 : 4} = 5
+      ^^^^^^^^^^^^^^
+
+כתבת ביטוי כמו
+
+     {1 : 2, 2 : 4} = 5
+כאשר '{1 : 2, 2 : 4}', בצד שמאל של סימן השווה,
+הוא או כולל אובייקט בפועל מסוג dict (מילון)
+וזה לא רק שמו של משתנה.
+
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-int">
+<h2>(20) Cannot assign to literal int<a class="headerlink" href="#cannot-assign-to-literal-int" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="tracebacks_it.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Friendly tracebacks - in italiano</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="tracebacks_he.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Friendly tracebacks - בעברית</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/syntax_tracebacks_he.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Friendly SyntaxError tracebacks - בעברית</a><ul>
+<li><a class="reference internal" href="#using-and-in-import-statement">(1) Using ‘and’ in import statement</a></li>
+<li><a class="reference internal" href="#using-and-after-comma-in-import-statement">(2) Using ‘and’ after comma in import statement</a></li>
+<li><a class="reference internal" href="#annotated-name-cannot-be-global">(3) Annotated name cannot be global</a></li>
+<li><a class="reference internal" href="#incorrect-use-of-from-module-import-as">(4) Incorrect use of ‘from module import … as …</a></li>
+<li><a class="reference internal" href="#assign-instead-of-equal-or-walrus">(5) Assign instead of equal (or walrus).</a></li>
+<li><a class="reference internal" href="#name-assigned-prior-to-global-declaration">(6) Name assigned prior to global declaration</a></li>
+<li><a class="reference internal" href="#name-used-prior-to-global-declaration">(7) Name used prior to global declaration</a></li>
+<li><a class="reference internal" href="#name-used-prior-to-nonlocal-declaration">(8) Name used prior to nonlocal declaration</a></li>
+<li><a class="reference internal" href="#name-assigned-prior-to-nonlocal-declaration">(9) Name assigned prior to nonlocal declaration</a></li>
+<li><a class="reference internal" href="#assign-to-conditional-expression">(10) Assign to conditional expression</a></li>
+<li><a class="reference internal" href="#assignment-to-keyword-debug">(11) Assignment to keyword (__debug__)</a></li>
+<li><a class="reference internal" href="#id1">(12) Assignment to keyword (__debug__)</a></li>
+<li><a class="reference internal" href="#assignment-to-ellipsis-symbol">(13) Assignment to Ellipsis symbol</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-f-string">(14) Cannot assign to f-string</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-single-sign">(15) Cannot assign to function call: single = sign</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-two-signs">(16) Cannot assign to function call: two = signs</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-continues-on-second-line">(17) Cannot assign to function call: continues on second line</a></li>
+<li><a class="reference internal" href="#assign-to-generator-expression">(18) Assign to generator expression</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-4">(19) Cannot assign to literal - 4</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-int">(20) Cannot assign to literal int</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>

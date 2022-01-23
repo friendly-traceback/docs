@@ -18,8 +18,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.1
-Python version: 3.10.1
+Friendly-traceback version: 0.5.13
+Python version: 3.10.2
 
 
 
@@ -931,7 +931,7 @@ Python version: 3.10.1
         __import__(name)
       File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
         [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                               ^
     SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -941,7 +941,7 @@ Python version: 3.10.1
     at the location indicated.
     
        1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                 ^
 
     You are using the augmented assignment operator `:=` inside
     a comprehension to assign a value to the iteration variable `j`.
@@ -1730,7 +1730,7 @@ Python version: 3.10.1
         __import__(name)
       File "TESTS:\syntax\def_duplicate_arg.py", line 4
         def f(aa=1, aa=2):
-        ^^^^^^^^^^^^^^^^^^-->
+                    ^^
     SyntaxError: duplicate argument 'aa' in function definition
     
     A `SyntaxError` occurs when Python cannot understand your code.
