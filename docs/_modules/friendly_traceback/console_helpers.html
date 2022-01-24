@@ -449,7 +449,7 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-        <span class="n">info</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="p">(</span>
         <span class="p">(</span><span class="s2">"cause"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">info</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">info</span><span class="p">[</span><span class="s2">"cause"</span><span class="p">])</span>
         <span class="ow">and</span> <span class="s2">"message"</span> <span class="ow">in</span> <span class="n">info</span>
@@ -700,7 +700,8 @@
             <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">helpers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
             <span class="nb">delattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cannot remove </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">; it is not a known helper."</span><span class="p">)</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Cannot remove </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">; it is not a known helper."</span>
+            <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
         <span class="sd">"""Only include useful friendly methods."""</span>

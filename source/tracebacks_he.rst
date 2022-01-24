@@ -4,7 +4,7 @@ Friendly tracebacks - בעברית
 
 Friendly שואפת לספק משוב ידידותי יותר כאשר מדובר בחריג
 מוגדל ממה שנעשה על ידי Python.
-(translated by Google Translate).
+(sentence translated by Google Translate).
 
 Below, we can find some examples. SyntaxError cases, as well as TabError and
 IndentationError cases, are shown in a separate page.
@@ -1637,7 +1637,7 @@ Annotated variable
     
         האם השתמשת בנקודותיים במקום בסימן שוויון?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1674,7 +1674,7 @@ Custom name
     NameError: name 'python' is not defined
     
         אתה כבר משתמש בפייתון!
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1705,7 +1705,7 @@ Free variable referenced
         return var
     NameError: free variable 'var' referenced before assignment in enclosing scope
     
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1745,7 +1745,7 @@ Generic
         this = something
     NameError: name 'something' is not defined
     
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1776,7 +1776,7 @@ Missing import
     
         שכחת לייבא את 'unicodedata'?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1815,7 +1815,7 @@ Missing module name
     
         שכחת להוסיף את `tkinter.`?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1857,7 +1857,7 @@ Missing self 1
     
         Did you write `self` at the wrong place?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1908,7 +1908,7 @@ Missing self 2
     
         Did you forget to add `self.`?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1956,7 +1956,7 @@ Synonym
     
         האם התכוונת ל 'cos'?
         
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -1987,7 +1987,7 @@ missing import2
         ABCMeta
     NameError: name 'ABCMeta' is not defined
     
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
@@ -2018,7 +2018,7 @@ missing import3
         AF_APPLETALK
     NameError: name 'AF_APPLETALK' is not defined
     
-    חריג של 'NamError' מציין כי משתנה או
+    חריג של 'NameError' מציין כי משתנה או
     הפונקציה אינו ידוע לפייתון.
     לרוב, הסיבה לכך היא שיש טעות כתיב.
     עם זאת, לפעמים זה בגלל שהשם משמש
