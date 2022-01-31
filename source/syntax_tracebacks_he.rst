@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.13
+Friendly-traceback version: 0.5.18
 Python version: 3.9.10
 
 
@@ -310,8 +310,8 @@ Python version: 3.9.10
        3: a if 1 else b = 1
           ^^^^^^^^^^^^^
 
-    On the left-hand side of an equal sign, you have a
-    conditional expression instead of the name of a variable.
+    בצד שמאל של סימן שוויון, יש לך א
+    ביטוי מותנה במקום שם של משתנה.
         a if 1 else b = ...
         ^^^^^^^^^^^^^
     ניתן להקצות אובייקטים רק למזהים (שמות משתנים).

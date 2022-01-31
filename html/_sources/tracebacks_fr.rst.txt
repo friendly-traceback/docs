@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly-traceback version: 0.5.13
+Friendly-traceback version: 0.5.18
 Python version: 3.9.10
 
 

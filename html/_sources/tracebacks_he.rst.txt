@@ -17,7 +17,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.13
+Friendly-traceback version: 0.5.18
 Python version: 3.9.10
 
 
@@ -317,21 +317,14 @@ Generic different frame
         a.attr
     AttributeError: 'A' object has no attribute 'attr'
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
+        האם התכוונת ל 'attr2'?
         
     An `AttributeError` occurs when the code contains something like
         `object.x`
     and `x` is not a method or attribute (variable) belonging to `object`.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    
+    לאובייקט 'a' אין תכונה בשם 'attr'.
+    אולי התכוונת לכתוב 'a. attr2' במקום 'a. attr'
     
     חריג הועלה בשורה 49 של הקובץ TESTS:\runtime\test_attribute_error.py.
     
@@ -453,21 +446,14 @@ Object attribute typo
         a.appendh(4)
     AttributeError: 'list' object has no attribute 'appendh'
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
+        האם התכוונת ל 'append'?
         
     An `AttributeError` occurs when the code contains something like
         `object.x`
     and `x` is not a method or attribute (variable) belonging to `object`.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    
+    לאובייקט 'a' אין תכונה בשם 'appendh'.
+    אולי התכוונת לכתוב 'a. append' במקום 'a. appendh'
     
     חריג הועלה בשורה 83 של הקובץ TESTS:\runtime\test_attribute_error.py.
     
@@ -730,22 +716,15 @@ Using slots
         f.b = 1
     AttributeError: 'F' object has no attribute 'b'
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     An `AttributeError` occurs when the code contains something like
         `object.x`
     and `x` is not a method or attribute (variable) belonging to `object`.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    
-    
+    לאובייקט 'f' אין תכונה בשם 'b'.
+    שים לב שהאובייקט `f` משתמש ב- `__slots__` אשר מונע
+    יצירת תכונות חדשות.
+    להלן כמה מהתכונות הידועות:
+    `a`.
     חריג הועלה בשורה 260 של הקובץ TESTS:\runtime\test_attribute_error.py.
     
        256:         __slots__ = ["a"]
@@ -1308,20 +1287,14 @@ Similar names
         a = second["alpha"]
     KeyError: 'alpha'
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
+        האם התכוונת ל ''alpha0''?
         
     'KeyError' נזרק כאשר ערך אינו נמצא כ-
     מפתח במילון או באובייקט דומה.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    
+    לא ניתן למצוא את המפתח `'alpha'` במילון (dict) בשם `second`.
+    'second' מכיל כמה מפתחות הדומים ל- ''alpha'' כולל:
+    `'alpha0', 'alpha11', 'alpha12'`.
     
     חריג הועלה בשורה 145 של הקובץ TESTS:\runtime\test_key_error.py.
     
@@ -1472,22 +1445,16 @@ Not a package similar name
         import os.pathh
     ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
+        האם התכוונת ל-`import os.path`? ('יבא os.path)' ?
         
     חריג `ModuleNotFoundError` נזרק כאשר
     מנסים לייבא מודול שפייתון לא מצא .
     זה יכול להיות בגלל שגיאת כתיב בשם המודול
     או מכיוון שהוא לא מותקן במחשב שלך.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    
+    אולי התכוונת ל'ייבא os. path '.
+    'path' הוא שם הדומה ל- 'pathh' והוא מודול ש
+    ניתן לייבא מ 'os'.
     
     חריג הועלה בשורה 36 של הקובץ TESTS:\runtime\test_module_not_found_error.py.
     
@@ -2691,22 +2658,17 @@ Object is not subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
+        האם התכוונת ל "f(1)"?
         
     A `TypeError` is usually caused by trying
     to combine two incompatible types of objects,
     by calling a function with the wrong type of object,
     or by trying to do an operation not allowed on a given type of object.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    אובייקטים הרשמים הם בדרך כלל מיכלים מהם
+    אתה יכול לאחזר פריט באמצעות הסימון '[...]'.
     
+    אולי התכוונת לכתוב 'f(1)'.
     
     חריג הועלה בשורה 757 של הקובץ TESTS:\runtime\test_type_error.py.
     
@@ -3734,20 +3696,14 @@ Complex division
         1 / zero
     ZeroDivisionError: complex division by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    את\ה מחלק\תבמונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 155 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -3799,20 +3755,14 @@ Division operator
         1 / zero
     ZeroDivisionError: division by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    את\ה מחלק\תבמונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 17 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -3868,20 +3818,14 @@ Float division
         1 / zero
     ZeroDivisionError: float division by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    את\ה מחלק\תבמונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 125 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -3937,20 +3881,14 @@ Float modulo
         1 % zero
     ZeroDivisionError: float modulo
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    באמצעות אופרטור המודולו, את\ה מחלק\ת במונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 110 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -3976,20 +3914,14 @@ Integer division operator
         1 // zero
     ZeroDivisionError: integer division or modulo by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    את\ה מחלק\תבמונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 42 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -4015,20 +3947,12 @@ Mixed operations
         a = divmod(8, 1 // 2)
     ZeroDivisionError: integer division or modulo by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    הביטוי המתמטי הבא כולל חלוקה באפס:
     
+         divmod(8, 1 // 2)
     
     חריג הועלה בשורה 212 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
@@ -4054,20 +3978,14 @@ Modulo operator
         1 % zero
     ZeroDivisionError: integer division or modulo by zero
     
-        שגיאה כללית עבור ידידותי.
-        Please report this example to
-        https://github.com/friendly-traceback/friendly-traceback/issues/new
-        If you are using a REPL, use `www('bug')` to do so.
-        
-        
     'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
     באפס ישירות או באמצעות פעולה מתמטית אחרת.
     
-    שגיאה כללית עבור ידידותי.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    באמצעות אופרטור המודולו, את\ה מחלק\ת במונח הבא
     
+          zero
+    
+    שהוא שווה לאפס.
     
     חריג הועלה בשורה 67 של הקובץ TESTS:\runtime\test_zero_division_error.py.
     
