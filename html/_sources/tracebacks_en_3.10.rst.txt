@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.18
+Friendly-traceback version: 0.5.19
 Python version: 3.10.2
 
 
@@ -115,6 +115,7 @@ Attribute from other module
     Exception raised on line 325 of file TESTS:\runtime\test_attribute_error.py.
     
        321:         assert "Did you mean `math`?" in result
+       322: 
        323:     import cmath
        324:     try:
     -->325:         keyword.pi
@@ -181,6 +182,7 @@ Builtin module with no file
     
        236:     """Issue 116"""
        237:     import sys
+       238: 
        239:     try:
     -->240:         sys.foo
                     ^^^^^^^
@@ -226,6 +228,7 @@ Circular import
     
        1: """To test attribute error of partially initialized module."""
        2: import my_turtle1
+       3: 
     -->4: a = my_turtle1.something
               ^^^^^^^^^^^^^^^^^^^^
 
@@ -267,6 +270,7 @@ Circular import b
     
        1: # Attribute error for partially initialize module
        2: import circular_c
+       3: 
     -->4: a = circular_c.something
               ^^^^^^^^^^^^^^^^^^^^
 
@@ -295,6 +299,7 @@ Generic
     
        22:     class A:
        23:         pass
+       24: 
        25:     try:
     -->26:         A.x  # testing type
                    ^^^
@@ -327,6 +332,7 @@ Generic different frame
     Exception raised on line 49 of file TESTS:\runtime\test_attribute_error.py.
     
        45:         return A()
+       46: 
        47:     a = f()
        48:     try:
     -->49:         a.attr
@@ -393,7 +399,9 @@ Module attribute typo
     Exception raised on line 144 of file TESTS:\runtime\test_attribute_error.py.
     
        139:         assert "Did you mean `ascii_lowercase`" in result
+       140: 
        141:     import math
+       142: 
        143:     try:
     -->144:         math.cost
                     ^^^^^^^^^
@@ -496,6 +504,7 @@ Read only
     Exception raised on line 280 of file TESTS:\runtime\test_attribute_error.py.
     
        276:         b = 2
+       277: 
        278:     f = F()
        279:     try:
     -->280:         f.b = 1
@@ -532,6 +541,7 @@ Shadow stdlib module
     
        161: def test_Shadow_stdlib_module():
        162:     import turtle
+       163: 
        164:     try:
     -->165:         turtle.Pen
                     ^^^^^^^^^^
@@ -697,6 +707,7 @@ Using slots
     Exception raised on line 260 of file TESTS:\runtime\test_attribute_error.py.
     
        256:         __slots__ = ["a"]
+       257: 
        258:     f = F()
        259:     try:
     -->260:         f.b = 1
@@ -803,6 +814,7 @@ Filename not found 2
     
        26:     if chdir:
        27:         os.chdir("..")
+       28: 
        29:     try:
     -->30:         open("setupp.py")
                    ^^^^^^^^^^^^^^^^^
@@ -923,6 +935,7 @@ Simple import error
     
        52:     multiple_import_on_same_line()
        53:     wrong_case()
+       54: 
        55:     try:
     -->56:         from math import Pi
        57:     except ImportError as e:
@@ -957,6 +970,7 @@ Assignment
     
        83:         assert "You have tried to assign a value to index `1` of `b`," in result
        84:         assert "a `list` which contains no item." in result
+       85: 
        86:     try:
     -->87:         a[13] = 1
        88:     except IndexError as e:
@@ -1268,6 +1282,7 @@ Similar names
     Exception raised on line 145 of file TESTS:\runtime\test_key_error.py.
     
        141:         assert ok, diff
+       142: 
        143:     second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
        144:     try:
     -->145:         a = second["alpha"]
@@ -1302,6 +1317,7 @@ String by mistake
     Exception raised on line 98 of file TESTS:\runtime\test_key_error.py.
     
        94:     chain_map_string_by_mistake()  # do not show in docs
+       95: 
        96:     d = {(0, 0): "origin"}
        97:     try:
     -->98:         d["(0, 0)"]
@@ -1398,6 +1414,7 @@ Not a package
     Exception raised on line 22 of file TESTS:\runtime\test_module_not_found_error.py.
     
        19: def test_Not_a_package():
+       20: 
        21:     try:
     -->22:         import os.xxx
        23:     except ModuleNotFoundError as e:
@@ -1655,6 +1672,7 @@ Free variable referenced
     
        173:         inner()
        174:         var = 4
+       175: 
        176:     try:
     -->177:         outer()
                     ^^^^^^^
@@ -1732,6 +1750,7 @@ Missing import
     
        126:     if friendly_traceback.get_lang() == "en":
        127:         assert "I have no additional information for you." in result
+       128: 
        129:     try:
     -->130:         unicodedata.something
                     ^^^^^^^^^^^
@@ -1809,6 +1828,7 @@ Missing self 1
     Execution stopped on line 228 of file TESTS:\runtime\test_name_error.py.
     
        224:                 return "{} has no toys".format(self.name)
+       225: 
        226:     a = Pet('Fido')
        227:     try:
     -->228:         str(a)
@@ -1860,6 +1880,7 @@ Missing self 2
     Execution stopped on line 262 of file TESTS:\runtime\test_name_error.py.
     
        258:                 return "{} has no toys".format(self.name)
+       259: 
        260:     a = Pet('Fido')
        261:     try:
     -->262:         str(a)
@@ -1906,6 +1927,7 @@ Synonym
     
        86:     if friendly_traceback.get_lang() == "en":
        87:         assert "The Python builtin `chr` has a similar name." in result
+       88: 
        89:     try:
     -->90:         cost  # wrote from math import * above
                    ^^^^
@@ -2235,6 +2257,7 @@ Bad type for unary operator
     Exception raised on line 398 of file TESTS:\runtime\test_type_error.py.
     
        393:         assert "You tried to use the unary operator '~'" in result
+       394: 
        395:     try:
        396:         # fmt: off
        397:         a = "abc"
@@ -2336,6 +2359,7 @@ Cannot convert dictionary update sequence
     Exception raised on line 816 of file TESTS:\runtime\test_type_error.py.
     
        812:         assert "you should use the `dict.fromkeys()`" in result
+       813: 
        814:     dd = {"a": "a"}
        815:     try:
     -->816:         dd.update([1, 2, 3])
@@ -2373,6 +2397,7 @@ Cannot multiply by non int
     
        610:     if friendly_traceback.get_lang() == "en":
        611:         assert "Did you forget to convert `c` into an integer?" in result
+       612: 
        613:     try:
     -->614:         "a" * "2"
                     ^^^^^^^^^
@@ -2502,6 +2527,7 @@ Indices must be integers or slices
     
        692:     if friendly_traceback.get_lang() == "en":
        693:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       694: 
        695:     try:
     -->696:         [1, 2, 3]["2"]
                     ^^^^^^^^^^^^^^
@@ -2531,6 +2557,7 @@ Not an integer
     Exception raised on line 659 of file TESTS:\runtime\test_type_error.py.
     
        655:         assert "Perhaps you forgot to convert `1.0" in result
+       656: 
        657:     c, d = "2", "3"
        658:     try:
     -->659:         range(c, d)
@@ -2573,6 +2600,7 @@ Not callable
     Exception raised on line 541 of file TESTS:\runtime\test_type_error.py.
     
        537:         assert "b.a_list[3]" in result
+       538: 
        539:     try:
        540:         a, b = 3, 7
     -->541:         _ = [1, 2](a + b)
@@ -2644,6 +2672,7 @@ Object is not subscriptable
     
        753:     def f():
        754:         pass
+       755: 
        756:     try:
     -->757:         a = f[1]
                         ^^^^
@@ -2708,6 +2737,7 @@ Too few positional argument
     
        467:     def fn(a, b, c):
        468:         pass
+       469: 
        470:     try:
     -->471:         fn(1)
                     ^^^^^
@@ -2745,6 +2775,7 @@ Too many positional argument
     
        448:         def f(x):
        449:             pass
+       450: 
        451:     try:
     -->452:         A().f(1)
                     ^^^^^^^^
@@ -2915,6 +2946,7 @@ function got multiple argument
     
        918:     def fn2(a, b=1):
        919:         pass
+       920: 
        921:     try:
     -->922:         fn2(0, a=1)
                     ^^^^^^^^^^^
@@ -2951,6 +2983,7 @@ function has no len
     
        843:     def bad():
        844:         pass
+       845: 
        846:     try:
     -->847:         len(bad)
                     ^^^^^^^^
@@ -2986,6 +3019,7 @@ getattr attribute name must be string
        963:             "The second argument of the function `hasattr()` must be a string."
        964:             in result
        965:         )
+       966: 
        967:     try:
     -->968:         getattr("__repr__", 1)  # as reported in issue #77
                     ^^^^^^^^^^^^^^^^^^^^^^
@@ -3018,6 +3052,7 @@ method got multiple argument
     Exception raised on line 941 of file TESTS:\runtime\test_type_error.py.
     
        937:             pass
+       938: 
        939:     t = T()
        940:     try:
     -->941:         t.some_method(0, a=1)
@@ -3056,6 +3091,7 @@ vars arg must have dict
     
        887:         assert no_slots not in result
        888:         assert use_slots not in result
+       889: 
        890:     try:
     -->891:         vars(f)
                     ^^^^^^^
@@ -3270,6 +3306,7 @@ Typo in local
     
         97:         alpha2 = 1
         98:         alpha3 += 1
+        99: 
        100:     try:
     -->101:         test2()
                     ^^^^^^^
@@ -3398,6 +3435,7 @@ Convert to int
     
        183:     if english:
        184:         assert "needs to be first converted using `float()`" in result
+       185: 
        186:     try:
     -->187:         int('13a')
                     ^^^^^^^^^^
@@ -3489,6 +3527,7 @@ Not enough values to unpack
     Exception raised on line 28 of file TESTS:\runtime\test_value_error.py.
     
        24:     assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
+       25: 
        26:     d = "ab"
        27:     try:
     -->28:         a, b, c = d
@@ -3640,6 +3679,7 @@ time strptime incorrect format
     Exception raised on line 127 of file TESTS:\runtime\test_value_error.py.
     
        123:         return
+       124: 
        125:     import time
        126:     try:
     -->127:         time.strptime("2020-01-01", "%d %m %Y")
@@ -3708,6 +3748,7 @@ Division by zero literal
     
        194:     if friendly_traceback.get_lang() == "en":
        195:         assert "Using the modulo operator, you are dividing by zero" in result
+      (...)
        198:     try:
     -->199:         1. / 0
                     ^^^^^^
@@ -3738,6 +3779,7 @@ Division operator
     
        13:     if friendly_traceback.get_lang() == "en":
        14:         assert "The following mathematical expression includes a division by zero" in result
+       15: 
        16:     try:
     -->17:         1 / zero
                    ^^^^^^^^
@@ -3864,6 +3906,7 @@ Float modulo
     
        106:         assert "The following mathematical expression includes a division by zero" in result
        107:         assert "done using the modulo operator" in result
+       108: 
        109:     try:
     -->110:         1 % zero
                     ^^^^^^^^
@@ -3897,6 +3940,7 @@ Integer division operator
     
        38:     if friendly_traceback.get_lang() == "en":
        39:         assert "The following mathematical expression includes a division by zero" in result
+       40: 
        41:     try:
     -->42:         1 // zero
                    ^^^^^^^^^
@@ -3961,6 +4005,7 @@ Modulo operator
     
        63:     if friendly_traceback.get_lang() == "en":
        64:         assert "The following mathematical expression includes a division by zero" in result
+       65: 
        66:     try:
     -->67:         1 % zero
                    ^^^^^^^^

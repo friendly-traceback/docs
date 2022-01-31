@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en español" href="syntax_tracebacks_es.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - en Français - friendly-traceback 0.5.18</title>
+        <title>Friendly tracebacks - en Français - friendly-traceback 0.5.19</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.18</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.19</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.18</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.19</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -313,7 +313,7 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.5.18
+<p>Friendly-traceback version: 0.5.19
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -394,6 +394,7 @@ l'un des modules suivants:
 Exception levée à la ligne 325 du fichier TESTS:\runtime\test_attribute_error.py.
 
    321:         assert "Did you mean `math`?" in result
+   322:
    323:     import cmath
    324:     try:
 --&gt;325:         keyword.pi
@@ -452,6 +453,7 @@ Exception levée à la ligne 240 du fichier TESTS:\runtime\test_attribute_error.
 
    236:     """Issue 116"""
    237:     import sys
+   238:
    239:     try:
 --&gt;240:         sys.foo
                 ^^^^^^^
@@ -493,6 +495,7 @@ Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
 
    1: """To test attribute error of partially initialized module."""
    2: import my_turtle1
+   3:
 --&gt;4: a = my_turtle1.something
           ^^^^^^^^^^^^^^^^^^^^
 
@@ -530,6 +533,7 @@ Exception levée à la ligne 4 du fichier TESTS:\circular_c.py.
 
    1: # Attribute error for partially initialize module
    2: import circular_c
+   3:
 --&gt;4: a = circular_c.something
           ^^^^^^^^^^^^^^^^^^^^
 
@@ -554,6 +558,7 @@ Exception levée à la ligne 26 du fichier TESTS:\runtime\test_attribute_error.p
 
    22:     class A:
    23:         pass
+   24:
    25:     try:
 --&gt;26:         A.x  # testing type
                ^^^
@@ -582,6 +587,7 @@ Peut-être que vous vouliez plutôt écrire : `a.attr2` au lieu de `a.attr`.
 Exception levée à la ligne 49 du fichier TESTS:\runtime\test_attribute_error.py.
 
    45:         return A()
+   46:
    47:     a = f()
    48:     try:
 --&gt;49:         a.attr
@@ -640,7 +646,9 @@ cos, cosh
 Exception levée à la ligne 144 du fichier TESTS:\runtime\test_attribute_error.py.
 
    139:         assert "Did you mean `ascii_lowercase`" in result
+   140:
    141:     import math
+   142:
    143:     try:
 --&gt;144:         math.cost
                 ^^^^^^^^^
@@ -727,6 +735,7 @@ au lieu d’utiliser une virgule.
 Exception levée à la ligne 203 du fichier TESTS:\runtime\test_attribute_error.py.
 
    199:     defg = "world"
+   200:
    201:     # fmt: off
    202:     try:
 --&gt;203:         a = [abcd
@@ -756,6 +765,7 @@ The only attribute of `f` whose value can be changed is`a`.
 Exception levée à la ligne 280 du fichier TESTS:\runtime\test_attribute_error.py.
 
    276:         b = 2
+   277:
    278:     f = F()
    279:     try:
 --&gt;280:         f.b = 1
@@ -788,6 +798,7 @@ Exception levée à la ligne 165 du fichier TESTS:\runtime\test_attribute_error.
 
    161: def test_Shadow_stdlib_module():
    162:     import turtle
+   163:
    164:     try:
 --&gt;165:         turtle.Pen
                 ^^^^^^^^^^
@@ -934,6 +945,7 @@ Voici quelques-uns de ses attributs connus :
 Exception levée à la ligne 260 du fichier TESTS:\runtime\test_attribute_error.py.
 
    256:         __slots__ = ["a"]
+   257:
    258:     f = F()
    259:     try:
 --&gt;260:         f.b = 1
@@ -1027,6 +1039,7 @@ Exception levée à la ligne 30 du fichier TESTS:\runtime\test_file_not_found_er
 
    26:     if chdir:
    27:         os.chdir("..")
+   28:
    29:     try:
 --&gt;30:         open("setupp.py")
                ^^^^^^^^^^^^^^^^^
@@ -1134,6 +1147,7 @@ Exception levée à la ligne 56 du fichier TESTS:\runtime\test_import_error.py.
 
    52:     multiple_import_on_same_line()
    53:     wrong_case()
+   54:
    55:     try:
 --&gt;56:         from math import Pi
    57:     except ImportError as e:
@@ -1163,6 +1177,7 @@ Exception levée à la ligne 87 du fichier TESTS:\runtime\test_index_error.py.
 
    83:         assert "You have tried to assign a value to index `1` of `b`," in result
    84:         assert "a `list` which contains no item." in result
+   85:
    86:     try:
 --&gt;87:         a[13] = 1
    88:     except IndexError as e:
@@ -1435,6 +1450,7 @@ La clé `'alpha'` est introuvable dans le dict `second`.
 Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
 
    141:         assert ok, diff
+   142:
    143:     second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
    144:     try:
 --&gt;145:         a = second["alpha"]
@@ -1465,6 +1481,7 @@ est identique à `'(0, 0)'`.
 Exception levée à la ligne 98 du fichier TESTS:\runtime\test_key_error.py.
 
    94:     chain_map_string_by_mistake()  # do not show in docs
+   95:
    96:     d = {(0, 0): "origin"}
    97:     try:
 --&gt;98:         d["(0, 0)"]
@@ -1549,6 +1566,7 @@ Cela pourrait être parce que vous fait une faute d'orthographe en
 Exception levée à la ligne 22 du fichier TESTS:\runtime\test_module_not_found_error.py.
 
    19: def test_Not_a_package():
+   20:
    21:     try:
 --&gt;22:         import os.xxx
    23:     except ModuleNotFoundError as e:
@@ -1779,6 +1797,7 @@ L'exécution s'est arrêtée à la ligne 177 du fichier TESTS:\runtime\test_name
 
    173:         inner()
    174:         var = 4
+   175:
    176:     try:
 --&gt;177:         outer()
                 ^^^^^^^
@@ -1850,6 +1869,7 @@ Exception levée à la ligne 130 du fichier TESTS:\runtime\test_name_error.py.
 
    126:     if friendly_traceback.get_lang() == "en":
    127:         assert "I have no additional information for you." in result
+   128:
    129:     try:
 --&gt;130:         unicodedata.something
                 ^^^^^^^^^^^
@@ -1920,6 +1940,7 @@ au lieu de `add_toy(self, ...`.
 L'exécution s'est arrêtée à la ligne 228 du fichier TESTS:\runtime\test_name_error.py
 
    224:                 return "{} has no toys".format(self.name)
+   225:
    226:     a = Pet('Fido')
    227:     try:
 --&gt;228:         str(a)
@@ -1968,6 +1989,7 @@ au lieu de `add_toy`.
 L'exécution s'est arrêtée à la ligne 262 du fichier TESTS:\runtime\test_name_error.py
 
    258:                 return "{} has no toys".format(self.name)
+   259:
    260:     a = Pet('Fido')
    261:     try:
 --&gt;262:         str(a)
@@ -2011,6 +2033,7 @@ Exception levée à la ligne 90 du fichier TESTS:\runtime\test_name_error.py.
 
    86:     if friendly_traceback.get_lang() == "en":
    87:         assert "The Python builtin `chr` has a similar name." in result
+   88:
    89:     try:
 --&gt;90:         cost  # wrote from math import * above
                ^^^^
@@ -2304,6 +2327,7 @@ Peut-être que vous vouliez plutôt écrire `+=` au lieu de `=+`
 Exception levée à la ligne 398 du fichier TESTS:\runtime\test_type_error.py.
 
    393:         assert "You tried to use the unary operator '~'" in result
+   394:
    395:     try:
    396:         # fmt: off
    397:         a = "abc"
@@ -2394,6 +2418,7 @@ peut-être devriez-vous utiliser la méthode `dict.fromkeys()` : `dd.update( di
 Exception levée à la ligne 816 du fichier TESTS:\runtime\test_type_error.py.
 
    812:         assert "you should use the `dict.fromkeys()`" in result
+   813:
    814:     dd = {"a": "a"}
    815:     try:
 --&gt;816:         dd.update([1, 2, 3])
@@ -2427,6 +2452,7 @@ Exception levée à la ligne 614 du fichier TESTS:\runtime\test_type_error.py.
 
    610:     if friendly_traceback.get_lang() == "en":
    611:         assert "Did you forget to convert `c` into an integer?" in result
+   612:
    613:     try:
 --&gt;614:         "a" * "2"
                 ^^^^^^^^^
@@ -2543,6 +2569,7 @@ Exception levée à la ligne 696 du fichier TESTS:\runtime\test_type_error.py.
 
    692:     if friendly_traceback.get_lang() == "en":
    693:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
+   694:
    695:     try:
 --&gt;696:         [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
@@ -2569,6 +2596,7 @@ Peut-être avez-vous oublié de convertir `c, d` en entiers.
 Exception levée à la ligne 659 du fichier TESTS:\runtime\test_type_error.py.
 
    655:         assert "Perhaps you forgot to convert `1.0" in result
+   656:
    657:     c, d = "2", "3"
    658:     try:
 --&gt;659:         range(c, d)
@@ -2607,6 +2635,7 @@ Peut-être que vous vouliez utiliser `[]` au lieu de `()` et écrire
 Exception levée à la ligne 541 du fichier TESTS:\runtime\test_type_error.py.
 
    537:         assert "b.a_list[3]" in result
+   538:
    539:     try:
    540:         a, b = 3, 7
 --&gt;541:         _ = [1, 2](a + b)
@@ -2670,6 +2699,7 @@ Exception levée à la ligne 757 du fichier TESTS:\runtime\test_type_error.py.
 
    753:     def f():
    754:         pass
+   755:
    756:     try:
 --&gt;757:         a = f[1]
                     ^^^^
@@ -2727,6 +2757,7 @@ Exception levée à la ligne 471 du fichier TESTS:\runtime\test_type_error.py.
 
    467:     def fn(a, b, c):
    468:         pass
+   469:
    470:     try:
 --&gt;471:         fn(1)
                 ^^^^^
@@ -2759,6 +2790,7 @@ Exception levée à la ligne 452 du fichier TESTS:\runtime\test_type_error.py.
 
    448:         def f(x):
    449:             pass
+   450:
    451:     try:
 --&gt;452:         A().f(1)
                 ^^^^^^^^
@@ -2910,6 +2942,7 @@ Exception levée à la ligne 922 du fichier TESTS:\runtime\test_type_error.py.
 
    918:     def fn2(a, b=1):
    919:         pass
+   920:
    921:     try:
 --&gt;922:         fn2(0, a=1)
                 ^^^^^^^^^^^
@@ -2942,6 +2975,7 @@ Exception levée à la ligne 847 du fichier TESTS:\runtime\test_type_error.py.
 
    843:     def bad():
    844:         pass
+   845:
    846:     try:
 --&gt;847:         len(bad)
                 ^^^^^^^^
@@ -2973,6 +3007,7 @@ Exception levée à la ligne 968 du fichier TESTS:\runtime\test_type_error.py.
    963:             "The second argument of the function `hasattr()` must be a string."
    964:             in result
    965:         )
+   966:
    967:     try:
 --&gt;968:         getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
@@ -3001,6 +3036,7 @@ Cette fonction n'a qu'un seul argument : `a`
 Exception levée à la ligne 941 du fichier TESTS:\runtime\test_type_error.py.
 
    937:             pass
+   938:
    939:     t = T()
    940:     try:
 --&gt;941:         t.some_method(0, a=1)
@@ -3035,6 +3071,7 @@ Exception levée à la ligne 891 du fichier TESTS:\runtime\test_type_error.py.
 
    887:         assert no_slots not in result
    888:         assert use_slots not in result
+   889:
    890:     try:
 --&gt;891:         vars(f)
                 ^^^^^^^
@@ -3237,6 +3274,7 @@ L'exécution s'est arrêtée à la ligne 101 du fichier TESTS:\runtime\test_unbo
 
     97:         alpha2 = 1
     98:         alpha3 += 1
+    99:
    100:     try:
 --&gt;101:         test2()
                 ^^^^^^^
@@ -3353,6 +3391,7 @@ Exception levée à la ligne 187 du fichier TESTS:\runtime\test_value_error.py.
 
    183:     if english:
    184:         assert "needs to be first converted using `float()`" in result
+   185:
    186:     try:
 --&gt;187:         int('13a')
                 ^^^^^^^^^^
@@ -3432,6 +3471,7 @@ que la longueur de l’itérable, une chaîne de caractères (`str`) de longueur
 Exception levée à la ligne 28 du fichier TESTS:\runtime\test_value_error.py.
 
    24:     assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
+   25:
    26:     d = "ab"
    27:     try:
 --&gt;28:         a, b, c = d
@@ -3564,6 +3604,7 @@ Le site suivant peut également être utile : https://www.strfti.me/ (anglais s
 Exception levée à la ligne 127 du fichier TESTS:\runtime\test_value_error.py.
 
    123:         return
+   124:
    125:     import time
    126:     try:
 --&gt;127:         time.strptime("2020-01-01", "%d %m %Y")
@@ -3623,6 +3664,7 @@ Exception levée à la ligne 199 du fichier TESTS:\runtime\test_zero_division_er
 
    194:     if friendly_traceback.get_lang() == "en":
    195:         assert "Using the modulo operator, you are dividing by zero" in result
+  (...)
    198:     try:
 --&gt;199:         1. / 0
                 ^^^^^^
@@ -3650,6 +3692,7 @@ Exception levée à la ligne 17 du fichier TESTS:\runtime\test_zero_division_err
 
    13:     if friendly_traceback.get_lang() == "en":
    14:         assert "The following mathematical expression includes a division by zero" in result
+   15:
    16:     try:
 --&gt;17:         1 / zero
                ^^^^^^^^
@@ -3760,6 +3803,7 @@ Exception levée à la ligne 110 du fichier TESTS:\runtime\test_zero_division_er
 
    106:         assert "The following mathematical expression includes a division by zero" in result
    107:         assert "done using the modulo operator" in result
+   108:
    109:     try:
 --&gt;110:         1 % zero
                 ^^^^^^^^
@@ -3789,6 +3833,7 @@ Exception levée à la ligne 42 du fichier TESTS:\runtime\test_zero_division_err
 
    38:     if friendly_traceback.get_lang() == "en":
    39:         assert "The following mathematical expression includes a division by zero" in result
+   40:
    41:     try:
 --&gt;42:         1 // zero
                ^^^^^^^^^
@@ -3845,6 +3890,7 @@ Exception levée à la ligne 67 du fichier TESTS:\runtime\test_zero_division_err
 
    63:     if friendly_traceback.get_lang() == "en":
    64:         assert "The following mathematical expression includes a division by zero" in result
+   65:
    66:     try:
 --&gt;67:         1 % zero
                ^^^^^^^^
