@@ -18,8 +18,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.19
-Python version: 3.11.0a4
+Friendly-traceback version: 0.5.33
+Python version: 3.11.0a5
 
 
 
@@ -192,7 +192,7 @@ Python version: 3.11.0a4
     at the location indicated.
     
        7:     global aa, bb, cc, dd
-              ------         ^^
+              ^^^^^^         ^^
 
     You assigned a value to the variable `cc`
     before declaring it as a global variable.
@@ -216,10 +216,10 @@ Python version: 3.11.0a4
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_global_2.py'
-    .
+    at the location indicated.
     
        7:     global var
-              ------ ^^^
+              ^^^^^^ ^^^
 
     You used the variable `var`
     before declaring it as a global variable.
@@ -248,7 +248,7 @@ Python version: 3.11.0a4
     at the location indicated.
     
        11:         nonlocal pp, qq
-                   --------     ^^
+                   ^^^^^^^^     ^^
 
     You used the variable `qq`
     before declaring it as a nonlocal variable.
@@ -274,10 +274,10 @@ Python version: 3.11.0a4
     
     Python could not understand the code in the file
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    .
+    at the location indicated.
     
        9:         nonlocal s
-                  -------- ^
+                  ^^^^^^^^ ^
 
     You assigned a value to the variable `s`
     before declaring it as a nonlocal variable.
@@ -1474,10 +1474,10 @@ Python version: 3.11.0a4
     
     Python could not understand the code in the file
     'TESTS:\syntax\copy_pasted_code_2.py'
-    .
+    at the location indicated.
     
        2: ... print("Hello World!")
-          ----^^^^^
+          ^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
     The Python prompt, `...`, should not be included in your code.
@@ -3447,7 +3447,7 @@ Python version: 3.11.0a4
     at the location indicated.
     
        5: else if True:
-          ^^^^-^^
+          ^^^^^^^
 
     Python told us that it expected a colon at the position indicated.
     However, adding a colon or replacing something else by a colon
@@ -5614,7 +5614,7 @@ Python version: 3.11.0a4
     at the location indicated.
     
     -->2: print len("""This is a long string
-          ^-->
+          ^^->
        3:           that spans multiple lines.""")
 
     Perhaps you need to type
@@ -6249,7 +6249,7 @@ Python version: 3.11.0a4
     at the location indicated.
     
        22:                      while 22:
-                                ^-->
+                                ^^->
 
     Your code is too complex for Python:
     you need to reduce the number of indented code blocks

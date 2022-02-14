@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.19
+Friendly-traceback version: 0.5.33
 Python version: 3.6.8
 
 
@@ -48,6 +48,7 @@ Generic
         7:         # Usually, a subclass such as ZeroDivisionError, etc., would
         8:         # likely be raised.
     --> 9:         raise ArithmeticError('error')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        10:     except ArithmeticError as e:
 
             ArithmeticError:  <class ArithmeticError>
@@ -82,6 +83,7 @@ Generic
        6:         # We raise it explicitly, rather than with the keyword assert, since
        7:         # we don't want pytest to rewrite out test.
     -->8:         raise AssertionError("Fake message")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        9:     except AssertionError as e:
 
             AssertionError:  <class AssertionError>
@@ -225,6 +227,7 @@ Circular import
        357:     stdlib_modules.names.append("my_turtle1")
        358:     try:
     -->359:        import my_turtle1
+                   ^^^^^^^^^^^^^^^^^
        360:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\my_turtle1.py.
@@ -267,6 +270,7 @@ Circular import b
        374: def test_Circular_import_b():
        375:     try:
     -->376:         import circular_c
+                    ^^^^^^^^^^^^^^^^^
        377:     except AttributeError as e:
 
     Exception raised on line 4 of file TESTS:\circular_c.py.
@@ -507,7 +511,9 @@ Perhaps comma
        201:     # fmt: off
        202:     try:
     -->203:         a = [abcd
+                         ^^^^
        204:         .defg]
+                    ^^^^^
        205:     # fmt: on
 
             abcd:  'hello'
@@ -541,6 +547,7 @@ Read only
        278:     f = F()
        279:     try:
     -->280:         f.b = 1
+                    ^^^^^^^
        281:     except AttributeError as e:
 
             f:  <F object>
@@ -744,6 +751,7 @@ Using slots
        258:     f = F()
        259:     try:
     -->260:         f.b = 1
+                    ^^^^^^^
        261:     except AttributeError as e:
 
             f:  <F object>
@@ -898,55 +906,6 @@ ImportError
 -----------
 
 
-Circular import
-~~~~~~~~~~~~~~~
-
-.. code-block:: none
-
-
-    Traceback (most recent call last):
-      File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
-        import circular_a
-      File "TESTS:\circular_a.py", line 2, in <module>
-        import circular_b
-      File "TESTS:\circular_b.py", line 2, in <module>
-        from circular_a import a
-    ImportError: cannot import name 'a'
-    
-        You have a circular import.
-        
-    An `ImportError` exception indicates that a certain object could not
-    be imported from a module or package. Most often, this is
-    because the name of the object is not spelled correctly.
-    
-    The object that could not be imported is `a`.
-    The module or package where it was 
-    expected to be found is `circular_a`.
-    
-    The problem was likely caused by what is known as a 'circular import'.
-    First, Python imported and started executing the code in file
-       'TESTS:\runtime\test_import_error.py'.
-    which imports module `circular_a`.
-    During this process, the code in another file,
-       'TESTS:\circular_b.py'
-    was executed. However in this last file, an attempt was made
-    to import the original module `circular_a`
-    a second time, before Python had completed the first import.
-    
-    Execution stopped on line 70 of file TESTS:\runtime\test_import_error.py.
-    
-       68: def test_Circular_import():
-       69:     try:
-    -->70:         import circular_a
-       71:     except ImportError as e:
-
-    Exception raised on line 2 of file TESTS:\circular_b.py.
-    
-       1: """File used in for test_circular_import() in test_import_error.py"""
-    -->2: from circular_a import a
-                     ^
-
-
 Simple import error
 ~~~~~~~~~~~~~~~~~~~
 
@@ -973,6 +932,7 @@ Simple import error
        54: 
        55:     try:
     -->56:         from math import Pi
+                   ^^^^^^^^^^^^^^^^^^^
        57:     except ImportError as e:
 
 
@@ -1008,6 +968,7 @@ Assignment
        85: 
        86:     try:
     -->87:         a[13] = 1
+                   ^^^^^^^^^
        88:     except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -1391,6 +1352,7 @@ Generic
         8:         # other than possibly codecs.lookup(), which is why we raise
         9:         # it directly here for our example.
     -->10:         raise LookupError("Fake message")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        11:     except LookupError as e:
 
             LookupError:  <class LookupError>
@@ -1425,6 +1387,7 @@ Need to install module
        74: def test_Need_to_install_module():
        75:     try:
     -->76:         import alphabet
+                   ^^^^^^^^^^^^^^^
        77:     except ModuleNotFoundError as e:
 
 
@@ -1452,6 +1415,7 @@ Not a package
        20: 
        21:     try:
     -->22:         import os.xxx
+                   ^^^^^^^^^^^^^
        23:     except ModuleNotFoundError as e:
 
 
@@ -1482,6 +1446,7 @@ Not a package similar name
        34: def test_Not_a_package_similar_name():
        35:     try:
     -->36:         import os.pathh
+                   ^^^^^^^^^^^^^^^
        37:     except ModuleNotFoundError as e:
 
 
@@ -1510,6 +1475,7 @@ Object not module
        47: def test_Object_not_module():
        48:     try:
     -->49:         import os.open
+                   ^^^^^^^^^^^^^^
        50:     except ModuleNotFoundError as e:
 
             open:  <builtin function open>
@@ -1545,6 +1511,7 @@ Similar object not module
        60: def test_Similar_object_not_module():
        61:     try:
     -->62:         import os.opend
+                   ^^^^^^^^^^^^^^^
        63:     except ModuleNotFoundError as e:
 
 
@@ -1575,6 +1542,7 @@ Standard library module
        5: def test_Standard_library_module():
        6:     try:
     -->7:         import Tkinter
+                  ^^^^^^^^^^^^^^
        8:     except ModuleNotFoundError as e:
 
 
@@ -1604,6 +1572,7 @@ no curses
        90:     def test_no_curses():
        91:         try:
     -->92:             import curses
+                       ^^^^^^^^^^^^^
        93:         except ModuleNotFoundError as e:
 
 
@@ -2152,6 +2121,7 @@ no information
        25:     friendly_traceback.debug_helper.DEBUG = False
        26:     try:
     -->27:         raise OSError("Some unknown message")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        28:     except OSError as e:
 
             OSError:  <class OSError>
@@ -2463,6 +2433,7 @@ Cannot unpack non iterable object
        786: def test_Cannot_unpack_non_iterable_object():
        787:     try:
     -->788:         a, b = 42.0
+                    ^^^^^^^^^^^
        789:     except TypeError as e:
 
 
@@ -2526,6 +2497,7 @@ Derive from BaseException
        555: def test_Derive_from_BaseException():
        556:     try:
     -->557:         raise "exception"  # noqa
+                    ^^^^^^^^^^^^^^^^^
        558:     except TypeError as e:
 
 
@@ -2848,6 +2820,7 @@ Tuple no item assignment
        417:     a = (1, 2, 3)
        418:     try:
     -->419:         a[0] = 0
+                    ^^^^^^^^
        420:     except TypeError as e:
 
             a:  (1, 2, 3)
@@ -2881,6 +2854,7 @@ Unhachable type
        725: def test_Unhachable_type():
        726:     try:
     -->727:         {[1, 2]: 1}
+                    ^^^^^^^^^^^
        728:     except TypeError as e:
 
 
@@ -2912,6 +2886,7 @@ Unsupported operand types
        308:         a = "a"
        309:         b = 2
     -->310:         a @= b
+                    ^^^^^^
        311:     except TypeError as e:
 
             a:  'a'
@@ -3195,6 +3170,7 @@ Missing both
     
        20:     def inner():
     -->21:         spam_missing_both += 1
+                   ^^^^^^^^^^^^^^^^^^^^^^
 
             global spam_missing_both:  1
         
@@ -3250,6 +3226,7 @@ Missing global
     
        8:     def inner():
     -->9:         spam_missing_global += 1
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
 
             global spam_missing_global:  1
         
@@ -3305,6 +3282,7 @@ Missing nonlocal
     
        14:     def inner():
     -->15:         spam_missing_nonlocal += 1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Typo in local
@@ -3352,6 +3330,7 @@ Typo in local
        96:         alpha1 = 1
        97:         alpha2 = 1
     -->98:         alpha3 += 1
+                   ^^^^^^^^^^^
 
 
 Using name of builtin
@@ -3434,6 +3413,7 @@ Generic
        10:     friendly_traceback.debug_helper.DEBUG = False
        11:     try:
     -->12:         raise UnknownException("Some informative message about an unknown exception.")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        13:     except Exception as e:
 
             global UnknownException:  <class test_unknown_error.UnknownException>
@@ -3563,6 +3543,7 @@ Not enough values to unpack
        26:     d = "ab"
        27:     try:
     -->28:         a, b, c = d
+                   ^^^^^^^^^^^
        29:     except ValueError as e:
 
             d:  'ab'
@@ -3622,6 +3603,7 @@ Slots conflicts with class variable
        70: def test_Slots_conflicts_with_class_variable():
        71:     try:
     -->72:         class F:
+                   ^^^^^^^^
        73:             __slots__ = ["a", "b"]
 
 
@@ -3650,6 +3632,7 @@ Too many values to unpack
        41:     c = [1, 2, 3]
        42:     try:
     -->43:         a, b = c
+                   ^^^^^^^^
        44:     except ValueError as e:
 
             c:  [1, 2, 3]

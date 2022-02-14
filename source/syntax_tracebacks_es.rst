@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.19
+Friendly-traceback version: 0.5.33
 Python version: 3.9.10
 
 
@@ -194,7 +194,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        7:     global aa, bb, cc, dd
-              ------         ^^
+              ^^^^^^         ^^
 
     Usted asignó un valor a la variable `cc`.
     antes de declararla como variable global.
@@ -218,10 +218,10 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\assign_name_before_global_2.py'
-    .
+    en la ubicación indicada.
     
        7:     global var
-              ------ ^^^
+              ^^^^^^ ^^^
 
     Ha utilizado la variable `var`
     antes de declararla como variable global.
@@ -250,7 +250,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        11:         nonlocal pp, qq
-                   --------     ^^
+                   ^^^^^^^^     ^^
 
     Ha utilizado la variable `qq`
     antes de declararla como variable no local.
@@ -276,10 +276,10 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    .
+    en la ubicación indicada.
     
        9:         nonlocal s
-                  -------- ^
+                  ^^^^^^^^ ^
 
     Ha asignado un valor a la variable `s`
     antes de declararla como variable no local.
@@ -1247,7 +1247,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1: (**k)
-           ^-->
+           ^^->
 
     El operador de doble estrella `**` probablemente se interpreta como que
     que se va a utilizar el desempaquetado del dictado, lo cual no está permitido o no tiene sentido en este caso.
@@ -1471,10 +1471,10 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\copy_pasted_code_2.py'
-    .
+    en la ubicación indicada.
     
        2: ... print("Hello World!")
-          ----^^^^^
+          ^^^
 
     Parece que has copiado y pegado código de un intérprete interactivo.
     El prompt de Python, `...`, no debería estar incluido en tu código.
@@ -3439,7 +3439,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5: else if True:
-          ^^^^-^^
+          ^^^^^^^
 
     Probablemente querías usar la palabra clave `elif` de Python
     pero en su lugar escribiste `else if`.

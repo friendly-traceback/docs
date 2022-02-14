@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - בעברית" href="syntax_tracebacks_he.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - בעברית - friendly-traceback 0.5.19</title>
+        <title>Friendly tracebacks - בעברית - friendly-traceback 0.5.33</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.19</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.33</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.19</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.33</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -316,7 +316,7 @@ Not all cases handled by friendly are included here.</p>
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.5.19
+<p>Friendly-traceback version: 0.5.33
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -340,6 +340,7 @@ ArithmeticError: error
     7:         # Usually, a subclass such as ZeroDivisionError, etc., would
     8:         # likely be raised.
 --&gt; 9:         raise ArithmeticError('error')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    10:     except ArithmeticError as e:
 
         ArithmeticError:  &lt;class ArithmeticError&gt;
@@ -369,6 +370,7 @@ If `condition` is `False` or equivalent, an `AssertionError` is raised.
    6:         # We raise it explicitly, rather than with the keyword assert, since
    7:         # we don't want pytest to rewrite out test.
 --&gt;8:         raise AssertionError("Fake message")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    9:     except AssertionError as e:
 
         AssertionError:  &lt;class AssertionError&gt;
@@ -492,6 +494,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
    357:     stdlib_modules.names.append("my_turtle1")
    358:     try:
 --&gt;359:        import my_turtle1
+               ^^^^^^^^^^^^^^^^^
    360:     except AttributeError as e:
 
 חריג הועלה בשורה 4 של הקובץ TESTS:\my_turtle1.py.
@@ -530,6 +533,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
    374: def test_Circular_import_b():
    375:     try:
 --&gt;376:         import circular_c
+                ^^^^^^^^^^^^^^^^^
    377:     except AttributeError as e:
 
 חריג הועלה בשורה 4 של הקובץ TESTS:\circular_c.py.
@@ -742,7 +746,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
    201:     # fmt: off
    202:     try:
 --&gt;203:         a = [abcd
+                     ^^^^
    204:         .defg]
+                ^^^^^
    205:     # fmt: on
 
         abcd:  'hello'
@@ -772,6 +778,7 @@ The only attribute of `f` whose value can be changed is`a`.
    278:     f = F()
    279:     try:
 --&gt;280:         f.b = 1
+                ^^^^^^^
    281:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -952,6 +959,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
    258:     f = F()
    259:     try:
 --&gt;260:         f.b = 1
+                ^^^^^^^
    261:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -1088,50 +1096,6 @@ Perhaps you meant one of the following files with similar names:
 </section>
 <section id="importerror">
 <h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
-<section id="id3">
-<h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
-    import circular_a
-  File "TESTS:\circular_a.py", line 2, in &lt;module&gt;
-    import circular_b
-  File "TESTS:\circular_b.py", line 2, in &lt;module&gt;
-    from circular_a import a
-ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\Andre\github\friendly-traceback\tests\circular_a.py)
-
-חריג של 'ImportError' מציין כי אובייקט מסוים לא יכול היה
-להיות מיובא ממודול או מחבילה. לרוב, זה קורה
-כי שם האובייקט לא מאוית נכון.
-
-האובייקט שלא ניתן היה לייבא הוא 'a'.
-היכן  שהמודול או החבילה  היו
-צפויים להימצא הוא 'circular_a'.
-
-The problem was likely caused by what is known as a 'circular import'.
-First, Python imported and started executing the code in file
-   'TESTS:\runtime\test_import_error.py'.
-which imports module `circular_a`.
-During this process, the code in another file,
-   'TESTS:\circular_b.py'
-was executed. However in this last file, an attempt was made
-to import the original module `circular_a`
-a second time, before Python had completed the first import.
-
-הביצוע הופסק בשורה 70 של הקובץ TESTS:\runtime\test_import_error.py.
-
-   68: def test_Circular_import():
-   69:     try:
---&gt;70:         import circular_a
-   71:     except ImportError as e:
-
-חריג הועלה בשורה 2 של הקובץ TESTS:\circular_b.py.
-
-   1: """File used in for test_circular_import() in test_import_error.py"""
---&gt;2: from circular_a import a
-                 ^
-</pre></div>
-</div>
-</section>
 <section id="simple-import-error">
 <h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -1154,6 +1118,7 @@ ImportError: cannot import name 'Pi' from 'math' (unknown location)
    54:
    55:     try:
 --&gt;56:         from math import Pi
+               ^^^^^^^^^^^^^^^^^^^
    57:     except ImportError as e:
 </pre></div>
 </div>
@@ -1185,6 +1150,7 @@ You have tried to assign a value to index `13` of `a`,
    85:
    86:     try:
 --&gt;87:         a[13] = 1
+               ^^^^^^^^^
    88:     except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -1501,8 +1467,8 @@ KeyError: '(0, 0)'
 </section>
 <section id="lookuperror">
 <h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
-<section id="id4">
-<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
     raise LookupError("Fake message")
@@ -1521,6 +1487,7 @@ LookupError: Fake message
     8:         # other than possibly codecs.lookup(), which is why we raise
     9:         # it directly here for our example.
 --&gt;10:         raise LookupError("Fake message")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    11:     except LookupError as e:
 
         LookupError:  &lt;class LookupError&gt;
@@ -1550,6 +1517,7 @@ ModuleNotFoundError: No module named 'alphabet'
    74: def test_Need_to_install_module():
    75:     try:
 --&gt;76:         import alphabet
+               ^^^^^^^^^^^^^^^
    77:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1574,6 +1542,7 @@ ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
    20:
    21:     try:
 --&gt;22:         import os.xxx
+               ^^^^^^^^^^^^^
    23:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1601,6 +1570,7 @@ ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
    34: def test_Not_a_package_similar_name():
    35:     try:
 --&gt;36:         import os.pathh
+               ^^^^^^^^^^^^^^^
    37:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1626,6 +1596,7 @@ ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
    47: def test_Object_not_module():
    48:     try:
 --&gt;49:         import os.open
+               ^^^^^^^^^^^^^^
    50:     except ModuleNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1658,6 +1629,7 @@ ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
    60: def test_Similar_object_not_module():
    61:     try:
 --&gt;62:         import os.opend
+               ^^^^^^^^^^^^^^^
    63:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1685,6 +1657,7 @@ ModuleNotFoundError: No module named 'Tkinter'
    5: def test_Standard_library_module():
    6:     try:
 --&gt;7:         import Tkinter
+              ^^^^^^^^^^^^^^
    8:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1711,6 +1684,7 @@ ModuleNotFoundError: No module named '_curses'
    90:     def test_no_curses():
    91:         try:
 --&gt;92:             import curses
+                   ^^^^^^^^^^^^^
    93:         except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1820,8 +1794,8 @@ NameError: free variable 'var' referenced before assignment in enclosing scope
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<section id="id4">
+<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 10, in test_Generic
     this = something
@@ -2213,6 +2187,7 @@ If you are using a REPL, use `www('bug')` to do so.
    25:     friendly_traceback.debug_helper.DEBUG = False
    26:     try:
 --&gt;27:         raise OSError("Some unknown message")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    28:     except OSError as e:
 
         OSError:  &lt;class OSError&gt;
@@ -2222,8 +2197,8 @@ If you are using a REPL, use `www('bug')` to do so.
 </section>
 <section id="overflowerror">
 <h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
-<section id="id6">
-<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
     2.0 ** 1600
@@ -2271,8 +2246,8 @@ OverflowError: Python int too large to convert to C ssize_t
 </section>
 <section id="recursionerror">
 <h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
-<section id="id7">
-<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<section id="id6">
+<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
     a()
@@ -2490,6 +2465,7 @@ or by trying to do an operation not allowed on a given type of object.
    786: def test_Cannot_unpack_non_iterable_object():
    787:     try:
 --&gt;788:         a, b = 42.0
+                ^^^^^^^^^^^
    789:     except TypeError as e:
 </pre></div>
 </div>
@@ -2546,6 +2522,7 @@ or by trying to do an operation not allowed on a given type of object.
    555: def test_Derive_from_BaseException():
    556:     try:
 --&gt;557:         raise "exception"  # noqa
+                ^^^^^^^^^^^^^^^^^
    558:     except TypeError as e:
 </pre></div>
 </div>
@@ -2834,6 +2811,7 @@ or by trying to do an operation not allowed on a given type of object.
    417:     a = (1, 2, 3)
    418:     try:
 --&gt;419:         a[0] = 0
+                ^^^^^^^^
    420:     except TypeError as e:
 
         a:  (1, 2, 3)
@@ -2863,6 +2841,7 @@ once they have been created.במקום להשתמש ב- רשימה (`list`), ש�
    725: def test_Unhachable_type():
    726:     try:
 --&gt;727:         {[1, 2]: 1}
+                ^^^^^^^^^^^
    728:     except TypeError as e:
 </pre></div>
 </div>
@@ -2891,6 +2870,7 @@ or by trying to do an operation not allowed on a given type of object.
    308:         a = "a"
    309:         b = 2
 --&gt;310:         a @= b
+                ^^^^^^
    311:     except TypeError as e:
 
         a:  'a'
@@ -3145,6 +3125,7 @@ in the local scope of a function before having assigned it a value.
 
    20:     def inner():
 --&gt;21:         spam_missing_both += 1
+               ^^^^^^^^^^^^^^^^^^^^^^
 
         global spam_missing_both:  1
 </pre></div>
@@ -3196,6 +3177,7 @@ should have been included as the first line inside your function.
 
    8:     def inner():
 --&gt;9:         spam_missing_global += 1
+              ^^^^^^^^^^^^^^^^^^^^^^^^
 
         global spam_missing_global:  1
 </pre></div>
@@ -3247,6 +3229,7 @@ should have been included as the first line inside your function.
 
    14:     def inner():
 --&gt;15:         spam_missing_nonlocal += 1
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
 </pre></div>
 </div>
 </section>
@@ -3291,6 +3274,7 @@ an `UnboundLocalError`.
    96:         alpha1 = 1
    97:         alpha2 = 1
 --&gt;98:         alpha3 += 1
+               ^^^^^^^^^^^
 </pre></div>
 </div>
 </section>
@@ -3344,8 +3328,8 @@ the same name as a Python builtin function (like `max`).
 </section>
 <section id="unknownerror">
 <h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
-<section id="id8">
-<h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<section id="id7">
+<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
     raise UnknownException("Some informative message about an unknown exception.")
@@ -3365,6 +3349,7 @@ If you are using a REPL, use `www('bug')` to do so.
    10:     friendly_traceback.debug_helper.DEBUG = False
    11:     try:
 --&gt;12:         raise UnknownException("Some informative message about an unknown exception.")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    13:     except Exception as e:
 
         global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
@@ -3477,6 +3462,7 @@ ValueError: not enough values to unpack (expected 3, got 2)
    26:     d = "ab"
    27:     try:
 --&gt;28:         a, b, c = d
+               ^^^^^^^^^^^
    29:     except ValueError as e:
 
         d:  'ab'
@@ -3528,6 +3514,7 @@ this is not allowed.
    70: def test_Slots_conflicts_with_class_variable():
    71:     try:
 --&gt;72:         class F:
+               ^^^^^^^^
    73:             __slots__ = ["a", "b"]
 </pre></div>
 </div>
@@ -3553,6 +3540,7 @@ ValueError: too many values to unpack (expected 2)
    41:     c = [1, 2, 3]
    42:     try:
 --&gt;43:         a, b = c
+               ^^^^^^^^
    44:     except ValueError as e:
 
         c:  [1, 2, 3]
@@ -3704,8 +3692,8 @@ ZeroDivisionError: division by zero
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h3>Divmod<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<section id="id8">
+<h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
     divmod(1, zero)
@@ -4021,7 +4009,6 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </ul>
 </li>
 <li><a class="reference internal" href="#importerror">ImportError</a><ul>
-<li><a class="reference internal" href="#id3">Circular import</a></li>
 <li><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
 </ul>
 </li>
@@ -4043,7 +4030,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </ul>
 </li>
 <li><a class="reference internal" href="#lookuperror">LookupError</a><ul>
-<li><a class="reference internal" href="#id4">Generic</a></li>
+<li><a class="reference internal" href="#id3">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
@@ -4060,7 +4047,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 <li><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
 <li><a class="reference internal" href="#custom-name">Custom name</a></li>
 <li><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
-<li><a class="reference internal" href="#id5">Generic</a></li>
+<li><a class="reference internal" href="#id4">Generic</a></li>
 <li><a class="reference internal" href="#missing-import">Missing import</a></li>
 <li><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
 <li><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
@@ -4077,12 +4064,12 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </ul>
 </li>
 <li><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
-<li><a class="reference internal" href="#id6">Generic</a></li>
+<li><a class="reference internal" href="#id5">Generic</a></li>
 <li><a class="reference internal" href="#huge-lenght">Huge lenght</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
-<li><a class="reference internal" href="#id7">Generic</a></li>
+<li><a class="reference internal" href="#id6">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#typeerror">TypeError</a><ul>
@@ -4122,7 +4109,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </ul>
 </li>
 <li><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
-<li><a class="reference internal" href="#id8">Generic</a></li>
+<li><a class="reference internal" href="#id7">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#valueerror">ValueError</a><ul>
@@ -4141,7 +4128,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 <li><a class="reference internal" href="#complex-division">Complex division</a></li>
 <li><a class="reference internal" href="#division-by-zero-literal">Division by zero literal</a></li>
 <li><a class="reference internal" href="#division-operator">Division operator</a></li>
-<li><a class="reference internal" href="#id9">Divmod</a></li>
+<li><a class="reference internal" href="#id8">Divmod</a></li>
 <li><a class="reference internal" href="#float-division">Float division</a></li>
 <li><a class="reference internal" href="#float-divmod">Float divmod</a></li>
 <li><a class="reference internal" href="#float-modulo">Float modulo</a></li>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - en español" href="syntax_tracebacks_es.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.9.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - en español - friendly-traceback 0.5.19</title>
+        <title>Friendly tracebacks - en español - friendly-traceback 0.5.33</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.19</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.33</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.19</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.33</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -316,7 +316,7 @@ Not all cases handled by friendly are included here.</p>
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.5.19
+<p>Friendly-traceback version: 0.5.33
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -340,6 +340,7 @@ Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_arithmetic_erro
     7:         # Usually, a subclass such as ZeroDivisionError, etc., would
     8:         # likely be raised.
 --&gt; 9:         raise ArithmeticError('error')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    10:     except ArithmeticError as e:
 
         ArithmeticError:  &lt;class ArithmeticError&gt;
@@ -369,6 +370,7 @@ Excepción elevada en la linea 8 del archivo TESTS:\runtime\test_assertion_error
    6:         # We raise it explicitly, rather than with the keyword assert, since
    7:         # we don't want pytest to rewrite out test.
 --&gt;8:         raise AssertionError("Fake message")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    9:     except AssertionError as e:
 
         AssertionError:  &lt;class AssertionError&gt;
@@ -492,6 +494,7 @@ La ejecución se detuvo en la linea 359 del archivo TESTS:\runtime\test_attribut
    357:     stdlib_modules.names.append("my_turtle1")
    358:     try:
 --&gt;359:        import my_turtle1
+               ^^^^^^^^^^^^^^^^^
    360:     except AttributeError as e:
 
 Excepción elevada en la linea 4 del archivo TESTS:\my_turtle1.py.
@@ -530,6 +533,7 @@ La ejecución se detuvo en la linea 376 del archivo TESTS:\runtime\test_attribut
    374: def test_Circular_import_b():
    375:     try:
 --&gt;376:         import circular_c
+                ^^^^^^^^^^^^^^^^^
    377:     except AttributeError as e:
 
 Excepción elevada en la linea 4 del archivo TESTS:\circular_c.py.
@@ -742,7 +746,9 @@ Excepción elevada en la linea 203 del archivo TESTS:\runtime\test_attribute_err
    201:     # fmt: off
    202:     try:
 --&gt;203:         a = [abcd
+                     ^^^^
    204:         .defg]
+                ^^^^^
    205:     # fmt: on
 
         abcd:  'hello'
@@ -772,6 +778,7 @@ Excepción elevada en la linea 280 del archivo TESTS:\runtime\test_attribute_err
    278:     f = F()
    279:     try:
 --&gt;280:         f.b = 1
+                ^^^^^^^
    281:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -952,6 +959,7 @@ Excepción elevada en la linea 260 del archivo TESTS:\runtime\test_attribute_err
    258:     f = F()
    259:     try:
 --&gt;260:         f.b = 1
+                ^^^^^^^
    261:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -1088,50 +1096,6 @@ Excepción elevada en la linea 52 del archivo TESTS:\runtime\test_file_not_found
 </section>
 <section id="importerror">
 <h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
-<section id="id3">
-<h3>Circular import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_import_error.py", line 70, in test_Circular_import
-    import circular_a
-  File "TESTS:\circular_a.py", line 2, in &lt;module&gt;
-    import circular_b
-  File "TESTS:\circular_b.py", line 2, in &lt;module&gt;
-    from circular_a import a
-ImportError: cannot import name 'a' from partially initialized module 'circular_a' (most likely due to a circular import) (C:\Users\Andre\github\friendly-traceback\tests\circular_a.py)
-
-Una excepción `ImportError` indica que un determinado objeto no pudo
-importarse de un módulo o paquete. La mayoría de las veces, esto se debe a que
-porque el nombre del objeto no está escrito correctamente.
-
-El objeto que no se ha podido importar es `a`.
-El módulo o paquete donde se esperaba encontrar
-se esperaba encontrar es `circular_a`.
-
-El problema fue probablemente causado por lo que se conoce como una 'importación circular'.
-Primero, Python importó y comenzó a ejecutar el código en el archivo
-   'TESTS:\runtime\test_import_error.py'.
-que importa al módulo `circular_a`.
-Durante este proceso, el código en el otro archivo
-   'TESTS:\circular_b.py'
-fue ejecutado. Sin embargo, en este último archivo, se intentó
-de importar el módulo original `circular_a`
-por segunda vez, antes de que Python hubiera completado la primera importación.
-
-La ejecución se detuvo en la linea 70 del archivo TESTS:\runtime\test_import_error.py.
-
-   68: def test_Circular_import():
-   69:     try:
---&gt;70:         import circular_a
-   71:     except ImportError as e:
-
-Excepción elevada en la linea 2 del archivo TESTS:\circular_b.py.
-
-   1: """File used in for test_circular_import() in test_import_error.py"""
---&gt;2: from circular_a import a
-                 ^
-</pre></div>
-</div>
-</section>
 <section id="simple-import-error">
 <h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -1154,6 +1118,7 @@ Excepción elevada en la linea 56 del archivo TESTS:\runtime\test_import_error.p
    54:
    55:     try:
 --&gt;56:         from math import Pi
+               ^^^^^^^^^^^^^^^^^^^
    57:     except ImportError as e:
 </pre></div>
 </div>
@@ -1185,6 +1150,7 @@ Excepción elevada en la linea 87 del archivo TESTS:\runtime\test_index_error.py
    85:
    86:     try:
 --&gt;87:         a[13] = 1
+               ^^^^^^^^^
    88:     except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -1501,8 +1467,8 @@ Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_key_error.py.
 </section>
 <section id="lookuperror">
 <h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
-<section id="id4">
-<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
     raise LookupError("Fake message")
@@ -1521,6 +1487,7 @@ Excepción elevada en la linea 10 del archivo TESTS:\runtime\test_lookup_error.p
     8:         # other than possibly codecs.lookup(), which is why we raise
     9:         # it directly here for our example.
 --&gt;10:         raise LookupError("Fake message")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    11:     except LookupError as e:
 
         LookupError:  &lt;class LookupError&gt;
@@ -1550,6 +1517,7 @@ Excepción elevada en la linea 76 del archivo TESTS:\runtime\test_module_not_fou
    74: def test_Need_to_install_module():
    75:     try:
 --&gt;76:         import alphabet
+               ^^^^^^^^^^^^^^^
    77:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1574,6 +1542,7 @@ Excepción elevada en la linea 22 del archivo TESTS:\runtime\test_module_not_fou
    20:
    21:     try:
 --&gt;22:         import os.xxx
+               ^^^^^^^^^^^^^
    23:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1601,6 +1570,7 @@ Excepción elevada en la linea 36 del archivo TESTS:\runtime\test_module_not_fou
    34: def test_Not_a_package_similar_name():
    35:     try:
 --&gt;36:         import os.pathh
+               ^^^^^^^^^^^^^^^
    37:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1626,6 +1596,7 @@ Excepción elevada en la linea 49 del archivo TESTS:\runtime\test_module_not_fou
    47: def test_Object_not_module():
    48:     try:
 --&gt;49:         import os.open
+               ^^^^^^^^^^^^^^
    50:     except ModuleNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
@@ -1657,6 +1628,7 @@ Excepción elevada en la linea 62 del archivo TESTS:\runtime\test_module_not_fou
    60: def test_Similar_object_not_module():
    61:     try:
 --&gt;62:         import os.opend
+               ^^^^^^^^^^^^^^^
    63:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1684,6 +1656,7 @@ Excepción elevada en la linea 7 del archivo TESTS:\runtime\test_module_not_foun
    5: def test_Standard_library_module():
    6:     try:
 --&gt;7:         import Tkinter
+              ^^^^^^^^^^^^^^
    8:     except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1710,6 +1683,7 @@ Excepción elevada en la linea 92 del archivo TESTS:\runtime\test_module_not_fou
    90:     def test_no_curses():
    91:         try:
 --&gt;92:             import curses
+                   ^^^^^^^^^^^^^
    93:         except ModuleNotFoundError as e:
 </pre></div>
 </div>
@@ -1819,8 +1793,8 @@ Excepción elevada en la linea 172 del archivo TESTS:\runtime\test_name_error.py
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<section id="id4">
+<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 10, in test_Generic
     this = something
@@ -2212,6 +2186,7 @@ Excepción elevada en la linea 27 del archivo TESTS:\runtime\test_os_error.py.
    25:     friendly_traceback.debug_helper.DEBUG = False
    26:     try:
 --&gt;27:         raise OSError("Some unknown message")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    28:     except OSError as e:
 
         OSError:  &lt;class OSError&gt;
@@ -2221,8 +2196,8 @@ Excepción elevada en la linea 27 del archivo TESTS:\runtime\test_os_error.py.
 </section>
 <section id="overflowerror">
 <h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
-<section id="id6">
-<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
     2.0 ** 1600
@@ -2270,8 +2245,8 @@ Excepción elevada en la linea 24 del archivo TESTS:\runtime\test_overflow_error
 </section>
 <section id="recursionerror">
 <h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
-<section id="id7">
-<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<section id="id6">
+<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
     a()
@@ -2489,6 +2464,7 @@ Excepción elevada en la linea 788 del archivo TESTS:\runtime\test_type_error.py
    786: def test_Cannot_unpack_non_iterable_object():
    787:     try:
 --&gt;788:         a, b = 42.0
+                ^^^^^^^^^^^
    789:     except TypeError as e:
 </pre></div>
 </div>
@@ -2545,6 +2521,7 @@ Excepción elevada en la linea 557 del archivo TESTS:\runtime\test_type_error.py
    555: def test_Derive_from_BaseException():
    556:     try:
 --&gt;557:         raise "exception"  # noqa
+                ^^^^^^^^^^^^^^^^^
    558:     except TypeError as e:
 </pre></div>
 </div>
@@ -2834,6 +2811,7 @@ Excepción elevada en la linea 419 del archivo TESTS:\runtime\test_type_error.py
    417:     a = (1, 2, 3)
    418:     try:
 --&gt;419:         a[0] = 0
+                ^^^^^^^^
    420:     except TypeError as e:
 
         a:  (1, 2, 3)
@@ -2863,6 +2841,7 @@ Excepción elevada en la linea 727 del archivo TESTS:\runtime\test_type_error.py
    725: def test_Unhachable_type():
    726:     try:
 --&gt;727:         {[1, 2]: 1}
+                ^^^^^^^^^^^
    728:     except TypeError as e:
 </pre></div>
 </div>
@@ -2891,6 +2870,7 @@ Excepción elevada en la linea 310 del archivo TESTS:\runtime\test_type_error.py
    308:         a = "a"
    309:         b = 2
 --&gt;310:         a @= b
+                ^^^^^^
    311:     except TypeError as e:
 
         a:  'a'
@@ -3145,6 +3125,7 @@ Excepción elevada en la linea 21 del archivo TESTS:\runtime\test_unbound_local_
 
    20:     def inner():
 --&gt;21:         spam_missing_both += 1
+               ^^^^^^^^^^^^^^^^^^^^^^
 
         global spam_missing_both:  1
 </pre></div>
@@ -3196,6 +3177,7 @@ Excepción elevada en la linea 9 del archivo TESTS:\runtime\test_unbound_local_e
 
    8:     def inner():
 --&gt;9:         spam_missing_global += 1
+              ^^^^^^^^^^^^^^^^^^^^^^^^
 
         global spam_missing_global:  1
 </pre></div>
@@ -3247,6 +3229,7 @@ Excepción elevada en la linea 15 del archivo TESTS:\runtime\test_unbound_local_
 
    14:     def inner():
 --&gt;15:         spam_missing_nonlocal += 1
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
 </pre></div>
 </div>
 </section>
@@ -3291,6 +3274,7 @@ Excepción elevada en la linea 98 del archivo TESTS:\runtime\test_unbound_local_
    96:         alpha1 = 1
    97:         alpha2 = 1
 --&gt;98:         alpha3 += 1
+               ^^^^^^^^^^^
 </pre></div>
 </div>
 </section>
@@ -3344,8 +3328,8 @@ Excepción elevada en la linea 117 del archivo TESTS:\runtime\test_unbound_local
 </section>
 <section id="unknownerror">
 <h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
-<section id="id8">
-<h3>Generic<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<section id="id7">
+<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
     raise UnknownException("Some informative message about an unknown exception.")
@@ -3365,6 +3349,7 @@ Excepción elevada en la linea 12 del archivo TESTS:\runtime\test_unknown_error.
    10:     friendly_traceback.debug_helper.DEBUG = False
    11:     try:
 --&gt;12:         raise UnknownException("Some informative message about an unknown exception.")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    13:     except Exception as e:
 
         global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
@@ -3477,6 +3462,7 @@ Excepción elevada en la linea 28 del archivo TESTS:\runtime\test_value_error.py
    26:     d = "ab"
    27:     try:
 --&gt;28:         a, b, c = d
+               ^^^^^^^^^^^
    29:     except ValueError as e:
 
         d:  'ab'
@@ -3528,6 +3514,7 @@ Excepción elevada en la linea 72 del archivo TESTS:\runtime\test_value_error.py
    70: def test_Slots_conflicts_with_class_variable():
    71:     try:
 --&gt;72:         class F:
+               ^^^^^^^^
    73:             __slots__ = ["a", "b"]
 </pre></div>
 </div>
@@ -3553,6 +3540,7 @@ Excepción elevada en la linea 43 del archivo TESTS:\runtime\test_value_error.py
    41:     c = [1, 2, 3]
    42:     try:
 --&gt;43:         a, b = c
+               ^^^^^^^^
    44:     except ValueError as e:
 
         c:  [1, 2, 3]
@@ -3704,8 +3692,8 @@ Excepción elevada en la linea 17 del archivo TESTS:\runtime\test_zero_division_
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h3>Divmod<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<section id="id8">
+<h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
     divmod(1, zero)
@@ -4021,7 +4009,6 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 </ul>
 </li>
 <li><a class="reference internal" href="#importerror">ImportError</a><ul>
-<li><a class="reference internal" href="#id3">Circular import</a></li>
 <li><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
 </ul>
 </li>
@@ -4043,7 +4030,7 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 </ul>
 </li>
 <li><a class="reference internal" href="#lookuperror">LookupError</a><ul>
-<li><a class="reference internal" href="#id4">Generic</a></li>
+<li><a class="reference internal" href="#id3">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
@@ -4060,7 +4047,7 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 <li><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
 <li><a class="reference internal" href="#custom-name">Custom name</a></li>
 <li><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
-<li><a class="reference internal" href="#id5">Generic</a></li>
+<li><a class="reference internal" href="#id4">Generic</a></li>
 <li><a class="reference internal" href="#missing-import">Missing import</a></li>
 <li><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
 <li><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
@@ -4077,12 +4064,12 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 </ul>
 </li>
 <li><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
-<li><a class="reference internal" href="#id6">Generic</a></li>
+<li><a class="reference internal" href="#id5">Generic</a></li>
 <li><a class="reference internal" href="#huge-lenght">Huge lenght</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
-<li><a class="reference internal" href="#id7">Generic</a></li>
+<li><a class="reference internal" href="#id6">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#typeerror">TypeError</a><ul>
@@ -4122,7 +4109,7 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 </ul>
 </li>
 <li><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
-<li><a class="reference internal" href="#id8">Generic</a></li>
+<li><a class="reference internal" href="#id7">Generic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#valueerror">ValueError</a><ul>
@@ -4141,7 +4128,7 @@ Excepción elevada en la linea 170 del archivo TESTS:\runtime\test_zero_division
 <li><a class="reference internal" href="#complex-division">Complex division</a></li>
 <li><a class="reference internal" href="#division-by-zero-literal">Division by zero literal</a></li>
 <li><a class="reference internal" href="#division-operator">Division operator</a></li>
-<li><a class="reference internal" href="#id9">Divmod</a></li>
+<li><a class="reference internal" href="#id8">Divmod</a></li>
 <li><a class="reference internal" href="#float-division">Float division</a></li>
 <li><a class="reference internal" href="#float-divmod">Float divmod</a></li>
 <li><a class="reference internal" href="#float-modulo">Float modulo</a></li>

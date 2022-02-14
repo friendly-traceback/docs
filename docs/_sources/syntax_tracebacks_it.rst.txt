@@ -19,7 +19,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.19
+Friendly-traceback version: 0.5.33
 Python version: 3.9.10
 
 
@@ -187,7 +187,7 @@ Python version: 3.9.10
     nella posizione indicata.
     
        7:     global aa, bb, cc, dd
-              ------         ^^
+              ^^^^^^         ^^
 
     You assigned a value to the variable `cc`
     before declaring it as a global variable.
@@ -210,10 +210,10 @@ Python version: 3.9.10
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\assign_name_before_global_2.py'
-    .
+    nella posizione indicata.
     
        7:     global var
-              ------ ^^^
+              ^^^^^^ ^^^
 
     You used the variable `var`
     before declaring it as a global variable.
@@ -241,7 +241,7 @@ Python version: 3.9.10
     nella posizione indicata.
     
        11:         nonlocal pp, qq
-                   --------     ^^
+                   ^^^^^^^^     ^^
 
     You used the variable `qq`
     before declaring it as a nonlocal variable.
@@ -266,10 +266,10 @@ Python version: 3.9.10
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    .
+    nella posizione indicata.
     
        9:         nonlocal s
-                  -------- ^
+                  ^^^^^^^^ ^
 
     You assigned a value to the variable `s`
     before declaring it as a nonlocal variable.
@@ -1203,7 +1203,7 @@ Python version: 3.9.10
     nella posizione indicata.
     
        1: (**k)
-           ^-->
+           ^^->
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.
@@ -1420,10 +1420,10 @@ Python version: 3.9.10
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\copy_pasted_code_2.py'
-    .
+    nella posizione indicata.
     
        2: ... print("Hello World!")
-          ----^^^^^
+          ^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
     The Python prompt, `...`, should not be included in your code.
@@ -3322,7 +3322,7 @@ Python version: 3.9.10
     nella posizione indicata.
     
        5: else if True:
-          ^^^^-^^
+          ^^^^^^^
 
     You likely meant to use Python's `elif` keyword
     but wrote `else if` instead.

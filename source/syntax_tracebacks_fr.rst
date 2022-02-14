@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.5.19
+Friendly version: 0.5.33
 Python version: 3.9.10
 
 
@@ -196,7 +196,7 @@ Python version: 3.9.10
     à l'endroit indiqué.
     
        7:     global aa, bb, cc, dd
-              ------         ^^
+              ^^^^^^         ^^
 
     Vous avez attribué une valeur à la variable `cc`
     avant de la déclarer comme une variable globale.
@@ -220,10 +220,10 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\syntax\assign_name_before_global_2.py'
-    .
+    à l'endroit indiqué.
     
        7:     global var
-              ------ ^^^
+              ^^^^^^ ^^^
 
     Vous avez utilisé la variable `var`
     avant de la déclarer comme une variable globale.
@@ -252,7 +252,7 @@ Python version: 3.9.10
     à l'endroit indiqué.
     
        11:         nonlocal pp, qq
-                   --------     ^^
+                   ^^^^^^^^     ^^
 
     Vous avez utilisé la variable `qq`
     avant de la déclarer comme variable non locale.
@@ -278,10 +278,10 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    .
+    à l'endroit indiqué.
     
        9:         nonlocal s
-                  -------- ^
+                  ^^^^^^^^ ^
 
     Vous avez attribué une valeur à la variable `s`
     avant de la déclarer comme variable non locale.
@@ -1258,7 +1258,7 @@ Python version: 3.9.10
     à l'endroit indiqué.
     
        1: (**k)
-           ^-->
+           ^^->
 
     L’opérateur double astérisque, `**` est probablement interprété comme signifiant
     qu'un déballage de `dict` doit être utilisé ce qui n'est soit par permis
@@ -1483,10 +1483,10 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\syntax\copy_pasted_code_2.py'
-    .
+    à l'endroit indiqué.
     
        2: ... print("Hello World!")
-          ----^^^^^
+          ^^^
 
     On dirait que vous avez copié-collé le code d’un interprète interactif.
     L’invite Python, `...`, ne doit pas être incluse dans votre code.
@@ -3453,7 +3453,7 @@ Python version: 3.9.10
     à l'endroit indiqué.
     
        5: else if True:
-          ^^^^-^^
+          ^^^^^^^
 
     Vous avez écrit `else if`
     au lieu d'utiliser le mot-clé `elif`.

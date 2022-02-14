@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.19
+Friendly-traceback version: 0.5.33
 Python version: 3.9.10
 
 
@@ -194,7 +194,7 @@ Python version: 3.9.10
     at the location indicated.
     
        7:     global aa, bb, cc, dd
-              ------         ^^
+              ^^^^^^         ^^
 
     הקצית ערך למשתנה 'cc'
     לפני הכרזתו כמשתנה גלובלי.
@@ -218,10 +218,10 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_global_2.py'
-    .
+    at the location indicated.
     
        7:     global var
-              ------ ^^^
+              ^^^^^^ ^^^
 
     השתמשת במשתנה 'var'
     לפני הכרזתו כמשתנה גלובלי.
@@ -250,7 +250,7 @@ Python version: 3.9.10
     at the location indicated.
     
        11:         nonlocal pp, qq
-                   --------     ^^
+                   ^^^^^^^^     ^^
 
     השתמשת במשתנה 'qq'
     לפני הכרזתו כמשתנה לא -מקומי. (nonlocal )
@@ -276,10 +276,10 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    .
+    at the location indicated.
     
        9:         nonlocal s
-                  -------- ^
+                  ^^^^^^^^ ^
 
     הקצית ערך למשתנה 's'
     לפני הכרזתו כמשתנה לא -מקומי (nonlocal).
