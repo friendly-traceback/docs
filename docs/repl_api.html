@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="One last thing" href="about_warnings.html" /><link rel="prev" title="Friendly object" href="friendly_object.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Everything about the friendly console - friendly-traceback 0.5.33</title>
+        <title>Everything about the friendly console - friendly-traceback 0.5.46</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.33</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.33</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -326,6 +326,16 @@ environments such as in a Jupyter notebook.</p>
 to find out specific information about a given exception.</p>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.console_helpers.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable friendly-traceback exception hook</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.console_helpers.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#enable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable friendly-traceback exception hook</p>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.console_helpers.explain">
 <span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'explain'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#explain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.explain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows the previously recorded traceback info again,
@@ -385,17 +395,18 @@ formatter is used.</p>
 <dd><p>Specifies the information to include in the traceback.</p>
 <p>The allowed values are:</p>
 <blockquote>
-<div><p>‘message’,
-‘hint’,
-‘what’,
-‘why’,
-‘where’,
-‘friendly_tb’,
-‘python_tb’,
-‘debug_tb’,
-‘detailed_tb’,
-‘explain’,
-‘no_tb’</p>
+<div><p>message,
+message_plus,
+hint,
+what,
+why,
+where,
+friendly_tb,
+python_tb,
+debug_tb,
+detailed_tb,
+explain,
+no_tb</p>
 </div></blockquote>
 </dd></dl>
 <dl class="py function">
