@@ -15,8 +15,8 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.35
-Python version: 3.11.0a5
+Friendly-traceback version: 0.5.48
+Python version: 3.11.0rc1
 
 
 
@@ -128,52 +128,601 @@ Attribute from other module
         
 
 
+Builtin function
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
     Traceback (most recent call last):
-      File "TESTS:\trb_common.py", line 77, in create_tracebacks
-        result, message = function()
-      File "TESTS:\runtime\test_attribute_error.py", line 231, in test_Builtin_function
-        assert "Did you mean `len(text)`" in result
-    AssertionError:
+      File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
+        len.text
+    AttributeError: 'builtin_function_or_method' object has no attribute 'text'
     
-    In Python, the keyword `assert` is used in statements of the form
-    `assert condition`, to confirm that `condition` is not `False`,
-    nor equivalent to `False` such as an empty list, etc.
+        Did you mean `len(text)`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
     
-    If `condition` is `False` or equivalent, an `AssertionError` is raised.
+    `len` is a function. Perhaps you meant to write
+    `len(text)`
     
-    Execution stopped on line 77 of file TESTS:\trb_common.py.
+    Exception raised on line 223 of file TESTS:\runtime\test_attribute_error.py.
     
-       74:                     if name.startswith("test"):
-       75:                         function = getattr(mod, name)
-       76:                         if callable(function):
-    -->77:                             result, message = function()
-                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       78:                             title = name[5:].replace("_", " ")
+       220: def test_Builtin_function():
+       221:     text = 'Hello world!'
+       222:     try:
+    -->223:         len.text
+                    ^^^^^^^^
+       224:     except AttributeError as e:
 
-            function:  <function test_Builtin_function>
-            message:  "module 'keyword' has no attribute 'pi'"
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 991
+            text:  'Hello world!'
+            len:  <builtin function len>
         
-            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
-                              len(result, message): 2
-        
-        
-    Exception raised on line 231 of file TESTS:\runtime\test_attribute_error.py.
-    
-       227:     result = friendly_traceback.get_output()
-       228: 
-       229:     assert "'builtin_function_or_method'" in result
-       230:     if friendly_traceback.get_lang() == "en":
-    -->231:         assert "Did you mean `len(text)`" in result
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       232:     return result, message
 
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 885
+
+Builtin module with no file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
+        sys.foo
+    AttributeError: module 'sys' has no attribute 'foo'
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Python tells us that no object with name `foo` is
+    found in module `sys`.
+    
+    Exception raised on line 240 of file TESTS:\runtime\test_attribute_error.py.
+    
+       236:     """Issue 116"""
+       237:     import sys
+       238: 
+       239:     try:
+    -->240:         sys.foo
+                    ^^^^^^^
+       241:     except AttributeError as e:
+
+            sys:  <module sys (builtin)>
         
-            "Did you mean `len(text)`" in result:  False
+
+
+Circular import
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
+        import my_turtle1
+      File "TESTS:\my_turtle1.py", line 4, in <module>
+        a = my_turtle1.something
+    AttributeError: partially initialized module 'my_turtle1' has no attribute 'something' (most likely due to a circular import)
+    
+        Did you give your program the same name as a Python module?
         
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    I suspect that you used the name `my_turtle1.py` for your program
+    and that you also wanted to import a module with the same name
+    from Python's standard library.
+    If so, you should use a different name for your program.
+    
+    Execution stopped on line 359 of file TESTS:\runtime\test_attribute_error.py.
+    
+       356:     from friendly_traceback.runtime_errors import stdlib_modules
+       357:     stdlib_modules.names.append("my_turtle1")
+       358:     try:
+    -->359:        import my_turtle1
+                   ^^^^^^^^^^^^^^^^^
+       360:     except AttributeError as e:
+
+    Exception raised on line 4 of file TESTS:\my_turtle1.py.
+    
+       1: """To test attribute error of partially initialized module."""
+       2: import my_turtle1
+       3: 
+    -->4: a = my_turtle1.something
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+            my_turtle1:  <module my_turtle1> from TESTS:\my_turtle1.py
+        
+
+
+Circular import b
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
+        import circular_c
+      File "TESTS:\circular_c.py", line 4, in <module>
+        a = circular_c.something
+    AttributeError: partially initialized module 'circular_c' has no attribute 'something' (most likely due to a circular import)
+    
+        You have a circular import.
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Python indicated that the module `{module}` was not fully imported.
+    This can occur if, during the execution of the code in module `circular_c`
+    an attempt is made to import the same module again.
+    
+    Execution stopped on line 376 of file TESTS:\runtime\test_attribute_error.py.
+    
+       374: def test_Circular_import_b():
+       375:     try:
+    -->376:         import circular_c
+                    ^^^^^^^^^^^^^^^^^
+       377:     except AttributeError as e:
+
+    Exception raised on line 4 of file TESTS:\circular_c.py.
+    
+       1: # Attribute error for partially initialize module
+       2: import circular_c
+       3: 
+    -->4: a = circular_c.something
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+            circular_c:  <module circular_c> from TESTS:\circular_c.py
+        
+
+
+Generic
+~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 26, in test_Generic
+        A.x  # testing type
+    AttributeError: type object 'A' has no attribute 'x'
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `A` has no attribute named `x`.
+    
+    Exception raised on line 26 of file TESTS:\runtime\test_attribute_error.py.
+    
+       22:     class A:
+       23:         pass
+       24: 
+       25:     try:
+    -->26:         A.x  # testing type
+                   ^^^
+       27:     except AttributeError as e:
+
+            A:  <class A> defined in <function test_attribute_error.test_Generic>
+        
+
+
+Generic different frame
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
+        a.attr
+    AttributeError: 'A' object has no attribute 'attr'. Did you mean: 'attr2'?
+    
+        Did you mean `attr2`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `a` has no attribute named `attr`.
+    Perhaps you meant to write `a.attr2` instead of `a.attr`
+    
+    Exception raised on line 49 of file TESTS:\runtime\test_attribute_error.py.
+    
+       45:         return A()
+       46: 
+       47:     a = f()
+       48:     try:
+    -->49:         a.attr
+                   ^^^^^^
+       50:     except AttributeError as e:
+
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_different_frame.<locals>.f>
+        
+
+
+Generic instance
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
+        a.x
+    AttributeError: 'A' object has no attribute 'x'
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `a` has no attribute named `x`.
+    
+    Exception raised on line 67 of file TESTS:\runtime\test_attribute_error.py.
+    
+       64:         pass
+       65:     a = A()
+       66:     try:
+    -->67:         a.x
+                   ^^^
+       68:     except AttributeError as e:
+
+            a:  <A object>
+                defined in <function test_attribute_error.test_Generic_instance>
+        
+
+
+Module attribute typo
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
+        math.cost
+    AttributeError: module 'math' has no attribute 'cost'. Did you mean: 'cos'?
+    
+        Did you mean `cos`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Instead of writing `math.cost`, perhaps you meant to write one of 
+    the following names which are attributes of module `math`:
+    `cos, cosh`
+    
+    Exception raised on line 144 of file TESTS:\runtime\test_attribute_error.py.
+    
+       139:         assert "Did you mean `ascii_lowercase`" in result
+       140: 
+       141:     import math
+       142: 
+       143:     try:
+    -->144:         math.cost
+                    ^^^^^^^^^
+       145:     except AttributeError as e:
+
+            math:  <module math (builtin)>
+        
+
+
+Nonetype
+~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
+        a.b
+    AttributeError: 'NoneType' object has no attribute 'b'
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    You are attempting to access the attribute `b`
+    for a variable whose value is `None`.
+    Exception raised on line 183 of file TESTS:\runtime\test_attribute_error.py.
+    
+       180: def test_Nonetype():
+       181:     a = None
+       182:     try:
+    -->183:         a.b
+                    ^^^
+       184:     except AttributeError as e:
+
+            a:  None
+        
+
+
+Object attribute typo
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
+        a.appendh(4)
+    AttributeError: 'list' object has no attribute 'appendh'. Did you mean: 'append'?
+    
+        Did you mean `append`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `a` has no attribute named `appendh`.
+    Perhaps you meant to write `a.append` instead of `a.appendh`
+    
+    Exception raised on line 83 of file TESTS:\runtime\test_attribute_error.py.
+    
+       79: def test_Object_attribute_typo():
+       80:     #
+       81:     try:
+       82:         a = [1, 2, 3]
+    -->83:         a.appendh(4)
+                   ^^^^^^^^^^^^
+       84:     except AttributeError as e:
+
+            a:  [1, 2, 3]
+        
+
+
+Perhaps comma
+~~~~~~~~~~~~~
+
+.. code-block:: none
+
+            Skipped test
+
+Read only
+~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
+        f.b = 1
+    AttributeError: 'F' object attribute 'b' is read-only
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    Object `f` uses `__slots__` to specify which attributes can
+    be changed. The value of attribute `f.b` cannot be changed.
+    The only attribute of `f` whose value can be changed is`a`.
+    
+    Exception raised on line 280 of file TESTS:\runtime\test_attribute_error.py.
+    
+       276:         b = 2
+       277: 
+       278:     f = F()
+       279:     try:
+    -->280:         f.b = 1
+                    ^^^
+       281:     except AttributeError as e:
+
+            f:  <F object>
+                defined in <function test_attribute_error.test_Read_only>
+            f.b:  2
+        
+
+
+Shadow stdlib module
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
+        turtle.Pen
+    AttributeError: module 'turtle' has no attribute 'Pen'
+    
+        Did you give your program the same name as a Python module?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    You imported a module named `turtle` from `TESTS:\turtle.py`.
+    There is also a module named `turtle` in Python's standard library.
+    Perhaps you need to rename your module.
+    
+    Exception raised on line 165 of file TESTS:\runtime\test_attribute_error.py.
+    
+       161: def test_Shadow_stdlib_module():
+       162:     import turtle
+       163: 
+       164:     try:
+    -->165:         turtle.Pen
+                    ^^^^^^^^^^
+       166:     except AttributeError as e:
+
+            turtle:  <module turtle> from TESTS:\turtle.py
+        
+
+
+Tuple by accident
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
+        something.upper()
+    AttributeError: 'tuple' object has no attribute 'upper'
+    
+        Did you write a comma by mistake?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    `something` is a tuple that contains a single item
+    which does have `'upper'` as an attribute.
+    Perhaps you added a trailing comma by mistake at the end of the line
+    where you defined `something`.
+    
+    Exception raised on line 295 of file TESTS:\runtime\test_attribute_error.py.
+    
+       292: def test_Tuple_by_accident():
+       293:     something = "abc",  # note trailing comma
+       294:     try:
+    -->295:         something.upper()
+                    ^^^^^^^^^^^^^^^^^
+       296:     except AttributeError as e:
+
+            something:  ('abc',)
+        
+
+
+Use builtin
+~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
+        a.length()
+    AttributeError: 'list' object has no attribute 'length'
+    
+        Did you mean `len(a)`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `a` has no attribute named `length`.
+    Perhaps you can use the Python builtin function `len` instead:
+    `len(a)`.
+    Exception raised on line 99 of file TESTS:\runtime\test_attribute_error.py.
+    
+        95: def test_Use_builtin():
+        96:     #
+        97:     try:
+        98:         a = [1, 2, 3]
+    --> 99:         a.length()
+                    ^^^^^^^^^^
+       100:     except AttributeError as e:
+
+            a:  [1, 2, 3]
+        
+
+
+Use join with str
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
+        a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+    AttributeError: 'list' object has no attribute 'join'
+    
+        Did you mean `'...'.join(['a', '2'])`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `['a', '2']` has no attribute named `join`.
+    Perhaps you wanted something like `'...'.join(['a', '2'])`.
+    
+    Exception raised on line 339 of file TESTS:\runtime\test_attribute_error.py.
+    
+       337: def test_Use_join_with_str():
+       338:     try:
+    -->339:         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       340:     except AttributeError as e:
+
+
+Use synonym
+~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
+        a.add(4)
+    AttributeError: 'list' object has no attribute 'add'
+    
+        Did you mean `append`?
+        
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `a` has no attribute named `add`.
+    However, `a` has the following attributes with similar meanings:
+    `append, extend, insert`.
+    
+    Exception raised on line 115 of file TESTS:\runtime\test_attribute_error.py.
+    
+       111: def test_Use_synonym():
+       112:     #
+       113:     try:
+       114:         a = [1, 2, 3]
+    -->115:         a.add(4)
+                    ^^^^^^^^
+       116:     except AttributeError as e:
+
+            a:  [1, 2, 3]
+        
+
+
+Using slots
+~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
+        f.b = 1
+    AttributeError: 'F' object has no attribute 'b'
+    
+    An `AttributeError` occurs when the code contains something like
+        `object.x`
+    and `x` is not a method or attribute (variable) belonging to `object`.
+    
+    The object `f` has no attribute named `b`.
+    Note that object `f` uses `__slots__` which prevents
+    the creation of new attributes.
+    The following are some of its known attributes:
+    `a`.
+    Exception raised on line 260 of file TESTS:\runtime\test_attribute_error.py.
+    
+       256:         __slots__ = ["a"]
+       257: 
+       258:     f = F()
+       259:     try:
+    -->260:         f.b = 1
+                    ^^^
+       261:     except AttributeError as e:
+
+            f:  <F object>
+                defined in <function test_attribute_error.test_Using_slots>
+        
+
 
 FileNotFoundError
 -----------------
@@ -363,7 +912,7 @@ Assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
+      File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
         a[13] = 1
     IndexError: list assignment index out of range
     
@@ -377,15 +926,15 @@ Assignment
     The valid index values of `a` are integers ranging from
     `-10` to `9`.
     
-    Exception raised on line 87 of file TESTS:\runtime\test_index_error.py.
+    Exception raised on line 93 of file TESTS:\runtime\test_index_error.py.
     
-       83:         assert "You have tried to assign a value to index `1` of `b`," in result
-       84:         assert "a `list` which contains no item." in result
-       85: 
-       86:     try:
-    -->87:         a[13] = 1
-                   ^^^^^^^^^
-       88:     except IndexError as e:
+       89:         assert "You have tried to assign a value to index `1` of `b`," in result
+       90:         assert "a `list` which contains no item." in result
+       91: 
+       92:     try:
+    -->93:         a[13] = 1
+                   ^^^^^
+       94:     except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -511,7 +1060,7 @@ ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1062, in pop
+      File "PYTHON_LIB:\collections\__init__.py", line 1074, in pop
         return self.maps[0].pop(key, *args)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     KeyError: 42
@@ -612,7 +1161,7 @@ Popitem empty ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1055, in popitem
+      File "PYTHON_LIB:\collections\__init__.py", line 1067, in popitem
         return self.maps[0].popitem()
                ^^^^^^^^^^^^^^^^^^^^^^
     KeyError: 'popitem(): dictionary is empty'
@@ -1423,6 +1972,37 @@ missing import3
        159:     except NameError as e:
 
 
+special keyword
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 308, in test_special_keyword
+        brek
+    NameError: name 'brek' is not defined
+    
+        Did you mean `break`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    I suspect you meant to write the keyword `break` and made a typo.
+    
+    Exception raised on line 308 of file TESTS:\runtime\test_name_error.py.
+    
+       305:     if friendly_traceback.get_lang() == "en":
+       306:         assert "Did you mean `continue`" in result
+       307:     try:
+    -->308:         brek
+                    ^^^^
+       309:     except NameError as e:
+
+
 OsError
 -------
 
@@ -1437,7 +2017,7 @@ Urllib error
       File "PYTHON_LIB:\urllib\request.py", line 1348, in do_open
            ... More lines not shown. ...
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "PYTHON_LIB:\socket.py", line 955, in getaddrinfo
+      File "PYTHON_LIB:\socket.py", line 961, in getaddrinfo
         for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     socket.gaierror: [Errno 11001] getaddrinfo failed
@@ -1445,7 +2025,7 @@ Urllib error
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
+      File "TESTS:\runtime\test_os_error.py", line 10, in test_Urllib_error
         request.urlopen("http://does_not_exist")
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
@@ -1460,14 +2040,15 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Exception raised on line 8 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 10 of file TESTS:\runtime\test_os_error.py.
     
-       5: def test_Urllib_error():
-       6:     from urllib import request, error
-       7:     try:
-    -->8:         request.urlopen("http://does_not_exist")
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       9:     except error.URLError as e:
+        6: @pytest.mark.skipif(random.randint(0, 50) < 59, reason="very long test")
+        7: def test_Urllib_error():
+        8:     from urllib import request, error
+        9:     try:
+    -->10:         request.urlopen("http://does_not_exist")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       11:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
@@ -1481,7 +2062,7 @@ invalid argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+      File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
         open("c:\test.txt")
     OSError: [Errno 22] Invalid argument: 'c:\test.txt'
     
@@ -1500,14 +2081,14 @@ invalid argument
     front of the filename or path, or replace all single backslash
     characters, `\`, by double ones: `\\`.
     
-    Exception raised on line 46 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 48 of file TESTS:\runtime\test_os_error.py.
     
-       43:     if os.name != "nt":
-       44:         return "Windows test only", "No result"
-       45:     try:
-    -->46:         open("c:\test.txt")
+       45:     if os.name != "nt":
+       46:         return "Windows test only", "No result"
+       47:     try:
+    -->48:         open("c:\test.txt")
                    ^^^^^^^^^^^^^^^^^^^
-       47:     except OSError as e:
+       49:     except OSError as e:
 
             open:  <builtin function open>
         
@@ -1520,7 +2101,7 @@ no information
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+      File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
         raise OSError("Some unknown message")
     OSError: Some unknown message
     
@@ -1538,14 +2119,14 @@ no information
     If you are using the Friendly console, use `www()` to
     do an Internet search for this particular case.
     
-    Exception raised on line 27 of file TESTS:\runtime\test_os_error.py.
+    Exception raised on line 29 of file TESTS:\runtime\test_os_error.py.
     
-       24:     old_debug = friendly_traceback.debug_helper.DEBUG
-       25:     friendly_traceback.debug_helper.DEBUG = False
-       26:     try:
-    -->27:         raise OSError("Some unknown message")
+       26:     old_debug = friendly_traceback.debug_helper.DEBUG
+       27:     friendly_traceback.debug_helper.DEBUG = False
+       28:     try:
+    -->29:         raise OSError("Some unknown message")
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       28:     except OSError as e:
+       30:     except OSError as e:
 
             OSError:  <class OSError>
         
@@ -1658,6 +2239,40 @@ TypeError
 ---------
 
 
+Argument of object is not iterable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+        a in b
+    TypeError: argument of type 'object' is not iterable
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    An iterable is an object capable of returning its members one at a time.
+    Python containers (`list, tuple, dict`, etc.) are iterables.
+    'b' is not a container. A container is required here.
+    
+    Exception raised on line 804 of file TESTS:\runtime\test_type_error.py.
+    
+       801:     a = object()
+       802:     b = object()
+       803:     try:
+    -->804:         a in b
+                    ^^^^^^
+       805:     except TypeError as e:
+
+            a:  <object object>
+            b:  <object object>
+        
+
+
 Bad type for unary operator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1700,7 +2315,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 830, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -1713,15 +2328,15 @@ Builtin has no len
     
     I suspect that you forgot to add parentheses to call `"Hello world".split`.
     You might have meant to write:
-    `        len("Hello world".split())`
+    `len("Hello world".split())`
     
-    Exception raised on line 830 of file TESTS:\runtime\test_type_error.py.
+    Exception raised on line 859 of file TESTS:\runtime\test_type_error.py.
     
-       828: def test_Builtin_has_no_len():
-       829:     try:
-    -->830:         len("Hello world".split)
+       857: def test_Builtin_has_no_len():
+       858:     try:
+    -->859:         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       831:     except TypeError as e:
+       860:     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -1764,53 +2379,809 @@ Can only concatenate
         
 
 
+Cannot convert dictionary update sequence
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
     Traceback (most recent call last):
-      File "TESTS:\trb_common.py", line 77, in create_tracebacks
-        result, message = function()
-      File "TESTS:\runtime\test_type_error.py", line 812, in test_Cannot_convert_dictionary_update_sequence
-        assert "you should use the `dict.fromkeys()`" in result
-    AssertionError:
+      File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
+        dd.update([1, 2, 3])
+    TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
-    In Python, the keyword `assert` is used in statements of the form
-    `assert condition`, to confirm that `condition` is not `False`,
-    nor equivalent to `False` such as an empty list, etc.
+        Perhaps you need to use the `dict.fromkeys()` method.
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
     
-    If `condition` is `False` or equivalent, an `AssertionError` is raised.
+    `dict.update()` does not accept a sequence as an argument.
+    Instead of writing `dd.update([1, 2, 3])`
+    perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Execution stopped on line 77 of file TESTS:\trb_common.py.
+    Exception raised on line 845 of file TESTS:\runtime\test_type_error.py.
     
-       74:                     if name.startswith("test"):
-       75:                         function = getattr(mod, name)
-       76:                         if callable(function):
-    -->77:                             result, message = function()
-                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       78:                             title = name[5:].replace("_", " ")
+       841:         assert "you should use the `dict.fromkeys()`" in result
+       842: 
+       843:     dd = {"a": "a"}
+       844:     try:
+    -->845:         dd.update([1, 2, 3])
+                    ^^^^^^^^^^^^^^^^^^^^
+       846:     except TypeError as e:
 
-            function:  <function test_Cannot_convert_dictionary_update_sequence>
-            message:  'can only concatenate tuple (not "list") to tuple'
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 1074
+            dd:  {'a': 'a'}
+            dd.update:  <builtin method update of dict object>
         
-            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
-                              len(result, message): 2
-        
-        
-    Exception raised on line 812 of file TESTS:\runtime\test_type_error.py.
-    
-       808:     result = friendly_traceback.get_output()
-       809: 
-       810:     assert "TypeError: cannot convert dictionary update" in result
-       811:     if friendly_traceback.get_lang() == "en":
-    -->812:         assert "you should use the `dict.fromkeys()`" in result
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       813: 
-       814:     dd = {"a": "a"}
 
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 1220
+
+Cannot multiply by non int
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 614, in test_Cannot_multiply_by_non_int
+        "a" * "2"
+    TypeError: can't multiply sequence by non-int of type 'str'
+    
+        Did you forget to convert `"2"` into an integer?
         
-            "you should use the `dict.fromkeys()`" in result:  False
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You can only multiply sequences, such as list, tuples,
+     strings, etc., by integers.
+    Perhaps you forgot to convert `"2"` into an integer.
+    
+    Exception raised on line 614 of file TESTS:\runtime\test_type_error.py.
+    
+       610:     if friendly_traceback.get_lang() == "en":
+       611:         assert "Did you forget to convert `c` into an integer?" in result
+       612: 
+       613:     try:
+    -->614:         "a" * "2"
+                    ^^^^^^^^^
+       615:     except TypeError as e:
+
+
+Cannot unpack non iterable object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
+        a, b = 42.0
+    TypeError: cannot unpack non-iterable float object
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    Unpacking is a convenient way to assign a name,
+    to each item of an iterable.
+    An iterable is an object capable of returning its members one at a time.
+    Python containers (`list, tuple, dict`, etc.) are iterables,
+    but not objects of type `float`.
+    
+    Exception raised on line 817 of file TESTS:\runtime\test_type_error.py.
+    
+       815: def test_Cannot_unpack_non_iterable_object():
+       816:     try:
+    -->817:         a, b = 42.0
+                    ^^^^^^^^^^^
+       818:     except TypeError as e:
+
+
+Comparison not supported
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
+        b >= a
+    TypeError: '>=' not supported between instances of 'int' and 'str'
+    
+        Did you forget to convert the string `a` into an integer (`int`)?
         
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You tried to do an order comparison (>=)
+    between two incompatible types of objects:
+    an integer (`int`) and a string (`str`).
+    Perhaps you forgot to convert the string `a` into an integer (`int`).
+    
+    Exception raised on line 347 of file TESTS:\runtime\test_type_error.py.
+    
+       344:     try:
+       345:         a = "2"
+       346:         b = 42
+    -->347:         b >= a
+                    ^^^^^^
+       348:     except TypeError as e:
+
+            a:  '2'
+            b:  42
+        
+
+
+Derive from BaseException
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 557, in test_Derive_from_BaseException
+        raise "exception"  # noqa
+    TypeError: exceptions must derive from BaseException
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    In Python 3, exceptions must be derived from BaseException.
+    
+    Exception raised on line 557 of file TESTS:\runtime\test_type_error.py.
+    
+       555: def test_Derive_from_BaseException():
+       556:     try:
+    -->557:         raise "exception"  # noqa
+                    ^^^^^^^^^^^^^^^^^
+       558:     except TypeError as e:
+
+
+Generator has no len
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+        nb = len(letter
+    TypeError: object of type 'generator' has no len()
+    
+        You likely need to build a list first.
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    I am guessing that you were trying to count the number of elements
+    produced by a generator expression. You first need to capture them
+    in a list:
+    
+        len([...])
+    
+    Exception raised on line 1014 of file TESTS:\runtime\test_type_error.py.
+    
+       1012: def test_Generator_has_no_len():
+       1013:     try:
+    -->1014:         nb = len(letter
+                     ^^^^^^^^^^^^^^^
+       1015:                  for letter in "word")
+       1016:     except TypeError as e:
+
+            len:  <builtin function len>
+        
+
+
+Indices must be integers or slices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 696, in test_Indices_must_be_integers_or_slices
+        [1, 2, 3]["2"]
+    TypeError: list indices must be integers or slices, not str
+    
+        Did you forget to convert `"2"` into an integer?
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    In the expression `[1, 2, 3]["2"]`
+    what is included between the square brackets, `[...]`,
+    must be either an integer or a slice
+    (`start:stop` or `start:stop:step`) 
+    and you have used a string (`str`) instead.
+    
+    Perhaps you forgot to convert `"2"` into an integer.
+    
+    Exception raised on line 696 of file TESTS:\runtime\test_type_error.py.
+    
+       692:     if friendly_traceback.get_lang() == "en":
+       693:         assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       694: 
+       695:     try:
+    -->696:         [1, 2, 3]["2"]
+                    ^^^^^^^^^^^^^^
+       697:     except TypeError as e:
+
+
+Not an integer
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 659, in test_Not_an_integer
+        range(c, d)
+    TypeError: 'str' object cannot be interpreted as an integer
+    
+        Did you forget to convert `c, d` into integers?
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You wrote an object of type `str` where an integer was expected.
+    Perhaps you forgot to convert `c, d` into integers.
+    Exception raised on line 659 of file TESTS:\runtime\test_type_error.py.
+    
+       655:         assert "Perhaps you forgot to convert `1.0" in result
+       656: 
+       657:     c, d = "2", "3"
+       658:     try:
+    -->659:         range(c, d)
+                    ^^^^^^^^^^^
+       660:     except TypeError as e:
+
+            c:  '2'
+            d:  '3'
+            range:  <class range>
+        
+
+
+Not callable
+~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 541, in test_Not_callable
+        _ = [1, 2](a + b)
+    TypeError: 'list' object is not callable
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    Python indicates that you have an object of type `list`,
+    followed by something surrounded by parentheses, `(...)`,
+    which Python took as an indication of a function call.
+    Either the object of type `list` was meant to be a function,
+    or you forgot a comma before `(...)`.
+    
+    Exception raised on line 541 of file TESTS:\runtime\test_type_error.py.
+    
+       537:         assert "b.a_list[3]" in result
+       538: 
+       539:     try:
+       540:         a, b = 3, 7
+    -->541:         _ = [1, 2](a + b)
+                    ^^^^^^^^^^^^^^^^^
+       542:     except TypeError as e:
+
+            a:  3
+            b:  7
+            a + b:  10
+        
+
+
+Object is not iterable
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
+        list(42)
+    TypeError: 'int' object is not iterable
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    An iterable is an object capable of returning its members one at a time.
+    Python containers (`list, tuple, dict`, etc.) are iterables.
+    An iterable is required here.
+    
+    Exception raised on line 788 of file TESTS:\runtime\test_type_error.py.
+    
+       786: def test_Object_is_not_iterable():
+       787:     try:
+    -->788:         list(42)
+                    ^^^^^^^^
+       789:     except TypeError as e:
+
+            list:  <class list>
+        
+
+
+Object is not subscriptable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
+        a = f[1]
+    TypeError: 'function' object is not subscriptable
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    Subscriptable objects are typically containers from which
+    you can retrieve item using the notation `[...]`.
+    Using this notation, you attempted to retrieve an item
+    from an object of type `function` which is not allowed.
+    
+    Exception raised on line 771 of file TESTS:\runtime\test_type_error.py.
+    
+       767:     def f():
+       768:         pass
+       769: 
+       770:     try:
+    -->771:         a = f[1]
+                    ^^^^^^^^
+       772:     except TypeError as e:
+
+            f:  <function f>
+                defined in <function test_Object_is_not_subscriptable>
+        
+
+
+Slice indices must be integers or None
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 710, in test_Slice_indices_must_be_integers_or_None
+        [1, 2, 3][1.0:2.0]
+    TypeError: slice indices must be integers or None or have an __index__ method
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    When using a slice to extract a range of elements
+    from a sequence, that is something like
+    `[start:stop]` or `[start:stop:step]`
+    each of `start`, `stop`, `step` must be either an integer, `None`,
+    or possibly some other object having an `__index__` method.
+    
+    Exception raised on line 710 of file TESTS:\runtime\test_type_error.py.
+    
+       708: def test_Slice_indices_must_be_integers_or_None():
+       709:     try:
+    -->710:         [1, 2, 3][1.0:2.0]
+                    ^^^^^^^^^^^^^^^^^^
+       711:     except TypeError as e:
+
+
+Too few positional argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 471, in test_Too_few_positional_argument
+        fn(1)
+    TypeError: test_Too_few_positional_argument.<locals>.fn() missing 2 required positional arguments: 'b' and 'c'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You apparently have called the function 'test_Too_few_positional_argument.<locals>.fn()' with
+    fewer positional arguments than it requires (2 missing).
+    
+    Exception raised on line 471 of file TESTS:\runtime\test_type_error.py.
+    
+       467:     def fn(a, b, c):
+       468:         pass
+       469: 
+       470:     try:
+    -->471:         fn(1)
+                    ^^^^^
+       472:     except TypeError as e:
+
+            fn:  <function fn>
+                defined in <function test_Too_few_positional_argument>
+        
+
+
+Too many positional argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 452, in test_Too_many_positional_argument
+        A().f(1)
+    TypeError: test_Too_many_positional_argument.<locals>.A.f() takes 1 positional argument but 2 were given
+    
+        Perhaps you forgot `self` when defining `A.f`.
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You apparently have called the function `A.f` with
+    2 positional argument(s) while it requires 1
+    such positional argument(s).
+    Perhaps you forgot `self` when defining `A.f`.
+    
+    Exception raised on line 452 of file TESTS:\runtime\test_type_error.py.
+    
+       448:         def f(x):
+       449:             pass
+       450: 
+       451:     try:
+    -->452:         A().f(1)
+                    ^^^^^^^^
+       453:     except TypeError as e:
+
+            A:  <class A>
+                defined in <function test_type_error.test_Too_many_positional_argument>
+        
+
+
+Tuple no item assignment
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 419, in test_Tuple_no_item_assignment
+        a[0] = 0
+    TypeError: 'tuple' object does not support item assignment
+    
+        Did you mean to use a list?
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    In Python, some objects are known as immutable:
+    once defined, their value cannot be changed.
+    You tried change part of such an immutable object: a `tuple`,
+    most likely by using an indexing operation.
+    Perhaps you meant to use a list instead.
+    
+    Exception raised on line 419 of file TESTS:\runtime\test_type_error.py.
+    
+       416: def test_Tuple_no_item_assignment():
+       417:     a = (1, 2, 3)
+       418:     try:
+    -->419:         a[0] = 0
+                    ^^^^
+       420:     except TypeError as e:
+
+            a:  (1, 2, 3)
+            a[0]:  1
+        
+
+
+Unhachable type
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 727, in test_Unhachable_type
+        {[1, 2]: 1}
+    TypeError: unhashable type: 'list'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    Only hashable objects can be used
+    as elements of `set` or keys of `dict`.
+    Hashable objects are objects that do not change value
+    once they have been created.Instead of using a `list`, consider using a `tuple`.
+    
+    Exception raised on line 727 of file TESTS:\runtime\test_type_error.py.
+    
+       725: def test_Unhachable_type():
+       726:     try:
+    -->727:         {[1, 2]: 1}
+                    ^^^^^^^^^^^
+       728:     except TypeError as e:
+
+
+Unsupported operand types
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 310, in test_Unsupported_operand_types
+        a @= b
+    TypeError: unsupported operand type(s) for @=: 'str' and 'int'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You tried to use the operator @=
+    using two incompatible types of objects:
+    a string (`str`) and an integer (`int`).
+    This operator is normally used only
+    for multiplication of matrices.
+    
+    Exception raised on line 310 of file TESTS:\runtime\test_type_error.py.
+    
+       307:     try:
+       308:         a = "a"
+       309:         b = 2
+    -->310:         a @= b
+                    ^^^^^^
+       311:     except TypeError as e:
+
+            a:  'a'
+            b:  2
+        
+
+
+divmod
+~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
+        result = divmod(a, b)
+    TypeError: unsupported operand type(s) for divmod(): 'int' and 'complex'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The arguments of `divmod` must be integers (`int`) or real (`float`) numbers.
+    At least one of the arguments was a complex number.
+    
+    Exception raised on line 55 of file TESTS:\runtime\test_type_error.py.
+    
+       52:     a = 2
+       53:     b = 3 + 2j
+       54:     try:
+    -->55:         result = divmod(a, b)
+                   ^^^^^^^^^^^^^^^^^^^^^
+       56:     except TypeError as e:
+
+            a:  2
+            b:  (3+2j)
+            divmod:  <builtin function divmod>
+        
+
+
+function got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
+        fn2(0, a=1)
+    TypeError: test_function_got_multiple_argument.<locals>.fn2() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `fn2`.
+    This function has the following arguments:
+    `a, b=1`
+    
+    Exception raised on line 951 of file TESTS:\runtime\test_type_error.py.
+    
+       947:     def fn2(a, b=1):
+       948:         pass
+       949: 
+       950:     try:
+    -->951:         fn2(0, a=1)
+                    ^^^^^^^^^^^
+       952:     except TypeError as e:
+
+            fn2:  <function fn2>
+                defined in <function test_function_got_multiple_argument>
+        
+
+
+function has no len
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
+        len(bad)
+    TypeError: object of type 'function' has no len()
+    
+        Did you forget to call `bad`?
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    I suspect that you forgot to add parentheses to call `bad`.
+    You might have meant to write:
+    `len(bad())`
+    
+    Exception raised on line 876 of file TESTS:\runtime\test_type_error.py.
+    
+       872:     def bad():
+       873:         pass
+       874: 
+       875:     try:
+    -->876:         len(bad)
+                    ^^^^^^^^
+       877:     except TypeError as e:
+
+            bad:  <function bad> defined in <function test_function_has_no_len>
+            len:  <builtin function len>
+        
+
+
+getattr attribute name must be string
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
+        getattr("__repr__", 1)  # as reported in issue #77
+    TypeError: attribute name must be string, not 'int'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The second argument of the function `getattr()` must be a string.
+    
+    Exception raised on line 997 of file TESTS:\runtime\test_type_error.py.
+    
+       990:     if friendly_traceback.get_lang() == "en":
+       991:         assert (
+       992:             "The second argument of the function `hasattr()` must be a string."
+       993:             in result
+       994:         )
+       995: 
+       996:     try:
+    -->997:         getattr("__repr__", 1)  # as reported in issue #77
+                    ^^^^^^^^^^^^^^^^^^^^^^
+       998:     except TypeError as e:
+
+            getattr:  <builtin function getattr>
+        
+
+
+method got multiple argument
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
+        t.some_method(0, a=1)
+    TypeError: test_method_got_multiple_argument.<locals>.T.some_method() got multiple values for argument 'a'
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    You have specified the value of argument `a` more than once
+    when calling the function named `t.some_method`.
+    This function has only one argument: `a`
+    
+    Exception raised on line 970 of file TESTS:\runtime\test_type_error.py.
+    
+       966:             pass
+       967: 
+       968:     t = T()
+       969:     try:
+    -->970:         t.some_method(0, a=1)
+                    ^^^^^^^^^^^^^^^^^^^^^
+       971:     except TypeError as e:
+
+            t:  <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
+            t.some_method:  <bound method T.some_method>
+                of <T object>
+                defined in <function test_type_error.test_method_got_multiple_argument>
+        
+
+
+vars arg must have dict
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
+        vars(f)
+    TypeError: vars() argument must have __dict__ attribute
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    The function `vars` is used to list the content of the
+    `__dict__` attribute of an object.
+    Object `f` uses `__slots__` instead of `__dict__`.
+    
+    Exception raised on line 920 of file TESTS:\runtime\test_type_error.py.
+    
+       916:         assert no_slots not in result
+       917:         assert use_slots not in result
+       918: 
+       919:     try:
+    -->920:         vars(f)
+                    ^^^^^^^
+       921:     except TypeError as e:
+
+            f:  <F object>
+                defined in <function test_type_error.test_vars_arg_must_have_dict>
+            vars:  <builtin function vars>
+        
+
 
 UnboundLocalError
 -----------------
@@ -2420,7 +3791,7 @@ Complex division
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
+      File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
         1 / zero
     ZeroDivisionError: complex division by zero
     
@@ -2433,61 +3804,344 @@ Complex division
     
     which is equal to zero.
     
-    Exception raised on line 155 of file TESTS:\runtime\test_zero_division_error.py.
+    Exception raised on line 173 of file TESTS:\runtime\test_zero_division_error.py.
     
-       152: def test_Complex_division():
-       153:     zero = 0j
-       154:     try:
-    -->155:         1 / zero
+       170: def test_Complex_division():
+       171:     zero = 0j
+       172:     try:
+    -->173:         1 / zero
                     ^^^^^^^^
-       156:     except ZeroDivisionError as e:
+       174:     except ZeroDivisionError as e:
 
             zero:  0j
         
 
 
+Division by zero literal
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
     Traceback (most recent call last):
-      File "TESTS:\trb_common.py", line 77, in create_tracebacks
-        result, message = function()
-      File "TESTS:\runtime\test_zero_division_error.py", line 193, in test_Division_by_zero_literal
-        assert "ZeroDivisionError: integer division or modulo by zero" in result
-    AssertionError:
+      File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+        1.0 / 0
+    ZeroDivisionError: float division by zero
     
-    In Python, the keyword `assert` is used in statements of the form
-    `assert condition`, to confirm that `condition` is not `False`,
-    nor equivalent to `False` such as an empty list, etc.
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
     
-    If `condition` is `False` or equivalent, an `AssertionError` is raised.
+    You are dividing by zero.
     
-    Execution stopped on line 77 of file TESTS:\trb_common.py.
+    Exception raised on line 220 of file TESTS:\runtime\test_zero_division_error.py.
     
-       74:                     if name.startswith("test"):
-       75:                         function = getattr(mod, name)
-       76:                         if callable(function):
-    -->77:                             result, message = function()
-                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       78:                             title = name[5:].replace("_", " ")
+       216:     if friendly_traceback.get_lang() == "en":
+       217:         assert "Using the modulo operator, you are dividing by zero" in result
+       218: 
+       219:     try:
+    -->220:         1.0 / 0
+                    ^^^^^^^
+       221:     except ZeroDivisionError as e:
 
-            function:  <function test_Division_by_zero_literal>
-            message:  'complex division by zero'
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 772
-        
-            result, message:  ('\n    Traceback (most recent call last):\n      File "TEST...)
-                              len(result, message): 2
-        
-        
-    Exception raised on line 193 of file TESTS:\runtime\test_zero_division_error.py.
-    
-       190:     except ZeroDivisionError as e:
-       191:         friendly_traceback.explain_traceback(redirect="capture")
-       192:     result = friendly_traceback.get_output()
-    -->193:     assert "ZeroDivisionError: integer division or modulo by zero" in result
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       194:     if friendly_traceback.get_lang() == "en":
 
-            result:  '\n    Traceback (most recent call last):\n      File "TESTS...'
-                     len(result): 1039
+Division operator
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
+        1 / zero
+    ZeroDivisionError: division by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    You are dividing by the following term
+    
+         zero
+    
+    which is equal to zero.
+    
+    Exception raised on line 20 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       13:     if friendly_traceback.get_lang() == "en":
+       14:         assert (
+       15:             "The following mathematical expression includes a division by zero"
+       16:             in result
+       17:         )
+       18: 
+       19:     try:
+    -->20:         1 / zero
+                   ^^^^^^^^
+       21:     except ZeroDivisionError as e:
+
+            zero:  0
         
-            "ZeroDivisionError: integer division or modulo by zero" in result:  False
+
+
+Divmod
+~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
+        divmod(1, zero)
+    ZeroDivisionError: integer division or modulo by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    The second argument of the `divmod()` function is zero.
+    
+    Exception raised on line 97 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       94: def test_Divmod():
+       95:     zero = 0
+       96:     try:
+    -->97:         divmod(1, zero)
+                   ^^^^^^^^^^^^^^^
+       98:     except ZeroDivisionError as e:
+
+            zero:  0
+            divmod:  <builtin function divmod>
         
+
+
+Float division
+~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
+        1 / zero
+    ZeroDivisionError: float division by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    You are dividing by the following term
+    
+         zero
+    
+    which is equal to zero.
+    
+    Exception raised on line 143 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       140: def test_Float_division():
+       141:     zero = 0.0
+       142:     try:
+    -->143:         1 / zero
+                    ^^^^^^^^
+       144:     except ZeroDivisionError as e:
+
+            zero:  0.0
+        
+
+
+Float divmod
+~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
+        divmod(1, zero)
+    ZeroDivisionError: float divmod()
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    The second argument of the `divmod()` function is equal to zero.
+    
+    Exception raised on line 158 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       155: def test_Float_divmod():
+       156:     zero = 0.0
+       157:     try:
+    -->158:         divmod(1, zero)
+                    ^^^^^^^^^^^^^^^
+       159:     except ZeroDivisionError as e:
+
+            zero:  0.0
+            divmod:  <builtin function divmod>
+        
+
+
+Float modulo
+~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
+        1 % zero
+    ZeroDivisionError: float modulo
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    Using the modulo operator, you are dividing by the following term
+    
+         zero
+    
+    which is equal to zero.
+    
+    Exception raised on line 128 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       121:         assert (
+       122:             "The following mathematical expression includes a division by zero"
+       123:             in result
+       124:         )
+       125:         assert "done using the modulo operator" in result
+       126: 
+       127:     try:
+    -->128:         1 % zero
+                    ^^^^^^^^
+       129:     except ZeroDivisionError as e:
+
+            zero:  0.0
+        
+
+
+Integer division operator
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
+        1 // zero
+    ZeroDivisionError: integer division or modulo by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    You are dividing by the following term
+    
+         zero
+    
+    which is equal to zero.
+    
+    Exception raised on line 48 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       41:     if friendly_traceback.get_lang() == "en":
+       42:         assert (
+       43:             "The following mathematical expression includes a division by zero"
+       44:             in result
+       45:         )
+       46: 
+       47:     try:
+    -->48:         1 // zero
+                   ^^^^^^^^^
+       49:     except ZeroDivisionError as e:
+
+            zero:  0
+        
+
+
+Mixed operations
+~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
+        a = divmod(8, 1 // 2)
+    ZeroDivisionError: integer division or modulo by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    The following mathematical expression includes a division by zero:
+    
+        a = divmod(8, 1 // 2)
+    
+    Exception raised on line 233 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       231: def test_Mixed_operations():
+       232:     try:
+    -->233:         a = divmod(8, 1 // 2)
+                    ^^^^^^^^^^^^^^^^^^^^^
+       234:     except ZeroDivisionError as e:
+
+            divmod:  <builtin function divmod>
+            1 // 2:  0
+        
+
+
+Modulo operator
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
+        1 % zero
+    ZeroDivisionError: integer modulo by zero
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    Using the modulo operator, you are dividing by the following term
+    
+         zero
+    
+    which is equal to zero.
+    
+    Exception raised on line 79 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       72:     if friendly_traceback.get_lang() == "en":
+       73:         assert (
+       74:             "The following mathematical expression includes a division by zero"
+       75:             in result
+       76:         )
+       77: 
+       78:     try:
+    -->79:         1 % zero
+                   ^^^^^^^^
+       80:     except ZeroDivisionError as e:
+
+            zero:  0
+        
+
+
+Raise zero negative power
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+        zero**-1
+    ZeroDivisionError: 0.0 cannot be raised to a negative power
+    
+    A `ZeroDivisionError` occurs when you are attempting to divide a value
+    by zero either directly or by using some other mathematical operation.
+    
+    You are attempting to raise the number 0 to a negative power
+    which is equivalent to dividing by zero.
+    
+    Exception raised on line 188 of file TESTS:\runtime\test_zero_division_error.py.
+    
+       185: def test_Raise_zero_negative_power():
+       186:     zero = 0
+       187:     try:
+    -->188:         zero**-1
+                    ^^^^^^^^
+       189:     except ZeroDivisionError as e:
+
+            zero:  0
+        
+

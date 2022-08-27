@@ -22,7 +22,7 @@ tels qu'interprétés par friendly_traceback.
      du répertoire de fichier. Si vous faites ceci, la documentation pour
      toutes les langues sera automatiquement mise à jour.
 
-Friendly version: 0.5.35
+Friendly version: 0.5.48
 Python version: 3.9.10
 
 
@@ -1258,7 +1258,7 @@ Python version: 3.9.10
     à l'endroit indiqué.
     
        1: (**k)
-           ^^->
+           ^^
 
     L’opérateur double astérisque, `**` est probablement interprété comme signifiant
     qu'un déballage de `dict` doit être utilisé ce qui n'est soit par permis
@@ -4361,7 +4361,7 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\example.py'
-    .
+    
     
     L'encodage du fichier n'était pas valide.
     
@@ -4933,7 +4933,7 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\syntax\missing_code_block_2.py'
-    .
+    
     
        3: for i in "test":
        4: 
@@ -7014,7 +7014,7 @@ Python version: 3.9.10
     
     Python ne peut pas comprendre le code du fichier
     'TESTS:\syntax\unterminated_triple_quote_string.py'
-    .
+    
     
        1: some_text = """In a land
        2: 

@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.35
+Friendly-traceback version: 0.5.48
 Python version: 3.9.10
 
 
@@ -1247,7 +1247,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1: (**k)
-           ^^->
+           ^^
 
     El operador de doble estrella `**` probablemente se interpreta como que
     que se va a utilizar el desempaquetado del dictado, lo cual no está permitido o no tiene sentido en este caso.
@@ -4343,7 +4343,7 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\example.py'
-    .
+    
     
     La codificación del archivo no era valida.
     
@@ -4911,7 +4911,7 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\missing_code_block_2.py'
-    .
+    
     
        3: for i in "test":
        4: 
@@ -6991,7 +6991,7 @@ Python version: 3.9.10
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\unterminated_triple_quote_string.py'
-    .
+    
     
        1: some_text = """In a land
        2: 

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in italiano" href="tracebacks_it.html" /><link rel="prev" title="Friendly tracebacks - בעברית" href="tracebacks_he.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - בעברית - friendly-traceback 0.5.46</title>
+        <title>Friendly SyntaxError tracebacks - בעברית - friendly-traceback 0.5.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -319,7 +319,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.5.35
+<p>Friendly-traceback version: 0.5.48
 Python version: 3.9.10</p>
 <section id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -335,7 +335,7 @@ SyntaxError: invalid syntax
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\and_in_import_statement.py'
-at the location indicated.
+במקום המצוין.
 
    1: from math import sin and cos
                            ^^^
@@ -361,7 +361,7 @@ SyntaxError: invalid syntax
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\and_in_import_statement_2.py'
-at the location indicated.
+במקום המצוין.
 
    1: from math import sin, tan, and cos
                                  ^^^
@@ -387,7 +387,7 @@ SyntaxError: annotated name 'var' can't be global
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\annotated_name_global.py'
-at the location indicated.
+במקום המצוין.
 
    4:     var:int = 1
           ^^^
@@ -411,20 +411,20 @@ SyntaxError: invalid syntax
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\as_instead_of_comma_in_import.py'
-at the location indicated.
+במקום המצוין.
 
    2: from math import (sin, cos) as funcs
                                   ^^
 
-I am guessing that you are trying to import at least one object
-from module `math` and rename it using the Python keyword `as`;
-this keyword can only be used to rename one object at a time
-using a well defined syntax.
-I suggest that you split up any such import statement with each object
-renamed on a separate line as follows:
+אני מנחש שאתה מנסה לייבא לפחות אובייקט אחד
+מהמודול `math` ושנה את שמו באמצעות מילת המפתח Python `as`;
+ניתן להשתמש במילת מפתח זו רק כדי לשנות שם אובייקט אחד בכל פעם
+תוך שימוש בתחביר מוגדר היטב.
+אני מציע שתחלק כל משפט ייבוא כזה עם כל אובייקט
+שונה שם בשורה נפרדת באופן הבא:
 
-    from math import object_1 as name_1
-    from math import object_2 as name_2  # if needed
+    מ-math import object_1 בשם name_1
+    מ-math import object_2 בשם name_2 # במידת הצורך
 </pre></div>
 </div>
 </section>
@@ -444,7 +444,7 @@ SyntaxError: invalid syntax
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_instead_of_equal.py'
-at the location indicated.
+במקום המצוין.
 
    1: a = (b = 2)  # issue #65
              ^
@@ -468,7 +468,7 @@ SyntaxError: name 'cc' is assigned to before global declaration
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_name_before_global_1.py'
-at the location indicated.
+במקום המצוין.
 
    7:     global aa, bb, cc, dd
           ^^^^^^         ^^
@@ -492,7 +492,7 @@ SyntaxError: name 'var' is used prior to global declaration
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_name_before_global_2.py'
-at the location indicated.
+במקום המצוין.
 
    7:     global var
           ^^^^^^ ^^^
@@ -518,7 +518,7 @@ SyntaxError: name 'qq' is used prior to nonlocal declaration
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_name_before_nonlocal_1.py'
-at the location indicated.
+במקום המצוין.
 
    11:         nonlocal pp, qq
                ^^^^^^^^     ^^
@@ -544,7 +544,7 @@ SyntaxError: name 's' is assigned to before nonlocal declaration
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-at the location indicated.
+במקום המצוין.
 
    9:         nonlocal s
               ^^^^^^^^ ^
@@ -570,7 +570,7 @@ SyntaxError: cannot assign to conditional expression
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_conditional.py'
-at the location indicated.
+במקום המצוין.
 
    3: a if 1 else b = 1
       ^^^^^^^^^^^^^
@@ -599,7 +599,7 @@ SyntaxError: cannot assign to __debug__
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_debug.py'
-at the location indicated.
+במקום המצוין.
 
    4: __debug__ = 1
       ^^^^^^^^^
@@ -624,7 +624,7 @@ SyntaxError: cannot assign to __debug__
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_debug2.py'
-at the location indicated.
+במקום המצוין.
 
    4: a.__debug__ = 1
         ^^^^^^^^^
@@ -649,7 +649,7 @@ SyntaxError: cannot assign to Ellipsis
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_ellipsis.py'
-at the location indicated.
+במקום המצוין.
 
    4: ... = 1
       ^^^
@@ -674,7 +674,7 @@ SyntaxError: cannot assign to f-string expression
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_f_string.py'
-at the location indicated.
+במקום המצוין.
 
    6: f'{x}' = 42
       ^^^^^^
@@ -702,17 +702,17 @@ SyntaxError: cannot assign to function call
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_function_call_1.py'
-at the location indicated.
+במקום המצוין.
 
    6: len('a') = 3
       ^^^^^^^^
 
-You wrote the expression
+אתה כתבת את הביטוי
 
     len('a') = ...
     ^^^^^^^^
-where `len('a')`, on the left-hand side of the equal sign, either is
-or includes a function call and is not simply the name of a variable.
+כאשר `len('a')`, בצד שמאל של סימן השוויון, אחד מהם
+או כולל קריאה לפונקציה ואינו רק שם של משתנה.
 ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
 </pre></div>
 </div>
@@ -733,17 +733,17 @@ SyntaxError: cannot assign to function call
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_function_call_2.py'
-at the location indicated.
+במקום המצוין.
 
    6: func(a, b=3) = 4
       ^^^^^^^^^^^^
 
-You wrote the expression
+אתה כתבת את הביטוי
 
     func(a, b=3) = ...
     ^^^^^^^^^^^^
-where `func(a, b=3)`, on the left-hand side of the equal sign, either is
-or includes a function call and is not simply the name of a variable.
+כאשר `func(a, b=3)`, בצד שמאל של סימן השוויון, אחד מהם
+או כולל קריאה לפונקציה ואינו רק שם של משתנה.
 ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
 </pre></div>
 </div>
@@ -764,18 +764,18 @@ SyntaxError: cannot assign to function call
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_function_call_3.py'
-at the location indicated.
+במקום המצוין.
 
 --&gt;6: a = f(1, 2,  # this is a comment
           ^^^^^^^--&gt;
    7:       3, 4) = 5
 
-You wrote the expression
+אתה כתבת את הביטוי
 
     f(1, 2,...) = ...
     ^^^^^^^--&gt;
-where `f(1, 2,...)`, on the left-hand side of the equal sign, either is
-or includes a function call and is not simply the name of a variable.
+כאשר `f(1, 2,...)`, בצד שמאל של סימן השוויון, אחד מהם
+או כולל קריאה לפונקציה ואינו רק שם של משתנה.
 ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
 </pre></div>
 </div>
@@ -796,7 +796,7 @@ SyntaxError: cannot assign to generator expression
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_generator.py'
-at the location indicated.
+במקום המצוין.
 
    3: (x for x in x) = 1
       ^^^^^^^^^^^^^^
@@ -823,7 +823,7 @@ SyntaxError: cannot assign to dict display
 
 פייתון לא הצליח להבין את הקוד בקובץ
  'TESTS:\syntax\assign_to_literal_dict.py'
-at the location indicated.
+במקום המצוין.
 
    7: {1 : 2, 2 : 4} = 5
       ^^^^^^^^^^^^^^
@@ -841,6 +841,4168 @@ at the location indicated.
 </section>
 <section id="cannot-assign-to-literal-int">
 <h2>(20) Cannot assign to literal int<a class="headerlink" href="#cannot-assign-to-literal-int" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int.py", line 3
+    1 = a
+    ^
+SyntaxError: cannot assign to literal
+
+    אולי התכוונת לכתוב 'a = 1'
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_literal_int.py'
+במקום המצוין.
+
+   3: 1 = a
+      ^
+
+כתבת ביטוי כמו
+
+     1 = a
+כאשר '1', בצד שמאל של סימן השווה,
+הוא או כולל אובייקט בפועל מסוג int (שלם)
+וזה לא רק שמו של משתנה.
+אולי התכוונת לכתוב:
+
+     a = 1
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-int-2">
+<h2>(21) Cannot assign to literal int - 2<a class="headerlink" href="#cannot-assign-to-literal-int-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
+    1 = 2
+    ^
+SyntaxError: cannot assign to literal
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_literal_int_2.py'
+במקום המצוין.
+
+   3: 1 = 2
+      ^
+
+כתבת ביטוי כמו
+
+     1 = 2
+כאשר '1', בצד שמאל של סימן השווה,
+הוא או כולל אובייקט בפועל מסוג int (שלם)
+וזה לא רק שמו של משתנה.
+
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-5">
+<h2>(22) Cannot assign to literal - 5<a class="headerlink" href="#cannot-assign-to-literal-5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
+    1 = a = b
+    ^
+SyntaxError: cannot assign to literal
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_literal_int_3.py'
+במקום המצוין.
+
+   4: 1 = a = b
+      ^
+
+כתבת ביטוי כמו
+
+     1 = שם_משתנה
+כאשר '1', בצד שמאל של סימן השווה,
+הוא או כולל אובייקט בפועל מסוג int (שלם)
+וזה לא רק שמו של משתנה.
+
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-3">
+<h2>(23) Cannot assign to literal - 3<a class="headerlink" href="#cannot-assign-to-literal-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_set.py", line 7
+    {1, 2, 3} = 4
+    ^
+SyntaxError: cannot assign to set display
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_literal_set.py'
+במקום המצוין.
+
+   7: {1, 2, 3} = 4
+      ^^^^^^^^^
+
+כתבת ביטוי כמו
+
+     {1, 2, 3} = 4
+כאשר '{1, 2, 3}', בצד שמאל של סימן השווה,
+הוא או כולל אובייקט בפועל מסוג set (סט)
+וזה לא רק שמו של משתנה.
+
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="assign-to-keyword-def">
+<h2>(24) Assign to keyword def<a class="headerlink" href="#assign-to-keyword-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_def.py", line 3
+    def = 2
+        ^
+SyntaxError: invalid syntax
+
+    לא ניתן להשתמש במילות מפתח של פייתון כמזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_keyword_def.py'
+במקום המצוין.
+
+   3: def = 2
+      ^^^
+
+ניסית להקצות ערך למילת המפתח של פייתון "def".
+זה אסור.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-keyword-else">
+<h2>(25) Assign to keyword else<a class="headerlink" href="#assign-to-keyword-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_else.py", line 3
+    else = 1
+    ^
+SyntaxError: invalid syntax
+
+    לא ניתן להשתמש במילות מפתח של פייתון כמזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_keyword_else.py'
+במקום המצוין.
+
+   3: else = 1
+      ^^^^
+
+ניסית להקצות ערך למילת המפתח של פייתון "else".
+זה אסור.
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-keyword-none">
+<h2>(26) Assignment to keyword (None)<a class="headerlink" href="#assignment-to-keyword-none" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_none.py", line 4
+    None = 1
+    ^
+SyntaxError: cannot assign to None
+
+    You cannot assign a value to `None`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_keyword_none.py'
+במקום המצוין.
+
+   4: None = 1
+      ^^^^
+
+`None` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-math-operation">
+<h2>(27) Assign to math operation<a class="headerlink" href="#assign-to-math-operation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_operation.py", line 4
+    a + 1 = 2
+    ^
+SyntaxError: cannot assign to operator
+
+    אולי היית צריך\ה '==' במקום '='.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_operation.py'
+במקום המצוין.
+
+   4: a + 1 = 2
+      ^
+
+כתבת ביטוי הכולל כמה פעולות מתמטיות
+בצד שמאל של סימן השוויון שאמור להיות
+משמש רק להקצאת ערך למשתנה.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-yield-expression">
+<h2>(28) Assign to yield expression<a class="headerlink" href="#assign-to-yield-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_yield_expression.py", line 1
+    (yield i) = 3
+     ^
+SyntaxError: cannot assign to yield expression
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assign_to_yield_expression.py'
+במקום המצוין.
+
+   1: (yield i) = 3
+       ^^^^^
+
+You wrote an expression that includes the `yield` keyword
+on the left-hand side of the equal sign.
+You cannot assign a value to such an expression.
+Note that, like the keyword `return`,
+`yield` can only be used inside a function.
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-inside-comprehension">
+<h2>(29) Augmented assignment inside comprehension<a class="headerlink" href="#augmented-assignment-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assignment_expression_cannot_rebind.py", line 1
+    a = [(i := 1) for i in [1]]
+         ^
+SyntaxError: assignment expression cannot rebind comprehension iteration variable 'i'
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assignment_expression_cannot_rebind.py'
+במקום המצוין.
+
+   1: a = [(i := 1) for i in [1]]
+           ^
+
+You are using the augmented assignment operator `:=` inside
+a comprehension to assign a value to the iteration variable `i`.
+This variable is meant to be used only inside the comprehension.
+The augmented assignment operator is normally used to assign a value
+to a variable so that the variable can be reused later.
+This is not possible for variable `i`.
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-inside-comprehension-inner-loop">
+<h2>(30) Augmented assignment inside comprehension - inner loop<a class="headerlink" href="#augmented-assignment-inside-comprehension-inner-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
+    [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+    ^
+SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
+במקום המצוין.
+
+   1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+      ^
+
+You are using the augmented assignment operator `:=` inside
+a comprehension to assign a value to the iteration variable `j`.
+This variable is meant to be used only inside the comprehension.
+The augmented assignment operator is normally used to assign a value
+to a variable so that the variable can be reused later.
+This is not possible for variable `j`.
+</pre></div>
+</div>
+</section>
+<section id="def-missing-parentheses">
+<h2>(31) def: missing parentheses<a class="headerlink" href="#def-missing-parentheses" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\async_def_missing_parens.py", line 1
+    async def name:
+                  ^
+SyntaxError: invalid syntax
+
+    שכחת סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\async_def_missing_parens.py'
+במקום המצוין.
+
+   1: async def name:
+                    ^
+
+אולי שכחת לכלול סוגריים.
+אולי התכוונת לכתוב
+
+     async def name():
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-to-literal">
+<h2>(32) Augmented assignment to literal<a class="headerlink" href="#augmented-assignment-to-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\augmented_assignment_to_literal.py", line 1
+    if "word" := True:
+       ^
+SyntaxError: cannot use assignment expressions with literal
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\augmented_assignment_to_literal.py'
+במקום המצוין.
+
+   1: if "word" := True:
+         ^^^^^^
+
+אינך יכול להשתמש באופרטור ההקצאה המוגבר `: =`,
+לפעמים נקרא מפעיל הזן, עם מילת מילים כמו ""word"".
+ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+</pre></div>
+</div>
+</section>
+<section id="walrus-named-assignment-depending-on-python-version">
+<h2>(33) Walrus/Named assignment depending on Python version<a class="headerlink" href="#walrus-named-assignment-depending-on-python-version" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\augmented_assigment_with_true.py", line 4
+    (True := 1)
+     ^
+SyntaxError: cannot use assignment expressions with True
+
+    You cannot assign a value to `True`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\augmented_assigment_with_true.py'
+במקום המצוין.
+
+   4: (True := 1)
+       ^^^^
+
+`True` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+</pre></div>
+</div>
+</section>
+<section id="backslash-instead-of-slash">
+<h2>(34) Backslash instead of slash<a class="headerlink" href="#backslash-instead-of-slash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
+    a = 3 \ 4.0
+           ^
+SyntaxError: unexpected character after line continuation character
+
+    האם התכוונת לחלק ב 4.0?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\backslash_instead_of_slash.py'
+במקום המצוין.
+
+   1: a = 3 \ 4.0
+              ^^^
+
+את\ה משתמש\ת בתו '\' מחוץ למחרוזת,
+ואחריו כמה דמויות אחרות.
+אני מניח שרצית לחלק במספר 4.0
+וכתבת "\" במקום "/".
+</pre></div>
+</div>
+</section>
+<section id="brackets-instead-of-parentheses">
+<h2>(35) Brackets instead of parentheses<a class="headerlink" href="#brackets-instead-of-parentheses" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\bracket_instead_of_paren.py", line 1
+    print(sum[i for i in [1, 2, 3] if i%2==0])
+                ^
+SyntaxError: invalid syntax
+
+    You used square brackets, `[...]` instead of parentheses.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\bracket_instead_of_paren.py'
+במקום המצוין.
+
+   1: print(sum[i for i in [1, 2, 3] if i%2==0])
+                  ^^^
+
+You used square brackets, `[...]` instead of parentheses.
+Write the following instead:
+
+    print(sum(i for i in [1, 2, 3] if i%2==0))
+</pre></div>
+</div>
+</section>
+<section id="break-outside-loop">
+<h2>(36) break outside loop<a class="headerlink" href="#break-outside-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\break_outside_loop.py", line 4
+    break
+    ^
+SyntaxError: 'break' outside loop
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\break_outside_loop.py'
+במקום המצוין.
+
+   4:     break
+          ^^^^^
+
+ניתן להשתמש במילת המפתח Python 'break' רק בתוך לולאת 'for' (פור) או בתוך לולאה של 'while' (בעוד).
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-attribute-here">
+<h2>(37) Cannot assign to attribute here.<a class="headerlink" href="#cannot-assign-to-attribute-here" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_assign_to_attribute_here.py", line 1
+    if x.a = 1:
+           ^
+SyntaxError: invalid syntax
+
+    אולי היית צריך\ה '==' במקום '='.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\cannot_assign_to_attribute_here.py'
+במקום המצוין.
+
+   1: if x.a = 1:
+             ^
+
+סביר להניח שהשתמשת באופרטור הגדרה  `=` במקום מפעיל שוויון `==`.
+The following statement would not contain a syntax error:
+
+    if x.a == 1:
+</pre></div>
+</div>
+</section>
+<section id="cannot-guess-the-cause">
+<h2>(38) Cannot guess the cause<a class="headerlink" href="#cannot-guess-the-cause" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
+    SyntaxErrors can be annoying!
+                 ^
+SyntaxError: invalid syntax
+
+    מקור השגיאה לא ידוע.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\cannot_guess_the_cause.py'
+במקום המצוין.
+
+   1: SyntaxErrors can be annoying!
+                   ^^^
+
+נכון לעכשיו, אינני יכול לנחש את הסיבה הסבירה לשגיאה זו.
+נסה\י לבחון מקרוב את הקו המצוין כמו גם את הקו
+מיד למעלה כדי לראות אם אפשר לזהות כמה שגיאות כתיב
+מילה או סמלים חסרים, כמו (,), [,],:, וכו '.
+
+אלא אם כן הקוד שלך משתמש ברמזי סוג, שהם מעבר להיקף שלנו,
+אם את\ה חושב\ת שזה משהו שצריך לטפל בו
+על ידי ידידותי, אנא דווח על מקרה זה
+https://github.com/aroberge/friendly/issues
+</pre></div>
+</div>
+</section>
+<section id="cannot-use-star-operator">
+<h2>(39) Cannot use star operator<a class="headerlink" href="#cannot-use-star-operator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_use_star.py", line 3
+    *a
+    ^
+SyntaxError: can't use starred expression here
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\cannot_use_star.py'
+במקום המצוין.
+
+   3: *a
+      ^
+
+אופרטור הכוכב "*" מתפרש כמשמעותו
+יש להשתמש בפירוק חוזר כדי להקצות שם
+לכל פריט של חוזר, וזה לא הגיוני כאן.
+</pre></div>
+</div>
+</section>
+<section id="cannot-use-double-star-operator">
+<h2>(40) Cannot use double star operator<a class="headerlink" href="#cannot-use-double-star-operator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_use_double_star.py", line 4
+    (**k)
+     ^
+SyntaxError: f-string: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\cannot_use_double_star.py'
+במקום המצוין.
+
+   1: (**k)
+       ^^
+
+אופרטור הכוכב הכפול `**` מתפרש כנראה כך
+יש להשתמש ב-dict פירוק מה שאסור או לא הגיוני כאן.
+</pre></div>
+</div>
+</section>
+<section id="missing-class-name">
+<h2>(41) Missing class name<a class="headerlink" href="#missing-class-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\class_missing_name.py", line 1
+    class:
+         ^
+SyntaxError: invalid syntax
+
+    כיתה(class) צריכה שם.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\class_missing_name.py'
+במקום המצוין.
+
+   1: class:
+           ^
+
+הצהרת 'כיתה' דורשת שם:
+
+    class SomeName:
+        ...
+</pre></div>
+</div>
+</section>
+<section id="missing-for-tuples-in-comprehension">
+<h2>(42) Missing () for tuples in comprehension<a class="headerlink" href="#missing-for-tuples-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_missing_tuple_paren.py", line 1
+    x = [i, i**2 for i in range(10)]
+                 ^
+SyntaxError: invalid syntax
+
+    שכחת סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\comprehension_missing_tuple_paren.py'
+במקום המצוין.
+
+   1: x = [i, i**2 for i in range(10)]
+                   ^^^
+
+אני מנחש שכתבת הבנה או ביטוי מחולל
+ושכח לכלול סוגריים סביב צמדים.
+כדוגמה, במקום לכתוב
+
+    [i, i**2 for i in range(10)]
+תצטרך לכתוב
+
+      [(i, i**2) for i in range(10)]
+</pre></div>
+</div>
+</section>
+<section id="comprehension-with-condition-no-else">
+<h2>(43) Comprehension with condition (no else)<a class="headerlink" href="#comprehension-with-condition-no-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_with_condition_no_else.py", line 1
+    a = [f(x) if condition for x in sequence]
+                           ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\comprehension_with_condition_no_else.py'
+במקום המצוין.
+
+   1: a = [f(x) if condition for x in sequence]
+                             ^^^
+
+אני מנחש שכתבת הבנה או ביטוי מחולל (comprehension or a generator expression)
+והשתמשת בסדר הלא נכון.
+הסדר הנכון תלוי אם יש סעיף אחר (else) או לא
+לדוגמא,לדוגמה, הסדר הנכון לגנרטור הוא
+[f(x) if condition else other for x in sequence]  # 'if' before 'for'
+אם אין "אחר"
+ו-  [f(x) for x in sequence if condition]  # 'if' after 'for' אם יש אחר
+</pre></div>
+</div>
+</section>
+<section id="comprehension-with-condition-with-else">
+<h2>(44) Comprehension with condition (with else)<a class="headerlink" href="#comprehension-with-condition-with-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_with_condition_with_else.py", line 1
+    a = [f(x) for x in sequence if condition else other]
+                                             ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\comprehension_with_condition_with_else.py'
+במקום המצוין.
+
+   1: a = [f(x) for x in sequence if condition else other]
+                                               ^^^^
+
+אני מנחש שכתבת הבנה או ביטוי מחולל (comprehension or a generator expression)
+והשתמשת בסדר הלא נכון.
+הסדר הנכון תלוי אם יש סעיף אחר (else) או לא
+לדוגמא,לדוגמה, הסדר הנכון לגנרטור הוא
+[f(x) if condition else other for x in sequence]  # 'if' before 'for'
+אם אין "אחר"
+ו-  [f(x) for x in sequence if condition]  # 'if' after 'for' אם יש אחר
+</pre></div>
+</div>
+</section>
+<section id="continue-outside-loop">
+<h2>(45) continue outside loop<a class="headerlink" href="#continue-outside-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\continue_outside_loop.py", line 4
+    continue
+    ^
+SyntaxError: 'continue' not properly in loop
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\continue_outside_loop.py'
+במקום המצוין.
+
+   4:     continue
+          ^^^^^^^^
+
+ניתן להשתמש במילת המפתח של פייתון 'המשך' רק בתוך לולאת 'for'(פור) או בתוך לולאה של 'while' (בעוד).
+</pre></div>
+</div>
+</section>
+<section id="copy-paste-from-interpreter">
+<h2>(46) Copy/paste from interpreter<a class="headerlink" href="#copy-paste-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\copy_pasted_code.py", line 2
+    &gt;&gt;&gt; print("Hello World!")
+    ^
+SyntaxError: invalid syntax
+
+    האם השתמשת בהעתק-הדבק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\copy_pasted_code.py'
+במקום המצוין.
+
+   2: &gt;&gt;&gt; print("Hello World!")
+      ^^^
+
+נראה שאתה מעתיק קוד שהודבק ממתורגמן אינטראקטיבי.
+שורת הפייתון, '&gt;&gt;&gt; `, לא צריכה להיכלל בקוד שלך.
+</pre></div>
+</div>
+</section>
+<section id="copy-paste-from-interpreter-2">
+<h2>(47) Copy/paste from interpreter - 2<a class="headerlink" href="#copy-paste-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\copy_pasted_code_2.py", line 2
+    ... print("Hello World!")
+        ^
+SyntaxError: invalid syntax
+
+    האם השתמשת בהעתק-הדבק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\copy_pasted_code_2.py'
+במקום המצוין.
+
+   2: ... print("Hello World!")
+      ^^^
+
+נראה שאתה מעתיק קוד שהודבק ממתורגמן אינטראקטיבי.
+שורת הפייתון, '...', לא צריכה להיכלל בקוד שלך.
+</pre></div>
+</div>
+</section>
+<section id="def-positional-arg-after-kwargs">
+<h2>(48) def: positional arg after kwargs<a class="headerlink" href="#def-positional-arg-after-kwargs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
+    def test(a, **kwargs, b):
+                          ^
+SyntaxError: invalid syntax
+
+    ארגומנטים עמדתיים חייבים לבוא לפני ארגומנטים של מילות מפתח.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_arg_after_kwarg.py'
+במקום המצוין.
+
+   1: def test(a, **kwargs, b):
+                            ^
+
+ארגומנטים עמדתיים חייבים לבוא לפני ארגומנטים של מילות מפתח.
+'b' הוא ארגומנט עמדתי שמופיע לאחר אחד או יותר
+ארגומנטים של מילות מפתח בהגדרת הפונקציה שלך.
+</pre></div>
+</div>
+</section>
+<section id="def-named-arguments-must-follow-bare">
+<h2>(49) def: named arguments must follow bare *<a class="headerlink" href="#def-named-arguments-must-follow-bare" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_bare_star_arg.py", line 4
+    def f(*):
+           ^
+SyntaxError: named arguments must follow bare *
+
+    שכחת משהו אחרי '*'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_bare_star_arg.py'
+במקום המצוין.
+
+   4: def f(*):
+             ^
+
+בהנחה שאתה מגדיר פונקציה, אתה צריך
+להחליף את "*" ב"*args "או
+על ידי `*, named_argument = value`.
+</pre></div>
+</div>
+</section>
+<section id="def-misused-as-code-block">
+<h2>(50) def: misused as code block<a class="headerlink" href="#def-misused-as-code-block" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_code_block.py", line 3
+    def :
+        ^
+SyntaxError: invalid syntax
+
+    פונקציה צריכה שם.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_code_block.py'
+במקום המצוין.
+
+   3: def :
+          ^
+
+ניסית להגדיר פונקציה ולא השתמשת בתחביר הנכון.
+התחביר הנכון הוא:
+ def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="def-misused-as-code-block-2">
+<h2>(51) def: misused as code block - 2<a class="headerlink" href="#def-misused-as-code-block-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_code_block_2.py", line 2
+    def :
+        ^
+SyntaxError: invalid syntax
+
+    פונקציות ושיטות צריכות שם.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_code_block_2.py'
+במקום המצוין.
+
+   2:     def :
+              ^
+
+ניסית להגדיר פונקציה או שיטה ולא השתמשת בתחביר הנכון.
+התחביר הנכון הוא:
+ def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="dotted-name-as-function-argument">
+<h2>(52) Dotted name as function argument<a class="headerlink" href="#dotted-name-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_argument.py", line 3
+    def test(x.y):
+              ^
+SyntaxError: invalid syntax
+
+    האם התכוונת לכתוב פסיק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_dotted_argument.py'
+במקום המצוין.
+
+   3: def test(x.y):
+                ^
+
+אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+אולי התכוונת לכתוב פסיק.
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>(53) Dotted name as function argument<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_argument_2.py", line 2
+    def test(x., y):
+              ^
+SyntaxError: invalid syntax
+
+    אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_dotted_argument_2.py'
+במקום המצוין.
+
+   2: def test(x., y):
+                ^
+
+אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="dotted-function-name">
+<h2>(54) Dotted function name<a class="headerlink" href="#dotted-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_function_name.py", line 3
+    def test.x():
+            ^
+SyntaxError: invalid syntax
+
+    לא ניתן להשתמש בנקודות בשמות פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_dotted_function_name.py'
+במקום המצוין.
+
+   3: def test.x():
+              ^
+
+לא ניתן להשתמש בנקודות בשמות פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-dict-as-argument">
+<h2>(55) def: dict as argument<a class="headerlink" href="#def-dict-as-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dict_as_arg.py", line 1
+    def test({'a': 1}, y):  # dict as first argument
+             ^
+SyntaxError: invalid syntax
+
+    אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_dict_as_arg.py'
+במקום המצוין.
+
+   1: def test({'a': 1}, y):  # dict as first argument
+               ^
+
+אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-arguments-must-be-unique-in-function-definition">
+<h2>(56) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_duplicate_arg.py", line 4
+    def f(aa=1, aa=2):
+    ^
+SyntaxError: duplicate argument 'aa' in function definition
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_duplicate_arg.py'
+במקום המצוין.
+
+   4: def f(aa=1, aa=2):
+            ^^    ^^
+
+You have defined a function repeating the argument
+
+    aa
+Each argument should appear only once in a function definition.
+</pre></div>
+</div>
+</section>
+<section id="def-semicolon-after-colon">
+<h2>(57) def: semicolon after colon<a class="headerlink" href="#def-semicolon-after-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_extra_semi_colon.py", line 1
+    def test():;
+               ^
+SyntaxError: invalid syntax
+
+    כתבת משהו בטעות אחרי הנקודותיים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_extra_semi_colon.py'
+במקום המצוין.
+
+   1: def test():;
+                 ^
+
+הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+בלוק קוד חייב לבוא אחרי הנקודותיים.
+הסרת ';' עשויה לפתור את הבעיה.
+</pre></div>
+</div>
+</section>
+<section id="def-extra-comma">
+<h2>(58) def: extra comma<a class="headerlink" href="#def-extra-comma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_extra_comma.py", line 1
+    def test(a,,b):
+               ^
+SyntaxError: invalid syntax
+
+    האם התכוונת לכתוב ','?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_extra_comma.py'
+במקום המצוין.
+
+   1: def test(a,,b):
+                 ^
+
+אני חושד שעשית שגיאת כתיב והוספת ',' בטעות.
+המשפט הבא אינו מכיל שגיאת תחביר:
+
+     def test(a,b):
+</pre></div>
+</div>
+</section>
+<section id="def-unspecified-keywords-before">
+<h2>(59) def: unspecified keywords before /<a class="headerlink" href="#def-unspecified-keywords-before" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_1.py", line 1
+    def test(a, **kwargs, /):
+                          ^
+SyntaxError: invalid syntax
+
+    ארגומנטים של מילות מפתח חייבים להופיע אחרי הסמל `/`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_forward_slash_1.py'
+במקום המצוין.
+
+   1: def test(a, **kwargs, /):
+                            ^
+
+`/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+הם טיעונים עמדתיים.
+יש לך ארגומנטים לא מפורטים של מילות מפתח המופיעים לפני
+הסמל `/`.
+</pre></div>
+</div>
+</section>
+<section id="def-before-star">
+<h2>(60) def: / before star<a class="headerlink" href="#def-before-star" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_2.py", line 1
+    def test(a, *, b, /):
+                      ^
+SyntaxError: invalid syntax
+
+    '*' חייב להופיע אחרי '/' בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_forward_slash_2.py'
+במקום המצוין.
+
+   1: def test(a, *, b, /):
+                        ^
+
+`/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+הם טיעונים עמדתיים.
+עם זאת, '*' מציין כי הטיעונים
+הבאים חייבים להיות טיעוני מילות מפתח.
+כאשר הם משמשים יחד, '/' חייב להופיע לפני '*'.
+</pre></div>
+</div>
+</section>
+<section id="def-before-star-arg">
+<h2>(61) def: / before star arg<a class="headerlink" href="#def-before-star-arg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_3.py", line 1
+    def test(a, *arg, /):
+                      ^
+SyntaxError: invalid syntax
+
+    '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_forward_slash_3.py'
+במקום המצוין.
+
+   1: def test(a, *arg, /):
+                        ^
+
+`/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+הם טיעונים עמדתיים.
+'*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="def-used-twice">
+<h2>(62) def: / used twice<a class="headerlink" href="#def-used-twice" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_4.py", line 1
+    def test(a, /, b, /):
+                      ^
+SyntaxError: invalid syntax
+
+    אפשר להשתמש ב- / רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_forward_slash_4.py'
+במקום המצוין.
+
+   1: def test(a, /, b, /):
+                        ^
+
+אפשר להשתמש ב- / רק פעם אחת בהגדרת פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="def-non-identifier-as-a-function-name">
+<h2>(63) def: non-identifier as a function name<a class="headerlink" href="#def-non-identifier-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_function_name_invalid.py", line 3
+    def 2be():
+        ^
+SyntaxError: invalid syntax
+
+    כתבת שם פונקציה לא חוקית.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_function_name_invalid.py'
+במקום המצוין.
+
+   3: def 2be():
+          ^
+
+שם הפונקציה חייב להיות מזהה פייתון חוקי,
+זהו שם שמתחיל באות או בתו קו, "_",
+ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+</pre></div>
+</div>
+</section>
+<section id="def-using-a-string-as-a-function-name">
+<h2>(64) def: using a string as a function name<a class="headerlink" href="#def-using-a-string-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_function_name_string.py", line 3
+    def "function"():
+        ^
+SyntaxError: invalid syntax
+
+    שם הפונקציה חייב להיות מזהה פייתון חוקי,
+    זהו שם שמתחיל באות או בתו קו, "_",
+    ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+    ניסית להשתמש במחרוזת בשם פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_function_name_string.py'
+במקום המצוין.
+
+   3: def "function"():
+          ^^^^^^^^^^
+
+שם הפונקציה חייב להיות מזהה פייתון חוקי,
+זהו שם שמתחיל באות או בתו קו, "_",
+ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+ניסית להשתמש במחרוזת בשם פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-1">
+<h2>(65) def: keyword cannot be argument in def - 1<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_1.py", line 5
+    def f(None=1):
+          ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_keyword_as_arg_1.py'
+במקום המצוין.
+
+   5: def f(None=1):
+            ^^^^
+
+אני מנחש שניסית להשתמש במילת המפתח של פייתון
+`None` כארגומנט בהגדרת פונקציה
+היכן היה צפוי מזהה (שם משתנה).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-2">
+<h2>(66) def: keyword cannot be argument in def - 2<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_2.py", line 5
+    def f(x, True):
+             ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_keyword_as_arg_2.py'
+במקום המצוין.
+
+   5: def f(x, True):
+               ^^^^
+
+אני מנחש שניסית להשתמש במילת המפתח של פייתון
+`True` כארגומנט בהגדרת פונקציה
+היכן היה צפוי מזהה (שם משתנה).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-3">
+<h2>(67) def: keyword cannot be argument in def - 3<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_3.py", line 5
+    def f(*None):
+           ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_keyword_as_arg_3.py'
+במקום המצוין.
+
+   5: def f(*None):
+             ^^^^
+
+אני מנחש שניסית להשתמש במילת המפתח של פייתון
+`None` כארגומנט בהגדרת פונקציה
+היכן היה צפוי מזהה (שם משתנה).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-4">
+<h2>(68) def: keyword cannot be argument in def - 4<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_4.py", line 5
+    def f(**None):
+            ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_keyword_as_arg_4.py'
+במקום המצוין.
+
+   5: def f(**None):
+              ^^^^
+
+אני מנחש שניסית להשתמש במילת המפתח של פייתון
+`None` כארגומנט בהגדרת פונקציה
+היכן היה צפוי מזהה (שם משתנה).
+</pre></div>
+</div>
+</section>
+<section id="def-python-keyword-as-function-name">
+<h2>(69) def: Python keyword as function name<a class="headerlink" href="#def-python-keyword-as-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_name.py", line 3
+    def pass():
+        ^
+SyntaxError: invalid syntax
+
+    אינך יכול\ה להשתמש במילת מפתח של פייתון כשם פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_keyword_as_name.py'
+במקום המצוין.
+
+   3: def pass():
+          ^^^^
+
+ניסית להשתמש במילת המפתח של פייתון 'pass' כשם פונקציה.
+
+בהמשך הקוד שלך יש שגיאות תחביר נוספות.
+</pre></div>
+</div>
+</section>
+<section id="def-list-as-argument-1">
+<h2>(70) def: list as argument - 1<a class="headerlink" href="#def-list-as-argument-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_list_as_arg_1.py", line 1
+    def test([x], y):  # list as first argument
+             ^
+SyntaxError: invalid syntax
+
+    אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_list_as_arg_1.py'
+במקום המצוין.
+
+   1: def test([x], y):  # list as first argument
+               ^
+
+אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-list-as-argument-2">
+<h2>(71) def: list as argument - 2<a class="headerlink" href="#def-list-as-argument-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_list_as_arg_2.py", line 1
+    def test(x, [y]):  # list as second argument, after comma
+                ^
+SyntaxError: invalid syntax
+
+    אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_list_as_arg_2.py'
+במקום המצוין.
+
+   1: def test(x, [y]):  # list as second argument, after comma
+                  ^
+
+אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-missing-colon">
+<h2>(72) def: missing colon<a class="headerlink" href="#def-missing-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_colon.py", line 1
+    def test()
+              ^
+SyntaxError: invalid syntax
+
+    שכחת לכתוב נקודתיים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_missing_colon.py'
+במקום המצוין.
+
+   1: def test()
+                ^
+
+הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+</pre></div>
+</div>
+</section>
+<section id="def-missing-comma-between-function-args">
+<h2>(73) def: missing comma between function args<a class="headerlink" href="#def-missing-comma-between-function-args" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_comma.py", line 4
+    def a(b, c d):
+               ^
+SyntaxError: invalid syntax
+
+    שכחת פסיק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_missing_comma.py'
+במקום המצוין.
+
+   4: def a(b, c d):
+               ^^^
+
+פייתון מציין כי השגיאה נגרמת על ידי "d" שקרה מיד לאחר "c".
+יתכן ששכחת פסיק בין פריטים בטופל,
+או בין ארגומנטים של פונקציה,
+במיקום המצוין על ידי ^.
+אולי התכוונת ל
+
+    def a(b, c, d):
+              ^
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>(74) def: missing parentheses<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_parens.py", line 3
+    def name:
+            ^
+SyntaxError: invalid syntax
+
+    שכחת סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_missing_parens.py'
+במקום המצוין.
+
+   3: def name:
+              ^
+
+אולי שכחת לכלול סוגריים.
+אולי התכוונת לכתוב
+
+     def name():
+</pre></div>
+</div>
+</section>
+<section id="def-missing-parentheses-around-arguments">
+<h2>(75) def: missing parentheses around arguments<a class="headerlink" href="#def-missing-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_parens_2.py", line 2
+    def name a, b:
+             ^
+SyntaxError: invalid syntax
+
+    שכחת סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_missing_parens_2.py'
+במקום המצוין.
+
+   2: def name a, b:
+               ^
+
+אולי שכחת לכלול סוגריים.
+אולי התכוונת לכתוב
+
+     def name (a, b):
+</pre></div>
+</div>
+</section>
+<section id="def-missing-function-name">
+<h2>(76) def: missing function name<a class="headerlink" href="#def-missing-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_name.py", line 3
+    def ( arg )  :
+        ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_missing_name.py'
+במקום המצוין.
+
+   3: def ( arg )  :
+          ^
+
+שכחת לציין את שם הפונקציה שלך.
+התחביר הנכון הוא:
+ def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="def-name-is-parameter-and-global">
+<h2>(77) def: name is parameter and global<a class="headerlink" href="#def-name-is-parameter-and-global" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
+    global x
+    ^
+SyntaxError: name 'x' is parameter and global
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_name_is_parameter_and_global.py'
+במקום המצוין.
+
+   6:     global x
+          ^^^^^^
+
+אתה כולל את ההצהרה
+
+         global x
+
+
+המציין כי "x" הוא משתנה המוגדר מחוץ לפונקציה.
+אתה משתמש גם באותו 'x' כארגומנט לפונקציה הזו
+ובכך מציין כי היא צריכה להיות משתנה הידוע רק
+בתוך הפונקציה, שהיא ההפך ממה שמשתמע מה"global ".
+</pre></div>
+</div>
+</section>
+<section id="def-non-default-argument-follows-default-argument">
+<h2>(78) def: non-default argument follows default argument<a class="headerlink" href="#def-non-default-argument-follows-default-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_non_default_after_default.py", line 5
+    def test(a=1, b):
+                   ^
+SyntaxError: non-default argument follows default argument
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_non_default_after_default.py'
+במקום המצוין.
+
+   5: def test(a=1, b):
+                     ^
+
+ב- Python, אתה יכול להגדיר פונקציות עם ארגומנטים מיקומיים בלבד
+
+def f(a, b, c)
+
+או רק ארגומנטים של מילות מפתח
+
+def f(a = 1, b = 2, c = 3)
+
+או שילוב של השניים
+
+def f(1, 2, c = 3)
+
+אבל עם טיעוני מילת המפתח שמופיעים אחרי כל אלה המיקומיים.
+על פי פייתון, השתמשת בטיעונים מיקומיים אחרי מילות מפתח.
+</pre></div>
+</div>
+</section>
+<section id="single-number-used-as-arg-in-function-def">
+<h2>(79) Single number used as arg in function def<a class="headerlink" href="#single-number-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_number_as_arg.py", line 1
+    def f(1):
+          ^
+SyntaxError: invalid syntax
+
+    אי אפשר  להשתמש במספרים כארגומנטים של פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_number_as_arg.py'
+במקום המצוין.
+
+   1: def f(1):
+            ^
+
+השתמשת במספר כארגומנט בעת הגדרת פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="operator-after">
+<h2>(80) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#operator-after" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_after_2star.py", line 1
+    def test(**):
+               ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_operator_after_2star.py'
+במקום המצוין.
+
+   1: def test(**):
+                 ^
+
+אחרי האופרטור '**' צריך להיות מזהה (שם משתנה).
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-comma">
+<h2>(81) def: operator instead of comma<a class="headerlink" href="#def-operator-instead-of-comma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_comma.py", line 1
+    def test(a + b):
+               ^
+SyntaxError: invalid syntax
+
+    האם התכוונת לכתוב פסיק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_operator_instead_of_comma.py'
+במקום המצוין.
+
+   1: def test(a + b):
+                 ^
+
+לא יכולים להיות לך אופרטורים כארגומנטים של פונקציות.
+אני חושד שעשית שגיאת כתיב וכתבת '+' במקום פסיק.
+המשפט הבא אינו מכיל שגיאת תחביר:
+
+     def test(a , b):
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-equal">
+<h2>(82) def: operator instead of equal<a class="headerlink" href="#def-operator-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_equal.py", line 1
+    def test(a, b=3, c+None):
+                      ^
+SyntaxError: invalid syntax
+
+    האם התכוונת לכתוב סימן שווה?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_operator_instead_of_equal.py'
+במקום המצוין.
+
+   1: def test(a, b=3, c+None):
+                        ^
+
+לא יכולים להיות לך אופרטורים כארגומנטים של פונקציות.
+אני חושד שעשית שגיאת כתיב וכתבת '+' במקום סימן שוויון.
+המשפט הבא אינו מכיל שגיאת תחביר:
+
+     def test(a, b=3, c=None):
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-name">
+<h2>(83) def: operator instead of name<a class="headerlink" href="#def-operator-instead-of-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_name.py", line 1
+    def test(a, +, b):
+                ^
+SyntaxError: invalid syntax
+
+    אינך יכול להשתמש ב- '+' כטיעון.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_operator_instead_of_name.py'
+במקום המצוין.
+
+   1: def test(a, +, b):
+                  ^
+
+אני חושד שעשית שגיאת כתיב וכתבת בטעות '+'.
+אם תחליף אותו בשם משתנה ייחודי, התוצאה
+לא יכיל שגיאת תחביר.
+</pre></div>
+</div>
+</section>
+<section id="def-positional-argument-follows-keyword-argument">
+<h2>(84) def: positional argument follows keyword argument<a class="headerlink" href="#def-positional-argument-follows-keyword-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_positional_after_keyword_arg.py", line 5
+    test(a=1, b)
+               ^
+SyntaxError: positional argument follows keyword argument
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_positional_after_keyword_arg.py'
+במקום המצוין.
+
+   5: test(a=1, b)
+                 ^
+
+ב- Python, אתה יכול לקרוא פונקציות עם ארגומנטים מיקוםיים בלבד
+
+     f(1, 2, 3)
+
+או רק ארגומנטים של מילות מפתח
+
+     f(a = 1, b = 2, c = 3)
+
+או שילוב של השניים
+
+     f(1, 2, c = 3)
+
+אבל עם טיעוני מילת המפתח שמופיעים אחרי כל אלה המיקומיים.
+על פי פייתון, השתמשת בטיעונים מיקומיים אחרי מילות מפתח.
+</pre></div>
+</div>
+</section>
+<section id="def-semicolon-instead-of-colon">
+<h2>(85) def: semicolon instead of colon<a class="headerlink" href="#def-semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_semi_colon_instead_of_colon.py", line 1
+    def test();
+              ^
+SyntaxError: invalid syntax
+
+    שכחת לכתוב נקודתיים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
+במקום המצוין.
+
+   1: def test();
+                ^
+
+הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+כתבת ';' במקום נקודתיים.
+</pre></div>
+</div>
+</section>
+<section id="def-set-as-argument">
+<h2>(86) def: set as argument<a class="headerlink" href="#def-set-as-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_set_as_arg.py", line 1
+    def test(y, {'a', 'b'}):  # set as second argument, after comma
+                ^
+SyntaxError: invalid syntax
+
+    אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_set_as_arg.py'
+במקום המצוין.
+
+   1: def test(y, {'a', 'b'}):  # set as second argument, after comma
+                  ^
+
+אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-arg-before">
+<h2>(87) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /<a class="headerlink" href="#def-arg-before" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
+    def test(a, *arg, /):
+                      ^
+SyntaxError: invalid syntax
+
+    '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_arg_before_slash.py'
+במקום המצוין.
+
+   1: def test(a, *arg, /):
+                        ^
+
+`/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+הם טיעונים עמדתיים.
+'*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once.py", line 1
+    def test(a, *arg, *, b=1):
+                      ^
+SyntaxError: invalid syntax
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_used_only_once.py'
+במקום המצוין.
+
+   1: def test(a, *arg, *, b=1):
+                        ^
+
+אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+יש להשתמש בו בעצמו, "*",
+או בצורה '*arg', אך לא שניהם.
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once_1.py", line 1
+    def test(a, *, *):
+                   ^
+SyntaxError: invalid syntax
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_used_only_once_1.py'
+במקום המצוין.
+
+   1: def test(a, *, *):
+                     ^
+
+אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
+    def test(a, *arg, *other):
+                      ^
+SyntaxError: invalid syntax
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_used_only_once_2.py'
+במקום המצוין.
+
+   1: def test(a, *arg, *other):
+                        ^
+
+אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+השתמשת בו פעמיים, עם '*arg' ו- '*other'.
+</pre></div>
+</div>
+</section>
+<section id="def-after">
+<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#def-after" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_after_2star.py", line 1
+    def test(**kw, *arg):
+                   ^
+SyntaxError: invalid syntax
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_after_2star.py'
+במקום המצוין.
+
+   1: def test(**kw, *arg):
+                     ^
+
+`*arg` חייב להופיע לפני `** kw`.
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2>(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_after_2star_2.py", line 1
+    def test(**kw, *):
+                   ^
+SyntaxError: invalid syntax
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_star_after_2star_2.py'
+במקום המצוין.
+
+   1: def test(**kw, *):
+                     ^
+
+"** kw" חייב להופיע אחרי אופרטור "*".
+</pre></div>
+</div>
+</section>
+<section id="single-string-used-as-arg-in-function-def">
+<h2>(93) Single string used as arg in function def<a class="headerlink" href="#single-string-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_string_as_arg.py", line 1
+    def f("1"):
+          ^
+SyntaxError: invalid syntax
+
+    אינך יכול להשתמש במחרוזות כארגומנטים של פונקציות.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_string_as_arg.py'
+במקום המצוין.
+
+   1: def f("1"):
+            ^^^
+
+השתמשת במחרוזת כארגומנט בעת הגדרת פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+</pre></div>
+</div>
+</section>
+<section id="def-tuple-as-function-argument">
+<h2>(94) def: tuple as function argument<a class="headerlink" href="#def-tuple-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
+    def test((a, b), c):
+             ^
+SyntaxError: invalid syntax
+
+    אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_tuple_as_arg_1.py'
+במקום המצוין.
+
+   1: def test((a, b), c):
+               ^
+
+אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+צריך להקצות כל צמד לפרמטר ולפרק אותו
+בתוך גוף הפונקציה.
+</pre></div>
+</div>
+</section>
+<section id="def-tuple-as-function-argument-2">
+<h2>(95) def: tuple as function argument - 2<a class="headerlink" href="#def-tuple-as-function-argument-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
+    def test(a, (b, c)):
+                ^
+SyntaxError: invalid syntax
+
+    אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\def_tuple_as_arg_2.py'
+במקום המצוין.
+
+   1: def test(a, (b, c)):
+                  ^
+
+אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+צריך להקצות כל צמד לפרמטר ולפרק אותו
+בתוך גוף הפונקציה.
+</pre></div>
+</div>
+</section>
+<section id="deleting-star-expression-1">
+<h2>(96) Deleting star expression - 1<a class="headerlink" href="#deleting-star-expression-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\del_paren_star_1.py", line 1
+    del (*x)
+         ^
+SyntaxError: can't use starred expression here
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\del_paren_star_1.py'
+במקום המצוין.
+
+   1: del (*x)
+           ^
+
+אופרטור הכוכב "*" מתפרש כמשמעותו
+יש להשתמש בפירוק חוזר כדי להקצות שם
+לכל פריט של חוזר, וזה לא הגיוני כאן.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="deleting-star-expression-2">
+<h2>(97) Deleting star expression - 2<a class="headerlink" href="#deleting-star-expression-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\del_paren_star_2.py", line 1
+    del (*x,)
+         ^
+SyntaxError: cannot delete starred
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\del_paren_star_2.py'
+במקום המצוין.
+
+   1: del (*x,)
+           ^
+
+אופרטור הכוכב "*" מתפרש כמשמעותו
+יש להשתמש בפירוק חוזר כדי להקצות שם
+לכל פריט של חוזר, וזה לא הגיוני כאן.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-a-constant">
+<h2>(98) Cannot delete a constant<a class="headerlink" href="#cannot-delete-a-constant" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_constant_keyword.py", line 1
+    del True
+        ^
+SyntaxError: cannot delete True
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_constant_keyword.py'
+במקום המצוין.
+
+   1: del True
+          ^^^^
+
+אינך יכול למחוק את הקבוע (constant ) 'True'.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-expression">
+<h2>(99) Cannot delete expression<a class="headerlink" href="#cannot-delete-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_expression.py", line 1
+    del a.b.c[0] + 2
+        ^
+SyntaxError: cannot delete operator
+
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_expression.py'
+במקום המצוין.
+
+   1: del a.b.c[0] + 2
+          ^
+
+You cannot delete the expression `a.b.c[0] + 2`.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-function-call">
+<h2>(100) Cannot delete function call<a class="headerlink" href="#cannot-delete-function-call" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_function_call.py", line 5
+    del f(a)
+        ^
+SyntaxError: cannot delete function call
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_function_call.py'
+במקום המצוין.
+
+   5: del f(a)
+          ^
+
+ניסית למחוק שיחת פונקציה
+
+     del f(a)
+במקום למחוק את שם הפונקציה
+
+     del f
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-named-expression">
+<h2>(101) Cannot delete named expression<a class="headerlink" href="#cannot-delete-named-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_named_expression.py", line 1
+    del (a := 5)
+         ^
+SyntaxError: cannot delete named expression
+
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_named_expression.py'
+במקום המצוין.
+
+   1: del (a := 5)
+           ^
+
+You cannot delete the named expression `(a := 5)`.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="delete-only-names-or-items">
+<h2>(102) Delete only names or items<a class="headerlink" href="#delete-only-names-or-items" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_names_or_items.py", line 1
+    del a += b
+          ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_names_or_items.py'
+במקום המצוין.
+
+   1: del a += b
+            ^^
+
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="deleting-string-literal">
+<h2>(103) Deleting string literal<a class="headerlink" href="#deleting-string-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_string_literal.py", line 1
+    del "Hello world!"
+        ^
+SyntaxError: cannot delete literal
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\delete_string_literal.py'
+במקום המצוין.
+
+   1: del "Hello world!"
+          ^^^^^^^^^^^^^^
+
+You cannot delete the literal `"Hello world!"`.
+You can only delete names of objects, or items in mutable containers
+such as `list`, `set`, or `dict`.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-1">
+<h2>(104) Value missing in dict - 1<a class="headerlink" href="#value-missing-in-dict-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_1.py", line 1
+    a = {1:2, 3}
+               ^
+SyntaxError: invalid syntax
+
+    Did you forget to write a dict value?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\dict_value_missing_1.py'
+במקום המצוין.
+
+   1: a = {1:2, 3}
+                 ^
+
+It looks like the error occurred as you were writing a Python dict.
+Perhaps wrote a dict key without writing the corresponding value.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-2">
+<h2>(105) Value missing in dict - 2<a class="headerlink" href="#value-missing-in-dict-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_2.py", line 2
+    a = {1:2, 3:}
+                ^
+SyntaxError: invalid syntax
+
+    Did you forget to write a dict value?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\dict_value_missing_2.py'
+במקום המצוין.
+
+   2: a = {1:2, 3:}
+                  ^
+
+It looks like the error occurred as you were writing a Python dict.
+Perhaps you forgot to write a value after a colon.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-3">
+<h2>(106) Value missing in dict - 3<a class="headerlink" href="#value-missing-in-dict-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_3.py", line 3
+    a = {1:2, 3, 4:5}
+               ^
+SyntaxError: invalid syntax
+
+    Did you forget to write a dict value?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\dict_value_missing_3.py'
+במקום המצוין.
+
+   3: a = {1:2, 3, 4:5}
+                 ^
+
+It looks like the error occurred as you were writing a Python dict.
+Perhaps wrote a dict key without writing the corresponding value.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-4">
+<h2>(107) Value missing in dict - 4<a class="headerlink" href="#value-missing-in-dict-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_4.py", line 4
+    a = {1:2, 3:, 4:5}
+                ^
+SyntaxError: invalid syntax
+
+    Did you forget to write a dict value?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\dict_value_missing_4.py'
+במקום המצוין.
+
+   4: a = {1:2, 3:, 4:5}
+                  ^
+
+It looks like the error occurred as you were writing a Python dict.
+Perhaps you forgot to write a value after a colon.
+</pre></div>
+</div>
+</section>
+<section id="different-operators-in-a-row">
+<h2>(108) Different operators in a row<a class="headerlink" href="#different-operators-in-a-row" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\different_operators_in_a_row.py", line 1
+    3 */ 4
+       ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\different_operators_in_a_row.py'
+במקום המצוין.
+
+   1: 3 */ 4
+        ^^
+
+אי אפשר לכתוב שני אופרטורים אלה, "*" ו- "/",
+עוקבים אחד אחרי השני. אולי כתבת אחד מהם בטעות
+או ששכחת לכתוב משהו ביניהם.
+</pre></div>
+</div>
+</section>
+<section id="dot-followed-by-parenthesis">
+<h2>(109) Dot followed by parenthesis<a class="headerlink" href="#dot-followed-by-parenthesis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dot_before_paren.py", line 3
+    print(len.('hello'))
+              ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\dot_before_paren.py'
+במקום המצוין.
+
+   3: print(len.('hello'))
+                ^
+
+לא יכולה להיות לך נקודה `.` ואחריה "(".
+אולי אתה צריך להחליף את הנקודה בפסיק.
+</pre></div>
+</div>
+</section>
+<section id="extra-token">
+<h2>(110) Extra token<a class="headerlink" href="#extra-token" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\duplicate_token.py", line 1
+    print(1 , , 2)
+              ^
+SyntaxError: invalid syntax
+
+    האם כתבת `,` פעמיים בטעות?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\duplicate_token.py'
+במקום המצוין.
+
+   1: print(1 , , 2)
+                ^
+
+אני מנחש שכתבת `,` פעמיים ברציפות בטעות.
+אם זה המצב, עליך להסיר את השני.
+</pre></div>
+</div>
+</section>
+<section id="elif-with-no-matching-if">
+<h2>(111) elif with no matching if<a class="headerlink" href="#elif-with-no-matching-if" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\elif_not_matching_if.py", line 3
+    elif True:
+    ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\elif_not_matching_if.py'
+במקום המצוין.
+
+   3:    elif True:
+         ^^^^
+
+The `elif` keyword does not begin a code block that matches
+an `if` block, possibly because `elif` is not indented correctly.
+</pre></div>
+</div>
+</section>
+<section id="else-with-no-matching-statement">
+<h2>(112) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\else_no_matching_statement.py", line 3
+    else:
+    ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\else_no_matching_statement.py'
+במקום המצוין.
+
+   3:    else:
+         ^^^^
+
+The `else` keyword does not begin a code block that matches
+a valid code block, possibly because `else` is not indented correctly.
+</pre></div>
+</div>
+</section>
+<section id="write-elif-not-else-if">
+<h2>(113) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\else_if_instead_of_elif.py", line 5
+    else if True:
+         ^
+SyntaxError: invalid syntax
+
+    אולי התכוונת לכתוב elseif.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\else_if_instead_of_elif.py'
+במקום המצוין.
+
+   5: else if True:
+      ^^^^^^^
+
+סביר שהתכוונת להשתמש במילת המפתח 'elif' של פייתון
+אבל כתוב 'else if' במקום זאת.
+</pre></div>
+</div>
+</section>
+<section id="write-elif-not-elseif">
+<h2>(114) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
+    elseif True:
+           ^
+SyntaxError: invalid syntax
+
+    אולי התכוונת לכתוב elseif.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\elseif_instead_of_elif.py'
+במקום המצוין.
+
+   5: elseif True:
+      ^^^^^^
+
+סביר שהתכוונת להשתמש במילת המפתח 'elif' של פייתון
+אבל כתוב 'elseif' במקום זאת.
+</pre></div>
+</div>
+</section>
+<section id="eol-while-scanning-string-literal">
+<h2>(115) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\eol_string_literal.py", line 3
+    alphabet = 'abc
+                   ^
+SyntaxError: EOL while scanning string literal
+
+    שכחת גרשיים לסיום?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\eol_string_literal.py'
+במקום המצוין.
+
+   3: alphabet = 'abc
+                  ^^^
+
+התחלת לכתוב מחרוזת עם גרש או מרכאות
+אך מעולם לא סיימת את המחרוזת בציטוט\מרכאות נוסף בשורה זו.
+</pre></div>
+</div>
+</section>
+<section id="used-equal-sign-instead-of-colon">
+<h2>(116) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
+    ages = {'Alice'=22, 'Bob'=24}
+                   ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\equal_sign_instead_of_colon.py'
+במקום המצוין.
+
+   4: ages = {'Alice'=22, 'Bob'=24}
+                     ^
+
+ייתכן שהשתמשת בסימן שווה `=` במקום נקודתיים `:`
+כדי להקצות ערכים למפתחות במילון (dict)
+לפני או במיקום המצוין ב^.
+</pre></div>
+</div>
+</section>
+<section id="parens-around-multiple-exceptions">
+<h2>(117) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\except_multiple_exceptions.py", line 3
+    except NameError, ValueError as err:
+                    ^
+SyntaxError: invalid syntax
+
+    שכחת סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\except_multiple_exceptions.py'
+במקום המצוין.
+
+   3: except NameError, ValueError as err:
+                      ^
+
+אני מניח שרצית להשתמש באמירה של 'except'
+ (תפוס)
+עם מספר סוגי חריגים. אם זה המצב, אתה חייב
+להקיף אותם בסוגריים.
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>(118) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\extra_token.py", line 1
+    print(1 / 2) ==
+                   ^
+SyntaxError: invalid syntax
+
+    האם כתבת את `==` בטעות?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\extra_token.py'
+במקום המצוין.
+
+   1: print(1 / 2) ==
+                   ^^
+
+אני מנחש שכתבת את `==` בטעות.
+נראה כי הסרתו וכתיבת 'print(1 / 2)' פותרים את השגיאה.
+</pre></div>
+</div>
+</section>
+<section id="binary-f-string-not-allowed">
+<h2>(119) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_binary.py", line 1
+    greet = bf"Hello {name}"
+              ^
+SyntaxError: invalid syntax
+
+    'bf' היא קידומת מחרוזת לא חוקית.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\f_string_binary.py'
+במקום המצוין.
+
+   1: greet = bf"Hello {name}"
+                ^^^^^^^^^^^^^^
+
+אני מנחש שרצית מחרוזת f בינארית;
+זה אסור.
+</pre></div>
+</div>
+</section>
+<section id="f-string-closing-not-allowed">
+<h2>(120) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_curly_not_allowed.py", line 1
+    f"ab}"
+          ^
+SyntaxError: f-string: single '}' is not allowed
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\f_string_curly_not_allowed.py'
+במקום המצוין.
+
+   1: f"ab}"
+      ^^^^^^
+
+You have written an f-string which has an unmatched `}`.
+If you want to print a single `}`, you need to write `}}` in the f-string;
+otherwise, you need to add an opening `{`.
+</pre></div>
+</div>
+</section>
+<section id="f-string-missing-closing">
+<h2>(121) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_expected_curly.py", line 1
+    f"{ab"
+          ^
+SyntaxError: f-string: expecting '}'
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\f_string_expected_curly.py'
+במקום המצוין.
+
+   1: f"{ab"
+      ^^^^^^
+
+You have written an f-string which has an unmatched `{`.
+If you want to print a single `{`, you need to write `{{` in the f-string;
+otherwise, you need to add a closing `}`.
+</pre></div>
+</div>
+</section>
+<section id="f-string-unterminated-string">
+<h2>(122) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_unterminated.py", line 4
+    print(f"Bob is {age['Bob]} years old.")
+                                          ^
+SyntaxError: f-string: unterminated string
+
+    אולי שכחת גרשי או גרשיים  לסיום.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\f_string_unterminated.py'
+במקום המצוין.
+
+   4: print(f"Bob is {age['Bob]} years old.")
+                                            ^
+
+בתוך מחרוזת f f"Bob is {age['Bob]} years old." `,
+יש לך מחרוזת נוספת, שמתחילה ב
+גרש (') או גרשיים ("), ללא סיום תואם.
+</pre></div>
+</div>
+</section>
+<section id="f-string-with-backslash">
+<h2>(123) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_with_backslash.py", line 2
+    print(f"{'\n'.join(names)}")
+                               ^
+SyntaxError: f-string expression part cannot include a backslash
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\f_string_with_backslash.py'
+במקום המצוין.
+
+   2: print(f"{'\n'.join(names)}")
+                                 ^
+
+כתבת מחרוזת f שהתוכן שלה `{...}`
+כולל קו נטוי לאחור; זה אסור.
+אולי אתה יכול להחליף את החלק שמכיל קו נטוי אחורי ב
+משתנה כלשהו. לדוגמה, נניח שיש לך מחרוזת f כמו:
+
+    f"{... 'hello\n' ...}"
+
+אתה יכול לכתוב את זה בתור
+
+    hello = 'שלום\n'
+    f"{... שלום ...}"
+</pre></div>
+</div>
+</section>
+<section id="missing-terms-in-for-statement">
+<h2>(124) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\for_missing_terms.py", line 1
+    for:
+       ^
+SyntaxError: invalid syntax
+
+    לולאת `for`(פור) דורשת לפחות 3 מונחים נוספים.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\for_missing_terms.py'
+במקום המצוין.
+
+   1: for:
+         ^
+
+לולאת `for` היא איטרציה על רצף:
+
+    עבור אלמנט ברצף:
+        ...
+</pre></div>
+</div>
+</section>
+<section id="not-a-chance">
+<h2>(125) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_braces.py", line 1
+    from __future__ import braces
+    ^
+SyntaxError: not a chance
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\future_braces.py'
+במקום המצוין.
+
+   1: from __future__ import braces
+      ^^^^
+
+אני חושד שכתבת 'מ-__עתיד__ ייבוא פלטה' בהמשך
+הצעה של מישהו אחר. זה לעולם לא יעבוד.
+
+בניגוד לשפות תכנות אחרות, בלוק הקוד של Python מוגדרים על ידי
+רמת ההזחה שלהם, ולא על ידי שימוש בסוגריים מסולסלים, כמו `{...}`.
+</pre></div>
+</div>
+</section>
+<section id="do-not-import-from-future">
+<h2>(126) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_import_star.py", line 1
+    from __future__ import *
+    ^
+SyntaxError: future feature * is not defined
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\future_import_star.py'
+במקום המצוין.
+
+   1: from __future__ import *
+      ^^^^
+
+בעת שימוש בהצהרה 'from __future__ import',
+עליך לייבא תכונות ספציפיות בשם.
+
+התכונות הזמינות הן 'nested_scopes,
+ generators,
+ division,
+ absolute_import,
+ with_statement,
+ print_function,
+ unicode_literals,
+ barry_as_FLUFL,
+ generator_stop,
+ annotations'.
+</pre></div>
+</div>
+</section>
+<section id="future-at-beginning">
+<h2>(127) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_must_be_first.py", line 3
+    from __future__ import generators
+    ^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\future_must_be_first.py'
+במקום המצוין.
+
+   3:     from __future__ import generators
+          ^^^^
+
+הצהרת `from __future__ import` משנה את הדרך שבה Python
+מפרש את הקוד בקובץ.
+זה חייב להופיע בתחילת הקובץ.
+</pre></div>
+</div>
+</section>
+<section id="typo-in-future">
+<h2>(128) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_typo.py", line 1
+    from __future__ import divisio
+    ^
+SyntaxError: future feature divisio is not defined
+
+    האם התכוונת ל 'division'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\future_typo.py'
+במקום המצוין.
+
+   1: from __future__ import divisio
+      ^^^^
+
+במקום 'divisio', אולי התכוונת לייבא 'division'.
+</pre></div>
+</div>
+</section>
+<section id="unknown-feature-in-future">
+<h2>(129) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_unknown.py", line 1
+    from __future__ import something
+    ^
+SyntaxError: future feature something is not defined
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\future_unknown.py'
+במקום המצוין.
+
+   1: from __future__ import something
+      ^^^^
+
+`something` אינה תכונה תקפה של המודול ` __future__`.
+
+התכונות הזמינות הן 'nested_scopes,
+ generators,
+ division,
+ absolute_import,
+ with_statement,
+ print_function,
+ unicode_literals,
+ barry_as_FLUFL,
+ generator_stop,
+ annotations'.
+</pre></div>
+</div>
+</section>
+<section id="parenthesis-around-generator-expression">
+<h2>(130) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\generator_expression_parens.py", line 6
+    f(x for x in L, 1)
+      ^
+SyntaxError: Generator expression must be parenthesized
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\generator_expression_parens.py'
+במקום המצוין.
+
+   6: f(x for x in L, 1)
+        ^
+
+אתה משתמש בביטוי מחולל, משהו מהצורה
+
+     x עבור x בדבר
+
+עליך להוסיף סוגריים המקיפים את הביטוי הזה.
+</pre></div>
+</div>
+</section>
+<section id="space-between-names">
+<h2>(131) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
+    a-b = 2
+    ^
+SyntaxError: cannot assign to operator
+
+    האם התכוונת ל 'a_b'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\hyphen_instead_of_underscore.py'
+במקום המצוין.
+
+   4: a-b = 2
+      ^
+
+כתבת ביטוי הכולל כמה פעולות מתמטיות
+בצד שמאל של סימן השוויון שאמור להיות
+משמש רק להקצאת ערך למשתנה.
+אולי התכוונת לכתוב 'a_b' במקום 'a-b'
+</pre></div>
+</div>
+</section>
+<section id="missing-condition-in-if-statement">
+<h2>(132) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\if_missing_condition.py", line 1
+    if:
+      ^
+SyntaxError: invalid syntax
+
+    שכחת להוסיף תנאי.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\if_missing_condition.py'
+במקום המצוין.
+
+   1: if:
+        ^
+
+הצהרת 'if'(אם) דורשת תנאי:
+
+     if (אם) מצב:
+         ...
+</pre></div>
+</div>
+</section>
+<section id="use-j-instead-of-i">
+<h2>(133) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\imaginary_i.py", line 3
+    a = 3.0i
+           ^
+SyntaxError: invalid syntax
+
+    האם התכוונת ל '3.0j'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\imaginary_i.py'
+במקום המצוין.
+
+   3: a = 3.0i
+             ^
+
+אולי חשבת שאפשר להשתמש ב'אני' כדי לייצג
+השורש הריבועי של `-1`. ב-Python, הסמל המשמש לכך הוא `j`
+והחלק המורכב נכתב כ'מספר_כמה' מיד
+ואחריו 'j', ללא רווחים ביניהם.
+אולי התכוונת לכתוב `3.0j`.
+</pre></div>
+</div>
+</section>
+<section id="import-inversion-import-x-from-y">
+<h2>(134) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\import_from.py", line 3
+    import pen from turtle
+               ^
+SyntaxError: invalid syntax
+
+    האם התכוונת לfrom turtle import pen ( 'מ- turtle יבוא pen `) ?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\import_from.py'
+במקום המצוין.
+
+   3: import pen from turtle
+      ^^^^^^     ^^^^
+
+כתבת משהו כמו
+
+    יבוא pen מ-turtle
+
+במקום
+
+    מ-turtle ייבוא pen
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-expected-an-indented-block">
+<h2>(135) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_1.py", line 4
+    pass
+    ^
+IndentationError: expected an indented block
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\indentation_error_1.py'
+במקום המצוין.
+
+   4: pass
+      ^^^^
+
+Line `4` identified above was expected to begin a new indented block.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-unexpected-indent">
+<h2>(136) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_2.py", line 4
+    pass
+    ^
+IndentationError: unexpected indent
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\indentation_error_2.py'
+במקום המצוין.
+
+   4:       pass
+            ^^^^
+
+Line `4` identified above is more indented than expected.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-unindent-does-not-match">
+<h2>(137) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_3.py", line 5
+    pass
+        ^
+IndentationError: unindent does not match any outer indentation level
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\indentation_error_3.py'
+במקום המצוין.
+
+   5:     pass
+          ^^^^
+
+Line `5` identified above is less indented than expected.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-missing-continuation-line">
+<h2>(138) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_4.py", line 6
+    "c"
+    ^
+IndentationError: unexpected indent
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\indentation_error_4.py'
+במקום המצוין.
+
+   6:          "c"
+               ^^^
+
+Line `6` identified above is more indented than expected.
+
+עם זאת, שורה 6, המזוהה כבעיה,
+מורכב ממחרוזת אחת, וזה גם המקרה
+עבור השורה הקודמת.
+אולי התכוונת לכלול דמות המשך, '\',
+בסוף השורה 5.
+</pre></div>
+</div>
+</section>
+<section id="forgot-o-for-octal">
+<h2>(139) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\integer_with_leading_zero_1.py", line 1
+    x = 01
+         ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+    האם התכוונת ל '0o1'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\integer_with_leading_zero_1.py'
+במקום המצוין.
+
+   1: x = 01
+           ^
+
+אולי התכוונת לכתוב את המספר האוקטלי '0o1'
+ושכחת את האות 'או', או שאולי התכוונת לכתוב
+מספר שלם עשרוני ולא ידעת שהוא לא יכול להתחיל באפס.
+</pre></div>
+</div>
+</section>
+<section id="integer-with-leading-zeros">
+<h2>(140) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\integer_with_leading_zero_2.py", line 1
+    x = 000_123_456
+                  ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+    האם התכוונת ל '123_456'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\integer_with_leading_zero_2.py'
+במקום המצוין.
+
+   1: x = 000_123_456
+             ^^^^^^^^
+
+אולי התכוונת לכתוב את המספר השלם '123_456'
+ולא ידעת שזה לא יכול להתחיל באפס.
+</pre></div>
+</div>
+</section>
+<section id="invalid-character-in-identifier">
+<h2>(141) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_character_in_identifier.py", line 6
+    🤖 = 'Reeborg'
+    ^
+SyntaxError: invalid character '🤖' (U+1F916)
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_character_in_identifier.py'
+במקום המצוין.
+
+   6: 🤖 = 'Reeborg'
+      ^
+
+Python מציין שהשתמשת בתו unicode '🤖'
+מה שאסור.
+</pre></div>
+</div>
+</section>
+<section id="invalid-decimal-literal-1">
+<h2>(142) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_decimal_literal1.py", line 1
+    a = 1e
+         ^
+SyntaxError: invalid syntax
+
+    [הערה: '1 * e' יהיה תקף גם
+    מאחר ש '1' הוא מספר מורכב.]
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_decimal_literal1.py'
+במקום המצוין.
+
+   1: a = 1e
+           ^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+[הערה: '1 * e' יהיה תקף גם
+מאחר ש '1' הוא מספר מורכב.]
+</pre></div>
+</div>
+</section>
+<section id="invalid-encoding">
+<h2>(143) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_encoding.py", line 2, in &lt;module&gt;
+    compile(source, filename="example.py", mode="exec")
+  File "TESTS:\example.py", line 0
+SyntaxError: encoding problem: utf8 with BOM
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\example.py'
+
+
+קידוד הקובץ לא היה חוקי.
+</pre></div>
+</div>
+</section>
+<section id="invalid-hexadecimal-number">
+<h2>(144) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_hexadecimal.py", line 3
+    a = 0x123g4
+             ^
+SyntaxError: invalid syntax
+
+    האם טעית בכתיבת מספר שלם הקסדצימלי?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_hexadecimal.py'
+במקום המצוין.
+
+   3: a = 0x123g4
+               ^^
+
+נראה שהשתמשת בתו לא חוקי (`g`) במספר הקסדצימלי.
+
+מספרים הקסדצימליים הם בסיס 16 מספרים שלמים המשתמשים בסמלים '0' עד '9'
+לייצג את הערכים 0 עד 9, ואת האותיות 'a' עד 'f' (או 'A' עד 'F')
+לייצג ערכים 10 עד 15.
+ב-Python, מספרים הקסדצימליים מתחילים ב-'0x' או ב-'0X',
+ואחריו התווים המשמשים לייצג את הערך של אותו מספר שלם.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number">
+<h2>(145) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier.py", line 3
+    36abc = 3
+      ^
+SyntaxError: invalid syntax
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_identifier.py'
+במקום המצוין.
+
+   3: 36abc = 3
+        ^^^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-2">
+<h2>(146) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_2.py", line 3
+    tau = 2pi
+           ^
+SyntaxError: invalid syntax
+
+    [הערה: '2 * pi' יהיה תקף גם
+    מאחר ש '2' הוא מספר מורכב.]
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_identifier_2.py'
+במקום המצוין.
+
+   3: tau = 2pi
+             ^^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+[הערה: '2 * pi' יהיה תקף גם
+מאחר ש '2' הוא מספר מורכב.]
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-3">
+<h2>(147) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_3.py", line 1
+    3job  # could be entered in a repl
+      ^
+SyntaxError: invalid syntax
+
+    [הערה: '3 * job' יהיה תקף גם
+    מאחר ש '3' הוא מספר מורכב.]
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_identifier_3.py'
+במקום המצוין.
+
+   1: 3job  # could be entered in a repl
+        ^^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+[הערה: '3 * job' יהיה תקף גם
+מאחר ש '3' הוא מספר מורכב.]
+
+[הערה: `3j * ob` יהיה גם חוקי
+מכיוון ש-'3j' הוא מספר מרוכב.]
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-4">
+<h2>(148) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_4.py", line 1
+    3job = 1
+      ^
+SyntaxError: invalid syntax
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_identifier_4.py'
+במקום המצוין.
+
+   1: 3job = 1
+        ^^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-5">
+<h2>(149) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_5.py", line 1
+    print(42java)
+             ^
+SyntaxError: invalid syntax
+
+    [הערה: '42 * java' יהיה תקף גם
+    מאחר ש '42' הוא מספר מורכב.]
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_identifier_5.py'
+במקום המצוין.
+
+   1: print(42java)
+               ^^^
+
+שמות חוקיים אינם יכולים להתחיל במספר.
+[הערה: '42 * java' יהיה תקף גם
+מאחר ש '42' הוא מספר מורכב.]
+
+[הערה: `42j * ava` יהיה גם חוקי
+מכיוון ש-'42j' הוא מספר מרוכב.]
+</pre></div>
+</div>
+</section>
+<section id="keyword-can-t-be-an-expression">
+<h2>(150) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_keyword_argument.py", line 7
+    a = dict('key'=1)
+             ^
+SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_keyword_argument.py'
+במקום המצוין.
+
+   7: a = dict('key'=1)
+               ^^^^^
+
+You likely called a function with a named argument:
+
+    a_function(invalid=something)
+
+where `invalid` is not a valid variable name in Python
+either because it starts with a number, or is a string,
+or contains a period, etc.
+</pre></div>
+</div>
+</section>
+<section id="named-argument-can-t-be-a-python-keyword">
+<h2>(151) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
+    a = dict(True=1)
+             ^
+SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+
+    You cannot assign a value to `True`.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_keyword_argument_2.py'
+במקום המצוין.
+
+   7: a = dict(True=1)
+               ^^^^
+
+You likely called a function using the Python keyword `True` as an argument:
+
+    a_function(True=something)
+
+which Python interpreted as trying to assign a value to a Python keyword.
+
+You cannot assign a value to `True`.
+</pre></div>
+</div>
+</section>
+<section id="invalid-octal-number">
+<h2>(152) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_octal.py", line 3
+    b = 0O1876
+           ^
+SyntaxError: invalid digit '8' in octal literal
+
+    האם טעית בכתיבת מספר שלם אוקטלי?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\invalid_octal.py'
+במקום המצוין.
+
+   3: b = 0O1876
+             ^^^
+
+נראה שהשתמשת בתו לא חוקי (`8`) במספר אוקטלי.
+
+מספרים אוקטליים הם בסיס 8 מספרים שלמים המשתמשים רק בסמלים '0' עד '7'
+לייצג ערכים.
+ב-Python, מספרים הקסדצימליים מתחילים ב-'0o' או ב-'0O',
+(הספרה אפס ואחריה האות 'o')
+ואחריו התווים המשמשים לייצג את הערך של אותו מספר שלם.
+</pre></div>
+</div>
+</section>
+<section id="inverted-operators-1">
+<h2>(153) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\inverted_operators.py", line 1
+    a =&lt; 3
+       ^
+SyntaxError: invalid syntax
+
+    כתבת אופרטורים בסדר לא נכון?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\inverted_operators.py'
+במקום המצוין.
+
+   1: a =&lt; 3
+        ^^
+
+נראה שכתבת שני אופרטורים ('=' ו- '&lt;')
+בסדר הלא נכון: '=&lt;' במקום '&lt;='.
+</pre></div>
+</div>
+</section>
+<section id="inverted-operators-2">
+<h2>(154) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\inverted_operators_2.py", line 1
+    a =&lt;* 3
+       ^
+SyntaxError: invalid syntax
+
+    כתבת אופרטורים בסדר לא נכון?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\inverted_operators_2.py'
+במקום המצוין.
+
+   1: a =&lt;* 3
+        ^^
+
+נראה שכתבת שני אופרטורים ('=' ו- '&lt;')
+בסדר הלא נכון: '=&lt;' במקום '&lt;='.
+
+עם זאת, שינוי כזה עדיין לא היה נכון
+כל שגיאות התחביר בקוד שכתבת.
+</pre></div>
+</div>
+</section>
+<section id="iteration-variable-unpacking-in-comprehension">
+<h2>(155) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\iteration_unpacking_in_comprehension.py", line 1
+    [*x for x in xs]
+     ^
+SyntaxError: iterable unpacking cannot be used in comprehension
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\iteration_unpacking_in_comprehension.py'
+במקום המצוין.
+
+   1: [*x for x in xs]
+       ^
+
+You cannot use the `*` operator to unpack the iteration variable
+in a comprehension.
+
+The following statement has no syntax error:
+
+    [x for x in xs]
+</pre></div>
+</div>
+</section>
+<section id="keyword-arg-only-once-in-function-call">
+<h2>(156) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\keyword_arg_repeated.py", line 4
+    f(ad=1, ad=2)
+            ^
+SyntaxError: keyword argument repeated: ad
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\keyword_arg_repeated.py'
+במקום המצוין.
+
+   4: f(ad=1, ad=2)
+              ^^
+
+קראת לפונקציה שחוזרת על אותו ארגומנט של מילת מפתח ('ad').
+כל ארגומנט של מילת מפתח צריך להופיע רק פעם אחת בשיחת פונקציה.
+</pre></div>
+</div>
+</section>
+<section id="keyword-as-attribute">
+<h2>(157) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\keyword_as_attribute.py", line 12
+    a.pass = 2
+      ^
+SyntaxError: invalid syntax
+
+    לא ניתן להשתמש ב- 'pass' כתכונה.
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\keyword_as_attribute.py'
+במקום המצוין.
+
+   12: a.pass = 2
+         ^^^^
+
+אינך יכול להשתמש במילת המפתח של פייתון 'pass' כתכונה.
+</pre></div>
+</div>
+</section>
+<section id="lambda-with-parentheses-around-arguments">
+<h2>(158) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\lambda_with_parens.py", line 2
+    x = lambda (a, b): a + b
+               ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\lambda_with_parens.py'
+במקום המצוין.
+
+   2: x = lambda (a, b): a + b
+                 ^
+
+`lambda` אינו מאפשר סוגריים סביב טיעוניו.
+זה מותר ב- Python 2 אך זה לא מותר ב- Python 3.
+</pre></div>
+</div>
+</section>
+<section id="lambda-with-tuple-as-argument">
+<h2>(159) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
+    x = lambda a, (b, c): a + b + b
+                  ^
+SyntaxError: invalid syntax
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\lambda_with_tuple_argument.py'
+במקום המצוין.
+
+   2: x = lambda a, (b, c): a + b + b
+                    ^
+
+אתה לא יכול לקבל tuples מפורשים כטיעונים.
+הקצה כל tuple לפרמטר ופרק אותו
+בתוך גוף הפונקציה.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-literal-in-for-loop">
+<h2>(160) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\literal_in_for_loop.py", line 1
+    for "char" in "word":
+        ^
+SyntaxError: cannot assign to literal
+
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\literal_in_for_loop.py'
+במקום המצוין.
+
+   1: for "char" in "word":
+          ^^^^^^
+
+לולאת פור (for) חייבת להיות בתבנית:
+
+     עבור XXX ברצף:
+
+כאשר 'XXX' חייב להכיל רק מזהים (שמות משתנים)
+ולא מילוליות כמו '"char"'.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-syntaxerror-depending-on-version">
+<h2>(161) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_code_block.py", line 4
+IndentationError: expected an indented block
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_code_block.py'
+במקום המצוין.
+
+   3: for i in range(10):
+--&gt;4:
+                        ^
+
+Line `4` identified above was expected to begin a new indented block.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-syntaxerror-depending-on-version-2">
+<h2>(162) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_code_block_2.py", line 6
+IndentationError: expected an indented block
+
+'IndentationError' מתרחשת כאשר שורת קוד היא
+לא מיושר אנכית עם קווים אחרים כצפוי.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_code_block_2.py'
+
+
+   3: for i in "test":
+   4:
+
+Line `6` identified above was expected to begin a new indented block.
+</pre></div>
+</div>
+</section>
+<section id="missing-colon-if">
+<h2>(163) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_colon_if.py", line 3
+    if True
+           ^
+SyntaxError: invalid syntax
+
+    שכחת נקודתיים ':' ?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_colon_if.py'
+במקום המצוין.
+
+   3: if True
+             ^
+
+כתבת הצהרה שמתחילה ב
+`if` אבל שכחת להוסיף נקודתיים `:` בסוף.
+</pre></div>
+</div>
+</section>
+<section id="missing-colon-while">
+<h2>(164) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_colon_while.py", line 3
+    while True  # a comment
+                ^
+SyntaxError: invalid syntax
+
+    שכחת נקודתיים ':' ?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_colon_while.py'
+במקום המצוין.
+
+   3: while True  # a comment
+                ^
+
+כתבת לולאה של `while `אבל
+שכחת להוסיף נקודתיים `:` בסוף
+</pre></div>
+</div>
+</section>
+<section id="missing-comma-in-a-dict">
+<h2>(165) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_comma_in_dict.py", line 5
+    'c': 3,
+    ^
+SyntaxError: invalid syntax
+
+    שכחת פסיק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_comma_in_dict.py'
+במקום המצוין.
+
+   3: a = {'a': 1,
+--&gt;4:      'b': 2
+                ^--&gt;
+--&gt;5:      'c': 3,
+           ^^^
+   6: }
+
+פייתון מציין כי השגיאה נגרמת על ידי "'c'" שקרה מיד לאחר "2".
+ייתכן ששכחת פסיק בין פריטים בסט או dict
+במיקום המצוין על ידי ^.
+אולי התכוונת ל
+
+    a = {'a': 1,
+         'b': 2,
+               ^
+         'c': 3,
+    }
+</pre></div>
+</div>
+</section>
+<section id="missing-comma-between-strings-in-a-dict">
+<h2>(166) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_comma_in_dict_2.py", line 4
+    'c': '3',
+       ^
+SyntaxError: invalid syntax
+
+    שכחת פסיק?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_comma_in_dict_2.py'
+במקום המצוין.
+
+   2: a = {'a': '1',
+   3:      'b': '2'
+--&gt;4:      'c': '3',
+              ^
+   5: }
+
+אני מנחש ששכחת פסיק בין שני מחרוזות
+בעת הגדרת מילון (dict).
+```
+a = {'a': '1',
+     'b': '2',
+             ^
+     'c': '3',
+}
+```
+</pre></div>
+</div>
+</section>
+<section id="missing-comma-in-a-list">
+<h2>(167) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_comma_in_list.py", line 3
+    a = [1, 2  3]
+               ^
+SyntaxError: invalid syntax
+
+    שכחת משהו בין '2' ל- '3'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_comma_in_list.py'
+במקום המצוין.
+
+   3: a = [1, 2  3]
+              ^^^^
+
+פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+ייתכן ששכחת פסיק בין פריטים ברשימה
+במיקום המצוין על ידי ^.
+אולי התכוונת להכניס אופרטור כמו '+, -, *'
+בין `2` ו- `3`.
+שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+    a = [1, 2,   3]
+    a = [1, 2 +   3]
+    a = [1, 2 -   3]
+    a = [1, 2 *   3]
+הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+חלקם עשויים להעלות סוגים אחרים של חריגים.
+</pre></div>
+</div>
+</section>
+<section id="missing-comma-in-a-set">
+<h2>(168) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_comma_in_set.py", line 3
+    a = {1, 2  3}
+               ^
+SyntaxError: invalid syntax
+
+    שכחת משהו בין '2' ל- '3'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_comma_in_set.py'
+במקום המצוין.
+
+   3: a = {1, 2  3}
+              ^^^^
+
+פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+ייתכן ששכחת פסיק בין פריטים בסט או dict
+במיקום המצוין על ידי ^.
+אולי התכוונת להכניס אופרטור כמו '+, -, *'
+בין `2` ו- `3`.
+שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+    a = {1, 2,   3}
+    a = {1, 2 +   3}
+    a = {1, 2 -   3}
+    a = {1, 2 *   3}
+הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+חלקם עשויים להעלות סוגים אחרים של חריגים.
+</pre></div>
+</div>
+</section>
+<section id="missing-comma-in-a-tuple">
+<h2>(169) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_comma_in_tuple.py", line 3
+    a = (1, 2  3)
+               ^
+SyntaxError: invalid syntax
+
+    שכחת משהו בין '2' ל- '3'?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_comma_in_tuple.py'
+במקום המצוין.
+
+   3: a = (1, 2  3)
+              ^^^^
+
+פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+יתכן ששכחת פסיק בין פריטים בטופל,
+או בין ארגומנטים של פונקציה,
+במיקום המצוין על ידי ^.
+אולי התכוונת להכניס אופרטור כמו '+, -, *'
+בין `2` ו- `3`.
+שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+    a = (1, 2,   3)
+    a = (1, 2 +   3)
+    a = (1, 2 -   3)
+    a = (1, 2 *   3)
+הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+חלקם עשויים להעלות סוגים אחרים של חריגים.
+</pre></div>
+</div>
+</section>
+<section id="missing-parenthesis-for-range">
+<h2>(170) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_parens_for_range.py", line 1
+    for i in range 3:
+                   ^
+SyntaxError: invalid syntax
+
+    שכחת לכתוב סוגריים?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\missing_parens_for_range.py'
+במקום המצוין.
+
+   1: for i in range 3:
+                     ^
+
+נראה ששכחת להשתמש בסוגריים עם 'range'('טווח').
+
+אולי התכוונת ל: for i in range( 3):
+</pre></div>
+</div>
+</section>
+<section id="misspelled-python-keyword">
+<h2>(171) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\misspelled_keyword.py", line 2
+    is i in range(3):
+    ^
+SyntaxError: invalid syntax
+
+    האם התכוונת ל "if i in range(3):"?
+
+'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+
+פייתון לא הצליח להבין את הקוד בקובץ
+ 'TESTS:\syntax\misspelled_keyword.py'
+במקום המצוין.
+
+   2: is i in range(3):
+      ^^
+
+אולי התכוונת לכתוב 'if' וביצעת שגיאת כתיב.
+השורה הנכונה עשויה להיות 'if i in range(3):'
+</pre></div>
+</div>
+</section>
+<section id="name-is-global-and-nonlocal">
+<h2>(172) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -919,6 +5081,158 @@ at the location indicated.
 <li><a class="reference internal" href="#assign-to-generator-expression">(18) Assign to generator expression</a></li>
 <li><a class="reference internal" href="#cannot-assign-to-literal-4">(19) Cannot assign to literal - 4</a></li>
 <li><a class="reference internal" href="#cannot-assign-to-literal-int">(20) Cannot assign to literal int</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-int-2">(21) Cannot assign to literal int - 2</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-5">(22) Cannot assign to literal - 5</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-3">(23) Cannot assign to literal - 3</a></li>
+<li><a class="reference internal" href="#assign-to-keyword-def">(24) Assign to keyword def</a></li>
+<li><a class="reference internal" href="#assign-to-keyword-else">(25) Assign to keyword else</a></li>
+<li><a class="reference internal" href="#assignment-to-keyword-none">(26) Assignment to keyword (None)</a></li>
+<li><a class="reference internal" href="#assign-to-math-operation">(27) Assign to math operation</a></li>
+<li><a class="reference internal" href="#assign-to-yield-expression">(28) Assign to yield expression</a></li>
+<li><a class="reference internal" href="#augmented-assignment-inside-comprehension">(29) Augmented assignment inside comprehension</a></li>
+<li><a class="reference internal" href="#augmented-assignment-inside-comprehension-inner-loop">(30) Augmented assignment inside comprehension - inner loop</a></li>
+<li><a class="reference internal" href="#def-missing-parentheses">(31) def: missing parentheses</a></li>
+<li><a class="reference internal" href="#augmented-assignment-to-literal">(32) Augmented assignment to literal</a></li>
+<li><a class="reference internal" href="#walrus-named-assignment-depending-on-python-version">(33) Walrus/Named assignment depending on Python version</a></li>
+<li><a class="reference internal" href="#backslash-instead-of-slash">(34) Backslash instead of slash</a></li>
+<li><a class="reference internal" href="#brackets-instead-of-parentheses">(35) Brackets instead of parentheses</a></li>
+<li><a class="reference internal" href="#break-outside-loop">(36) break outside loop</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-attribute-here">(37) Cannot assign to attribute here.</a></li>
+<li><a class="reference internal" href="#cannot-guess-the-cause">(38) Cannot guess the cause</a></li>
+<li><a class="reference internal" href="#cannot-use-star-operator">(39) Cannot use star operator</a></li>
+<li><a class="reference internal" href="#cannot-use-double-star-operator">(40) Cannot use double star operator</a></li>
+<li><a class="reference internal" href="#missing-class-name">(41) Missing class name</a></li>
+<li><a class="reference internal" href="#missing-for-tuples-in-comprehension">(42) Missing () for tuples in comprehension</a></li>
+<li><a class="reference internal" href="#comprehension-with-condition-no-else">(43) Comprehension with condition (no else)</a></li>
+<li><a class="reference internal" href="#comprehension-with-condition-with-else">(44) Comprehension with condition (with else)</a></li>
+<li><a class="reference internal" href="#continue-outside-loop">(45) continue outside loop</a></li>
+<li><a class="reference internal" href="#copy-paste-from-interpreter">(46) Copy/paste from interpreter</a></li>
+<li><a class="reference internal" href="#copy-paste-from-interpreter-2">(47) Copy/paste from interpreter - 2</a></li>
+<li><a class="reference internal" href="#def-positional-arg-after-kwargs">(48) def: positional arg after kwargs</a></li>
+<li><a class="reference internal" href="#def-named-arguments-must-follow-bare">(49) def: named arguments must follow bare *</a></li>
+<li><a class="reference internal" href="#def-misused-as-code-block">(50) def: misused as code block</a></li>
+<li><a class="reference internal" href="#def-misused-as-code-block-2">(51) def: misused as code block - 2</a></li>
+<li><a class="reference internal" href="#dotted-name-as-function-argument">(52) Dotted name as function argument</a></li>
+<li><a class="reference internal" href="#id2">(53) Dotted name as function argument</a></li>
+<li><a class="reference internal" href="#dotted-function-name">(54) Dotted function name</a></li>
+<li><a class="reference internal" href="#def-dict-as-argument">(55) def: dict as argument</a></li>
+<li><a class="reference internal" href="#def-arguments-must-be-unique-in-function-definition">(56) def: arguments must be unique in function definition</a></li>
+<li><a class="reference internal" href="#def-semicolon-after-colon">(57) def: semicolon after colon</a></li>
+<li><a class="reference internal" href="#def-extra-comma">(58) def: extra comma</a></li>
+<li><a class="reference internal" href="#def-unspecified-keywords-before">(59) def: unspecified keywords before /</a></li>
+<li><a class="reference internal" href="#def-before-star">(60) def: / before star</a></li>
+<li><a class="reference internal" href="#def-before-star-arg">(61) def: / before star arg</a></li>
+<li><a class="reference internal" href="#def-used-twice">(62) def: / used twice</a></li>
+<li><a class="reference internal" href="#def-non-identifier-as-a-function-name">(63) def: non-identifier as a function name</a></li>
+<li><a class="reference internal" href="#def-using-a-string-as-a-function-name">(64) def: using a string as a function name</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-1">(65) def: keyword cannot be argument in def - 1</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-2">(66) def: keyword cannot be argument in def - 2</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-3">(67) def: keyword cannot be argument in def - 3</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-4">(68) def: keyword cannot be argument in def - 4</a></li>
+<li><a class="reference internal" href="#def-python-keyword-as-function-name">(69) def: Python keyword as function name</a></li>
+<li><a class="reference internal" href="#def-list-as-argument-1">(70) def: list as argument - 1</a></li>
+<li><a class="reference internal" href="#def-list-as-argument-2">(71) def: list as argument - 2</a></li>
+<li><a class="reference internal" href="#def-missing-colon">(72) def: missing colon</a></li>
+<li><a class="reference internal" href="#def-missing-comma-between-function-args">(73) def: missing comma between function args</a></li>
+<li><a class="reference internal" href="#id3">(74) def: missing parentheses</a></li>
+<li><a class="reference internal" href="#def-missing-parentheses-around-arguments">(75) def: missing parentheses around arguments</a></li>
+<li><a class="reference internal" href="#def-missing-function-name">(76) def: missing function name</a></li>
+<li><a class="reference internal" href="#def-name-is-parameter-and-global">(77) def: name is parameter and global</a></li>
+<li><a class="reference internal" href="#def-non-default-argument-follows-default-argument">(78) def: non-default argument follows default argument</a></li>
+<li><a class="reference internal" href="#single-number-used-as-arg-in-function-def">(79) Single number used as arg in function def</a></li>
+<li><a class="reference internal" href="#operator-after">(80) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-comma">(81) def: operator instead of comma</a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-equal">(82) def: operator instead of equal</a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-name">(83) def: operator instead of name</a></li>
+<li><a class="reference internal" href="#def-positional-argument-follows-keyword-argument">(84) def: positional argument follows keyword argument</a></li>
+<li><a class="reference internal" href="#def-semicolon-instead-of-colon">(85) def: semicolon instead of colon</a></li>
+<li><a class="reference internal" href="#def-set-as-argument">(86) def: set as argument</a></li>
+<li><a class="reference internal" href="#def-arg-before">(87) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /</a></li>
+<li><a class="reference internal" href="#id4">(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id5">(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id6">(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#def-after">(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#id7">(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#single-string-used-as-arg-in-function-def">(93) Single string used as arg in function def</a></li>
+<li><a class="reference internal" href="#def-tuple-as-function-argument">(94) def: tuple as function argument</a></li>
+<li><a class="reference internal" href="#def-tuple-as-function-argument-2">(95) def: tuple as function argument - 2</a></li>
+<li><a class="reference internal" href="#deleting-star-expression-1">(96) Deleting star expression - 1</a></li>
+<li><a class="reference internal" href="#deleting-star-expression-2">(97) Deleting star expression - 2</a></li>
+<li><a class="reference internal" href="#cannot-delete-a-constant">(98) Cannot delete a constant</a></li>
+<li><a class="reference internal" href="#cannot-delete-expression">(99) Cannot delete expression</a></li>
+<li><a class="reference internal" href="#cannot-delete-function-call">(100) Cannot delete function call</a></li>
+<li><a class="reference internal" href="#cannot-delete-named-expression">(101) Cannot delete named expression</a></li>
+<li><a class="reference internal" href="#delete-only-names-or-items">(102) Delete only names or items</a></li>
+<li><a class="reference internal" href="#deleting-string-literal">(103) Deleting string literal</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-1">(104) Value missing in dict - 1</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-2">(105) Value missing in dict - 2</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-3">(106) Value missing in dict - 3</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-4">(107) Value missing in dict - 4</a></li>
+<li><a class="reference internal" href="#different-operators-in-a-row">(108) Different operators in a row</a></li>
+<li><a class="reference internal" href="#dot-followed-by-parenthesis">(109) Dot followed by parenthesis</a></li>
+<li><a class="reference internal" href="#extra-token">(110) Extra token</a></li>
+<li><a class="reference internal" href="#elif-with-no-matching-if">(111) elif with no matching if</a></li>
+<li><a class="reference internal" href="#else-with-no-matching-statement">(112) else with no matching statement</a></li>
+<li><a class="reference internal" href="#write-elif-not-else-if">(113) Write elif, not else if</a></li>
+<li><a class="reference internal" href="#write-elif-not-elseif">(114) Write elif, not elseif</a></li>
+<li><a class="reference internal" href="#eol-while-scanning-string-literal">(115) EOL while scanning string literal</a></li>
+<li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(116) Used equal sign instead of colon</a></li>
+<li><a class="reference internal" href="#parens-around-multiple-exceptions">(117) Parens around multiple exceptions</a></li>
+<li><a class="reference internal" href="#id8">(118) Extra token</a></li>
+<li><a class="reference internal" href="#binary-f-string-not-allowed">(119) Binary f-string not allowed</a></li>
+<li><a class="reference internal" href="#f-string-closing-not-allowed">(120) f-string: closing } not allowed</a></li>
+<li><a class="reference internal" href="#f-string-missing-closing">(121) f-string: missing closing }</a></li>
+<li><a class="reference internal" href="#f-string-unterminated-string">(122) f-string: unterminated string</a></li>
+<li><a class="reference internal" href="#f-string-with-backslash">(123) f-string with backslash</a></li>
+<li><a class="reference internal" href="#missing-terms-in-for-statement">(124) Missing terms in for statement</a></li>
+<li><a class="reference internal" href="#not-a-chance">(125) Not a chance!</a></li>
+<li><a class="reference internal" href="#do-not-import-from-future">(126) Do not import * from __future__</a></li>
+<li><a class="reference internal" href="#future-at-beginning">(127) __future__ at beginning</a></li>
+<li><a class="reference internal" href="#typo-in-future">(128) Typo in __future__</a></li>
+<li><a class="reference internal" href="#unknown-feature-in-future">(129) Unknown feature in __future__</a></li>
+<li><a class="reference internal" href="#parenthesis-around-generator-expression">(130) Parenthesis around generator expression</a></li>
+<li><a class="reference internal" href="#space-between-names">(131) Space between names</a></li>
+<li><a class="reference internal" href="#missing-condition-in-if-statement">(132) Missing condition in if statement</a></li>
+<li><a class="reference internal" href="#use-j-instead-of-i">(133) use j instead of i</a></li>
+<li><a class="reference internal" href="#import-inversion-import-x-from-y">(134) Import inversion: import X from Y</a></li>
+<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(135) IndentationError: expected an indented block</a></li>
+<li><a class="reference internal" href="#indentationerror-unexpected-indent">(136) IndentationError: unexpected indent</a></li>
+<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(137) IndentationError: unindent does not match …</a></li>
+<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(138) IndentationError: missing continuation line</a></li>
+<li><a class="reference internal" href="#forgot-o-for-octal">(139) Forgot ‘o’ for octal</a></li>
+<li><a class="reference internal" href="#integer-with-leading-zeros">(140) Integer with leading zeros</a></li>
+<li><a class="reference internal" href="#invalid-character-in-identifier">(141) Invalid character in identifier</a></li>
+<li><a class="reference internal" href="#invalid-decimal-literal-1">(142) Invalid decimal literal - 1</a></li>
+<li><a class="reference internal" href="#invalid-encoding">(143) Invalid encoding</a></li>
+<li><a class="reference internal" href="#invalid-hexadecimal-number">(144) Invalid hexadecimal number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(145) Valid names cannot begin with a number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(146) Valid names cannot begin with a number - 2</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(147) Valid names cannot begin with a number - 3</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(148) Valid names cannot begin with a number - 4</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(149) Valid names cannot begin with a number - 5</a></li>
+<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(150) Keyword can’t be an expression</a></li>
+<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(151) Named argument can’t be a Python keyword</a></li>
+<li><a class="reference internal" href="#invalid-octal-number">(152) Invalid octal number</a></li>
+<li><a class="reference internal" href="#inverted-operators-1">(153) Inverted operators 1</a></li>
+<li><a class="reference internal" href="#inverted-operators-2">(154) Inverted operators 2</a></li>
+<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(155) Iteration variable unpacking in comprehension</a></li>
+<li><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(156) Keyword arg only once in function call</a></li>
+<li><a class="reference internal" href="#keyword-as-attribute">(157) Keyword as attribute</a></li>
+<li><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(158) lambda with parentheses around arguments</a></li>
+<li><a class="reference internal" href="#lambda-with-tuple-as-argument">(159) lambda with tuple as argument</a></li>
+<li><a class="reference internal" href="#assign-to-literal-in-for-loop">(160) Assign to literal in for loop</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(161) IndentationError/SyntaxError depending on version</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version-2">(162) IndentationError/SyntaxError depending on version - 2</a></li>
+<li><a class="reference internal" href="#missing-colon-if">(163) Missing colon - if</a></li>
+<li><a class="reference internal" href="#missing-colon-while">(164) Missing colon - while</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-dict">(165) Missing comma in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(166) Missing comma between strings in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-list">(167) Missing comma in a list</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-set">(168) Missing comma in a set</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-tuple">(169) Missing comma in a tuple</a></li>
+<li><a class="reference internal" href="#missing-parenthesis-for-range">(170) Missing parenthesis for range</a></li>
+<li><a class="reference internal" href="#misspelled-python-keyword">(171) Misspelled Python keyword</a></li>
+<li><a class="reference internal" href="#name-is-global-and-nonlocal">(172) Name is global and nonlocal</a></li>
 </ul>
 </li>
 </ul>

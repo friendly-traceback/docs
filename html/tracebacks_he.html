@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - בעברית" href="syntax_tracebacks_he.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - בעברית - friendly-traceback 0.5.46</title>
+        <title>Friendly tracebacks - בעברית - friendly-traceback 0.5.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -316,7 +316,7 @@ Not all cases handled by friendly are included here.</p>
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.5.35
+<p>Friendly-traceback version: 0.5.48
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -357,11 +357,11 @@ ArithmeticError: error
     raise AssertionError("Fake message")
 AssertionError: Fake message
 
-In Python, the keyword `assert` is used in statements of the form
-`assert condition`, to confirm that `condition` is not `False`,
-nor equivalent to `False` such as an empty list, etc.
+ב-Python, מילת המפתח `assert` משמשת בהצהרות של הטופס
+`assert condition`, כדי לאשר ש`תנאי` אינו `שקר`,
+ולא שווה ערך ל'שקר' כמו רשימה ריקה וכו'.
 
-If `condition` is `False` or equivalent, an `AssertionError` is raised.
+אם 'תנאי' הוא 'שקר' או שווה ערך, מועלית 'AssertionError'.
 
 חריג הועלה בשורה 8 של הקובץ TESTS:\runtime\test_assertion_error.py.
 
@@ -388,9 +388,9 @@ If `condition` is `False` or equivalent, an `AssertionError` is raised.
 AttributeError: module 'keyword' has no attribute 'pi'
 
     האם התכוונת לאחד המודולים הבאים: `math, cmath`?
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 במקום המודול `keyword`, אולי רצית להשתמש
 התכונה 'pi' של אחד מהמודולים הבאים:
@@ -419,9 +419,9 @@ AttributeError: 'builtin_function_or_method' object has no attribute 'text'
 
     האם התכוונת ל "len (text)"?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 `len` היא פונקציה. אולי התכוונת לכתוב
 `len (text)`
@@ -447,9 +447,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
     sys.foo
 AttributeError: module 'sys' has no attribute 'foo'
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 פייתון אומר לנו שאין אובייקט בשם "foo"
 שנמצא במודול `sys`.
@@ -479,9 +479,9 @@ AttributeError: partially initialized module 'my_turtle1' has no attribute 'some
 
     האם נתת לתוכנית שלך את אותו שם כמו מודול פייתון?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 אני חושד שהשתמשת בשם 'my_turtle1 .py' עבור התוכנית שלך
 ושאתה גם רוצה לייבא מודול עם אותו שם
@@ -520,11 +520,11 @@ AttributeError: partially initialized module 'circular_c' has no attribute 'some
 
     יש לך יבוא מעגלי.
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
-פייתון ציין כי המודול "{module}` לא יובא במלואו.
+פייתון ציין כי המודול `{module}` לא יובא במלואו.
 זה יכול לקרות אם במהלך ביצוע הקוד במודול 'circular_c'
 נעשה ניסיון לייבא את אותו מודול שוב.
 
@@ -555,9 +555,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
     A.x  # testing type
 AttributeError: type object 'A' has no attribute 'x'
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'A' אין תכונה בשם 'x'.
 
@@ -584,9 +584,9 @@ AttributeError: 'A' object has no attribute 'attr'
 
     האם התכוונת ל 'attr2'?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'a' אין תכונה בשם 'attr'.
 אולי התכוונת לכתוב 'a. attr2' במקום 'a. attr'
@@ -613,9 +613,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
     a.x
 AttributeError: 'A' object has no attribute 'x'
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'a' אין תכונה בשם 'x'.
 
@@ -642,9 +642,9 @@ AttributeError: module 'math' has no attribute 'cost'
 
     האם התכוונת ל 'cos'?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 Instead of writing `math.cost`, perhaps you meant to write one of
 the following names which are attributes of module `math`:
@@ -672,9 +672,9 @@ the following names which are attributes of module `math`:
     a.b
 AttributeError: 'NoneType' object has no attribute 'b'
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 אתה מנסה לגשת למאפיין 'b'
 עבור משתנה שערכו 'כלום'(none).
@@ -700,9 +700,9 @@ AttributeError: 'list' object has no attribute 'appendh'
 
     האם התכוונת ל 'append'?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'a' אין תכונה בשם 'appendh'.
 אולי התכוונת לכתוב 'a. append' במקום 'a. appendh'
@@ -730,9 +730,9 @@ AttributeError: 'str' object has no attribute 'defg'
 
     האם התכוונת להפריד שמות אובייקטים בפסיק?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 'defg' אינה תכונה של 'abcd'.
 עם זאת, הן "abcd" ו- "defg" הם אובייקטים ידועים.
@@ -763,9 +763,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
     f.b = 1
 AttributeError: 'F' object attribute 'b' is read-only
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 Object `f` uses `__slots__` to specify which attributes can
 be changed. The value of attribute `f.b` cannot be changed.
@@ -778,7 +778,7 @@ The only attribute of `f` whose value can be changed is`a`.
    278:     f = F()
    279:     try:
 --&gt;280:         f.b = 1
-                ^^^^^^^
+                ^^^
    281:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -796,9 +796,9 @@ AttributeError: module 'turtle' has no attribute 'Pen'
 
     האם נתת לתוכנית שלך את אותו שם כמו מודול פייתון?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 You imported a module named `turtle` from `TESTS:\turtle.py`.
 There is also a module named `turtle` in Python's standard library.
@@ -827,9 +827,9 @@ AttributeError: 'tuple' object has no attribute 'upper'
 
     כתבת פסיק בטעות?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 `something` הוא צמד (tuple ) המכיל פריט בודד
 אשר אכן מכיל "'upper' 'כתכונה.
@@ -858,9 +858,9 @@ AttributeError: 'list' object has no attribute 'length'
 
     האם התכוונת ל 'len(a)'?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'a' אין תכונה בשם 'length'.
 אולי תוכל להשתמש בפונקציה הסטנדרטית  של Python `len` במקום:
@@ -888,9 +888,9 @@ AttributeError: 'list' object has no attribute 'join'
 
     האם התכוונת ל ''abc'.join(['a', '2']) `?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט '['a', '2']' אין תכונה בשם 'join'.
 אולי רצית משהו כמו ''abc'.join(['a', '2'])'.
@@ -914,9 +914,9 @@ AttributeError: 'list' object has no attribute 'add'
 
     האם התכוונת ל 'append'?
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'a' אין תכונה בשם 'add'.
 עם זאת, ל- 'a' יש את התכונות הבאות בעלות משמעויות דומות:
@@ -943,9 +943,9 @@ and `x` is not a method or attribute (variable) belonging to `object`.
     f.b = 1
 AttributeError: 'F' object has no attribute 'b'
 
-An `AttributeError` occurs when the code contains something like
-    `object.x`
-and `x` is not a method or attribute (variable) belonging to `object`.
+'AttributeError' מתרחשת כאשר הקוד מכיל משהו כמו
+    'object.x'
+ו-'x' אינו שיטה או תכונה (משתנה) השייכת ל-'object'.
 
 לאובייקט 'f' אין תכונה בשם 'b'.
 שים לב שהאובייקט `f` משתמש ב- `__slots__` אשר מונע
@@ -959,7 +959,7 @@ and `x` is not a method or attribute (variable) belonging to `object`.
    258:     f = F()
    259:     try:
 --&gt;260:         f.b = 1
-                ^^^^^^^
+                ^^^
    261:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -1077,7 +1077,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
 הקובץ שלא ניתן למצוא הוא 'setup.pyg'.
 It was expected to be found in the
 `C:\Users\Andre\github\friendly-traceback` directory.
-Perhaps you meant one of the following files with similar names:
+אולי התכוונת לאחד מהקבצים הבאים עם שמות דומים:
 `setup.py`, `setup.cfg`
 
 חריג הועלה בשורה 52 של הקובץ TESTS:\runtime\test_file_not_found_error.py.
@@ -1129,7 +1129,7 @@ ImportError: cannot import name 'Pi' from 'math' (unknown location)
 <section id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
+  File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
     a[13] = 1
 IndexError: list assignment index out of range
 
@@ -1143,15 +1143,15 @@ You have tried to assign a value to index `13` of `a`,
 ערכי האינדקס התקפים של 'a' הם מספרים שלמים הנעים בין
 `-10` עד `9`.
 
-חריג הועלה בשורה 87 של הקובץ TESTS:\runtime\test_index_error.py.
+חריג הועלה בשורה 93 של הקובץ TESTS:\runtime\test_index_error.py.
 
-   83:         assert "You have tried to assign a value to index `1` of `b`," in result
-   84:         assert "a `list` which contains no item." in result
-   85:
-   86:     try:
---&gt;87:         a[13] = 1
-               ^^^^^^^^^
-   88:     except IndexError as e:
+   89:         assert "You have tried to assign a value to index `1` of `b`," in result
+   90:         assert "a `list` which contains no item." in result
+   91:
+   92:     try:
+--&gt;93:         a[13] = 1
+               ^^^^^
+   94:     except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
@@ -1617,7 +1617,7 @@ ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
 זה יכול להיות בגלל שגיאת כתיב בשם המודול
 או מכיוון שהוא לא מותקן במחשב שלך.
 
-אולי התכוונת ל `from os import open`  (מ- os יבא open'.
+אולי התכוונת ל `from os import open`  (מ- os יבא topen'.
 ')
 `open` הוא שם הדומה ל- `opend` והוא אובייקט ש
 ניתן לייבא מ 'os'.
@@ -2079,6 +2079,34 @@ Perhaps you forgot to write
 </pre></div>
 </div>
 </section>
+<section id="special-keyword">
+<h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 308, in test_special_keyword
+    brek
+NameError: name 'brek' is not defined
+
+    Did you mean `break`?
+
+חריג של 'NameError' מציין כי משתנה או
+הפונקציה אינו ידוע לפייתון.
+לרוב, הסיבה לכך היא שיש טעות כתיב.
+עם זאת, לפעמים זה בגלל שהשם משמש
+לפני שמגדירים אותו או נותנים לו ערך.
+
+I suspect you meant to write the keyword `break` and made a typo.
+
+חריג הועלה בשורה 308 של הקובץ TESTS:\runtime\test_name_error.py.
+
+   305:     if friendly_traceback.get_lang() == "en":
+   306:         assert "Did you mean `continue`" in result
+   307:     try:
+--&gt;308:         brek
+                ^^^^
+   309:     except NameError as e:
+</pre></div>
+</div>
+</section>
 </section>
 <section id="oserror">
 <h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h2>
@@ -2096,7 +2124,7 @@ socket.gaierror: [Errno 11001] getaddrinfo failed
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
+  File "TESTS:\runtime\test_os_error.py", line 10, in test_Urllib_error
     request.urlopen("http://does_not_exist")
 URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 
@@ -2111,14 +2139,15 @@ URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 אם זה המצב, בדוק אם יש שגיאות כתיב בכתובת האתר
 ובדוק את חיבור האינטרנט שלך.
 
-חריג הועלה בשורה 8 של הקובץ TESTS:\runtime\test_os_error.py.
+חריג הועלה בשורה 10 של הקובץ TESTS:\runtime\test_os_error.py.
 
-   5: def test_Urllib_error():
-   6:     from urllib import request, error
-   7:     try:
---&gt;8:         request.urlopen("http://does_not_exist")
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   9:     except error.URLError as e:
+    6: @pytest.mark.skipif(random.randint(0, 50) &lt; 59, reason="very long test")
+    7: def test_Urllib_error():
+    8:     from urllib import request, error
+    9:     try:
+--&gt;10:         request.urlopen("http://does_not_exist")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   11:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
         request.urlopen:  &lt;function urlopen&gt;
@@ -2128,7 +2157,7 @@ URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 <section id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+  File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
     open("c:\test.txt")
 OSError: [Errno 22] Invalid argument: 'c:\test.txt'
 
@@ -2147,14 +2176,14 @@ by adding the letter `r` as a prefix in
 front of the filename or path, or replace all single backslash
 characters, `\`, by double ones: `\\`.
 
-חריג הועלה בשורה 46 של הקובץ TESTS:\runtime\test_os_error.py.
+חריג הועלה בשורה 48 של הקובץ TESTS:\runtime\test_os_error.py.
 
-   43:     if os.name != "nt":
-   44:         return "Windows test only", "No result"
-   45:     try:
---&gt;46:         open("c:\test.txt")
+   45:     if os.name != "nt":
+   46:         return "Windows test only", "No result"
+   47:     try:
+--&gt;48:         open("c:\test.txt")
                ^^^^^^^^^^^^^^^^^^^
-   47:     except OSError as e:
+   49:     except OSError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -2163,7 +2192,7 @@ characters, `\`, by double ones: `\\`.
 <section id="no-information">
 <h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+  File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
     raise OSError("Some unknown message")
 OSError: Some unknown message
 
@@ -2181,14 +2210,14 @@ If you are using a REPL, use `www('bug')` to do so.
 אם אתה משתמש במסוף ידידותי, השתמש ב- 'www ()' כדי
 חפש באינטרנט את המקרה הספציפי הזה.
 
-חריג הועלה בשורה 27 של הקובץ TESTS:\runtime\test_os_error.py.
+חריג הועלה בשורה 29 של הקובץ TESTS:\runtime\test_os_error.py.
 
-   24:     old_debug = friendly_traceback.debug_helper.DEBUG
-   25:     friendly_traceback.debug_helper.DEBUG = False
-   26:     try:
---&gt;27:         raise OSError("Some unknown message")
+   26:     old_debug = friendly_traceback.debug_helper.DEBUG
+   27:     friendly_traceback.debug_helper.DEBUG = False
+   28:     try:
+--&gt;29:         raise OSError("Some unknown message")
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   28:     except OSError as e:
+   30:     except OSError as e:
 
         OSError:  &lt;class OSError&gt;
 </pre></div>
@@ -2287,6 +2316,36 @@ RecursionError: maximum recursion depth exceeded
 </section>
 <section id="typeerror">
 <h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h2>
+<section id="argument-of-object-is-not-iterable">
+<h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+    a in b
+TypeError: argument of type 'object' is not iterable
+
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
+
+An iterable is an object capable of returning its members one at a time.
+Python containers (`list, tuple, dict`, etc.) are iterables.
+'b' is not a container. A container is required here.
+
+חריג הועלה בשורה 804 של הקובץ TESTS:\runtime\test_type_error.py.
+
+   801:     a = object()
+   802:     b = object()
+   803:     try:
+--&gt;804:         a in b
+                ^^^^^^
+   805:     except TypeError as e:
+
+        a:  &lt;object object&gt;
+        b:  &lt;object object&gt;
+</pre></div>
+</div>
+</section>
 <section id="bad-type-for-unary-operator">
 <h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -2294,17 +2353,17 @@ RecursionError: maximum recursion depth exceeded
     a =+ "def"
 TypeError: bad operand type for unary +: 'str'
 
-    Perhaps you meant to write `+=` instead of `=+`
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+    אולי התכוונת לכתוב `+=` במקום `=+`
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 ניסית להשתמש באופרטור האנורי '+'
 עם סוג האובייקט הבא: מחרוזת (`str`).
 פעולה זו אינה מוגדרת עבור אובייקט מסוג זה.
 
-Perhaps you meant to write `+=` instead of `=+`
+אולי התכוונת לכתוב `+=` במקום `=+`
 
 חריג הועלה בשורה 398 של הקובץ TESTS:\runtime\test_type_error.py.
 
@@ -2322,28 +2381,28 @@ Perhaps you meant to write `+=` instead of `=+`
 <section id="builtin-has-no-len">
 <h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 830, in test_Builtin_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
     len("Hello world".split)
 TypeError: object of type 'builtin_function_or_method' has no len()
 
     שכחת לקרוא ל '"Hello world".split'?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 אני חושד ששכחת להוסיף סוגריים כדי לקרוא '"Hello world".split'.
 אולי התכוונת לכתוב:
 `len("Hello world".split())`
 
-חריג הועלה בשורה 830 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 859 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   828: def test_Builtin_has_no_len():
-   829:     try:
---&gt;830:         len("Hello world".split)
+   857: def test_Builtin_has_no_len():
+   858:     try:
+--&gt;859:         len("Hello world".split)
                 ^^^^^^^^^^^^^^^^^^^^^^^^
-   831:     except TypeError as e:
+   860:     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
         "Hello world".split:  &lt;builtin method split of str object&gt;
@@ -2357,10 +2416,10 @@ or by trying to do an operation not allowed on a given type of object.
     result = a_tuple + a_list
 TypeError: can only concatenate tuple (not "list") to tuple
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 ניסית לחבר  (להוסיף) שני סוגים שונים של אובייקטים:
 צמד ('tuple') ו- רשימה (`list`).
@@ -2382,30 +2441,30 @@ or by trying to do an operation not allowed on a given type of object.
 <section id="cannot-convert-dictionary-update-sequence">
 <h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 816, in test_Cannot_convert_dictionary_update_sequence
+  File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
     dd.update([1, 2, 3])
 TypeError: cannot convert dictionary update sequence element #0 to a sequence
 
     Perhaps you need to use the `dict.fromkeys()` method.
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 `dict.update()` אינו מקבל רצף כארגומנט.
 במקום לכתוב 'dd.update([1, 2, 3])'
 אולי כדאי להשתמש בשיטת 'dict.fromkeys ()': "dd.update( dict.fromkeys([1, 2, 3]) )". (מילון.מהמפתחות(...))
 
-חריג הועלה בשורה 816 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 845 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   812:         assert "you should use the `dict.fromkeys()`" in result
-   813:
-   814:     dd = {"a": "a"}
-   815:     try:
---&gt;816:         dd.update([1, 2, 3])
+   841:         assert "you should use the `dict.fromkeys()`" in result
+   842:
+   843:     dd = {"a": "a"}
+   844:     try:
+--&gt;845:         dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-   817:     except TypeError as e:
+   846:     except TypeError as e:
 
         dd:  {'a': 'a'}
         dd.update:  &lt;builtin method update of dict object&gt;
@@ -2421,10 +2480,10 @@ TypeError: can't multiply sequence by non-int of type 'str'
 
     שכחת להמיר את '"2"' למספר שלם?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 אתה יכול רק להכפיל רצפים, כגון רשימה, זוגות,
   מחרוזות וכו ', לפי מספרים שלמים.
@@ -2445,14 +2504,14 @@ or by trying to do an operation not allowed on a given type of object.
 <section id="cannot-unpack-non-iterable-object">
 <h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 788, in test_Cannot_unpack_non_iterable_object
+  File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
     a, b = 42.0
 TypeError: cannot unpack non-iterable float object
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 פריקה היא דרך נוחה להקצות שם,
 לכל פריט של חוזר.
@@ -2460,13 +2519,13 @@ or by trying to do an operation not allowed on a given type of object.
 מכולות (`רשימה, tuple, dict`, וכו ') הם רכיבים חוזרים.
 אבל לא אובייקטים מהסוג `float`.
 
-חריג הועלה בשורה 788 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 817 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   786: def test_Cannot_unpack_non_iterable_object():
-   787:     try:
---&gt;788:         a, b = 42.0
+   815: def test_Cannot_unpack_non_iterable_object():
+   816:     try:
+--&gt;817:         a, b = 42.0
                 ^^^^^^^^^^^
-   789:     except TypeError as e:
+   818:     except TypeError as e:
 </pre></div>
 </div>
 </section>
@@ -2479,10 +2538,10 @@ TypeError: '&gt;=' not supported between instances of 'int' and 'str'
 
     שכחת להמיר את המחרוזת "a" ל- מספר שלם (`int`)?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 ניסית לבצע השוואת סדר (&gt;=)
 בין שני סוגי אובייקטים לא תואמים:
@@ -2510,10 +2569,10 @@ or by trying to do an operation not allowed on a given type of object.
     raise "exception"  # noqa
 TypeError: exceptions must derive from BaseException
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 ב- Python 3 יש לגזור חריגים מ- BaseException.
 
@@ -2527,6 +2586,40 @@ or by trying to do an operation not allowed on a given type of object.
 </pre></div>
 </div>
 </section>
+<section id="generator-has-no-len">
+<h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+    nb = len(letter
+TypeError: object of type 'generator' has no len()
+
+    You likely need to build a list first.
+
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
+
+I am guessing that you were trying to count the number of elements
+produced by a generator expression. You first need to capture them
+in a list:
+
+    len([letter for letter in "word"])
+
+חריג הועלה בשורה 1014 של הקובץ TESTS:\runtime\test_type_error.py.
+
+   1012: def test_Generator_has_no_len():
+   1013:     try:
+--&gt;1014:         nb = len(letter
+                      ^^^^^^^^^^
+   1015:                  for letter in "word")
+                          ^^^^^^^^^^^^^^^^^^^^^
+   1016:     except TypeError as e:
+
+        len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</section>
 <section id="indices-must-be-integers-or-slices">
 <h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -2536,10 +2629,10 @@ TypeError: list indices must be integers or slices, not str
 
     שכחת להמיר את '"2"' למספר שלם?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 בביטוי `[1, 2, 3]["2"]`
 מה כלול בין הסוגריים המרובעים, '[...]',
@@ -2570,10 +2663,10 @@ TypeError: 'str' object cannot be interpreted as an integer
 
     האם שכחת להמיר את 'c, d' למספרים שלמים?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 כתבת אובייקט מסוג 'str' שבו צפוי מספר שלם.
 Perhaps you forgot to convert `c, d` into integers.
@@ -2602,10 +2695,10 @@ TypeError: 'list' object is not callable
 
     האם התכוונת ל '[1, 2] [a + b]'?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 בגלל הסוגריים שמסביב, '(a + b)'
 מתפרש על ידי פייתון כמעיד על קריאה לפונקציה
@@ -2634,26 +2727,26 @@ or by trying to do an operation not allowed on a given type of object.
 <section id="object-is-not-iterable">
 <h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 774, in test_Object_is_not_iterable
+  File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
     list(42)
 TypeError: 'int' object is not iterable
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 חוזר הוא אובייקט המסוגל להחזיר את פרטיו,אחד בכל פעם.
 מכולות (`רשימה, tuple, dict`, וכו ') הם רכיבים חוזרים.
 דרוש כאן חזרה.
 
-חריג הועלה בשורה 774 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 788 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   772: def test_Object_is_not_iterable():
-   773:     try:
---&gt;774:         list(42)
+   786: def test_Object_is_not_iterable():
+   787:     try:
+--&gt;788:         list(42)
                 ^^^^^^^^
-   775:     except TypeError as e:
+   789:     except TypeError as e:
 
         list:  &lt;class list&gt;
 </pre></div>
@@ -2662,31 +2755,31 @@ or by trying to do an operation not allowed on a given type of object.
 <section id="object-is-not-subscriptable">
 <h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 757, in test_Object_is_not_subscriptable
+  File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
     a = f[1]
 TypeError: 'function' object is not subscriptable
 
     האם התכוונת ל "f(1)"?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 אובייקטים הרשמים הם בדרך כלל מיכלים מהם
 אתה יכול לאחזר פריט באמצעות הסימון '[...]'.
 
 אולי התכוונת לכתוב 'f(1)'.
 
-חריג הועלה בשורה 757 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 771 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   753:     def f():
-   754:         pass
-   755:
-   756:     try:
---&gt;757:         a = f[1]
+   767:     def f():
+   768:         pass
+   769:
+   770:     try:
+--&gt;771:         a = f[1]
                     ^^^^
-   758:     except TypeError as e:
+   772:     except TypeError as e:
 
         f:  &lt;function f&gt;
             defined in &lt;function test_Object_is_not_subscriptable&gt;
@@ -2700,10 +2793,10 @@ or by trying to do an operation not allowed on a given type of object.
     [1, 2, 3][1.0:2.0]
 TypeError: slice indices must be integers or None or have an __index__ method
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 בעת שימוש בפרוס (slice) לחילוץ מגוון אלמנטים
 מרצף, זה משהו כמו
@@ -2728,10 +2821,10 @@ or by trying to do an operation not allowed on a given type of object.
     fn(1)
 TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 כנראה קראת לפונקציה 'fn()' עם
 פחות ארגומנטים מיקוםיים ממה שהוא דורש (חסר 2).
@@ -2760,10 +2853,10 @@ TypeError: f() takes 1 positional argument but 2 were given
 
     אולי שכחת את 'self'(עצמי) בהגדרת 'f'.
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 כנראה קראת לפונקציה 'f' עם
 2 ארגומנטים בזמן שהוא דורש 1
@@ -2794,10 +2887,10 @@ TypeError: 'tuple' object does not support item assignment
 
     האם התכוונת להשתמש ברשימה?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 בפייתון כמה אובייקטים ידועים כבלתי משתנים:
 לאחר שהוגדר, לא ניתן לשנות את ערכם.
@@ -2811,7 +2904,7 @@ or by trying to do an operation not allowed on a given type of object.
    417:     a = (1, 2, 3)
    418:     try:
 --&gt;419:         a[0] = 0
-                ^^^^^^^^
+                ^^^^
    420:     except TypeError as e:
 
         a:  (1, 2, 3)
@@ -2826,15 +2919,15 @@ or by trying to do an operation not allowed on a given type of object.
     {[1, 2]: 1}
 TypeError: unhashable type: 'list'
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
-Only hashable objects can be used
-as elements of `set` or keys of `dict`.
-Hashable objects are objects that do not change value
-once they have been created.במקום להשתמש ב- רשימה (`list`), שקול להשתמש ב- צמד ('tuple').
+ניתן להשתמש רק באובייקטים הניתנים לגיבוש
+כאלמנטים של 'סט' או כמקשים של 'dict'.
+אובייקטים ניתנים לגיבוש הם אובייקטים שאינם משנים ערך
+ברגע שהם נוצרו.במקום להשתמש ב- רשימה (`list`), שקול להשתמש ב- צמד ('tuple').
 
 חריג הועלה בשורה 727 של הקובץ TESTS:\runtime\test_type_error.py.
 
@@ -2853,10 +2946,10 @@ once they have been created.במקום להשתמש ב- רשימה (`list`), ש�
     a @= b
 TypeError: unsupported operand type(s) for @=: 'str' and 'int'
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 ניסית להשתמש באופרטור @=
 שימוש בשני סוגים של אובייקטים לא תואמים:
@@ -2885,10 +2978,10 @@ or by trying to do an operation not allowed on a given type of object.
     result = divmod(a, b)
 TypeError: can't take floor or mod of complex number.
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 The arguments of `divmod` must be integers (`int`) or real (`float`) numbers.
 At least one of the arguments was a complex number.
@@ -2911,29 +3004,29 @@ At least one of the arguments was a complex number.
 <section id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 922, in test_function_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
     fn2(0, a=1)
 TypeError: fn2() got multiple values for argument 'a'
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 You have specified the value of argument `a` more than once
 when calling the function named `fn2`.
 This function has the following arguments:
 `a, b=1`
 
-חריג הועלה בשורה 922 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 951 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   918:     def fn2(a, b=1):
-   919:         pass
-   920:
-   921:     try:
---&gt;922:         fn2(0, a=1)
+   947:     def fn2(a, b=1):
+   948:         pass
+   949:
+   950:     try:
+--&gt;951:         fn2(0, a=1)
                 ^^^^^^^^^^^
-   923:     except TypeError as e:
+   952:     except TypeError as e:
 
         fn2:  &lt;function fn2&gt;
             defined in &lt;function test_function_got_multiple_argument&gt;
@@ -2943,30 +3036,30 @@ This function has the following arguments:
 <section id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 847, in test_function_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
     len(bad)
 TypeError: object of type 'function' has no len()
 
     שכחת לקרוא ל 'bad'?
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 אני חושד ששכחת להוסיף סוגריים כדי לקרוא 'bad'.
 אולי התכוונת לכתוב:
 `len(bad())`
 
-חריג הועלה בשורה 847 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 876 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   843:     def bad():
-   844:         pass
-   845:
-   846:     try:
---&gt;847:         len(bad)
+   872:     def bad():
+   873:         pass
+   874:
+   875:     try:
+--&gt;876:         len(bad)
                 ^^^^^^^^
-   848:     except TypeError as e:
+   877:     except TypeError as e:
 
         bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
         len:  &lt;builtin function len&gt;
@@ -2976,29 +3069,29 @@ or by trying to do an operation not allowed on a given type of object.
 <section id="getattr-attribute-name-must-be-string">
 <h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 968, in test_getattr_attribute_name_must_be_string
+  File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
     getattr("__repr__", 1)  # as reported in issue #77
 TypeError: getattr(): attribute name must be string
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 The second argument of the function `getattr()` must be a string.
 
-חריג הועלה בשורה 968 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 997 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   961:     if friendly_traceback.get_lang() == "en":
-   962:         assert (
-   963:             "The second argument of the function `hasattr()` must be a string."
-   964:             in result
-   965:         )
-   966:
-   967:     try:
---&gt;968:         getattr("__repr__", 1)  # as reported in issue #77
+   990:     if friendly_traceback.get_lang() == "en":
+   991:         assert (
+   992:             "The second argument of the function `hasattr()` must be a string."
+   993:             in result
+   994:         )
+   995:
+   996:     try:
+--&gt;997:         getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
-   969:     except TypeError as e:
+   998:     except TypeError as e:
 
         getattr:  &lt;builtin function getattr&gt;
 </pre></div>
@@ -3007,28 +3100,28 @@ The second argument of the function `getattr()` must be a string.
 <section id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 941, in test_method_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
     t.some_method(0, a=1)
 TypeError: some_method() got multiple values for argument 'a'
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 You have specified the value of argument `a` more than once
 when calling the function named `t.some_method`.
 This function has only one argument: `a`
 
-חריג הועלה בשורה 941 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 970 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   937:             pass
-   938:
-   939:     t = T()
-   940:     try:
---&gt;941:         t.some_method(0, a=1)
+   966:             pass
+   967:
+   968:     t = T()
+   969:     try:
+--&gt;970:         t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-   942:     except TypeError as e:
+   971:     except TypeError as e:
 
         t:  &lt;T object&gt;
             defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
@@ -3041,28 +3134,28 @@ This function has only one argument: `a`
 <section id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 891, in test_vars_arg_must_have_dict
+  File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
     vars(f)
 TypeError: vars() argument must have __dict__ attribute
 
-A `TypeError` is usually caused by trying
-to combine two incompatible types of objects,
-by calling a function with the wrong type of object,
-or by trying to do an operation not allowed on a given type of object.
+'TypeError' נגרמת בדרך כלל על ידי ניסיון
+לשלב שני סוגי אובייקטים שאינם תואמים,
+על ידי קריאה לפונקציה עם סוג האובייקט הלא נכון,
+או על ידי ניסיון לבצע פעולה שאינה מותרת בסוג נתון של אובייקט.
 
 The function `vars` is used to list the content of the
 `__dict__` attribute of an object.
 Object `f` uses `__slots__` instead of `__dict__`.
 
-חריג הועלה בשורה 891 של הקובץ TESTS:\runtime\test_type_error.py.
+חריג הועלה בשורה 920 של הקובץ TESTS:\runtime\test_type_error.py.
 
-   887:         assert no_slots not in result
-   888:         assert use_slots not in result
-   889:
-   890:     try:
---&gt;891:         vars(f)
+   916:         assert no_slots not in result
+   917:         assert use_slots not in result
+   918:
+   919:     try:
+--&gt;920:         vars(f)
                 ^^^^^^^
-   892:     except TypeError as e:
+   921:     except TypeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
@@ -3087,14 +3180,14 @@ UnboundLocalError: local variable 'spam_missing_both' referenced before assignme
     שכחת להוסיף את 'global spam_missing_both' או
     `לא -מקומי spam_missing_both`?
 
-In Python, variables that are used inside a function are known as
-local variables. Before they are used, they must be assigned a value.
-A variable that is used before it is assigned a value is assumed to
-be defined outside that function; it is known as a `global`
-(or sometimes `nonlocal`) variable. You cannot assign a value to such
-a global variable inside a function without first indicating to
-Python that this is a global variable, otherwise you will see
-an `UnboundLocalError`.
+ב-Python, משתנים המשמשים בתוך פונקציה ידועים בשם
+משתנים מקומיים. לפני השימוש בהם, יש להקצות להם ערך.
+מניחים למשתנה שמשתמשים בו לפני שהוקצה לו ערך
+להיות מוגדר מחוץ לפונקציה זו; זה ידוע בתור 'גלובלי'
+(או לפעמים 'לא מקומי'). אתה לא יכול להקצות ערך לכאלה
+משתנה גלובלי בתוך פונקציה מבלי לציין תחילה ל
+פייתון שזה משתנה גלובלי, אחרת תראה
+'UnboundLocalError'.
 
 You're trying to use the name `spam_missing_both` identified by Python as being
 in the local scope of a function before having assigned it a value.
@@ -3144,14 +3237,14 @@ UnboundLocalError: local variable 'spam_missing_global' referenced before assign
 
     שכחת להוסיף את 'global spam_missing_global'?
 
-In Python, variables that are used inside a function are known as
-local variables. Before they are used, they must be assigned a value.
-A variable that is used before it is assigned a value is assumed to
-be defined outside that function; it is known as a `global`
-(or sometimes `nonlocal`) variable. You cannot assign a value to such
-a global variable inside a function without first indicating to
-Python that this is a global variable, otherwise you will see
-an `UnboundLocalError`.
+ב-Python, משתנים המשמשים בתוך פונקציה ידועים בשם
+משתנים מקומיים. לפני השימוש בהם, יש להקצות להם ערך.
+מניחים למשתנה שמשתמשים בו לפני שהוקצה לו ערך
+להיות מוגדר מחוץ לפונקציה זו; זה ידוע בתור 'גלובלי'
+(או לפעמים 'לא מקומי'). אתה לא יכול להקצות ערך לכאלה
+משתנה גלובלי בתוך פונקציה מבלי לציין תחילה ל
+פייתון שזה משתנה גלובלי, אחרת תראה
+'UnboundLocalError'.
 
 You're trying to use the name `spam_missing_global` identified by Python as being
 in the local scope of a function before having assigned it a value.
@@ -3196,14 +3289,14 @@ UnboundLocalError: local variable 'spam_missing_nonlocal' referenced before assi
 
     שכחת להוסיף את 'nonlocal spam_missing_nonlocal'?
 
-In Python, variables that are used inside a function are known as
-local variables. Before they are used, they must be assigned a value.
-A variable that is used before it is assigned a value is assumed to
-be defined outside that function; it is known as a `global`
-(or sometimes `nonlocal`) variable. You cannot assign a value to such
-a global variable inside a function without first indicating to
-Python that this is a global variable, otherwise you will see
-an `UnboundLocalError`.
+ב-Python, משתנים המשמשים בתוך פונקציה ידועים בשם
+משתנים מקומיים. לפני השימוש בהם, יש להקצות להם ערך.
+מניחים למשתנה שמשתמשים בו לפני שהוקצה לו ערך
+להיות מוגדר מחוץ לפונקציה זו; זה ידוע בתור 'גלובלי'
+(או לפעמים 'לא מקומי'). אתה לא יכול להקצות ערך לכאלה
+משתנה גלובלי בתוך פונקציה מבלי לציין תחילה ל
+פייתון שזה משתנה גלובלי, אחרת תראה
+'UnboundLocalError'.
 
 You're trying to use the name `spam_missing_nonlocal` identified by Python as being
 in the local scope of a function before having assigned it a value.
@@ -3244,14 +3337,14 @@ UnboundLocalError: local variable 'alpha3' referenced before assignment
 
     האם התכוונת ל 'alpha1'?
 
-In Python, variables that are used inside a function are known as
-local variables. Before they are used, they must be assigned a value.
-A variable that is used before it is assigned a value is assumed to
-be defined outside that function; it is known as a `global`
-(or sometimes `nonlocal`) variable. You cannot assign a value to such
-a global variable inside a function without first indicating to
-Python that this is a global variable, otherwise you will see
-an `UnboundLocalError`.
+ב-Python, משתנים המשמשים בתוך פונקציה ידועים בשם
+משתנים מקומיים. לפני השימוש בהם, יש להקצות להם ערך.
+מניחים למשתנה שמשתמשים בו לפני שהוקצה לו ערך
+להיות מוגדר מחוץ לפונקציה זו; זה ידוע בתור 'גלובלי'
+(או לפעמים 'לא מקומי'). אתה לא יכול להקצות ערך לכאלה
+משתנה גלובלי בתוך פונקציה מבלי לציין תחילה ל
+פייתון שזה משתנה גלובלי, אחרת תראה
+'UnboundLocalError'.
 
 במקום לכתוב 'alpha3', אולי התכוונת לאחד מהדברים הבאים:
 * היקף מקומי `alpha1`, `alpha2`
@@ -3287,14 +3380,14 @@ an `UnboundLocalError`.
     max = max(points)
 UnboundLocalError: local variable 'max' referenced before assignment
 
-In Python, variables that are used inside a function are known as
-local variables. Before they are used, they must be assigned a value.
-A variable that is used before it is assigned a value is assumed to
-be defined outside that function; it is known as a `global`
-(or sometimes `nonlocal`) variable. You cannot assign a value to such
-a global variable inside a function without first indicating to
-Python that this is a global variable, otherwise you will see
-an `UnboundLocalError`.
+ב-Python, משתנים המשמשים בתוך פונקציה ידועים בשם
+משתנים מקומיים. לפני השימוש בהם, יש להקצות להם ערך.
+מניחים למשתנה שמשתמשים בו לפני שהוקצה לו ערך
+להיות מוגדר מחוץ לפונקציה זו; זה ידוע בתור 'גלובלי'
+(או לפעמים 'לא מקומי'). אתה לא יכול להקצות ערך לכאלה
+משתנה גלובלי בתוך פונקציה מבלי לציין תחילה ל
+פייתון שזה משתנה גלובלי, אחרת תראה
+'UnboundLocalError'.
 
 `max` is a Python builtin function.
 You have tried to assign a value to `max` inside a function
@@ -3612,7 +3705,7 @@ The following site might also be useful: https://www.strfti.me/
 <section id="complex-division">
 <h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
     1 / zero
 ZeroDivisionError: complex division by zero
 
@@ -3625,14 +3718,14 @@ ZeroDivisionError: complex division by zero
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 155 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 173 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   152: def test_Complex_division():
-   153:     zero = 0j
-   154:     try:
---&gt;155:         1 / zero
+   170: def test_Complex_division():
+   171:     zero = 0j
+   172:     try:
+--&gt;173:         1 / zero
                 ^^^^^^^^
-   156:     except ZeroDivisionError as e:
+   174:     except ZeroDivisionError as e:
 
         zero:  0j
 </pre></div>
@@ -3641,8 +3734,8 @@ ZeroDivisionError: complex division by zero
 <section id="division-by-zero-literal">
 <h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 199, in test_Division_by_zero_literal
-    1. / 0
+  File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+    1.0 / 0
 ZeroDivisionError: float division by zero
 
 'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
@@ -3650,22 +3743,22 @@ ZeroDivisionError: float division by zero
 
 את\ה מחלק\ת באפס.
 
-חריג הועלה בשורה 199 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 220 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   194:     if friendly_traceback.get_lang() == "en":
-   195:         assert "Using the modulo operator, you are dividing by zero" in result
-  (...)
-   198:     try:
---&gt;199:         1. / 0
-                ^^^^^^
-   200:     except ZeroDivisionError as e:
+   216:     if friendly_traceback.get_lang() == "en":
+   217:         assert "Using the modulo operator, you are dividing by zero" in result
+   218:
+   219:     try:
+--&gt;220:         1.0 / 0
+                ^^^^^^^
+   221:     except ZeroDivisionError as e:
 </pre></div>
 </div>
 </section>
 <section id="division-operator">
 <h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 17, in test_Division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
     1 / zero
 ZeroDivisionError: division by zero
 
@@ -3678,15 +3771,18 @@ ZeroDivisionError: division by zero
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 17 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 20 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
    13:     if friendly_traceback.get_lang() == "en":
-   14:         assert "The following mathematical expression includes a division by zero" in result
-   15:
-   16:     try:
---&gt;17:         1 / zero
+   14:         assert (
+   15:             "The following mathematical expression includes a division by zero"
+   16:             in result
+   17:         )
+   18:
+   19:     try:
+--&gt;20:         1 / zero
                ^^^^^^^^
-   18:     except ZeroDivisionError as e:
+   21:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3695,7 +3791,7 @@ ZeroDivisionError: division by zero
 <section id="id8">
 <h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
     divmod(1, zero)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3704,14 +3800,14 @@ ZeroDivisionError: integer division or modulo by zero
 
 הטיעון השני של הפונקציה `divmod(חלוקה)` הוא אפס.
 
-חריג הועלה בשורה 82 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 97 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   79: def test_Divmod():
-   80:     zero = 0
-   81:     try:
---&gt;82:         divmod(1, zero)
+   94: def test_Divmod():
+   95:     zero = 0
+   96:     try:
+--&gt;97:         divmod(1, zero)
                ^^^^^^^^^^^^^^^
-   83:     except ZeroDivisionError as e:
+   98:     except ZeroDivisionError as e:
 
         zero:  0
         divmod:  &lt;builtin function divmod&gt;
@@ -3721,7 +3817,7 @@ ZeroDivisionError: integer division or modulo by zero
 <section id="float-division">
 <h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 125, in test_Float_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
     1 / zero
 ZeroDivisionError: float division by zero
 
@@ -3734,14 +3830,14 @@ ZeroDivisionError: float division by zero
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 125 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 143 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   122: def test_Float_division():
-   123:     zero = 0.
-   124:     try:
---&gt;125:         1 / zero
+   140: def test_Float_division():
+   141:     zero = 0.0
+   142:     try:
+--&gt;143:         1 / zero
                 ^^^^^^^^
-   126:     except ZeroDivisionError as e:
+   144:     except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -3750,7 +3846,7 @@ ZeroDivisionError: float division by zero
 <section id="float-divmod">
 <h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 140, in test_Float_divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
     divmod(1, zero)
 ZeroDivisionError: float divmod()
 
@@ -3759,14 +3855,14 @@ ZeroDivisionError: float divmod()
 
 הטיעון השני של הפונקציה `divmod(חלוקה)` שווה אפס.
 
-חריג הועלה בשורה 140 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 158 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   137: def test_Float_divmod():
-   138:     zero = 0.
-   139:     try:
---&gt;140:         divmod(1, zero)
+   155: def test_Float_divmod():
+   156:     zero = 0.0
+   157:     try:
+--&gt;158:         divmod(1, zero)
                 ^^^^^^^^^^^^^^^
-   141:     except ZeroDivisionError as e:
+   159:     except ZeroDivisionError as e:
 
         zero:  0.0
         divmod:  &lt;builtin function divmod&gt;
@@ -3776,7 +3872,7 @@ ZeroDivisionError: float divmod()
 <section id="float-modulo">
 <h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 110, in test_Float_modulo
+  File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
     1 % zero
 ZeroDivisionError: float modulo
 
@@ -3789,15 +3885,18 @@ ZeroDivisionError: float modulo
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 110 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 128 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   106:         assert "The following mathematical expression includes a division by zero" in result
-   107:         assert "done using the modulo operator" in result
-   108:
-   109:     try:
---&gt;110:         1 % zero
+   121:         assert (
+   122:             "The following mathematical expression includes a division by zero"
+   123:             in result
+   124:         )
+   125:         assert "done using the modulo operator" in result
+   126:
+   127:     try:
+--&gt;128:         1 % zero
                 ^^^^^^^^
-   111:     except ZeroDivisionError as e:
+   129:     except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -3806,7 +3905,7 @@ ZeroDivisionError: float modulo
 <section id="integer-division-operator">
 <h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 42, in test_Integer_division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
     1 // zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3819,15 +3918,18 @@ ZeroDivisionError: integer division or modulo by zero
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 42 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 48 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   38:     if friendly_traceback.get_lang() == "en":
-   39:         assert "The following mathematical expression includes a division by zero" in result
-   40:
-   41:     try:
---&gt;42:         1 // zero
+   41:     if friendly_traceback.get_lang() == "en":
+   42:         assert (
+   43:             "The following mathematical expression includes a division by zero"
+   44:             in result
+   45:         )
+   46:
+   47:     try:
+--&gt;48:         1 // zero
                ^^^^^^^^^
-   43:     except ZeroDivisionError as e:
+   49:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3836,7 +3938,7 @@ ZeroDivisionError: integer division or modulo by zero
 <section id="mixed-operations">
 <h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 212, in test_Mixed_operations
+  File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
     a = divmod(8, 1 // 2)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3847,13 +3949,13 @@ ZeroDivisionError: integer division or modulo by zero
 
      divmod(8, 1 // 2)
 
-חריג הועלה בשורה 212 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 233 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   210: def test_Mixed_operations():
-   211:     try:
---&gt;212:         a = divmod(8, 1 // 2)
+   231: def test_Mixed_operations():
+   232:     try:
+--&gt;233:         a = divmod(8, 1 // 2)
                     ^^^^^^^^^^^^^^^^^
-   213:     except ZeroDivisionError as e:
+   234:     except ZeroDivisionError as e:
 
         divmod:  &lt;builtin function divmod&gt;
         1 // 2:  0
@@ -3863,7 +3965,7 @@ ZeroDivisionError: integer division or modulo by zero
 <section id="modulo-operator">
 <h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 67, in test_Modulo_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
     1 % zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3876,15 +3978,18 @@ ZeroDivisionError: integer division or modulo by zero
 
 שהוא שווה לאפס.
 
-חריג הועלה בשורה 67 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 79 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   63:     if friendly_traceback.get_lang() == "en":
-   64:         assert "The following mathematical expression includes a division by zero" in result
-   65:
-   66:     try:
---&gt;67:         1 % zero
+   72:     if friendly_traceback.get_lang() == "en":
+   73:         assert (
+   74:             "The following mathematical expression includes a division by zero"
+   75:             in result
+   76:         )
+   77:
+   78:     try:
+--&gt;79:         1 % zero
                ^^^^^^^^
-   68:     except ZeroDivisionError as e:
+   80:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3893,8 +3998,8 @@ ZeroDivisionError: integer division or modulo by zero
 <section id="raise-zero-negative-power">
 <h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 170, in test_Raise_zero_negative_power
-    zero ** -1
+  File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+    zero**-1
 ZeroDivisionError: 0.0 cannot be raised to a negative power
 
 'ZeroDivisionError' מתרחש כאשר אתה מנסה לחלק ערך
@@ -3903,14 +4008,14 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 את\ה מנסה להעלות את המספר 0 בחזקת מספר שלילי
 זה מקביל לחלוקה באפס.
 
-חריג הועלה בשורה 170 של הקובץ TESTS:\runtime\test_zero_division_error.py.
+חריג הועלה בשורה 188 של הקובץ TESTS:\runtime\test_zero_division_error.py.
 
-   167: def test_Raise_zero_negative_power():
-   168:     zero = 0
-   169:     try:
---&gt;170:         zero ** -1
-                ^^^^^^^^^^
-   171:     except ZeroDivisionError as e:
+   185: def test_Raise_zero_negative_power():
+   186:     zero = 0
+   187:     try:
+--&gt;188:         zero**-1
+                ^^^^^^^^
+   189:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -4055,6 +4160,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 <li><a class="reference internal" href="#synonym">Synonym</a></li>
 <li><a class="reference internal" href="#missing-import2">missing import2</a></li>
 <li><a class="reference internal" href="#missing-import3">missing import3</a></li>
+<li><a class="reference internal" href="#special-keyword">special keyword</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#oserror">OsError</a><ul>
@@ -4073,6 +4179,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </ul>
 </li>
 <li><a class="reference internal" href="#typeerror">TypeError</a><ul>
+<li><a class="reference internal" href="#argument-of-object-is-not-iterable">Argument of object is not iterable</a></li>
 <li><a class="reference internal" href="#bad-type-for-unary-operator">Bad type for unary operator</a></li>
 <li><a class="reference internal" href="#builtin-has-no-len">Builtin has no len</a></li>
 <li><a class="reference internal" href="#can-only-concatenate">Can only concatenate</a></li>
@@ -4081,6 +4188,7 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 <li><a class="reference internal" href="#cannot-unpack-non-iterable-object">Cannot unpack non iterable object</a></li>
 <li><a class="reference internal" href="#comparison-not-supported">Comparison not supported</a></li>
 <li><a class="reference internal" href="#derive-from-baseexception">Derive from BaseException</a></li>
+<li><a class="reference internal" href="#generator-has-no-len">Generator has no len</a></li>
 <li><a class="reference internal" href="#indices-must-be-integers-or-slices">Indices must be integers or slices</a></li>
 <li><a class="reference internal" href="#not-an-integer">Not an integer</a></li>
 <li><a class="reference internal" href="#not-callable">Not callable</a></li>

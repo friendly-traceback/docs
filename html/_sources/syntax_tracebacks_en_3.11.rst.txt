@@ -18,8 +18,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.35
-Python version: 3.11.0a5
+Friendly-traceback version: 0.5.48
+Python version: 3.11.0rc1
 
 
 
@@ -153,8 +153,8 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\assign_instead_of_equal.py", line 1
         a = (b = 2)  # issue #65
-               ^
-    SyntaxError: invalid syntax
+             ^^^^^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
     
         Perhaps you needed `==` or `:=` instead of `=`.
         
@@ -165,7 +165,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: a = (b = 2)  # issue #65
-                 ^
+               ^^^^^
 
     You used an assignment operator `=`; perhaps you meant to use 
     an equality operator, `==`, or the walrus operator `:=`.
@@ -1051,7 +1051,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
         a = 3 \ 4.0
-               ^^^^-->
+               ^
     SyntaxError: unexpected character after line continuation character
     
         Did you mean to divide by 4.0?
@@ -1495,7 +1495,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
         def test(a, **kwargs, b):
                               ^
-    SyntaxError: invalid syntax
+    SyntaxError: arguments cannot follow var-keyword argument
     
         Positional arguments must come before keyword arguments.
         
@@ -1508,6 +1508,14 @@ Python version: 3.11.0a5
        1: def test(a, **kwargs, b):
                                 ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        arguments cannot follow var-keyword argument
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     Positional arguments must come before keyword arguments.
     `b` is a positional argument that appears after one or more
     keyword arguments in your function definition.
@@ -1820,7 +1828,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_forward_slash_1.py", line 1
         def test(a, **kwargs, /):
                               ^
-    SyntaxError: invalid syntax
+    SyntaxError: arguments cannot follow var-keyword argument
     
         Keyword arguments must appear after the `/` symbol.
         
@@ -1833,6 +1841,14 @@ Python version: 3.11.0a5
        1: def test(a, **kwargs, /):
                                 ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        arguments cannot follow var-keyword argument
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `/` indicates that the previous arguments in a function definition
     are positional arguments.
     You have unspecified keyword arguments that appear before
@@ -1851,7 +1867,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_forward_slash_2.py", line 1
         def test(a, *, b, /):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: / must be ahead of *
     
         `*` must appear after `/` in a function definition.
         
@@ -1864,6 +1880,14 @@ Python version: 3.11.0a5
        1: def test(a, *, b, /):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        / must be ahead of *
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `/` indicates that the previous arguments in a function definition
     are positional arguments.
     However, `*` indicates that the arguments
@@ -1883,7 +1907,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_forward_slash_3.py", line 1
         def test(a, *arg, /):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: / must be ahead of *
     
         `*arg` must appear after `/` in a function definition.
         
@@ -1896,6 +1920,14 @@ Python version: 3.11.0a5
        1: def test(a, *arg, /):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        / must be ahead of *
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `/` indicates that the previous arguments in a function definition
     are positional arguments.
     `*arg` must appear after `/` in a function definition.
@@ -1913,7 +1945,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_forward_slash_4.py", line 1
         def test(a, /, b, /):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: / may appear only once
     
         You can only use `/` once in a function definition.
         
@@ -1926,6 +1958,14 @@ Python version: 3.11.0a5
        1: def test(a, /, b, /):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        / may appear only once
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You can only use `/` once in a function definition.
     
 
@@ -1952,7 +1992,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        3: def 2be():
-              ^
+              ^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -2682,7 +2722,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
         def test(a, *arg, /):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: / must be ahead of *
     
         `*arg` must appear after `/` in a function definition.
         
@@ -2695,6 +2735,14 @@ Python version: 3.11.0a5
        1: def test(a, *arg, /):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        / must be ahead of *
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `/` indicates that the previous arguments in a function definition
     are positional arguments.
     `*arg` must appear after `/` in a function definition.
@@ -2712,7 +2760,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_star_used_only_once.py", line 1
         def test(a, *arg, *, b=1):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: * argument may appear only once
     
         You can only use `*` once in a function definition.
         
@@ -2725,6 +2773,14 @@ Python version: 3.11.0a5
        1: def test(a, *arg, *, b=1):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        * argument may appear only once
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You can only use `*` once in a function definition.
     It must either be used by itself, `*`,
     or in the form `*arg`, but not both.
@@ -2770,7 +2826,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
         def test(a, *arg, *other):
                           ^
-    SyntaxError: invalid syntax
+    SyntaxError: * argument may appear only once
     
         You can only use `*` once in a function definition.
         
@@ -2783,6 +2839,14 @@ Python version: 3.11.0a5
        1: def test(a, *arg, *other):
                             ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        * argument may appear only once
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     You can only use `*` once in a function definition.
     You have used it twice, with `*arg` and `*other`.
     
@@ -2799,7 +2863,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_star_after_2star.py", line 1
         def test(**kw, *arg):
                        ^
-    SyntaxError: invalid syntax
+    SyntaxError: arguments cannot follow var-keyword argument
     
         You can only use `*` once in a function definition.
         
@@ -2812,6 +2876,14 @@ Python version: 3.11.0a5
        1: def test(**kw, *arg):
                          ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        arguments cannot follow var-keyword argument
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `*arg` must appear before `**kw`.
     
 
@@ -2827,7 +2899,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\def_star_after_2star_2.py", line 1
         def test(**kw, *):
                        ^
-    SyntaxError: invalid syntax
+    SyntaxError: arguments cannot follow var-keyword argument
     
         You can only use `*` once in a function definition.
         
@@ -2840,6 +2912,14 @@ Python version: 3.11.0a5
        1: def test(**kw, *):
                          ^
 
+    Python gave us the following informative message
+    about the possible cause of the error:
+    
+        arguments cannot follow var-keyword argument
+    
+    However, I do not recognize this information and I have
+    to guess what caused the problem, but I might be wrong.
+    
     `**kw` must appear after the `*` operator.
     
 
@@ -3181,7 +3261,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_1.py", line 1
         a = {1:2, 3}
-                  ^^-->
+                  ^
     SyntaxError: ':' expected after dictionary key
     
         Did you forget to write a dict value?
@@ -3239,7 +3319,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_3.py", line 3
         a = {1:2, 3, 4:5}
-                  ^^^^^^^-->
+                  ^
     SyntaxError: ':' expected after dictionary key
     
         Did you forget to write a dict value?
@@ -3527,9 +3607,11 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
         ages = {'Alice'=22, 'Bob'=24}
-                       ^
-    SyntaxError: invalid syntax
+                ^^^^^^^
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
     
+        You can only assign objects to identifiers (variable names).
+        
     A `SyntaxError` occurs when Python cannot understand your code.
     
     Python could not understand the code in the file
@@ -3537,11 +3619,19 @@ Python version: 3.11.0a5
     at the location indicated.
     
        4: ages = {'Alice'=22, 'Bob'=24}
-                         ^
+                  ^^^^^^^
 
+    You wrote an expression like
+    
+        'Alice' = variable_name
+    where `'Alice'`, on the left-hand side of the equal sign,
+    is or includes an actual object of type `str`
+    and is not simply the name of a variable.
+    
+    You can only assign objects to identifiers (variable names).
+    
     It is possible that you used an equal sign `=` instead of a colon `:`
-    to assign values to keys in a dict
-    before or at the position indicated by ^.
+    to assign values to keys in a dict.
     
 
 (117) Parens around multiple exceptions
@@ -3958,7 +4048,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\generator_expression_parens.py", line 6
         f(x for x in L, 1)
-          ^^^^^^^
+          ^^^^^^^^^^^^
     SyntaxError: Generator expression must be parenthesized
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -3968,7 +4058,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        6: f(x for x in L, 1)
-            ^^^^^^^
+            ^^^^^^^^^^^^
 
     You are using a generator expression, something of the form
     
@@ -4063,7 +4153,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        3: a = 3.0i
-              ^^^
+              ^^^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4175,7 +4265,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\indentation_error_3.py", line 5
         pass
-            -->
+            ^
     IndentationError: unindent does not match any outer indentation level
     
     An `IndentationError` occurs when a given line of code is
@@ -4333,7 +4423,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: a = 1e
-              ^
+              ^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4361,7 +4451,7 @@ Python version: 3.11.0a5
     
     Python could not understand the code in the file
     'TESTS:\example.py'
-    .
+    
     
     The encoding of the file was not valid.
     
@@ -4389,7 +4479,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        3: a = 0x123g4
-              ^^^^^
+              ^^^^^^^
 
     It looks like you used an invalid character (`g`) in an hexadecimal number.
     
@@ -4423,7 +4513,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        3: 36abc = 3
-          ^^
+          ^^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4454,7 +4544,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        3: tau = 2pi
-                ^
+                ^^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -4487,7 +4577,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: 3job  # could be entered in a repl
-          ^^
+          ^^^^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `3 * job`.
@@ -4519,7 +4609,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: 3job = 1
-          ^^
+          ^^^
 
     Valid names cannot begin with a number.
     
@@ -4547,7 +4637,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: print(42java)
-                ^^^
+                ^^^^
 
     Valid names cannot begin with a number.
     Perhaps you forgot a multiplication operator, `42 * java`.
@@ -4929,7 +5019,7 @@ Python version: 3.11.0a5
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_code_block_2.py'
-    .
+    
     
        3: for i in "test":
        4: 
@@ -5008,7 +5098,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\missing_comma_in_dict.py", line 4
         'b': 2
-             -->
+             ^-->
     SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         Did you forget a comma?
@@ -5243,7 +5333,7 @@ Python version: 3.11.0a5
       File "TESTS:\syntax\missing_parens_for_range.py", line 1
         for i in range 3:
                        ^
-    SyntaxError: expected ':'
+    SyntaxError: invalid syntax
     
         Did you forget to write parenthesis?
         
@@ -5256,9 +5346,6 @@ Python version: 3.11.0a5
        1: for i in range 3:
                          ^
 
-    Python told us that it expected a colon at the position indicated.
-    However, adding a colon or replacing something else by a colon
-    would not fix the problem.
     It looks as though you forgot to use to use parenthesis with `range`.
     Perhaps you meant:
     
@@ -5614,7 +5701,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
     -->2: print len("""This is a long string
-          ^^->
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        3:           that spans multiple lines.""")
 
     Perhaps you need to type
@@ -6239,7 +6326,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\too_many_nested_blocks.py", line 22
         while 22:
-        -->
+        ^-->
     SyntaxError: too many statically nested blocks
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -6249,7 +6336,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        22:                      while 22:
-                                ^^->
+                                ^^^^^
 
     Your code is too complex for Python:
     you need to reduce the number of indented code blocks
@@ -6365,7 +6452,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\unclosed_bracket.py", line 5
         return [1, 2, 3
-               ^^^^-->
+               ^
     SyntaxError: '[' was never closed
     
         The square bracket `[` was never closed.
@@ -6399,7 +6486,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\unclosed_paren_1.py", line 2
         x = int('1'
-               ^^^^-->
+               ^
     SyntaxError: '(' was never closed
     
         The parenthesis `(` was never closed.
@@ -6433,7 +6520,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\unclosed_paren_2.py", line 2
         a = (b+c
-            ^^^^-->
+            ^
     SyntaxError: '(' was never closed
     
         The parenthesis `(` was never closed.
@@ -6531,7 +6618,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
         print(\t)
-               ^^-->
+               ^
     SyntaxError: unexpected character after line continuation character
     
     A `SyntaxError` occurs when Python cannot understand your code.
@@ -6559,7 +6646,7 @@ Python version: 3.11.0a5
         __import__(name)
       File "TESTS:\syntax\unexpected_eof.py", line 5
         return [1, 2, 3,
-               ^^^^^-->
+               ^
     SyntaxError: '[' was never closed
     
         The square bracket `[` was never closed.
@@ -6638,7 +6725,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        1: a = 1½  # 1 1/2
-              ^
+              ^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.
@@ -6838,7 +6925,7 @@ Python version: 3.11.0a5
     at the location indicated.
     
        2: a = (1‚ 2)
-               ^
+               ^^
 
     Python tells us that you have written an invalid number.
     However, I think that the problem might be the following.

@@ -16,7 +16,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.5.35
+Friendly-traceback version: 0.5.48
 Python version: 3.9.10
 
 
@@ -545,7 +545,7 @@ Read only
        278:     f = F()
        279:     try:
     -->280:         f.b = 1
-                    ^^^^^^^
+                    ^^^
        281:     except AttributeError as e:
 
             f:  <F object>
@@ -749,7 +749,7 @@ Using slots
        258:     f = F()
        259:     try:
     -->260:         f.b = 1
-                    ^^^^^^^
+                    ^^^
        261:     except AttributeError as e:
 
             f:  <F object>
@@ -937,7 +937,7 @@ Assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
+      File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
         a[13] = 1
     IndexError: list assignment index out of range
     
@@ -951,15 +951,15 @@ Assignment
     The valid index values of `a` are integers ranging from
     `-10` to `9`.
     
-    Eccezione rilevata alla linea 87 del file TESTS:\runtime\test_index_error.py.
+    Eccezione rilevata alla linea 93 del file TESTS:\runtime\test_index_error.py.
     
-       83:         assert "You have tried to assign a value to index `1` of `b`," in result
-       84:         assert "a `list` which contains no item." in result
-       85: 
-       86:     try:
-    -->87:         a[13] = 1
-                   ^^^^^^^^^
-       88:     except IndexError as e:
+       89:         assert "You have tried to assign a value to index `1` of `b`," in result
+       90:         assert "a `list` which contains no item." in result
+       91: 
+       92:     try:
+    -->93:         a[13] = 1
+                   ^^^^^
+       94:     except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -1983,6 +1983,37 @@ missing import3
        159:     except NameError as e:
 
 
+special keyword
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 308, in test_special_keyword
+        brek
+    NameError: name 'brek' is not defined
+    
+        Did you mean `break`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    I suspect you meant to write the keyword `break` and made a typo.
+    
+    Eccezione rilevata alla linea 308 del file TESTS:\runtime\test_name_error.py.
+    
+       305:     if friendly_traceback.get_lang() == "en":
+       306:         assert "Did you mean `continue`" in result
+       307:     try:
+    -->308:         brek
+                    ^^^^
+       309:     except NameError as e:
+
+
 OsError
 -------
 
@@ -2005,7 +2036,7 @@ Urllib error
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
+      File "TESTS:\runtime\test_os_error.py", line 10, in test_Urllib_error
         request.urlopen("http://does_not_exist")
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
@@ -2020,14 +2051,15 @@ Urllib error
     If that is the case, check for typos in the URL
     and check your internet connectivity.
     
-    Eccezione rilevata alla linea 8 del file TESTS:\runtime\test_os_error.py.
+    Eccezione rilevata alla linea 10 del file TESTS:\runtime\test_os_error.py.
     
-       5: def test_Urllib_error():
-       6:     from urllib import request, error
-       7:     try:
-    -->8:         request.urlopen("http://does_not_exist")
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       9:     except error.URLError as e:
+        6: @pytest.mark.skipif(random.randint(0, 50) < 59, reason="very long test")
+        7: def test_Urllib_error():
+        8:     from urllib import request, error
+        9:     try:
+    -->10:         request.urlopen("http://does_not_exist")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       11:     except error.URLError as e:
 
             request:  <module urllib.request> from PYTHON_LIB:\urllib\request.py
             request.urlopen:  <function urlopen>
@@ -2041,7 +2073,7 @@ invalid argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+      File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
         open("c:\test.txt")
     OSError: [Errno 22] Invalid argument: 'c:\test.txt'
     
@@ -2060,14 +2092,14 @@ invalid argument
     front of the filename or path, or replace all single backslash
     characters, `\`, by double ones: `\\`.
     
-    Eccezione rilevata alla linea 46 del file TESTS:\runtime\test_os_error.py.
+    Eccezione rilevata alla linea 48 del file TESTS:\runtime\test_os_error.py.
     
-       43:     if os.name != "nt":
-       44:         return "Windows test only", "No result"
-       45:     try:
-    -->46:         open("c:\test.txt")
+       45:     if os.name != "nt":
+       46:         return "Windows test only", "No result"
+       47:     try:
+    -->48:         open("c:\test.txt")
                    ^^^^^^^^^^^^^^^^^^^
-       47:     except OSError as e:
+       49:     except OSError as e:
 
             open:  <builtin function open>
         
@@ -2080,7 +2112,7 @@ no information
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+      File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
         raise OSError("Some unknown message")
     OSError: Some unknown message
     
@@ -2095,14 +2127,14 @@ no information
     Se stai usando REPL, usa il comando `www('bug')` per farlo.
     Se stai usando la console Friendly, usa `www()` per effettuare una ricerca su internet per questo caso particolare.
     
-    Eccezione rilevata alla linea 27 del file TESTS:\runtime\test_os_error.py.
+    Eccezione rilevata alla linea 29 del file TESTS:\runtime\test_os_error.py.
     
-       24:     old_debug = friendly_traceback.debug_helper.DEBUG
-       25:     friendly_traceback.debug_helper.DEBUG = False
-       26:     try:
-    -->27:         raise OSError("Some unknown message")
+       26:     old_debug = friendly_traceback.debug_helper.DEBUG
+       27:     friendly_traceback.debug_helper.DEBUG = False
+       28:     try:
+    -->29:         raise OSError("Some unknown message")
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       28:     except OSError as e:
+       30:     except OSError as e:
 
             OSError:  <class OSError>
         
@@ -2215,6 +2247,40 @@ TypeError
 ---------
 
 
+Argument of object is not iterable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+        a in b
+    TypeError: argument of type 'object' is not iterable
+    
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    An iterable is an object capable of returning its members one at a time.
+    Python containers (`list, tuple, dict`, etc.) are iterables.
+    'b' is not a container. A container is required here.
+    
+    Eccezione rilevata alla linea 804 del file TESTS:\runtime\test_type_error.py.
+    
+       801:     a = object()
+       802:     b = object()
+       803:     try:
+    -->804:         a in b
+                    ^^^^^^
+       805:     except TypeError as e:
+
+            a:  <object object>
+            b:  <object object>
+        
+
+
 Bad type for unary operator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -2257,7 +2323,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 830, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2272,13 +2338,13 @@ Builtin has no len
     You might have meant to write:
     `len("Hello world".split())`
     
-    Eccezione rilevata alla linea 830 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 859 del file TESTS:\runtime\test_type_error.py.
     
-       828: def test_Builtin_has_no_len():
-       829:     try:
-    -->830:         len("Hello world".split)
+       857: def test_Builtin_has_no_len():
+       858:     try:
+    -->859:         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       831:     except TypeError as e:
+       860:     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -2325,7 +2391,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 816, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2340,15 +2406,15 @@ Cannot convert dictionary update sequence
     Instead of writing `dd.update([1, 2, 3])`
     perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Eccezione rilevata alla linea 816 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 845 del file TESTS:\runtime\test_type_error.py.
     
-       812:         assert "you should use the `dict.fromkeys()`" in result
-       813: 
-       814:     dd = {"a": "a"}
-       815:     try:
-    -->816:         dd.update([1, 2, 3])
+       841:         assert "you should use the `dict.fromkeys()`" in result
+       842: 
+       843:     dd = {"a": "a"}
+       844:     try:
+    -->845:         dd.update([1, 2, 3])
                     ^^^^^^^^^^^^^^^^^^^^
-       817:     except TypeError as e:
+       846:     except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
@@ -2395,7 +2461,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 788, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2410,13 +2476,13 @@ Cannot unpack non iterable object
     Python containers (`list, tuple, dict`, etc.) are iterables,
     but not objects of type `float`.
     
-    Eccezione rilevata alla linea 788 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 817 del file TESTS:\runtime\test_type_error.py.
     
-       786: def test_Cannot_unpack_non_iterable_object():
-       787:     try:
-    -->788:         a, b = 42.0
+       815: def test_Cannot_unpack_non_iterable_object():
+       816:     try:
+    -->817:         a, b = 42.0
                     ^^^^^^^^^^^
-       789:     except TypeError as e:
+       818:     except TypeError as e:
 
 
 Comparison not supported
@@ -2481,6 +2547,44 @@ Derive from BaseException
     -->557:         raise "exception"  # noqa
                     ^^^^^^^^^^^^^^^^^
        558:     except TypeError as e:
+
+
+Generator has no len
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+        nb = len(letter
+    TypeError: object of type 'generator' has no len()
+    
+        You likely need to build a list first.
+        
+    A `TypeError` is usually caused by trying
+    to combine two incompatible types of objects,
+    by calling a function with the wrong type of object,
+    or by trying to do an operation not allowed on a given type of object.
+    
+    I am guessing that you were trying to count the number of elements
+    produced by a generator expression. You first need to capture them
+    in a list:
+    
+        len([letter for letter in "word"])
+    
+    Eccezione rilevata alla linea 1014 del file TESTS:\runtime\test_type_error.py.
+    
+       1012: def test_Generator_has_no_len():
+       1013:     try:
+    -->1014:         nb = len(letter
+                          ^^^^^^^^^^
+       1015:                  for letter in "word")
+                              ^^^^^^^^^^^^^^^^^^^^^
+       1016:     except TypeError as e:
+
+            len:  <builtin function len>
+        
 
 
 Indices must be integers or slices
@@ -2606,7 +2710,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 774, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -2619,13 +2723,13 @@ Object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     An iterable is required here.
     
-    Eccezione rilevata alla linea 774 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 788 del file TESTS:\runtime\test_type_error.py.
     
-       772: def test_Object_is_not_iterable():
-       773:     try:
-    -->774:         list(42)
+       786: def test_Object_is_not_iterable():
+       787:     try:
+    -->788:         list(42)
                     ^^^^^^^^
-       775:     except TypeError as e:
+       789:     except TypeError as e:
 
             list:  <class list>
         
@@ -2638,7 +2742,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 757, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -2654,15 +2758,15 @@ Object is not subscriptable
     
     Perhaps you meant to write `f(1)`.
     
-    Eccezione rilevata alla linea 757 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 771 del file TESTS:\runtime\test_type_error.py.
     
-       753:     def f():
-       754:         pass
-       755: 
-       756:     try:
-    -->757:         a = f[1]
+       767:     def f():
+       768:         pass
+       769: 
+       770:     try:
+    -->771:         a = f[1]
                         ^^^^
-       758:     except TypeError as e:
+       772:     except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
@@ -2802,7 +2906,7 @@ Tuple no item assignment
        417:     a = (1, 2, 3)
        418:     try:
     -->419:         a[0] = 0
-                    ^^^^^^^^
+                    ^^^^
        420:     except TypeError as e:
 
             a:  (1, 2, 3)
@@ -2917,7 +3021,7 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 922, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
         fn2(0, a=1)
     TypeError: fn2() got multiple values for argument 'a'
     
@@ -2931,15 +3035,15 @@ function got multiple argument
     This function has the following arguments:
     `a, b=1`
     
-    Eccezione rilevata alla linea 922 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 951 del file TESTS:\runtime\test_type_error.py.
     
-       918:     def fn2(a, b=1):
-       919:         pass
-       920: 
-       921:     try:
-    -->922:         fn2(0, a=1)
+       947:     def fn2(a, b=1):
+       948:         pass
+       949: 
+       950:     try:
+    -->951:         fn2(0, a=1)
                     ^^^^^^^^^^^
-       923:     except TypeError as e:
+       952:     except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -2953,7 +3057,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 847, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -2968,15 +3072,15 @@ function has no len
     You might have meant to write:
     `len(bad())`
     
-    Eccezione rilevata alla linea 847 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 876 del file TESTS:\runtime\test_type_error.py.
     
-       843:     def bad():
-       844:         pass
-       845: 
-       846:     try:
-    -->847:         len(bad)
+       872:     def bad():
+       873:         pass
+       874: 
+       875:     try:
+    -->876:         len(bad)
                     ^^^^^^^^
-       848:     except TypeError as e:
+       877:     except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
@@ -2990,7 +3094,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 968, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -3001,18 +3105,18 @@ getattr attribute name must be string
     
     The second argument of the function `getattr()` must be a string.
     
-    Eccezione rilevata alla linea 968 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 997 del file TESTS:\runtime\test_type_error.py.
     
-       961:     if friendly_traceback.get_lang() == "en":
-       962:         assert (
-       963:             "The second argument of the function `hasattr()` must be a string."
-       964:             in result
-       965:         )
-       966: 
-       967:     try:
-    -->968:         getattr("__repr__", 1)  # as reported in issue #77
+       990:     if friendly_traceback.get_lang() == "en":
+       991:         assert (
+       992:             "The second argument of the function `hasattr()` must be a string."
+       993:             in result
+       994:         )
+       995: 
+       996:     try:
+    -->997:         getattr("__repr__", 1)  # as reported in issue #77
                     ^^^^^^^^^^^^^^^^^^^^^^
-       969:     except TypeError as e:
+       998:     except TypeError as e:
 
             getattr:  <builtin function getattr>
         
@@ -3025,7 +3129,7 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 941, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
         t.some_method(0, a=1)
     TypeError: some_method() got multiple values for argument 'a'
     
@@ -3038,15 +3142,15 @@ method got multiple argument
     when calling the function named `t.some_method`.
     This function has only one argument: `a`
     
-    Eccezione rilevata alla linea 941 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 970 del file TESTS:\runtime\test_type_error.py.
     
-       937:             pass
-       938: 
-       939:     t = T()
-       940:     try:
-    -->941:         t.some_method(0, a=1)
+       966:             pass
+       967: 
+       968:     t = T()
+       969:     try:
+    -->970:         t.some_method(0, a=1)
                     ^^^^^^^^^^^^^^^^^^^^^
-       942:     except TypeError as e:
+       971:     except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -3063,7 +3167,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 891, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -3076,15 +3180,15 @@ vars arg must have dict
     `__dict__` attribute of an object.
     Object `f` uses `__slots__` instead of `__dict__`.
     
-    Eccezione rilevata alla linea 891 del file TESTS:\runtime\test_type_error.py.
+    Eccezione rilevata alla linea 920 del file TESTS:\runtime\test_type_error.py.
     
-       887:         assert no_slots not in result
-       888:         assert use_slots not in result
-       889: 
-       890:     try:
-    -->891:         vars(f)
+       916:         assert no_slots not in result
+       917:         assert use_slots not in result
+       918: 
+       919:     try:
+    -->920:         vars(f)
                     ^^^^^^^
-       892:     except TypeError as e:
+       921:     except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3696,7 +3800,7 @@ Complex division
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
+      File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
         1 / zero
     ZeroDivisionError: complex division by zero
     
@@ -3708,14 +3812,14 @@ Complex division
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 155 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 173 del file TESTS:\runtime\test_zero_division_error.py.
     
-       152: def test_Complex_division():
-       153:     zero = 0j
-       154:     try:
-    -->155:         1 / zero
+       170: def test_Complex_division():
+       171:     zero = 0j
+       172:     try:
+    -->173:         1 / zero
                     ^^^^^^^^
-       156:     except ZeroDivisionError as e:
+       174:     except ZeroDivisionError as e:
 
             zero:  0j
         
@@ -3728,23 +3832,23 @@ Division by zero literal
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 199, in test_Division_by_zero_literal
-        1. / 0
+      File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+        1.0 / 0
     ZeroDivisionError: float division by zero
     
     Un `ZeroDivisionError` viene riscontrato quando si sta tentando di dividere un valore per zero, sia direttamente sia mediante l'utilizzo di una funzione matematica. 
     
     You are dividing by zero.
     
-    Eccezione rilevata alla linea 199 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 220 del file TESTS:\runtime\test_zero_division_error.py.
     
-       194:     if friendly_traceback.get_lang() == "en":
-       195:         assert "Using the modulo operator, you are dividing by zero" in result
-      (...)
-       198:     try:
-    -->199:         1. / 0
-                    ^^^^^^
-       200:     except ZeroDivisionError as e:
+       216:     if friendly_traceback.get_lang() == "en":
+       217:         assert "Using the modulo operator, you are dividing by zero" in result
+       218: 
+       219:     try:
+    -->220:         1.0 / 0
+                    ^^^^^^^
+       221:     except ZeroDivisionError as e:
 
 
 Division operator
@@ -3754,7 +3858,7 @@ Division operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 17, in test_Division_operator
+      File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
         1 / zero
     ZeroDivisionError: division by zero
     
@@ -3766,15 +3870,18 @@ Division operator
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 17 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 20 del file TESTS:\runtime\test_zero_division_error.py.
     
        13:     if friendly_traceback.get_lang() == "en":
-       14:         assert "The following mathematical expression includes a division by zero" in result
-       15: 
-       16:     try:
-    -->17:         1 / zero
+       14:         assert (
+       15:             "The following mathematical expression includes a division by zero"
+       16:             in result
+       17:         )
+       18: 
+       19:     try:
+    -->20:         1 / zero
                    ^^^^^^^^
-       18:     except ZeroDivisionError as e:
+       21:     except ZeroDivisionError as e:
 
             zero:  0
         
@@ -3787,7 +3894,7 @@ Divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
+      File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
         divmod(1, zero)
     ZeroDivisionError: integer division or modulo by zero
     
@@ -3795,14 +3902,14 @@ Divmod
     
     The second argument of the `divmod()` function is zero.
     
-    Eccezione rilevata alla linea 82 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 97 del file TESTS:\runtime\test_zero_division_error.py.
     
-       79: def test_Divmod():
-       80:     zero = 0
-       81:     try:
-    -->82:         divmod(1, zero)
+       94: def test_Divmod():
+       95:     zero = 0
+       96:     try:
+    -->97:         divmod(1, zero)
                    ^^^^^^^^^^^^^^^
-       83:     except ZeroDivisionError as e:
+       98:     except ZeroDivisionError as e:
 
             zero:  0
             divmod:  <builtin function divmod>
@@ -3816,7 +3923,7 @@ Float division
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 125, in test_Float_division
+      File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
         1 / zero
     ZeroDivisionError: float division by zero
     
@@ -3828,14 +3935,14 @@ Float division
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 125 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 143 del file TESTS:\runtime\test_zero_division_error.py.
     
-       122: def test_Float_division():
-       123:     zero = 0.
-       124:     try:
-    -->125:         1 / zero
+       140: def test_Float_division():
+       141:     zero = 0.0
+       142:     try:
+    -->143:         1 / zero
                     ^^^^^^^^
-       126:     except ZeroDivisionError as e:
+       144:     except ZeroDivisionError as e:
 
             zero:  0.0
         
@@ -3848,7 +3955,7 @@ Float divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 140, in test_Float_divmod
+      File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
         divmod(1, zero)
     ZeroDivisionError: float divmod()
     
@@ -3856,14 +3963,14 @@ Float divmod
     
     The second argument of the `divmod()` function is equal to zero.
     
-    Eccezione rilevata alla linea 140 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 158 del file TESTS:\runtime\test_zero_division_error.py.
     
-       137: def test_Float_divmod():
-       138:     zero = 0.
-       139:     try:
-    -->140:         divmod(1, zero)
+       155: def test_Float_divmod():
+       156:     zero = 0.0
+       157:     try:
+    -->158:         divmod(1, zero)
                     ^^^^^^^^^^^^^^^
-       141:     except ZeroDivisionError as e:
+       159:     except ZeroDivisionError as e:
 
             zero:  0.0
             divmod:  <builtin function divmod>
@@ -3877,7 +3984,7 @@ Float modulo
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 110, in test_Float_modulo
+      File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
         1 % zero
     ZeroDivisionError: float modulo
     
@@ -3889,15 +3996,18 @@ Float modulo
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 110 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 128 del file TESTS:\runtime\test_zero_division_error.py.
     
-       106:         assert "The following mathematical expression includes a division by zero" in result
-       107:         assert "done using the modulo operator" in result
-       108: 
-       109:     try:
-    -->110:         1 % zero
+       121:         assert (
+       122:             "The following mathematical expression includes a division by zero"
+       123:             in result
+       124:         )
+       125:         assert "done using the modulo operator" in result
+       126: 
+       127:     try:
+    -->128:         1 % zero
                     ^^^^^^^^
-       111:     except ZeroDivisionError as e:
+       129:     except ZeroDivisionError as e:
 
             zero:  0.0
         
@@ -3910,7 +4020,7 @@ Integer division operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 42, in test_Integer_division_operator
+      File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
         1 // zero
     ZeroDivisionError: integer division or modulo by zero
     
@@ -3922,15 +4032,18 @@ Integer division operator
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 42 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 48 del file TESTS:\runtime\test_zero_division_error.py.
     
-       38:     if friendly_traceback.get_lang() == "en":
-       39:         assert "The following mathematical expression includes a division by zero" in result
-       40: 
-       41:     try:
-    -->42:         1 // zero
+       41:     if friendly_traceback.get_lang() == "en":
+       42:         assert (
+       43:             "The following mathematical expression includes a division by zero"
+       44:             in result
+       45:         )
+       46: 
+       47:     try:
+    -->48:         1 // zero
                    ^^^^^^^^^
-       43:     except ZeroDivisionError as e:
+       49:     except ZeroDivisionError as e:
 
             zero:  0
         
@@ -3943,7 +4056,7 @@ Mixed operations
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 212, in test_Mixed_operations
+      File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
         a = divmod(8, 1 // 2)
     ZeroDivisionError: integer division or modulo by zero
     
@@ -3953,13 +4066,13 @@ Mixed operations
     
         divmod(8, 1 // 2)
     
-    Eccezione rilevata alla linea 212 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 233 del file TESTS:\runtime\test_zero_division_error.py.
     
-       210: def test_Mixed_operations():
-       211:     try:
-    -->212:         a = divmod(8, 1 // 2)
+       231: def test_Mixed_operations():
+       232:     try:
+    -->233:         a = divmod(8, 1 // 2)
                         ^^^^^^^^^^^^^^^^^
-       213:     except ZeroDivisionError as e:
+       234:     except ZeroDivisionError as e:
 
             divmod:  <builtin function divmod>
             1 // 2:  0
@@ -3973,7 +4086,7 @@ Modulo operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 67, in test_Modulo_operator
+      File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
         1 % zero
     ZeroDivisionError: integer division or modulo by zero
     
@@ -3985,15 +4098,18 @@ Modulo operator
     
     which is equal to zero.
     
-    Eccezione rilevata alla linea 67 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 79 del file TESTS:\runtime\test_zero_division_error.py.
     
-       63:     if friendly_traceback.get_lang() == "en":
-       64:         assert "The following mathematical expression includes a division by zero" in result
-       65: 
-       66:     try:
-    -->67:         1 % zero
+       72:     if friendly_traceback.get_lang() == "en":
+       73:         assert (
+       74:             "The following mathematical expression includes a division by zero"
+       75:             in result
+       76:         )
+       77: 
+       78:     try:
+    -->79:         1 % zero
                    ^^^^^^^^
-       68:     except ZeroDivisionError as e:
+       80:     except ZeroDivisionError as e:
 
             zero:  0
         
@@ -4006,8 +4122,8 @@ Raise zero negative power
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 170, in test_Raise_zero_negative_power
-        zero ** -1
+      File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+        zero**-1
     ZeroDivisionError: 0.0 cannot be raised to a negative power
     
     Un `ZeroDivisionError` viene riscontrato quando si sta tentando di dividere un valore per zero, sia direttamente sia mediante l'utilizzo di una funzione matematica. 
@@ -4015,14 +4131,14 @@ Raise zero negative power
     You are attempting to raise the number 0 to a negative power
     which is equivalent to dividing by zero.
     
-    Eccezione rilevata alla linea 170 del file TESTS:\runtime\test_zero_division_error.py.
+    Eccezione rilevata alla linea 188 del file TESTS:\runtime\test_zero_division_error.py.
     
-       167: def test_Raise_zero_negative_power():
-       168:     zero = 0
-       169:     try:
-    -->170:         zero ** -1
-                    ^^^^^^^^^^
-       171:     except ZeroDivisionError as e:
+       185: def test_Raise_zero_negative_power():
+       186:     zero = 0
+       187:     try:
+    -->188:         zero**-1
+                    ^^^^^^^^
+       189:     except ZeroDivisionError as e:
 
             zero:  0
         

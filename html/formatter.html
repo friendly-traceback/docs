@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Registering custom error types" href="custom_errors.html" /><link rel="prev" title="Public API" href="api.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Custom formatter - friendly-traceback 0.5.46</title>
+        <title>Custom formatter - friendly-traceback 0.5.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -391,6 +391,14 @@ so as to reproduce that of a normal Python traceback.</p></li>
 embedded as a code-block in a file (such as .rst). It can also be used
 to print the information in a traditional console.</p></li>
 </ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.base_formatters.detailed_tb">
+<span class="sig-name descname"><span class="pre">detailed_tb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#detailed_tb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.detailed_tb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unlike the normal information from ‘where()’, which focus on at
+most two frames, detailed_tb() gives information for all the frames.
+It is used mostly in IPython based environment - especially with
+the ‘button-based’ mode in Jupyter notebooks/lab.</p>
+</dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.base_formatters.docs">
 <span class="sig-name descname"><span class="pre">docs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/base_formatters.html#docs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.base_formatters.docs" title="Permalink to this definition">¶</a></dt>

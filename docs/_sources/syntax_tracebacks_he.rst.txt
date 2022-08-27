@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.35
+Friendly-traceback version: 0.5.48
 Python version: 3.9.10
 
 
@@ -43,7 +43,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\and_in_import_statement.py'
-    at the location indicated.
+    במקום המצוין.
     
        1: from math import sin and cos
                                ^^^
@@ -72,7 +72,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\and_in_import_statement_2.py'
-    at the location indicated.
+    במקום המצוין.
     
        1: from math import sin, tan, and cos
                                      ^^^
@@ -101,7 +101,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\annotated_name_global.py'
-    at the location indicated.
+    במקום המצוין.
     
        4:     var:int = 1
               ^^^
@@ -128,20 +128,20 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\as_instead_of_comma_in_import.py'
-    at the location indicated.
+    במקום המצוין.
     
        2: from math import (sin, cos) as funcs
                                       ^^
 
-    I am guessing that you are trying to import at least one object
-    from module `math` and rename it using the Python keyword `as`;
-    this keyword can only be used to rename one object at a time
-    using a well defined syntax.
-    I suggest that you split up any such import statement with each object
-    renamed on a separate line as follows:
+    אני מנחש שאתה מנסה לייבא לפחות אובייקט אחד
+    מהמודול `math` ושנה את שמו באמצעות מילת המפתח Python `as`;
+    ניתן להשתמש במילת מפתח זו רק כדי לשנות שם אובייקט אחד בכל פעם
+    תוך שימוש בתחביר מוגדר היטב.
+    אני מציע שתחלק כל משפט ייבוא כזה עם כל אובייקט
+    שונה שם בשורה נפרדת באופן הבא:
     
-        from math import object_1 as name_1
-        from math import object_2 as name_2  # if needed
+        מ-math import object_1 בשם name_1
+        מ-math import object_2 בשם name_2 # במידת הצורך
     
 
 (5) Assign instead of equal (or walrus).
@@ -164,7 +164,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_instead_of_equal.py'
-    at the location indicated.
+    במקום המצוין.
     
        1: a = (b = 2)  # issue #65
                  ^
@@ -191,7 +191,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_global_1.py'
-    at the location indicated.
+    במקום המצוין.
     
        7:     global aa, bb, cc, dd
               ^^^^^^         ^^
@@ -218,7 +218,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_global_2.py'
-    at the location indicated.
+    במקום המצוין.
     
        7:     global var
               ^^^^^^ ^^^
@@ -247,7 +247,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_nonlocal_1.py'
-    at the location indicated.
+    במקום המצוין.
     
        11:         nonlocal pp, qq
                    ^^^^^^^^     ^^
@@ -276,7 +276,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_name_before_nonlocal_2.py'
-    at the location indicated.
+    במקום המצוין.
     
        9:         nonlocal s
                   ^^^^^^^^ ^
@@ -305,7 +305,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_conditional.py'
-    at the location indicated.
+    במקום המצוין.
     
        3: a if 1 else b = 1
           ^^^^^^^^^^^^^
@@ -337,7 +337,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_debug.py'
-    at the location indicated.
+    במקום המצוין.
     
        4: __debug__ = 1
           ^^^^^^^^^
@@ -365,7 +365,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_debug2.py'
-    at the location indicated.
+    במקום המצוין.
     
        4: a.__debug__ = 1
             ^^^^^^^^^
@@ -393,7 +393,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_ellipsis.py'
-    at the location indicated.
+    במקום המצוין.
     
        4: ... = 1
           ^^^
@@ -421,7 +421,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_f_string.py'
-    at the location indicated.
+    במקום המצוין.
     
        6: f'{x}' = 42
           ^^^^^^
@@ -452,17 +452,17 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_function_call_1.py'
-    at the location indicated.
+    במקום המצוין.
     
        6: len('a') = 3
           ^^^^^^^^
 
-    You wrote the expression
+    אתה כתבת את הביטוי
     
         len('a') = ...
         ^^^^^^^^
-    where `len('a')`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    כאשר `len('a')`, בצד שמאל של סימן השוויון, אחד מהם
+    או כולל קריאה לפונקציה ואינו רק שם של משתנה.
     ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
     
 
@@ -486,17 +486,17 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_function_call_2.py'
-    at the location indicated.
+    במקום המצוין.
     
        6: func(a, b=3) = 4
           ^^^^^^^^^^^^
 
-    You wrote the expression
+    אתה כתבת את הביטוי
     
         func(a, b=3) = ...
         ^^^^^^^^^^^^
-    where `func(a, b=3)`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    כאשר `func(a, b=3)`, בצד שמאל של סימן השוויון, אחד מהם
+    או כולל קריאה לפונקציה ואינו רק שם של משתנה.
     ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
     
 
@@ -520,18 +520,18 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_function_call_3.py'
-    at the location indicated.
+    במקום המצוין.
     
     -->6: a = f(1, 2,  # this is a comment
               ^^^^^^^-->
        7:       3, 4) = 5
 
-    You wrote the expression
+    אתה כתבת את הביטוי
     
         f(1, 2,...) = ...
         ^^^^^^^-->
-    where `f(1, 2,...)`, on the left-hand side of the equal sign, either is
-    or includes a function call and is not simply the name of a variable.
+    כאשר `f(1, 2,...)`, בצד שמאל של סימן השוויון, אחד מהם
+    או כולל קריאה לפונקציה ואינו רק שם של משתנה.
     ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
     
 
@@ -555,7 +555,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_generator.py'
-    at the location indicated.
+    במקום המצוין.
     
        3: (x for x in x) = 1
           ^^^^^^^^^^^^^^
@@ -585,7 +585,7 @@ Python version: 3.9.10
     
     פייתון לא הצליח להבין את הקוד בקובץ
      'TESTS:\syntax\assign_to_literal_dict.py'
-    at the location indicated.
+    במקום המצוין.
     
        7: {1 : 2, 2 : 4} = 5
           ^^^^^^^^^^^^^^
@@ -601,6 +601,4624 @@ Python version: 3.9.10
     
 
 (20) Cannot assign to literal int
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int.py", line 3
+        1 = a
+        ^
+    SyntaxError: cannot assign to literal
+    
+        אולי התכוונת לכתוב 'a = 1'
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_literal_int.py'
+    במקום המצוין.
+    
+       3: 1 = a
+          ^
+
+    כתבת ביטוי כמו
+    
+         1 = a
+    כאשר '1', בצד שמאל של סימן השווה,
+    הוא או כולל אובייקט בפועל מסוג int (שלם)
+    וזה לא רק שמו של משתנה.
+    אולי התכוונת לכתוב:
+    
+         a = 1
+    
+
+(21) Cannot assign to literal int - 2
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
+        1 = 2
+        ^
+    SyntaxError: cannot assign to literal
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_literal_int_2.py'
+    במקום המצוין.
+    
+       3: 1 = 2
+          ^
+
+    כתבת ביטוי כמו
+    
+         1 = 2
+    כאשר '1', בצד שמאל של סימן השווה,
+    הוא או כולל אובייקט בפועל מסוג int (שלם)
+    וזה לא רק שמו של משתנה.
+    
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+    
+
+(22) Cannot assign to literal - 5
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
+        1 = a = b
+        ^
+    SyntaxError: cannot assign to literal
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_literal_int_3.py'
+    במקום המצוין.
+    
+       4: 1 = a = b
+          ^
+
+    כתבת ביטוי כמו
+    
+         1 = שם_משתנה
+    כאשר '1', בצד שמאל של סימן השווה,
+    הוא או כולל אובייקט בפועל מסוג int (שלם)
+    וזה לא רק שמו של משתנה.
+    
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+    
+
+(23) Cannot assign to literal - 3
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_set.py", line 7
+        {1, 2, 3} = 4
+        ^
+    SyntaxError: cannot assign to set display
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_literal_set.py'
+    במקום המצוין.
+    
+       7: {1, 2, 3} = 4
+          ^^^^^^^^^
+
+    כתבת ביטוי כמו
+    
+         {1, 2, 3} = 4
+    כאשר '{1, 2, 3}', בצד שמאל של סימן השווה,
+    הוא או כולל אובייקט בפועל מסוג set (סט)
+    וזה לא רק שמו של משתנה.
+    
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+    
+
+(24) Assign to keyword def
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_def.py", line 3
+        def = 2
+            ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש במילות מפתח של פייתון כמזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_keyword_def.py'
+    במקום המצוין.
+    
+       3: def = 2
+          ^^^
+
+    ניסית להקצות ערך למילת המפתח של פייתון "def".
+    זה אסור.
+    
+
+(25) Assign to keyword else
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_else.py", line 3
+        else = 1
+        ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש במילות מפתח של פייתון כמזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_keyword_else.py'
+    במקום המצוין.
+    
+       3: else = 1
+          ^^^^
+
+    ניסית להקצות ערך למילת המפתח של פייתון "else".
+    זה אסור.
+    
+
+(26) Assignment to keyword (None)
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_none.py", line 4
+        None = 1
+        ^
+    SyntaxError: cannot assign to None
+    
+        You cannot assign a value to `None`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_keyword_none.py'
+    במקום המצוין.
+    
+       4: None = 1
+          ^^^^
+
+    `None` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+    
+
+(27) Assign to math operation
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_operation.py", line 4
+        a + 1 = 2
+        ^
+    SyntaxError: cannot assign to operator
+    
+        אולי היית צריך\ה '==' במקום '='.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_operation.py'
+    במקום המצוין.
+    
+       4: a + 1 = 2
+          ^
+
+    כתבת ביטוי הכולל כמה פעולות מתמטיות
+    בצד שמאל של סימן השוויון שאמור להיות
+    משמש רק להקצאת ערך למשתנה.
+    
+
+(28) Assign to yield expression
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_yield_expression.py", line 1
+        (yield i) = 3
+         ^
+    SyntaxError: cannot assign to yield expression
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assign_to_yield_expression.py'
+    במקום המצוין.
+    
+       1: (yield i) = 3
+           ^^^^^
+
+    You wrote an expression that includes the `yield` keyword
+    on the left-hand side of the equal sign.
+    You cannot assign a value to such an expression.
+    Note that, like the keyword `return`,
+    `yield` can only be used inside a function.
+    
+
+(29) Augmented assignment inside comprehension
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assignment_expression_cannot_rebind.py", line 1
+        a = [(i := 1) for i in [1]]
+             ^
+    SyntaxError: assignment expression cannot rebind comprehension iteration variable 'i'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assignment_expression_cannot_rebind.py'
+    במקום המצוין.
+    
+       1: a = [(i := 1) for i in [1]]
+               ^
+
+    You are using the augmented assignment operator `:=` inside
+    a comprehension to assign a value to the iteration variable `i`.
+    This variable is meant to be used only inside the comprehension.
+    The augmented assignment operator is normally used to assign a value
+    to a variable so that the variable can be reused later.
+    This is not possible for variable `i`.
+    
+
+(30) Augmented assignment inside comprehension - inner loop
+-----------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
+        [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+        ^
+    SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
+    במקום המצוין.
+    
+       1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+          ^
+
+    You are using the augmented assignment operator `:=` inside
+    a comprehension to assign a value to the iteration variable `j`.
+    This variable is meant to be used only inside the comprehension.
+    The augmented assignment operator is normally used to assign a value
+    to a variable so that the variable can be reused later.
+    This is not possible for variable `j`.
+    
+
+(31) def: missing parentheses
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\async_def_missing_parens.py", line 1
+        async def name:
+                      ^
+    SyntaxError: invalid syntax
+    
+        שכחת סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\async_def_missing_parens.py'
+    במקום המצוין.
+    
+       1: async def name:
+                        ^
+
+    אולי שכחת לכלול סוגריים.
+    אולי התכוונת לכתוב
+    
+         async def name():
+    
+
+(32) Augmented assignment to literal
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\augmented_assignment_to_literal.py", line 1
+        if "word" := True:
+           ^
+    SyntaxError: cannot use assignment expressions with literal
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\augmented_assignment_to_literal.py'
+    במקום המצוין.
+    
+       1: if "word" := True:
+             ^^^^^^
+
+    אינך יכול להשתמש באופרטור ההקצאה המוגבר `: =`,
+    לפעמים נקרא מפעיל הזן, עם מילת מילים כמו ""word"".
+    ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+    
+
+(33) Walrus/Named assignment depending on Python version
+--------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\augmented_assigment_with_true.py", line 4
+        (True := 1)
+         ^
+    SyntaxError: cannot use assignment expressions with True
+    
+        You cannot assign a value to `True`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\augmented_assigment_with_true.py'
+    במקום המצוין.
+    
+       4: (True := 1)
+           ^^^^
+
+    `True` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
+    
+
+(34) Backslash instead of slash
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
+        a = 3 \ 4.0
+               ^
+    SyntaxError: unexpected character after line continuation character
+    
+        האם התכוונת לחלק ב 4.0?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\backslash_instead_of_slash.py'
+    במקום המצוין.
+    
+       1: a = 3 \ 4.0
+                  ^^^
+
+    את\ה משתמש\ת בתו '\' מחוץ למחרוזת,
+    ואחריו כמה דמויות אחרות.
+    אני מניח שרצית לחלק במספר 4.0
+    וכתבת "\" במקום "/".
+
+(35) Brackets instead of parentheses
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\bracket_instead_of_paren.py", line 1
+        print(sum[i for i in [1, 2, 3] if i%2==0])
+                    ^
+    SyntaxError: invalid syntax
+    
+        You used square brackets, `[...]` instead of parentheses.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\bracket_instead_of_paren.py'
+    במקום המצוין.
+    
+       1: print(sum[i for i in [1, 2, 3] if i%2==0])
+                      ^^^
+
+    You used square brackets, `[...]` instead of parentheses.
+    Write the following instead:
+    
+        print(sum(i for i in [1, 2, 3] if i%2==0))
+
+(36) break outside loop
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\break_outside_loop.py", line 4
+        break
+        ^
+    SyntaxError: 'break' outside loop
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\break_outside_loop.py'
+    במקום המצוין.
+    
+       4:     break
+              ^^^^^
+
+    ניתן להשתמש במילת המפתח Python 'break' רק בתוך לולאת 'for' (פור) או בתוך לולאה של 'while' (בעוד).
+    
+
+(37) Cannot assign to attribute here.
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_assign_to_attribute_here.py", line 1
+        if x.a = 1:
+               ^
+    SyntaxError: invalid syntax
+    
+        אולי היית צריך\ה '==' במקום '='.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\cannot_assign_to_attribute_here.py'
+    במקום המצוין.
+    
+       1: if x.a = 1:
+                 ^
+
+    סביר להניח שהשתמשת באופרטור הגדרה  `=` במקום מפעיל שוויון `==`.
+    The following statement would not contain a syntax error:
+    
+        if x.a == 1:
+
+(38) Cannot guess the cause
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
+        SyntaxErrors can be annoying!
+                     ^
+    SyntaxError: invalid syntax
+    
+        מקור השגיאה לא ידוע.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\cannot_guess_the_cause.py'
+    במקום המצוין.
+    
+       1: SyntaxErrors can be annoying!
+                       ^^^
+
+    נכון לעכשיו, אינני יכול לנחש את הסיבה הסבירה לשגיאה זו.
+    נסה\י לבחון מקרוב את הקו המצוין כמו גם את הקו
+    מיד למעלה כדי לראות אם אפשר לזהות כמה שגיאות כתיב
+    מילה או סמלים חסרים, כמו (,), [,],:, וכו '.
+    
+    אלא אם כן הקוד שלך משתמש ברמזי סוג, שהם מעבר להיקף שלנו,
+    אם את\ה חושב\ת שזה משהו שצריך לטפל בו
+    על ידי ידידותי, אנא דווח על מקרה זה
+    https://github.com/aroberge/friendly/issues
+    
+
+(39) Cannot use star operator
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_use_star.py", line 3
+        *a
+        ^
+    SyntaxError: can't use starred expression here
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\cannot_use_star.py'
+    במקום המצוין.
+    
+       3: *a
+          ^
+
+    אופרטור הכוכב "*" מתפרש כמשמעותו
+    יש להשתמש בפירוק חוזר כדי להקצות שם
+    לכל פריט של חוזר, וזה לא הגיוני כאן.
+    
+
+(40) Cannot use double star operator
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_use_double_star.py", line 4
+        (**k)
+         ^
+    SyntaxError: f-string: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\cannot_use_double_star.py'
+    במקום המצוין.
+    
+       1: (**k)
+           ^^
+
+    אופרטור הכוכב הכפול `**` מתפרש כנראה כך
+    יש להשתמש ב-dict פירוק מה שאסור או לא הגיוני כאן.
+    
+
+(41) Missing class name
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\class_missing_name.py", line 1
+        class:
+             ^
+    SyntaxError: invalid syntax
+    
+        כיתה(class) צריכה שם.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\class_missing_name.py'
+    במקום המצוין.
+    
+       1: class:
+               ^
+
+    הצהרת 'כיתה' דורשת שם:
+    
+        class SomeName:
+            ...
+    
+    
+
+(42) Missing () for tuples in comprehension
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_missing_tuple_paren.py", line 1
+        x = [i, i**2 for i in range(10)]
+                     ^
+    SyntaxError: invalid syntax
+    
+        שכחת סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\comprehension_missing_tuple_paren.py'
+    במקום המצוין.
+    
+       1: x = [i, i**2 for i in range(10)]
+                       ^^^
+
+    אני מנחש שכתבת הבנה או ביטוי מחולל
+    ושכח לכלול סוגריים סביב צמדים.
+    כדוגמה, במקום לכתוב
+    
+        [i, i**2 for i in range(10)]
+    תצטרך לכתוב
+    
+          [(i, i**2) for i in range(10)]
+    
+
+(43) Comprehension with condition (no else)
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_with_condition_no_else.py", line 1
+        a = [f(x) if condition for x in sequence]
+                               ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\comprehension_with_condition_no_else.py'
+    במקום המצוין.
+    
+       1: a = [f(x) if condition for x in sequence]
+                                 ^^^
+
+    אני מנחש שכתבת הבנה או ביטוי מחולל (comprehension or a generator expression)
+    והשתמשת בסדר הלא נכון.
+    הסדר הנכון תלוי אם יש סעיף אחר (else) או לא
+    לדוגמא,לדוגמה, הסדר הנכון לגנרטור הוא
+    [f(x) if condition else other for x in sequence]  # 'if' before 'for' 
+    אם אין "אחר"
+    ו-  [f(x) for x in sequence if condition]  # 'if' after 'for' אם יש אחר
+    
+
+(44) Comprehension with condition (with else)
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_with_condition_with_else.py", line 1
+        a = [f(x) for x in sequence if condition else other]
+                                                 ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\comprehension_with_condition_with_else.py'
+    במקום המצוין.
+    
+       1: a = [f(x) for x in sequence if condition else other]
+                                                   ^^^^
+
+    אני מנחש שכתבת הבנה או ביטוי מחולל (comprehension or a generator expression)
+    והשתמשת בסדר הלא נכון.
+    הסדר הנכון תלוי אם יש סעיף אחר (else) או לא
+    לדוגמא,לדוגמה, הסדר הנכון לגנרטור הוא
+    [f(x) if condition else other for x in sequence]  # 'if' before 'for' 
+    אם אין "אחר"
+    ו-  [f(x) for x in sequence if condition]  # 'if' after 'for' אם יש אחר
+    
+
+(45) continue outside loop
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\continue_outside_loop.py", line 4
+        continue
+        ^
+    SyntaxError: 'continue' not properly in loop
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\continue_outside_loop.py'
+    במקום המצוין.
+    
+       4:     continue
+              ^^^^^^^^
+
+    ניתן להשתמש במילת המפתח של פייתון 'המשך' רק בתוך לולאת 'for'(פור) או בתוך לולאה של 'while' (בעוד).
+    
+
+(46) Copy/paste from interpreter
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\copy_pasted_code.py", line 2
+        >>> print("Hello World!")
+        ^
+    SyntaxError: invalid syntax
+    
+        האם השתמשת בהעתק-הדבק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\copy_pasted_code.py'
+    במקום המצוין.
+    
+       2: >>> print("Hello World!")
+          ^^^
+
+    נראה שאתה מעתיק קוד שהודבק ממתורגמן אינטראקטיבי.
+    שורת הפייתון, '>>> `, לא צריכה להיכלל בקוד שלך.
+    
+
+(47) Copy/paste from interpreter - 2
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\copy_pasted_code_2.py", line 2
+        ... print("Hello World!")
+            ^
+    SyntaxError: invalid syntax
+    
+        האם השתמשת בהעתק-הדבק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\copy_pasted_code_2.py'
+    במקום המצוין.
+    
+       2: ... print("Hello World!")
+          ^^^
+
+    נראה שאתה מעתיק קוד שהודבק ממתורגמן אינטראקטיבי.
+    שורת הפייתון, '...', לא צריכה להיכלל בקוד שלך.
+    
+
+(48) def: positional arg after kwargs
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
+        def test(a, **kwargs, b):
+                              ^
+    SyntaxError: invalid syntax
+    
+        ארגומנטים עמדתיים חייבים לבוא לפני ארגומנטים של מילות מפתח.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_arg_after_kwarg.py'
+    במקום המצוין.
+    
+       1: def test(a, **kwargs, b):
+                                ^
+
+    ארגומנטים עמדתיים חייבים לבוא לפני ארגומנטים של מילות מפתח.
+    'b' הוא ארגומנט עמדתי שמופיע לאחר אחד או יותר
+    ארגומנטים של מילות מפתח בהגדרת הפונקציה שלך.
+    
+
+(49) def: named arguments must follow bare *
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_bare_star_arg.py", line 4
+        def f(*):
+               ^
+    SyntaxError: named arguments must follow bare *
+    
+        שכחת משהו אחרי '*'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_bare_star_arg.py'
+    במקום המצוין.
+    
+       4: def f(*):
+                 ^
+
+    בהנחה שאתה מגדיר פונקציה, אתה צריך
+    להחליף את "*" ב"*args "או
+    על ידי `*, named_argument = value`.
+    
+
+(50) def: misused as code block
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_code_block.py", line 3
+        def :
+            ^
+    SyntaxError: invalid syntax
+    
+        פונקציה צריכה שם.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_code_block.py'
+    במקום המצוין.
+    
+       3: def :
+              ^
+
+    ניסית להגדיר פונקציה ולא השתמשת בתחביר הנכון.
+    התחביר הנכון הוא:
+     def name ( ... ):
+    
+
+(51) def: misused as code block - 2
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_code_block_2.py", line 2
+        def :
+            ^
+    SyntaxError: invalid syntax
+    
+        פונקציות ושיטות צריכות שם.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_code_block_2.py'
+    במקום המצוין.
+    
+       2:     def :
+                  ^
+
+    ניסית להגדיר פונקציה או שיטה ולא השתמשת בתחביר הנכון.
+    התחביר הנכון הוא:
+     def name ( ... ):
+    
+
+(52) Dotted name as function argument
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_argument.py", line 3
+        def test(x.y):
+                  ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_dotted_argument.py'
+    במקום המצוין.
+    
+       3: def test(x.y):
+                    ^
+
+    אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+    אולי התכוונת לכתוב פסיק.
+    
+
+(53) Dotted name as function argument
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_argument_2.py", line 2
+        def test(x., y):
+                  ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_dotted_argument_2.py'
+    במקום המצוין.
+    
+       2: def test(x., y):
+                    ^
+
+    אינך יכול להשתמש בשמות מנוקדים כארגומנטים של פונקציות.
+    
+
+(54) Dotted function name
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_function_name.py", line 3
+        def test.x():
+                ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש בנקודות בשמות פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_dotted_function_name.py'
+    במקום המצוין.
+    
+       3: def test.x():
+                  ^
+
+    לא ניתן להשתמש בנקודות בשמות פונקציות.
+    
+
+(55) def: dict as argument
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dict_as_arg.py", line 1
+        def test({'a': 1}, y):  # dict as first argument
+                 ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_dict_as_arg.py'
+    במקום המצוין.
+    
+       1: def test({'a': 1}, y):  # dict as first argument
+                   ^
+
+    אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(56) def: arguments must be unique in function definition
+---------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_duplicate_arg.py", line 4
+        def f(aa=1, aa=2):
+        ^
+    SyntaxError: duplicate argument 'aa' in function definition
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_duplicate_arg.py'
+    במקום המצוין.
+    
+       4: def f(aa=1, aa=2):
+                ^^    ^^
+
+    You have defined a function repeating the argument
+    
+        aa
+    Each argument should appear only once in a function definition.
+    
+
+(57) def: semicolon after colon
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_extra_semi_colon.py", line 1
+        def test():;
+                   ^
+    SyntaxError: invalid syntax
+    
+        כתבת משהו בטעות אחרי הנקודותיים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_extra_semi_colon.py'
+    במקום המצוין.
+    
+       1: def test():;
+                     ^
+
+    הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+    בלוק קוד חייב לבוא אחרי הנקודותיים.
+    הסרת ';' עשויה לפתור את הבעיה.
+    
+
+(58) def: extra comma
+---------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_extra_comma.py", line 1
+        def test(a,,b):
+                   ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב ','?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_extra_comma.py'
+    במקום המצוין.
+    
+       1: def test(a,,b):
+                     ^
+
+    אני חושד שעשית שגיאת כתיב והוספת ',' בטעות.
+    המשפט הבא אינו מכיל שגיאת תחביר:
+    
+         def test(a,b):
+
+(59) def: unspecified keywords before /
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_1.py", line 1
+        def test(a, **kwargs, /):
+                              ^
+    SyntaxError: invalid syntax
+    
+        ארגומנטים של מילות מפתח חייבים להופיע אחרי הסמל `/`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_forward_slash_1.py'
+    במקום המצוין.
+    
+       1: def test(a, **kwargs, /):
+                                ^
+
+    `/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+    הם טיעונים עמדתיים.
+    יש לך ארגומנטים לא מפורטים של מילות מפתח המופיעים לפני
+    הסמל `/`.
+    
+
+(60) def: / before star
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_2.py", line 1
+        def test(a, *, b, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        '*' חייב להופיע אחרי '/' בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_forward_slash_2.py'
+    במקום המצוין.
+    
+       1: def test(a, *, b, /):
+                            ^
+
+    `/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+    הם טיעונים עמדתיים.
+    עם זאת, '*' מציין כי הטיעונים
+    הבאים חייבים להיות טיעוני מילות מפתח.
+    כאשר הם משמשים יחד, '/' חייב להופיע לפני '*'.
+    
+
+(61) def: / before star arg
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_3.py", line 1
+        def test(a, *arg, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_forward_slash_3.py'
+    במקום המצוין.
+    
+       1: def test(a, *arg, /):
+                            ^
+
+    `/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+    הם טיעונים עמדתיים.
+    '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+    
+
+(62) def: / used twice
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_4.py", line 1
+        def test(a, /, b, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        אפשר להשתמש ב- / רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_forward_slash_4.py'
+    במקום המצוין.
+    
+       1: def test(a, /, b, /):
+                            ^
+
+    אפשר להשתמש ב- / רק פעם אחת בהגדרת פונקציה.
+    
+
+(63) def: non-identifier as a function name
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_function_name_invalid.py", line 3
+        def 2be():
+            ^
+    SyntaxError: invalid syntax
+    
+        כתבת שם פונקציה לא חוקית.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_function_name_invalid.py'
+    במקום המצוין.
+    
+       3: def 2be():
+              ^
+
+    שם הפונקציה חייב להיות מזהה פייתון חוקי,
+    זהו שם שמתחיל באות או בתו קו, "_",
+    ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+    
+
+(64) def: using a string as a function name
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_function_name_string.py", line 3
+        def "function"():
+            ^
+    SyntaxError: invalid syntax
+    
+        שם הפונקציה חייב להיות מזהה פייתון חוקי,
+        זהו שם שמתחיל באות או בתו קו, "_",
+        ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+        ניסית להשתמש במחרוזת בשם פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_function_name_string.py'
+    במקום המצוין.
+    
+       3: def "function"():
+              ^^^^^^^^^^
+
+    שם הפונקציה חייב להיות מזהה פייתון חוקי,
+    זהו שם שמתחיל באות או בתו קו, "_",
+    ואשר מכיל רק אותיות, ספרות וקו תחתון "_" .
+    ניסית להשתמש במחרוזת בשם פונקציה.
+    
+
+(65) def: keyword cannot be argument in def - 1
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_1.py", line 5
+        def f(None=1):
+              ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_keyword_as_arg_1.py'
+    במקום המצוין.
+    
+       5: def f(None=1):
+                ^^^^
+
+    אני מנחש שניסית להשתמש במילת המפתח של פייתון
+    `None` כארגומנט בהגדרת פונקציה
+    היכן היה צפוי מזהה (שם משתנה).
+    
+
+(66) def: keyword cannot be argument in def - 2
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_2.py", line 5
+        def f(x, True):
+                 ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_keyword_as_arg_2.py'
+    במקום המצוין.
+    
+       5: def f(x, True):
+                   ^^^^
+
+    אני מנחש שניסית להשתמש במילת המפתח של פייתון
+    `True` כארגומנט בהגדרת פונקציה
+    היכן היה צפוי מזהה (שם משתנה).
+    
+
+(67) def: keyword cannot be argument in def - 3
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_3.py", line 5
+        def f(*None):
+               ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_keyword_as_arg_3.py'
+    במקום המצוין.
+    
+       5: def f(*None):
+                 ^^^^
+
+    אני מנחש שניסית להשתמש במילת המפתח של פייתון
+    `None` כארגומנט בהגדרת פונקציה
+    היכן היה צפוי מזהה (שם משתנה).
+    
+
+(68) def: keyword cannot be argument in def - 4
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_4.py", line 5
+        def f(**None):
+                ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_keyword_as_arg_4.py'
+    במקום המצוין.
+    
+       5: def f(**None):
+                  ^^^^
+
+    אני מנחש שניסית להשתמש במילת המפתח של פייתון
+    `None` כארגומנט בהגדרת פונקציה
+    היכן היה צפוי מזהה (שם משתנה).
+    
+
+(69) def: Python keyword as function name
+-----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_name.py", line 3
+        def pass():
+            ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול\ה להשתמש במילת מפתח של פייתון כשם פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_keyword_as_name.py'
+    במקום המצוין.
+    
+       3: def pass():
+              ^^^^
+
+    ניסית להשתמש במילת המפתח של פייתון 'pass' כשם פונקציה.
+    
+    בהמשך הקוד שלך יש שגיאות תחביר נוספות.
+    
+
+(70) def: list as argument - 1
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_list_as_arg_1.py", line 1
+        def test([x], y):  # list as first argument
+                 ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_list_as_arg_1.py'
+    במקום המצוין.
+    
+       1: def test([x], y):  # list as first argument
+                   ^
+
+    אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(71) def: list as argument - 2
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_list_as_arg_2.py", line 1
+        def test(x, [y]):  # list as second argument, after comma
+                    ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_list_as_arg_2.py'
+    במקום המצוין.
+    
+       1: def test(x, [y]):  # list as second argument, after comma
+                      ^
+
+    אינך יכול\ה להכיל רשימות מפורשות כארגומנטים של פונקציות.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(72) def: missing colon
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_colon.py", line 1
+        def test()
+                  ^
+    SyntaxError: invalid syntax
+    
+        שכחת לכתוב נקודתיים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_missing_colon.py'
+    במקום המצוין.
+    
+       1: def test()
+                    ^
+
+    הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+    
+
+(73) def: missing comma between function args
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_comma.py", line 4
+        def a(b, c d):
+                   ^
+    SyntaxError: invalid syntax
+    
+        שכחת פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_missing_comma.py'
+    במקום המצוין.
+    
+       4: def a(b, c d):
+                   ^^^
+
+    פייתון מציין כי השגיאה נגרמת על ידי "d" שקרה מיד לאחר "c".
+    יתכן ששכחת פסיק בין פריטים בטופל,
+    או בין ארגומנטים של פונקציה,
+    במיקום המצוין על ידי ^.
+    אולי התכוונת ל
+    
+        def a(b, c, d):
+                  ^
+    
+    
+
+(74) def: missing parentheses
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_parens.py", line 3
+        def name:
+                ^
+    SyntaxError: invalid syntax
+    
+        שכחת סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_missing_parens.py'
+    במקום המצוין.
+    
+       3: def name:
+                  ^
+
+    אולי שכחת לכלול סוגריים.
+    אולי התכוונת לכתוב
+    
+         def name():
+    
+
+(75) def: missing parentheses around arguments
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_parens_2.py", line 2
+        def name a, b:
+                 ^
+    SyntaxError: invalid syntax
+    
+        שכחת סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_missing_parens_2.py'
+    במקום המצוין.
+    
+       2: def name a, b:
+                   ^
+
+    אולי שכחת לכלול סוגריים.
+    אולי התכוונת לכתוב
+    
+         def name (a, b):
+    
+
+(76) def: missing function name
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_name.py", line 3
+        def ( arg )  :
+            ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_missing_name.py'
+    במקום המצוין.
+    
+       3: def ( arg )  :
+              ^
+
+    שכחת לציין את שם הפונקציה שלך.
+    התחביר הנכון הוא:
+     def name ( ... ):
+    
+
+(77) def: name is parameter and global
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
+        global x
+        ^
+    SyntaxError: name 'x' is parameter and global
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_name_is_parameter_and_global.py'
+    במקום המצוין.
+    
+       6:     global x
+              ^^^^^^
+
+    אתה כולל את ההצהרה
+    
+             global x
+    
+    
+    המציין כי "x" הוא משתנה המוגדר מחוץ לפונקציה.
+    אתה משתמש גם באותו 'x' כארגומנט לפונקציה הזו
+    ובכך מציין כי היא צריכה להיות משתנה הידוע רק
+    בתוך הפונקציה, שהיא ההפך ממה שמשתמע מה"global ".
+    
+
+(78) def: non-default argument follows default argument
+-------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_non_default_after_default.py", line 5
+        def test(a=1, b):
+                       ^
+    SyntaxError: non-default argument follows default argument
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_non_default_after_default.py'
+    במקום המצוין.
+    
+       5: def test(a=1, b):
+                         ^
+
+    ב- Python, אתה יכול להגדיר פונקציות עם ארגומנטים מיקומיים בלבד
+    
+    def f(a, b, c)
+    
+    או רק ארגומנטים של מילות מפתח
+    
+    def f(a = 1, b = 2, c = 3)
+    
+    או שילוב של השניים
+    
+    def f(1, 2, c = 3)
+    
+    אבל עם טיעוני מילת המפתח שמופיעים אחרי כל אלה המיקומיים.
+    על פי פייתון, השתמשת בטיעונים מיקומיים אחרי מילות מפתח.
+    
+
+(79) Single number used as arg in function def
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_number_as_arg.py", line 1
+        def f(1):
+              ^
+    SyntaxError: invalid syntax
+    
+        אי אפשר  להשתמש במספרים כארגומנטים של פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_number_as_arg.py'
+    במקום המצוין.
+    
+       1: def f(1):
+                ^
+
+    השתמשת במספר כארגומנט בעת הגדרת פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(80) Operator after ``**``
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_after_2star.py", line 1
+        def test(**):
+                   ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_operator_after_2star.py'
+    במקום המצוין.
+    
+       1: def test(**):
+                     ^
+
+    אחרי האופרטור '**' צריך להיות מזהה (שם משתנה).
+    
+
+(81) def: operator instead of comma
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_comma.py", line 1
+        def test(a + b):
+                   ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_operator_instead_of_comma.py'
+    במקום המצוין.
+    
+       1: def test(a + b):
+                     ^
+
+    לא יכולים להיות לך אופרטורים כארגומנטים של פונקציות.
+    אני חושד שעשית שגיאת כתיב וכתבת '+' במקום פסיק.
+    המשפט הבא אינו מכיל שגיאת תחביר:
+    
+         def test(a , b):
+
+(82) def: operator instead of equal
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_equal.py", line 1
+        def test(a, b=3, c+None):
+                          ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב סימן שווה?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_operator_instead_of_equal.py'
+    במקום המצוין.
+    
+       1: def test(a, b=3, c+None):
+                            ^
+
+    לא יכולים להיות לך אופרטורים כארגומנטים של פונקציות.
+    אני חושד שעשית שגיאת כתיב וכתבת '+' במקום סימן שוויון.
+    המשפט הבא אינו מכיל שגיאת תחביר:
+    
+         def test(a, b=3, c=None):
+
+(83) def: operator instead of name
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_name.py", line 1
+        def test(a, +, b):
+                    ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול להשתמש ב- '+' כטיעון.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_operator_instead_of_name.py'
+    במקום המצוין.
+    
+       1: def test(a, +, b):
+                      ^
+
+    אני חושד שעשית שגיאת כתיב וכתבת בטעות '+'.
+    אם תחליף אותו בשם משתנה ייחודי, התוצאה
+    לא יכיל שגיאת תחביר.
+    
+
+(84) def: positional argument follows keyword argument
+------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_positional_after_keyword_arg.py", line 5
+        test(a=1, b)
+                   ^
+    SyntaxError: positional argument follows keyword argument
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_positional_after_keyword_arg.py'
+    במקום המצוין.
+    
+       5: test(a=1, b)
+                     ^
+
+    ב- Python, אתה יכול לקרוא פונקציות עם ארגומנטים מיקוםיים בלבד
+    
+         f(1, 2, 3)
+    
+    או רק ארגומנטים של מילות מפתח
+    
+         f(a = 1, b = 2, c = 3)
+    
+    או שילוב של השניים
+    
+         f(1, 2, c = 3)
+    
+    אבל עם טיעוני מילת המפתח שמופיעים אחרי כל אלה המיקומיים.
+    על פי פייתון, השתמשת בטיעונים מיקומיים אחרי מילות מפתח.
+    
+
+(85) def: semicolon instead of colon
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_semi_colon_instead_of_colon.py", line 1
+        def test();
+                  ^
+    SyntaxError: invalid syntax
+    
+        שכחת לכתוב נקודתיים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
+    במקום המצוין.
+    
+       1: def test();
+                    ^
+
+    הצהרת הגדרת פונקציה חייב להסתיים בנקודותיים.
+    כתבת ';' במקום נקודתיים.
+    
+
+(86) def: set as argument
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_set_as_arg.py", line 1
+        def test(y, {'a', 'b'}):  # set as second argument, after comma
+                    ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_set_as_arg.py'
+    במקום המצוין.
+    
+       1: def test(y, {'a', 'b'}):  # set as second argument, after comma
+                      ^
+
+    אינך יכול\ה לקבל שום מילון (dict) מפורש או סט (set) כטיעוני פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(87) def: ``*arg`` before /
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
+        def test(a, *arg, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_arg_before_slash.py'
+    במקום המצוין.
+    
+       1: def test(a, *arg, /):
+                            ^
+
+    `/` מציין כי הטיעונים הקודמים בהגדרת פונקציה
+    הם טיעונים עמדתיים.
+    '*arg' חייב להופיע אחרי '/' בהגדרת פונקציה.
+    
+
+(88) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once.py", line 1
+        def test(a, *arg, *, b=1):
+                          ^
+    SyntaxError: invalid syntax
+    
+        אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_used_only_once.py'
+    במקום המצוין.
+    
+       1: def test(a, *arg, *, b=1):
+                            ^
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+    יש להשתמש בו בעצמו, "*",
+    או בצורה '*arg', אך לא שניהם.
+    
+
+(89) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once_1.py", line 1
+        def test(a, *, *):
+                       ^
+    SyntaxError: invalid syntax
+    
+        אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_used_only_once_1.py'
+    במקום המצוין.
+    
+       1: def test(a, *, *):
+                         ^
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+    
+
+(90) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
+        def test(a, *arg, *other):
+                          ^
+    SyntaxError: invalid syntax
+    
+        אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_used_only_once_2.py'
+    במקום המצוין.
+    
+       1: def test(a, *arg, *other):
+                            ^
+
+    אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+    השתמשת בו פעמיים, עם '*arg' ו- '*other'.
+    
+
+(91) def: ``*`` after ``**``
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_after_2star.py", line 1
+        def test(**kw, *arg):
+                       ^
+    SyntaxError: invalid syntax
+    
+        אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_after_2star.py'
+    במקום המצוין.
+    
+       1: def test(**kw, *arg):
+                         ^
+
+    `*arg` חייב להופיע לפני `** kw`.
+    
+
+(92) def: ``*`` after ``**``
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_after_2star_2.py", line 1
+        def test(**kw, *):
+                       ^
+    SyntaxError: invalid syntax
+    
+        אפשר  להשתמש רק פעם אחת בהגדרת פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_star_after_2star_2.py'
+    במקום המצוין.
+    
+       1: def test(**kw, *):
+                         ^
+
+    "** kw" חייב להופיע אחרי אופרטור "*".
+    
+
+(93) Single string used as arg in function def
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_string_as_arg.py", line 1
+        def f("1"):
+              ^
+    SyntaxError: invalid syntax
+    
+        אינך יכול להשתמש במחרוזות כארגומנטים של פונקציות.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_string_as_arg.py'
+    במקום המצוין.
+    
+       1: def f("1"):
+                ^^^
+
+    השתמשת במחרוזת כארגומנט בעת הגדרת פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    
+
+(94) def: tuple as function argument
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
+        def test((a, b), c):
+                 ^
+    SyntaxError: invalid syntax
+    
+        אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_tuple_as_arg_1.py'
+    במקום המצוין.
+    
+       1: def test((a, b), c):
+                   ^
+
+    אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    צריך להקצות כל צמד לפרמטר ולפרק אותו
+    בתוך גוף הפונקציה.
+    
+
+(95) def: tuple as function argument - 2
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
+        def test(a, (b, c)):
+                    ^
+    SyntaxError: invalid syntax
+    
+        אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\def_tuple_as_arg_2.py'
+    במקום המצוין.
+    
+       1: def test(a, (b, c)):
+                      ^
+
+    אתה לא יכול לקבל tuples מפורשים כארגומנטים של פונקציה.
+    אפשר להשתמש רק במזהים (שמות משתנים) כארגומנטים של פונקציות.
+    צריך להקצות כל צמד לפרמטר ולפרק אותו
+    בתוך גוף הפונקציה.
+    
+
+(96) Deleting star expression - 1
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\del_paren_star_1.py", line 1
+        del (*x)
+             ^
+    SyntaxError: can't use starred expression here
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\del_paren_star_1.py'
+    במקום המצוין.
+    
+       1: del (*x)
+               ^
+
+    אופרטור הכוכב "*" מתפרש כמשמעותו
+    יש להשתמש בפירוק חוזר כדי להקצות שם
+    לכל פריט של חוזר, וזה לא הגיוני כאן.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(97) Deleting star expression - 2
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\del_paren_star_2.py", line 1
+        del (*x,)
+             ^
+    SyntaxError: cannot delete starred
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\del_paren_star_2.py'
+    במקום המצוין.
+    
+       1: del (*x,)
+               ^
+
+    אופרטור הכוכב "*" מתפרש כמשמעותו
+    יש להשתמש בפירוק חוזר כדי להקצות שם
+    לכל פריט של חוזר, וזה לא הגיוני כאן.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(98) Cannot delete a constant
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_constant_keyword.py", line 1
+        del True
+            ^
+    SyntaxError: cannot delete True
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_constant_keyword.py'
+    במקום המצוין.
+    
+       1: del True
+              ^^^^
+
+    אינך יכול למחוק את הקבוע (constant ) 'True'.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(99) Cannot delete expression
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_expression.py", line 1
+        del a.b.c[0] + 2
+            ^
+    SyntaxError: cannot delete operator
+    
+        You can only delete names of objects, or items in mutable containers
+        such as `list`, `set`, or `dict`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_expression.py'
+    במקום המצוין.
+    
+       1: del a.b.c[0] + 2
+              ^
+
+    You cannot delete the expression `a.b.c[0] + 2`.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(100) Cannot delete function call
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_function_call.py", line 5
+        del f(a)
+            ^
+    SyntaxError: cannot delete function call
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_function_call.py'
+    במקום המצוין.
+    
+       5: del f(a)
+              ^
+
+    ניסית למחוק שיחת פונקציה
+    
+         del f(a)
+    במקום למחוק את שם הפונקציה
+    
+         del f
+    
+
+(101) Cannot delete named expression
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_named_expression.py", line 1
+        del (a := 5)
+             ^
+    SyntaxError: cannot delete named expression
+    
+        You can only delete names of objects, or items in mutable containers
+        such as `list`, `set`, or `dict`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_named_expression.py'
+    במקום המצוין.
+    
+       1: del (a := 5)
+               ^
+
+    You cannot delete the named expression `(a := 5)`.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(102) Delete only names or items
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_names_or_items.py", line 1
+        del a += b
+              ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_names_or_items.py'
+    במקום המצוין.
+    
+       1: del a += b
+                ^^
+
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(103) Deleting string literal
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_string_literal.py", line 1
+        del "Hello world!"
+            ^
+    SyntaxError: cannot delete literal
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\delete_string_literal.py'
+    במקום המצוין.
+    
+       1: del "Hello world!"
+              ^^^^^^^^^^^^^^
+
+    You cannot delete the literal `"Hello world!"`.
+    You can only delete names of objects, or items in mutable containers
+    such as `list`, `set`, or `dict`.
+    
+
+(104) Value missing in dict - 1
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_1.py", line 1
+        a = {1:2, 3}
+                   ^
+    SyntaxError: invalid syntax
+    
+        Did you forget to write a dict value?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\dict_value_missing_1.py'
+    במקום המצוין.
+    
+       1: a = {1:2, 3}
+                     ^
+
+    It looks like the error occurred as you were writing a Python dict.
+    Perhaps wrote a dict key without writing the corresponding value.
+    
+
+(105) Value missing in dict - 2
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_2.py", line 2
+        a = {1:2, 3:}
+                    ^
+    SyntaxError: invalid syntax
+    
+        Did you forget to write a dict value?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\dict_value_missing_2.py'
+    במקום המצוין.
+    
+       2: a = {1:2, 3:}
+                      ^
+
+    It looks like the error occurred as you were writing a Python dict.
+    Perhaps you forgot to write a value after a colon.
+    
+
+(106) Value missing in dict - 3
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_3.py", line 3
+        a = {1:2, 3, 4:5}
+                   ^
+    SyntaxError: invalid syntax
+    
+        Did you forget to write a dict value?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\dict_value_missing_3.py'
+    במקום המצוין.
+    
+       3: a = {1:2, 3, 4:5}
+                     ^
+
+    It looks like the error occurred as you were writing a Python dict.
+    Perhaps wrote a dict key without writing the corresponding value.
+    
+
+(107) Value missing in dict - 4
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_4.py", line 4
+        a = {1:2, 3:, 4:5}
+                    ^
+    SyntaxError: invalid syntax
+    
+        Did you forget to write a dict value?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\dict_value_missing_4.py'
+    במקום המצוין.
+    
+       4: a = {1:2, 3:, 4:5}
+                      ^
+
+    It looks like the error occurred as you were writing a Python dict.
+    Perhaps you forgot to write a value after a colon.
+    
+
+(108) Different operators in a row
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\different_operators_in_a_row.py", line 1
+        3 */ 4
+           ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\different_operators_in_a_row.py'
+    במקום המצוין.
+    
+       1: 3 */ 4
+            ^^
+
+    אי אפשר לכתוב שני אופרטורים אלה, "*" ו- "/",
+    עוקבים אחד אחרי השני. אולי כתבת אחד מהם בטעות
+    או ששכחת לכתוב משהו ביניהם.
+    
+
+(109) Dot followed by parenthesis
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dot_before_paren.py", line 3
+        print(len.('hello'))
+                  ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\dot_before_paren.py'
+    במקום המצוין.
+    
+       3: print(len.('hello'))
+                    ^
+
+    לא יכולה להיות לך נקודה `.` ואחריה "(".
+    אולי אתה צריך להחליף את הנקודה בפסיק.
+    
+
+(110) Extra token
+-----------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\duplicate_token.py", line 1
+        print(1 , , 2)
+                  ^
+    SyntaxError: invalid syntax
+    
+        האם כתבת `,` פעמיים בטעות?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\duplicate_token.py'
+    במקום המצוין.
+    
+       1: print(1 , , 2)
+                    ^
+
+    אני מנחש שכתבת `,` פעמיים ברציפות בטעות.
+    אם זה המצב, עליך להסיר את השני.
+    
+
+(111) elif with no matching if
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\elif_not_matching_if.py", line 3
+        elif True:
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\elif_not_matching_if.py'
+    במקום המצוין.
+    
+       3:    elif True:
+             ^^^^
+
+    The `elif` keyword does not begin a code block that matches
+    an `if` block, possibly because `elif` is not indented correctly.
+    
+
+(112) else with no matching statement
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\else_no_matching_statement.py", line 3
+        else:
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\else_no_matching_statement.py'
+    במקום המצוין.
+    
+       3:    else:
+             ^^^^
+
+    The `else` keyword does not begin a code block that matches
+    a valid code block, possibly because `else` is not indented correctly.
+    
+
+(113) Write elif, not else if
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\else_if_instead_of_elif.py", line 5
+        else if True:
+             ^
+    SyntaxError: invalid syntax
+    
+        אולי התכוונת לכתוב elseif. 
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\else_if_instead_of_elif.py'
+    במקום המצוין.
+    
+       5: else if True:
+          ^^^^^^^
+
+    סביר שהתכוונת להשתמש במילת המפתח 'elif' של פייתון
+    אבל כתוב 'else if' במקום זאת.
+    
+
+(114) Write elif, not elseif
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
+        elseif True:
+               ^
+    SyntaxError: invalid syntax
+    
+        אולי התכוונת לכתוב elseif. 
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\elseif_instead_of_elif.py'
+    במקום המצוין.
+    
+       5: elseif True:
+          ^^^^^^
+
+    סביר שהתכוונת להשתמש במילת המפתח 'elif' של פייתון
+    אבל כתוב 'elseif' במקום זאת.
+    
+
+(115) EOL while scanning string literal
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\eol_string_literal.py", line 3
+        alphabet = 'abc
+                       ^
+    SyntaxError: EOL while scanning string literal
+    
+        שכחת גרשיים לסיום?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\eol_string_literal.py'
+    במקום המצוין.
+    
+       3: alphabet = 'abc
+                      ^^^
+
+    התחלת לכתוב מחרוזת עם גרש או מרכאות
+    אך מעולם לא סיימת את המחרוזת בציטוט\מרכאות נוסף בשורה זו.
+    
+
+(116) Used equal sign instead of colon
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
+        ages = {'Alice'=22, 'Bob'=24}
+                       ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\equal_sign_instead_of_colon.py'
+    במקום המצוין.
+    
+       4: ages = {'Alice'=22, 'Bob'=24}
+                         ^
+
+    ייתכן שהשתמשת בסימן שווה `=` במקום נקודתיים `:`
+    כדי להקצות ערכים למפתחות במילון (dict)
+    לפני או במיקום המצוין ב^.
+    
+
+(117) Parens around multiple exceptions
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_multiple_exceptions.py", line 3
+        except NameError, ValueError as err:
+                        ^
+    SyntaxError: invalid syntax
+    
+        שכחת סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\except_multiple_exceptions.py'
+    במקום המצוין.
+    
+       3: except NameError, ValueError as err:
+                          ^
+
+    אני מניח שרצית להשתמש באמירה של 'except'
+     (תפוס)
+    עם מספר סוגי חריגים. אם זה המצב, אתה חייב
+    להקיף אותם בסוגריים.
+    
+
+(118) Extra token
+-----------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\extra_token.py", line 1
+        print(1 / 2) ==
+                       ^
+    SyntaxError: invalid syntax
+    
+        האם כתבת את `==` בטעות?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\extra_token.py'
+    במקום המצוין.
+    
+       1: print(1 / 2) ==
+                       ^^
+
+    אני מנחש שכתבת את `==` בטעות.
+    נראה כי הסרתו וכתיבת 'print(1 / 2)' פותרים את השגיאה.
+    
+
+(119) Binary f-string not allowed
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_binary.py", line 1
+        greet = bf"Hello {name}"
+                  ^
+    SyntaxError: invalid syntax
+    
+        'bf' היא קידומת מחרוזת לא חוקית.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\f_string_binary.py'
+    במקום המצוין.
+    
+       1: greet = bf"Hello {name}"
+                    ^^^^^^^^^^^^^^
+
+    אני מנחש שרצית מחרוזת f בינארית;
+    זה אסור.
+    
+
+(120) f-string: closing } not allowed
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_curly_not_allowed.py", line 1
+        f"ab}"
+              ^
+    SyntaxError: f-string: single '}' is not allowed
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\f_string_curly_not_allowed.py'
+    במקום המצוין.
+    
+       1: f"ab}"
+          ^^^^^^
+
+    You have written an f-string which has an unmatched `}`.
+    If you want to print a single `}`, you need to write `}}` in the f-string;
+    otherwise, you need to add an opening `{`.
+    
+
+(121) f-string: missing closing }
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_expected_curly.py", line 1
+        f"{ab"
+              ^
+    SyntaxError: f-string: expecting '}'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\f_string_expected_curly.py'
+    במקום המצוין.
+    
+       1: f"{ab"
+          ^^^^^^
+
+    You have written an f-string which has an unmatched `{`.
+    If you want to print a single `{`, you need to write `{{` in the f-string;
+    otherwise, you need to add a closing `}`.
+    
+
+(122) f-string: unterminated string
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_unterminated.py", line 4
+        print(f"Bob is {age['Bob]} years old.")
+                                              ^
+    SyntaxError: f-string: unterminated string
+    
+        אולי שכחת גרשי או גרשיים  לסיום.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\f_string_unterminated.py'
+    במקום המצוין.
+    
+       4: print(f"Bob is {age['Bob]} years old.")
+                                                ^
+
+    בתוך מחרוזת f f"Bob is {age['Bob]} years old." `,
+    יש לך מחרוזת נוספת, שמתחילה ב
+    גרש (') או גרשיים ("), ללא סיום תואם.
+    
+
+(123) f-string with backslash
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_with_backslash.py", line 2
+        print(f"{'\n'.join(names)}")
+                                   ^
+    SyntaxError: f-string expression part cannot include a backslash
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\f_string_with_backslash.py'
+    במקום המצוין.
+    
+       2: print(f"{'\n'.join(names)}")
+                                     ^
+
+    כתבת מחרוזת f שהתוכן שלה `{...}`
+    כולל קו נטוי לאחור; זה אסור.
+    אולי אתה יכול להחליף את החלק שמכיל קו נטוי אחורי ב
+    משתנה כלשהו. לדוגמה, נניח שיש לך מחרוזת f כמו:
+    
+        f"{... 'hello\n' ...}"
+    
+    אתה יכול לכתוב את זה בתור
+    
+        hello = 'שלום\n'
+        f"{... שלום ...}"
+    
+
+(124) Missing terms in for statement
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\for_missing_terms.py", line 1
+        for:
+           ^
+    SyntaxError: invalid syntax
+    
+        לולאת `for`(פור) דורשת לפחות 3 מונחים נוספים.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\for_missing_terms.py'
+    במקום המצוין.
+    
+       1: for:
+             ^
+
+    לולאת `for` היא איטרציה על רצף:
+    
+        עבור אלמנט ברצף:
+            ...
+    
+    
+
+(125) Not a chance!
+-------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_braces.py", line 1
+        from __future__ import braces
+        ^
+    SyntaxError: not a chance
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\future_braces.py'
+    במקום המצוין.
+    
+       1: from __future__ import braces
+          ^^^^
+
+    אני חושד שכתבת 'מ-__עתיד__ ייבוא פלטה' בהמשך
+    הצעה של מישהו אחר. זה לעולם לא יעבוד.
+    
+    בניגוד לשפות תכנות אחרות, בלוק הקוד של Python מוגדרים על ידי
+    רמת ההזחה שלהם, ולא על ידי שימוש בסוגריים מסולסלים, כמו `{...}`.
+    
+
+(126) Do not import * from __future__
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_import_star.py", line 1
+        from __future__ import *
+        ^
+    SyntaxError: future feature * is not defined
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\future_import_star.py'
+    במקום המצוין.
+    
+       1: from __future__ import *
+          ^^^^
+
+    בעת שימוש בהצהרה 'from __future__ import',
+    עליך לייבא תכונות ספציפיות בשם.
+    
+    התכונות הזמינות הן 'nested_scopes,
+     generators,
+     division,
+     absolute_import,
+     with_statement,
+     print_function,
+     unicode_literals,
+     barry_as_FLUFL,
+     generator_stop,
+     annotations'.
+    
+
+(127) __future__ at beginning
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_must_be_first.py", line 3
+        from __future__ import generators
+        ^
+    SyntaxError: from __future__ imports must occur at the beginning of the file
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\future_must_be_first.py'
+    במקום המצוין.
+    
+       3:     from __future__ import generators
+              ^^^^
+
+    הצהרת `from __future__ import` משנה את הדרך שבה Python
+    מפרש את הקוד בקובץ.
+    זה חייב להופיע בתחילת הקובץ.
+
+(128) Typo in __future__
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_typo.py", line 1
+        from __future__ import divisio
+        ^
+    SyntaxError: future feature divisio is not defined
+    
+        האם התכוונת ל 'division'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\future_typo.py'
+    במקום המצוין.
+    
+       1: from __future__ import divisio
+          ^^^^
+
+    במקום 'divisio', אולי התכוונת לייבא 'division'.
+    
+
+(129) Unknown feature in __future__
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_unknown.py", line 1
+        from __future__ import something
+        ^
+    SyntaxError: future feature something is not defined
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\future_unknown.py'
+    במקום המצוין.
+    
+       1: from __future__ import something
+          ^^^^
+
+    `something` אינה תכונה תקפה של המודול ` __future__`.
+    
+    התכונות הזמינות הן 'nested_scopes,
+     generators,
+     division,
+     absolute_import,
+     with_statement,
+     print_function,
+     unicode_literals,
+     barry_as_FLUFL,
+     generator_stop,
+     annotations'.
+    
+
+(130) Parenthesis around generator expression
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\generator_expression_parens.py", line 6
+        f(x for x in L, 1)
+          ^
+    SyntaxError: Generator expression must be parenthesized
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\generator_expression_parens.py'
+    במקום המצוין.
+    
+       6: f(x for x in L, 1)
+            ^
+
+    אתה משתמש בביטוי מחולל, משהו מהצורה
+    
+         x עבור x בדבר
+    
+    עליך להוסיף סוגריים המקיפים את הביטוי הזה.
+    
+
+(131) Space between names
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
+        a-b = 2
+        ^
+    SyntaxError: cannot assign to operator
+    
+        האם התכוונת ל 'a_b'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\hyphen_instead_of_underscore.py'
+    במקום המצוין.
+    
+       4: a-b = 2
+          ^
+
+    כתבת ביטוי הכולל כמה פעולות מתמטיות
+    בצד שמאל של סימן השוויון שאמור להיות
+    משמש רק להקצאת ערך למשתנה.
+    אולי התכוונת לכתוב 'a_b' במקום 'a-b'
+    
+
+(132) Missing condition in if statement
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\if_missing_condition.py", line 1
+        if:
+          ^
+    SyntaxError: invalid syntax
+    
+        שכחת להוסיף תנאי.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\if_missing_condition.py'
+    במקום המצוין.
+    
+       1: if:
+            ^
+
+    הצהרת 'if'(אם) דורשת תנאי:
+    
+         if (אם) מצב:
+             ...
+    
+
+(133) use j instead of i
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\imaginary_i.py", line 3
+        a = 3.0i
+               ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת ל '3.0j'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\imaginary_i.py'
+    במקום המצוין.
+    
+       3: a = 3.0i
+                 ^
+
+    אולי חשבת שאפשר להשתמש ב'אני' כדי לייצג
+    השורש הריבועי של `-1`. ב-Python, הסמל המשמש לכך הוא `j`
+    והחלק המורכב נכתב כ'מספר_כמה' מיד
+    ואחריו 'j', ללא רווחים ביניהם.
+    אולי התכוונת לכתוב `3.0j`.
+    
+
+(134) Import inversion: import X from Y
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\import_from.py", line 3
+        import pen from turtle
+                   ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לfrom turtle import pen ( 'מ- turtle יבוא pen `) ?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\import_from.py'
+    במקום המצוין.
+    
+       3: import pen from turtle
+          ^^^^^^     ^^^^
+
+    כתבת משהו כמו
+    
+        יבוא pen מ-turtle
+    
+    במקום
+    
+        מ-turtle ייבוא pen
+    
+    
+
+(135) IndentationError: expected an indented block
+--------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_1.py", line 4
+        pass
+        ^
+    IndentationError: expected an indented block
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\indentation_error_1.py'
+    במקום המצוין.
+    
+       4: pass
+          ^^^^
+
+    Line `4` identified above was expected to begin a new indented block.
+    
+
+(136) IndentationError: unexpected indent
+-----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_2.py", line 4
+        pass
+        ^
+    IndentationError: unexpected indent
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\indentation_error_2.py'
+    במקום המצוין.
+    
+       4:       pass
+                ^^^^
+
+    Line `4` identified above is more indented than expected.
+    
+
+(137) IndentationError: unindent does not match ...
+---------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_3.py", line 5
+        pass
+            ^
+    IndentationError: unindent does not match any outer indentation level
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\indentation_error_3.py'
+    במקום המצוין.
+    
+       5:     pass
+              ^^^^
+
+    Line `5` identified above is less indented than expected.
+    
+
+(138) IndentationError: missing continuation line
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_4.py", line 6
+        "c"
+        ^
+    IndentationError: unexpected indent
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\indentation_error_4.py'
+    במקום המצוין.
+    
+       6:          "c"
+                   ^^^
+
+    Line `6` identified above is more indented than expected.
+    
+    עם זאת, שורה 6, המזוהה כבעיה,
+    מורכב ממחרוזת אחת, וזה גם המקרה
+    עבור השורה הקודמת.
+    אולי התכוונת לכלול דמות המשך, '\',
+    בסוף השורה 5.
+    
+
+(139) Forgot 'o' for octal
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\integer_with_leading_zero_1.py", line 1
+        x = 01
+             ^
+    SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+    
+        האם התכוונת ל '0o1'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\integer_with_leading_zero_1.py'
+    במקום המצוין.
+    
+       1: x = 01
+               ^
+
+    אולי התכוונת לכתוב את המספר האוקטלי '0o1'
+    ושכחת את האות 'או', או שאולי התכוונת לכתוב
+    מספר שלם עשרוני ולא ידעת שהוא לא יכול להתחיל באפס.
+    
+
+(140) Integer with leading zeros
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\integer_with_leading_zero_2.py", line 1
+        x = 000_123_456
+                      ^
+    SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+    
+        האם התכוונת ל '123_456'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\integer_with_leading_zero_2.py'
+    במקום המצוין.
+    
+       1: x = 000_123_456
+                 ^^^^^^^^
+
+    אולי התכוונת לכתוב את המספר השלם '123_456'
+    ולא ידעת שזה לא יכול להתחיל באפס.
+    
+
+(141) Invalid character in identifier
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_character_in_identifier.py", line 6
+        🤖 = 'Reeborg'
+        ^
+    SyntaxError: invalid character '🤖' (U+1F916)
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_character_in_identifier.py'
+    במקום המצוין.
+    
+       6: 🤖 = 'Reeborg'
+          ^
+
+    Python מציין שהשתמשת בתו unicode '🤖'
+    מה שאסור.
+    
+
+(142) Invalid decimal literal - 1
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_decimal_literal1.py", line 1
+        a = 1e
+             ^
+    SyntaxError: invalid syntax
+    
+        [הערה: '1 * e' יהיה תקף גם
+        מאחר ש '1' הוא מספר מורכב.]
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_decimal_literal1.py'
+    במקום המצוין.
+    
+       1: a = 1e
+               ^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    [הערה: '1 * e' יהיה תקף גם
+    מאחר ש '1' הוא מספר מורכב.]
+    
+    
+
+(143) Invalid encoding
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_encoding.py", line 2, in <module>
+        compile(source, filename="example.py", mode="exec")
+      File "TESTS:\example.py", line 0
+    SyntaxError: encoding problem: utf8 with BOM
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\example.py'
+    
+    
+    קידוד הקובץ לא היה חוקי.
+    
+
+(144) Invalid hexadecimal number
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_hexadecimal.py", line 3
+        a = 0x123g4
+                 ^
+    SyntaxError: invalid syntax
+    
+        האם טעית בכתיבת מספר שלם הקסדצימלי?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_hexadecimal.py'
+    במקום המצוין.
+    
+       3: a = 0x123g4
+                   ^^
+
+    נראה שהשתמשת בתו לא חוקי (`g`) במספר הקסדצימלי.
+    
+    מספרים הקסדצימליים הם בסיס 16 מספרים שלמים המשתמשים בסמלים '0' עד '9'
+    לייצג את הערכים 0 עד 9, ואת האותיות 'a' עד 'f' (או 'A' עד 'F')
+    לייצג ערכים 10 עד 15.
+    ב-Python, מספרים הקסדצימליים מתחילים ב-'0x' או ב-'0X',
+    ואחריו התווים המשמשים לייצג את הערך של אותו מספר שלם.
+    
+
+(145) Valid names cannot begin with a number
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier.py", line 3
+        36abc = 3
+          ^
+    SyntaxError: invalid syntax
+    
+        שמות חוקיים אינם יכולים להתחיל במספר.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_identifier.py'
+    במקום המצוין.
+    
+       3: 36abc = 3
+            ^^^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    
+
+(146) Valid names cannot begin with a number - 2
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_2.py", line 3
+        tau = 2pi
+               ^
+    SyntaxError: invalid syntax
+    
+        [הערה: '2 * pi' יהיה תקף גם
+        מאחר ש '2' הוא מספר מורכב.]
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_identifier_2.py'
+    במקום המצוין.
+    
+       3: tau = 2pi
+                 ^^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    [הערה: '2 * pi' יהיה תקף גם
+    מאחר ש '2' הוא מספר מורכב.]
+    
+    
+
+(147) Valid names cannot begin with a number - 3
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_3.py", line 1
+        3job  # could be entered in a repl
+          ^
+    SyntaxError: invalid syntax
+    
+        [הערה: '3 * job' יהיה תקף גם
+        מאחר ש '3' הוא מספר מורכב.]
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_identifier_3.py'
+    במקום המצוין.
+    
+       1: 3job  # could be entered in a repl
+            ^^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    [הערה: '3 * job' יהיה תקף גם
+    מאחר ש '3' הוא מספר מורכב.]
+    
+    [הערה: `3j * ob` יהיה גם חוקי
+    מכיוון ש-'3j' הוא מספר מרוכב.]
+    
+
+(148) Valid names cannot begin with a number - 4
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_4.py", line 1
+        3job = 1
+          ^
+    SyntaxError: invalid syntax
+    
+        שמות חוקיים אינם יכולים להתחיל במספר.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_identifier_4.py'
+    במקום המצוין.
+    
+       1: 3job = 1
+            ^^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    
+
+(149) Valid names cannot begin with a number - 5
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_5.py", line 1
+        print(42java)
+                 ^
+    SyntaxError: invalid syntax
+    
+        [הערה: '42 * java' יהיה תקף גם
+        מאחר ש '42' הוא מספר מורכב.]
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_identifier_5.py'
+    במקום המצוין.
+    
+       1: print(42java)
+                   ^^^
+
+    שמות חוקיים אינם יכולים להתחיל במספר.
+    [הערה: '42 * java' יהיה תקף גם
+    מאחר ש '42' הוא מספר מורכב.]
+    
+    [הערה: `42j * ava` יהיה גם חוקי
+    מכיוון ש-'42j' הוא מספר מרוכב.]
+    
+
+(150) Keyword can't be an expression
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_keyword_argument.py", line 7
+        a = dict('key'=1)
+                 ^
+    SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_keyword_argument.py'
+    במקום המצוין.
+    
+       7: a = dict('key'=1)
+                   ^^^^^
+
+    You likely called a function with a named argument:
+    
+        a_function(invalid=something) 
+    
+    where `invalid` is not a valid variable name in Python
+    either because it starts with a number, or is a string,
+    or contains a period, etc.
+    
+
+(151) Named argument can't be a Python keyword
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
+        a = dict(True=1)
+                 ^
+    SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+    
+        You cannot assign a value to `True`.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_keyword_argument_2.py'
+    במקום המצוין.
+    
+       7: a = dict(True=1)
+                   ^^^^
+
+    You likely called a function using the Python keyword `True` as an argument:
+    
+        a_function(True=something) 
+    
+    which Python interpreted as trying to assign a value to a Python keyword.
+    
+    You cannot assign a value to `True`.
+    
+
+(152) Invalid octal number
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_octal.py", line 3
+        b = 0O1876
+               ^
+    SyntaxError: invalid digit '8' in octal literal
+    
+        האם טעית בכתיבת מספר שלם אוקטלי?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\invalid_octal.py'
+    במקום המצוין.
+    
+       3: b = 0O1876
+                 ^^^
+
+    נראה שהשתמשת בתו לא חוקי (`8`) במספר אוקטלי.
+    
+    מספרים אוקטליים הם בסיס 8 מספרים שלמים המשתמשים רק בסמלים '0' עד '7'
+    לייצג ערכים.
+    ב-Python, מספרים הקסדצימליים מתחילים ב-'0o' או ב-'0O',
+    (הספרה אפס ואחריה האות 'o')
+    ואחריו התווים המשמשים לייצג את הערך של אותו מספר שלם.
+    
+
+(153) Inverted operators 1
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\inverted_operators.py", line 1
+        a =< 3
+           ^
+    SyntaxError: invalid syntax
+    
+        כתבת אופרטורים בסדר לא נכון?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\inverted_operators.py'
+    במקום המצוין.
+    
+       1: a =< 3
+            ^^
+
+    נראה שכתבת שני אופרטורים ('=' ו- '<')
+    בסדר הלא נכון: '=<' במקום '<='.
+    
+
+(154) Inverted operators 2
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\inverted_operators_2.py", line 1
+        a =<* 3
+           ^
+    SyntaxError: invalid syntax
+    
+        כתבת אופרטורים בסדר לא נכון?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\inverted_operators_2.py'
+    במקום המצוין.
+    
+       1: a =<* 3
+            ^^
+
+    נראה שכתבת שני אופרטורים ('=' ו- '<')
+    בסדר הלא נכון: '=<' במקום '<='.
+    
+    עם זאת, שינוי כזה עדיין לא היה נכון
+    כל שגיאות התחביר בקוד שכתבת.
+    
+
+(155) Iteration variable unpacking in comprehension
+---------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\iteration_unpacking_in_comprehension.py", line 1
+        [*x for x in xs]
+         ^
+    SyntaxError: iterable unpacking cannot be used in comprehension
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\iteration_unpacking_in_comprehension.py'
+    במקום המצוין.
+    
+       1: [*x for x in xs]
+           ^
+
+    You cannot use the `*` operator to unpack the iteration variable
+    in a comprehension.
+    
+    The following statement has no syntax error:
+    
+        [x for x in xs]
+    
+
+(156) Keyword arg only once in function call
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\keyword_arg_repeated.py", line 4
+        f(ad=1, ad=2)
+                ^
+    SyntaxError: keyword argument repeated: ad
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\keyword_arg_repeated.py'
+    במקום המצוין.
+    
+       4: f(ad=1, ad=2)
+                  ^^
+
+    קראת לפונקציה שחוזרת על אותו ארגומנט של מילת מפתח ('ad').
+    כל ארגומנט של מילת מפתח צריך להופיע רק פעם אחת בשיחת פונקציה.
+    
+
+(157) Keyword as attribute
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\keyword_as_attribute.py", line 12
+        a.pass = 2
+          ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש ב- 'pass' כתכונה.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\keyword_as_attribute.py'
+    במקום המצוין.
+    
+       12: a.pass = 2
+             ^^^^
+
+    אינך יכול להשתמש במילת המפתח של פייתון 'pass' כתכונה.
+    
+
+(158) lambda with parentheses around arguments
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\lambda_with_parens.py", line 2
+        x = lambda (a, b): a + b
+                   ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\lambda_with_parens.py'
+    במקום המצוין.
+    
+       2: x = lambda (a, b): a + b
+                     ^
+
+    `lambda` אינו מאפשר סוגריים סביב טיעוניו.
+    זה מותר ב- Python 2 אך זה לא מותר ב- Python 3.
+    
+
+(159) lambda with tuple as argument
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
+        x = lambda a, (b, c): a + b + b
+                      ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\lambda_with_tuple_argument.py'
+    במקום המצוין.
+    
+       2: x = lambda a, (b, c): a + b + b
+                        ^
+
+    אתה לא יכול לקבל tuples מפורשים כטיעונים.
+    הקצה כל tuple לפרמטר ופרק אותו
+    בתוך גוף הפונקציה.
+    
+
+(160) Assign to literal in for loop
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\literal_in_for_loop.py", line 1
+        for "char" in "word":
+            ^
+    SyntaxError: cannot assign to literal
+    
+        ניתן להקצות אובייקטים רק למזהים (שמות משתנים).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\literal_in_for_loop.py'
+    במקום המצוין.
+    
+       1: for "char" in "word":
+              ^^^^^^
+
+    לולאת פור (for) חייבת להיות בתבנית:
+    
+         עבור XXX ברצף:
+    
+    כאשר 'XXX' חייב להכיל רק מזהים (שמות משתנים)
+    ולא מילוליות כמו '"char"'.
+    
+
+(161) IndentationError/SyntaxError depending on version
+-------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_code_block.py", line 4
+    IndentationError: expected an indented block
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_code_block.py'
+    במקום המצוין.
+    
+       3: for i in range(10):
+    -->4: 
+                            ^
+
+    Line `4` identified above was expected to begin a new indented block.
+    
+
+(162) IndentationError/SyntaxError depending on version - 2
+-----------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_code_block_2.py", line 6
+    IndentationError: expected an indented block
+    
+    'IndentationError' מתרחשת כאשר שורת קוד היא
+    לא מיושר אנכית עם קווים אחרים כצפוי.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_code_block_2.py'
+    
+    
+       3: for i in "test":
+       4: 
+
+    Line `6` identified above was expected to begin a new indented block.
+    
+
+(163) Missing colon - if
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_colon_if.py", line 3
+        if True
+               ^
+    SyntaxError: invalid syntax
+    
+        שכחת נקודתיים ':' ?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_colon_if.py'
+    במקום המצוין.
+    
+       3: if True
+                 ^
+
+    כתבת הצהרה שמתחילה ב
+    `if` אבל שכחת להוסיף נקודתיים `:` בסוף.
+    
+
+(164) Missing colon - while
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_colon_while.py", line 3
+        while True  # a comment
+                    ^
+    SyntaxError: invalid syntax
+    
+        שכחת נקודתיים ':' ?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_colon_while.py'
+    במקום המצוין.
+    
+       3: while True  # a comment
+                    ^
+
+    כתבת לולאה של `while `אבל
+    שכחת להוסיף נקודתיים `:` בסוף
+    
+
+(165) Missing comma in a dict
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_dict.py", line 5
+        'c': 3,
+        ^
+    SyntaxError: invalid syntax
+    
+        שכחת פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_comma_in_dict.py'
+    במקום המצוין.
+    
+       3: a = {'a': 1,
+    -->4:      'b': 2
+                    ^-->
+    -->5:      'c': 3,
+               ^^^
+       6: }
+
+    פייתון מציין כי השגיאה נגרמת על ידי "'c'" שקרה מיד לאחר "2".
+    ייתכן ששכחת פסיק בין פריטים בסט או dict
+    במיקום המצוין על ידי ^.
+    אולי התכוונת ל
+    
+        a = {'a': 1,
+             'b': 2, 
+                   ^
+             'c': 3,
+        }
+    
+    
+
+(166) Missing comma between strings in a dict
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_dict_2.py", line 4
+        'c': '3',
+           ^
+    SyntaxError: invalid syntax
+    
+        שכחת פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_comma_in_dict_2.py'
+    במקום המצוין.
+    
+       2: a = {'a': '1',
+       3:      'b': '2'
+    -->4:      'c': '3',
+                  ^
+       5: }
+
+    אני מנחש ששכחת פסיק בין שני מחרוזות
+    בעת הגדרת מילון (dict).
+    ```
+    a = {'a': '1',
+         'b': '2',
+                 ^
+         'c': '3',
+    }
+    ```
+
+(167) Missing comma in a list
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_list.py", line 3
+        a = [1, 2  3]
+                   ^
+    SyntaxError: invalid syntax
+    
+        שכחת משהו בין '2' ל- '3'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_comma_in_list.py'
+    במקום המצוין.
+    
+       3: a = [1, 2  3]
+                  ^^^^
+
+    פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+    ייתכן ששכחת פסיק בין פריטים ברשימה
+    במיקום המצוין על ידי ^.
+    אולי התכוונת להכניס אופרטור כמו '+, -, *'
+    בין `2` ו- `3`.
+    שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+        a = [1, 2,   3]
+        a = [1, 2 +   3]
+        a = [1, 2 -   3]
+        a = [1, 2 *   3]
+    הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+    חלקם עשויים להעלות סוגים אחרים של חריגים.
+    
+
+(168) Missing comma in a set
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_set.py", line 3
+        a = {1, 2  3}
+                   ^
+    SyntaxError: invalid syntax
+    
+        שכחת משהו בין '2' ל- '3'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_comma_in_set.py'
+    במקום המצוין.
+    
+       3: a = {1, 2  3}
+                  ^^^^
+
+    פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+    ייתכן ששכחת פסיק בין פריטים בסט או dict
+    במיקום המצוין על ידי ^.
+    אולי התכוונת להכניס אופרטור כמו '+, -, *'
+    בין `2` ו- `3`.
+    שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+        a = {1, 2,   3}
+        a = {1, 2 +   3}
+        a = {1, 2 -   3}
+        a = {1, 2 *   3}
+    הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+    חלקם עשויים להעלות סוגים אחרים של חריגים.
+    
+
+(169) Missing comma in a tuple
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_tuple.py", line 3
+        a = (1, 2  3)
+                   ^
+    SyntaxError: invalid syntax
+    
+        שכחת משהו בין '2' ל- '3'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_comma_in_tuple.py'
+    במקום המצוין.
+    
+       3: a = (1, 2  3)
+                  ^^^^
+
+    פייתון מציין כי השגיאה נגרמת על ידי "3" שקרה מיד לאחר "2".
+    יתכן ששכחת פסיק בין פריטים בטופל,
+    או בין ארגומנטים של פונקציה,
+    במיקום המצוין על ידי ^.
+    אולי התכוונת להכניס אופרטור כמו '+, -, *'
+    בין `2` ו- `3`.
+    שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+        a = (1, 2,   3)
+        a = (1, 2 +   3)
+        a = (1, 2 -   3)
+        a = (1, 2 *   3)
+    הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+    חלקם עשויים להעלות סוגים אחרים של חריגים.
+    
+
+(170) Missing parenthesis for range
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_parens_for_range.py", line 1
+        for i in range 3:
+                       ^
+    SyntaxError: invalid syntax
+    
+        שכחת לכתוב סוגריים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_parens_for_range.py'
+    במקום המצוין.
+    
+       1: for i in range 3:
+                         ^
+
+    נראה ששכחת להשתמש בסוגריים עם 'range'('טווח').
+    
+    אולי התכוונת ל: for i in range( 3):
+    
+    
+
+(171) Misspelled Python keyword
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\misspelled_keyword.py", line 2
+        is i in range(3):
+        ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת ל "if i in range(3):"?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\misspelled_keyword.py'
+    במקום המצוין.
+    
+       2: is i in range(3):
+          ^^
+
+    אולי התכוונת לכתוב 'if' וביצעת שגיאת כתיב.
+    השורה הנכונה עשויה להיות 'if i in range(3):'
+    
+
+(172) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none

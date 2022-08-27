@@ -19,7 +19,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.35
+Friendly-traceback version: 0.5.48
 Python version: 3.9.10
 
 
@@ -1203,7 +1203,7 @@ Python version: 3.9.10
     nella posizione indicata.
     
        1: (**k)
-           ^^->
+           ^^
 
     The double star operator `**` is likely interpreted to mean that
     dict unpacking is to be used which is not allowed or does not make sense here.
@@ -4196,7 +4196,7 @@ Python version: 3.9.10
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\example.py'
-    .
+    
     
     L'encoding del file non è valido.
     
@@ -4745,7 +4745,7 @@ Python version: 3.9.10
     not indented (aligned vertically with other lines) as expected.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\missing_code_block_2.py'
-    .
+    
     
        3: for i in "test":
        4: 
@@ -6759,7 +6759,7 @@ Python version: 3.9.10
     Un errore di tipo `SyntaxError` accade quando Python non riesce ad interpretare il tuo codice.
     
     Python non riesce ad interpretare il codice contenuto nel file 'TESTS:\syntax\unterminated_triple_quote_string.py'
-    .
+    
     
        1: some_text = """In a land
        2: 

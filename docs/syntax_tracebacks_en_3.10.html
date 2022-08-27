@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.11.html" /><link rel="prev" title="Friendly tracebacks - in English" href="tracebacks_en_3.10.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.5.46</title>
+        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.5.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -318,8 +318,8 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.5.35
-Python version: 3.10.2</p>
+<p>Friendly-traceback version: 0.5.48
+Python version: 3.10.6</p>
 <section id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -434,8 +434,8 @@ renamed on a separate line as follows:
     __import__(name)
   File "TESTS:\syntax\assign_instead_of_equal.py", line 1
     a = (b = 2)  # issue #65
-           ^
-SyntaxError: invalid syntax
+         ^^^^^
+SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
 
     Perhaps you needed `==` or `:=` instead of `=`.
 
@@ -446,7 +446,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: a = (b = 2)  # issue #65
-             ^
+           ^^^^^
 
 You used an assignment operator `=`; perhaps you meant to use
 an equality operator, `==`, or the walrus operator `:=`.
@@ -1242,7 +1242,7 @@ at the location indicated.
     __import__(name)
   File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
     a = 3 \ 4.0
-           ^^^^--&gt;
+           ^
 SyntaxError: unexpected character after line continuation character
 
     Did you mean to divide by 4.0?
@@ -2055,7 +2055,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    3: def 2be():
-          ^
+          ^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -3161,7 +3161,7 @@ such as `list`, `set`, or `dict`.
     __import__(name)
   File "TESTS:\syntax\dict_value_missing_1.py", line 1
     a = {1:2, 3}
-              ^^--&gt;
+              ^
 SyntaxError: ':' expected after dictionary key
 
     Did you forget to write a dict value?
@@ -3213,7 +3213,7 @@ Perhaps you forgot to write a value after a colon.
     __import__(name)
   File "TESTS:\syntax\dict_value_missing_3.py", line 3
     a = {1:2, 3, 4:5}
-              ^^^^^^^--&gt;
+              ^
 SyntaxError: ':' expected after dictionary key
 
     Did you forget to write a dict value?
@@ -3469,8 +3469,10 @@ but never ended the string with another quote on that line.
     __import__(name)
   File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
     ages = {'Alice'=22, 'Bob'=24}
-                   ^
-SyntaxError: invalid syntax
+            ^^^^^^^
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+
+    You can only assign objects to identifiers (variable names).
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -3479,11 +3481,19 @@ Python could not understand the code in the file
 at the location indicated.
 
    4: ages = {'Alice'=22, 'Bob'=24}
-                     ^
+              ^^^^^^^
+
+You wrote an expression like
+
+    'Alice' = variable_name
+where `'Alice'`, on the left-hand side of the equal sign,
+is or includes an actual object of type `str`
+and is not simply the name of a variable.
+
+You can only assign objects to identifiers (variable names).
 
 It is possible that you used an equal sign `=` instead of a colon `:`
-to assign values to keys in a dict
-before or at the position indicated by ^.
+to assign values to keys in a dict.
 </pre></div>
 </div>
 </section>
@@ -3857,7 +3867,7 @@ The available features are `nested_scopes,
     __import__(name)
   File "TESTS:\syntax\generator_expression_parens.py", line 6
     f(x for x in L, 1)
-      ^^^^^^^
+      ^^^^^^^^^^^^
 SyntaxError: Generator expression must be parenthesized
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -3867,7 +3877,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    6: f(x for x in L, 1)
-        ^^^^^^^
+        ^^^^^^^^^^^^
 
 You are using a generator expression, something of the form
 
@@ -3952,7 +3962,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    3: a = 3.0i
-          ^^^
+          ^^^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4051,7 +4061,7 @@ Line `4` identified above is more indented than expected.
     __import__(name)
   File "TESTS:\syntax\indentation_error_3.py", line 5
     pass
-        --&gt;
+        ^
 IndentationError: unindent does not match any outer indentation level
 
 An `IndentationError` occurs when a given line of code is
@@ -4194,7 +4204,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: a = 1e
-          ^
+          ^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4218,7 +4228,7 @@ A `SyntaxError` occurs when Python cannot understand your code.
 
 Python could not understand the code in the file
 'TESTS:\example.py'
-.
+
 
 The encoding of the file was not valid.
 </pre></div>
@@ -4243,7 +4253,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    3: a = 0x123g4
-          ^^^^^
+          ^^^^^^^
 
 It looks like you used an invalid character (`g`) in an hexadecimal number.
 
@@ -4274,7 +4284,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    3: 36abc = 3
-      ^^
+      ^^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4302,7 +4312,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    3: tau = 2pi
-            ^
+            ^^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -4331,7 +4341,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: 3job  # could be entered in a repl
-      ^^
+      ^^^^
 
 Valid names cannot begin with a number.
 Perhaps you forgot a multiplication operator, `3 * job`.
@@ -4360,7 +4370,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: 3job = 1
-      ^^
+      ^^^
 
 Valid names cannot begin with a number.
 </pre></div>
@@ -4385,7 +4395,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: print(42java)
-            ^^^
+            ^^^^
 
 Valid names cannot begin with a number.
 Perhaps you forgot a multiplication operator, `42 * java`.
@@ -4727,7 +4737,7 @@ not indented (aligned vertically with other lines) as expected.
 
 Python could not understand the code in the file
 'TESTS:\syntax\missing_code_block_2.py'
-.
+
 
    3: for i in "test":
    4:
@@ -4795,7 +4805,7 @@ forgot to add a colon `:` at the end
     __import__(name)
   File "TESTS:\syntax\missing_comma_in_dict.py", line 4
     'b': 2
-         --&gt;
+         ^--&gt;
 SyntaxError: invalid syntax. Perhaps you forgot a comma?
 
     Did you forget a comma?
@@ -4983,7 +4993,7 @@ some of them might raise other types of exceptions.
   File "TESTS:\syntax\missing_parens_for_range.py", line 1
     for i in range 3:
                    ^
-SyntaxError: expected ':'
+SyntaxError: invalid syntax
 
     Did you forget to write parenthesis?
 
@@ -4996,9 +5006,6 @@ at the location indicated.
    1: for i in range 3:
                      ^
 
-Python told us that it expected a colon at the position indicated.
-However, adding a colon or replacing something else by a colon
-would not fix the problem.
 It looks as though you forgot to use to use parenthesis with `range`.
 Perhaps you meant:
 
@@ -5318,7 +5325,7 @@ Python could not understand the code in the file
 at the location indicated.
 
 --&gt;2: print len("""This is a long string
-      ^^-&gt;
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    3:           that spans multiple lines.""")
 
 Perhaps you need to type
@@ -5879,7 +5886,7 @@ A star assignment must be of the form:
     __import__(name)
   File "TESTS:\syntax\too_many_nested_blocks.py", line 22
     while 22:
-    --&gt;
+    ^--&gt;
 SyntaxError: too many statically nested blocks
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -5889,7 +5896,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    22:                      while 22:
-                            ^^-&gt;
+                            ^^^^^
 
 Your code is too complex for Python:
 you need to reduce the number of indented code blocks
@@ -5993,7 +6000,7 @@ the exact same object, use the operator `is`.
     __import__(name)
   File "TESTS:\syntax\unclosed_bracket.py", line 5
     return [1, 2, 3
-           ^^^^--&gt;
+           ^
 SyntaxError: '[' was never closed
 
     The square bracket `[` was never closed.
@@ -6024,7 +6031,7 @@ The opening square bracket `[` on line 5 is not closed.
     __import__(name)
   File "TESTS:\syntax\unclosed_paren_1.py", line 2
     x = int('1'
-           ^^^^--&gt;
+           ^
 SyntaxError: '(' was never closed
 
     The parenthesis `(` was never closed.
@@ -6055,8 +6062,10 @@ The opening parenthesis `(` on line 2 is not closed.
     __import__(name)
   File "TESTS:\syntax\unclosed_paren_2.py", line 2
     a = (b+c
-         ^^^--&gt;
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+        ^
+SyntaxError: '(' was never closed
+
+    The parenthesis `(` was never closed.
 
 A `SyntaxError` occurs when Python cannot understand your code.
 
@@ -6065,7 +6074,7 @@ Python could not understand the code in the file
 at the location indicated.
 
 --&gt;2: a = (b+c
-           ^^-&gt;
+          ^
    3: d = a*a
    4:
 
@@ -6142,7 +6151,7 @@ The opening parenthesis `(` on line 2 is not closed.
     __import__(name)
   File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
     print(\t)
-           ^^--&gt;
+           ^
 SyntaxError: unexpected character after line continuation character
 
 A `SyntaxError` occurs when Python cannot understand your code.
@@ -6167,7 +6176,7 @@ I am guessing that you forgot to enclose some content in a string.
     __import__(name)
   File "TESTS:\syntax\unexpected_eof.py", line 5
     return [1, 2, 3,
-           ^^^^^--&gt;
+           ^
 SyntaxError: '[' was never closed
 
     The square bracket `[` was never closed.
@@ -6240,7 +6249,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    1: a = 1½  # 1 1/2
-          ^
+          ^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.
@@ -6422,7 +6431,7 @@ Python could not understand the code in the file
 at the location indicated.
 
    2: a = (1‚ 2)
-           ^
+           ^^
 
 Python tells us that you have written an invalid number.
 However, I think that the problem might be the following.

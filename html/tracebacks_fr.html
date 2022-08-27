@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - en Français" href="syntax_tracebacks_fr.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - en español" href="syntax_tracebacks_es.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - en Français - friendly-traceback 0.5.46</title>
+        <title>Friendly tracebacks - en Français - friendly-traceback 0.5.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.46</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.46</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -313,7 +313,7 @@ Ceci a besoin d’être fait de manière explicite lorsqu’on veut
 faire des corrections ou des ajouts, avant de faire la mise
 à jour du reste de la documentation avec Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.5.35
+<p>Friendly-traceback version: 0.5.48
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
@@ -775,7 +775,7 @@ Exception levée à la ligne 280 du fichier TESTS:\runtime\test_attribute_error.
    278:     f = F()
    279:     try:
 --&gt;280:         f.b = 1
-                ^^^^^^^
+                ^^^
    281:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -956,7 +956,7 @@ Exception levée à la ligne 260 du fichier TESTS:\runtime\test_attribute_error.
    258:     f = F()
    259:     try:
 --&gt;260:         f.b = 1
-                ^^^^^^^
+                ^^^
    261:     except AttributeError as e:
 
         f:  &lt;F object&gt;
@@ -1126,7 +1126,7 @@ Exception levée à la ligne 56 du fichier TESTS:\runtime\test_import_error.py.
 <section id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
+  File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
     a[13] = 1
 IndexError: list assignment index out of range
 
@@ -1139,15 +1139,15 @@ Vous avez essayé d'assigner une valeur à l'indice `13` de `a`,
 une liste (`list`) de longueur `10`.
 Les indices valides de `a` sont les entiers allant de `-10` à `9`.
 
-Exception levée à la ligne 87 du fichier TESTS:\runtime\test_index_error.py.
+Exception levée à la ligne 93 du fichier TESTS:\runtime\test_index_error.py.
 
-   83:         assert "You have tried to assign a value to index `1` of `b`," in result
-   84:         assert "a `list` which contains no item." in result
-   85:
-   86:     try:
---&gt;87:         a[13] = 1
-               ^^^^^^^^^
-   88:     except IndexError as e:
+   89:         assert "You have tried to assign a value to index `1` of `b`," in result
+   90:         assert "a `list` which contains no item." in result
+   91:
+   92:     try:
+--&gt;93:         a[13] = 1
+               ^^^^^
+   94:     except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
@@ -2073,6 +2073,34 @@ Exception levée à la ligne 158 du fichier TESTS:\runtime\test_name_error.py.
 </pre></div>
 </div>
 </section>
+<section id="special-keyword">
+<h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 308, in test_special_keyword
+    brek
+NameError: name 'brek' is not defined
+
+    Did you mean `break`?
+
+Une exception `NameError` indique que le nom d'une variable
+ou d'une fonction n'est pas connue par Python.
+Habituellement, ceci indique une simple faute d'orthographe.
+Cependant, cela peut également indiquer que le nom a été
+utilisé avant qu'on ne lui ait associé une valeur.
+
+I suspect you meant to write the keyword `break` and made a typo.
+
+Exception levée à la ligne 308 du fichier TESTS:\runtime\test_name_error.py.
+
+   305:     if friendly_traceback.get_lang() == "en":
+   306:         assert "Did you mean `continue`" in result
+   307:     try:
+--&gt;308:         brek
+                ^^^^
+   309:     except NameError as e:
+</pre></div>
+</div>
+</section>
 </section>
 <section id="oserror">
 <h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h2>
@@ -2090,7 +2118,7 @@ socket.gaierror: [Errno 11001] getaddrinfo failed
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 8, in test_Urllib_error
+  File "TESTS:\runtime\test_os_error.py", line 10, in test_Urllib_error
     request.urlopen("http://does_not_exist")
 URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 
@@ -2105,14 +2133,15 @@ qu’une connexion ne peut être faite.
 Si c’est le cas, vérifiez les fautes de frappe dans l’URL
 et vérifiez votre connectivité Internet.
 
-Exception levée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py.
+Exception levée à la ligne 10 du fichier TESTS:\runtime\test_os_error.py.
 
-   5: def test_Urllib_error():
-   6:     from urllib import request, error
-   7:     try:
---&gt;8:         request.urlopen("http://does_not_exist")
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   9:     except error.URLError as e:
+    6: @pytest.mark.skipif(random.randint(0, 50) &lt; 59, reason="very long test")
+    7: def test_Urllib_error():
+    8:     from urllib import request, error
+    9:     try:
+--&gt;10:         request.urlopen("http://does_not_exist")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   11:     except error.URLError as e:
 
         request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
         request.urlopen:  &lt;function urlopen&gt;
@@ -2122,7 +2151,7 @@ Exception levée à la ligne 8 du fichier TESTS:\runtime\test_os_error.py.
 <section id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 46, in test_invalid_argument
+  File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
     open("c:\test.txt")
 OSError: [Errno 22] Invalid argument: 'c:\test.txt'
 
@@ -2141,14 +2170,14 @@ en ajoutant la lettre `r` comme préfixe devant le nom de
 fichier ou du chemin d'accès, ou remplacer tous les caractères
 simples, `\`, par des caractères doubles : `\\`.
 
-Exception levée à la ligne 46 du fichier TESTS:\runtime\test_os_error.py.
+Exception levée à la ligne 48 du fichier TESTS:\runtime\test_os_error.py.
 
-   43:     if os.name != "nt":
-   44:         return "Windows test only", "No result"
-   45:     try:
---&gt;46:         open("c:\test.txt")
+   45:     if os.name != "nt":
+   46:         return "Windows test only", "No result"
+   47:     try:
+--&gt;48:         open("c:\test.txt")
                ^^^^^^^^^^^^^^^^^^^
-   47:     except OSError as e:
+   49:     except OSError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -2157,7 +2186,7 @@ Exception levée à la ligne 46 du fichier TESTS:\runtime\test_os_error.py.
 <section id="no-information">
 <h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 27, in test_no_information
+  File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
     raise OSError("Some unknown message")
 OSError: Some unknown message
 
@@ -2175,14 +2204,14 @@ Si vous utilisez un REPL, utilisez `www('bug')` pour le faire.
 Si vous utilisez la console Friendly, utilisez `www()` pour
 faire une recherche sur Internet pour ce cas particulier.
 
-Exception levée à la ligne 27 du fichier TESTS:\runtime\test_os_error.py.
+Exception levée à la ligne 29 du fichier TESTS:\runtime\test_os_error.py.
 
-   24:     old_debug = friendly_traceback.debug_helper.DEBUG
-   25:     friendly_traceback.debug_helper.DEBUG = False
-   26:     try:
---&gt;27:         raise OSError("Some unknown message")
+   26:     old_debug = friendly_traceback.debug_helper.DEBUG
+   27:     friendly_traceback.debug_helper.DEBUG = False
+   28:     try:
+--&gt;29:         raise OSError("Some unknown message")
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   28:     except OSError as e:
+   30:     except OSError as e:
 
         OSError:  &lt;class OSError&gt;
 </pre></div>
@@ -2281,6 +2310,36 @@ Exception levée à la ligne 6 du fichier TESTS:\runtime\test_recursion_error.py
 </section>
 <section id="typeerror">
 <h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h2>
+<section id="argument-of-object-is-not-iterable">
+<h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+    a in b
+TypeError: argument of type 'object' is not iterable
+
+Une exception `TypeError` est généralement causée par une tentative
+de combiner deux types d’objets incompatibles,
+en invoquant une fonction avec le mauvais type d’objet,
+ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
+
+An iterable is an object capable of returning its members one at a time.
+Python containers (`list, tuple, dict`, etc.) are iterables.
+'b' is not a container. A container is required here.
+
+Exception levée à la ligne 804 du fichier TESTS:\runtime\test_type_error.py.
+
+   801:     a = object()
+   802:     b = object()
+   803:     try:
+--&gt;804:         a in b
+                ^^^^^^
+   805:     except TypeError as e:
+
+        a:  &lt;object object&gt;
+        b:  &lt;object object&gt;
+</pre></div>
+</div>
+</section>
 <section id="bad-type-for-unary-operator">
 <h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
@@ -2316,7 +2375,7 @@ Exception levée à la ligne 398 du fichier TESTS:\runtime\test_type_error.py.
 <section id="builtin-has-no-len">
 <h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 830, in test_Builtin_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
     len("Hello world".split)
 TypeError: object of type 'builtin_function_or_method' has no len()
 
@@ -2331,13 +2390,13 @@ Je soupçonne que vous avez oublié d’ajouter des parenthèses pour invoquer `
 Vous avez peut-être voulu écrire :
 `len("Hello world".split())`
 
-Exception levée à la ligne 830 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 859 du fichier TESTS:\runtime\test_type_error.py.
 
-   828: def test_Builtin_has_no_len():
-   829:     try:
---&gt;830:         len("Hello world".split)
+   857: def test_Builtin_has_no_len():
+   858:     try:
+--&gt;859:         len("Hello world".split)
                 ^^^^^^^^^^^^^^^^^^^^^^^^
-   831:     except TypeError as e:
+   860:     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
         "Hello world".split:  &lt;builtin method split of str object&gt;
@@ -2376,7 +2435,7 @@ Exception levée à la ligne 39 du fichier TESTS:\runtime\test_type_error.py.
 <section id="cannot-convert-dictionary-update-sequence">
 <h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 816, in test_Cannot_convert_dictionary_update_sequence
+  File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
     dd.update([1, 2, 3])
 TypeError: cannot convert dictionary update sequence element #0 to a sequence
 
@@ -2391,15 +2450,15 @@ ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
 Au lieu d’écrire `dd.update([1, 2, 3])`
 peut-être devriez-vous utiliser la méthode `dict.fromkeys()` : `dd.update( dict.fromkeys([1, 2, 3]) )`.
 
-Exception levée à la ligne 816 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 845 du fichier TESTS:\runtime\test_type_error.py.
 
-   812:         assert "you should use the `dict.fromkeys()`" in result
-   813:
-   814:     dd = {"a": "a"}
-   815:     try:
---&gt;816:         dd.update([1, 2, 3])
+   841:         assert "you should use the `dict.fromkeys()`" in result
+   842:
+   843:     dd = {"a": "a"}
+   844:     try:
+--&gt;845:         dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-   817:     except TypeError as e:
+   846:     except TypeError as e:
 
         dd:  {'a': 'a'}
         dd.update:  &lt;builtin method update of dict object&gt;
@@ -2439,7 +2498,7 @@ Exception levée à la ligne 614 du fichier TESTS:\runtime\test_type_error.py.
 <section id="cannot-unpack-non-iterable-object">
 <h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 788, in test_Cannot_unpack_non_iterable_object
+  File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
     a, b = 42.0
 TypeError: cannot unpack non-iterable float object
 
@@ -2454,13 +2513,13 @@ Un itérable est un objet capable de renvoyer ses membres un à la fois.
 Les contenants python (`list, tuple, dict`, etc.) sont itérables,
 mais pas les objets de type `float`.
 
-Exception levée à la ligne 788 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 817 du fichier TESTS:\runtime\test_type_error.py.
 
-   786: def test_Cannot_unpack_non_iterable_object():
-   787:     try:
---&gt;788:         a, b = 42.0
+   815: def test_Cannot_unpack_non_iterable_object():
+   816:     try:
+--&gt;817:         a, b = 42.0
                 ^^^^^^^^^^^
-   789:     except TypeError as e:
+   818:     except TypeError as e:
 </pre></div>
 </div>
 </section>
@@ -2518,6 +2577,40 @@ Exception levée à la ligne 557 du fichier TESTS:\runtime\test_type_error.py.
 --&gt;557:         raise "exception"  # noqa
                 ^^^^^^^^^^^^^^^^^
    558:     except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="generator-has-no-len">
+<h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+    nb = len(letter
+TypeError: object of type 'generator' has no len()
+
+    You likely need to build a list first.
+
+Une exception `TypeError` est généralement causée par une tentative
+de combiner deux types d’objets incompatibles,
+en invoquant une fonction avec le mauvais type d’objet,
+ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
+
+I am guessing that you were trying to count the number of elements
+produced by a generator expression. You first need to capture them
+in a list:
+
+    len([letter for letter in "word"])
+
+Exception levée à la ligne 1014 du fichier TESTS:\runtime\test_type_error.py.
+
+   1012: def test_Generator_has_no_len():
+   1013:     try:
+--&gt;1014:         nb = len(letter
+                      ^^^^^^^^^^
+   1015:                  for letter in "word")
+                          ^^^^^^^^^^^^^^^^^^^^^
+   1016:     except TypeError as e:
+
+        len:  &lt;builtin function len&gt;
 </pre></div>
 </div>
 </section>
@@ -2629,7 +2722,7 @@ Exception levée à la ligne 541 du fichier TESTS:\runtime\test_type_error.py.
 <section id="object-is-not-iterable">
 <h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 774, in test_Object_is_not_iterable
+  File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
     list(42)
 TypeError: 'int' object is not iterable
 
@@ -2642,13 +2735,13 @@ Un itérable est un objet capable de renvoyer ses membres un à la fois.
 Les contenants python (`list, tuple, dict`, etc.) sont itérables.
 Une itérable est requis ici.
 
-Exception levée à la ligne 774 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 788 du fichier TESTS:\runtime\test_type_error.py.
 
-   772: def test_Object_is_not_iterable():
-   773:     try:
---&gt;774:         list(42)
+   786: def test_Object_is_not_iterable():
+   787:     try:
+--&gt;788:         list(42)
                 ^^^^^^^^
-   775:     except TypeError as e:
+   789:     except TypeError as e:
 
         list:  &lt;class list&gt;
 </pre></div>
@@ -2657,7 +2750,7 @@ Exception levée à la ligne 774 du fichier TESTS:\runtime\test_type_error.py.
 <section id="object-is-not-subscriptable">
 <h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 757, in test_Object_is_not_subscriptable
+  File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
     a = f[1]
 TypeError: 'function' object is not subscriptable
 
@@ -2673,15 +2766,15 @@ desquels on peut tirer des éléments en utilisant la notation `[...]`.
 
 Peut-être que vous vouliez plutôt écrire `f(1)`.
 
-Exception levée à la ligne 757 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 771 du fichier TESTS:\runtime\test_type_error.py.
 
-   753:     def f():
-   754:         pass
-   755:
-   756:     try:
---&gt;757:         a = f[1]
+   767:     def f():
+   768:         pass
+   769:
+   770:     try:
+--&gt;771:         a = f[1]
                     ^^^^
-   758:     except TypeError as e:
+   772:     except TypeError as e:
 
         f:  &lt;function f&gt;
             defined in &lt;function test_Object_is_not_subscriptable&gt;
@@ -2805,7 +2898,7 @@ Exception levée à la ligne 419 du fichier TESTS:\runtime\test_type_error.py.
    417:     a = (1, 2, 3)
    418:     try:
 --&gt;419:         a[0] = 0
-                ^^^^^^^^
+                ^^^^
    420:     except TypeError as e:
 
         a:  (1, 2, 3)
@@ -2905,7 +2998,7 @@ Exception levée à la ligne 55 du fichier TESTS:\runtime\test_type_error.py.
 <section id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 922, in test_function_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
     fn2(0, a=1)
 TypeError: fn2() got multiple values for argument 'a'
 
@@ -2919,15 +3012,15 @@ lors de l'appel de la fonction nommée `fn2`.
 Cette fonction a les arguments suivants :
 `a, b=1`
 
-Exception levée à la ligne 922 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 951 du fichier TESTS:\runtime\test_type_error.py.
 
-   918:     def fn2(a, b=1):
-   919:         pass
-   920:
-   921:     try:
---&gt;922:         fn2(0, a=1)
+   947:     def fn2(a, b=1):
+   948:         pass
+   949:
+   950:     try:
+--&gt;951:         fn2(0, a=1)
                 ^^^^^^^^^^^
-   923:     except TypeError as e:
+   952:     except TypeError as e:
 
         fn2:  &lt;function fn2&gt;
             defined in &lt;function test_function_got_multiple_argument&gt;
@@ -2937,7 +3030,7 @@ Exception levée à la ligne 922 du fichier TESTS:\runtime\test_type_error.py.
 <section id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 847, in test_function_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
     len(bad)
 TypeError: object of type 'function' has no len()
 
@@ -2952,15 +3045,15 @@ Je soupçonne que vous avez oublié d’ajouter des parenthèses pour invoquer `
 Vous avez peut-être voulu écrire :
 `len(bad())`
 
-Exception levée à la ligne 847 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 876 du fichier TESTS:\runtime\test_type_error.py.
 
-   843:     def bad():
-   844:         pass
-   845:
-   846:     try:
---&gt;847:         len(bad)
+   872:     def bad():
+   873:         pass
+   874:
+   875:     try:
+--&gt;876:         len(bad)
                 ^^^^^^^^
-   848:     except TypeError as e:
+   877:     except TypeError as e:
 
         bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
         len:  &lt;builtin function len&gt;
@@ -2970,7 +3063,7 @@ Exception levée à la ligne 847 du fichier TESTS:\runtime\test_type_error.py.
 <section id="getattr-attribute-name-must-be-string">
 <h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 968, in test_getattr_attribute_name_must_be_string
+  File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
     getattr("__repr__", 1)  # as reported in issue #77
 TypeError: getattr(): attribute name must be string
 
@@ -2981,18 +3074,18 @@ ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
 
 Le deuxième argument de la fonction `getattr()` doit être une chaîne de caractères.
 
-Exception levée à la ligne 968 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 997 du fichier TESTS:\runtime\test_type_error.py.
 
-   961:     if friendly_traceback.get_lang() == "en":
-   962:         assert (
-   963:             "The second argument of the function `hasattr()` must be a string."
-   964:             in result
-   965:         )
-   966:
-   967:     try:
---&gt;968:         getattr("__repr__", 1)  # as reported in issue #77
+   990:     if friendly_traceback.get_lang() == "en":
+   991:         assert (
+   992:             "The second argument of the function `hasattr()` must be a string."
+   993:             in result
+   994:         )
+   995:
+   996:     try:
+--&gt;997:         getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
-   969:     except TypeError as e:
+   998:     except TypeError as e:
 
         getattr:  &lt;builtin function getattr&gt;
 </pre></div>
@@ -3001,7 +3094,7 @@ Exception levée à la ligne 968 du fichier TESTS:\runtime\test_type_error.py.
 <section id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 941, in test_method_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
     t.some_method(0, a=1)
 TypeError: some_method() got multiple values for argument 'a'
 
@@ -3014,15 +3107,15 @@ Vous avez spécifié la valeur de l'argument `a` plus d'une fois
 lors de l'appel de la fonction nommée `t.some_method`.
 Cette fonction n'a qu'un seul argument : `a`
 
-Exception levée à la ligne 941 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 970 du fichier TESTS:\runtime\test_type_error.py.
 
-   937:             pass
-   938:
-   939:     t = T()
-   940:     try:
---&gt;941:         t.some_method(0, a=1)
+   966:             pass
+   967:
+   968:     t = T()
+   969:     try:
+--&gt;970:         t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-   942:     except TypeError as e:
+   971:     except TypeError as e:
 
         t:  &lt;T object&gt;
             defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
@@ -3035,7 +3128,7 @@ Exception levée à la ligne 941 du fichier TESTS:\runtime\test_type_error.py.
 <section id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 891, in test_vars_arg_must_have_dict
+  File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
     vars(f)
 TypeError: vars() argument must have __dict__ attribute
 
@@ -3048,15 +3141,15 @@ La fonction `vars` est utilisée pour lister le contenu
 de l'attribut `__dict__` d'un objet.
 L'objet `f` utilise `__slots__` au lieu de `__dict__`.
 
-Exception levée à la ligne 891 du fichier TESTS:\runtime\test_type_error.py.
+Exception levée à la ligne 920 du fichier TESTS:\runtime\test_type_error.py.
 
-   887:         assert no_slots not in result
-   888:         assert use_slots not in result
-   889:
-   890:     try:
---&gt;891:         vars(f)
+   916:         assert no_slots not in result
+   917:         assert use_slots not in result
+   918:
+   919:     try:
+--&gt;920:         vars(f)
                 ^^^^^^^
-   892:     except TypeError as e:
+   921:     except TypeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
@@ -3611,7 +3704,7 @@ Exception levée à la ligne 127 du fichier TESTS:\runtime\test_value_error.py.
 <section id="complex-division">
 <h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 155, in test_Complex_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
     1 / zero
 ZeroDivisionError: complex division by zero
 
@@ -3624,14 +3717,14 @@ Vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 155 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 173 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   152: def test_Complex_division():
-   153:     zero = 0j
-   154:     try:
---&gt;155:         1 / zero
+   170: def test_Complex_division():
+   171:     zero = 0j
+   172:     try:
+--&gt;173:         1 / zero
                 ^^^^^^^^
-   156:     except ZeroDivisionError as e:
+   174:     except ZeroDivisionError as e:
 
         zero:  0j
 </pre></div>
@@ -3640,8 +3733,8 @@ Exception levée à la ligne 155 du fichier TESTS:\runtime\test_zero_division_er
 <section id="division-by-zero-literal">
 <h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 199, in test_Division_by_zero_literal
-    1. / 0
+  File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+    1.0 / 0
 ZeroDivisionError: float division by zero
 
 Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
@@ -3649,22 +3742,22 @@ par zéro soit directement ou en utilisant une autre opération mathématique.
 
 Vous divisez par zéro.
 
-Exception levée à la ligne 199 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 220 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   194:     if friendly_traceback.get_lang() == "en":
-   195:         assert "Using the modulo operator, you are dividing by zero" in result
-  (...)
-   198:     try:
---&gt;199:         1. / 0
-                ^^^^^^
-   200:     except ZeroDivisionError as e:
+   216:     if friendly_traceback.get_lang() == "en":
+   217:         assert "Using the modulo operator, you are dividing by zero" in result
+   218:
+   219:     try:
+--&gt;220:         1.0 / 0
+                ^^^^^^^
+   221:     except ZeroDivisionError as e:
 </pre></div>
 </div>
 </section>
 <section id="division-operator">
 <h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 17, in test_Division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
     1 / zero
 ZeroDivisionError: division by zero
 
@@ -3677,15 +3770,18 @@ Vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 17 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 20 du fichier TESTS:\runtime\test_zero_division_error.py.
 
    13:     if friendly_traceback.get_lang() == "en":
-   14:         assert "The following mathematical expression includes a division by zero" in result
-   15:
-   16:     try:
---&gt;17:         1 / zero
+   14:         assert (
+   15:             "The following mathematical expression includes a division by zero"
+   16:             in result
+   17:         )
+   18:
+   19:     try:
+--&gt;20:         1 / zero
                ^^^^^^^^
-   18:     except ZeroDivisionError as e:
+   21:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3694,7 +3790,7 @@ Exception levée à la ligne 17 du fichier TESTS:\runtime\test_zero_division_err
 <section id="id8">
 <h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 82, in test_Divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
     divmod(1, zero)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3703,14 +3799,14 @@ par zéro soit directement ou en utilisant une autre opération mathématique.
 
 Le deuxième argument de la fonction `divmod()` est égal à zéro.
 
-Exception levée à la ligne 82 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 97 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   79: def test_Divmod():
-   80:     zero = 0
-   81:     try:
---&gt;82:         divmod(1, zero)
+   94: def test_Divmod():
+   95:     zero = 0
+   96:     try:
+--&gt;97:         divmod(1, zero)
                ^^^^^^^^^^^^^^^
-   83:     except ZeroDivisionError as e:
+   98:     except ZeroDivisionError as e:
 
         zero:  0
         divmod:  &lt;builtin function divmod&gt;
@@ -3720,7 +3816,7 @@ Exception levée à la ligne 82 du fichier TESTS:\runtime\test_zero_division_err
 <section id="float-division">
 <h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 125, in test_Float_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
     1 / zero
 ZeroDivisionError: float division by zero
 
@@ -3733,14 +3829,14 @@ Vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 125 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 143 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   122: def test_Float_division():
-   123:     zero = 0.
-   124:     try:
---&gt;125:         1 / zero
+   140: def test_Float_division():
+   141:     zero = 0.0
+   142:     try:
+--&gt;143:         1 / zero
                 ^^^^^^^^
-   126:     except ZeroDivisionError as e:
+   144:     except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -3749,7 +3845,7 @@ Exception levée à la ligne 125 du fichier TESTS:\runtime\test_zero_division_er
 <section id="float-divmod">
 <h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 140, in test_Float_divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
     divmod(1, zero)
 ZeroDivisionError: float divmod()
 
@@ -3758,14 +3854,14 @@ par zéro soit directement ou en utilisant une autre opération mathématique.
 
 Le deuxième argument de la fonction `divmod()` est égal à zéro.
 
-Exception levée à la ligne 140 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 158 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   137: def test_Float_divmod():
-   138:     zero = 0.
-   139:     try:
---&gt;140:         divmod(1, zero)
+   155: def test_Float_divmod():
+   156:     zero = 0.0
+   157:     try:
+--&gt;158:         divmod(1, zero)
                 ^^^^^^^^^^^^^^^
-   141:     except ZeroDivisionError as e:
+   159:     except ZeroDivisionError as e:
 
         zero:  0.0
         divmod:  &lt;builtin function divmod&gt;
@@ -3775,7 +3871,7 @@ Exception levée à la ligne 140 du fichier TESTS:\runtime\test_zero_division_er
 <section id="float-modulo">
 <h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 110, in test_Float_modulo
+  File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
     1 % zero
 ZeroDivisionError: float modulo
 
@@ -3788,15 +3884,18 @@ En utilisant l’opérateur modulo, vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 110 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 128 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   106:         assert "The following mathematical expression includes a division by zero" in result
-   107:         assert "done using the modulo operator" in result
-   108:
-   109:     try:
---&gt;110:         1 % zero
+   121:         assert (
+   122:             "The following mathematical expression includes a division by zero"
+   123:             in result
+   124:         )
+   125:         assert "done using the modulo operator" in result
+   126:
+   127:     try:
+--&gt;128:         1 % zero
                 ^^^^^^^^
-   111:     except ZeroDivisionError as e:
+   129:     except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -3805,7 +3904,7 @@ Exception levée à la ligne 110 du fichier TESTS:\runtime\test_zero_division_er
 <section id="integer-division-operator">
 <h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 42, in test_Integer_division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
     1 // zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3818,15 +3917,18 @@ Vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 42 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 48 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   38:     if friendly_traceback.get_lang() == "en":
-   39:         assert "The following mathematical expression includes a division by zero" in result
-   40:
-   41:     try:
---&gt;42:         1 // zero
+   41:     if friendly_traceback.get_lang() == "en":
+   42:         assert (
+   43:             "The following mathematical expression includes a division by zero"
+   44:             in result
+   45:         )
+   46:
+   47:     try:
+--&gt;48:         1 // zero
                ^^^^^^^^^
-   43:     except ZeroDivisionError as e:
+   49:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3835,7 +3937,7 @@ Exception levée à la ligne 42 du fichier TESTS:\runtime\test_zero_division_err
 <section id="mixed-operations">
 <h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 212, in test_Mixed_operations
+  File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
     a = divmod(8, 1 // 2)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3846,13 +3948,13 @@ L’expression mathématique suivante inclut une division par zéro :
 
     divmod(8, 1 // 2)
 
-Exception levée à la ligne 212 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 233 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   210: def test_Mixed_operations():
-   211:     try:
---&gt;212:         a = divmod(8, 1 // 2)
+   231: def test_Mixed_operations():
+   232:     try:
+--&gt;233:         a = divmod(8, 1 // 2)
                     ^^^^^^^^^^^^^^^^^
-   213:     except ZeroDivisionError as e:
+   234:     except ZeroDivisionError as e:
 
         divmod:  &lt;builtin function divmod&gt;
         1 // 2:  0
@@ -3862,7 +3964,7 @@ Exception levée à la ligne 212 du fichier TESTS:\runtime\test_zero_division_er
 <section id="modulo-operator">
 <h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 67, in test_Modulo_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
     1 % zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3875,15 +3977,18 @@ En utilisant l’opérateur modulo, vous divisez par le terme suivant
 
 qui est égal à zéro.
 
-Exception levée à la ligne 67 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 79 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   63:     if friendly_traceback.get_lang() == "en":
-   64:         assert "The following mathematical expression includes a division by zero" in result
-   65:
-   66:     try:
---&gt;67:         1 % zero
+   72:     if friendly_traceback.get_lang() == "en":
+   73:         assert (
+   74:             "The following mathematical expression includes a division by zero"
+   75:             in result
+   76:         )
+   77:
+   78:     try:
+--&gt;79:         1 % zero
                ^^^^^^^^
-   68:     except ZeroDivisionError as e:
+   80:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -3892,8 +3997,8 @@ Exception levée à la ligne 67 du fichier TESTS:\runtime\test_zero_division_err
 <section id="raise-zero-negative-power">
 <h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 170, in test_Raise_zero_negative_power
-    zero ** -1
+  File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+    zero**-1
 ZeroDivisionError: 0.0 cannot be raised to a negative power
 
 Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
@@ -3902,14 +4007,14 @@ par zéro soit directement ou en utilisant une autre opération mathématique.
 Vous essayez d'élever le nombre 0 à une puissance négative
 ce qui équivaut à diviser par zéro.
 
-Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_error.py.
+Exception levée à la ligne 188 du fichier TESTS:\runtime\test_zero_division_error.py.
 
-   167: def test_Raise_zero_negative_power():
-   168:     zero = 0
-   169:     try:
---&gt;170:         zero ** -1
-                ^^^^^^^^^^
-   171:     except ZeroDivisionError as e:
+   185: def test_Raise_zero_negative_power():
+   186:     zero = 0
+   187:     try:
+--&gt;188:         zero**-1
+                ^^^^^^^^
+   189:     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -4054,6 +4159,7 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
 <li><a class="reference internal" href="#synonym">Synonym</a></li>
 <li><a class="reference internal" href="#missing-import2">missing import2</a></li>
 <li><a class="reference internal" href="#missing-import3">missing import3</a></li>
+<li><a class="reference internal" href="#special-keyword">special keyword</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#oserror">OsError</a><ul>
@@ -4072,6 +4178,7 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
 </ul>
 </li>
 <li><a class="reference internal" href="#typeerror">TypeError</a><ul>
+<li><a class="reference internal" href="#argument-of-object-is-not-iterable">Argument of object is not iterable</a></li>
 <li><a class="reference internal" href="#bad-type-for-unary-operator">Bad type for unary operator</a></li>
 <li><a class="reference internal" href="#builtin-has-no-len">Builtin has no len</a></li>
 <li><a class="reference internal" href="#can-only-concatenate">Can only concatenate</a></li>
@@ -4080,6 +4187,7 @@ Exception levée à la ligne 170 du fichier TESTS:\runtime\test_zero_division_er
 <li><a class="reference internal" href="#cannot-unpack-non-iterable-object">Cannot unpack non iterable object</a></li>
 <li><a class="reference internal" href="#comparison-not-supported">Comparison not supported</a></li>
 <li><a class="reference internal" href="#derive-from-baseexception">Derive from BaseException</a></li>
+<li><a class="reference internal" href="#generator-has-no-len">Generator has no len</a></li>
 <li><a class="reference internal" href="#indices-must-be-integers-or-slices">Indices must be integers or slices</a></li>
 <li><a class="reference internal" href="#not-an-integer">Not an integer</a></li>
 <li><a class="reference internal" href="#not-callable">Not callable</a></li>

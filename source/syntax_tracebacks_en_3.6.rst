@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.35
+Friendly-traceback version: 0.5.48
 Python version: 3.6.8
 
 
@@ -4393,7 +4393,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\example.py'
-    .
+    
     
     The encoding of the file was not valid.
     
@@ -4961,7 +4961,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\missing_code_block_2.py'
-    .
+    
     
        3: for i in "test":
        4: 
@@ -7041,7 +7041,7 @@ Python version: 3.6.8
     
     Python could not understand the code in the file
     'TESTS:\syntax\unterminated_triple_quote_string.py'
-    .
+    
     
        1: some_text = """In a land
        2: 
