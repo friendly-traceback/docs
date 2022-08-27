@@ -5223,3 +5223,2024 @@ Python version: 3.9.10
 
 .. code-block:: none
 
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\name_is_global_and_nonlocal.py", line 7
+        global xy
+        ^
+    SyntaxError: name 'xy' is nonlocal and global
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\name_is_global_and_nonlocal.py'
+    במקום המצוין.
+    
+       7:     global xy
+              ^^^^^^
+
+    הצהרת על 'xy' כמשתנה גלובלי וגם לא מיקומי (global & nonlocal).
+    משתנה יכול להיות גלובלי או לא מקומי, אך לא שניהם בו זמנית.
+    
+
+(173) Name is parameter and nonlocal
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\name_is_param_and_nonlocal.py", line 5
+        nonlocal x
+        ^
+    SyntaxError: name 'x' is parameter and nonlocal
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\name_is_param_and_nonlocal.py'
+    במקום המצוין.
+    
+       5:     nonlocal x
+              ^^^^^^^^
+
+    השתמשת ב- 'x' כפרמטר לפונקציה
+    לפני שמכריזים עליו גם כמשתנה לא -מקומי (nonlocal):
+    'x' לא יכול להיות שניהם בו זמנית.
+    
+
+(174) nonlocal variable not found
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\no_binding_for_nonlocal.py", line 5
+        nonlocal ab
+        ^
+    SyntaxError: no binding for nonlocal 'ab' found
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\no_binding_for_nonlocal.py'
+    במקום המצוין.
+    
+       5:     nonlocal ab
+              ^^^^^^^^
+
+    הכרזת על המשתנה 'ab' כ-
+    משתנה לא-מקומי (nonlocal) אך לא ניתן למצוא אותו.
+    
+
+(175) nonlocal variable not found at module level
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\nonlocal_at_module.py", line 4
+        nonlocal cd
+        ^
+    SyntaxError: nonlocal declaration not allowed at module level
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\nonlocal_at_module.py'
+    במקום המצוין.
+    
+       4: nonlocal cd
+          ^^^^^^^^
+
+    השתמשת במילת המפתח הלא-מקומית (nonlocal) ברמת מודול.
+    מילת המפתח הלא-מקומית (nonlocal) מתייחסת למשתנה בתוך פונקציה
+    ונותנת ערך מחוץ לפונקציה זו.
+
+(176) Same operator twice in a row
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\operator_twice_in_a_row.py", line 1
+        4****5
+           ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\operator_twice_in_a_row.py'
+    במקום המצוין.
+    
+       1: 4****5
+           ^^^^
+
+    אי אפשר לכתוב את אותו אופרטור, '**', פעמיים ברציפות.
+    אולי כתבת אחד מהם בטעות
+    או ששכחת לכתוב משהו ביניהם.
+    
+
+(177) Using pip from interpreter
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\pip_install_1.py", line 2
+        pip install friendly
+            ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש ב- Pip במתורגמן של פייתון.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\pip_install_1.py'
+    במקום המצוין.
+    
+       2: pip install friendly
+              ^^^^^^^
+
+    נראה כאילו אתה מנסה להשתמש ב- pip להתקנת מודול.
+    `pip` היא פקודה שצריכה לפעול במסוף,
+    לא מהמתורגמן של פייתון.
+    
+
+(178) Using pip from interpreter 2
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\pip_install_2.py", line 2
+        python -m pip install friendly
+                  ^
+    SyntaxError: invalid syntax
+    
+        לא ניתן להשתמש ב- Pip במתורגמן של פייתון.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\pip_install_2.py'
+    במקום המצוין.
+    
+       2: python -m pip install friendly
+                    ^^^
+
+    נראה כאילו אתה מנסה להשתמש ב- pip להתקנת מודול.
+    `pip` היא פקודה שצריכה לפעול במסוף,
+    לא מהמתורגמן של פייתון.
+    
+
+(179) print is a function
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function.py", line 2
+        print 'hello'
+              ^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello')?
+    
+        האם התכוונת print('hello') '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_is_a_function.py'
+    במקום המצוין.
+    
+       2: print 'hello'
+                ^^^^^^^
+
+    אולי אתה צריך להקליד
+    
+          print('hello')
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    
+
+(180) print is a function 2
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_2.py", line 2
+        print len('hello')
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת print(len('hello')) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_is_a_function_2.py'
+    במקום המצוין.
+    
+       2: print len('hello')
+                ^^^
+
+    אולי אתה צריך להקליד
+    
+          print(len('hello'))
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    
+
+(181) print is a function 3
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_3.py", line 1
+        print """This is a very long string which results in a very long error message."""
+              ^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
+    
+        האם התכוונת print(...) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_is_a_function_3.py'
+    במקום המצוין.
+    
+       1: print """This is a very long string which results in a very long error message."""
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    אולי אתה צריך להקליד
+    
+          print(...)
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    
+
+(182) print is a function 4
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_4.py", line 2
+        print len("""This is a long string
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת print(...) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_is_a_function_4.py'
+    במקום המצוין.
+    
+    -->2: print len("""This is a long string
+                ^^^
+       3:           that spans multiple lines.""")
+
+    אולי אתה צריך להקליד
+    
+          print(...)
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    
+
+(183) print is a function 5
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_5.py", line 2
+        print len('This is a long string that fits on a single line.')
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת print(...) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_is_a_function_5.py'
+    במקום המצוין.
+    
+       2: print len('This is a long string that fits on a single line.')
+                ^^^
+
+    אולי אתה צריך להקליד
+    
+          print(...)
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    
+
+(184) print is a function 6
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
+        print hello world!
+              ^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
+    
+        האם התכוונת print(...) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_non_paren_non_string1.py'
+    במקום המצוין.
+    
+       1: print hello world!
+                ^^^^^
+
+    אולי אתה צריך להקליד
+    
+          print(...)
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    Note that arguments of `print` must be separated by commas.
+    
+
+(185) print is a function 7
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
+        print len("hello") hello
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת print(...) '?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\print_non_paren_non_string2.py'
+    במקום המצוין.
+    
+       1: print len("hello") hello
+                ^^^
+
+    אולי אתה צריך להקליד
+    
+          print(...)
+    
+    בגרסה ישנה יותר של פייתון, 'print' הייתה מילת מפתח.
+    כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
+    Note that arguments of `print` must be separated by commas.
+    
+
+(186) Calling python from interpreter
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\python_interpreter.py", line 1
+        python -i friendly
+                  ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\python_interpreter.py'
+    במקום המצוין.
+    
+       1: python -i friendly
+                    ^^^^^^^^
+
+    אני מנחש שאתה מנסה להשתמש ב- Python להפעלת תוכנית.
+    עליך לעשות זאת ממסוף ולא של מתורגמן פייתון.
+    
+
+(187) problem with assigning a variable to Python
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\python_not_interpreter.py", line 1
+        python = a b
+                   ^
+    SyntaxError: invalid syntax
+    
+        שכחת משהו בין 'a' ל- 'b'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\python_not_interpreter.py'
+    במקום המצוין.
+    
+       1: python = a b
+                   ^^^
+
+    פייתון מציין כי השגיאה נגרמת על ידי "b" שקרה מיד לאחר "a".
+    אולי התכוונת להכניס אופרטור כמו '+; -; *; ,'
+    בין `a` ו- `b`.
+    שורות הקוד הבאות לא יגרמו לשום 'SyntaxError':
+        python = a +  b
+        python = a -  b
+        python = a *  b
+        python = a,  b
+    הערה: אלה רק חלק מהאפשרויות האפשריות וזה
+    חלקם עשויים להעלות סוגים אחרים של חריגים.
+    
+
+(188) Quote inside a string
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\quote_inside_string.py", line 3
+        message = 'I don't mind.'
+                         ^
+    SyntaxError: invalid syntax
+    
+        אולי שכחת לברוח מדמות ציטוט.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\quote_inside_string.py'
+    במקום המצוין.
+    
+       3: message = 'I don't mind.'
+                           ^
+
+    I suspect that you were trying to use a quote character inside a string
+    that was enclosed in quotes of the same kind.
+    Perhaps you should have escaped the inner quote character:
+    
+        message = 'I don\'t mind.'
+                        ^^
+    
+
+(189) Raising multiple exceptions
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\raise_multiple_exceptions.py", line 2
+        raise X, Y
+               ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\raise_multiple_exceptions.py'
+    במקום המצוין.
+    
+       2: raise X, Y
+                 ^
+
+    נראה שאת\ה מנסה להעלות חריג באמצעות תחביר python 2.
+    
+
+(190) Cannot use return outside function
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\return_outside_function.py", line 3
+        return
+        ^
+    SyntaxError: 'return' outside function
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\return_outside_function.py'
+    במקום המצוין.
+    
+       3: return
+          ^^^^^^
+
+    אתה יכול להשתמש רק בהצהרת return(החזר) בתוך פונקציה או שיטה.
+    
+
+(191) Semicolon instead of colon
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_colon.py", line 1
+        if True;  # A comment
+               ^
+    SyntaxError: invalid syntax
+    
+        התכוונת לכתוב נקודתיים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\semi_colon_instead_of_colon.py'
+    במקום המצוין.
+    
+       1: if True;  # A comment
+                 ^
+
+    כתבת נקודה-פסיק, `;`, שם היה צפוי נקודתיים.
+    
+
+(192) Semicolon instead of comma - 1
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_1.py", line 1
+        a = [1, 2; 3]
+                 ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב פסיק?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\semi_colon_instead_of_comma_1.py'
+    במקום המצוין.
+    
+       1: a = [1, 2; 3]
+                   ^
+
+    כתבת נקודה-פסיק, `;`, שם היה צפוי פסיק.
+    
+
+(193) Semicolon instead of commas - 2
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_2.py", line 1
+        a = [1; 2; 3]
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב פסיקים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\semi_colon_instead_of_comma_2.py'
+    במקום המצוין.
+    
+       1: a = [1; 2; 3]
+                ^
+
+    כתבת נקודה-פסיק, `;`, היכן שציפו לפסיקים.
+    
+
+(194) Semicolon instead of commas - 3
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_3.py", line 1
+        a = [1; 2; 3];
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת לכתוב פסיקים?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\semi_colon_instead_of_comma_3.py'
+    במקום המצוין.
+    
+       1: a = [1; 2; 3];
+                ^
+
+    כתבת נקודה-פסיק, `;`, היכן שציפו לפסיקים.
+    
+
+(195) Code block inside comprehension
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\should_be_comprehension.py", line 2
+        for i in 1, 2, 3:
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\should_be_comprehension.py'
+    במקום המצוין.
+    
+       1: a = [
+    -->2:     for i in 1, 2, 3:
+              ^^^
+       3:         i**2
+       4: ]
+
+    Perhaps you wrote a statement beginning a code block
+    intended to be part of a list comprehension.
+    You cannot have separate code blocks inside list comprehensions.
+    
+    If this explanation is incorrect, please report this case.
+    
+
+(196) Single = instead of double == with if
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_if.py", line 3
+        if i % 2 = 0:
+                 ^
+    SyntaxError: invalid syntax
+    
+        אולי היית צריך\ה '==' במקום '='.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\single_equal_with_if.py'
+    במקום המצוין.
+    
+       3:     if i % 2 = 0:
+                       ^
+
+    סביר להניח שהשתמשת באופרטור הגדרה  `=` במקום מפעיל שוויון `==`.
+    The following statement would not contain a syntax error:
+    
+        if i % 2 == 0:
+
+(197) Single = instead of double == with elif
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_elif.py", line 5
+        elif i % 2 = 0:
+                   ^
+    SyntaxError: invalid syntax
+    
+        אולי היית צריך\ה '==' במקום '='.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\single_equal_with_elif.py'
+    במקום המצוין.
+    
+       5:     elif i % 2 = 0:
+                         ^
+
+    סביר להניח שהשתמשת באופרטור הגדרה  `=` במקום מפעיל שוויון `==`.
+    The following statement would not contain a syntax error:
+    
+        elif i % 2 == 0:
+
+(198) Single = instead of double == with while
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_while.py", line 4
+        while a = 1:
+                ^
+    SyntaxError: invalid syntax
+    
+        אולי היית צריך '==' או ': =' במקום '='.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\single_equal_with_while.py'
+    במקום המצוין.
+    
+       4: while a = 1:
+                  ^
+
+    השתמשת באופרטור מקוצר  `=`; אולי התכוונת להשתמש
+    במפעיל שוויון, `==`, או במפעיל ישיר `: =`.
+    
+
+(199) Space between operators 1
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_between_operators_1.py", line 1
+        a = 2 * * 5
+                ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\space_between_operators_1.py'
+    במקום המצוין.
+    
+       1: a = 2 * * 5
+                ^ ^
+
+    אי אפשר לכתוב את אותו אופרטור, '*', פעמיים ברציפות.
+    אולי כתבת אחד מהם בטעות
+    או ששכחת לכתוב משהו ביניהם.
+    או שאולי כללת רווח בטעות בין שני המפעילים
+    ונועד לכתוב '**' כמפעיל יחיד.
+    
+
+(200) Space between operators 2
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_between_operators_2.py", line 1
+        a / = b
+            ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\space_between_operators_2.py'
+    במקום המצוין.
+    
+       1: a / = b
+            ^ ^
+
+    אי אפשר לכתוב שני אופרטורים אלה, "/" ו- "=",
+    עוקבים אחד אחרי השני. אולי כתבת אחד מהם בטעות
+    או ששכחת לכתוב משהו ביניהם.
+    או שאולי כללת רווח בטעות בין שני המפעילים
+    ונועד לכתוב '/=' כמפעיל יחיד.
+    
+
+(201) Space in variable name
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_in_variable_name.py", line 1
+        my name = André
+           ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת ל 'my_name'?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\space_in_variable_name.py'
+    במקום המצוין.
+    
+       1: my name = André
+             ^^^^
+
+    לא ניתן לכלול רווחים במזהים (שמות משתנים).
+    אולי התכוונת ל`my_name`?
+    
+
+(202) Wrong target for star assignment
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\star_assignment_target.py", line 1
+        *a = 1
+        ^
+    SyntaxError: starred assignment target must be in a list or tuple
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\star_assignment_target.py'
+    במקום המצוין.
+    
+       1: *a = 1
+          ^
+
+    A star assignment must be of the form:
+    
+        ... *name = list_or_tuple
+    
+    
+
+(203) Too many nested blocks
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\too_many_nested_blocks.py", line 22
+        while 22:
+        ^
+    SyntaxError: too many statically nested blocks
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\too_many_nested_blocks.py'
+    במקום המצוין.
+    
+       22:                      while 22:
+                                ^^^^^
+
+    Your code is too complex for Python:
+    you need to reduce the number of indented code blocks
+    contained inside other code blocks.
+    
+
+(204) Too many nested parentheses.
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\too_many_parentheses.py", line 4
+        ((((((((((((((((((((((((((((((((((
+                                         ^
+    SyntaxError: too many nested parentheses
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\too_many_parentheses.py'
+    במקום המצוין.
+    
+       1: ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+       2:     ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+       3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
+    -->4:             ((((((((((((((((((((((((((((((((((
+                                                       ^
+       5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+       6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+       7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+    Your code is too complex for Python:
+    you need to reduce the number of parentheses
+    contained inside other parentheses.
+    
+
+(205) Trailing comma in import statement
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\trailing_comma_in_import.py", line 2
+        from math import sin, cos,
+                                  ^
+    SyntaxError: trailing comma not allowed without surrounding parentheses
+    
+        כתבת פסיק בטעות?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\trailing_comma_in_import.py'
+    במקום המצוין.
+    
+       2: from math import sin, cos,
+                                   ^
+
+    Python indicates that you need to surround an expression
+    ending with a comma by parentheses.
+    However, if you remove the last comma, there will be no syntax error.
+    Perhaps you meant to write
+    
+    `from math import sin, cos`
+    
+
+(206) Triple-equal sign
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\triple_equal.py", line 3
+        x = y === z
+                ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת להשתמש ב- 'is' (הוא) במקום '==='?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\triple_equal.py'
+    במקום המצוין.
+    
+       3: x = y === z
+                ^^^
+
+    כתבת שלושה סימנים שווים ברצף. זה דבר שמותר בחלק
+    משפות תכנות, אך לא ב- פייתון. כדי לבדוק אם שני אובייקטים
+    שווים, השתמש בשני סימני שוויון, `==`; כדי לראות אם שני שמות מייצגים
+    אותו אובייקט בדיוק, השתמש באופרטור `is`.
+    
+
+(207) Unclosed bracket
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_bracket.py", line 7
+        print(foo())
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unclosed_bracket.py'
+    במקום המצוין.
+    
+       5:     return [1, 2, 3
+       6: 
+    -->7: print(foo())
+          ^^^^^
+       8: 
+
+    הפתיחה סוגר מרובע `[` בשורה 5 אינה סגורה.
+    
+        5:     return [1, 2, 3
+                      ^
+    
+
+(208) Unclosed parenthesis - 1
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_1.py", line 3
+        if x == 1:
+                 ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unclosed_paren_1.py'
+    במקום המצוין.
+    
+       2: x = int('1'
+    -->3: if x == 1:
+                   ^
+       4:     print('yes')
+       5: 
+
+    הפתיחה סוגריים `(` בשורה 2 אינה סגורה.
+    
+        2: x = int('1'
+                  ^
+    
+
+(209) Unclosed parenthesis - 2
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_2.py", line 3
+        d = a*a
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unclosed_paren_2.py'
+    במקום המצוין.
+    
+       2: a = (b+c
+    -->3: d = a*a
+          ^
+       4: 
+
+    הפתיחה סוגריים `(` בשורה 2 אינה סגורה.
+    
+        2: a = (b+c
+               ^
+    
+
+(210) Unclosed parenthesis - 3
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_3.py", line 7
+        if 2:
+            ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unclosed_paren_3.py'
+    במקום המצוין.
+    
+       5:         print(((123))
+       6: 
+    -->7: if 2:
+              ^
+       8:     print(123))
+
+    הפתיחה סוגריים `(` בשורה 5 אינה סגורה.
+    
+        5:         print(((123))
+                        ^
+    
+    אם זה לא נכון, אנא דווח על מקרה זה.
+    
+
+(211) Unclosed parenthesis - 4
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_4.py", line 4
+        def test():
+        ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unclosed_paren_4.py'
+    במקום המצוין.
+    
+       2: print('hello'
+       3: 
+    -->4: def test():
+          ^^^
+
+    הפתיחה סוגריים `(` בשורה 2 אינה סגורה.
+    
+        2: print('hello'
+                ^
+    
+
+(212) Content passed continuation line character
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
+        print(\t)
+               ^
+    SyntaxError: unexpected character after line continuation character
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unexpected_after_continuation_character.py'
+    במקום המצוין.
+    
+       5: print(\t)
+                 ^
+
+    את\ה משתמש\ת בתו '\' מחוץ למחרוזת,
+    ואחריו כמה דמויות אחרות.
+    אני מנחש ששכחת לסגור תוכן כלשהו במחרוזת.
+    
+
+(213) Unexpected EOF while parsing
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unexpected_eof.py", line 8
+    SyntaxError: unexpected EOF while parsing
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unexpected_eof.py'
+    במקום המצוין.
+    
+       5:     return [1, 2, 3,
+       6: 
+       7: print(foo())
+    -->8: 
+                     ^
+
+    פייתון מספר לנו שהוא הגיע לסוף הקובץ
+    וציפו לתוכן נוסף.
+    אני אנסה לתת קצת יותר מידע.
+    הפתיחה סוגר מרובע `[` בשורה 5 אינה סגורה.
+    
+        5:     return [1, 2, 3,
+                      ^
+    
+
+(214) Invalid character (unicode fraction 3/4)
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction.py", line 1
+        a = ¾  # 3/4
+            ^
+    SyntaxError: invalid character '¾' (U+00BE)
+    
+        Did you mean `3/4`?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_fraction.py'
+    במקום המצוין.
+    
+       1: a = ¾  # 3/4
+              ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '¾'
+    מה שאסור.
+    You used the unicode character ¾ which is known as
+    VULGAR FRACTION THREE QUARTERS
+    I suspect that you meant to write the fraction `3/4` instead.
+    
+
+(215) Invalid character (unicode fraction 1/2)
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction2.py", line 1
+        a = 1½  # 1 1/2
+             ^
+    SyntaxError: invalid character '½' (U+00BD)
+    
+        Did you mean `1/2`?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_fraction2.py'
+    במקום המצוין.
+    
+       1: a = 1½  # 1 1/2
+               ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '½'
+    מה שאסור.
+    You used the unicode character ½ which is known as
+    VULGAR FRACTION ONE HALF
+    I suspect that you meant to write the fraction `1/2` instead.
+    
+
+(216) Invalid character (unicode fraction slash)
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction3.py", line 1
+        a = 22 ⁄ 7
+               ^
+    SyntaxError: invalid character '⁄' (U+2044)
+    
+        Did you mean to use the division operator, `/`?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_fraction3.py'
+    במקום המצוין.
+    
+       1: a = 22 ⁄ 7
+                 ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '⁄'
+    מה שאסור.
+    I suspect that you used the unicode character known as
+    'FRACTION SLASH', which looks similar to
+    but is different from the division operator `/`.
+    
+
+(217) Invalid character (unicode quote)
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote.py", line 3
+        a = « hello »
+            ^
+    SyntaxError: invalid character '«' (U+00AB)
+    
+        האם התכוונת להשתמש בגרש או גרשיים נורמליים, '' או '' ''?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_quote.py'
+    במקום המצוין.
+    
+       3: a = « hello »
+              ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '«'
+    מה שאסור.
+    I suspect that you used a fancy unicode quotation mark
+    whose name is LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+    instead of a normal single or double quote for a string.
+    
+
+(218) Invalid character (unicode quote2)
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote2.py", line 2
+        a = ‹ hello ›
+            ^
+    SyntaxError: invalid character '‹' (U+2039)
+    
+        האם התכוונת להשתמש בגרש או גרשיים נורמליים, '' או '' ''?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_quote2.py'
+    במקום המצוין.
+    
+       2: a = ‹ hello ›
+              ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '‹'
+    מה שאסור.
+    I suspect that you used a fancy unicode quotation mark
+    whose name is SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+    instead of a normal single or double quote for a string.
+    
+
+(219) Invalid character (mistaken <)
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote3.py", line 2
+        if a ‹ hello:
+             ^
+    SyntaxError: invalid character '‹' (U+2039)
+    
+        האם התכוונת להשתמש בגרש או גרשיים נורמליים, '' או '' ''?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_quote3.py'
+    במקום המצוין.
+    
+       2: if a ‹ hello:
+               ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '‹'
+    מה שאסור.
+    I suspect that you used a fancy unicode quotation mark
+    whose name is SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+    instead of a normal single or double quote for a string.
+    Or perhaps, you meant to write a less than sign, `<`.
+    
+
+(220) Invalid character (mistaken >)
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote4.py", line 2
+        if a › hello:
+             ^
+    SyntaxError: invalid character '›' (U+203A)
+    
+        האם התכוונת להשתמש בגרש או גרשיים נורמליים, '' או '' ''?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_quote4.py'
+    במקום המצוין.
+    
+       2: if a › hello:
+               ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '›'
+    מה שאסור.
+    I suspect that you used a fancy unicode quotation mark
+    whose name is SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+    instead of a normal single or double quote for a string.
+    Or perhaps, you meant to write a greater than sign, `>`.
+    
+
+(221) Invalid character (mistaken comma)
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote5.py", line 2
+        a = (1‚ 2)
+              ^
+    SyntaxError: invalid character '‚' (U+201A)
+    
+        האם התכוונת להשתמש בגרש או גרשיים נורמליים, '' או '' ''?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_quote5.py'
+    במקום המצוין.
+    
+       2: a = (1‚ 2)
+                ^
+
+    האם השתמשת בהעתק-הדבק?
+    Python מציין שהשתמשת בתו unicode '‚'
+    מה שאסור.
+    I suspect that you used a fancy unicode quotation mark
+    whose name is SINGLE LOW-9 QUOTATION MARK
+    instead of a normal single or double quote for a string.
+    Or perhaps, you meant to write a comma.
+    
+
+(222) Unmatched closing curly bracket
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_curly.py", line 6
+        3, 4,}}
+              ^
+    SyntaxError: unmatched '}'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unmatched_closing_curly.py'
+    במקום המצוין.
+    
+       4: a = {1,
+       5:     2,
+    -->6:     3, 4,}}
+                    ^
+
+    הסגירה סוגר מתולתל `}` בשורה 6 אינה תואמת דבר.
+    
+
+(223) Unmatched closing parenthesis
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_paren.py", line 6
+        3, 4,))
+              ^
+    SyntaxError: unmatched ')'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unmatched_closing_paren.py'
+    במקום המצוין.
+    
+       4: a = (1,
+       5:     2,
+    -->6:     3, 4,))
+                    ^
+
+    הסגירה סוגריים `)` בשורה 6 אינה תואמת דבר.
+    
+
+(224) Mismatched brackets - 1
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_1.py", line 2
+        x = (1, 2, 3]
+                    ^
+    SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unmatched_closing_bracket_1.py'
+    במקום המצוין.
+    
+       2: x = (1, 2, 3]
+              ^       ^
+
+    סגירת סוגר מרובע `]` בשורה 2 אינה תואמת את סוגריים `(` הפתיחה בשורה 2.
+    
+        2: x = (1, 2, 3]
+               ^       ^
+    
+
+(225) Mismatched brackets - 2
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_2.py", line 4
+        3]
+         ^
+    SyntaxError: closing parenthesis ']' does not match opening parenthesis '(' on line 2
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unmatched_closing_bracket_2.py'
+    במקום המצוין.
+    
+    -->2: x = (1,
+              ^
+       3:      2,
+    -->4:      3]
+                ^
+
+    סגירת סוגר מרובע `]` בשורה 4 אינה תואמת את סוגריים `(` הפתיחה בשורה 2.
+    
+        2: x = (1,
+               ^
+        4:      3]
+                 ^
+    
+
+(226) Unmatched brackets - 3
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_3.py", line 3
+        3]]
+          ^
+    SyntaxError: unmatched ']'
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unmatched_closing_bracket_3.py'
+    במקום המצוין.
+    
+       1: x = [1,
+       2:      2,
+    -->3:      3]]
+                 ^
+
+    הסגירה סוגר מרובע `]` בשורה 3 אינה תואמת דבר.
+    
+
+(227) Unpacking a dict value
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unpacking_dict_value.py", line 1
+        {'a': *(1, 2, 3)}
+              ^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unpacking_dict_value.py'
+    במקום המצוין.
+    
+       1: {'a': *(1, 2, 3)}
+              ^ ^
+
+    You cannot have these two operators, `:` and `*`,
+    following each other.
+    It looks like you tried to use a starred expression as a dict value;
+    this is not allowed.
+    
+    The following statement has no syntax error:
+    
+        {'a': (1, 2, 3)}
+    
+
+(228) Unterminated triple quoted string
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unterminated_triple_quote_string.py", line 4
+        some_text = """In a land
+    populated by weird animals,
+    a ...
+                                                                   ^
+    SyntaxError: EOF while scanning triple-quoted string literal
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unterminated_triple_quote_string.py'
+    
+    
+       1: some_text = """In a land
+       2: 
+
+    התחלת לכתוב מחרוזת עם שלושה גרשיים אך מעולם לא כתבת את 
+    את שלושת הגרשיים המסיימים הדרושים כדי לסיים את המחרוזת.
+    
+
+(229) TabError
+--------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\tab_error.py", line 7
+        pass
+        ^
+    TabError: inconsistent use of tabs and spaces in indentation
+    
+    'TabError' מציין שהשתמשת בשני הרווחים
+    ותווי טאב כדי להכניס את הקוד שלך.
+    זה אסור ב-Python.
+    הזחה של הקוד שלך פירושה גוש קודים מיושר אנכית
+    על ידי הוספת רווחים או תווי טאב בתחילת השורות.
+    ההמלצה של Python היא להשתמש תמיד ברווחים כדי להכניס את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\tab_error.py'
+    במקום המצוין.
+    
+       7: 	pass
+           ^^^^
+
+(230) EOL unescaped backslash
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unescaped_backslash.py", line 1
+        a = "abc\"
+                  ^
+    SyntaxError: EOL while scanning string literal
+    
+        שכחת לשים לוחסן "\"?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unescaped_backslash.py'
+    במקום המצוין.
+    
+       1: a = "abc\"
+                   ^
+
+    התחלת לכתוב מחרוזת עם גרש או מרכאות
+    אך מעולם לא סיימת את המחרוזת בציטוט\מרכאות נוסף בשורה זו.
+    אולי התכוונת לכתוב את הלוכסן , '\'
+    באות האחרונה במחרוזת ושכחת שאתה
+    צריך לתקן זאת על ידי כתיבת שני '\' ברציפות.
+    
+
+(231) Using the backquote character
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\use_backquote.py", line 3
+        a = `1`
+            ^
+    SyntaxError: invalid syntax
+    
+        אתה לא אמור להשתמש בתו סימן ההטעמה המשני (grave accent).
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\use_backquote.py'
+    במקום המצוין.
+    
+       3: a = `1`
+              ^
+
+    אתה משתמש בתו הציטוט האחורי.
+    או שהתכוונת לכתוב ציטוט בודד, ', או שהעתקת את קוד Python 2;
+    במקרה האחרון הזה, השתמש בפונקציה `repr(x)`.
+
+(232) unicode error
+-------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_error.py", line 1
+        path = "c:\Users\andre"
+                               ^
+    SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+    
+        אולי אתה צריך להכפיל את הלוֹכסן האחורי .
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\unicode_error.py'
+    במקום המצוין.
+    
+       1: path = "c:\Users\andre"
+                 ^^^^^^^^^^^^^^^^
+
+    I suspect that you wrote a string that contains
+    one backslash character, `\` followed by an uppercase `U`
+    and some more characters.
+    Python likely interpreted this as indicating the beginning of
+    what is known as an escape sequence for special unicode characters.
+    To solve the problem, either write a so-called 'raw string'
+    by adding the letter `r` as a prefix in
+    front of the string, or replace `\U`, by `\\U`.
+    
+
+(233) Walrus instead of equal
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\walrus_instead_of_equal.py", line 1
+        a := 3
+              ^
+    SyntaxError: invalid syntax
+    
+        האם התכוונת להשתמש ב- '= `?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\walrus_instead_of_equal.py'
+    במקום המצוין.
+    
+       1: a := 3
+               ^
+
+    אתה משתמש באופרטור מקוצר `: =` מתי
+    שמפעיל ההקצאה הרגיל `=` נדרש.
+    
+
+(234) Missing condition in while statement
+------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\while_missing_condition.py", line 1
+        while:
+             ^
+    SyntaxError: invalid syntax
+    
+        שכחת להוסיף תנאי.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\while_missing_condition.py'
+    במקום המצוין.
+    
+       1: while:
+               ^
+
+    לולאת 'while (בעוד)' דורשת תנאי:
+    
+         while (בעוד) מצב:
+             ...
+    
+
+(235) Would-be variable declaration
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
+        if var start := begin < end:
+               ^
+    SyntaxError: invalid syntax
+    
+        אינך צריך להכריז על סוג משתנים בפייתון.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\would_be_type_declaration_1.py'
+    במקום המצוין.
+    
+       3: if var start := begin < end:
+                 ^^^^^
+
+    נראה שניסית להצהיר כי "start" היה
+    משתנה באמצעות המילה 'var'.
+    אם תסיר את 'var', תהיה לך הצהרת Python חוקית.
+    
+
+(236) Would-be variable declaration - 2
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\would_be_type_declaration_2.py", line 5
+        var start := begin < end
+            ^
+    SyntaxError: invalid syntax
+    
+        אינך צריך להכריז על סוג משתנים בפייתון.
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\would_be_type_declaration_2.py'
+    במקום המצוין.
+    
+       4: if (
+    -->5:     var start := begin < end
+                  ^^^^^
+       6:    ):
+
+    נראה שניסית להצהיר כי "start" היה
+    משתנה באמצעות המילה 'var'.
+    אם תסיר את 'var', תהיה לך הצהרת Python חוקית.
+    
+
+(237) Cannot use yield outside function
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\yield_outside_function.py", line 1
+        (yield i) == 3
+         ^
+    SyntaxError: 'yield' outside function
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\yield_outside_function.py'
+    במקום המצוין.
+    
+       1: (yield i) == 3
+           ^^^^^
+
+    You can only use a `yield` statement inside a function.
+    
