@@ -1,0 +1,4252 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - in தமிழ் மொழி" href="syntax_tracebacks_ta.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in Русский" href="syntax_tracebacks_ru.html" />
+
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Friendly tracebacks - in தமிழ் மொழி - friendly-traceback 0.6.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #FFFFFF;
+  --color-code-foreground: #101010;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">friendly-traceback 0.6.0</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.6.0</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.9.html">Friendly tracebacks - Python 3.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En español</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_es.html">Friendly tracebacks - en español</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_es.html">Friendly SyntaxError tracebacks - en español</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_it.html">Friendly tracebacks - in italiano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Русский</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_ru.html">Friendly tracebacks - in Русский</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_ru.html">Friendly SyntaxError tracebacks - in Русский</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">தமிழ் மொழி</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Friendly tracebacks - in தமிழ் மொழி</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_ta.html">Friendly SyntaxError tracebacks - in தமிழ் மொழி</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_he.html">Friendly SyntaxError tracebacks - בעברית</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">Friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.7.html">Friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">Friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">Friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">Friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="friendly-tracebacks-in">
+<h1>Friendly tracebacks - in தமிழ் மொழி<a class="headerlink" href="#friendly-tracebacks-in" title="Permalink to this headline">¶</a></h1>
+<p>Friendly aims to provide friendlier feedback when an exception
+is raised than what is done by Python.</p>
+<p>Below, we can find some examples. SyntaxError cases, as well as TabError and
+IndentationError cases, are shown in a separate page.
+Not all cases handled by friendly are included here.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The content of this page is generated by running
+<cite>trb_tamil.py</cite> located in the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.
+This needs to be done explicitly, independently of updating the
+documentation using Sphinx.</p>
+</div>
+<p>Friendly-traceback version: 0.6.0
+Python version: 3.9.10</p>
+<section id="arithmeticerror">
+<h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
+<section id="generic">
+<h3>Generic<a class="headerlink" href="#generic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_arithmetic_error.py", line 9, in test_Generic
+    raise ArithmeticError('error')
+ArithmeticError: error
+
+எண்கணிதப்பிழை `ArithmeticError` என்பது உள்ளமைக்கப்பட்ட விதிவிலக்குகளுக்கான அடிப்படை வகுப்பாகும்
+பல்வேறு எண்கணிதப் பிழைகளுக்காக எழுப்பப்பட்டவை.
+இந்த விதிவிலக்கை நீங்கள் பார்ப்பது அசாதாரணமானது;
+பொதுவாக, ஒரு குறிப்பிட்ட விதிவிலக்கு எழுப்பப்பட்டிருக்க வேண்டும்.
+
+TESTS:\runtime\test_arithmetic_error.py கோப்பின் 9 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    4| def test_Generic():
+    5|     try:
+    6|         # I am not aware of any way in which this error is raised directly
+    7|         # Usually, a subclass such as ZeroDivisionError, etc., would
+    8|         # likely be raised.
+--&gt; 9|         raise ArithmeticError('error')
+   10|     except ArithmeticError as e:
+
+        ArithmeticError:  &lt;class ArithmeticError&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="assertionerror">
+<h2>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h3>Generic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_assertion_error.py", line 8, in test_Generic
+    raise AssertionError("Fake message")
+AssertionError: Fake message
+
+பைத்தானில், நிபந்தனை `condition` என்பது தவறு `False` அல்ல,
+அல்லது வெற்றுப் பட்டியல் போன்ற தவறு `False` என்பதற்குச் சமமானதாக இல்லை என்பதை உறுதிப்படுத்த, உறுதிப்படுத்துதல் `assert` என்ற முக்கிய சொல்
+உறுதிப்படுத்தல் நிபந்தனை `assert condition` படிவத்தின் அறிக்கைகளில் பயன்படுத்தப்படுகிறது.
+
+நிபந்தனை `condition` என்பது தவறு `False` அல்லது அதற்கு சமமானதாக இருந்தால், உறுதிப்படுத்தல்பிழை `AssertionError` எழுப்பப்படும்.
+
+TESTS:\runtime\test_assertion_error.py கோப்பின் 8 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   4| def test_Generic():
+   5|     try:
+   6|         # We raise it explicitly, rather than with the keyword assert, since
+   7|         # we don't want pytest to rewrite out test.
+--&gt;8|         raise AssertionError("Fake message")
+   9|     except AssertionError as e:
+
+        AssertionError:  &lt;class AssertionError&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="attributeerror">
+<h2>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h2>
+<section id="attribute-from-other-module">
+<h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 325, in test_Attribute_from_other_module
+    keyword.pi
+AttributeError: module 'keyword' has no attribute 'pi'
+
+    பின்வரும் தொகுதிக்கூறுகளில் ஒன்றைக் குறிப்பிடுகிறீர்களா: `math, cmath`?
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+தொகுதிக்கு பதிலாக `keyword`, ஒருவேளை நீங்கள் பயன்படுத்த வேண்டும்
+பின்வரும் தொகுதிகளில் ஒன்றின் பண்பு `pi`:
+`math, cmath`.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 325 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   321|     assert "Did you mean `math`?" in result
+   322|
+   323| import cmath
+   324| try:
+--&gt;325|     keyword.pi
+            ^^^^^^^^^^
+   326| except AttributeError as e:
+
+        keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
+</pre></div>
+</div>
+</section>
+<section id="builtin-function">
+<h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
+    len.text
+AttributeError: 'builtin_function_or_method' object has no attribute 'text'
+
+    `len(text)` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`len` என்பது ஒரு செயல்பாடு. ஒருவேளை நீங்கள்
+`len(text)` என்று எழுத நினைத்திருக்கலாம்
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 223 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   220| def test_Builtin_function():
+   221|     text = 'Hello world!'
+   222|     try:
+--&gt;223|         len.text
+                ^^^^^^^^
+   224|     except AttributeError as e:
+
+        text:  'Hello world!'
+        len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</section>
+<section id="builtin-module-with-no-file">
+<h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
+    sys.foo
+AttributeError: module 'sys' has no attribute 'foo'
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`foo` என்ற பெயரில் எந்தப் பொருளும் `sys` தொகுதியில்
+காணப்படவில்லை என்று பைதான் நமக்குச் சொல்கிறது.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 240 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   236| """Issue 116"""
+   237| import sys
+   238|
+   239| try:
+--&gt;240|     sys.foo
+            ^^^^^^^
+   241| except AttributeError as e:
+
+        sys:  &lt;module sys (builtin)&gt;
+</pre></div>
+</div>
+</section>
+<section id="circular-import">
+<h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
+    import my_turtle1
+  File "TESTS:\my_turtle1.py", line 4, in &lt;module&gt;
+    a = my_turtle1.something
+AttributeError: partially initialized module 'my_turtle1' has no attribute 'something' (most likely due to a circular import)
+
+    உங்கள் நிரலுக்கு பைதான் தொகுதிக்கு அதே பெயரைக் கொடுத்தீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+உங்கள் நிரலுக்கு `my_turtle1.py` என்ற பெயரைப் பயன்படுத்தியுள்ளீர்கள் என்றும்,
+அதே பெயரில் பைத்தானின் நிலையான நூலகத்திலிருந்து ஒரு தொகுதியை
+இறக்குமதி செய்ய விரும்புவதாகவும் சந்தேகிக்கிறேன்.
+அப்படியானால், உங்கள் நிரலுக்கு வேறு பெயரைப் பயன்படுத்த வேண்டும்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 359 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   356| from friendly_traceback.runtime_errors import stdlib_modules
+   357| stdlib_modules.names.append("my_turtle1")
+   358| try:
+--&gt;359|    import my_turtle1
+   360| except AttributeError as e:
+
+TESTS:\my_turtle1.py கோப்பின் 4 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   1| """To test attribute error of partially initialized module."""
+   2| import my_turtle1
+   3|
+--&gt;4| a = my_turtle1.something
+          ^^^^^^^^^^^^^^^^^^^^
+
+        my_turtle1:  &lt;module my_turtle1&gt; from TESTS:\my_turtle1.py
+</pre></div>
+</div>
+</section>
+<section id="circular-import-b">
+<h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
+    import circular_c
+  File "TESTS:\circular_c.py", line 4, in &lt;module&gt;
+    a = circular_c.something
+AttributeError: partially initialized module 'circular_c' has no attribute 'something' (most likely due to a circular import)
+
+    உங்களிடம் ஒரு வட்ட இறக்குமதி உள்ளது.
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`{module}` தொகுதி முழுமையாக இறக்குமதி செய்யப்படவில்லை என்று பைதான் சுட்டிக்காட்டியது.
+தொகுதி `circular_c` இல் குறியீட்டை செயல்படுத்தும் போது,
+அதே தொகுதியை மீண்டும் இறக்குமதி செய்ய முயற்சித்தால் இது நிகழலாம்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 376 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   374| def test_Circular_import_b():
+   375|     try:
+--&gt;376|         import circular_c
+   377|     except AttributeError as e:
+
+TESTS:\circular_c.py கோப்பின் 4 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   1| # Attribute error for partially initialize module
+   2| import circular_c
+   3|
+--&gt;4| a = circular_c.something
+          ^^^^^^^^^^^^^^^^^^^^
+
+        circular_c:  &lt;module circular_c&gt; from TESTS:\circular_c.py
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Generic<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 26, in test_Generic
+    A.x  # testing type
+AttributeError: type object 'A' has no attribute 'x'
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`A` பொருளில் `x` என்ற பண்புக்கூறு இல்லை.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 26 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   22| class A:
+   23|     pass
+   24|
+   25| try:
+--&gt;26|     A.x  # testing type
+           ^^^
+   27| except AttributeError as e:
+
+        A:  &lt;class A&gt; defined in &lt;function test_attribute_error.test_Generic&gt;
+</pre></div>
+</div>
+</section>
+<section id="generic-different-frame">
+<h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
+    a.attr
+AttributeError: 'A' object has no attribute 'attr'
+
+    `attr2` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`a` என்ற பொருளுக்கு `attr` என்ற பண்புக்கூறு இல்லை.
+நீங்கள் `a.attr` என்பதற்குப் பதிலாக `a.attr2` என்று எழுத நினைத்திருக்கலாம்
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 49 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   45|     return A()
+   46|
+   47| a = f()
+   48| try:
+--&gt;49|     a.attr
+           ^^^^^^
+   50| except AttributeError as e:
+
+        a:  &lt;A object&gt;
+            defined in &lt;function test_attribute_error.test_Generic_different_frame.&lt;locals&gt;.f&gt;
+</pre></div>
+</div>
+</section>
+<section id="generic-instance">
+<h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
+    a.x
+AttributeError: 'A' object has no attribute 'x'
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`a` பொருளில் `x` என்ற பண்புக்கூறு இல்லை.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 67 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   64|     pass
+   65| a = A()
+   66| try:
+--&gt;67|     a.x
+           ^^^
+   68| except AttributeError as e:
+
+        a:  &lt;A object&gt;
+            defined in &lt;function test_attribute_error.test_Generic_instance&gt;
+</pre></div>
+</div>
+</section>
+<section id="module-attribute-typo">
+<h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
+    math.cost
+AttributeError: module 'math' has no attribute 'cost'
+
+    `cos` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`math.cost` என்று எழுதுவதற்குப் பதிலாக, அதில் ஒன்றை எழுத நினைத்திருக்கலாம்
+பின்வரும் பெயர்கள் தொகுதியின் பண்புக்கூறுகள் `math`:
+`cos, cosh`
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 144 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   139|     assert "Did you mean `ascii_lowercase`" in result
+   140|
+   141| import math
+   142|
+   143| try:
+--&gt;144|     math.cost
+            ^^^^^^^^^
+   145| except AttributeError as e:
+
+        math:  &lt;module math (builtin)&gt;
+</pre></div>
+</div>
+</section>
+<section id="nonetype">
+<h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
+    a.b
+AttributeError: 'NoneType' object has no attribute 'b'
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+நீங்கள் `b` என்ற பண்புக்கூறை அணுக முயற்சிக்கிறீர்கள்,
+அதன் மதிப்பு `None`.
+TESTS:\runtime\test_attribute_error.py கோப்பின் 183 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   180| def test_Nonetype():
+   181|     a = None
+   182|     try:
+--&gt;183|         a.b
+                ^^^
+   184|     except AttributeError as e:
+
+        a:  None
+</pre></div>
+</div>
+</section>
+<section id="object-attribute-typo">
+<h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
+    a.appendh(4)
+AttributeError: 'list' object has no attribute 'appendh'
+
+    `append` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`a` என்ற பொருளுக்கு `appendh` என்ற பண்புக்கூறு இல்லை.
+நீங்கள் `a.appendh` என்பதற்குப் பதிலாக `a.append` என்று எழுத நினைத்திருக்கலாம்
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 83 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   79| def test_Object_attribute_typo():
+   80|     #
+   81|     try:
+   82|         a = [1, 2, 3]
+--&gt;83|         a.appendh(4)
+               ^^^^^^^^^
+   84|     except AttributeError as e:
+
+        a:  [1, 2, 3]
+</pre></div>
+</div>
+</section>
+<section id="perhaps-comma">
+<h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
+    a = [abcd
+AttributeError: 'str' object has no attribute 'defg'
+
+    பொருளின் பெயர்களை காற்புள்ளியால் பிரிக்க வேண்டுமா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`defg` என்பது `abcd` இன் பண்புக்கூறு அல்ல.
+இருப்பினும், `abcd` மற்றும் `defg` இரண்டும் அறியப்பட்ட பொருள்கள்.
+காற்புள்ளியைப் பயன்படுத்துவதற்குப் பதிலாக, இந்த இரண்டு பொருட்களையும்
+பிரிக்க நீங்கள் ஒரு நிறுத்தற்குறியை எழுதியிருக்கலாம்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 203 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   199| defg = "world"
+   200|
+   201| # fmt: off
+   202| try:
+--&gt;203|     a = [abcd
+                 ^^^^
+   204|     .defg]
+            ^^^^^
+   205| # fmt: on
+
+        abcd:  'hello'
+        defg:  'world'
+</pre></div>
+</div>
+</section>
+<section id="read-only">
+<h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
+    f.b = 1
+AttributeError: 'F' object attribute 'b' is read-only
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+எந்தப் பண்புக்கூறுகளை மாற்றலாம் என்பதைக் குறிப்பிட `f` பொருள் `__slots__` ஐப் பயன்படுத்துகிறது.
+பண்புக்கூறின் மதிப்பை `f.b` மாற்ற முடியாது.
+The only attribute of `f` whose value can be changed is`a`.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 280 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   276|     b = 2
+   277|
+   278| f = F()
+   279| try:
+--&gt;280|     f.b = 1
+            ^^^
+   281| except AttributeError as e:
+
+        f:  &lt;F object&gt;
+            defined in &lt;function test_attribute_error.test_Read_only&gt;
+        f.b:  2
+</pre></div>
+</div>
+</section>
+<section id="shadow-stdlib-module">
+<h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
+    turtle.Pen
+AttributeError: module 'turtle' has no attribute 'Pen'
+
+    உங்கள் நிரலுக்கு பைதான் தொகுதிக்கு அதே பெயரைக் கொடுத்தீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`TESTS:\turtle.py` இலிருந்து `turtle` என்ற தொகுதியை இறக்குமதி செய்துள்ளீர்கள்.
+பைத்தானின் நிலையான நூலகத்தில் `turtle` என்ற பெயருடைய ஒரு தொகுதியும் உள்ளது.
+ஒருவேளை நீங்கள் உங்கள் தொகுதிக்கு மறுபெயரிட வேண்டும்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 165 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   161| def test_Shadow_stdlib_module():
+   162|     import turtle
+   163|
+   164|     try:
+--&gt;165|         turtle.Pen
+                ^^^^^^^^^^
+   166|     except AttributeError as e:
+
+        turtle:  &lt;module turtle&gt; from TESTS:\turtle.py
+</pre></div>
+</div>
+</section>
+<section id="tuple-by-accident">
+<h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
+    something.upper()
+AttributeError: 'tuple' object has no attribute 'upper'
+
+    தவறுதலாக காற்புள்ளியை எழுதினீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`something` என்பது `'upper'` பண்புக்கூறாகக் கொண்ட ஒற்றை
+உருப்படியைக் கொண்ட மடங்கு ஆகும்.
+நீங்கள் `something` வரையறுத்த வரியின் முடிவில் தவறுதலாக
+பின்னிணைந்த காற்புள்ளியைச் சேர்த்திருக்கலாம்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 295 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   292| def test_Tuple_by_accident():
+   293|     something = "abc",  # note trailing comma
+   294|     try:
+--&gt;295|         something.upper()
+                ^^^^^^^^^^^^^^^
+   296|     except AttributeError as e:
+
+        something:  ('abc',)
+</pre></div>
+</div>
+</section>
+<section id="use-builtin">
+<h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
+    a.length()
+AttributeError: 'list' object has no attribute 'length'
+
+    `len(a)` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`a` என்ற பொருளுக்கு `length` என்ற பண்புக்கூறு இல்லை.
+அதற்குப் பதிலாக `len` என்ற பைதான் உள்ளமைக்கப்பட்ட செயல்பாட்டைப் பயன்படுத்தலாம்:
+`len(a)`.
+TESTS:\runtime\test_attribute_error.py கோப்பின் 99 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    95| def test_Use_builtin():
+    96|     #
+    97|     try:
+    98|         a = [1, 2, 3]
+--&gt; 99|         a.length()
+                ^^^^^^^^
+   100|     except AttributeError as e:
+
+        a:  [1, 2, 3]
+</pre></div>
+</div>
+</section>
+<section id="use-join-with-str">
+<h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
+    a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+AttributeError: 'list' object has no attribute 'join'
+
+    `'abc'.join(['a', '2'])` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`['a', '2']` பொருளில் `join` என்ற பண்புக்கூறு இல்லை.
+`'abc'.join(['a', '2'])` போன்ற ஏதாவது ஒன்றை நீங்கள் விரும்பலாம்.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 339 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   337| def test_Use_join_with_str():
+   338|     try:
+--&gt;339|         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+                    ^^^^^^^^^^^^^^^
+   340|     except AttributeError as e:
+</pre></div>
+</div>
+</section>
+<section id="use-synonym">
+<h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
+    a.add(4)
+AttributeError: 'list' object has no attribute 'add'
+
+    `append` எனக் குறிப்பிடுகிறீர்களா?
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`a` என்ற பொருளுக்கு `add` என்ற பண்புக்கூறு இல்லை.
+இருப்பினும், `a` பின்வரும் பண்புக்கூறுகளை ஒத்த பொருள்களைக் கொண்டுள்ளது:
+`append, extend, insert`.
+
+TESTS:\runtime\test_attribute_error.py கோப்பின் 115 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   111| def test_Use_synonym():
+   112|     #
+   113|     try:
+   114|         a = [1, 2, 3]
+--&gt;115|         a.add(4)
+                ^^^^^
+   116|     except AttributeError as e:
+
+        a:  [1, 2, 3]
+</pre></div>
+</div>
+</section>
+<section id="using-slots">
+<h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
+    f.b = 1
+AttributeError: 'F' object has no attribute 'b'
+
+பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
+    `object.x`
+மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
+
+`f` பொருளில் `b` என்ற பண்புக்கூறு இல்லை.
+`f` பொருள் `__slots__` ஐப் பயன்படுத்துகிறது, இது புதிய
+பண்புக்கூறுகளை உருவாக்குவதைத் தடுக்கிறது.
+அதன் அறியப்பட்ட சில பண்புக்கூறுகள் பின்வருமாறு:
+`a`.
+TESTS:\runtime\test_attribute_error.py கோப்பின் 260 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   256|     __slots__ = ["a"]
+   257|
+   258| f = F()
+   259| try:
+--&gt;260|     f.b = 1
+            ^^^
+   261| except AttributeError as e:
+
+        f:  &lt;F object&gt;
+            defined in &lt;function test_attribute_error.test_Using_slots&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="filenotfounderror">
+<h2>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h2>
+<section id="directory-not-found">
+<h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+    open("does_not_exist/file.txt")
+FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
+
+கோப்புகிடைக்கவில்லைபிழை `FileNotFoundError` விதிவிலக்கு நீங்கள் பைத்தானால் கண்டுபிடிக்க முடியாத
+கோப்பைத் திறக்க முயற்சி செய்கிறார்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் கோப்பின் பெயரை தவறாக எழுதியதால்  இது நிகழலாம்.
+
+உங்கள் நிரலில், கண்டறிய முடியாத
+கோப்பின் பெயர் `file.txt`.
+does_not_exist
+செல்லுபடியாகும் கோப்பகம் அல்ல.
+
+TESTS:\runtime\test_file_not_found_error.py கோப்பின் 70 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   68| def test_Directory_not_found():
+   69|     try:
+--&gt;70|         open("does_not_exist/file.txt")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   71|     except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+<section id="filename-not-found">
+<h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
+    open("does_not_exist")
+FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist'
+
+கோப்புகிடைக்கவில்லைபிழை `FileNotFoundError` விதிவிலக்கு நீங்கள் பைத்தானால் கண்டுபிடிக்க முடியாத
+கோப்பைத் திறக்க முயற்சி செய்கிறார்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் கோப்பின் பெயரை தவறாக எழுதியதால்  இது நிகழலாம்.
+
+உங்கள் நிரலில், கண்டறிய முடியாத
+கோப்பின் பெயர் `does_not_exist`.
+இது `C:\Users\Andre\github\friendly-traceback\tests` கோப்பகத்தில் காணப்படும்
+என்று எதிர்பார்க்கப்பட்டது.
+உங்களுக்கான கூடுதல் தகவல் எதுவும் என்னிடம் இல்லை.
+
+TESTS:\runtime\test_file_not_found_error.py கோப்பின் 7 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   5| def test_Filename_not_found():
+   6|     try:
+--&gt;7|         open("does_not_exist")
+              ^^^^^^^^^^^^^^^^^^^^^^
+   8|     except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+<section id="filename-not-found-2">
+<h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+    open("setupp.py")
+FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
+
+    `setup.py` என்று நீங்கள் கூறுகிறீர்களா?
+
+கோப்புகிடைக்கவில்லைபிழை `FileNotFoundError` விதிவிலக்கு நீங்கள் பைத்தானால் கண்டுபிடிக்க முடியாத
+கோப்பைத் திறக்க முயற்சி செய்கிறார்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் கோப்பின் பெயரை தவறாக எழுதியதால்  இது நிகழலாம்.
+
+உங்கள் நிரலில், கண்டறிய முடியாத
+கோப்பின் பெயர் `setupp.py`.
+இது `C:\Users\Andre\github\friendly-traceback` கோப்பகத்தில் காணப்படும்
+என்று எதிர்பார்க்கப்பட்டது.
+கோப்பு `setup.py` இதே பெயரைக் கொண்டுள்ளது.
+
+TESTS:\runtime\test_file_not_found_error.py கோப்பின் 30 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   26| if chdir:
+   27|     os.chdir("..")
+   28|
+   29| try:
+--&gt;30|     open("setupp.py")
+           ^^^^^^^^^^^^^^^^^
+   31| except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+<section id="filename-not-found-3">
+<h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+    open("setup.pyg")
+FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
+
+    `setup.py` என்று நீங்கள் கூறுகிறீர்களா?
+
+கோப்புகிடைக்கவில்லைபிழை `FileNotFoundError` விதிவிலக்கு நீங்கள் பைத்தானால் கண்டுபிடிக்க முடியாத
+கோப்பைத் திறக்க முயற்சி செய்கிறார்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் கோப்பின் பெயரை தவறாக எழுதியதால்  இது நிகழலாம்.
+
+உங்கள் நிரலில், கண்டறிய முடியாத
+கோப்பின் பெயர் `setup.pyg`.
+இது `C:\Users\Andre\github\friendly-traceback` கோப்பகத்தில் காணப்படும்
+என்று எதிர்பார்க்கப்பட்டது.
+இதே பெயர்களைக் கொண்ட பின்வரும் கோப்புகளில் ஒன்றை நீங்கள் குறிப்பிடலாம்:
+`setup.py`, `setup.cfg`
+
+TESTS:\runtime\test_file_not_found_error.py கோப்பின் 52 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   49| if chdir:
+   50|     os.chdir("..")
+   51| try:
+--&gt;52|     open("setup.pyg")
+           ^^^^^^^^^^^^^^^^^
+   53| except FileNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="importerror">
+<h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
+<section id="simple-import-error">
+<h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_import_error.py", line 56, in test_Simple_import_error
+    from math import Pi
+ImportError: cannot import name 'Pi' from 'math' (unknown location)
+
+    `pi` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு குறிப்பிட்ட பொருளை ஒரு தொகுதி அல்லது தொகுப்பிலிருந்து
+இறக்குமதி செய்ய முடியாது என்பதை இறக்குமதிப்பிழை `ImportError` விதிவிலக்கு குறிக்கிறது.
+பெரும்பாலும், பொருளின் பெயர் சரியாக எழுதப்படாததே இதற்குக் காரணம்.
+
+ஒருவேளை நீங்கள் `Pi` என்பதற்குப் பதிலாக `pi` (from `math`) இறக்குமதி செய்ய நினைத்திருக்கலாம்
+
+TESTS:\runtime\test_import_error.py கோப்பின் 56 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   52| multiple_import_on_same_line()
+   53| wrong_case()
+   54|
+   55| try:
+--&gt;56|     from math import Pi
+   57| except ImportError as e:
+</pre></div>
+</div>
+</section>
+</section>
+<section id="indexerror">
+<h2>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h2>
+<section id="assignment">
+<h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
+    a[13] = 1
+IndexError: list assignment index out of range
+
+பட்டியல், மடங்கு அல்லது ஒத்த பொருளிலிருந்து (வரிசை) ஒரு பொருளைப் பெற முயலும்போது,
+இல்லாத குறியீட்டைப் பயன்படுத்தும்போது குறியீட்டுபிழை `IndexError` ஏற்படுகிறது;
+பொதுவாக, நீங்கள் கொடுக்கும் குறியீட்டு
+வரிசையின் நீளத்தை விட அதிகமாக இருப்பதால் இது நிகழ்கிறது.
+
+`a` இன் குறியீட்டு `13`, ஒரு `பட்டியல்` நீளம் `10`க்கு மதிப்பை
+ஒதுக்க முயற்சித்தீர்கள்.
+`a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-10` முதல் `9`
+வரையிலான முழு எண்களாகும்.
+
+TESTS:\runtime\test_index_error.py கோப்பின் 93 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   89|     assert "You have tried to assign a value to index `1` of `b`," in result
+   90|     assert "a `list` which contains no item." in result
+   91|
+   92| try:
+--&gt;93|     a[13] = 1
+           ^^^^^
+   94| except IndexError as e:
+
+        a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</section>
+<section id="empty">
+<h3>Empty<a class="headerlink" href="#empty" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_index_error.py", line 46, in test_Empty
+    c = a[1]
+IndexError: list index out of range
+
+    `a` இல் உருப்படி இல்லை.
+
+பட்டியல், மடங்கு அல்லது ஒத்த பொருளிலிருந்து (வரிசை) ஒரு பொருளைப் பெற முயலும்போது,
+இல்லாத குறியீட்டைப் பயன்படுத்தும்போது குறியீட்டுபிழை `IndexError` ஏற்படுகிறது;
+பொதுவாக, நீங்கள் கொடுக்கும் குறியீட்டு
+வரிசையின் நீளத்தை விட அதிகமாக இருப்பதால் இது நிகழ்கிறது.
+
+`a` இன் குறியீட்டு `1` உடன் உருப்படியைப் பெற முயற்சித்தீர்கள்,
+ஒரு `பட்டியல்` இதில் உருப்படி இல்லை.
+
+TESTS:\runtime\test_index_error.py கோப்பின் 46 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   43| def test_Empty():
+   44|     a = []
+   45|     try:
+--&gt;46|         c = a[1]
+                   ^^^^
+   47|     except IndexError as e:
+
+        a:  []
+</pre></div>
+</div>
+</section>
+<section id="long-list">
+<h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_index_error.py", line 29, in test_Long_list
+    print(a[60], b[0])
+IndexError: list index out of range
+
+பட்டியல், மடங்கு அல்லது ஒத்த பொருளிலிருந்து (வரிசை) ஒரு பொருளைப் பெற முயலும்போது,
+இல்லாத குறியீட்டைப் பயன்படுத்தும்போது குறியீட்டுபிழை `IndexError` ஏற்படுகிறது;
+பொதுவாக, நீங்கள் கொடுக்கும் குறியீட்டு
+வரிசையின் நீளத்தை விட அதிகமாக இருப்பதால் இது நிகழ்கிறது.
+
+`a` இன் குறியீட்டு `60` உடன் உருப்படியைப் பெற முயற்சித்தீர்கள்,
+ஒரு `பட்டியல்` நீளம் `40`.
+`a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-40` முதல் `39`
+வரையிலான முழு எண்களாகும்.
+
+TESTS:\runtime\test_index_error.py கோப்பின் 29 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   26| a = list(range(40))
+   27| b = tuple(range(50))
+   28| try:
+--&gt;29|     print(a[60], b[0])
+                 ^^^^^
+   30| except IndexError as e:
+
+        a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
+            len(a): 40
+</pre></div>
+</div>
+</section>
+<section id="short-tuple">
+<h3>Short tuple<a class="headerlink" href="#short-tuple" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_index_error.py", line 10, in test_Short_tuple
+    print(a[3], b[2])
+IndexError: tuple index out of range
+
+    நினைவில் கொள்ளுங்கள்: ஒரு `மடங்கு` இன் முதல் உருப்படி குறியீட்டு 1 இல் இல்லை, ஆனால் குறியீட்டு 0 இல் உள்ளது.
+
+பட்டியல், மடங்கு அல்லது ஒத்த பொருளிலிருந்து (வரிசை) ஒரு பொருளைப் பெற முயலும்போது,
+இல்லாத குறியீட்டைப் பயன்படுத்தும்போது குறியீட்டுபிழை `IndexError` ஏற்படுகிறது;
+பொதுவாக, நீங்கள் கொடுக்கும் குறியீட்டு
+வரிசையின் நீளத்தை விட அதிகமாக இருப்பதால் இது நிகழ்கிறது.
+
+`a` இன் குறியீட்டு `3` உடன் உருப்படியைப் பெற முயற்சித்தீர்கள்,
+ஒரு `மடங்கு` நீளம் `3`.
+`a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-3` முதல் `2`
+வரையிலான முழு எண்களாகும்.
+
+TESTS:\runtime\test_index_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    7| a = (1, 2, 3)
+    8| b = [1, 2, 3]
+    9| try:
+--&gt;10|     print(a[3], b[2])
+                 ^^^^
+   11| except IndexError as e:
+
+        a:  (1, 2, 3)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="keyerror">
+<h2>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h2>
+<section id="chainmap">
+<h3>ChainMap<a class="headerlink" href="#chainmap" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "PYTHON_LIB:\collections\__init__.py", line 1008, in pop
+    return self.maps[0].pop(key, *args)
+KeyError: 42
+
+    During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
+    d.pop(42)
+KeyError: 'Key not found in the first mapping: 42'
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`ChainMap` வகைப் பொருளான `d` இல் `42` திறவுகோலைக் காண முடியவில்லை.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 62 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   59| from collections import ChainMap
+   60| d = ChainMap({}, {})
+   61| try:
+--&gt;62|     d.pop(42)
+           ^^^^^^^^^
+   63| except KeyError as e:
+
+        d:  ChainMap({}, {})
+        d.pop:  &lt;bound method ChainMap.pop&gt; of ChainMap({}, {})
+</pre></div>
+</div>
+</section>
+<section id="forgot-to-convert-to-string">
+<h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
+    print(squares[2])
+KeyError: 2
+
+    `2` ஐ சரமாக மாற்ற மறந்துவிட்டீர்களா?
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`2` திறவுகோலை `squares` இல் காண முடியாது.
+`squares` இல் `str(2)` க்கு ஒத்த சரம் விசை உள்ளது.
+ஒருவேளை நீங்கள் திறவுகோலை சரமாக மாற்ற மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 115 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   112| def test_Forgot_to_convert_to_string():
+   113|     squares = {"1": 1, "2": 4, "3": 9}
+   114|     try:
+--&gt;115|         print(squares[2])
+                      ^^^^^^^^^^
+   116|     except KeyError as e:
+
+        squares:  {'1': 1, '2': 4, '3': 9}
+</pre></div>
+</div>
+</section>
+<section id="generic-key-error">
+<h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
+    d["c"]
+KeyError: 'c'
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`'c'` திறவுகோலை `d` இல் காண முடியாது.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 44 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   41| def test_Generic_key_error():
+   42|     d = {"a": 1, "b": 2}
+   43|     try:
+--&gt;44|         d["c"]
+               ^^^^^^
+   45|     except KeyError as e:
+
+        d:  {'a': 1, 'b': 2}
+</pre></div>
+</div>
+</section>
+<section id="popitem-empty-chainmap">
+<h3>Popitem empty ChainMap<a class="headerlink" href="#popitem-empty-chainmap" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "PYTHON_LIB:\collections\__init__.py", line 1001, in popitem
+    return self.maps[0].popitem()
+KeyError: 'popitem(): dictionary is empty'
+
+    During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
+    alpha.popitem()
+KeyError: 'No keys found in the first mapping.'
+
+    `alpha` என்பது வெற்று `ChainMap`.
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`alpha` இலிருந்து ஒரு உருப்படியை மீட்டெடுக்க முயற்சித்தீர்கள், அது காலியான `ChainMap` ஆகும்.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 26 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   23| from collections import ChainMap
+   24| alpha = ChainMap({}, {})
+   25| try:
+--&gt;26|     alpha.popitem()
+           ^^^^^^^^^^^^^^^
+   27| except KeyError as e:
+
+        alpha:  ChainMap({}, {})
+        alpha.popitem:  &lt;bound method ChainMap.popitem&gt; of ChainMap({}, {})
+</pre></div>
+</div>
+</section>
+<section id="popitem-empty-dict">
+<h3>Popitem empty dict<a class="headerlink" href="#popitem-empty-dict" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 8, in test_Popitem_empty_dict
+    d.popitem()
+KeyError: 'popitem(): dictionary is empty'
+
+    `d` என்பது வெற்று `dict`.
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`d` இலிருந்து ஒரு உருப்படியை மீட்டெடுக்க முயற்சித்தீர்கள், அது வெற்று `dict` ஆகும்.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 8 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   5| def test_Popitem_empty_dict():
+   6|     d = {}
+   7|     try:
+--&gt;8|         d.popitem()
+              ^^^^^^^^^^^
+   9|     except KeyError as e:
+
+        d:  {}
+        d.popitem:  &lt;builtin method popitem of dict object&gt;
+</pre></div>
+</div>
+</section>
+<section id="similar-names">
+<h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
+    a = second["alpha"]
+KeyError: 'alpha'
+
+    `'alpha0'` எனக் குறிப்பிடுகிறீர்களா?
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`'alpha'` திறவுகோலை `second` இல் காண முடியாது.
+`second` என்பது `'alpha'` போன்ற சில திறவுகோலைகளைக் கொண்டுள்ளது:
+`'alpha0', 'alpha11', 'alpha12'`.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 145 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   141|     assert ok, diff
+   142|
+   143| second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
+   144| try:
+--&gt;145|     a = second["alpha"]
+                ^^^^^^^^^^^^^^^
+   146| except KeyError as e:
+
+        second:  {'alpha0': 1, 'alpha11': 2, 'alpha12': 3}
+</pre></div>
+</div>
+</section>
+<section id="string-by-mistake">
+<h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
+    d["(0, 0)"]
+KeyError: '(0, 0)'
+
+    தவறுதலாக `(0, 0)` ஐ சரமாக மாற்றிவிட்டீர்களா?
+
+பைதான் அகராதியிலோ அல்லது அதைப் போன்ற பொருளிலோ ஒரு மதிப்பு
+திறவுகோலாக காணப்படும்போது திறவுகோல்பிழை `KeyError` எழுப்பப்படுகிறது.
+
+`'(0, 0)'` திறவுகோலை `d` இல் காண முடியாது.
+`'(0, 0)'` என்பது ஒரு சரம்.
+`d` இன் திறவுகோல் உள்ளது, அதன் சரம் பிரதிநிதித்துவம்
+`'(0, 0)'` ஐ ஒத்ததாக இருக்கும்.
+
+TESTS:\runtime\test_key_error.py கோப்பின் 98 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   94| chain_map_string_by_mistake()  # do not show in docs
+   95|
+   96| d = {(0, 0): "origin"}
+   97| try:
+--&gt;98|     d["(0, 0)"]
+           ^^^^^^^^^^^
+   99| except KeyError as e:
+
+        d:  {(0, 0): 'origin'}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lookuperror">
+<h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
+    raise LookupError("Fake message")
+LookupError: Fake message
+
+தேடல்பிழை `LookupError` என்பது அட்டவணை அல்லது வரிசைமுறையில் பயன்படுத்தப்படும் திறவுகோல் அல்லது குறியீட்டு தவறானதாக இருக்கும் போது
+எழுப்பப்படும் விதிவிலக்குகளுக்கான அடிப்படை வகுப்பாகும்.
+இது codecs.lookup() மூலமாகவும் நேரடியாக எழுப்பப்படலாம்.
+
+TESTS:\runtime\test_lookup_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    4| def test_Generic():
+    5|     try:
+    6|         # LookupError is the base class for KeyError and IndexError.
+    7|         # It should normally not be raised by user code,
+    8|         # other than possibly codecs.lookup(), which is why we raise
+    9|         # it directly here for our example.
+--&gt;10|         raise LookupError("Fake message")
+   11|     except LookupError as e:
+
+        LookupError:  &lt;class LookupError&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modulenotfounderror">
+<h2>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this headline">¶</a></h2>
+<section id="need-to-install-module">
+<h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
+    import alphabet
+ModuleNotFoundError: No module named 'alphabet'
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+`alphabet` என்ற பெயருடைய எந்தத் தொகுதியையும் இறக்குமதி செய்ய முடியாது.
+ஒருவேளை நீங்கள் அதை நிறுவ வேண்டும்.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 76 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   74| def test_Need_to_install_module():
+   75|     try:
+--&gt;76|         import alphabet
+   77|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+<section id="not-a-package">
+<h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
+    import os.xxx
+ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+`xxx` ஐ `os` இலிருந்து இறக்குமதி செய்ய முடியாது.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 22 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   19| def test_Not_a_package():
+   20|
+   21|     try:
+--&gt;22|         import os.xxx
+   23|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+<section id="not-a-package-similar-name">
+<h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
+    import os.pathh
+ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
+
+    நீங்கள் குறிப்பிடுவது `import os.path`?
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+ஒருவேளை நீங்கள் `import os.path` எனக் குறிப்பிட்டிருக்கலாம்.
+`path` என்பது `pathh` என்பதற்கு ஒத்த பெயராகும், மேலும் இது `os`
+இலிருந்து இறக்குமதி செய்யக்கூடிய ஒரு தொகுதியாகும்.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 36 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   34| def test_Not_a_package_similar_name():
+   35|     try:
+--&gt;36|         import os.pathh
+   37|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+<section id="object-not-module">
+<h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
+    import os.open
+ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
+
+    `from os import open` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+`open` என்பது ஒரு தனி தொகுதி அல்ல, ஆனால் `os` இன் ஒரு பகுதியாகும்.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 49 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   47| def test_Object_not_module():
+   48|     try:
+--&gt;49|         import os.open
+   50|     except ModuleNotFoundError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+<section id="similar-object-not-module">
+<h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
+    import os.opend
+ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
+
+    `from os import open` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+ஒருவேளை நீங்கள் `from os import open` எனக் கூறியிருக்கலாம்.
+`open` என்பது `opend` போன்ற பெயராகும், மேலும் இது `os` இலிருந்து
+இறக்குமதி செய்யக்கூடிய ஒரு பொருளாகும்.
+`os` இன் பகுதியாக உள்ள ஒத்த பெயர்களைக் கொண்ட பிற பொருள்களில்
+`popen` அடங்கும்.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 62 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   60| def test_Similar_object_not_module():
+   61|     try:
+--&gt;62|         import os.opend
+   63|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+<section id="standard-library-module">
+<h3>Standard library module<a class="headerlink" href="#standard-library-module" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 7, in test_Standard_library_module
+    import Tkinter
+ModuleNotFoundError: No module named 'Tkinter'
+
+    `tkinter` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+`Tkinter` என்ற பெயருடைய எந்தத் தொகுதியையும் இறக்குமதி செய்ய முடியாது.
+ஒருவேளை நீங்கள் அதை நிறுவ வேண்டும்.
+`tkinter` என்பது ஒரே மாதிரியான பெயரைக் கொண்ட ஏற்கனவே உள்ள தொகுதி.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 7 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   5| def test_Standard_library_module():
+   6|     try:
+--&gt;7|         import Tkinter
+   8|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+<section id="no-curses">
+<h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
+    import curses
+ModuleNotFoundError: No module named '_curses'
+
+    Windows இல் பைத்தானுடன் curses தொகுதி அரிதாகவே நிறுவப்பட்டுள்ளது.
+
+ஒரு தொகுதிகண்டறியப்படவில்லைபிழை `ModuleNotFoundError` விதிவிலக்கு,
+பைத்தானால் கண்டுபிடிக்க முடியாத ஒரு தொகுதியை நீங்கள் இறக்குமதி செய்ய முயற்சிக்கிறீர்கள் என்பதைக் குறிக்கிறது.
+நீங்கள் தொகுதியின் பெயரை தவறாக எழுதியதாலோ அல்லது உங்கள் கணினியில்
+நிறுவப்படாததாலோ இது நிகழலாம்.
+
+நீங்கள் curses தொகுதியை இறக்குமதி செய்ய முயற்சித்தீர்கள்.
+Windows இல் பைத்தானுடன் curses தொகுதி அரிதாகவே நிறுவப்பட்டுள்ளது.
+
+TESTS:\runtime\test_module_not_found_error.py கோப்பின் 92 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   90| def test_no_curses():
+   91|     try:
+--&gt;92|         import curses
+   93|     except ModuleNotFoundError as e:
+</pre></div>
+</div>
+</section>
+</section>
+<section id="nameerror">
+<h2>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h2>
+<section id="annotated-variable">
+<h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 30, in test_Annotated_variable
+    y = x
+NameError: name 'x' is not defined
+
+    சம அடையாளத்திற்குப் பதிலாக முக்காற்புள்ளியைப் பயன்படுத்தினீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `x` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+global வாய்ப்பில் `x` க்கான வகை குறிப்பு உள்ளது.
+ஒருவேளை நீங்கள் சமமான அடையாளத்திற்குப் பதிலாக முக்காற்புள்ளிப் பயன்படுத்தி எழுதியிருக்கலாம்
+
+     x : 3
+
+அதற்கு பதிலாக
+
+     x = 3
+
+TESTS:\runtime\test_name_error.py கோப்பின் 30 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   28| def test_Annotated_variable():
+   29|     try:
+--&gt;30|         y = x
+                   ^
+   31|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="custom-name">
+<h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 198, in test_Custom_name
+    python
+NameError: name 'python' is not defined
+
+    நீங்கள் ஏற்கனவே பைத்தானைப் பயன்படுத்துகிறீர்கள்!
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+நீங்கள் ஏற்கனவே பைத்தானைப் பயன்படுத்துகிறீர்கள்!
+TESTS:\runtime\test_name_error.py கோப்பின் 198 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   196| def test_Custom_name():
+   197|     try:
+--&gt;198|         python
+                ^^^^^^
+   199|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="free-variable-referenced">
+<h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 182, in test_Free_variable_referenced
+    outer()
+  File "TESTS:\runtime\test_name_error.py", line 178, in outer
+    inner()
+  File "TESTS:\runtime\test_name_error.py", line 177, in inner
+    return var
+NameError: free variable 'var' referenced before assignment in enclosing scope
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `var` என்பது அறியப்படாத பெயராகும்,
+இது ஒரு மூடிய நோக்கத்தில் உள்ளது,
+ஆனால் இன்னும் மதிப்பு ஒதுக்கப்படவில்லை.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 182 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   178|     inner()
+   179|     var = 4
+   180|
+   181| try:
+--&gt;182|     outer()
+            ^^^^^^^
+   183| except NameError as e:
+
+        outer:  &lt;function outer&gt;
+            defined in &lt;function test_Free_variable_referenced&gt;
+
+TESTS:\runtime\test_name_error.py கோப்பின் 177 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   176| def inner():
+--&gt;177|     return var
+                   ^^^
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 15, in test_Generic
+    this = something
+NameError: name 'something' is not defined
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `something` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+உங்களுக்கான கூடுதல் தகவல் எதுவும் என்னிடம் இல்லை.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 15 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   13| def test_Generic():
+   14|     try:
+--&gt;15|         this = something
+                      ^^^^^^^^^
+   16|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="missing-import">
+<h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 135, in test_Missing_import
+    unicodedata.something
+NameError: name 'unicodedata' is not defined
+
+    `unicodedata` இறக்குமதி செய்ய மறந்துவிட்டீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+
+உங்கள் திட்டத்தில் `unicodedata` என்ற பெயர் வரையறுக்கப்படவில்லை.
+பைத்தானின் நிலையான நூலகத்தில் காணப்படும் `unicodedata` ஐ இறக்குமதி
+செய்ய மறந்துவிட்டீர்கள்.
+
+`unicodedata` என்பது தொகுதி `stringprep` இல் காணப்படும் பெயர்.
+ஒருவேளை நீங்கள் எழுத மறந்துவிட்டீர்கள்
+
+    from stringprep import unicodedata
+
+TESTS:\runtime\test_name_error.py கோப்பின் 135 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   131| if friendly_traceback.get_lang() == "en":
+   132|     assert "I have no additional information for you." in result
+   133|
+   134| try:
+--&gt;135|     unicodedata.something
+            ^^^^^^^^^^^
+   136| except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="missing-module-name">
+<h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 281, in test_Missing_module_name
+    frame = Frame()
+NameError: name 'Frame' is not defined
+
+    `tkinter.` சேர்க்க மறந்துவிட்டீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `Frame` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+
+global பொருள் `tkinter` ஆனது
+`Frame` என்ற பண்புக்கூறைக் கொண்டுள்ளது.
+ஒருவேளை நீங்கள் `Frame` என்பதற்குப் பதிலாக
+`tkinter.Frame` என்று எழுதியிருக்க வேண்டும்.
+
+`Frame` என்பது நிலையான நூலகத்திலிருந்து பின்வரும் தொகுதிகளில் காணப்படும் பெயர்:
+tkinter, tracemalloc.
+இந்த தொகுதிகளில் ஒன்றிலிருந்து `Frame` ஐ இறக்குமதி செய்ய மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 281 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   278| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+   279| def test_Missing_module_name():
+   280|     try:
+--&gt;281|         frame = Frame()
+                        ^^^^^
+   282|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="missing-self-1">
+<h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 233, in test_Missing_self_1
+    str(a)
+  File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+    toys_list = add_toy(  # ensure that it can see 'self' on following line
+NameError: name 'add_toy' is not defined
+
+    நீங்கள் தவறான இடத்தில் `self` என்று எழுதினீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `add_toy` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+
+local பொருள் `&lt;Pet object&gt; defined in &lt;function test_name_error.test_Missing_self_1&gt;` ஆனது `add_toy`
+என்ற பண்புக்கூறைக் கொண்டுள்ளது.
+நீங்கள் `add_toy(self, ...` என்பதற்குப் பதிலாக `self.add_toy(...`
+என்று எழுதியிருக்கலாம்.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 233 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   229|             return "{} has no toys".format(self.name)
+   230|
+   231| a = Pet('Fido')
+   232| try:
+--&gt;233|     str(a)
+            ^^^^^^
+   234| except NameError as e:
+
+        a:  &lt;Pet object&gt;
+            defined in &lt;function test_name_error.test_Missing_self_1&gt;
+        str:  &lt;class str&gt;
+
+TESTS:\runtime\test_name_error.py கோப்பின் 224 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   222| def __str__(self):
+   223|     # self at the wrong place
+--&gt;224|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+                        ^^^^^^^
+   225|                         self, 'something')
+   226|     if self.toys:
+</pre></div>
+</div>
+</section>
+<section id="missing-self-2">
+<h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 267, in test_Missing_self_2
+    str(a)
+  File "TESTS:\runtime\test_name_error.py", line 259, in __str__
+    toys_list = add_toy('something')
+NameError: name 'add_toy' is not defined
+
+    `self.` சேர்க்க மறந்துவிட்டீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `add_toy` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+
+ஒரு local பொருள், `&lt;Pet object&gt; defined in &lt;function test_name_error.test_Missing_self_2&gt;`,
+`add_toy` என்ற பண்புக்கூறைக் கொண்டுள்ளது.
+ஒருவேளை நீங்கள் `add_toy` என்பதற்குப் பதிலாக
+`self.add_toy` என்று எழுதியிருக்க வேண்டும்.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 267 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   263|             return "{} has no toys".format(self.name)
+   264|
+   265| a = Pet('Fido')
+   266| try:
+--&gt;267|     str(a)
+            ^^^^^^
+   268| except NameError as e:
+
+        a:  &lt;Pet object&gt;
+            defined in &lt;function test_name_error.test_Missing_self_2&gt;
+        str:  &lt;class str&gt;
+
+TESTS:\runtime\test_name_error.py கோப்பின் 259 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   257| def __str__(self):
+   258|     # Missing self.
+--&gt;259|     toys_list = add_toy('something')
+                        ^^^^^^^
+   260|     if self.toys:
+</pre></div>
+</div>
+</section>
+<section id="synonym">
+<h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
+    cost  # wrote from math import * above
+NameError: name 'cost' is not defined
+
+    `cos` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `cost` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+`cost` என்று எழுதுவதற்குப் பதிலாக, நீங்கள் பின்வருவனவற்றில் ஒன்றைக் குறிப்பிட்டிருக்கலாம்:
+*   உலகளாவிய நோக்கம்: `cos`, `cosh`
+
+TESTS:\runtime\test_name_error.py கோப்பின் 95 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   91| if friendly_traceback.get_lang() == "en":
+   92|     assert "The Python builtin `chr` has a similar name." in result
+   93|
+   94| try:
+--&gt;95|     cost  # wrote from math import * above
+           ^^^^
+   96| except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="missing-import2">
+<h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 149, in test_missing_import2
+    ABCMeta
+NameError: name 'ABCMeta' is not defined
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `ABCMeta` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+`ABCMeta` என்பது நிலையான நூலகத்திலிருந்து பின்வரும் தொகுதிகளில் காணப்படும் பெயர்:
+abc, numbers, selectors, typing.
+இந்த தொகுதிகளில் ஒன்றிலிருந்து `ABCMeta` ஐ இறக்குமதி செய்ய மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 149 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   147| def test_missing_import2():
+   148|     try:
+--&gt;149|         ABCMeta
+                ^^^^^^^
+   150|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="missing-import3">
+<h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 163, in test_missing_import3
+    AF_APPLETALK
+NameError: name 'AF_APPLETALK' is not defined
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+உங்கள் திட்டத்தில், `AF_APPLETALK` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+`AF_APPLETALK` என்பது தொகுதி `socket` இல் காணப்படும் பெயர்.
+ஒருவேளை நீங்கள் எழுத மறந்துவிட்டீர்கள்
+
+    from socket import AF_APPLETALK
+
+TESTS:\runtime\test_name_error.py கோப்பின் 163 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   161| def test_missing_import3():
+   162|     try:
+--&gt;163|         AF_APPLETALK
+                ^^^^^^^^^^^^
+   164|     except NameError as e:
+</pre></div>
+</div>
+</section>
+<section id="special-keyword">
+<h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_name_error.py", line 312, in test_special_keyword
+    brek
+NameError: name 'brek' is not defined
+
+    `break` எனக் குறிப்பிடுகிறீர்களா?
+
+ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது
+செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+
+இருப்பினும், `break` என்ற முக்கிய சொல்லை நீங்கள் தவறுதலாக எழுதிவிட்டீர்கள் என்று சந்தேகிக்கிறேன்.
+
+TESTS:\runtime\test_name_error.py கோப்பின் 312 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   309| if friendly_traceback.get_lang() == "en":
+   310|     assert "Did you mean `continue`" in result
+   311| try:
+--&gt;312|     brek
+            ^^^^
+   313| except NameError as e:
+</pre></div>
+</div>
+</section>
+</section>
+<section id="oserror">
+<h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h2>
+<section id="urllib-error">
+<h3>Urllib error<a class="headerlink" href="#urllib-error" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
+       ... மேலும் வரிகள் காட்டப்படவில்லை. ...
+  File "PYTHON_LIB:\socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "PYTHON_LIB:\socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+    During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "TESTS:\runtime\test_os_error.py", line 10, in test_Urllib_error
+    request.urlopen("http://does_not_exist")
+URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
+
+`URLError` வகை விதிவிலக்கு என்பது `OSError` இன் துணைப்பிரிவாகும்.
+ஒரு முறைமைபிழை `OSError` விதிவிலக்கு பொதுவாக ஒரு செயல்பாடு
+அனுமதிக்கப்படவில்லை அல்லது ஆதாரம் இல்லை என்பதைக் குறிக்க இயக்க
+முறைமையால் எழுப்பப்படுகிறது.
+
+நீங்கள் ஒரு சேவையகத்துடன் இணைக்க முயற்சிக்கிறீர்கள் மற்றும் இணைப்பை
+உருவாக்க முடியாது என்று நான் சந்தேகிக்கிறேன்.
+
+அப்படியானால், URL இல் எழுத்துப் பிழைகளைச் சரிபார்த்து,
+உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும்.
+
+TESTS:\runtime\test_os_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    6| @pytest.mark.skipif(random.randint(0, 50) &lt; 59, reason="very long test")
+    7| def test_Urllib_error():
+    8|     from urllib import request, error
+    9|     try:
+--&gt;10|         request.urlopen("http://does_not_exist")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   11|     except error.URLError as e:
+
+        request:  &lt;module urllib.request&gt; from PYTHON_LIB:\urllib\request.py
+        request.urlopen:  &lt;function urlopen&gt;
+</pre></div>
+</div>
+</section>
+<section id="invalid-argument">
+<h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
+    open("c:\test.txt")
+OSError: [Errno 22] Invalid argument: 'c:\test.txt'
+
+    ஒருவேளை நீங்கள் பின்சாய்வு எழுத்துகளை இரட்டிப்பாக்க வேண்டும்.
+
+ஒரு முறைமைபிழை `OSError` விதிவிலக்கு பொதுவாக ஒரு செயல்பாடு
+அனுமதிக்கப்படவில்லை அல்லது ஆதாரம் இல்லை என்பதைக் குறிக்க இயக்க
+முறைமையால் எழுப்பப்படுகிறது.
+
+குறைந்தது ஒரு பின்சாய்வு எழுத்து, `\` உள்ள கோப்புப் பெயர் அல்லது பாதையை
+நீங்கள் எழுதியிருக்கிறீர்கள் என்று நான் சந்தேகிக்கிறேன்.
+தப்பிக்கும் வரிசை என அறியப்படுவதன் தொடக்கத்தைக் குறிப்பதாக பைதான் இதை
+விளக்கியிருக்கலாம்.
+சிக்கலைத் தீர்க்க, கோப்புப் பெயர் அல்லது பாதையின் முன் முன்னொட்டாக `r`
+என்ற எழுத்தைச் சேர்ப்பதன் மூலம் 'மூல சரம்' என அழைக்கப்படுவதை எழுதுங்கள்
+அல்லது அனைத்து ஒற்றை பின்சாய்வு எழுத்துகளான `\`, இரட்டை எழுத்துக்களால்
+மாற்றவும்: `\\`.
+
+TESTS:\runtime\test_os_error.py கோப்பின் 48 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   45| if os.name != "nt":
+   46|     return "Windows test only", "No result"
+   47| try:
+--&gt;48|     open("c:\test.txt")
+           ^^^^^^^^^^^^^^^^^^^
+   49| except OSError as e:
+
+        open:  &lt;builtin function open&gt;
+</pre></div>
+</div>
+</section>
+<section id="no-information">
+<h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
+    raise OSError("Some unknown message")
+OSError: Some unknown message
+
+    நட்பு-மீண்டும்கண்டுபிடிக்க Friendly-tracebackக்கு இந்த பிழைக்கான காரணம் தெரியவில்லை.
+
+ஒரு முறைமைபிழை `OSError` விதிவிலக்கு பொதுவாக ஒரு செயல்பாடு
+அனுமதிக்கப்படவில்லை அல்லது ஆதாரம் இல்லை என்பதைக் குறிக்க இயக்க
+முறைமையால் எழுப்பப்படுகிறது.
+
+இந்த விதிவிலக்கு பற்றி எந்த தகவலும் தெரியவில்லை.
+தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
+https://github.com/friendly-traceback/friendly-traceback/issues/new
+நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+
+நீங்கள் நட்பு பணியகத்தை பயன்படுத்துகிறீர்கள் என்றால், அதற்கு `www()` ஐப்
+பயன்படுத்தி இந்த குறிப்பிட்ட வழக்கை இணையத்தில் தேடுங்கள்.
+
+TESTS:\runtime\test_os_error.py கோப்பின் 29 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   26| old_debug = friendly_traceback.debug_helper.DEBUG
+   27| friendly_traceback.debug_helper.DEBUG = False
+   28| try:
+--&gt;29|     raise OSError("Some unknown message")
+   30| except OSError as e:
+
+        OSError:  &lt;class OSError&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="overflowerror">
+<h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
+    2.0 ** 1600
+OverflowError: (34, 'Result too large')
+
+ஒரு எண்கணிதச் செயல்பாட்டின் விளைவு கணினியின் செயலியால் கையாள
+முடியாத அளவுக்குப் பெரிதாக இருக்கும்போது வழிதல்பிழை `OverflowError` எழுப்பப்படுகிறது.
+
+TESTS:\runtime\test_overflow_error.py கோப்பின் 6 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   4| def test_Generic():
+   5|     try:
+--&gt;6|         2.0 ** 1600
+              ^^^^^^^^^^^
+   7|     except OverflowError as e:
+</pre></div>
+</div>
+</section>
+<section id="huge-lenght">
+<h3>Huge lenght<a class="headerlink" href="#huge-lenght" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_overflow_error.py", line 24, in test_Huge_lenght
+    len(huge)
+OverflowError: Python int too large to convert to C ssize_t
+
+ஒரு எண்கணிதச் செயல்பாட்டின் விளைவு கணினியின் செயலியால் கையாள
+முடியாத அளவுக்குப் பெரிதாக இருக்கும்போது வழிதல்பிழை `OverflowError` எழுப்பப்படுகிறது.
+
+TESTS:\runtime\test_overflow_error.py கோப்பின் 24 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   21| def test_Huge_lenght():
+   22|     huge = range(1&lt;&lt;10000)
+   23|     try:
+--&gt;24|         len(huge)
+               ^^^^^^^^^
+   25|     except OverflowError as e:
+
+        huge:  range(0, ...)
+               len(huge): Object too large to be processed by Python.
+
+        len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="recursionerror">
+<h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
+<section id="id6">
+<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
+    a()
+       ... மேலும் வரிகள் காட்டப்படவில்லை. ...
+  File "TESTS:\runtime\test_recursion_error.py", line 6, in a
+    return a()
+  File "TESTS:\runtime\test_recursion_error.py", line 6, in a
+    return a()
+RecursionError: maximum recursion depth exceeded
+
+ஒரு செயல்பாடு நேரடியாகவோ அல்லது மறைமுகமாகவோ பல முறை தன்னை
+அழைக்கும் போது மறுநிகழ்வுபிழை `RecursionError` எழுப்பப்படுகிறது.
+உங்கள் குறியீட்டில் நீங்கள் பிழை செய்துள்ளீர்கள் என்பதையும் உங்கள் நிரல்
+ஒருபோதும் நிறுத்தப்படாது என்பதையும் இது எப்போதும் குறிக்கிறது.
+
+TESTS:\runtime\test_recursion_error.py கோப்பின் 8 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   5| def a():
+   6|     return a()
+   7| try:
+--&gt;8|     a()
+          ^^^
+   9| except RecursionError as e:
+
+        a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
+
+TESTS:\runtime\test_recursion_error.py கோப்பின் 6 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   5| def a():
+--&gt;6|     return a()
+                 ^^^
+
+        a:  &lt;function a&gt; defined in &lt;function test_Generic&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="typeerror">
+<h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h2>
+<section id="argument-of-object-is-not-iterable">
+<h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+    a in b
+TypeError: argument of type 'object' is not iterable
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+An iterable is an object capable of returning its members one at a time.
+Python containers (`list, tuple, dict`, etc.) are iterables.
+'b' is not a container. A container is required here.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 804 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   801| a = object()
+   802| b = object()
+   803| try:
+--&gt;804|     a in b
+            ^^^^^^
+   805| except TypeError as e:
+
+        a:  &lt;object object&gt;
+        b:  &lt;object object&gt;
+</pre></div>
+</div>
+</section>
+<section id="bad-type-for-unary-operator">
+<h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 398, in test_Bad_type_for_unary_operator
+    a =+ "def"
+TypeError: bad operand type for unary +: 'str'
+
+    ஒருவேளை நீங்கள் `=+` என்பதற்குப் பதிலாக `+=` என்று எழுத நினைத்திருக்கலாம்
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பின்வரும் வகை பொருளுடன் '+' unary இயக்கியைப்
+ பயன்படுத்த முயற்சித்தீர்கள்: ஒரு சரம் (`str`).
+இந்த வகையான பொருளுக்கு இந்த செயல்பாடு வரையறுக்கப்படவில்லை.
+
+ஒருவேளை நீங்கள் `=+` என்பதற்குப் பதிலாக `+=` என்று எழுத நினைத்திருக்கலாம்
+
+TESTS:\runtime\test_type_error.py கோப்பின் 398 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   393|     assert "You tried to use the unary operator '~'" in result
+   394|
+   395| try:
+   396|     # fmt: off
+   397|     a = "abc"
+--&gt;398|     a =+ "def"
+               ^^^^^^^
+   399|     # fmt: on
+</pre></div>
+</div>
+</section>
+<section id="builtin-has-no-len">
+<h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
+    len("Hello world".split)
+TypeError: object of type 'builtin_function_or_method' has no len()
+
+    `"Hello world".split` என்பதை அழைக்க மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`"Hello world".split` என்பதை அழைக்க, அடைப்புக்குறிகளைச் சேர்க்க மறந்துவிட்டீர்கள் என்று சந்தேகிக்கிறேன்.
+நீங்கள் இவ்வாறு எழுத நினைத்திருக்கலாம்:
+`len("Hello world".split())`
+
+TESTS:\runtime\test_type_error.py கோப்பின் 859 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   857| def test_Builtin_has_no_len():
+   858|     try:
+--&gt;859|         len("Hello world".split)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+   860|     except TypeError as e:
+
+        len:  &lt;builtin function len&gt;
+        "Hello world".split:  &lt;builtin method split of str object&gt;
+</pre></div>
+</div>
+</section>
+<section id="can-only-concatenate">
+<h3>Can only concatenate<a class="headerlink" href="#can-only-concatenate" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 39, in test_Can_only_concatenate
+    result = a_tuple + a_list
+TypeError: can only concatenate tuple (not "list") to tuple
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+நீங்கள் இரண்டு வெவ்வேறு வகையான பொருட்களை இணைக்க (சேர்க்க) முயற்சித்தீர்கள்:
+ஒரு `மடங்கு` மற்றும் ஒரு `பட்டியல்`.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 39 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   36| try:
+   37|     a_tuple = (1, 2, 3)
+   38|     a_list = [1, 2, 3]
+--&gt;39|     result = a_tuple + a_list
+                    ^^^^^^^^^^^^^^^^
+   40| except TypeError as e:
+
+        a_list:  [1, 2, 3]
+        a_tuple:  (1, 2, 3)
+</pre></div>
+</div>
+</section>
+<section id="cannot-convert-dictionary-update-sequence">
+<h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
+    dd.update([1, 2, 3])
+TypeError: cannot convert dictionary update sequence element #0 to a sequence
+
+    ஒருவேளை நீங்கள் `dict.fromkeys()` முறையைப் பயன்படுத்த வேண்டும்.
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`dict.update()` ஒரு வரிசையை ஒரு வாதமாக ஏற்கவில்லை.
+`dd.update([1, 2, 3])` என்று எழுதுவதற்குப்
+பதிலாக நீங்கள் `dict.fromkeys()` முறையைப் பயன்படுத்த வேண்டும்: `dd.update( dict.fromkeys([1, 2, 3]) )`.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 845 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   841|     assert "you should use the `dict.fromkeys()`" in result
+   842|
+   843| dd = {"a": "a"}
+   844| try:
+--&gt;845|     dd.update([1, 2, 3])
+            ^^^^^^^^^^^^^^^^^^^^
+   846| except TypeError as e:
+
+        dd:  {'a': 'a'}
+        dd.update:  &lt;builtin method update of dict object&gt;
+</pre></div>
+</div>
+</section>
+<section id="cannot-multiply-by-non-int">
+<h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 614, in test_Cannot_multiply_by_non_int
+    "a" * "2"
+TypeError: can't multiply sequence by non-int of type 'str'
+
+    `"2"`ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பட்டியல், மடங்குகள், சரங்கள், போன்ற., தொடர்களை மட்டுமே
+முழு எண்களால் பெருக்க முடியும்.
+ஒருவேளை நீங்கள் `"2"` ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 614 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   610| if friendly_traceback.get_lang() == "en":
+   611|     assert "Did you forget to convert `c` into an integer?" in result
+   612|
+   613| try:
+--&gt;614|     "a" * "2"
+            ^^^^^^^^^
+   615| except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="cannot-unpack-non-iterable-object">
+<h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
+    a, b = 42.0
+TypeError: cannot unpack non-iterable float object
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+கட்டவிழ் என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும்
+ஒரு பெயரை ஒதுக்க ஒரு வசதியான வழியாகும்.
+மறுசெய்யக்கூடியவை என்பது அதன் உறுப்பினர்களை ஒரு நேரத்தில் திருப்பி அனுப்பும் திறன் கொண்ட ஒரு பொருள்.
+பைதான் கொள்கலன்கள் (`பட்டியல், மடங்கு, அகராதி`, முதலியன.) மறுசெய்யக்கூடியவை,
+ஆனால் `float` வகைப் பொருள்கள் அல்ல.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 817 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   815| def test_Cannot_unpack_non_iterable_object():
+   816|     try:
+--&gt;817|         a, b = 42.0
+   818|     except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="comparison-not-supported">
+<h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
+    b &gt;= a
+TypeError: '&gt;=' not supported between instances of 'int' and 'str'
+
+    `a` சரத்தை ஒரு முழுஎண் (`int`) ஆக மாற்ற மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பொருந்தாத இரண்டு வகையான பொருள்களுக்கு இடையே (&gt;=)
+வரிசை ஒப்பீடு செய்ய முயற்சித்தீர்கள்:
+ஒரு முழுஎண் (`int`) மற்றும் ஒரு சரம் (`str`).
+ஒருவேளை நீங்கள் `a` சரத்தை ஒரு முழுஎண் (`int`) ஆக மாற்ற மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 347 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   344| try:
+   345|     a = "2"
+   346|     b = 42
+--&gt;347|     b &gt;= a
+            ^^^^^^
+   348| except TypeError as e:
+
+        a:  '2'
+        b:  42
+</pre></div>
+</div>
+</section>
+<section id="derive-from-baseexception">
+<h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 557, in test_Derive_from_BaseException
+    raise "exception"  # noqa
+TypeError: exceptions must derive from BaseException
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பைதான் 3 இல், விதிவிலக்குகள் BaseException இலிருந்து பெறப்பட வேண்டும்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 557 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   555| def test_Derive_from_BaseException():
+   556|     try:
+--&gt;557|         raise "exception"  # noqa
+   558|     except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="generator-has-no-len">
+<h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+    nb = len(letter
+TypeError: object of type 'generator' has no len()
+
+    You likely need to build a list first.
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+I am guessing that you were trying to count the number of elements
+produced by a generator expression. You first need to capture them
+in a list:
+
+    `len([letter for letter in "word"])`
+
+TESTS:\runtime\test_type_error.py கோப்பின் 1014 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   1012| def test_Generator_has_no_len():
+   1013|     try:
+--&gt;1014|         nb = len(letter
+                      ^^^^^^^^^^
+   1015|                  for letter in "word")
+                          ^^^^^^^^^^^^^^^^^^^^^
+   1016|     except TypeError as e:
+
+        len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</section>
+<section id="indices-must-be-integers-or-slices">
+<h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 696, in test_Indices_must_be_integers_or_slices
+    [1, 2, 3]["2"]
+TypeError: list indices must be integers or slices, not str
+
+    `"2"`ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`[1, 2, 3]["2"]` வெளிப்பாட்டில்,
+சதுர அடைப்புக்குறிகளுக்கு இடையே உள்ளவை, `[...]`,
+ஒரு முழு எண் அல்லது துண்டாக இருக்க வேண்டும்
+(`தொடக்கம்:நிறுத்து` அல்லது `தொடக்கம்:நிறுத்தம்:படி`)
+மற்றும் உங்களிடம் உள்ளது அதற்குப் பதிலாக ஒரு சரம் (`str`) பயன்படுத்தப்பட்டது.
+
+ஒருவேளை நீங்கள் `"2"` ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 696 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   692| if friendly_traceback.get_lang() == "en":
+   693|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+   694|
+   695| try:
+--&gt;696|     [1, 2, 3]["2"]
+            ^^^^^^^^^^^^^^
+   697| except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="not-an-integer">
+<h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 659, in test_Not_an_integer
+    range(c, d)
+TypeError: 'str' object cannot be interpreted as an integer
+
+    `c, d` முழு எண்களாக மாற்ற மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+முழு எண் எதிர்பார்க்கப்படும் `str` வகைப் பொருளை நீங்கள் எழுதியுள்ளீர்கள்.
+ஒருவேளை நீங்கள் `c, d` ஐ முழு எண்களாக மாற்ற மறந்துவிட்டீர்கள்.
+TESTS:\runtime\test_type_error.py கோப்பின் 659 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   655|     assert "Perhaps you forgot to convert `1.0" in result
+   656|
+   657| c, d = "2", "3"
+   658| try:
+--&gt;659|     range(c, d)
+            ^^^^^^^^^^^
+   660| except TypeError as e:
+
+        c:  '2'
+        d:  '3'
+        range:  &lt;class range&gt;
+</pre></div>
+</div>
+</section>
+<section id="not-callable">
+<h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 541, in test_Not_callable
+    _ = [1, 2](a + b)
+TypeError: 'list' object is not callable
+
+    `[1, 2][a + b]` என்பதை நீங்கள் குறிப்பிடுகிறீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+சுற்றியுள்ள அடைப்புக்குறியின் காரணமாக, `(a + b)` என்பது
+`[1, 2]` க்கான செயல்பாட்டு அழைப்பைக் குறிக்கும் என பைத்தானால்
+விளக்கப்படுகிறது, இது `list` வகையின் ஒரு பொருளாகும்,
+இது அழைக்கப்பட முடியாது.
+
+இருப்பினும், `[1, 2]` என்பது ஒரு வரிசை.
+ஒருவேளை நீங்கள் `()` என்பதற்குப் பதிலாக `[]` ஐப் பயன்படுத்தி
+`[1, 2][a + b]` என்று எழுதலாம்
+
+TESTS:\runtime\test_type_error.py கோப்பின் 541 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   537|     assert "b.a_list[3]" in result
+   538|
+   539| try:
+   540|     a, b = 3, 7
+--&gt;541|     _ = [1, 2](a + b)
+                ^^^^^^^^^^^^^
+   542| except TypeError as e:
+
+        a:  3
+        b:  7
+        a + b:  10
+</pre></div>
+</div>
+</section>
+<section id="object-is-not-iterable">
+<h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
+    list(42)
+TypeError: 'int' object is not iterable
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+மறுசெய்யக்கூடியவை என்பது அதன் உறுப்பினர்களை ஒரு நேரத்தில் திருப்பி அனுப்பும் திறன் கொண்ட ஒரு பொருள்.
+பைதான் கொள்கலன்கள் (`பட்டியல், மடங்கு, அகராதி`, முதலியன.) மறுசெய்யக்கூடியவை.
+இங்கே ஒரு மறுசெய்யக்கூடியவை தேவைப்படுகிறது.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 788 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   786| def test_Object_is_not_iterable():
+   787|     try:
+--&gt;788|         list(42)
+                ^^^^^^^^
+   789|     except TypeError as e:
+
+        list:  &lt;class list&gt;
+</pre></div>
+</div>
+</section>
+<section id="object-is-not-subscriptable">
+<h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
+    a = f[1]
+TypeError: 'function' object is not subscriptable
+
+    `f(1)` என்று சொன்னீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+சந்தா பெறக்கூடிய பொருள்கள் பொதுவாக கொள்கலன்களாகும், அதில் இருந்து
+நீங்கள் `[...]` குறியீட்டைப் பயன்படுத்தி உருப்படியை மீட்டெடுக்கலாம்.
+
+ஒருவேளை நீங்கள் `f(1)` என்று எழுத நினைத்திருக்கலாம்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 771 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   767| def f():
+   768|     pass
+   769|
+   770| try:
+--&gt;771|     a = f[1]
+                ^^^^
+   772| except TypeError as e:
+
+        f:  &lt;function f&gt;
+            defined in &lt;function test_Object_is_not_subscriptable&gt;
+</pre></div>
+</div>
+</section>
+<section id="slice-indices-must-be-integers-or-none">
+<h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 710, in test_Slice_indices_must_be_integers_or_None
+    [1, 2, 3][1.0:2.0]
+TypeError: slice indices must be integers or None or have an __index__ method
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+ஒரு வரிசையிலிருந்து உறுப்புகளின் வரம்பைப் பிரித்தெடுக்க ஒரு துண்டைப்
+பயன்படுத்தும்போது, அது `[தொடக்கம்:நிறுத்து]` அல்லது
+`[தொடக்கம்:நிறுத்தம்:படி]` ஒவ்வொரு `தொடக்கம்`, `நிறுத்தம்`, `படி` போன்றவை
+ஒரு முழு எண்ணாக இருக்க வேண்டும், `None` அல்லது `__index__` முறையைக்
+கொண்ட வேறு ஏதேனும் பொருள் இருக்கலாம்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 710 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   708| def test_Slice_indices_must_be_integers_or_None():
+   709|     try:
+--&gt;710|         [1, 2, 3][1.0:2.0]
+                ^^^^^^^^^^^^^^^^^^
+   711|     except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="too-few-positional-argument">
+<h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 471, in test_Too_few_positional_argument
+    fn(1)
+TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+'fn()' செயல்பாட்டிற்குத் தேவையானதை விட குறைவான நிலை
+வாதங்களுடன் (2 இல்லை) என்று நீங்கள் அழைத்திருக்கிறீர்கள்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 471 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   467| def fn(a, b, c):
+   468|     pass
+   469|
+   470| try:
+--&gt;471|     fn(1)
+            ^^^^^
+   472| except TypeError as e:
+
+        fn:  &lt;function fn&gt;
+            defined in &lt;function test_Too_few_positional_argument&gt;
+</pre></div>
+</div>
+</section>
+<section id="too-many-positional-argument">
+<h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 452, in test_Too_many_positional_argument
+    A().f(1)
+TypeError: f() takes 1 positional argument but 2 were given
+
+    `f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+நீங்கள் 2 நிலை வாதம்(கள்) உடன் `f`
+செயல்பாட்டை அழைத்திருக்கிறீர்கள்
+அதற்கு 1 போன்ற நிலை வாதம்(கள்) தேவைப்படும்.
+`f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 452 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   448|     def f(x):
+   449|         pass
+   450|
+   451| try:
+--&gt;452|     A().f(1)
+            ^^^^^^^^
+   453| except TypeError as e:
+
+        A:  &lt;class A&gt;
+            defined in &lt;function test_type_error.test_Too_many_positional_argument&gt;
+</pre></div>
+</div>
+</section>
+<section id="tuple-no-item-assignment">
+<h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 419, in test_Tuple_no_item_assignment
+    a[0] = 0
+TypeError: 'tuple' object does not support item assignment
+
+    பட்டியலைப் பயன்படுத்த விரும்புகிறீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பைத்தானில், சில பொருள்கள் மாறாதவை என்று அறியப்படுகின்றன:
+ஒருமுறை வரையறுக்கப்பட்டால், அவற்றின் மதிப்பை மாற்ற முடியாது.
+அத்தகைய ஒரு மாறாத பொருளின் பகுதியை மாற்ற முயற்சித்தீர்கள்: ஒரு `மடங்கு`,
+பெரும்பாலும் அட்டவணைப்படுத்தல் செயல்பாட்டைப் பயன்படுத்தி.
+அதற்குப் பதிலாகப் பட்டியலைப் பயன்படுத்த நினைத்திருக்கலாம்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 419 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   416| def test_Tuple_no_item_assignment():
+   417|     a = (1, 2, 3)
+   418|     try:
+--&gt;419|         a[0] = 0
+                ^^^^
+   420|     except TypeError as e:
+
+        a:  (1, 2, 3)
+        a[0]:  1
+</pre></div>
+</div>
+</section>
+<section id="unhachable-type">
+<h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 727, in test_Unhachable_type
+    {[1, 2]: 1}
+TypeError: unhashable type: 'list'
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+புலபடகூடிய பொருட்களை மட்டுமே `தொகுப்பு` இன் உறுப்புகளாக
+அல்லது `அகராதி` இன் திறவுகோல்களாகப் பயன்படுத்த முடியும்.
+புலபடகூடிய பொருள்கள், அவை உருவாக்கப்பட்டவுடன்
+மதிப்பை மாற்றாத பொருள்கள்.ஒரு `பட்டியல்` ஐப் பயன்படுத்துவதற்குப் பதிலாக, ஒரு `மடங்கு` ஐப் பயன்படுத்தவும்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 727 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   725| def test_Unhachable_type():
+   726|     try:
+--&gt;727|         {[1, 2]: 1}
+   728|     except TypeError as e:
+</pre></div>
+</div>
+</section>
+<section id="unsupported-operand-types">
+<h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 310, in test_Unsupported_operand_types
+    a @= b
+TypeError: unsupported operand type(s) for @=: 'str' and 'int'
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+பொருந்தாத இரண்டு வகையான பொருட்களைப் பயன்படுத்தி இயக்கியை
+@= பயன்படுத்த முயற்சித்தீர்கள்:
+ஒரு சரம் (`str`) மற்றும் ஒரு முழுஎண் (`int`).
+இந்த இயக்கி பொதுவாக அணிகளை பெருக்க மட்டுமே
+பயன்படுத்தப்படுகிறது.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 310 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   307| try:
+   308|     a = "a"
+   309|     b = 2
+--&gt;310|     a @= b
+   311| except TypeError as e:
+
+        a:  'a'
+        b:  2
+</pre></div>
+</div>
+</section>
+<section id="divmod">
+<h3>divmod<a class="headerlink" href="#divmod" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
+    result = divmod(a, b)
+TypeError: can't take floor or mod of complex number.
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+The arguments of `divmod` must be integers (`int`) or real (`float`) numbers.
+At least one of the arguments was a complex number.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 55 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   52| a = 2
+   53| b = 3 + 2j
+   54| try:
+--&gt;55|     result = divmod(a, b)
+                    ^^^^^^^^^^^^
+   56| except TypeError as e:
+
+        a:  2
+        b:  (3+2j)
+        divmod:  &lt;builtin function divmod&gt;
+</pre></div>
+</div>
+</section>
+<section id="function-got-multiple-argument">
+<h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
+    fn2(0, a=1)
+TypeError: fn2() got multiple values for argument 'a'
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`fn2` என்ற செயல்பாட்டை அழைக்கும் போது
+வாதத்தின் மதிப்பை `a` ஒன்றுக்கு மேற்பட்ட முறை குறிப்பிட்டுள்ளீர்கள்.
+இந்தச் செயல்பாட்டு பின்வரும் வாதங்களைக் கொண்டுள்ளது:
+`a, b=1`
+
+TESTS:\runtime\test_type_error.py கோப்பின் 951 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   947| def fn2(a, b=1):
+   948|     pass
+   949|
+   950| try:
+--&gt;951|     fn2(0, a=1)
+            ^^^^^^^^^^^
+   952| except TypeError as e:
+
+        fn2:  &lt;function fn2&gt;
+            defined in &lt;function test_function_got_multiple_argument&gt;
+</pre></div>
+</div>
+</section>
+<section id="function-has-no-len">
+<h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
+    len(bad)
+TypeError: object of type 'function' has no len()
+
+    `bad` என்பதை அழைக்க மறந்துவிட்டீர்களா?
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`bad` என்பதை அழைக்க, அடைப்புக்குறிகளைச் சேர்க்க மறந்துவிட்டீர்கள் என்று சந்தேகிக்கிறேன்.
+நீங்கள் இவ்வாறு எழுத நினைத்திருக்கலாம்:
+`len(bad())`
+
+TESTS:\runtime\test_type_error.py கோப்பின் 876 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   872| def bad():
+   873|     pass
+   874|
+   875| try:
+--&gt;876|     len(bad)
+            ^^^^^^^^
+   877| except TypeError as e:
+
+        bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
+        len:  &lt;builtin function len&gt;
+</pre></div>
+</div>
+</section>
+<section id="getattr-attribute-name-must-be-string">
+<h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
+    getattr("__repr__", 1)  # as reported in issue #77
+TypeError: getattr(): attribute name must be string
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`getattr()` செயல்பாட்டின் இரண்டாவது வாதம் ஒரு சரமாக இருக்க வேண்டும்.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 997 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   990| if friendly_traceback.get_lang() == "en":
+   991|     assert (
+   992|         "The second argument of the function `hasattr()` must be a string."
+   993|         in result
+   994|     )
+   995|
+   996| try:
+--&gt;997|     getattr("__repr__", 1)  # as reported in issue #77
+            ^^^^^^^^^^^^^^^^^^^^^^
+   998| except TypeError as e:
+
+        getattr:  &lt;builtin function getattr&gt;
+</pre></div>
+</div>
+</section>
+<section id="method-got-multiple-argument">
+<h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
+    t.some_method(0, a=1)
+TypeError: some_method() got multiple values for argument 'a'
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+`t.some_method` என்ற செயல்பாட்டை அழைக்கும் போது
+வாதத்தின் மதிப்பை `a` ஒன்றுக்கு மேற்பட்ட முறை குறிப்பிட்டுள்ளீர்கள்.
+இந்தச் செயல்பாட்டிற்கு ஒரே ஒரு வாதம் உள்ளது: `a`
+
+TESTS:\runtime\test_type_error.py கோப்பின் 970 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   966|         pass
+   967|
+   968| t = T()
+   969| try:
+--&gt;970|     t.some_method(0, a=1)
+            ^^^^^^^^^^^^^^^^^^^^^
+   971| except TypeError as e:
+
+        t:  &lt;T object&gt;
+            defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
+        t.some_method:  &lt;bound method T.some_method&gt;
+            of &lt;T object&gt;
+            defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
+</pre></div>
+</div>
+</section>
+<section id="vars-arg-must-have-dict">
+<h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
+    vars(f)
+TypeError: vars() argument must have __dict__ attribute
+
+ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
+வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
+தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
+வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
+
+ஒரு பொருளின் `__dict__` பண்புக்கூறின் உள்ளடக்கத்தை பட்டியலிட
+`vars` செயல்பாடு பயன்படுத்தப்படுகிறது.
+பொருள் `f` `__dict__` என்பதற்குப் பதிலாக `__slots__` ஐப் பயன்படுத்துகிறது.
+
+TESTS:\runtime\test_type_error.py கோப்பின் 920 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   916|     assert no_slots not in result
+   917|     assert use_slots not in result
+   918|
+   919| try:
+--&gt;920|     vars(f)
+            ^^^^^^^
+   921| except TypeError as e:
+
+        f:  &lt;F object&gt;
+            defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
+        vars:  &lt;builtin function vars&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="unboundlocalerror">
+<h2>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this headline">¶</a></h2>
+<section id="missing-both">
+<h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
+    outer_missing_both()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 22, in outer_missing_both
+    inner()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 21, in inner
+    spam_missing_both += 1
+UnboundLocalError: local variable 'spam_missing_both' referenced before assignment
+
+    `global spam_missing_both` அல்லது `nonlocal spam_missing_both` ஒன்றைச் சேர்க்க
+    மறந்துவிட்டீர்களா?
+
+பைத்தானில், ஒரு செயல்பாட்டிற்குள் பயன்படுத்தப்படும் மாறிகள் உள்ளூர் மாறிகள் எனப்படும்.
+அவற்றைப் பயன்படுத்துவதற்கு முன், அவற்றிற்கு ஒரு மதிப்பு ஒதுக்கப்பட வேண்டும்.
+ஒரு மதிப்பு ஒதுக்கப்படுவதற்கு முன் பயன்படுத்தப்படும் ஒரு மாறி கருதப்படுகிறது
+அந்த செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட வேண்டும்;
+இது ஒரு உலகளாவிய `global` (அல்லது சில நேரங்களில் உள்ளூர்அல்லாத `nonlocal`) மாறி என அறியப்படுகிறது.
+இது ஒரு உலகளாவிய மாறி என்பதை பைத்தானுக்கு முதலில் குறிப்பிடாமல் ஒரு செயல்பாட்டிற்குள் அத்தகைய உலகளாவிய மாறிக்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது,
+இல்லையெனில் நீங்கள் பார்ப்பீர்கள்
+ஒரு வரம்பற்றஉள்ளூர்பிழை `UnboundLocalError`.
+
+பைத்தானால் அடையாளம் காணப்பட்ட `spam_missing_both` என்ற பெயரைப் பயன்படுத்த முயல்கிறீர்கள்,
+அதற்கு மதிப்பை வழங்குவதற்கு முன், செயல்பாட்டின் உள்ளூர் நோக்கத்தில் உள்ளது.
+
+`spam_missing_both` என்ற பெயர் உலகளாவிய மற்றும் உள்ளூர்அல்லாத இரண்டிலும் உள்ளது.
+இது மிகவும் குழப்பமானதாக இருக்கலாம் மற்றும் பரிந்துரைக்கப்படவில்லை.
+நீங்கள் எந்த மாறியைப் பார்க்க விரும்புகிறீர்கள் என்பதைப் பொறுத்து, உங்கள் செயல்பாட்டிற்குள் முதல் வரியாக
+
+   global spam_missing_both
+
+அல்லது
+
+   nonlocal spam_missing_both
+
+ஐச் சேர்க்க வேண்டும்.
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 63 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   61| def test_Missing_both():
+   62|     try:
+--&gt;63|         outer_missing_both()
+               ^^^^^^^^^^^^^^^^^^^^
+   64|     except UnboundLocalError as e:
+
+        global outer_missing_both:  &lt;function outer_missing_both&gt;
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 21 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   20| def inner():
+--&gt;21|     spam_missing_both += 1
+
+        global spam_missing_both:  1
+</pre></div>
+</div>
+</section>
+<section id="missing-global">
+<h3>Missing global<a class="headerlink" href="#missing-global" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 27, in test_Missing_global
+    outer_missing_global()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 10, in outer_missing_global
+    inner()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 9, in inner
+    spam_missing_global += 1
+UnboundLocalError: local variable 'spam_missing_global' referenced before assignment
+
+    `global spam_missing_global` சேர்க்க மறந்துவிட்டீர்களா?
+
+பைத்தானில், ஒரு செயல்பாட்டிற்குள் பயன்படுத்தப்படும் மாறிகள் உள்ளூர் மாறிகள் எனப்படும்.
+அவற்றைப் பயன்படுத்துவதற்கு முன், அவற்றிற்கு ஒரு மதிப்பு ஒதுக்கப்பட வேண்டும்.
+ஒரு மதிப்பு ஒதுக்கப்படுவதற்கு முன் பயன்படுத்தப்படும் ஒரு மாறி கருதப்படுகிறது
+அந்த செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட வேண்டும்;
+இது ஒரு உலகளாவிய `global` (அல்லது சில நேரங்களில் உள்ளூர்அல்லாத `nonlocal`) மாறி என அறியப்படுகிறது.
+இது ஒரு உலகளாவிய மாறி என்பதை பைத்தானுக்கு முதலில் குறிப்பிடாமல் ஒரு செயல்பாட்டிற்குள் அத்தகைய உலகளாவிய மாறிக்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது,
+இல்லையெனில் நீங்கள் பார்ப்பீர்கள்
+ஒரு வரம்பற்றஉள்ளூர்பிழை `UnboundLocalError`.
+
+பைத்தானால் அடையாளம் காணப்பட்ட `spam_missing_global` என்ற பெயரைப் பயன்படுத்த முயல்கிறீர்கள்,
+அதற்கு மதிப்பை வழங்குவதற்கு முன், செயல்பாட்டின் உள்ளூர் நோக்கத்தில் உள்ளது.
+
+`spam_missing_global` என்ற பெயர் global நோக்கத்தில் உள்ளது.
+ஒருவேளை
+
+   global spam_missing_global
+
+என்ற கூற்று உங்கள் செயல்பாட்டிற்குள் முதல் வரியாக சேர்க்கப்பட்டிருக்க வேண்டும்.
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 27 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   25| def test_Missing_global():
+   26|     try:
+--&gt;27|         outer_missing_global()
+               ^^^^^^^^^^^^^^^^^^^^^^
+   28|     except UnboundLocalError as e:
+
+        global outer_missing_global:  &lt;function outer_missing_global&gt;
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 9 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   8| def inner():
+--&gt;9|     spam_missing_global += 1
+
+        global spam_missing_global:  1
+</pre></div>
+</div>
+</section>
+<section id="missing-nonlocal">
+<h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
+    outer_missing_nonlocal()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 16, in outer_missing_nonlocal
+    inner()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 15, in inner
+    spam_missing_nonlocal += 1
+UnboundLocalError: local variable 'spam_missing_nonlocal' referenced before assignment
+
+    `nonlocal spam_missing_nonlocal` சேர்க்க மறந்துவிட்டீர்களா?
+
+பைத்தானில், ஒரு செயல்பாட்டிற்குள் பயன்படுத்தப்படும் மாறிகள் உள்ளூர் மாறிகள் எனப்படும்.
+அவற்றைப் பயன்படுத்துவதற்கு முன், அவற்றிற்கு ஒரு மதிப்பு ஒதுக்கப்பட வேண்டும்.
+ஒரு மதிப்பு ஒதுக்கப்படுவதற்கு முன் பயன்படுத்தப்படும் ஒரு மாறி கருதப்படுகிறது
+அந்த செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட வேண்டும்;
+இது ஒரு உலகளாவிய `global` (அல்லது சில நேரங்களில் உள்ளூர்அல்லாத `nonlocal`) மாறி என அறியப்படுகிறது.
+இது ஒரு உலகளாவிய மாறி என்பதை பைத்தானுக்கு முதலில் குறிப்பிடாமல் ஒரு செயல்பாட்டிற்குள் அத்தகைய உலகளாவிய மாறிக்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது,
+இல்லையெனில் நீங்கள் பார்ப்பீர்கள்
+ஒரு வரம்பற்றஉள்ளூர்பிழை `UnboundLocalError`.
+
+பைத்தானால் அடையாளம் காணப்பட்ட `spam_missing_nonlocal` என்ற பெயரைப் பயன்படுத்த முயல்கிறீர்கள்,
+அதற்கு மதிப்பை வழங்குவதற்கு முன், செயல்பாட்டின் உள்ளூர் நோக்கத்தில் உள்ளது.
+
+`spam_missing_nonlocal` என்ற பெயர் nonlocal நோக்கத்தில் உள்ளது.
+ஒருவேளை
+
+   nonlocal spam_missing_nonlocal
+
+என்ற கூற்று உங்கள் செயல்பாட்டிற்குள் முதல் வரியாக சேர்க்கப்பட்டிருக்க வேண்டும்.
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 45 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   43| def test_Missing_nonlocal():
+   44|     try:
+--&gt;45|         outer_missing_nonlocal()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+   46|     except UnboundLocalError as e:
+
+        global outer_missing_nonlocal:  &lt;function outer_missing_nonlocal&gt;
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 15 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   14| def inner():
+--&gt;15|     spam_missing_nonlocal += 1
+</pre></div>
+</div>
+</section>
+<section id="typo-in-local">
+<h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
+    test2()
+  File "TESTS:\runtime\test_unbound_local_error.py", line 98, in test2
+    alpha3 += 1
+UnboundLocalError: local variable 'alpha3' referenced before assignment
+
+    `alpha1` எனக் குறிப்பிடுகிறீர்களா?
+
+பைத்தானில், ஒரு செயல்பாட்டிற்குள் பயன்படுத்தப்படும் மாறிகள் உள்ளூர் மாறிகள் எனப்படும்.
+அவற்றைப் பயன்படுத்துவதற்கு முன், அவற்றிற்கு ஒரு மதிப்பு ஒதுக்கப்பட வேண்டும்.
+ஒரு மதிப்பு ஒதுக்கப்படுவதற்கு முன் பயன்படுத்தப்படும் ஒரு மாறி கருதப்படுகிறது
+அந்த செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட வேண்டும்;
+இது ஒரு உலகளாவிய `global` (அல்லது சில நேரங்களில் உள்ளூர்அல்லாத `nonlocal`) மாறி என அறியப்படுகிறது.
+இது ஒரு உலகளாவிய மாறி என்பதை பைத்தானுக்கு முதலில் குறிப்பிடாமல் ஒரு செயல்பாட்டிற்குள் அத்தகைய உலகளாவிய மாறிக்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது,
+இல்லையெனில் நீங்கள் பார்ப்பீர்கள்
+ஒரு வரம்பற்றஉள்ளூர்பிழை `UnboundLocalError`.
+
+`alpha3` என்று எழுதுவதற்குப் பதிலாக, நீங்கள் பின்வருவனவற்றில் ஒன்றைக் குறிப்பிட்டிருக்கலாம்:
+*   உள்ளூர் நோக்கம்: `alpha1`, `alpha2`
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 101 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+    97|     alpha2 = 1
+    98|     alpha3 += 1
+    99|
+   100| try:
+--&gt;101|     test2()
+            ^^^^^^^
+   102| except UnboundLocalError as e:
+
+        test2:  &lt;function test2&gt; defined in &lt;function test_Typo_in_local&gt;
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 98 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   95| def test2():
+   96|     alpha1 = 1
+   97|     alpha2 = 1
+--&gt;98|     alpha3 += 1
+</pre></div>
+</div>
+</section>
+<section id="using-name-of-builtin">
+<h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
+    dist([])
+  File "TESTS:\runtime\test_unbound_local_error.py", line 117, in dist
+    max = max(points)
+UnboundLocalError: local variable 'max' referenced before assignment
+
+பைத்தானில், ஒரு செயல்பாட்டிற்குள் பயன்படுத்தப்படும் மாறிகள் உள்ளூர் மாறிகள் எனப்படும்.
+அவற்றைப் பயன்படுத்துவதற்கு முன், அவற்றிற்கு ஒரு மதிப்பு ஒதுக்கப்பட வேண்டும்.
+ஒரு மதிப்பு ஒதுக்கப்படுவதற்கு முன் பயன்படுத்தப்படும் ஒரு மாறி கருதப்படுகிறது
+அந்த செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட வேண்டும்;
+இது ஒரு உலகளாவிய `global` (அல்லது சில நேரங்களில் உள்ளூர்அல்லாத `nonlocal`) மாறி என அறியப்படுகிறது.
+இது ஒரு உலகளாவிய மாறி என்பதை பைத்தானுக்கு முதலில் குறிப்பிடாமல் ஒரு செயல்பாட்டிற்குள் அத்தகைய உலகளாவிய மாறிக்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது,
+இல்லையெனில் நீங்கள் பார்ப்பீர்கள்
+ஒரு வரம்பற்றஉள்ளூர்பிழை `UnboundLocalError`.
+
+`max` என்பது பைதான் உள்ளமைக்கப்பட்ட செயல்பாடு.
+செயல்பாட்டில் அதன் அசல் பொருளைப் பயன்படுத்தும் போது, ஒரு
+செயல்பாட்டிற்குள் `max` க்கு மதிப்பை ஒதுக்க முயற்சித்தீர்கள்.
+
+பைதான் உள்ளமைக்கப்பட்ட செயல்பாட்டின் அதே பெயரை உள்ளூர் மாறிக்கு
+வழங்குவது பொதுவாக நல்ல யோசனையல்ல என்பதை நினைவில் கொள்க (`max` போன்றவை).
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 121 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+
+   118|     min = min(points)
+   119|     return max - min
+   120| try:
+--&gt;121|     dist([])
+            ^^^^^^^^
+   122| except UnboundLocalError as e:
+
+        dist:  &lt;function dist&gt; defined in &lt;function test_Using_name_of_builtin&gt;
+
+TESTS:\runtime\test_unbound_local_error.py கோப்பின் 117 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   116| def dist(points):
+--&gt;117|     max = max(points)
+                  ^^^
+   118|     min = min(points)
+
+        max:  &lt;builtin function max&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="unknownerror">
+<h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
+<section id="id7">
+<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
+    raise UnknownException("Some informative message about an unknown exception.")
+UnknownException: Some informative message about an unknown exception.
+
+இந்த விதிவிலக்கு பற்றி எந்த தகவலும் தெரியவில்லை.
+தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
+https://github.com/friendly-traceback/friendly-traceback/issues/new
+நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+
+நீங்கள் நட்பு பணியகத்தை பயன்படுத்துகிறீர்கள் என்றால், அதற்கு `www()` ஐப்
+பயன்படுத்தி இந்த குறிப்பிட்ட வழக்கை இணையத்தில் தேடுங்கள்.
+
+TESTS:\runtime\test_unknown_error.py கோப்பின் 12 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+    9| old_debug = friendly_traceback.debug_helper.DEBUG
+   10| friendly_traceback.debug_helper.DEBUG = False
+   11| try:
+--&gt;12|     raise UnknownException("Some informative message about an unknown exception.")
+   13| except Exception as e:
+
+        global UnknownException:  &lt;class test_unknown_error.UnknownException&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="valueerror">
+<h2>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h2>
+<section id="convert-to-int">
+<h3>Convert to int<a class="headerlink" href="#convert-to-int" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 187, in test_Convert_to_int
+    int('13a')
+ValueError: invalid literal for int() with base 10: '13a'
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`'13a'` என்பது அடிப்படை `10` இல் உள்ள `int()` க்கான தவறான மதிப்புரு.
+அடிப்படை `10` இல், `int()` என்பது `0` லிருந்து `9` இலக்கங்களைக்
+கொண்ட சரத்தை முழு எண்ணாக மாற்றப் பயன்படுத்தப்படுகிறது.
+பின்வரும் எழுத்துகள் அனுமதிக்கப்படாது: `a`.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 187 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   183| if english:
+   184|     assert "needs to be first converted using `float()`" in result
+   185|
+   186| try:
+--&gt;187|     int('13a')
+            ^^^^^^^^^^
+   188| except ValueError as e:
+
+        int:  &lt;class int&gt;
+</pre></div>
+</div>
+</section>
+<section id="could-not-convert-to-float">
+<h3>Could not convert to float<a class="headerlink" href="#could-not-convert-to-float" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+    float("42b")
+ValueError: could not convert string to float: '42b'
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`42b` சரத்தை `float` ஆக மாற்ற முடியாது.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 88 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   86| def test_Could_not_convert_to_float():
+   87|     try:
+--&gt;88|         float("42b")
+               ^^^^^^^^^^^^
+   89|     except ValueError as e:
+
+        float:  &lt;class float&gt;
+</pre></div>
+</div>
+</section>
+<section id="date-invalid-month">
+<h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
+    d = date(2021, 13, 1)
+ValueError: month must be in 1..12
+
+    செல்லாத மாதத்தைக் குறிப்பிட்டீர்களா?
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`தேதி` பொருளில் ஒரு மாதத்திற்கான தவறான மதிப்பை நீங்கள் குறிப்பிடுகிறீர்கள் என்று நினைக்கிறேன்.
+சரியான மதிப்புகள் 1 முதல் 12 வரையிலான முழு எண்களாகும்.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 58 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   55| def test_Date_invalid_month():
+   56|     from datetime import date
+   57|     try:
+--&gt;58|         d = date(2021, 13, 1)
+                   ^^^^^^^^^^^^^^^^^
+   59|     except ValueError as e:
+
+        date:  &lt;class datetime.date&gt;
+</pre></div>
+</div>
+</section>
+<section id="not-enough-values-to-unpack">
+<h3>Not enough values to unpack<a class="headerlink" href="#not-enough-values-to-unpack" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 28, in test_Not_enough_values_to_unpack
+    a, b, c = d
+ValueError: not enough values to unpack (expected 3, got 2)
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+கட்டவிழ் என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும்
+ஒரு பெயரை ஒதுக்க ஒரு வசதியான வழியாகும்.
+இந்த நிகழ்வில், மறுசெய்யக்கூடிய நீளத்தை விட (3)
+அதிக பெயர்கள் உள்ளன, ஒரு சரம் (`str`) நீளம் 2.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 28 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   24| assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
+   25|
+   26| d = "ab"
+   27| try:
+--&gt;28|     a, b, c = d
+   29| except ValueError as e:
+
+        d:  'ab'
+</pre></div>
+</div>
+</section>
+<section id="pow-third-arg-cannot-be-zero">
+<h3>Pow third arg cannot be zero<a class="headerlink" href="#pow-third-arg-cannot-be-zero" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+    pow(2, 4, a)
+ValueError: pow() 3rd argument cannot be 0
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`pow()` செயல்பாட்டின் மூன்றாவது வாதம் சுழியமாக இருக்க முடியாது.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 103 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   100| def test_Pow_third_arg_cannot_be_zero():
+   101|     a = 0
+   102|     try:
+--&gt;103|         pow(2, 4, a)
+                ^^^^^^^^^^^^
+   104|     except ValueError as e:
+
+        a:  0
+        pow:  &lt;builtin function pow&gt;
+</pre></div>
+</div>
+</section>
+<section id="slots-conflicts-with-class-variable">
+<h3>Slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+    class F:
+ValueError: 'a' in __slots__ conflicts with class variable
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`a` என்ற பெயர் வகுப்பு மாறியின் பெயராகவும், `__slots__` வகுப்பில் சரம்
+உருப்படியாகவும் பயன்படுத்தப்படுகிறது;
+இது அனுமதிக்கப்படவில்லை.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 72 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   70| def test_Slots_conflicts_with_class_variable():
+   71|     try:
+--&gt;72|         class F:
+   73|             __slots__ = ["a", "b"]
+</pre></div>
+</div>
+</section>
+<section id="too-many-values-to-unpack">
+<h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
+    a, b = c
+ValueError: too many values to unpack (expected 2)
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+கட்டவிழ் என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும்
+ஒரு பெயரை ஒதுக்க ஒரு வசதியான வழியாகும்.
+இந்த நிகழ்வில், மறுசெய்யக்கூடிய நீளத்தை விட (2)
+குறைவான பெயர்கள் உள்ளன, ஒரு `பட்டியல்` நீளம் 3.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 43 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   40| def test_Too_many_values_to_unpack():
+   41|     c = [1, 2, 3]
+   42|     try:
+--&gt;43|         a, b = c
+   44|     except ValueError as e:
+
+        c:  [1, 2, 3]
+</pre></div>
+</div>
+</section>
+<section id="int-base-not-in-range">
+<h3>int base not in range<a class="headerlink" href="#int-base-not-in-range" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 201, in test_int_base_not_in_range
+    int('18', base=37)
+ValueError: int() base must be &gt;= 2 and &lt;= 36, or 0
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+`int()` இன் வாதத்தின் `base` சுழியமாகவோ அல்லது
+2 முதல் 36 வரையிலான முழு எண்ணாகவோ இருக்க வேண்டும்.
+அனுமதிக்கப்படாத 37 என்று எழுதியுள்ளீர்கள்.
+
+TESTS:\runtime\test_value_error.py கோப்பின் 201 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   199| def test_int_base_not_in_range():
+   200|     try:
+--&gt;201|         int('18', base=37)
+                ^^^^^^^^^^^^^^^^^^
+   202|     except ValueError as e:
+
+        int:  &lt;class int&gt;
+</pre></div>
+</div>
+</section>
+<section id="time-strptime-incorrect-format">
+<h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
+    time.strptime("2020-01-01", "%d %m %Y")
+ValueError: time data '2020-01-01' does not match format '%d %m %Y'
+
+ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+
+நேரத்திற்கு நீங்கள் கொடுத்த மதிப்பு நீங்கள் குறிப்பிட்ட வடிவத்தில் இல்லை.
+உருப்படிகளுக்கு இடையில் ஒரே பிரிப்பானைப் பயன்படுத்துவதை உறுதிசெய்து
+(உதாரணமாக, நாள் மற்றும் மாதத்திற்கு இடையில்) மற்றும் வழங்கப்பட்ட தரவு
+மற்றும் நீங்கள் குறிப்பிட்ட வடிவமைப்பு இரண்டிலும் வரிசையை ஒரே மாதிரியாக வைத்திருக்கவும்.
+பின்வரும் அட்டவணை பயனுள்ளதாக இருக்கும்:
+https://docs.python.org/3/library/time.html#time.strftime
+பின்வரும் தளமும் பயனுள்ளதாக இருக்கும்: https://www.strfti.me/
+
+TESTS:\runtime\test_value_error.py கோப்பின் 127 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   123|     return
+   124|
+   125| import time
+   126| try:
+--&gt;127|     time.strptime("2020-01-01", "%d %m %Y")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   128| except ValueError as e:
+
+        time:  &lt;module time (builtin)&gt;
+        time.strptime:  &lt;builtin function strptime&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="zerodivisionerror">
+<h2>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h2>
+<section id="complex-division">
+<h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
+    1 / zero
+ZeroDivisionError: complex division by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+    zero
+
+மூலம் நீங்கள் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 173 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   170| def test_Complex_division():
+   171|     zero = 0j
+   172|     try:
+--&gt;173|         1 / zero
+                ^^^^^^^^
+   174|     except ZeroDivisionError as e:
+
+        zero:  0j
+</pre></div>
+</div>
+</section>
+<section id="division-by-zero-literal">
+<h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+    1.0 / 0
+ZeroDivisionError: float division by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+நீங்கள் சுழியத்தால் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 220 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   216| if friendly_traceback.get_lang() == "en":
+   217|     assert "Using the modulo operator, you are dividing by zero" in result
+   218|
+   219| try:
+--&gt;220|     1.0 / 0
+            ^^^^^^^
+   221| except ZeroDivisionError as e:
+</pre></div>
+</div>
+</section>
+<section id="division-operator">
+<h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
+    1 / zero
+ZeroDivisionError: division by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+    zero
+
+மூலம் நீங்கள் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 20 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   13| if friendly_traceback.get_lang() == "en":
+   14|     assert (
+   15|         "The following mathematical expression includes a division by zero"
+   16|         in result
+   17|     )
+   18|
+   19| try:
+--&gt;20|     1 / zero
+           ^^^^^^^^
+   21| except ZeroDivisionError as e:
+
+        zero:  0
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
+    divmod(1, zero)
+ZeroDivisionError: integer division or modulo by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+`divmod()` செயல்பாட்டின் இரண்டாவது வாதம் சுழியமாகும்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 97 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   94| def test_Divmod():
+   95|     zero = 0
+   96|     try:
+--&gt;97|         divmod(1, zero)
+               ^^^^^^^^^^^^^^^
+   98|     except ZeroDivisionError as e:
+
+        zero:  0
+        divmod:  &lt;builtin function divmod&gt;
+</pre></div>
+</div>
+</section>
+<section id="float-division">
+<h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
+    1 / zero
+ZeroDivisionError: float division by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+    zero
+
+மூலம் நீங்கள் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 143 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   140| def test_Float_division():
+   141|     zero = 0.0
+   142|     try:
+--&gt;143|         1 / zero
+                ^^^^^^^^
+   144|     except ZeroDivisionError as e:
+
+        zero:  0.0
+</pre></div>
+</div>
+</section>
+<section id="float-divmod">
+<h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
+    divmod(1, zero)
+ZeroDivisionError: float divmod()
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+`divmod()` செயல்பாட்டின் இரண்டாவது வாதம் சுழியத்திற்குச் சமம்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 158 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   155| def test_Float_divmod():
+   156|     zero = 0.0
+   157|     try:
+--&gt;158|         divmod(1, zero)
+                ^^^^^^^^^^^^^^^
+   159|     except ZeroDivisionError as e:
+
+        zero:  0.0
+        divmod:  &lt;builtin function divmod&gt;
+</pre></div>
+</div>
+</section>
+<section id="float-modulo">
+<h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
+    1 % zero
+ZeroDivisionError: float modulo
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+மட்டு இயக்கியைப் பயன்படுத்தி, சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+ zero
+
+மூலம் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 128 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   121|     assert (
+   122|         "The following mathematical expression includes a division by zero"
+   123|         in result
+   124|     )
+   125|     assert "done using the modulo operator" in result
+   126|
+   127| try:
+--&gt;128|     1 % zero
+            ^^^^^^^^
+   129| except ZeroDivisionError as e:
+
+        zero:  0.0
+</pre></div>
+</div>
+</section>
+<section id="integer-division-operator">
+<h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
+    1 // zero
+ZeroDivisionError: integer division or modulo by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+    zero
+
+மூலம் நீங்கள் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 48 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   41| if friendly_traceback.get_lang() == "en":
+   42|     assert (
+   43|         "The following mathematical expression includes a division by zero"
+   44|         in result
+   45|     )
+   46|
+   47| try:
+--&gt;48|     1 // zero
+           ^^^^^^^^^
+   49| except ZeroDivisionError as e:
+
+        zero:  0
+</pre></div>
+</div>
+</section>
+<section id="mixed-operations">
+<h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
+    a = divmod(8, 1 // 2)
+ZeroDivisionError: integer division or modulo by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+பின்வரும் கணித வெளிப்பாடு சுழியத்தால் வகுத்தல்:
+
+   divmod(8, 1 // 2)
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 233 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   231| def test_Mixed_operations():
+   232|     try:
+--&gt;233|         a = divmod(8, 1 // 2)
+                    ^^^^^^^^^^^^^^^^^
+   234|     except ZeroDivisionError as e:
+
+        divmod:  &lt;builtin function divmod&gt;
+        1 // 2:  0
+</pre></div>
+</div>
+</section>
+<section id="modulo-operator">
+<h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
+    1 % zero
+ZeroDivisionError: integer division or modulo by zero
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+மட்டு இயக்கியைப் பயன்படுத்தி, சுழியத்திற்குச் சமமான பின்வரும் பதம்
+
+ zero
+
+மூலம் வகுக்கிறீர்கள்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 79 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   72| if friendly_traceback.get_lang() == "en":
+   73|     assert (
+   74|         "The following mathematical expression includes a division by zero"
+   75|         in result
+   76|     )
+   77|
+   78| try:
+--&gt;79|     1 % zero
+           ^^^^^^^^
+   80| except ZeroDivisionError as e:
+
+        zero:  0
+</pre></div>
+</div>
+</section>
+<section id="raise-zero-negative-power">
+<h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+    zero**-1
+ZeroDivisionError: 0.0 cannot be raised to a negative power
+
+ஒரு மதிப்பை சுழியத்தால் நேரடியாகவோ அல்லது வேறு சில கணிதச்
+செயல்பாட்டைப் பயன்படுத்தியோ வகுக்க முயற்சிக்கும்போது சுழியவகுத்தல்பிழை `ZeroDivisionError` ஏற்படுகிறது.
+
+நீங்கள் எண் 0 ஐ எதிர்மறை சக்தியாக உயர்த்த முயற்சிக்கிறீர்கள்,
+இது சுழியத்தால் வகுக்கும் சமமானதாகும்.
+
+TESTS:\runtime\test_zero_division_error.py கோப்பின் 188 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+
+   185| def test_Raise_zero_negative_power():
+   186|     zero = 0
+   187|     try:
+--&gt;188|         zero**-1
+                ^^^^^^^^
+   189|     except ZeroDivisionError as e:
+
+        zero:  0
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="syntax_tracebacks_ta.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Friendly SyntaxError tracebacks - in தமிழ் மொழி</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="syntax_tracebacks_ru.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Friendly SyntaxError tracebacks - in Русский</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/tracebacks_ta.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Friendly tracebacks - in தமிழ் மொழி</a><ul>
+<li><a class="reference internal" href="#arithmeticerror">ArithmeticError</a><ul>
+<li><a class="reference internal" href="#generic">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#assertionerror">AssertionError</a><ul>
+<li><a class="reference internal" href="#id1">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#attributeerror">AttributeError</a><ul>
+<li><a class="reference internal" href="#attribute-from-other-module">Attribute from other module</a></li>
+<li><a class="reference internal" href="#builtin-function">Builtin function</a></li>
+<li><a class="reference internal" href="#builtin-module-with-no-file">Builtin module with no file</a></li>
+<li><a class="reference internal" href="#circular-import">Circular import</a></li>
+<li><a class="reference internal" href="#circular-import-b">Circular import b</a></li>
+<li><a class="reference internal" href="#id2">Generic</a></li>
+<li><a class="reference internal" href="#generic-different-frame">Generic different frame</a></li>
+<li><a class="reference internal" href="#generic-instance">Generic instance</a></li>
+<li><a class="reference internal" href="#module-attribute-typo">Module attribute typo</a></li>
+<li><a class="reference internal" href="#nonetype">Nonetype</a></li>
+<li><a class="reference internal" href="#object-attribute-typo">Object attribute typo</a></li>
+<li><a class="reference internal" href="#perhaps-comma">Perhaps comma</a></li>
+<li><a class="reference internal" href="#read-only">Read only</a></li>
+<li><a class="reference internal" href="#shadow-stdlib-module">Shadow stdlib module</a></li>
+<li><a class="reference internal" href="#tuple-by-accident">Tuple by accident</a></li>
+<li><a class="reference internal" href="#use-builtin">Use builtin</a></li>
+<li><a class="reference internal" href="#use-join-with-str">Use join with str</a></li>
+<li><a class="reference internal" href="#use-synonym">Use synonym</a></li>
+<li><a class="reference internal" href="#using-slots">Using slots</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filenotfounderror">FileNotFoundError</a><ul>
+<li><a class="reference internal" href="#directory-not-found">Directory not found</a></li>
+<li><a class="reference internal" href="#filename-not-found">Filename not found</a></li>
+<li><a class="reference internal" href="#filename-not-found-2">Filename not found 2</a></li>
+<li><a class="reference internal" href="#filename-not-found-3">Filename not found 3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#importerror">ImportError</a><ul>
+<li><a class="reference internal" href="#simple-import-error">Simple import error</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indexerror">IndexError</a><ul>
+<li><a class="reference internal" href="#assignment">Assignment</a></li>
+<li><a class="reference internal" href="#empty">Empty</a></li>
+<li><a class="reference internal" href="#long-list">Long list</a></li>
+<li><a class="reference internal" href="#short-tuple">Short tuple</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyerror">KeyError</a><ul>
+<li><a class="reference internal" href="#chainmap">ChainMap</a></li>
+<li><a class="reference internal" href="#forgot-to-convert-to-string">Forgot to convert to string</a></li>
+<li><a class="reference internal" href="#generic-key-error">Generic key error</a></li>
+<li><a class="reference internal" href="#popitem-empty-chainmap">Popitem empty ChainMap</a></li>
+<li><a class="reference internal" href="#popitem-empty-dict">Popitem empty dict</a></li>
+<li><a class="reference internal" href="#similar-names">Similar names</a></li>
+<li><a class="reference internal" href="#string-by-mistake">String by mistake</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lookuperror">LookupError</a><ul>
+<li><a class="reference internal" href="#id3">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modulenotfounderror">ModuleNotFoundError</a><ul>
+<li><a class="reference internal" href="#need-to-install-module">Need to install module</a></li>
+<li><a class="reference internal" href="#not-a-package">Not a package</a></li>
+<li><a class="reference internal" href="#not-a-package-similar-name">Not a package similar name</a></li>
+<li><a class="reference internal" href="#object-not-module">Object not module</a></li>
+<li><a class="reference internal" href="#similar-object-not-module">Similar object not module</a></li>
+<li><a class="reference internal" href="#standard-library-module">Standard library module</a></li>
+<li><a class="reference internal" href="#no-curses">no curses</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nameerror">NameError</a><ul>
+<li><a class="reference internal" href="#annotated-variable">Annotated variable</a></li>
+<li><a class="reference internal" href="#custom-name">Custom name</a></li>
+<li><a class="reference internal" href="#free-variable-referenced">Free variable referenced</a></li>
+<li><a class="reference internal" href="#id4">Generic</a></li>
+<li><a class="reference internal" href="#missing-import">Missing import</a></li>
+<li><a class="reference internal" href="#missing-module-name">Missing module name</a></li>
+<li><a class="reference internal" href="#missing-self-1">Missing self 1</a></li>
+<li><a class="reference internal" href="#missing-self-2">Missing self 2</a></li>
+<li><a class="reference internal" href="#synonym">Synonym</a></li>
+<li><a class="reference internal" href="#missing-import2">missing import2</a></li>
+<li><a class="reference internal" href="#missing-import3">missing import3</a></li>
+<li><a class="reference internal" href="#special-keyword">special keyword</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oserror">OsError</a><ul>
+<li><a class="reference internal" href="#urllib-error">Urllib error</a></li>
+<li><a class="reference internal" href="#invalid-argument">invalid argument</a></li>
+<li><a class="reference internal" href="#no-information">no information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overflowerror">OverflowError</a><ul>
+<li><a class="reference internal" href="#id5">Generic</a></li>
+<li><a class="reference internal" href="#huge-lenght">Huge lenght</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recursionerror">RecursionError</a><ul>
+<li><a class="reference internal" href="#id6">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#typeerror">TypeError</a><ul>
+<li><a class="reference internal" href="#argument-of-object-is-not-iterable">Argument of object is not iterable</a></li>
+<li><a class="reference internal" href="#bad-type-for-unary-operator">Bad type for unary operator</a></li>
+<li><a class="reference internal" href="#builtin-has-no-len">Builtin has no len</a></li>
+<li><a class="reference internal" href="#can-only-concatenate">Can only concatenate</a></li>
+<li><a class="reference internal" href="#cannot-convert-dictionary-update-sequence">Cannot convert dictionary update sequence</a></li>
+<li><a class="reference internal" href="#cannot-multiply-by-non-int">Cannot multiply by non int</a></li>
+<li><a class="reference internal" href="#cannot-unpack-non-iterable-object">Cannot unpack non iterable object</a></li>
+<li><a class="reference internal" href="#comparison-not-supported">Comparison not supported</a></li>
+<li><a class="reference internal" href="#derive-from-baseexception">Derive from BaseException</a></li>
+<li><a class="reference internal" href="#generator-has-no-len">Generator has no len</a></li>
+<li><a class="reference internal" href="#indices-must-be-integers-or-slices">Indices must be integers or slices</a></li>
+<li><a class="reference internal" href="#not-an-integer">Not an integer</a></li>
+<li><a class="reference internal" href="#not-callable">Not callable</a></li>
+<li><a class="reference internal" href="#object-is-not-iterable">Object is not iterable</a></li>
+<li><a class="reference internal" href="#object-is-not-subscriptable">Object is not subscriptable</a></li>
+<li><a class="reference internal" href="#slice-indices-must-be-integers-or-none">Slice indices must be integers or None</a></li>
+<li><a class="reference internal" href="#too-few-positional-argument">Too few positional argument</a></li>
+<li><a class="reference internal" href="#too-many-positional-argument">Too many positional argument</a></li>
+<li><a class="reference internal" href="#tuple-no-item-assignment">Tuple no item assignment</a></li>
+<li><a class="reference internal" href="#unhachable-type">Unhachable type</a></li>
+<li><a class="reference internal" href="#unsupported-operand-types">Unsupported operand types</a></li>
+<li><a class="reference internal" href="#divmod">divmod</a></li>
+<li><a class="reference internal" href="#function-got-multiple-argument">function got multiple argument</a></li>
+<li><a class="reference internal" href="#function-has-no-len">function has no len</a></li>
+<li><a class="reference internal" href="#getattr-attribute-name-must-be-string">getattr attribute name must be string</a></li>
+<li><a class="reference internal" href="#method-got-multiple-argument">method got multiple argument</a></li>
+<li><a class="reference internal" href="#vars-arg-must-have-dict">vars arg must have dict</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unboundlocalerror">UnboundLocalError</a><ul>
+<li><a class="reference internal" href="#missing-both">Missing both</a></li>
+<li><a class="reference internal" href="#missing-global">Missing global</a></li>
+<li><a class="reference internal" href="#missing-nonlocal">Missing nonlocal</a></li>
+<li><a class="reference internal" href="#typo-in-local">Typo in local</a></li>
+<li><a class="reference internal" href="#using-name-of-builtin">Using name of builtin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unknownerror">UnknownError</a><ul>
+<li><a class="reference internal" href="#id7">Generic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#valueerror">ValueError</a><ul>
+<li><a class="reference internal" href="#convert-to-int">Convert to int</a></li>
+<li><a class="reference internal" href="#could-not-convert-to-float">Could not convert to float</a></li>
+<li><a class="reference internal" href="#date-invalid-month">Date invalid month</a></li>
+<li><a class="reference internal" href="#not-enough-values-to-unpack">Not enough values to unpack</a></li>
+<li><a class="reference internal" href="#pow-third-arg-cannot-be-zero">Pow third arg cannot be zero</a></li>
+<li><a class="reference internal" href="#slots-conflicts-with-class-variable">Slots conflicts with class variable</a></li>
+<li><a class="reference internal" href="#too-many-values-to-unpack">Too many values to unpack</a></li>
+<li><a class="reference internal" href="#int-base-not-in-range">int base not in range</a></li>
+<li><a class="reference internal" href="#time-strptime-incorrect-format">time strptime incorrect format</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#zerodivisionerror">ZeroDivisionError</a><ul>
+<li><a class="reference internal" href="#complex-division">Complex division</a></li>
+<li><a class="reference internal" href="#division-by-zero-literal">Division by zero literal</a></li>
+<li><a class="reference internal" href="#division-operator">Division operator</a></li>
+<li><a class="reference internal" href="#id8">Divmod</a></li>
+<li><a class="reference internal" href="#float-division">Float division</a></li>
+<li><a class="reference internal" href="#float-divmod">Float divmod</a></li>
+<li><a class="reference internal" href="#float-modulo">Float modulo</a></li>
+<li><a class="reference internal" href="#integer-division-operator">Integer division operator</a></li>
+<li><a class="reference internal" href="#mixed-operations">Mixed operations</a></li>
+<li><a class="reference internal" href="#modulo-operator">Modulo operator</a></li>
+<li><a class="reference internal" href="#raise-zero-negative-power">Raise zero negative power</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>

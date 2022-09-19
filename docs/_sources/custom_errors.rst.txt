@@ -34,6 +34,13 @@ Example:
 will accept any parameterless function that returns a string.
 
 
+.. danger::
+
+    info_specific no longer exists with version 0.5.59 and above.
+    the following will need to be rewritten for the newer version.
+
+
+
 Use the second decorator
 :func:`@friendly_traceback.info_specific.register <friendly_traceback.info_specific.register>`
 to register a specific description for a particular error instance.

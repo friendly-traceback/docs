@@ -9,7 +9,7 @@
    :class: sidebar-logo
 
 
-Bienvenue 환영합니다 Bienvenido - ようこそ Welcome  歡迎光臨
+Welcome வரவேற்பு ¡Bienvenido! - Bienvenue Добро пожаловать Benvenuto!
 ========================================================================
 
 **Friendly** helps users understand what caused a given
@@ -380,20 +380,36 @@ could easily be added.
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: בעברית
-
-   tracebacks_he
-   syntax_tracebacks_he
-
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
    :caption: In italiano
 
    tracebacks_it
    syntax_tracebacks_it
 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Русский
+
+   tracebacks_ru
+   syntax_tracebacks_ru
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: தமிழ் மொழி
+
+   tracebacks_ta
+   syntax_tracebacks_ta
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: בעברית
+
+   tracebacks_he
+   syntax_tracebacks_he
 
 .. toctree::
    :maxdepth: 1

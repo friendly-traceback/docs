@@ -1,0 +1,4773 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in தமிழ் மொழி" href="tracebacks_ta.html" /><link rel="prev" title="Friendly tracebacks - in Русский" href="tracebacks_ru.html" />
+
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>Friendly SyntaxError tracebacks - in Русский - friendly-traceback 0.6.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #FFFFFF;
+  --color-code-foreground: #101010;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">friendly-traceback 0.6.0</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.6.0</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.9.html">Friendly tracebacks - Python 3.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En español</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_es.html">Friendly tracebacks - en español</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_es.html">Friendly SyntaxError tracebacks - en español</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_it.html">Friendly tracebacks - in italiano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Русский</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_ru.html">Friendly tracebacks - in Русский</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Friendly SyntaxError tracebacks - in Русский</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">தமிழ் மொழி</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_ta.html">Friendly tracebacks - in தமிழ் மொழி</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_ta.html">Friendly SyntaxError tracebacks - in தமிழ் மொழி</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_he.html">Friendly SyntaxError tracebacks - בעברית</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.6.html">Friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.7.html">Friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.8.html">Friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.10.html">Friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_en_3.11.html">Friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="friendly-syntaxerror-tracebacks-in">
+<h1>Friendly SyntaxError tracebacks - in Русский<a class="headerlink" href="#friendly-syntaxerror-tracebacks-in" title="Permalink to this headline">¶</a></h1>
+<p>Friendly aims to provide friendlier feedback when an exception
+is raised than what is done by Python.</p>
+<p>This file contains only examples of SyntaxError and its sub-classes.
+Some tests may appear to be repetitive to a human reader
+but they are may be included to ensure more complete test coverage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The content of this page is generated by running
+<cite>trb_syntax_russian.py</cite> located in the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.
+This needs to be done explicitly, independently of updating the
+documentation using Sphinx.
+On Windows, if Sphinx is installed on your computer, it is suggested
+instead to run make_trb.bat in the root directory as it will create
+similar files for all languages <em>and</em> update the documentation.</p>
+</div>
+<p>Friendly-traceback version: 0.6.0
+Python version: 3.9.10</p>
+<section id="using-and-in-import-statement">
+<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\and_in_import_statement.py", line 1
+    from math import sin and cos
+                         ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\and_in_import_statement.py'
+в указанном ^ месте.
+
+
+   1| from math import sin and cos
+                           ^^^
+
+Ключевое слово Python 'and' можно использовать только для булевых выражений.
+Возможно, вы хотели написать
+
+`from math import sin , cos`
+</pre></div>
+</div>
+</section>
+<section id="using-and-after-comma-in-import-statement">
+<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\and_in_import_statement_2.py", line 1
+    from math import sin, tan, and cos
+                               ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\and_in_import_statement_2.py'
+в указанном ^ месте.
+
+
+   1| from math import sin, tan, and cos
+                                 ^^^
+
+Ключевое слово Python 'and' можно использовать только для булевых выражений.
+Возможно, вы хотели написать
+
+`from math import sin, tan,  cos`
+</pre></div>
+</div>
+</section>
+<section id="annotated-name-cannot-be-global">
+<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\annotated_name_global.py", line 4
+    var:int = 1
+    ^
+SyntaxError: annotated name 'var' can't be global
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\annotated_name_global.py'
+в указанном ^ месте.
+
+
+   4|     var:int = 1
+          ^^^
+
+Объект с именем `var` определен с аннотацией типа
+как локальная переменная. Он не может быть объявлен как глобальная переменная.
+</pre></div>
+</div>
+</section>
+<section id="incorrect-use-of-from-module-import-as">
+<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\as_instead_of_comma_in_import.py", line 2
+    from math import (sin, cos) as funcs
+                                ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\as_instead_of_comma_in_import.py'
+в указанном ^ месте.
+
+
+   2| from math import (sin, cos) as funcs
+                                  ^^
+
+Предполагаю, что вы пытаетесь импортировать по крайней мере один объект
+из модуля `math` и переименовать его с помощью ключевого слова Python `as`;
+Это ключевое слово может быть использовано только для переименования одного объекта за раз
+и только используя четко определенный синтаксис.
+Каждый обьект переименовывается в отдельной строке следующим образом:
+
+    from math import object_1 as name_1
+    from math import object_2 as name_2  # если необходимо
+</pre></div>
+</div>
+</section>
+<section id="assign-instead-of-equal-or-walrus">
+<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_instead_of_equal.py", line 1
+    a = (b = 2)  # issue #65
+           ^
+SyntaxError: invalid syntax
+
+    Возможно, правильнее использовать `==` или `:=` вместо `=`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_instead_of_equal.py'
+в указанном ^ месте.
+
+
+   1| a = (b = 2)  # issue #65
+             ^
+
+Вы использовали оператор присваивания `=`; но, возможно,
+хотели использовать оператор равенства `==`
+или моржовый оператор `:=`.
+</pre></div>
+</div>
+</section>
+<section id="name-assigned-prior-to-global-declaration">
+<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_global_1.py", line 7
+    global aa, bb, cc, dd
+    ^
+SyntaxError: name 'cc' is assigned to before global declaration
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_name_before_global_1.py'
+в указанном ^ месте.
+
+
+   7|     global aa, bb, cc, dd
+          ^^^^^^         ^^
+
+Вы присвоили значение переменной `cc`,
+прежде чем объявить ее как глобальную.
+</pre></div>
+</div>
+</section>
+<section id="name-used-prior-to-global-declaration">
+<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_global_2.py", line 7
+    global var
+    ^
+SyntaxError: name 'var' is used prior to global declaration
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_name_before_global_2.py'
+в указанном ^ месте.
+
+
+   7|     global var
+          ^^^^^^ ^^^
+
+Вы использовали переменную `var`
+прежде чем объявить ее глобальной переменной.
+</pre></div>
+</div>
+</section>
+<section id="name-used-prior-to-nonlocal-declaration">
+<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
+    nonlocal pp, qq
+    ^
+SyntaxError: name 'qq' is used prior to nonlocal declaration
+
+    Вы забыли сначала написать `nonlocal`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
+в указанном ^ месте.
+
+
+   11|         nonlocal pp, qq
+               ^^^^^^^^     ^^
+
+Вы использовали переменную `qq`
+прежде чем объявить ее как нелокальную переменную.
+</pre></div>
+</div>
+</section>
+<section id="name-assigned-prior-to-nonlocal-declaration">
+<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_name_before_nonlocal_2.py", line 9
+    nonlocal s
+    ^
+SyntaxError: name 's' is assigned to before nonlocal declaration
+
+    Вы забыли добавить `nonlocal`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
+в указанном ^ месте.
+
+
+   9|         nonlocal s
+              ^^^^^^^^ ^
+
+Вы присвоили значение переменной `s`
+прежде чем объявить ее как нелокальную.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-conditional-expression">
+<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_conditional.py", line 3
+    a if 1 else b = 1
+    ^
+SyntaxError: cannot assign to conditional expression
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_conditional.py'
+в указанном ^ месте.
+
+
+   3| a if 1 else b = 1
+      ^^^^^^^^^^^^^
+
+С левой стороны от знака равенства находится
+условное выражение вместо имени переменной.
+a if 1 else b = ...
+^^^^^^^^^^^^^
+
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-keyword-debug">
+<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_debug.py", line 4
+    __debug__ = 1
+    ^
+SyntaxError: cannot assign to __debug__
+
+    Вы не можете присвоить значение `__debug__`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_debug.py'
+в указанном ^ месте.
+
+
+   4| __debug__ = 1
+      ^^^^^^^^^
+
+`__debug__` является константой в Python; вы не можете присвоить ему другое значение.
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_debug2.py", line 4
+    a.__debug__ = 1
+    ^
+SyntaxError: cannot assign to __debug__
+
+    Вы не можете присвоить значение `__debug__`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_debug2.py'
+в указанном ^ месте.
+
+
+   4| a.__debug__ = 1
+        ^^^^^^^^^
+
+`__debug__` является константой в Python; вы не можете присвоить ему другое значение.
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-ellipsis-symbol">
+<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_ellipsis.py", line 4
+    ... = 1
+    ^
+SyntaxError: cannot assign to Ellipsis
+
+    Многоточию (ellipsis) [`...`] нельзя присвоить значение.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_ellipsis.py'
+в указанном ^ месте.
+
+
+   4| ... = 1
+      ^^^
+
+Многоточие (ellipsis) `...` является константой в Python; вы не можете присвоить ему другое значение.
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-f-string">
+<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_f_string.py", line 6
+    f'{x}' = 42
+    ^
+SyntaxError: cannot assign to f-string expression
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_f_string.py'
+в указанном ^ месте.
+
+
+   6| f'{x}' = 42
+      ^^^^^^
+
+Вы написали выражение, в котором f-строка `f'{x}'`
+находится слева от знака равенства.
+f-строка должна находиться только справа от знака равенства.
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-single-sign">
+<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_1.py", line 6
+    len('a') = 3
+    ^
+SyntaxError: cannot assign to function call
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_function_call_1.py'
+в указанном ^ месте.
+
+
+   6| len('a') = 3
+      ^^^^^^^^
+
+Вы написали выражение
+
+    len('a') = ...
+    ^^^^^^^^
+где `len('a')`, слева от знака равенства, либо является
+либо включает вызов функции и не является просто именем переменной.
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-two-signs">
+<h2>(16) Cannot assign to function call: two = signs<a class="headerlink" href="#cannot-assign-to-function-call-two-signs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_2.py", line 6
+    func(a, b=3) = 4
+    ^
+SyntaxError: cannot assign to function call
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_function_call_2.py'
+в указанном ^ месте.
+
+
+   6| func(a, b=3) = 4
+      ^^^^^^^^^^^^
+
+Вы написали выражение
+
+    func(a, b=3) = ...
+    ^^^^^^^^^^^^
+где `func(a, b=3)`, слева от знака равенства, либо является
+либо включает вызов функции и не является просто именем переменной.
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-function-call-continues-on-second-line">
+<h2>(17) Cannot assign to function call: continues on second line<a class="headerlink" href="#cannot-assign-to-function-call-continues-on-second-line" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_function_call_3.py", line 6
+    a = f(1, 2,  # this is a comment
+        ^
+SyntaxError: cannot assign to function call
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_function_call_3.py'
+в указанном ^ месте.
+
+
+--&gt;6| a = f(1, 2,  # this is a comment
+          ^^^^^^^--&gt;
+   7|       3, 4) = 5
+
+Вы написали выражение
+
+    f(1, 2,...) = ...
+    ^^^^^^^--&gt;
+где `f(1, 2,...)`, слева от знака равенства, либо является
+либо включает вызов функции и не является просто именем переменной.
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="assign-to-generator-expression">
+<h2>(18) Assign to generator expression<a class="headerlink" href="#assign-to-generator-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_generator.py", line 3
+    (x for x in x) = 1
+    ^
+SyntaxError: cannot assign to generator expression
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_generator.py'
+в указанном ^ месте.
+
+
+   3| (x for x in x) = 1
+      ^^^^^^^^^^^^^^
+
+Слева от знака равенства генераторное выражение
+вместо имени переменной.
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-4">
+<h2>(19) Cannot assign to literal - 4<a class="headerlink" href="#cannot-assign-to-literal-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_dict.py", line 7
+    {1 : 2, 2 : 4} = 5
+    ^
+SyntaxError: cannot assign to dict display
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_literal_dict.py'
+в указанном ^ месте.
+
+
+   7| {1 : 2, 2 : 4} = 5
+      ^^^^^^^^^^^^^^
+
+Вы написали выражение типа
+
+    {1 : 2, 2 : 4} = 5
+где `{1 : 2, 2 : 4}`, слева от знака равенства,
+является или включает в себя реальный объект типа `dict`
+а не просто имя переменной.
+
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-int">
+<h2>(20) Cannot assign to literal int<a class="headerlink" href="#cannot-assign-to-literal-int" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int.py", line 3
+    1 = a
+    ^
+SyntaxError: cannot assign to literal
+
+    Возможно, вы хотели написать `a = 1`
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_literal_int.py'
+в указанном ^ месте.
+
+
+   3| 1 = a
+      ^
+
+Вы написали выражение типа
+
+    1 = a
+где `1`, слева от знака равенства,
+является или включает в себя реальный объект типа `int`
+а не просто имя переменной.
+Возможно, вы хотели написать:
+
+    a = 1
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-int-2">
+<h2>(21) Cannot assign to literal int - 2<a class="headerlink" href="#cannot-assign-to-literal-int-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
+    1 = 2
+    ^
+SyntaxError: cannot assign to literal
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_literal_int_2.py'
+в указанном ^ месте.
+
+
+   3| 1 = 2
+      ^
+
+Вы написали выражение типа
+
+    1 = 2
+где `1`, слева от знака равенства,
+является или включает в себя реальный объект типа `int`
+а не просто имя переменной.
+
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-5">
+<h2>(22) Cannot assign to literal - 5<a class="headerlink" href="#cannot-assign-to-literal-5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
+    1 = a = b
+    ^
+SyntaxError: cannot assign to literal
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_literal_int_3.py'
+в указанном ^ месте.
+
+
+   4| 1 = a = b
+      ^
+
+Вы написали выражение типа
+
+    1 = variable_name
+где `1`, слева от знака равенства,
+является или включает в себя реальный объект типа `int`
+а не просто имя переменной.
+
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-literal-3">
+<h2>(23) Cannot assign to literal - 3<a class="headerlink" href="#cannot-assign-to-literal-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_literal_set.py", line 7
+    {1, 2, 3} = 4
+    ^
+SyntaxError: cannot assign to set display
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_literal_set.py'
+в указанном ^ месте.
+
+
+   7| {1, 2, 3} = 4
+      ^^^^^^^^^
+
+Вы написали выражение типа
+
+    {1, 2, 3} = 4
+где `{1, 2, 3}`, слева от знака равенства,
+является или включает в себя реальный объект типа `set`
+а не просто имя переменной.
+
+Вы можете присваивать объекты только идентификаторам (именам переменных)
+</pre></div>
+</div>
+</section>
+<section id="assign-to-keyword-def">
+<h2>(24) Assign to keyword def<a class="headerlink" href="#assign-to-keyword-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_def.py", line 3
+    def = 2
+        ^
+SyntaxError: invalid syntax
+
+    Ключевые слова Python нельзя использовать в качестве идентификаторов
+    (имен переменных).
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_keyword_def.py'
+в указанном ^ месте.
+
+
+   3| def = 2
+      ^^^
+
+Вы пытались присвоить значение `def`, ключевому слову Python.
+Это недопустимо.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-keyword-else">
+<h2>(25) Assign to keyword else<a class="headerlink" href="#assign-to-keyword-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_else.py", line 3
+    else = 1
+    ^
+SyntaxError: invalid syntax
+
+    Ключевые слова Python нельзя использовать в качестве идентификаторов
+    (имен переменных).
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_keyword_else.py'
+в указанном ^ месте.
+
+
+   3| else = 1
+      ^^^^
+
+Вы пытались присвоить значение `else`, ключевому слову Python.
+Это недопустимо.
+</pre></div>
+</div>
+</section>
+<section id="assignment-to-keyword-none">
+<h2>(26) Assignment to keyword (None)<a class="headerlink" href="#assignment-to-keyword-none" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_keyword_none.py", line 4
+    None = 1
+    ^
+SyntaxError: cannot assign to None
+
+    Вы не можете присвоить значение `None`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_keyword_none.py'
+в указанном ^ месте.
+
+
+   4| None = 1
+      ^^^^
+
+`None` является константой в Python; вы не можете присвоить ему другое значение.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-math-operation">
+<h2>(27) Assign to math operation<a class="headerlink" href="#assign-to-math-operation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_operation.py", line 4
+    a + 1 = 2
+    ^
+SyntaxError: cannot assign to operator
+
+    Возможно, вам нужно `==` вместо `=`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_operation.py'
+в указанном ^ месте.
+
+
+   4| a + 1 = 2
+      ^
+
+Вы написали выражение, включающее некоторые математические операции
+слева от знака равенства, который следует
+использовать только для присвоения значения переменной.
+</pre></div>
+</div>
+</section>
+<section id="assign-to-yield-expression">
+<h2>(28) Assign to yield expression<a class="headerlink" href="#assign-to-yield-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assign_to_yield_expression.py", line 1
+    (yield i) = 3
+     ^
+SyntaxError: cannot assign to yield expression
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assign_to_yield_expression.py'
+в указанном ^ месте.
+
+
+   1| (yield i) = 3
+       ^^^^^
+
+Вы написали выражение, которое содержит ключевое слово `yield`
+слева от знака равенства. Такому выражению нельзя присвоить значение.
+Обратите внимание, что, как и ключевое слово `return`,
+`yield` можно использовать только внутри функции.
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-inside-comprehension">
+<h2>(29) Augmented assignment inside comprehension<a class="headerlink" href="#augmented-assignment-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assignment_expression_cannot_rebind.py", line 1
+    a = [(i := 1) for i in [1]]
+         ^
+SyntaxError: assignment expression cannot rebind comprehension iteration variable 'i'
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assignment_expression_cannot_rebind.py'
+в указанном ^ месте.
+
+
+   1| a = [(i := 1) for i in [1]]
+           ^
+
+Вы используете дополненный (моржовый) оператор присваивания `:=` внутри comprehension
+для присвоения значения итерационной переменной `i`.
+Эта переменная предназначена для использования только внутри comprehension.
+Дополненный оператор присваивания обычно используется для присвоения значения переменной, чтобы ее можно было использовать повторно.
+Это невозможно для переменной `i`.
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-inside-comprehension-inner-loop">
+<h2>(30) Augmented assignment inside comprehension - inner loop<a class="headerlink" href="#augmented-assignment-inside-comprehension-inner-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
+    [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+    ^
+SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
+в указанном ^ месте.
+
+
+   1| [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+      ^
+
+Вы используете дополненный (моржовый) оператор присваивания `:=` внутри comprehension
+для присвоения значения итерационной переменной `j`.
+Эта переменная предназначена для использования только внутри comprehension.
+Дополненный оператор присваивания обычно используется для присвоения значения переменной, чтобы ее можно было использовать повторно.
+Это невозможно для переменной `j`.
+</pre></div>
+</div>
+</section>
+<section id="def-missing-parentheses">
+<h2>(31) def: missing parentheses<a class="headerlink" href="#def-missing-parentheses" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\async_def_missing_parens.py", line 1
+    async def name:
+                  ^
+SyntaxError: invalid syntax
+
+    Вы забыли про скобки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\async_def_missing_parens.py'
+в указанном ^ месте.
+
+
+   1| async def name:
+                    ^
+
+Возможно, вы забыли поставить круглые скобки.
+Возможно, вы хотели написать
+
+    async def name():
+</pre></div>
+</div>
+</section>
+<section id="augmented-assignment-to-literal">
+<h2>(32) Augmented assignment to literal<a class="headerlink" href="#augmented-assignment-to-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\augmented_assignment_to_literal.py", line 1
+    if "word" := True:
+       ^
+SyntaxError: cannot use assignment expressions with literal
+
+    Вы можете присваивать объекты только идентификаторам (именам переменных)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\augmented_assignment_to_literal.py'
+в указанном ^ месте.
+
+
+   1| if "word" := True:
+         ^^^^^^
+
+Вы не можете использовать дополненный оператор присваивания `:=`,
+иногда называемый моржовым оператором, с литералами типа `"word"`.
+Вы можете присваивать объекты только идентификаторам (именам переменных).
+</pre></div>
+</div>
+</section>
+<section id="walrus-named-assignment-depending-on-python-version">
+<h2>(33) Walrus/Named assignment depending on Python version<a class="headerlink" href="#walrus-named-assignment-depending-on-python-version" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\augmented_assigment_with_true.py", line 4
+    (True := 1)
+     ^
+SyntaxError: cannot use assignment expressions with True
+
+    Вы не можете присвоить значение `True`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\augmented_assigment_with_true.py'
+в указанном ^ месте.
+
+
+   4| (True := 1)
+       ^^^^
+
+`True` является константой в Python; вы не можете присвоить ему другое значение.
+</pre></div>
+</div>
+</section>
+<section id="backslash-instead-of-slash">
+<h2>(34) Backslash instead of slash<a class="headerlink" href="#backslash-instead-of-slash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
+    a = 3 \ 4.0
+           ^
+SyntaxError: unexpected character after line continuation character
+
+    Вы хотели разделить на 4.0?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\backslash_instead_of_slash.py'
+в указанном ^ месте.
+
+
+   1| a = 3 \ 4.0
+              ^^^
+
+Вы используете символ продолжения `\` вне строки
+и за ним следует какой-то другой символ (символы).
+Предполагаю, что вы хотели разделить на число 4.0
+и написали \ вместо /.
+</pre></div>
+</div>
+</section>
+<section id="brackets-instead-of-parentheses">
+<h2>(35) Brackets instead of parentheses<a class="headerlink" href="#brackets-instead-of-parentheses" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\bracket_instead_of_paren.py", line 1
+    print(sum[i for i in [1, 2, 3] if i%2==0])
+                ^
+SyntaxError: invalid syntax
+
+    Вы использовали квадратные скобки `[...]` вместо круглых.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\bracket_instead_of_paren.py'
+в указанном ^ месте.
+
+
+   1| print(sum[i for i in [1, 2, 3] if i%2==0])
+                  ^^^
+
+Вы использовали квадратные скобки `[...]` вместо круглых.
+Возможно, вы хотели написать:
+
+    print(sum(i for i in [1, 2, 3] if i%2==0))
+</pre></div>
+</div>
+</section>
+<section id="break-outside-loop">
+<h2>(36) break outside loop<a class="headerlink" href="#break-outside-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\break_outside_loop.py", line 4
+    break
+    ^
+SyntaxError: 'break' outside loop
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\break_outside_loop.py'
+в указанном ^ месте.
+
+
+   4|     break
+          ^^^^^
+
+Ключевое слово Python `break` можно использовать
+только внутри циклов `for` или `while`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-assign-to-attribute-here">
+<h2>(37) Cannot assign to attribute here.<a class="headerlink" href="#cannot-assign-to-attribute-here" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_assign_to_attribute_here.py", line 1
+    if x.a = 1:
+           ^
+SyntaxError: invalid syntax
+
+    Возможно, вам нужно `==` вместо `=`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\cannot_assign_to_attribute_here.py'
+в указанном ^ месте.
+
+
+   1| if x.a = 1:
+             ^
+
+Скорее всего, вы использовали оператор присваивания `=`
+вместо оператора равенства `==`.
+Следующее утверждение не содержит синтаксической ошибки:
+
+    if x.a == 1:
+</pre></div>
+</div>
+</section>
+<section id="cannot-guess-the-cause">
+<h2>(38) Cannot guess the cause<a class="headerlink" href="#cannot-guess-the-cause" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
+    SyntaxErrors can be annoying!
+                 ^
+SyntaxError: invalid syntax
+
+    Friendly-traceback не определил причину возникновения этой ошибки.
+
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\cannot_guess_the_cause.py'
+в указанном ^ месте.
+
+
+   1| SyntaxErrors can be annoying!
+                   ^^^
+
+В настоящее время я не могу предположить вероятную причину этой ошибки.
+Попробуйте внимательно изучить указанную строку, а также строку
+расположенную непосредственно над ней, и попробуйте определить,не написано ли какое-нибудь слово или
+недостающие символы, такие как (, ), [, ], :, и т.д.
+
+Если только в вашем коде не используются аннотации типов, которые выходят за рамки нашей темы.
+Если вы считаете, что это то, что должно быть обработано
+более корректно, пожалуйста, сообщите об этом случае по адресу
+https://github.com/friendly-traceback/friendly-traceback/issues
+</pre></div>
+</div>
+</section>
+<section id="cannot-use-star-operator">
+<h2>(39) Cannot use star operator<a class="headerlink" href="#cannot-use-star-operator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_use_star.py", line 3
+    *a
+    ^
+SyntaxError: can't use starred expression here
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\cannot_use_star.py'
+в указанном ^ месте.
+
+
+   3| *a
+      ^
+
+Оператор 'звезда' `*` интерпретируется как означающий, что
+распаковка последовательности должна использоваться для присвоения имени
+каждому элементу последовательности, что в данном случае не имеет смысла.
+</pre></div>
+</div>
+</section>
+<section id="cannot-use-double-star-operator">
+<h2>(40) Cannot use double star operator<a class="headerlink" href="#cannot-use-double-star-operator" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\cannot_use_double_star.py", line 4
+    (**k)
+     ^
+SyntaxError: f-string: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\cannot_use_double_star.py'
+в указанном ^ месте.
+
+
+   1| (**k)
+       ^^
+
+Double star оператор `**`, вероятно, будет интерпретирован как означающий, что используется dict-распаковка,
+что в данном случае недопустимо или не имеет смысла.
+</pre></div>
+</div>
+</section>
+<section id="missing-class-name">
+<h2>(41) Missing class name<a class="headerlink" href="#missing-class-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\class_missing_name.py", line 1
+    class:
+         ^
+SyntaxError: invalid syntax
+
+    Классу необходимо задать имя.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\class_missing_name.py'
+в указанном ^ месте.
+
+
+   1| class:
+           ^
+
+Утверждение `class` требует указания имени:
+
+    class SomeName:
+        ...
+</pre></div>
+</div>
+</section>
+<section id="missing-for-tuples-in-comprehension">
+<h2>(42) Missing () for tuples in comprehension<a class="headerlink" href="#missing-for-tuples-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_missing_tuple_paren.py", line 1
+    x = [i, i**2 for i in range(10)]
+                 ^
+SyntaxError: invalid syntax
+
+    Вы забыли про скобки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\comprehension_missing_tuple_paren.py'
+в указанном ^ месте.
+
+
+   1| x = [i, i**2 for i in range(10)]
+                   ^^^
+
+Предполагаю, что вы писали comprehension или генераторное выражение,
+но забыли поставить круглые скобки вокруг кортежей.
+В качестве примера, вместо того, чтобы написать
+    [i, i**2 for i in range(10)]
+вам нужно написать
+    [(i, i**2) for i in range(10)]
+</pre></div>
+</div>
+</section>
+<section id="comprehension-with-condition-no-else">
+<h2>(43) Comprehension with condition (no else)<a class="headerlink" href="#comprehension-with-condition-no-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_with_condition_no_else.py", line 1
+    a = [f(x) if condition for x in sequence]
+                           ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\comprehension_with_condition_no_else.py'
+в указанном ^ месте.
+
+
+   1| a = [f(x) if condition for x in sequence]
+                             ^^^
+
+Предполагаю, что вы писали comprehension или генераторное выражение
+и использовали неправильный порядок для условия.
+Правильный порядок зависит от наличия или отсутствия условия `else`.
+Например, правильным порядком для представления списков с
+условием может быть либо:
+
+    [f(x) if condition else other for x in sequence] # 'if' перед 'for'
+
+либо, если нет `else`:
+
+    [f(x) for x in sequence if condition] # 'if' после 'for'.
+</pre></div>
+</div>
+</section>
+<section id="comprehension-with-condition-with-else">
+<h2>(44) Comprehension with condition (with else)<a class="headerlink" href="#comprehension-with-condition-with-else" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\comprehension_with_condition_with_else.py", line 1
+    a = [f(x) for x in sequence if condition else other]
+                                             ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\comprehension_with_condition_with_else.py'
+в указанном ^ месте.
+
+
+   1| a = [f(x) for x in sequence if condition else other]
+                                               ^^^^
+
+Предполагаю, что вы писали comprehension или генераторное выражение
+и использовали неправильный порядок для условия.
+Правильный порядок зависит от наличия или отсутствия условия `else`.
+Например, правильным порядком для представления списков с
+условием может быть либо:
+
+    [f(x) if condition else other for x in sequence] # 'if' перед 'for'
+
+либо, если нет `else`:
+
+    [f(x) for x in sequence if condition] # 'if' после 'for'.
+</pre></div>
+</div>
+</section>
+<section id="continue-outside-loop">
+<h2>(45) continue outside loop<a class="headerlink" href="#continue-outside-loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\continue_outside_loop.py", line 4
+    continue
+    ^
+SyntaxError: 'continue' not properly in loop
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\continue_outside_loop.py'
+в указанном ^ месте.
+
+
+   4|     continue
+          ^^^^^^^^
+
+Ключевое слово Python `continue` можно использовать только
+внутри циклов `for` или `while`.
+</pre></div>
+</div>
+</section>
+<section id="copy-paste-from-interpreter">
+<h2>(46) Copy/paste from interpreter<a class="headerlink" href="#copy-paste-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\copy_pasted_code.py", line 2
+    &gt;&gt;&gt; print("Hello World!")
+    ^
+SyntaxError: invalid syntax
+
+    Вы использовали copy-paste?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\copy_pasted_code.py'
+в указанном ^ месте.
+
+
+   2| &gt;&gt;&gt; print("Hello World!")
+      ^^^
+
+Похоже, что вы скопипастили вывод интерпретатора.
+Приглашение интерпретатора '&gt;&gt;&gt;', не должно быть включено в ваш код.
+</pre></div>
+</div>
+</section>
+<section id="copy-paste-from-interpreter-2">
+<h2>(47) Copy/paste from interpreter - 2<a class="headerlink" href="#copy-paste-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\copy_pasted_code_2.py", line 2
+    ... print("Hello World!")
+        ^
+SyntaxError: invalid syntax
+
+    Вы использовали copy-paste?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\copy_pasted_code_2.py'
+в указанном ^ месте.
+
+
+   2| ... print("Hello World!")
+      ^^^
+
+Похоже, что вы скопипастили вывод интерпретатора.
+Вывод интерпретатора '...' не должен быть включен в ваш код.
+</pre></div>
+</div>
+</section>
+<section id="def-positional-arg-after-kwargs">
+<h2>(48) def: positional arg after kwargs<a class="headerlink" href="#def-positional-arg-after-kwargs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
+    def test(a, **kwargs, b):
+                          ^
+SyntaxError: invalid syntax
+
+    Позиционные аргументы должны идти перед ключевыми аргументами.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_arg_after_kwarg.py'
+в указанном ^ месте.
+
+
+   1| def test(a, **kwargs, b):
+                            ^
+
+Позиционные аргументы должны идти перед ключевыми аргументами.
+`b` -- это позиционный аргумент, который находится после одного или
+нескольких ключевых аргументов в определении вашей функции.
+</pre></div>
+</div>
+</section>
+<section id="def-named-arguments-must-follow-bare">
+<h2>(49) def: named arguments must follow bare *<a class="headerlink" href="#def-named-arguments-must-follow-bare" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_bare_star_arg.py", line 4
+    def f(*):
+           ^
+SyntaxError: named arguments must follow bare *
+
+    Вы забыли что-то после `*`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_bare_star_arg.py'
+в указанном ^ месте.
+
+
+   4| def f(*):
+             ^
+
+Если предположить, что вы определяете функцию, вам нужно
+заменить `*` на `*arguments` или на
+`*, named_argument=value`.
+</pre></div>
+</div>
+</section>
+<section id="def-misused-as-code-block">
+<h2>(50) def: misused as code block<a class="headerlink" href="#def-misused-as-code-block" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_code_block.py", line 3
+    def :
+        ^
+SyntaxError: invalid syntax
+
+    Функция нуждается в имени.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_code_block.py'
+в указанном ^ месте.
+
+
+   3| def :
+          ^
+
+Вы пытались определить функцию и использовали неправильный синтаксис.
+Правильный синтаксис следующий:
+
+    def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="def-misused-as-code-block-2">
+<h2>(51) def: misused as code block - 2<a class="headerlink" href="#def-misused-as-code-block-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_code_block_2.py", line 2
+    def :
+        ^
+SyntaxError: invalid syntax
+
+    Функции и методы нуждаются в именах.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_code_block_2.py'
+в указанном ^ месте.
+
+
+   2|     def :
+              ^
+
+Вы пытались определить функцию или метод и использовали неправильный синтаксис.
+Правильный синтаксис следующий:
+
+    def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="dotted-name-as-function-argument">
+<h2>(52) Dotted name as function argument<a class="headerlink" href="#dotted-name-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_argument.py", line 3
+    def test(x.y):
+              ^
+SyntaxError: invalid syntax
+
+    Вы хотели поставить запятую?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_dotted_argument.py'
+в указанном ^ месте.
+
+
+   3| def test(x.y):
+                ^
+
+Нельзя использовать точечные имена в качестве аргументов функций.
+Возможно, вы хотели поставить запятую.
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>(53) Dotted name as function argument<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_argument_2.py", line 2
+    def test(x., y):
+              ^
+SyntaxError: invalid syntax
+
+    Нельзя использовать точечные имена в качестве аргументов функций.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_dotted_argument_2.py'
+в указанном ^ месте.
+
+
+   2| def test(x., y):
+                ^
+
+Нельзя использовать точечные имена в качестве аргументов функций.
+</pre></div>
+</div>
+</section>
+<section id="dotted-function-name">
+<h2>(54) Dotted function name<a class="headerlink" href="#dotted-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dotted_function_name.py", line 3
+    def test.x():
+            ^
+SyntaxError: invalid syntax
+
+    В именах функций нельзя использовать точки.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_dotted_function_name.py'
+в указанном ^ месте.
+
+
+   3| def test.x():
+              ^
+
+В именах функций нельзя использовать точки.
+</pre></div>
+</div>
+</section>
+<section id="def-dict-as-argument">
+<h2>(55) def: dict as argument<a class="headerlink" href="#def-dict-as-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_dict_as_arg.py", line 1
+    def test({'a': 1}, y):  # dict as first argument
+             ^
+SyntaxError: invalid syntax
+
+    В качестве аргументов функции нельзя использовать явные словари или множества.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_dict_as_arg.py'
+в указанном ^ месте.
+
+
+   1| def test({'a': 1}, y):  # dict as first argument
+               ^
+
+В качестве аргументов функции нельзя использовать явные словари или множества.
+В качестве аргументов функций можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="def-arguments-must-be-unique-in-function-definition">
+<h2>(56) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_duplicate_arg.py", line 4
+    def f(aa=1, aa=2):
+    ^
+SyntaxError: duplicate argument 'aa' in function definition
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_duplicate_arg.py'
+в указанном ^ месте.
+
+
+   4| def f(aa=1, aa=2):
+            ^^    ^^
+
+Вы определили функцию, в которой дублируется аргумент
+
+    `aa`.
+Каждый аргумент должен появляться только один раз в определении функции.
+</pre></div>
+</div>
+</section>
+<section id="def-semicolon-after-colon">
+<h2>(57) def: semicolon after colon<a class="headerlink" href="#def-semicolon-after-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_extra_semi_colon.py", line 1
+    def test():;
+               ^
+SyntaxError: invalid syntax
+
+    После двоеточия вы написали что-то по ошибке?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_extra_semi_colon.py'
+в указанном ^ месте.
+
+
+   1| def test():;
+                 ^
+
+Оператор определения функции должен заканчиваться двоеточием.
+Блок кода должен идти после двоеточия.
+Удаление `;` может решить проблему.
+</pre></div>
+</div>
+</section>
+<section id="def-extra-comma">
+<h2>(58) def: extra comma<a class="headerlink" href="#def-extra-comma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_extra_comma.py", line 1
+    def test(a,,b):
+               ^
+SyntaxError: invalid syntax
+
+    Вы хотели написать `,`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_extra_comma.py'
+в указанном ^ месте.
+
+
+   1| def test(a,,b):
+                 ^
+
+Предполагаю, что вы допустили опечатку и добавили `,` по ошибке.
+Следующий оператор не содержит синтаксических ошибок:
+
+    def test(a,b):
+</pre></div>
+</div>
+</section>
+<section id="def-unspecified-keywords-before">
+<h2>(59) def: unspecified keywords before /<a class="headerlink" href="#def-unspecified-keywords-before" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_1.py", line 1
+    def test(a, **kwargs, /):
+                          ^
+SyntaxError: invalid syntax
+
+    Ключевые аргументы должны идти после символа `/`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_forward_slash_1.py'
+в указанном ^ месте.
+
+
+   1| def test(a, **kwargs, /):
+                            ^
+
+`/` указывает, что предыдущие аргументы в определении функции
+являются позиционными аргументами.
+У вас есть неопределенные аргументы в виде ключевых слов, которые идут
+перед символом `/`.
+</pre></div>
+</div>
+</section>
+<section id="def-before-star">
+<h2>(60) def: / before star<a class="headerlink" href="#def-before-star" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_2.py", line 1
+    def test(a, *, b, /):
+                      ^
+SyntaxError: invalid syntax
+
+    `*` должен идти после `/` в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_forward_slash_2.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *, b, /):
+                        ^
+
+`/` указывает, что предыдущие аргументы в определении функции
+являются позиционными аргументами.
+`*` указывает, что аргументы,
+которые следуют за ним, должны быть ключевыми.
+Когда они используются вместе, `/` должно идти перед `*`.
+</pre></div>
+</div>
+</section>
+<section id="def-before-star-arg">
+<h2>(61) def: / before star arg<a class="headerlink" href="#def-before-star-arg" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_3.py", line 1
+    def test(a, *arg, /):
+                      ^
+SyntaxError: invalid syntax
+
+    `*arg` должно идти после `/` в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_forward_slash_3.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *arg, /):
+                        ^
+
+`/` указывает, что предыдущие аргументы в определении функции
+являются позиционными аргументами.
+`*arg` должно идти после `/` в определении функции.
+</pre></div>
+</div>
+</section>
+<section id="def-used-twice">
+<h2>(62) def: / used twice<a class="headerlink" href="#def-used-twice" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_forward_slash_4.py", line 1
+    def test(a, /, b, /):
+                      ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `/` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_forward_slash_4.py'
+в указанном ^ месте.
+
+
+   1| def test(a, /, b, /):
+                        ^
+
+Вы можете использовать `/` только один раз в определении функции.
+</pre></div>
+</div>
+</section>
+<section id="def-non-identifier-as-a-function-name">
+<h2>(63) def: non-identifier as a function name<a class="headerlink" href="#def-non-identifier-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_function_name_invalid.py", line 3
+    def 2be():
+        ^
+SyntaxError: invalid syntax
+
+    Это недопустимое имя функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_function_name_invalid.py'
+в указанном ^ месте.
+
+
+   3| def 2be():
+          ^
+
+Имя функции должно быть допустимым идентификатором Python,
+то есть именем, которое начинается с буквы или символа подчеркивания, `_`,
+и которое содержит только буквы, цифры или символ подчеркивания.
+</pre></div>
+</div>
+</section>
+<section id="def-using-a-string-as-a-function-name">
+<h2>(64) def: using a string as a function name<a class="headerlink" href="#def-using-a-string-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_function_name_string.py", line 3
+    def "function"():
+        ^
+SyntaxError: invalid syntax
+
+    Имя функции должно быть допустимым идентификатором Python,
+    то есть именем, которое начинается с буквы или символа подчеркивания, `_`,
+    и которое содержит только буквы, цифры или символ подчеркивания.
+    Вы попытались использовать строку в качестве имени функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_function_name_string.py'
+в указанном ^ месте.
+
+
+   3| def "function"():
+          ^^^^^^^^^^
+
+Имя функции должно быть допустимым идентификатором Python,
+то есть именем, которое начинается с буквы или символа подчеркивания, `_`,
+и которое содержит только буквы, цифры или символ подчеркивания.
+Вы попытались использовать строку в качестве имени функции.
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-1">
+<h2>(65) def: keyword cannot be argument in def - 1<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_1.py", line 5
+    def f(None=1):
+          ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_keyword_as_arg_1.py'
+в указанном ^ месте.
+
+
+   5| def f(None=1):
+            ^^^^
+
+Предполагаю, что вы пытались использовать ключевое слово Python
+`None` в качестве аргумента в определении функции
+где ожидался идентификатор (имя переменной).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-2">
+<h2>(66) def: keyword cannot be argument in def - 2<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_2.py", line 5
+    def f(x, True):
+             ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_keyword_as_arg_2.py'
+в указанном ^ месте.
+
+
+   5| def f(x, True):
+               ^^^^
+
+Предполагаю, что вы пытались использовать ключевое слово Python
+`True` в качестве аргумента в определении функции
+где ожидался идентификатор (имя переменной).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-3">
+<h2>(67) def: keyword cannot be argument in def - 3<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_3.py", line 5
+    def f(*None):
+           ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_keyword_as_arg_3.py'
+в указанном ^ месте.
+
+
+   5| def f(*None):
+             ^^^^
+
+Предполагаю, что вы пытались использовать ключевое слово Python
+`None` в качестве аргумента в определении функции
+где ожидался идентификатор (имя переменной).
+</pre></div>
+</div>
+</section>
+<section id="def-keyword-cannot-be-argument-in-def-4">
+<h2>(68) def: keyword cannot be argument in def - 4<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_arg_4.py", line 5
+    def f(**None):
+            ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_keyword_as_arg_4.py'
+в указанном ^ месте.
+
+
+   5| def f(**None):
+              ^^^^
+
+Предполагаю, что вы пытались использовать ключевое слово Python
+`None` в качестве аргумента в определении функции
+где ожидался идентификатор (имя переменной).
+</pre></div>
+</div>
+</section>
+<section id="def-python-keyword-as-function-name">
+<h2>(69) def: Python keyword as function name<a class="headerlink" href="#def-python-keyword-as-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_keyword_as_name.py", line 3
+    def pass():
+        ^
+SyntaxError: invalid syntax
+
+    Вы не можете использовать ключевое слово Python в качестве имени функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_keyword_as_name.py'
+в указанном ^ месте.
+
+
+   3| def pass():
+          ^^^^
+
+Вы попытались использовать ключевое слово Python `pass`
+в качестве имени функции.
+
+В дальнейшем в вашем коде будет больше синтаксических ошибок.
+</pre></div>
+</div>
+</section>
+<section id="def-list-as-argument-1">
+<h2>(70) def: list as argument - 1<a class="headerlink" href="#def-list-as-argument-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_list_as_arg_1.py", line 1
+    def test([x], y):  # list as first argument
+             ^
+SyntaxError: invalid syntax
+
+    Вы не можете иcпользовать явные списки в качестве аргументов функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_list_as_arg_1.py'
+в указанном ^ месте.
+
+
+   1| def test([x], y):  # list as first argument
+               ^
+
+Вы не можете иcпользовать явные списки в качестве аргументов функции.
+В качестве аргументов функций можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="def-list-as-argument-2">
+<h2>(71) def: list as argument - 2<a class="headerlink" href="#def-list-as-argument-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_list_as_arg_2.py", line 1
+    def test(x, [y]):  # list as second argument, after comma
+                ^
+SyntaxError: invalid syntax
+
+    Вы не можете иcпользовать явные списки в качестве аргументов функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_list_as_arg_2.py'
+в указанном ^ месте.
+
+
+   1| def test(x, [y]):  # list as second argument, after comma
+                  ^
+
+Вы не можете иcпользовать явные списки в качестве аргументов функции.
+В качестве аргументов функций можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="def-missing-colon">
+<h2>(72) def: missing colon<a class="headerlink" href="#def-missing-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_colon.py", line 1
+    def test()
+              ^
+SyntaxError: invalid syntax
+
+    Вы забыли поставить двоеточие?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_missing_colon.py'
+в указанном ^ месте.
+
+
+   1| def test()
+                ^
+
+Оператор определения функции должен заканчиваться двоеточием.
+</pre></div>
+</div>
+</section>
+<section id="def-missing-comma-between-function-args">
+<h2>(73) def: missing comma between function args<a class="headerlink" href="#def-missing-comma-between-function-args" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_comma.py", line 4
+    def a(b, c d):
+               ^
+SyntaxError: invalid syntax
+
+    Вы забыли поставить запятую?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_missing_comma.py'
+в указанном ^ месте.
+
+
+   4| def a(b, c d):
+               ^^^
+
+Python указывает, что ошибка вызвана `d`, написанным сразу после `c`.
+Возможно, вы забыли поставить запятую между элементами кортежа,
+или между аргументами функции, место отмечено ^.
+Возможно, вы имели в виду `
+
+    def a(b, c, d):
+              ^
+
+`
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>(74) def: missing parentheses<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_parens.py", line 3
+    def name:
+            ^
+SyntaxError: invalid syntax
+
+    Вы забыли про скобки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_missing_parens.py'
+в указанном ^ месте.
+
+
+   3| def name:
+              ^
+
+Возможно, вы забыли поставить круглые скобки.
+Возможно, вы хотели написать
+
+    def name():
+</pre></div>
+</div>
+</section>
+<section id="def-missing-parentheses-around-arguments">
+<h2>(75) def: missing parentheses around arguments<a class="headerlink" href="#def-missing-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_parens_2.py", line 2
+    def name a, b:
+             ^
+SyntaxError: invalid syntax
+
+    Вы забыли про скобки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_missing_parens_2.py'
+в указанном ^ месте.
+
+
+   2| def name a, b:
+               ^
+
+Возможно, вы забыли поставить круглые скобки.
+Возможно, вы хотели написать
+
+    def name (a, b):
+</pre></div>
+</div>
+</section>
+<section id="def-missing-function-name">
+<h2>(76) def: missing function name<a class="headerlink" href="#def-missing-function-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_missing_name.py", line 3
+    def ( arg )  :
+        ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_missing_name.py'
+в указанном ^ месте.
+
+
+   3| def ( arg )  :
+          ^
+
+Вы забыли назвать свою функцию.
+Правильный синтаксис следующий:
+
+    def name ( ... ):
+</pre></div>
+</div>
+</section>
+<section id="def-name-is-parameter-and-global">
+<h2>(77) def: name is parameter and global<a class="headerlink" href="#def-name-is-parameter-and-global" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
+    global x
+    ^
+SyntaxError: name 'x' is parameter and global
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_name_is_parameter_and_global.py'
+в указанном ^ месте.
+
+
+   6|     global x
+          ^^^^^^
+
+Вы включаете утверждение
+
+        global x
+
+
+указывая, что `x` является переменной, определенной вне функции.
+Вы также используете то же самое `x`
+в качестве аргумента для этой функции.
+тем самым указывая, что это должна быть переменная, которая видна только
+внутри этой функции, что противоположно тому, что подразумевает `global`.
+</pre></div>
+</div>
+</section>
+<section id="def-non-default-argument-follows-default-argument">
+<h2>(78) def: non-default argument follows default argument<a class="headerlink" href="#def-non-default-argument-follows-default-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_non_default_after_default.py", line 5
+    def test(a=1, b):
+                   ^
+SyntaxError: non-default argument follows default argument
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_non_default_after_default.py'
+в указанном ^ месте.
+
+
+   5| def test(a=1, b):
+                     ^
+
+В Python вы можете определять функции только с позиционными аргументами
+
+    def test(a, b, c): ...
+
+или только ключевыми аргументами
+
+    def test(a=1, b=2, c=3): ...
+
+или их комбинацией
+
+    def test(a, b, c=3): ...
+
+но при этом аргументы с ключевыми словами передаются после всех позиционных аргументов.
+Python говорит, что вы передали позиционные аргументы после ключевых.
+</pre></div>
+</div>
+</section>
+<section id="single-number-used-as-arg-in-function-def">
+<h2>(79) Single number used as arg in function def<a class="headerlink" href="#single-number-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_number_as_arg.py", line 1
+    def f(1):
+          ^
+SyntaxError: invalid syntax
+
+    Вы не можете использовать числа в качестве аргументов функций.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_number_as_arg.py'
+в указанном ^ месте.
+
+
+   1| def f(1):
+            ^
+
+Вы использовали число в качестве аргумента при определении функции.
+В качестве аргументов функции можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="operator-after">
+<h2>(80) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#operator-after" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_after_2star.py", line 1
+    def test(**):
+               ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_operator_after_2star.py'
+в указанном ^ месте.
+
+
+   1| def test(**):
+                 ^
+
+За оператором `**` должен следовать идентификатор (имя переменной).
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-comma">
+<h2>(81) def: operator instead of comma<a class="headerlink" href="#def-operator-instead-of-comma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_comma.py", line 1
+    def test(a + b):
+               ^
+SyntaxError: invalid syntax
+
+    Вы хотели поставить запятую?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_operator_instead_of_comma.py'
+в указанном ^ месте.
+
+
+   1| def test(a + b):
+                 ^
+
+Вы не можете использовать операторы в качестве аргументов функции.
+Предполагаю, что вы допустили опечатку и написали `+` вместо запятой.
+Следующее утверждение не содержит синтаксической ошибки:
+
+    def test(a , b):
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-equal">
+<h2>(82) def: operator instead of equal<a class="headerlink" href="#def-operator-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_equal.py", line 1
+    def test(a, b=3, c+None):
+                      ^
+SyntaxError: invalid syntax
+
+    Вы хотели поставить знак равенства?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_operator_instead_of_equal.py'
+в указанном ^ месте.
+
+
+   1| def test(a, b=3, c+None):
+                        ^
+
+Вы не можете использовать операторы в качестве аргументов функции.
+Предполагаю, что вы допустили опечатку и написали `+`
+вместо знака равенства.
+Следующее утверждение не содержит синтаксической ошибки:
+
+    def test(a, b=3, c=None):
+</pre></div>
+</div>
+</section>
+<section id="def-operator-instead-of-name">
+<h2>(83) def: operator instead of name<a class="headerlink" href="#def-operator-instead-of-name" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_operator_instead_of_name.py", line 1
+    def test(a, +, b):
+                ^
+SyntaxError: invalid syntax
+
+    Вы не можете использовать `+` в качестве аргумента.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_operator_instead_of_name.py'
+в указанном ^ месте.
+
+
+   1| def test(a, +, b):
+                  ^
+
+Предполагаю, что вы допустили опечатку и по ошибке написали `+`.
+Если вы замените его на уникальное имя переменной,
+результат не будет содержать синтаксической ошибки.
+</pre></div>
+</div>
+</section>
+<section id="def-positional-argument-follows-keyword-argument">
+<h2>(84) def: positional argument follows keyword argument<a class="headerlink" href="#def-positional-argument-follows-keyword-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_positional_after_keyword_arg.py", line 5
+    test(a=1, b)
+               ^
+SyntaxError: positional argument follows keyword argument
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_positional_after_keyword_arg.py'
+в указанном ^ месте.
+
+
+   5| test(a=1, b)
+                 ^
+
+В Python вы можете вызывать функции только с позиционными аргументами
+
+    test(1, 2, 3)
+
+или только ключевыми аргументами
+
+    test(a=1, b=2, c=3)
+
+или их комбинацией
+
+    test(1, 2, c=3)
+
+но при этом ключевые аргументы идут после всех позиционных аргументов.
+Согласно Python, вы передали позиционные аргументы после ключевых.
+</pre></div>
+</div>
+</section>
+<section id="def-semicolon-instead-of-colon">
+<h2>(85) def: semicolon instead of colon<a class="headerlink" href="#def-semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_semi_colon_instead_of_colon.py", line 1
+    def test();
+              ^
+SyntaxError: invalid syntax
+
+    Вы забыли поставить двоеточие?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
+в указанном ^ месте.
+
+
+   1| def test();
+                ^
+
+Оператор определения функции должен заканчиваться двоеточием.
+Вы поставили `;` вместо двоеточия.
+</pre></div>
+</div>
+</section>
+<section id="def-set-as-argument">
+<h2>(86) def: set as argument<a class="headerlink" href="#def-set-as-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_set_as_arg.py", line 1
+    def test(y, {'a', 'b'}):  # set as second argument, after comma
+                ^
+SyntaxError: invalid syntax
+
+    В качестве аргументов функции нельзя использовать явные словари или множества.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_set_as_arg.py'
+в указанном ^ месте.
+
+
+   1| def test(y, {'a', 'b'}):  # set as second argument, after comma
+                  ^
+
+В качестве аргументов функции нельзя использовать явные словари или множества.
+В качестве аргументов функций можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="def-arg-before">
+<h2>(87) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /<a class="headerlink" href="#def-arg-before" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
+    def test(a, *arg, /):
+                      ^
+SyntaxError: invalid syntax
+
+    `*arg` должно идти после `/` в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_arg_before_slash.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *arg, /):
+                        ^
+
+`/` указывает, что предыдущие аргументы в определении функции
+являются позиционными аргументами.
+`*arg` должно идти после `/` в определении функции.
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once.py", line 1
+    def test(a, *arg, *, b=1):
+                      ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `*` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_used_only_once.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *arg, *, b=1):
+                        ^
+
+Вы можете использовать `*` только один раз в определении функции.
+Он должен использоваться либо сам по себе, `*`,
+либо в виде `*arg`, но не в обоих случаях.
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once_1.py", line 1
+    def test(a, *, *):
+                   ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `*` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_used_only_once_1.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *, *):
+                     ^
+
+Вы можете использовать `*` только один раз в определении функции.
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
+    def test(a, *arg, *other):
+                      ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `*` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_used_only_once_2.py'
+в указанном ^ месте.
+
+
+   1| def test(a, *arg, *other):
+                        ^
+
+Вы можете использовать `*` только один раз в определении функции.
+Вы использовали его дважды, с `*arg` и `*other`.
+</pre></div>
+</div>
+</section>
+<section id="def-after">
+<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#def-after" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_after_2star.py", line 1
+    def test(**kw, *arg):
+                   ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `*` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_after_2star.py'
+в указанном ^ месте.
+
+
+   1| def test(**kw, *arg):
+                     ^
+
+`*arg` должен идти перед `**kw`.
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2>(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_star_after_2star_2.py", line 1
+    def test(**kw, *):
+                   ^
+SyntaxError: invalid syntax
+
+    Вы можете использовать `*` только один раз в определении функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_star_after_2star_2.py'
+в указанном ^ месте.
+
+
+   1| def test(**kw, *):
+                     ^
+
+`**kw` должны идти после оператора `*`.
+</pre></div>
+</div>
+</section>
+<section id="single-string-used-as-arg-in-function-def">
+<h2>(93) Single string used as arg in function def<a class="headerlink" href="#single-string-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_string_as_arg.py", line 1
+    def f("1"):
+          ^
+SyntaxError: invalid syntax
+
+    Вы не можете использовать строки в качестве аргументов функций.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_string_as_arg.py'
+в указанном ^ месте.
+
+
+   1| def f("1"):
+            ^^^
+
+Вы использовали строку в качестве аргумента при определении функции.
+В качестве аргументов функции можно использовать только идентификаторы (имена переменных).
+</pre></div>
+</div>
+</section>
+<section id="def-tuple-as-function-argument">
+<h2>(94) def: tuple as function argument<a class="headerlink" href="#def-tuple-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
+    def test((a, b), c):
+             ^
+SyntaxError: invalid syntax
+
+    Вы не можете иметь явные кортежи в качестве аргументов функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_tuple_as_arg_1.py'
+в указанном ^ месте.
+
+
+   1| def test((a, b), c):
+               ^
+
+Вы не можете иметь явные кортежи в качестве аргументов функции.
+В качестве аргументов функции можно использовать только идентификаторы (имена переменных).
+Присвойте любой кортеж параметру и распакуйте его в теле функции.
+</pre></div>
+</div>
+</section>
+<section id="def-tuple-as-function-argument-2">
+<h2>(95) def: tuple as function argument - 2<a class="headerlink" href="#def-tuple-as-function-argument-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
+    def test(a, (b, c)):
+                ^
+SyntaxError: invalid syntax
+
+    Вы не можете иметь явные кортежи в качестве аргументов функции.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\def_tuple_as_arg_2.py'
+в указанном ^ месте.
+
+
+   1| def test(a, (b, c)):
+                  ^
+
+Вы не можете иметь явные кортежи в качестве аргументов функции.
+В качестве аргументов функции можно использовать только идентификаторы (имена переменных).
+Присвойте любой кортеж параметру и распакуйте его в теле функции.
+</pre></div>
+</div>
+</section>
+<section id="deleting-star-expression-1">
+<h2>(96) Deleting star expression - 1<a class="headerlink" href="#deleting-star-expression-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\del_paren_star_1.py", line 1
+    del (*x)
+         ^
+SyntaxError: can't use starred expression here
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\del_paren_star_1.py'
+в указанном ^ месте.
+
+
+   1| del (*x)
+           ^
+
+Оператор 'звезда' `*` интерпретируется как означающий, что
+распаковка последовательности должна использоваться для присвоения имени
+каждому элементу последовательности, что в данном случае не имеет смысла.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="deleting-star-expression-2">
+<h2>(97) Deleting star expression - 2<a class="headerlink" href="#deleting-star-expression-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\del_paren_star_2.py", line 1
+    del (*x,)
+         ^
+SyntaxError: cannot delete starred
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\del_paren_star_2.py'
+в указанном ^ месте.
+
+
+   1| del (*x,)
+           ^
+
+Оператор 'звезда' `*` интерпретируется как означающий, что
+распаковка последовательности должна использоваться для присвоения имени
+каждому элементу последовательности, что в данном случае не имеет смысла.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-a-constant">
+<h2>(98) Cannot delete a constant<a class="headerlink" href="#cannot-delete-a-constant" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_constant_keyword.py", line 1
+    del True
+        ^
+SyntaxError: cannot delete True
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_constant_keyword.py'
+в указанном ^ месте.
+
+
+   1| del True
+          ^^^^
+
+Вы не можете удалить константу `True`.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-expression">
+<h2>(99) Cannot delete expression<a class="headerlink" href="#cannot-delete-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_expression.py", line 1
+    del a.b.c[0] + 2
+        ^
+SyntaxError: cannot delete operator
+
+    Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_expression.py'
+в указанном ^ месте.
+
+
+   1| del a.b.c[0] + 2
+          ^
+
+Вы не можете удалить выражение `a.b.c[0] + 2`.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-function-call">
+<h2>(100) Cannot delete function call<a class="headerlink" href="#cannot-delete-function-call" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_function_call.py", line 5
+    del f(a)
+        ^
+SyntaxError: cannot delete function call
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_function_call.py'
+в указанном ^ месте.
+
+
+   5| del f(a)
+          ^
+
+Вы попытались удалить вызов функции
+
+    del f(a)
+вместо того, чтобы удалить имя функции
+
+    del f
+</pre></div>
+</div>
+</section>
+<section id="cannot-delete-named-expression">
+<h2>(101) Cannot delete named expression<a class="headerlink" href="#cannot-delete-named-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_named_expression.py", line 1
+    del (a := 5)
+         ^
+SyntaxError: cannot delete named expression
+
+    Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_named_expression.py'
+в указанном ^ месте.
+
+
+   1| del (a := 5)
+           ^
+
+Вы не можете удалить именованное выражение `(a := 5)`.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="delete-only-names-or-items">
+<h2>(102) Delete only names or items<a class="headerlink" href="#delete-only-names-or-items" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_names_or_items.py", line 1
+    del a += b
+          ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_names_or_items.py'
+в указанном ^ месте.
+
+
+   1| del a += b
+            ^^
+
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="deleting-string-literal">
+<h2>(103) Deleting string literal<a class="headerlink" href="#deleting-string-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\delete_string_literal.py", line 1
+    del "Hello world!"
+        ^
+SyntaxError: cannot delete literal
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\delete_string_literal.py'
+в указанном ^ месте.
+
+
+   1| del "Hello world!"
+          ^^^^^^^^^^^^^^
+
+Вы не можете удалить литерал `"Hello world!"`.
+Вы можете удалять только имена объектов или элементы в изменяемых контейнерах, таких как `list`, `set` или `dict`.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-1">
+<h2>(104) Value missing in dict - 1<a class="headerlink" href="#value-missing-in-dict-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_1.py", line 1
+    a = {1:2, 3}
+               ^
+SyntaxError: invalid syntax
+
+    Вы забыли записать в словарь значение ?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\dict_value_missing_1.py'
+в указанном ^ месте.
+
+
+   1| a = {1:2, 3}
+                 ^
+
+Возможно, вы записали ключ словаря без записи соответствующего значения.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-2">
+<h2>(105) Value missing in dict - 2<a class="headerlink" href="#value-missing-in-dict-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_2.py", line 2
+    a = {1:2, 3:}
+                ^
+SyntaxError: invalid syntax
+
+    Вы забыли записать в словарь значение ?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\dict_value_missing_2.py'
+в указанном ^ месте.
+
+
+   2| a = {1:2, 3:}
+                  ^
+
+Похоже, что ошибка возникла, когда вы писали в словарь Python.
+Возможно, вы забыли написать значение после двоеточия.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-3">
+<h2>(106) Value missing in dict - 3<a class="headerlink" href="#value-missing-in-dict-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_3.py", line 3
+    a = {1:2, 3, 4:5}
+               ^
+SyntaxError: invalid syntax
+
+    Вы забыли записать в словарь значение ?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\dict_value_missing_3.py'
+в указанном ^ месте.
+
+
+   3| a = {1:2, 3, 4:5}
+                 ^
+
+Возможно, вы записали ключ словаря без записи соответствующего значения.
+</pre></div>
+</div>
+</section>
+<section id="value-missing-in-dict-4">
+<h2>(107) Value missing in dict - 4<a class="headerlink" href="#value-missing-in-dict-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dict_value_missing_4.py", line 4
+    a = {1:2, 3:, 4:5}
+                ^
+SyntaxError: invalid syntax
+
+    Вы забыли записать в словарь значение ?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\dict_value_missing_4.py'
+в указанном ^ месте.
+
+
+   4| a = {1:2, 3:, 4:5}
+                  ^
+
+Похоже, что ошибка возникла, когда вы писали в словарь Python.
+Возможно, вы забыли написать значение после двоеточия.
+</pre></div>
+</div>
+</section>
+<section id="different-operators-in-a-row">
+<h2>(108) Different operators in a row<a class="headerlink" href="#different-operators-in-a-row" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\different_operators_in_a_row.py", line 1
+    3 */ 4
+       ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\different_operators_in_a_row.py'
+в указанном ^ месте.
+
+
+   1| 3 */ 4
+        ^^
+
+Так нельзя: два оператора, `*` и `/` следуют друг за другом.
+Возможно, вы написали один из них по ошибке
+или забыли поместить что-то между ними.
+</pre></div>
+</div>
+</section>
+<section id="dot-followed-by-parenthesis">
+<h2>(109) Dot followed by parenthesis<a class="headerlink" href="#dot-followed-by-parenthesis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\dot_before_paren.py", line 3
+    print(len.('hello'))
+              ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\dot_before_paren.py'
+в указанном ^ месте.
+
+
+   3| print(len.('hello'))
+                ^
+
+За точкой `.` не может следовать `(`.
+Возможно, вам следует заменить точку запятой.
+</pre></div>
+</div>
+</section>
+<section id="extra-token">
+<h2>(110) Extra token<a class="headerlink" href="#extra-token" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\duplicate_token.py", line 1
+    print(1 , , 2)
+              ^
+SyntaxError: invalid syntax
+
+    Вы по ошибке написали `,` дважды?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\duplicate_token.py'
+в указанном ^ месте.
+
+
+   1| print(1 , , 2)
+                ^
+
+Предполагаю, что вы по ошибке написали `,` два раза подряд.
+Если это так, вам нужно удалить второй.
+</pre></div>
+</div>
+</section>
+<section id="elif-with-no-matching-if">
+<h2>(111) elif with no matching if<a class="headerlink" href="#elif-with-no-matching-if" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\elif_not_matching_if.py", line 3
+    elif True:
+    ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\elif_not_matching_if.py'
+в указанном ^ месте.
+
+
+   3|    elif True:
+         ^^^^
+
+Ключевое слово `elif` не начинает блок кода, который соответствует блоку `if`.
+Возможно, потому что `elif` имеет неправильный отступ.
+</pre></div>
+</div>
+</section>
+<section id="ellipsis-written-with-extra-dot">
+<h2>(112) Ellipsis written with extra dot<a class="headerlink" href="#ellipsis-written-with-extra-dot" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\ellipsis_extra_dot.py", line 2
+    ....
+        ^
+SyntaxError: invalid syntax
+
+    Вы хотели написать `...`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\ellipsis_extra_dot.py'
+в указанном ^ месте.
+
+
+   2|     ....
+             ^
+
+It looks like you meant to write `...` but added an extra `.` by mistake.
+</pre></div>
+</div>
+</section>
+<section id="else-with-no-matching-statement">
+<h2>(113) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\else_no_matching_statement.py", line 3
+    else:
+    ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\else_no_matching_statement.py'
+в указанном ^ месте.
+
+
+   3|    else:
+         ^^^^
+
+Ключевое слово `else` не начинает соответствующий блок кода.
+Возможно, потому что `else` имеет неправильный отступ.
+</pre></div>
+</div>
+</section>
+<section id="write-elif-not-else-if">
+<h2>(114) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\else_if_instead_of_elif.py", line 5
+    else if True:
+         ^
+SyntaxError: invalid syntax
+
+    Возможно, вы хотели написать `elif`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\else_if_instead_of_elif.py'
+в указанном ^ месте.
+
+
+   5| else if True:
+      ^^^^^^^
+
+Скорее всего, вы хотели использовать ключевое слово Python `elif`,
+но вместо него написали `else if`.
+</pre></div>
+</div>
+</section>
+<section id="write-elif-not-elseif">
+<h2>(115) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
+    elseif True:
+           ^
+SyntaxError: invalid syntax
+
+    Возможно, вы хотели написать `elif`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\elseif_instead_of_elif.py'
+в указанном ^ месте.
+
+
+   5| elseif True:
+      ^^^^^^
+
+Скорее всего, вы хотели использовать ключевое слово Python `elif`,
+но вместо него написали `elseif`.
+</pre></div>
+</div>
+</section>
+<section id="eol-while-scanning-string-literal">
+<h2>(116) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\eol_string_literal.py", line 3
+    alphabet = 'abc
+                   ^
+SyntaxError: EOL while scanning string literal
+
+    Вы забыли завершающие кавычки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\eol_string_literal.py'
+в указанном ^ месте.
+
+
+   3| alphabet = 'abc
+                 ^
+
+Вы начали писать строку с одинарной или двойной кавычки,
+но так и не закрыли их.
+</pre></div>
+</div>
+</section>
+<section id="used-equal-sign-instead-of-colon">
+<h2>(117) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
+    ages = {'Alice'=22, 'Bob'=24}
+                   ^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\equal_sign_instead_of_colon.py'
+в указанном ^ месте.
+
+
+   4| ages = {'Alice'=22, 'Bob'=24}
+                     ^
+
+Возможно, что вы использовали знак равенства `=` вместо двоеточия `:`
+для присвоения значений ключам в словаре,
+до или в позиции, обозначенной ^.
+</pre></div>
+</div>
+</section>
+<section id="parens-around-multiple-exceptions">
+<h2>(118) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\except_multiple_exceptions.py", line 3
+    except NameError, ValueError as err:
+                    ^
+SyntaxError: invalid syntax
+
+    Вы забыли про скобки?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\except_multiple_exceptions.py'
+в указанном ^ месте.
+
+
+   3| except NameError, ValueError as err:
+                      ^
+
+Предполагаю, что вы хотели использовать оператор `except`
+с несколькими типами исключений. Если это так, то вы должны
+окружить их круглыми скобками.
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>(119) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\extra_token.py", line 1
+    print(1 / 2) ==
+                   ^
+SyntaxError: invalid syntax
+
+    Вы написали `==` по ошибке?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\extra_token.py'
+в указанном ^ месте.
+
+
+   1| print(1 / 2) ==
+                   ^^
+
+Предполагаю, что вы по ошибке написали `==`.
+Удалите его и напишите `print(1 / 2)`, это поможет устранить ошибку.
+</pre></div>
+</div>
+</section>
+<section id="binary-f-string-not-allowed">
+<h2>(120) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_binary.py", line 1
+    greet = bf"Hello {name}"
+              ^
+SyntaxError: invalid syntax
+
+    `bf` -- недопустимый префикс.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\f_string_binary.py'
+в указанном ^ месте.
+
+
+   1| greet = bf"Hello {name}"
+                ^^^^^^^^^^^^^^
+
+Предполагаю, что вы хотели получить binary f-строку, это недопустимо.
+</pre></div>
+</div>
+</section>
+<section id="f-string-closing-not-allowed">
+<h2>(121) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_curly_not_allowed.py", line 1
+    f"ab}"
+          ^
+SyntaxError: f-string: single '}' is not allowed
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\f_string_curly_not_allowed.py'
+в указанном ^ месте.
+
+
+   1| f"ab}"
+      ^^^^^^
+
+Вы написали f-строку, в которой есть непарная `}`.
+Если вы хотите вывести одну `}`, вам нужно написать `}}` в f-строке;
+в противном случае нужно добавить открывающую `{`.
+</pre></div>
+</div>
+</section>
+<section id="f-string-missing-closing">
+<h2>(122) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_expected_curly.py", line 1
+    f"{ab"
+          ^
+SyntaxError: f-string: expecting '}'
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\f_string_expected_curly.py'
+в указанном ^ месте.
+
+
+   1| f"{ab"
+      ^^^^^^
+
+Вы написали f-строку, в которой есть непарная `}`.
+Если вы хотите вывести одну `}`, вам нужно написать `}}` в f-строке;
+в противном случае нужно добавить открывающую `{`.
+</pre></div>
+</div>
+</section>
+<section id="f-string-unterminated-string">
+<h2>(123) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_unterminated.py", line 4
+    print(f"Bob is {age['Bob]} years old.")
+                                          ^
+SyntaxError: f-string: unterminated string
+
+    Возможно, вы забыли закрыть кавычки.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\f_string_unterminated.py'
+в указанном ^ месте.
+
+
+   4| print(f"Bob is {age['Bob]} years old.")
+                                            ^
+
+Внутри f-строки `f"Bob is {age['Bob]} years old."`
+у вас есть другая строка, которая начинается либо с
+одинарной кавычки (') или двойной кавычки ("), без совпадающей закрывающей кавычки.
+</pre></div>
+</div>
+</section>
+<section id="f-string-with-backslash">
+<h2>(124) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\f_string_with_backslash.py", line 2
+    print(f"{'\n'.join(names)}")
+                               ^
+SyntaxError: f-string expression part cannot include a backslash
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\f_string_with_backslash.py'
+в указанном ^ месте.
+
+
+   2| print(f"{'\n'.join(names)}")
+                                 ^
+
+Вы написали f-строку, содержимое которой `{...}`
+включает обратную косую черту; это недопустимо.
+Возможно, вы можете заменить часть, содержащую обратную косую черту,
+некоторой переменной. Например, предположим, что у вас есть f-строка вида:
+    f"{... 'hello\n' ...}"
+её можно записать как:
+    hello = 'hello\n'
+    f"{...hello ...}"
+</pre></div>
+</div>
+</section>
+<section id="missing-terms-in-for-statement">
+<h2>(125) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\for_missing_terms.py", line 1
+    for:
+       ^
+SyntaxError: invalid syntax
+
+    Для цикла `for` требуются как минимум 3 элемента.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\for_missing_terms.py'
+в указанном ^ месте.
+
+
+   1| for:
+         ^
+
+Цикл `for` -- это итерация по последовательности:
+
+    for element in sequence:
+        ...
+</pre></div>
+</div>
+</section>
+<section id="not-a-chance">
+<h2>(126) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_braces.py", line 1
+    from __future__ import braces
+    ^
+SyntaxError: not a chance
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\future_braces.py'
+в указанном ^ месте.
+
+
+   1| from __future__ import braces
+      ^^^^
+
+Предполагаю, что вы написали `from __future__ import braces`, следуя чьему-то совету.
+Это никогда не сработает.
+
+В отличие от других языков программирования, в Python блок кода выделяется уровнем отступа,
+а не использованием фигурных скобок, например, `{...}`.
+</pre></div>
+</div>
+</section>
+<section id="do-not-import-from-future">
+<h2>(127) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_import_star.py", line 1
+    from __future__ import *
+    ^
+SyntaxError: future feature * is not defined
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\future_import_star.py'
+в указанном ^ месте.
+
+
+   1| from __future__ import *
+      ^^^^
+
+При использовании оператора `from __future__ import`,
+вы должны импортировать элементы с определенными именами.
+
+Доступными вариантами являются: `nested_scopes,
+ generators,
+ division,
+ absolute_import,
+ with_statement,
+ print_function,
+ unicode_literals,
+ barry_as_FLUFL,
+ generator_stop,
+ annotations`.
+</pre></div>
+</div>
+</section>
+<section id="future-at-beginning">
+<h2>(128) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_must_be_first.py", line 3
+    from __future__ import generators
+    ^
+SyntaxError: from __future__ imports must occur at the beginning of the file
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\future_must_be_first.py'
+в указанном ^ месте.
+
+
+   3|     from __future__ import generators
+          ^^^^
+
+Оператор `from __future__ import` изменяет способ, которым Python
+интерпретирует код в файле. Он должен находиться в начале файла.
+</pre></div>
+</div>
+</section>
+<section id="typo-in-future">
+<h2>(129) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_typo.py", line 1
+    from __future__ import divisio
+    ^
+SyntaxError: future feature divisio is not defined
+
+    Вы имели в виду `division`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\future_typo.py'
+в указанном ^ месте.
+
+
+   1| from __future__ import divisio
+      ^^^^
+
+Возможно, вместо `divisio` вы хотели импортировать `division`.
+</pre></div>
+</div>
+</section>
+<section id="unknown-feature-in-future">
+<h2>(130) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\future_unknown.py", line 1
+    from __future__ import something
+    ^
+SyntaxError: future feature something is not defined
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\future_unknown.py'
+в указанном ^ месте.
+
+
+   1| from __future__ import something
+      ^^^^
+
+`something` не является допустимой функцией модуля `__future__`.
+
+Доступными вариантами являются: `nested_scopes,
+ generators,
+ division,
+ absolute_import,
+ with_statement,
+ print_function,
+ unicode_literals,
+ barry_as_FLUFL,
+ generator_stop,
+ annotations`.
+</pre></div>
+</div>
+</section>
+<section id="parenthesis-around-generator-expression">
+<h2>(131) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\generator_expression_parens.py", line 6
+    f(x for x in L, 1)
+      ^
+SyntaxError: Generator expression must be parenthesized
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\generator_expression_parens.py'
+в указанном ^ месте.
+
+
+   6| f(x for x in L, 1)
+        ^
+
+Вы используете генераторное выражение, что-то типа
+
+     x for x in thing
+
+Вы должны окружить его скобками.
+</pre></div>
+</div>
+</section>
+<section id="space-between-names">
+<h2>(132) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
+    a-b = 2
+    ^
+SyntaxError: cannot assign to operator
+
+    Вы имели в виду `a_b`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\hyphen_instead_of_underscore.py'
+в указанном ^ месте.
+
+
+   4| a-b = 2
+      ^
+
+Вы написали выражение, включающее некоторые математические операции
+слева от знака равенства, который следует
+использовать только для присвоения значения переменной.
+Возможно вы хотели написать `a_b` вместо `a-b`.
+</pre></div>
+</div>
+</section>
+<section id="missing-condition-in-if-statement">
+<h2>(133) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\if_missing_condition.py", line 1
+    if:
+      ^
+SyntaxError: invalid syntax
+
+    Вы забыли добавить условие.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\if_missing_condition.py'
+в указанном ^ месте.
+
+
+   1| if:
+        ^
+
+Оператор `if` требует условия:
+
+    if condition:
+        ...
+</pre></div>
+</div>
+</section>
+<section id="use-j-instead-of-i">
+<h2>(134) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\imaginary_i.py", line 3
+    a = 3.0i
+           ^
+SyntaxError: invalid syntax
+
+    Вы имели в виду `3.0j`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\imaginary_i.py'
+в указанном ^ месте.
+
+
+   3| a = 3.0i
+             ^
+
+Возможно, вы подумали, что `i` можно использовать для представления
+квадратного корня из `-1`. В Python для этого используется символ `j`,
+а комплексная часть записывается как `some_number`, сразу же
+за которым следует `j`, без пробелов между ними.
+Возможно, вы хотели написать `3.0j`.
+</pre></div>
+</div>
+</section>
+<section id="import-inversion-import-x-from-y">
+<h2>(135) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\import_from.py", line 3
+    import pen from turtle
+               ^
+SyntaxError: invalid syntax
+
+    Вы имели в виду `from turtle import pen`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\import_from.py'
+в указанном ^ месте.
+
+
+   3| import pen from turtle
+      ^^^^^^     ^^^^
+
+Вы написали
+
+    import pen from turtle
+вместо
+
+    from turtle import pen
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-expected-an-indented-block">
+<h2>(136) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_1.py", line 4
+    pass
+    ^
+IndentationError: expected an indented block
+
+`IndentationError` возникает, когда данная строка кода
+не отступает (не выровнена по вертикали относительно других строк), как требуется.
+
+Python не смог понять код в файле 'TESTS:\syntax\indentation_error_1.py'
+в указанном ^ месте.
+
+
+   4| pass
+      ^^^^
+
+Ожидалось, что строка `4`, указанная выше, начнет новый блок с отступом.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-unexpected-indent">
+<h2>(137) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_2.py", line 4
+    pass
+    ^
+IndentationError: unexpected indent
+
+`IndentationError` возникает, когда данная строка кода
+не отступает (не выровнена по вертикали относительно других строк), как требуется.
+
+Python не смог понять код в файле 'TESTS:\syntax\indentation_error_2.py'
+в указанном ^ месте.
+
+
+   4|       pass
+            ^^^^
+
+Строка `4`, определенная выше, имеет больший отступ, чем требуется.
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-unindent-does-not-match">
+<h2>(138) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_3.py", line 5
+    pass
+        ^
+IndentationError: unindent does not match any outer indentation level
+
+`IndentationError` возникает, когда данная строка кода
+не отступает (не выровнена по вертикали относительно других строк), как требуется.
+
+Python не смог понять код в файле 'TESTS:\syntax\indentation_error_3.py'
+в указанном ^ месте.
+
+
+   5|     pass
+          ^^^^
+
+Строка `5`, определенная выше, имеет меньший отступ, чем требуется..
+</pre></div>
+</div>
+</section>
+<section id="indentationerror-missing-continuation-line">
+<h2>(139) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\indentation_error_4.py", line 6
+    "c"
+    ^
+IndentationError: unexpected indent
+
+`IndentationError` возникает, когда данная строка кода
+не отступает (не выровнена по вертикали относительно других строк), как требуется.
+
+Python не смог понять код в файле 'TESTS:\syntax\indentation_error_4.py'
+в указанном ^ месте.
+
+
+   6|          "c"
+               ^^^
+
+Строка `6`, определенная выше, имеет больший отступ, чем требуется.
+
+Строка 6, которая идентифицируется как имеющая проблему,
+состоит из одной строки, что также характерно и для
+для предыдущей строки.
+Возможно, вы хотели включить символ продолжения `\`,
+в конце строки 5.
+</pre></div>
+</div>
+</section>
+<section id="forgot-o-for-octal">
+<h2>(140) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\integer_with_leading_zero_1.py", line 1
+    x = 01
+         ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+    Вы имели в виду `0o1`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\integer_with_leading_zero_1.py'
+в указанном ^ месте.
+
+
+   1| x = 01
+           ^
+
+Возможно, вы хотели написать восьмеричное число `0o1`.
+и забыли букву 'о', или, возможно, вы хотели написать
+десятичное целое число и не знали, что оно не может начинаться с нулей.
+</pre></div>
+</div>
+</section>
+<section id="integer-with-leading-zeros">
+<h2>(141) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\integer_with_leading_zero_2.py", line 1
+    x = 000_123_456
+                  ^
+SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+    Вы имели в виду `123_456`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\integer_with_leading_zero_2.py'
+в указанном ^ месте.
+
+
+   1| x = 000_123_456
+             ^^^^^^^^
+
+Возможно, вы хотели написать целое число `123_456`
+и не знали, что оно не может начинаться с нулей.
+</pre></div>
+</div>
+</section>
+<section id="invalid-character-in-identifier">
+<h2>(142) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_character_in_identifier.py", line 6
+    🤖 = 'Reeborg'
+    ^
+SyntaxError: invalid character '🤖' (U+1F916)
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_character_in_identifier.py'
+в указанном ^ месте.
+
+
+   6| 🤖 = 'Reeborg'
+      ^
+
+Python указывает, что вы использовали недопустимый символ юникода `🤖`.
+</pre></div>
+</div>
+</section>
+<section id="invalid-decimal-literal-1">
+<h2>(143) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_decimal_literal1.py", line 1
+    a = 1e
+         ^
+SyntaxError: invalid syntax
+
+    Возможно, вы пропустили оператор умножения, `1 * e`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_decimal_literal1.py'
+в указанном ^ месте.
+
+
+   1| a = 1e
+           ^
+
+Корректные имена не могут начинаться с цифры.
+Возможно, вы пропустили оператор умножения, `1 * e`.
+</pre></div>
+</div>
+</section>
+<section id="invalid-encoding">
+<h2>(144) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_encoding.py", line 2, in &lt;module&gt;
+    compile(source, filename="example.py", mode="exec")
+  File "TESTS:\example.py", line 0
+SyntaxError: encoding problem: utf8 with BOM
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\example.py'
+
+
+Кодировка файла некорректна.
+</pre></div>
+</div>
+</section>
+<section id="invalid-hexadecimal-number">
+<h2>(145) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_hexadecimal.py", line 3
+    a = 0x123g4
+             ^
+SyntaxError: invalid syntax
+
+    Допустили ошибку при записи шестнадцатеричного числа?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_hexadecimal.py'
+в указанном ^ месте.
+
+
+   3| a = 0x123g4
+               ^^
+
+Похоже, что вы использовали недопустимый символ (`g`) в шестнадцатеричном числе.
+
+Шестнадцатеричные числа - это целые числа с основанием 16, в которых
+используются символы от `0` до `9`
+для обозначения значений от 0 до 9, и буквы от `a` до `f`
+(или от `A` до `F`) для представления значений от 10 до 15.
+В Python шестнадцатеричные числа начинаются с `0x` или `0X`,
+за которым следуют символы, используемые для представления значения этого целого числа.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number">
+<h2>(146) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier.py", line 3
+    36abc = 3
+      ^
+SyntaxError: invalid syntax
+
+    Корректные имена не могут начинаться с цифры.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_identifier.py'
+в указанном ^ месте.
+
+
+   3| 36abc = 3
+        ^^^
+
+Корректные имена не могут начинаться с цифры.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-2">
+<h2>(147) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_2.py", line 3
+    tau = 2pi
+           ^
+SyntaxError: invalid syntax
+
+    Возможно, вы пропустили оператор умножения, `2 * pi`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_identifier_2.py'
+в указанном ^ месте.
+
+
+   3| tau = 2pi
+             ^^
+
+Корректные имена не могут начинаться с цифры.
+Возможно, вы пропустили оператор умножения, `2 * pi`.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-3">
+<h2>(148) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_3.py", line 1
+    3job  # could be entered in a repl
+      ^
+SyntaxError: invalid syntax
+
+    Возможно, вы пропустили оператор умножения, `3 * job`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_identifier_3.py'
+в указанном ^ месте.
+
+
+   1| 3job  # could be entered in a repl
+        ^^
+
+Корректные имена не могут начинаться с цифры.
+Возможно, вы пропустили оператор умножения, `3 * job`.
+
+[Примечание: выражение`3j * ob` также будет
+верным, поскольку `3j` - комплексное число].
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-4">
+<h2>(149) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_4.py", line 1
+    3job = 1
+      ^
+SyntaxError: invalid syntax
+
+    Корректные имена не могут начинаться с цифры.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_identifier_4.py'
+в указанном ^ месте.
+
+
+   1| 3job = 1
+        ^^
+
+Корректные имена не могут начинаться с цифры.
+</pre></div>
+</div>
+</section>
+<section id="valid-names-cannot-begin-with-a-number-5">
+<h2>(150) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_identifier_5.py", line 1
+    print(42java)
+             ^
+SyntaxError: invalid syntax
+
+    Возможно, вы пропустили оператор умножения, `42 * java`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_identifier_5.py'
+в указанном ^ месте.
+
+
+   1| print(42java)
+               ^^^
+
+Корректные имена не могут начинаться с цифры.
+Возможно, вы пропустили оператор умножения, `42 * java`.
+
+[Примечание: выражение`42j * ava` также будет
+верным, поскольку `42j` - комплексное число].
+</pre></div>
+</div>
+</section>
+<section id="keyword-can-t-be-an-expression">
+<h2>(151) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_keyword_argument.py", line 7
+    a = dict('key'=1)
+             ^
+SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_keyword_argument.py'
+в указанном ^ месте.
+
+
+   7| a = dict('key'=1)
+               ^^^^^
+
+Скорее всего, вы вызвали функцию с именованным аргументом:
+
+    a_function(invalid=something)
+
+где `invalid` не является допустимым именем переменной в Python
+либо потому, что оно начинается с числа, либо является строкой,
+или содержит точку и т.д.
+</pre></div>
+</div>
+</section>
+<section id="named-argument-can-t-be-a-python-keyword">
+<h2>(152) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
+    a = dict(True=1)
+             ^
+SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+
+    Вы не можете присвоить значение `True`.
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_keyword_argument_2.py'
+в указанном ^ месте.
+
+
+   7| a = dict(True=1)
+               ^^^^
+
+Скорее всего, вы вызвали функцию, используя ключевое слово Python `True` в качестве аргумента:
+
+    a_function(True=something)
+
+что Python интерпретировал как попытку присвоить значение ключевому слову Python.
+
+Вы не можете присвоить значение `True`.
+</pre></div>
+</div>
+</section>
+<section id="invalid-octal-number">
+<h2>(153) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\invalid_octal.py", line 3
+    b = 0O1876
+           ^
+SyntaxError: invalid digit '8' in octal literal
+
+    Не допустили ли вы ошибки при записи восьмеричного числа?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\invalid_octal.py'
+в указанном ^ месте.
+
+
+   3| b = 0O1876
+             ^^^
+
+It looks like you used an invalid character (`8`) in an octal number.
+
+Octal numbers are base 8 integers that only use the symbols `0` to `7`
+to represent values.
+In Python, octal numbers start with either `0o` or `0O`,
+(the digit zero followed by the letter `o`)
+followed by the characters used to represent the value of that integer.
+</pre></div>
+</div>
+</section>
+<section id="inverted-operators-1">
+<h2>(154) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\inverted_operators.py", line 1
+    a =&lt; 3
+       ^
+SyntaxError: invalid syntax
+
+    Операторы расположены в правильном порядке?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\inverted_operators.py'
+в указанном ^ месте.
+
+
+   1| a =&lt; 3
+        ^^
+
+Похоже, что вы написали два оператора (`=` и `&lt;`).
+в неправильном порядке: `=&lt;` вместо `&lt;=`.
+</pre></div>
+</div>
+</section>
+<section id="inverted-operators-2">
+<h2>(155) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\inverted_operators_2.py", line 1
+    a =&lt;* 3
+       ^
+SyntaxError: invalid syntax
+
+    Операторы расположены в правильном порядке?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\inverted_operators_2.py'
+в указанном ^ месте.
+
+
+   1| a =&lt;* 3
+        ^^
+
+Похоже, что вы написали два оператора (`=` и `&lt;`).
+в неправильном порядке: `=&lt;` вместо `&lt;=`.
+
+Однако такое изменение все равно не исправит
+все синтаксические ошибки в вашем коде.
+</pre></div>
+</div>
+</section>
+<section id="iteration-variable-unpacking-in-comprehension">
+<h2>(156) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="tracebacks_ta.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Friendly tracebacks - in தமிழ் மொழி</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="tracebacks_ru.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Friendly tracebacks - in Русский</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/syntax_tracebacks_ru.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Friendly SyntaxError tracebacks - in Русский</a><ul>
+<li><a class="reference internal" href="#using-and-in-import-statement">(1) Using ‘and’ in import statement</a></li>
+<li><a class="reference internal" href="#using-and-after-comma-in-import-statement">(2) Using ‘and’ after comma in import statement</a></li>
+<li><a class="reference internal" href="#annotated-name-cannot-be-global">(3) Annotated name cannot be global</a></li>
+<li><a class="reference internal" href="#incorrect-use-of-from-module-import-as">(4) Incorrect use of ‘from module import … as …</a></li>
+<li><a class="reference internal" href="#assign-instead-of-equal-or-walrus">(5) Assign instead of equal (or walrus).</a></li>
+<li><a class="reference internal" href="#name-assigned-prior-to-global-declaration">(6) Name assigned prior to global declaration</a></li>
+<li><a class="reference internal" href="#name-used-prior-to-global-declaration">(7) Name used prior to global declaration</a></li>
+<li><a class="reference internal" href="#name-used-prior-to-nonlocal-declaration">(8) Name used prior to nonlocal declaration</a></li>
+<li><a class="reference internal" href="#name-assigned-prior-to-nonlocal-declaration">(9) Name assigned prior to nonlocal declaration</a></li>
+<li><a class="reference internal" href="#assign-to-conditional-expression">(10) Assign to conditional expression</a></li>
+<li><a class="reference internal" href="#assignment-to-keyword-debug">(11) Assignment to keyword (__debug__)</a></li>
+<li><a class="reference internal" href="#id1">(12) Assignment to keyword (__debug__)</a></li>
+<li><a class="reference internal" href="#assignment-to-ellipsis-symbol">(13) Assignment to Ellipsis symbol</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-f-string">(14) Cannot assign to f-string</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-single-sign">(15) Cannot assign to function call: single = sign</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-two-signs">(16) Cannot assign to function call: two = signs</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-function-call-continues-on-second-line">(17) Cannot assign to function call: continues on second line</a></li>
+<li><a class="reference internal" href="#assign-to-generator-expression">(18) Assign to generator expression</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-4">(19) Cannot assign to literal - 4</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-int">(20) Cannot assign to literal int</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-int-2">(21) Cannot assign to literal int - 2</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-5">(22) Cannot assign to literal - 5</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-literal-3">(23) Cannot assign to literal - 3</a></li>
+<li><a class="reference internal" href="#assign-to-keyword-def">(24) Assign to keyword def</a></li>
+<li><a class="reference internal" href="#assign-to-keyword-else">(25) Assign to keyword else</a></li>
+<li><a class="reference internal" href="#assignment-to-keyword-none">(26) Assignment to keyword (None)</a></li>
+<li><a class="reference internal" href="#assign-to-math-operation">(27) Assign to math operation</a></li>
+<li><a class="reference internal" href="#assign-to-yield-expression">(28) Assign to yield expression</a></li>
+<li><a class="reference internal" href="#augmented-assignment-inside-comprehension">(29) Augmented assignment inside comprehension</a></li>
+<li><a class="reference internal" href="#augmented-assignment-inside-comprehension-inner-loop">(30) Augmented assignment inside comprehension - inner loop</a></li>
+<li><a class="reference internal" href="#def-missing-parentheses">(31) def: missing parentheses</a></li>
+<li><a class="reference internal" href="#augmented-assignment-to-literal">(32) Augmented assignment to literal</a></li>
+<li><a class="reference internal" href="#walrus-named-assignment-depending-on-python-version">(33) Walrus/Named assignment depending on Python version</a></li>
+<li><a class="reference internal" href="#backslash-instead-of-slash">(34) Backslash instead of slash</a></li>
+<li><a class="reference internal" href="#brackets-instead-of-parentheses">(35) Brackets instead of parentheses</a></li>
+<li><a class="reference internal" href="#break-outside-loop">(36) break outside loop</a></li>
+<li><a class="reference internal" href="#cannot-assign-to-attribute-here">(37) Cannot assign to attribute here.</a></li>
+<li><a class="reference internal" href="#cannot-guess-the-cause">(38) Cannot guess the cause</a></li>
+<li><a class="reference internal" href="#cannot-use-star-operator">(39) Cannot use star operator</a></li>
+<li><a class="reference internal" href="#cannot-use-double-star-operator">(40) Cannot use double star operator</a></li>
+<li><a class="reference internal" href="#missing-class-name">(41) Missing class name</a></li>
+<li><a class="reference internal" href="#missing-for-tuples-in-comprehension">(42) Missing () for tuples in comprehension</a></li>
+<li><a class="reference internal" href="#comprehension-with-condition-no-else">(43) Comprehension with condition (no else)</a></li>
+<li><a class="reference internal" href="#comprehension-with-condition-with-else">(44) Comprehension with condition (with else)</a></li>
+<li><a class="reference internal" href="#continue-outside-loop">(45) continue outside loop</a></li>
+<li><a class="reference internal" href="#copy-paste-from-interpreter">(46) Copy/paste from interpreter</a></li>
+<li><a class="reference internal" href="#copy-paste-from-interpreter-2">(47) Copy/paste from interpreter - 2</a></li>
+<li><a class="reference internal" href="#def-positional-arg-after-kwargs">(48) def: positional arg after kwargs</a></li>
+<li><a class="reference internal" href="#def-named-arguments-must-follow-bare">(49) def: named arguments must follow bare *</a></li>
+<li><a class="reference internal" href="#def-misused-as-code-block">(50) def: misused as code block</a></li>
+<li><a class="reference internal" href="#def-misused-as-code-block-2">(51) def: misused as code block - 2</a></li>
+<li><a class="reference internal" href="#dotted-name-as-function-argument">(52) Dotted name as function argument</a></li>
+<li><a class="reference internal" href="#id2">(53) Dotted name as function argument</a></li>
+<li><a class="reference internal" href="#dotted-function-name">(54) Dotted function name</a></li>
+<li><a class="reference internal" href="#def-dict-as-argument">(55) def: dict as argument</a></li>
+<li><a class="reference internal" href="#def-arguments-must-be-unique-in-function-definition">(56) def: arguments must be unique in function definition</a></li>
+<li><a class="reference internal" href="#def-semicolon-after-colon">(57) def: semicolon after colon</a></li>
+<li><a class="reference internal" href="#def-extra-comma">(58) def: extra comma</a></li>
+<li><a class="reference internal" href="#def-unspecified-keywords-before">(59) def: unspecified keywords before /</a></li>
+<li><a class="reference internal" href="#def-before-star">(60) def: / before star</a></li>
+<li><a class="reference internal" href="#def-before-star-arg">(61) def: / before star arg</a></li>
+<li><a class="reference internal" href="#def-used-twice">(62) def: / used twice</a></li>
+<li><a class="reference internal" href="#def-non-identifier-as-a-function-name">(63) def: non-identifier as a function name</a></li>
+<li><a class="reference internal" href="#def-using-a-string-as-a-function-name">(64) def: using a string as a function name</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-1">(65) def: keyword cannot be argument in def - 1</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-2">(66) def: keyword cannot be argument in def - 2</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-3">(67) def: keyword cannot be argument in def - 3</a></li>
+<li><a class="reference internal" href="#def-keyword-cannot-be-argument-in-def-4">(68) def: keyword cannot be argument in def - 4</a></li>
+<li><a class="reference internal" href="#def-python-keyword-as-function-name">(69) def: Python keyword as function name</a></li>
+<li><a class="reference internal" href="#def-list-as-argument-1">(70) def: list as argument - 1</a></li>
+<li><a class="reference internal" href="#def-list-as-argument-2">(71) def: list as argument - 2</a></li>
+<li><a class="reference internal" href="#def-missing-colon">(72) def: missing colon</a></li>
+<li><a class="reference internal" href="#def-missing-comma-between-function-args">(73) def: missing comma between function args</a></li>
+<li><a class="reference internal" href="#id3">(74) def: missing parentheses</a></li>
+<li><a class="reference internal" href="#def-missing-parentheses-around-arguments">(75) def: missing parentheses around arguments</a></li>
+<li><a class="reference internal" href="#def-missing-function-name">(76) def: missing function name</a></li>
+<li><a class="reference internal" href="#def-name-is-parameter-and-global">(77) def: name is parameter and global</a></li>
+<li><a class="reference internal" href="#def-non-default-argument-follows-default-argument">(78) def: non-default argument follows default argument</a></li>
+<li><a class="reference internal" href="#single-number-used-as-arg-in-function-def">(79) Single number used as arg in function def</a></li>
+<li><a class="reference internal" href="#operator-after">(80) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-comma">(81) def: operator instead of comma</a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-equal">(82) def: operator instead of equal</a></li>
+<li><a class="reference internal" href="#def-operator-instead-of-name">(83) def: operator instead of name</a></li>
+<li><a class="reference internal" href="#def-positional-argument-follows-keyword-argument">(84) def: positional argument follows keyword argument</a></li>
+<li><a class="reference internal" href="#def-semicolon-instead-of-colon">(85) def: semicolon instead of colon</a></li>
+<li><a class="reference internal" href="#def-set-as-argument">(86) def: set as argument</a></li>
+<li><a class="reference internal" href="#def-arg-before">(87) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /</a></li>
+<li><a class="reference internal" href="#id4">(88) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id5">(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#id6">(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice</a></li>
+<li><a class="reference internal" href="#def-after">(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#id7">(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code></a></li>
+<li><a class="reference internal" href="#single-string-used-as-arg-in-function-def">(93) Single string used as arg in function def</a></li>
+<li><a class="reference internal" href="#def-tuple-as-function-argument">(94) def: tuple as function argument</a></li>
+<li><a class="reference internal" href="#def-tuple-as-function-argument-2">(95) def: tuple as function argument - 2</a></li>
+<li><a class="reference internal" href="#deleting-star-expression-1">(96) Deleting star expression - 1</a></li>
+<li><a class="reference internal" href="#deleting-star-expression-2">(97) Deleting star expression - 2</a></li>
+<li><a class="reference internal" href="#cannot-delete-a-constant">(98) Cannot delete a constant</a></li>
+<li><a class="reference internal" href="#cannot-delete-expression">(99) Cannot delete expression</a></li>
+<li><a class="reference internal" href="#cannot-delete-function-call">(100) Cannot delete function call</a></li>
+<li><a class="reference internal" href="#cannot-delete-named-expression">(101) Cannot delete named expression</a></li>
+<li><a class="reference internal" href="#delete-only-names-or-items">(102) Delete only names or items</a></li>
+<li><a class="reference internal" href="#deleting-string-literal">(103) Deleting string literal</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-1">(104) Value missing in dict - 1</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-2">(105) Value missing in dict - 2</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-3">(106) Value missing in dict - 3</a></li>
+<li><a class="reference internal" href="#value-missing-in-dict-4">(107) Value missing in dict - 4</a></li>
+<li><a class="reference internal" href="#different-operators-in-a-row">(108) Different operators in a row</a></li>
+<li><a class="reference internal" href="#dot-followed-by-parenthesis">(109) Dot followed by parenthesis</a></li>
+<li><a class="reference internal" href="#extra-token">(110) Extra token</a></li>
+<li><a class="reference internal" href="#elif-with-no-matching-if">(111) elif with no matching if</a></li>
+<li><a class="reference internal" href="#ellipsis-written-with-extra-dot">(112) Ellipsis written with extra dot</a></li>
+<li><a class="reference internal" href="#else-with-no-matching-statement">(113) else with no matching statement</a></li>
+<li><a class="reference internal" href="#write-elif-not-else-if">(114) Write elif, not else if</a></li>
+<li><a class="reference internal" href="#write-elif-not-elseif">(115) Write elif, not elseif</a></li>
+<li><a class="reference internal" href="#eol-while-scanning-string-literal">(116) EOL while scanning string literal</a></li>
+<li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(117) Used equal sign instead of colon</a></li>
+<li><a class="reference internal" href="#parens-around-multiple-exceptions">(118) Parens around multiple exceptions</a></li>
+<li><a class="reference internal" href="#id8">(119) Extra token</a></li>
+<li><a class="reference internal" href="#binary-f-string-not-allowed">(120) Binary f-string not allowed</a></li>
+<li><a class="reference internal" href="#f-string-closing-not-allowed">(121) f-string: closing } not allowed</a></li>
+<li><a class="reference internal" href="#f-string-missing-closing">(122) f-string: missing closing }</a></li>
+<li><a class="reference internal" href="#f-string-unterminated-string">(123) f-string: unterminated string</a></li>
+<li><a class="reference internal" href="#f-string-with-backslash">(124) f-string with backslash</a></li>
+<li><a class="reference internal" href="#missing-terms-in-for-statement">(125) Missing terms in for statement</a></li>
+<li><a class="reference internal" href="#not-a-chance">(126) Not a chance!</a></li>
+<li><a class="reference internal" href="#do-not-import-from-future">(127) Do not import * from __future__</a></li>
+<li><a class="reference internal" href="#future-at-beginning">(128) __future__ at beginning</a></li>
+<li><a class="reference internal" href="#typo-in-future">(129) Typo in __future__</a></li>
+<li><a class="reference internal" href="#unknown-feature-in-future">(130) Unknown feature in __future__</a></li>
+<li><a class="reference internal" href="#parenthesis-around-generator-expression">(131) Parenthesis around generator expression</a></li>
+<li><a class="reference internal" href="#space-between-names">(132) Space between names</a></li>
+<li><a class="reference internal" href="#missing-condition-in-if-statement">(133) Missing condition in if statement</a></li>
+<li><a class="reference internal" href="#use-j-instead-of-i">(134) use j instead of i</a></li>
+<li><a class="reference internal" href="#import-inversion-import-x-from-y">(135) Import inversion: import X from Y</a></li>
+<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(136) IndentationError: expected an indented block</a></li>
+<li><a class="reference internal" href="#indentationerror-unexpected-indent">(137) IndentationError: unexpected indent</a></li>
+<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(138) IndentationError: unindent does not match …</a></li>
+<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(139) IndentationError: missing continuation line</a></li>
+<li><a class="reference internal" href="#forgot-o-for-octal">(140) Forgot ‘o’ for octal</a></li>
+<li><a class="reference internal" href="#integer-with-leading-zeros">(141) Integer with leading zeros</a></li>
+<li><a class="reference internal" href="#invalid-character-in-identifier">(142) Invalid character in identifier</a></li>
+<li><a class="reference internal" href="#invalid-decimal-literal-1">(143) Invalid decimal literal - 1</a></li>
+<li><a class="reference internal" href="#invalid-encoding">(144) Invalid encoding</a></li>
+<li><a class="reference internal" href="#invalid-hexadecimal-number">(145) Invalid hexadecimal number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(146) Valid names cannot begin with a number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(147) Valid names cannot begin with a number - 2</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(148) Valid names cannot begin with a number - 3</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(149) Valid names cannot begin with a number - 4</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(150) Valid names cannot begin with a number - 5</a></li>
+<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(151) Keyword can’t be an expression</a></li>
+<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(152) Named argument can’t be a Python keyword</a></li>
+<li><a class="reference internal" href="#invalid-octal-number">(153) Invalid octal number</a></li>
+<li><a class="reference internal" href="#inverted-operators-1">(154) Inverted operators 1</a></li>
+<li><a class="reference internal" href="#inverted-operators-2">(155) Inverted operators 2</a></li>
+<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(156) Iteration variable unpacking in comprehension</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>

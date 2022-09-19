@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - en Français" href="tracebacks_fr.html" /><link rel="prev" title="Friendly tracebacks - en español" href="tracebacks_es.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - en español - friendly-traceback 0.5.48</title>
+        <title>Friendly SyntaxError tracebacks - en español - friendly-traceback 0.6.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.5.48</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.6.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.48</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.6.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -245,15 +245,25 @@
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
-<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_he.html">Friendly SyntaxError tracebacks - בעברית</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tracebacks_it.html">Friendly tracebacks - in italiano</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Русский</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_ru.html">Friendly tracebacks - in Русский</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_ru.html">Friendly SyntaxError tracebacks - in Русский</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">தமிழ் மொழி</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_ta.html">Friendly tracebacks - in தமிழ் மொழி</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_ta.html">Friendly SyntaxError tracebacks - in தமிழ் மொழி</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntax_tracebacks_he.html">Friendly SyntaxError tracebacks - בעברית</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
 <ul>
@@ -319,7 +329,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.5.48
+<p>Friendly-traceback version: 0.6.0
 Python version: 3.9.10</p>
 <section id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
@@ -337,7 +347,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\and_in_import_statement.py'
 en la ubicación indicada.
 
-   1: from math import sin and cos
+   1| from math import sin and cos
                            ^^^
 
 La palabra clave de Python `and` sólo puede utilizarse para expresiones booleanas.
@@ -363,7 +373,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\and_in_import_statement_2.py'
 en la ubicación indicada.
 
-   1: from math import sin, tan, and cos
+   1| from math import sin, tan, and cos
                                  ^^^
 
 La palabra clave de Python `and` sólo puede utilizarse para expresiones booleanas.
@@ -389,7 +399,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\annotated_name_global.py'
 en la ubicación indicada.
 
-   4:     var:int = 1
+   4|     var:int = 1
           ^^^
 
 El objeto llamado `var` se define con la anotación de tipo
@@ -413,7 +423,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\as_instead_of_comma_in_import.py'
 en la ubicación indicada.
 
-   2: from math import (sin, cos) as funcs
+   2| from math import (sin, cos) as funcs
                                   ^^
 
 Supongo que estás intentando importar al menos un objeto
@@ -446,7 +456,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_instead_of_equal.py'
 en la ubicación indicada.
 
-   1: a = (b = 2)  # issue #65
+   1| a = (b = 2)  # issue #65
              ^
 
 Has utilizado un operador de asignación `=`; quizás querías utilizar
@@ -470,7 +480,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_name_before_global_1.py'
 en la ubicación indicada.
 
-   7:     global aa, bb, cc, dd
+   7|     global aa, bb, cc, dd
           ^^^^^^         ^^
 
 Usted asignó un valor a la variable `cc`.
@@ -494,7 +504,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_name_before_global_2.py'
 en la ubicación indicada.
 
-   7:     global var
+   7|     global var
           ^^^^^^ ^^^
 
 Ha utilizado la variable `var`
@@ -520,7 +530,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_name_before_nonlocal_1.py'
 en la ubicación indicada.
 
-   11:         nonlocal pp, qq
+   11|         nonlocal pp, qq
                ^^^^^^^^     ^^
 
 Ha utilizado la variable `qq`
@@ -546,7 +556,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_name_before_nonlocal_2.py'
 en la ubicación indicada.
 
-   9:         nonlocal s
+   9|         nonlocal s
               ^^^^^^^^ ^
 
 Ha asignado un valor a la variable `s`
@@ -572,7 +582,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_conditional.py'
 en la ubicación indicada.
 
-   3: a if 1 else b = 1
+   3| a if 1 else b = 1
       ^^^^^^^^^^^^^
 
 En el lado izquierdo de un signo igual, tiene una expresión generadora
@@ -601,7 +611,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_debug.py'
 en la ubicación indicada.
 
-   4: __debug__ = 1
+   4| __debug__ = 1
       ^^^^^^^^^
 
 __debug__` es una constante en Python; no puedes asignarle un valor diferente.
@@ -626,7 +636,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_debug2.py'
 en la ubicación indicada.
 
-   4: a.__debug__ = 1
+   4| a.__debug__ = 1
         ^^^^^^^^^
 
 __debug__` es una constante en Python; no puedes asignarle un valor diferente.
@@ -651,7 +661,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_ellipsis.py'
 en la ubicación indicada.
 
-   4: ... = 1
+   4| ... = 1
       ^^^
 
 El símbolo de la elipsis `...` es una constante en Python; no se le puede asignar un valor diferente.
@@ -676,7 +686,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_f_string.py'
 en la ubicación indicada.
 
-   6: f'{x}' = 42
+   6| f'{x}' = 42
       ^^^^^^
 
 Has escrito una expresión que tiene la f-string `f'{x}'`` en el lado izquierdo del signo igual
@@ -704,7 +714,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_function_call_1.py'
 en la ubicación indicada.
 
-   6: len('a') = 3
+   6| len('a') = 3
       ^^^^^^^^
 
 Has escrito una expresión como
@@ -736,7 +746,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_function_call_2.py'
 en la ubicación indicada.
 
-   6: func(a, b=3) = 4
+   6| func(a, b=3) = 4
       ^^^^^^^^^^^^
 
 Has escrito una expresión como
@@ -768,9 +778,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_function_call_3.py'
 en la ubicación indicada.
 
---&gt;6: a = f(1, 2,  # this is a comment
+--&gt;6| a = f(1, 2,  # this is a comment
           ^^^^^^^--&gt;
-   7:       3, 4) = 5
+   7|       3, 4) = 5
 
 Has escrito una expresión como
 
@@ -801,7 +811,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_generator.py'
 en la ubicación indicada.
 
-   3: (x for x in x) = 1
+   3| (x for x in x) = 1
       ^^^^^^^^^^^^^^
 
 En el lado izquierdo de un signo igual, tiene una expresión generadora
@@ -828,7 +838,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_literal_dict.py'
 en la ubicación indicada.
 
-   7: {1 : 2, 2 : 4} = 5
+   7| {1 : 2, 2 : 4} = 5
       ^^^^^^^^^^^^^^
 
 Has escrito una expresión como
@@ -859,7 +869,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_literal_int.py'
 en la ubicación indicada.
 
-   3: 1 = a
+   3| 1 = a
       ^
 
 Has escrito una expresión como
@@ -892,7 +902,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_literal_int_2.py'
 en la ubicación indicada.
 
-   3: 1 = 2
+   3| 1 = 2
       ^
 
 Has escrito una expresión como
@@ -924,7 +934,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_literal_int_3.py'
 en la ubicación indicada.
 
-   4: 1 = a = b
+   4| 1 = a = b
       ^
 
 Has escrito una expresión como
@@ -956,7 +966,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_literal_set.py'
 en la ubicación indicada.
 
-   7: {1, 2, 3} = 4
+   7| {1, 2, 3} = 4
       ^^^^^^^^^
 
 Has escrito una expresión como
@@ -988,7 +998,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_keyword_def.py'
 en la ubicación indicada.
 
-   3: def = 2
+   3| def = 2
       ^^^
 
 Has intentado asignar un valor a la palabra clave de Python `def`.
@@ -1014,7 +1024,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_keyword_else.py'
 en la ubicación indicada.
 
-   3: else = 1
+   3| else = 1
       ^^^^
 
 Has intentado asignar un valor a la palabra clave de Python `else`.
@@ -1040,7 +1050,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_keyword_none.py'
 en la ubicación indicada.
 
-   4: None = 1
+   4| None = 1
       ^^^^
 
 None` es una constante en Python; no puedes asignarle un valor diferente.
@@ -1065,7 +1075,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_operation.py'
 en la ubicación indicada.
 
-   4: a + 1 = 2
+   4| a + 1 = 2
       ^
 
 Has escrito una expresión que incluye algunas operaciones matemáticas
@@ -1092,7 +1102,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assign_to_yield_expression.py'
 en la ubicación indicada.
 
-   1: (yield i) = 3
+   1| (yield i) = 3
        ^^^^^
 
 Ha escrito una expresión que incluye la palabra clave `yield
@@ -1119,7 +1129,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assignment_expression_cannot_rebind.py'
 en la ubicación indicada.
 
-   1: a = [(i := 1) for i in [1]]
+   1| a = [(i := 1) for i in [1]]
            ^
 
 Está utilizando el operador de asignación aumentada `:=` dentro de
@@ -1147,7 +1157,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
 en la ubicación indicada.
 
-   1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+   1| [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
       ^
 
 Está utilizando el operador de asignación aumentada `:=` dentro de
@@ -1177,7 +1187,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\async_def_missing_parens.py'
 en la ubicación indicada.
 
-   1: async def name:
+   1| async def name:
                     ^
 
 Tal vez haya olvidado incluir los paréntesis.
@@ -1205,7 +1215,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\augmented_assignment_to_literal.py'
 en la ubicación indicada.
 
-   1: if "word" := True:
+   1| if "word" := True:
          ^^^^^^
 
 No se puede utilizar el operador de asignación aumentada `:=`,
@@ -1232,7 +1242,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\augmented_assigment_with_true.py'
 en la ubicación indicada.
 
-   4: (True := 1)
+   4| (True := 1)
        ^^^^
 
 True` es una constante en Python; no puedes asignarle un valor diferente.
@@ -1257,7 +1267,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\backslash_instead_of_slash.py'
 en la ubicación indicada.
 
-   1: a = 3 \ 4.0
+   1| a = 3 \ 4.0
               ^^^
 
 Está utilizando el carácter de continuación `\` fuera de una cadena
@@ -1285,7 +1295,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\bracket_instead_of_paren.py'
 en la ubicación indicada.
 
-   1: print(sum[i for i in [1, 2, 3] if i%2==0])
+   1| print(sum[i for i in [1, 2, 3] if i%2==0])
                   ^^^
 
 Has utilizado corchetes, `[...]` en lugar de paréntesis.
@@ -1311,7 +1321,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\break_outside_loop.py'
 en la ubicación indicada.
 
-   4:     break
+   4|     break
           ^^^^^
 
 La palabra clave de Python `break` sólo puede utilizarse dentro de un bucle `for` o dentro de un bucle `while`.
@@ -1336,7 +1346,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\cannot_assign_to_attribute_here.py'
 en la ubicación indicada.
 
-   1: if x.a = 1:
+   1| if x.a = 1:
              ^
 
 Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
@@ -1364,7 +1374,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\cannot_guess_the_cause.py'
 en la ubicación indicada.
 
-   1: SyntaxErrors can be annoying!
+   1| SyntaxErrors can be annoying!
                    ^^^
 
 Actualmente, no puedo detectar la causa probable de este error.
@@ -1375,7 +1385,7 @@ o símbolos que falten, como (, ), [, ], :, etc.
 A menos que su código utilice anotaciones de tipo, que están fuera de nuestro alcance,
 si cree que esto es algo que debería ser manejado
 por friendly, por favor reporte este caso a
-https://github.com/aroberge/friendly/issues
+https://github.com/friendly-traceback/friendly-traceback/issues
 </pre></div>
 </div>
 </section>
@@ -1395,7 +1405,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\cannot_use_star.py'
 en la ubicación indicada.
 
-   3: *a
+   3| *a
       ^
 
 El operador estrella `*` se interpreta como que
@@ -1420,7 +1430,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\cannot_use_double_star.py'
 en la ubicación indicada.
 
-   1: (**k)
+   1| (**k)
        ^^
 
 El operador de doble estrella `**` probablemente se interpreta como que
@@ -1446,7 +1456,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\class_missing_name.py'
 en la ubicación indicada.
 
-   1: class:
+   1| class:
            ^
 
 Una declaración `class` requiere un nombre:
@@ -1474,7 +1484,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\comprehension_missing_tuple_paren.py'
 en la ubicación indicada.
 
-   1: x = [i, i**2 for i in range(10)]
+   1| x = [i, i**2 for i in range(10)]
                    ^^^
 
 Supongo que estabas escribiendo una expresión de comprensión o un generador
@@ -1505,7 +1515,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\comprehension_with_condition_no_else.py'
 en la ubicación indicada.
 
-   1: a = [f(x) if condition for x in sequence]
+   1| a = [f(x) if condition for x in sequence]
                              ^^^
 
 Supongo que estabas escribiendo una comprensión o una expresión generadora
@@ -1538,7 +1548,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\comprehension_with_condition_with_else.py'
 en la ubicación indicada.
 
-   1: a = [f(x) for x in sequence if condition else other]
+   1| a = [f(x) for x in sequence if condition else other]
                                                ^^^^
 
 Supongo que estabas escribiendo una comprensión o una expresión generadora
@@ -1571,7 +1581,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\continue_outside_loop.py'
 en la ubicación indicada.
 
-   4:     continue
+   4|     continue
           ^^^^^^^^
 
 La palabra clave de Python `continue` sólo puede usarse dentro de un bucle `for` o dentro de un bucle `while`.
@@ -1596,7 +1606,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\copy_pasted_code.py'
 en la ubicación indicada.
 
-   2: &gt;&gt;&gt; print("Hello World!")
+   2| &gt;&gt;&gt; print("Hello World!")
       ^^^
 
 Parece que has copiado y pegado código de un intérprete interactivo.
@@ -1622,7 +1632,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\copy_pasted_code_2.py'
 en la ubicación indicada.
 
-   2: ... print("Hello World!")
+   2| ... print("Hello World!")
       ^^^
 
 Parece que has copiado y pegado código de un intérprete interactivo.
@@ -1648,7 +1658,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_arg_after_kwarg.py'
 en la ubicación indicada.
 
-   1: def test(a, **kwargs, b):
+   1| def test(a, **kwargs, b):
                             ^
 
 Los argumentos posicionales deben ir antes de los argumentos de palabra clave.
@@ -1675,7 +1685,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_bare_star_arg.py'
 en la ubicación indicada.
 
-   4: def f(*):
+   4| def f(*):
              ^
 
 Asumiendo que estabas definiendo una función, necesitas
@@ -1702,7 +1712,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_code_block.py'
 en la ubicación indicada.
 
-   3: def :
+   3| def :
           ^
 
 Has intentado definir una función y no has utilizado la sintaxis correcta.
@@ -1730,7 +1740,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_code_block_2.py'
 en la ubicación indicada.
 
-   2:     def :
+   2|     def :
               ^
 
 Has intentado definir una función o un método y no has utilizado la sintaxis correcta.
@@ -1758,7 +1768,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_dotted_argument.py'
 en la ubicación indicada.
 
-   3: def test(x.y):
+   3| def test(x.y):
                 ^
 
 No se pueden utilizar nombres con puntos como argumentos de funciones.
@@ -1784,7 +1794,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_dotted_argument_2.py'
 en la ubicación indicada.
 
-   2: def test(x., y):
+   2| def test(x., y):
                 ^
 
 No se pueden utilizar nombres con puntos como argumentos de funciones.
@@ -1809,7 +1819,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_dotted_function_name.py'
 en la ubicación indicada.
 
-   3: def test.x():
+   3| def test.x():
               ^
 
 No se pueden utilizar puntos en los nombres de las funciones.
@@ -1834,7 +1844,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_dict_as_arg.py'
 en la ubicación indicada.
 
-   1: def test({'a': 1}, y):  # dict as first argument
+   1| def test({'a': 1}, y):  # dict as first argument
                ^
 
 No puede tener ningún dict o set explícito como argumentos de la función.
@@ -1858,7 +1868,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_duplicate_arg.py'
 en la ubicación indicada.
 
-   4: def f(aa=1, aa=2):
+   4| def f(aa=1, aa=2):
             ^^    ^^
 
 Ha definido una función que repite el argumento
@@ -1886,7 +1896,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_extra_semi_colon.py'
 en la ubicación indicada.
 
-   1: def test():;
+   1| def test():;
                  ^
 
 Una declaración de definición de función debe terminar con dos puntos.
@@ -1913,7 +1923,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_extra_comma.py'
 en la ubicación indicada.
 
-   1: def test(a,,b):
+   1| def test(a,,b):
                  ^
 
 Sospecho que has cometido un error tipográfico y has añadido `,` por error.
@@ -1941,7 +1951,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_forward_slash_1.py'
 en la ubicación indicada.
 
-   1: def test(a, **kwargs, /):
+   1| def test(a, **kwargs, /):
                             ^
 
 `/` indica que los argumentos anteriores en una definición de función
@@ -1969,7 +1979,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_forward_slash_2.py'
 en la ubicación indicada.
 
-   1: def test(a, *, b, /):
+   1| def test(a, *, b, /):
                         ^
 
 `/` indica que los argumentos anteriores en una definición de función
@@ -1998,7 +2008,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_forward_slash_3.py'
 en la ubicación indicada.
 
-   1: def test(a, *arg, /):
+   1| def test(a, *arg, /):
                         ^
 
 `/` indica que los argumentos anteriores en una definición de función
@@ -2025,7 +2035,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_forward_slash_4.py'
 en la ubicación indicada.
 
-   1: def test(a, /, b, /):
+   1| def test(a, /, b, /):
                         ^
 
 Sólo se puede utilizar `/` una vez en la definición de una función.
@@ -2050,7 +2060,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_function_name_invalid.py'
 en la ubicación indicada.
 
-   3: def 2be():
+   3| def 2be():
           ^
 
 El nombre de una función debe ser un identificador válido de Python,
@@ -2080,7 +2090,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_function_name_string.py'
 en la ubicación indicada.
 
-   3: def "function"():
+   3| def "function"():
           ^^^^^^^^^^
 
 El nombre de una función debe ser un identificador válido de Python,
@@ -2106,7 +2116,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_keyword_as_arg_1.py'
 en la ubicación indicada.
 
-   5: def f(None=1):
+   5| def f(None=1):
             ^^^^
 
 Supongo que has intentado utilizar la palabra clave de Python
@@ -2131,7 +2141,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_keyword_as_arg_2.py'
 en la ubicación indicada.
 
-   5: def f(x, True):
+   5| def f(x, True):
                ^^^^
 
 Supongo que has intentado utilizar la palabra clave de Python
@@ -2156,7 +2166,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_keyword_as_arg_3.py'
 en la ubicación indicada.
 
-   5: def f(*None):
+   5| def f(*None):
              ^^^^
 
 Supongo que has intentado utilizar la palabra clave de Python
@@ -2181,7 +2191,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_keyword_as_arg_4.py'
 en la ubicación indicada.
 
-   5: def f(**None):
+   5| def f(**None):
               ^^^^
 
 Supongo que has intentado utilizar la palabra clave de Python
@@ -2208,7 +2218,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_keyword_as_name.py'
 en la ubicación indicada.
 
-   3: def pass():
+   3| def pass():
           ^^^^
 
 Has intentado utilizar la palabra clave de Python `pass` como nombre de función.
@@ -2235,7 +2245,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_list_as_arg_1.py'
 en la ubicación indicada.
 
-   1: def test([x], y):  # list as first argument
+   1| def test([x], y):  # list as first argument
                ^
 
 No se pueden tener listas explícitas como argumentos de funciones.
@@ -2261,7 +2271,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_list_as_arg_2.py'
 en la ubicación indicada.
 
-   1: def test(x, [y]):  # list as second argument, after comma
+   1| def test(x, [y]):  # list as second argument, after comma
                   ^
 
 No se pueden tener listas explícitas como argumentos de funciones.
@@ -2287,7 +2297,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_missing_colon.py'
 en la ubicación indicada.
 
-   1: def test()
+   1| def test()
                 ^
 
 Una declaración de definición de función debe terminar con dos puntos.
@@ -2312,7 +2322,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_missing_comma.py'
 en la ubicación indicada.
 
-   4: def a(b, c d):
+   4| def a(b, c d):
                ^^^
 
 Python indica que el error es causado por `d` escrito inmediatamente después de `c`.
@@ -2346,7 +2356,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_missing_parens.py'
 en la ubicación indicada.
 
-   3: def name:
+   3| def name:
               ^
 
 Tal vez haya olvidado incluir los paréntesis.
@@ -2374,7 +2384,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_missing_parens_2.py'
 en la ubicación indicada.
 
-   2: def name a, b:
+   2| def name a, b:
                ^
 
 Tal vez haya olvidado incluir los paréntesis.
@@ -2400,7 +2410,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_missing_name.py'
 en la ubicación indicada.
 
-   3: def ( arg )  :
+   3| def ( arg )  :
           ^
 
 Has olvidado nombrar tu función.
@@ -2426,7 +2436,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_name_is_parameter_and_global.py'
 en la ubicación indicada.
 
-   6:     global x
+   6|     global x
           ^^^^^^
 
 Usted está incluyendo la declaración
@@ -2457,7 +2467,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_non_default_after_default.py'
 en la ubicación indicada.
 
-   5: def test(a=1, b):
+   5| def test(a=1, b):
                      ^
 
 En Python, puedes definir funciones con sólo argumentos posicionales
@@ -2495,7 +2505,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_number_as_arg.py'
 en la ubicación indicada.
 
-   1: def f(1):
+   1| def f(1):
             ^
 
 Ha utilizado un número como argumento al definir una función.
@@ -2519,7 +2529,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_operator_after_2star.py'
 en la ubicación indicada.
 
-   1: def test(**):
+   1| def test(**):
                  ^
 
 El operador `**` debe ir seguido de un identificador (nombre de la variable).
@@ -2544,7 +2554,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_operator_instead_of_comma.py'
 en la ubicación indicada.
 
-   1: def test(a + b):
+   1| def test(a + b):
                  ^
 
 No se pueden tener operadores como argumentos de la función.
@@ -2573,7 +2583,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_operator_instead_of_equal.py'
 en la ubicación indicada.
 
-   1: def test(a, b=3, c+None):
+   1| def test(a, b=3, c+None):
                         ^
 
 No se pueden tener operadores como argumentos de la función.
@@ -2602,7 +2612,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_operator_instead_of_name.py'
 en la ubicación indicada.
 
-   1: def test(a, +, b):
+   1| def test(a, +, b):
                   ^
 
 Sospecho que has cometido una errata y has escrito `+` por error.
@@ -2627,7 +2637,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_positional_after_keyword_arg.py'
 en la ubicación indicada.
 
-   5: test(a=1, b)
+   5| test(a=1, b)
                  ^
 
 En Python, pueden llamar a las funciones solo con argumentos posicionales
@@ -2665,7 +2675,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
 en la ubicación indicada.
 
-   1: def test();
+   1| def test();
                 ^
 
 Una declaración de definición de función debe terminar con dos puntos.
@@ -2691,7 +2701,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_set_as_arg.py'
 en la ubicación indicada.
 
-   1: def test(y, {'a', 'b'}):  # set as second argument, after comma
+   1| def test(y, {'a', 'b'}):  # set as second argument, after comma
                   ^
 
 No puede tener ningún dict o set explícito como argumentos de la función.
@@ -2717,7 +2727,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_arg_before_slash.py'
 en la ubicación indicada.
 
-   1: def test(a, *arg, /):
+   1| def test(a, *arg, /):
                         ^
 
 `/` indica que los argumentos anteriores en una definición de función
@@ -2744,7 +2754,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_used_only_once.py'
 en la ubicación indicada.
 
-   1: def test(a, *arg, *, b=1):
+   1| def test(a, *arg, *, b=1):
                         ^
 
 Sólo se puede utilizar `*` una vez en la definición de una función.
@@ -2771,7 +2781,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_used_only_once_1.py'
 en la ubicación indicada.
 
-   1: def test(a, *, *):
+   1| def test(a, *, *):
                      ^
 
 Sólo se puede utilizar `*` una vez en la definición de una función.
@@ -2796,7 +2806,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_used_only_once_2.py'
 en la ubicación indicada.
 
-   1: def test(a, *arg, *other):
+   1| def test(a, *arg, *other):
                         ^
 
 Sólo se puede utilizar `*` una vez en la definición de una función.
@@ -2822,7 +2832,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_after_2star.py'
 en la ubicación indicada.
 
-   1: def test(**kw, *arg):
+   1| def test(**kw, *arg):
                      ^
 
 `*arg` debe aparecer antes de `**kw`.
@@ -2847,7 +2857,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_star_after_2star_2.py'
 en la ubicación indicada.
 
-   1: def test(**kw, *):
+   1| def test(**kw, *):
                      ^
 
 `**kw` debe aparecer después del operador `*`.
@@ -2872,7 +2882,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_string_as_arg.py'
 en la ubicación indicada.
 
-   1: def f("1"):
+   1| def f("1"):
             ^^^
 
 Ha utilizado una cadena como argumento al definir una función.
@@ -2898,7 +2908,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_tuple_as_arg_1.py'
 en la ubicación indicada.
 
-   1: def test((a, b), c):
+   1| def test((a, b), c):
                ^
 
 No se pueden tener tuplas explícitas como argumentos de la función.
@@ -2926,7 +2936,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\def_tuple_as_arg_2.py'
 en la ubicación indicada.
 
-   1: def test(a, (b, c)):
+   1| def test(a, (b, c)):
                   ^
 
 No se pueden tener tuplas explícitas como argumentos de la función.
@@ -2952,7 +2962,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\del_paren_star_1.py'
 en la ubicación indicada.
 
-   1: del (*x)
+   1| del (*x)
            ^
 
 El operador estrella `*` se interpreta como que
@@ -2979,7 +2989,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\del_paren_star_2.py'
 en la ubicación indicada.
 
-   1: del (*x,)
+   1| del (*x,)
            ^
 
 El operador estrella `*` se interpreta como que
@@ -3006,7 +3016,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_constant_keyword.py'
 en la ubicación indicada.
 
-   1: del True
+   1| del True
           ^^^^
 
 No se puede eliminar la constante `True`.
@@ -3034,7 +3044,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_expression.py'
 en la ubicación indicada.
 
-   1: del a.b.c[0] + 2
+   1| del a.b.c[0] + 2
           ^
 
 No se puede eliminar la expresión `a.b.c[0] + 2`.
@@ -3059,7 +3069,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_function_call.py'
 en la ubicación indicada.
 
-   5: del f(a)
+   5| del f(a)
           ^
 
 Has intentado borrar una llamada a una función
@@ -3090,7 +3100,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_named_expression.py'
 en la ubicación indicada.
 
-   1: del (a := 5)
+   1| del (a := 5)
            ^
 
 No se puede eliminar la expresión con nombre `(a := 5)`.
@@ -3115,7 +3125,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_names_or_items.py'
 en la ubicación indicada.
 
-   1: del a += b
+   1| del a += b
             ^^
 
 Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
@@ -3139,7 +3149,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\delete_string_literal.py'
 en la ubicación indicada.
 
-   1: del "Hello world!"
+   1| del "Hello world!"
           ^^^^^^^^^^^^^^
 
 No se puede eliminar el literal `"Hello world!"`.
@@ -3166,7 +3176,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\dict_value_missing_1.py'
 en la ubicación indicada.
 
-   1: a = {1:2, 3}
+   1| a = {1:2, 3}
                  ^
 
 Parece que el error se ha producido al escribir un `dict` de Python.
@@ -3192,7 +3202,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\dict_value_missing_2.py'
 en la ubicación indicada.
 
-   2: a = {1:2, 3:}
+   2| a = {1:2, 3:}
                   ^
 
 Parece que el error se produjo mientras escribías un dict de Python.
@@ -3218,7 +3228,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\dict_value_missing_3.py'
 en la ubicación indicada.
 
-   3: a = {1:2, 3, 4:5}
+   3| a = {1:2, 3, 4:5}
                  ^
 
 Parece que el error se ha producido al escribir un `dict` de Python.
@@ -3244,7 +3254,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\dict_value_missing_4.py'
 en la ubicación indicada.
 
-   4: a = {1:2, 3:, 4:5}
+   4| a = {1:2, 3:, 4:5}
                   ^
 
 Parece que el error se produjo mientras escribías un dict de Python.
@@ -3268,7 +3278,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\different_operators_in_a_row.py'
 en la ubicación indicada.
 
-   1: 3 */ 4
+   1| 3 */ 4
         ^^
 
 No puedes tener estos dos operadores, `*` y `/`,
@@ -3293,7 +3303,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\dot_before_paren.py'
 en la ubicación indicada.
 
-   3: print(len.('hello'))
+   3| print(len.('hello'))
                 ^
 
 No puede haber un punto `.` seguido de `(`.
@@ -3319,7 +3329,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\duplicate_token.py'
 en la ubicación indicada.
 
-   1: print(1 , , 2)
+   1| print(1 , , 2)
                 ^
 
 Supongo que has escrito `,` dos veces seguidas por error.
@@ -3343,7 +3353,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\elif_not_matching_if.py'
 en la ubicación indicada.
 
-   3:    elif True:
+   3|    elif True:
          ^^^^
 
 La palabra clave `elif` no comienza un bloque de código que coincide con
@@ -3351,8 +3361,33 @@ un bloque `if`, posiblemente porque `elif` no tiene el indentado correcto.
 </pre></div>
 </div>
 </section>
+<section id="ellipsis-written-with-extra-dot">
+<h2>(112) Ellipsis written with extra dot<a class="headerlink" href="#ellipsis-written-with-extra-dot" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\ellipsis_extra_dot.py", line 2
+    ....
+        ^
+SyntaxError: invalid syntax
+
+    ¿Querías escribir `...`?
+
+Un `SyntaxError` ocurre cuando Python no puede entender tu código.
+
+Python no pudo entender el código en el archivo
+'TESTS:\syntax\ellipsis_extra_dot.py'
+en la ubicación indicada.
+
+   2|     ....
+             ^
+
+It looks like you meant to write `...` but added an extra `.` by mistake.
+</pre></div>
+</div>
+</section>
 <section id="else-with-no-matching-statement">
-<h2>(112) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(113) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3367,7 +3402,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\else_no_matching_statement.py'
 en la ubicación indicada.
 
-   3:    else:
+   3|    else:
          ^^^^
 
 La palabra clave `else` no comienza un bloque de código que coincide con
@@ -3376,7 +3411,7 @@ un bloque de código válido, posiblemente porque `else` no está indentado corr
 </div>
 </section>
 <section id="write-elif-not-else-if">
-<h2>(113) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this headline">¶</a></h2>
+<h2>(114) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3393,7 +3428,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\else_if_instead_of_elif.py'
 en la ubicación indicada.
 
-   5: else if True:
+   5| else if True:
       ^^^^^^^
 
 Probablemente querías usar la palabra clave `elif` de Python
@@ -3402,7 +3437,7 @@ pero en su lugar escribiste `else if`.
 </div>
 </section>
 <section id="write-elif-not-elseif">
-<h2>(114) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this headline">¶</a></h2>
+<h2>(115) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3419,7 +3454,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\elseif_instead_of_elif.py'
 en la ubicación indicada.
 
-   5: elseif True:
+   5| elseif True:
       ^^^^^^
 
 Probablemente querías usar la palabra clave `elif` de Python
@@ -3428,7 +3463,7 @@ pero en su lugar escribiste `elseif`.
 </div>
 </section>
 <section id="eol-while-scanning-string-literal">
-<h2>(115) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this headline">¶</a></h2>
+<h2>(116) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3445,8 +3480,8 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\eol_string_literal.py'
 en la ubicación indicada.
 
-   3: alphabet = 'abc
-                  ^^^
+   3| alphabet = 'abc
+                 ^
 
 Ha empezado a escribir una cadena con una comilla simple o doble
 pero nunca terminó la cadena con otra comilla en esa línea.
@@ -3454,7 +3489,7 @@ pero nunca terminó la cadena con otra comilla en esa línea.
 </div>
 </section>
 <section id="used-equal-sign-instead-of-colon">
-<h2>(116) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(117) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3469,7 +3504,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\equal_sign_instead_of_colon.py'
 en la ubicación indicada.
 
-   4: ages = {'Alice'=22, 'Bob'=24}
+   4| ages = {'Alice'=22, 'Bob'=24}
                      ^
 
 Es posible que haya utilizado un signo igual `=` en lugar de dos puntos `:`
@@ -3479,7 +3514,7 @@ antes o en la posición indicada por ^.
 </div>
 </section>
 <section id="parens-around-multiple-exceptions">
-<h2>(117) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(118) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3496,7 +3531,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\except_multiple_exceptions.py'
 en la ubicación indicada.
 
-   3: except NameError, ValueError as err:
+   3| except NameError, ValueError as err:
                       ^
 
 Supongo que querías usar una sentencia `except`
@@ -3506,7 +3541,7 @@ rodearlas con paréntesis.
 </div>
 </section>
 <section id="id8">
-<h2>(118) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2>(119) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3523,7 +3558,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\extra_token.py'
 en la ubicación indicada.
 
-   1: print(1 / 2) ==
+   1| print(1 / 2) ==
                    ^^
 
 Supongo que has escrito `==` por error.
@@ -3532,7 +3567,7 @@ Quitándolo y escribiendo `print(1 / 2)` parece que se solucionara el error.
 </div>
 </section>
 <section id="binary-f-string-not-allowed">
-<h2>(119) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this headline">¶</a></h2>
+<h2>(120) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3549,7 +3584,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\f_string_binary.py'
 en la ubicación indicada.
 
-   1: greet = bf"Hello {name}"
+   1| greet = bf"Hello {name}"
                 ^^^^^^^^^^^^^^
 
 Supongo que querías un f-string binario;
@@ -3558,7 +3593,7 @@ esto no está permitido.
 </div>
 </section>
 <section id="f-string-closing-not-allowed">
-<h2>(120) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this headline">¶</a></h2>
+<h2>(121) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3573,7 +3608,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\f_string_curly_not_allowed.py'
 en la ubicación indicada.
 
-   1: f"ab}"
+   1| f"ab}"
       ^^^^^^
 
 Has escrito una f-string que tiene un `}` sin emparejar.
@@ -3583,7 +3618,7 @@ de lo contrario, es necesario añadir una apertura `{`.
 </div>
 </section>
 <section id="f-string-missing-closing">
-<h2>(121) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this headline">¶</a></h2>
+<h2>(122) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3598,7 +3633,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\f_string_expected_curly.py'
 en la ubicación indicada.
 
-   1: f"{ab"
+   1| f"{ab"
       ^^^^^^
 
 Has escrito una f-string que tiene un `{` sin emparejar.
@@ -3608,7 +3643,7 @@ de lo contrario, es necesario añadir un cierre `}`.
 </div>
 </section>
 <section id="f-string-unterminated-string">
-<h2>(122) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this headline">¶</a></h2>
+<h2>(123) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3625,7 +3660,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\f_string_unterminated.py'
 en la ubicación indicada.
 
-   4: print(f"Bob is {age['Bob]} years old.")
+   4| print(f"Bob is {age['Bob]} years old.")
                                             ^
 
 Dentro de la f-string `f"Bob is {age['Bob]} years old."`,
@@ -3635,7 +3670,7 @@ comillas simples (') o comillas dobles ("), sin una comilla de cierre que coinci
 </div>
 </section>
 <section id="f-string-with-backslash">
-<h2>(123) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(124) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3650,7 +3685,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\f_string_with_backslash.py'
 en la ubicación indicada.
 
-   2: print(f"{'\n'.join(names)}")
+   2| print(f"{'\n'.join(names)}")
                                  ^
 
 Ha escrito una f-string cuyo contenido `{...}`
@@ -3668,7 +3703,7 @@ podría escribirla como
 </div>
 </section>
 <section id="missing-terms-in-for-statement">
-<h2>(124) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(125) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3685,7 +3720,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\for_missing_terms.py'
 en la ubicación indicada.
 
-   1: for:
+   1| for:
          ^
 
 Un bucle `for` es una iteración sobre una secuencia:
@@ -3696,7 +3731,7 @@ Un bucle `for` es una iteración sobre una secuencia:
 </div>
 </section>
 <section id="not-a-chance">
-<h2>(125) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this headline">¶</a></h2>
+<h2>(126) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3711,7 +3746,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\future_braces.py'
 en la ubicación indicada.
 
-   1: from __future__ import braces
+   1| from __future__ import braces
       ^^^^
 
 Sospecho que has escrito `de __future__ import braces` siguiendo
@@ -3723,7 +3758,7 @@ su nivel de indentación, y no por el uso de algunas llaves, como `{...}`.
 </div>
 </section>
 <section id="do-not-import-from-future">
-<h2>(126) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this headline">¶</a></h2>
+<h2>(127) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3738,7 +3773,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\future_import_star.py'
 en la ubicación indicada.
 
-   1: from __future__ import *
+   1| from __future__ import *
       ^^^^
 
 Cuando se utiliza una sentencia `from __future__ import`,
@@ -3758,7 +3793,7 @@ Las características disponibles son `nested_scopes,
 </div>
 </section>
 <section id="future-at-beginning">
-<h2>(127) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this headline">¶</a></h2>
+<h2>(128) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3773,7 +3808,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\future_must_be_first.py'
 en la ubicación indicada.
 
-   3:     from __future__ import generators
+   3|     from __future__ import generators
           ^^^^
 
 Una sentencia `from __future__ import` cambia la forma en que Python
@@ -3783,7 +3818,7 @@ Debe aparecer al principio del archivo.
 </div>
 </section>
 <section id="typo-in-future">
-<h2>(128) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this headline">¶</a></h2>
+<h2>(129) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3800,7 +3835,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\future_typo.py'
 en la ubicación indicada.
 
-   1: from __future__ import divisio
+   1| from __future__ import divisio
       ^^^^
 
 En lugar de `divisio`, tal vez querías importar `division`.
@@ -3808,7 +3843,7 @@ En lugar de `divisio`, tal vez querías importar `division`.
 </div>
 </section>
 <section id="unknown-feature-in-future">
-<h2>(129) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this headline">¶</a></h2>
+<h2>(130) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3823,7 +3858,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\future_unknown.py'
 en la ubicación indicada.
 
-   1: from __future__ import something
+   1| from __future__ import something
       ^^^^
 
 `something` no es una característica válida del módulo `__future__`.
@@ -3842,7 +3877,7 @@ Las características disponibles son `nested_scopes,
 </div>
 </section>
 <section id="parenthesis-around-generator-expression">
-<h2>(130) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(131) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3857,7 +3892,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\generator_expression_parens.py'
 en la ubicación indicada.
 
-   6: f(x for x in L, 1)
+   6| f(x for x in L, 1)
         ^
 
 Estás usando una expresión generadora, algo de la forma
@@ -3869,7 +3904,7 @@ Debes añadir paréntesis encerrando esa expresión.
 </div>
 </section>
 <section id="space-between-names">
-<h2>(131) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this headline">¶</a></h2>
+<h2>(132) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3886,7 +3921,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\hyphen_instead_of_underscore.py'
 en la ubicación indicada.
 
-   4: a-b = 2
+   4| a-b = 2
       ^
 
 Has escrito una expresión que incluye algunas operaciones matemáticas
@@ -3897,7 +3932,7 @@ Tal vez quiso escribir `a_b` en lugar de `a-b`.
 </div>
 </section>
 <section id="missing-condition-in-if-statement">
-<h2>(132) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(133) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3914,7 +3949,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\if_missing_condition.py'
 en la ubicación indicada.
 
-   1: if:
+   1| if:
         ^
 
 Una declaración `if` requiere una condición:
@@ -3925,7 +3960,7 @@ Una declaración `if` requiere una condición:
 </div>
 </section>
 <section id="use-j-instead-of-i">
-<h2>(133) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this headline">¶</a></h2>
+<h2>(134) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3942,7 +3977,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\imaginary_i.py'
 en la ubicación indicada.
 
-   3: a = 3.0i
+   3| a = 3.0i
              ^
 
 Tal vez pensó que `i` podría ser utilizado para representar
@@ -3954,7 +3989,7 @@ Tal vez haya querido escribir `3.0j`.
 </div>
 </section>
 <section id="import-inversion-import-x-from-y">
-<h2>(134) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this headline">¶</a></h2>
+<h2>(135) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3971,7 +4006,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\import_from.py'
 en la ubicación indicada.
 
-   3: import pen from turtle
+   3| import pen from turtle
       ^^^^^^     ^^^^
 
 Has escrito algo como
@@ -3985,7 +4020,7 @@ en lugar de
 </div>
 </section>
 <section id="indentationerror-expected-an-indented-block">
-<h2>(135) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this headline">¶</a></h2>
+<h2>(136) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4001,7 +4036,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\indentation_error_1.py'
 en la ubicación indicada.
 
-   4: pass
+   4| pass
       ^^^^
 
 Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloque indentado.
@@ -4009,7 +4044,7 @@ Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloq
 </div>
 </section>
 <section id="indentationerror-unexpected-indent">
-<h2>(136) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this headline">¶</a></h2>
+<h2>(137) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4025,7 +4060,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\indentation_error_2.py'
 en la ubicación indicada.
 
-   4:       pass
+   4|       pass
             ^^^^
 
 La línea `4` identificada arriba tiene más indentación de la esperada.
@@ -4033,7 +4068,7 @@ La línea `4` identificada arriba tiene más indentación de la esperada.
 </div>
 </section>
 <section id="indentationerror-unindent-does-not-match">
-<h2>(137) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this headline">¶</a></h2>
+<h2>(138) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4049,7 +4084,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\indentation_error_3.py'
 en la ubicación indicada.
 
-   5:     pass
+   5|     pass
           ^^^^
 
 La línea `5` identificada arriba tiene menos indentación de la esperada.
@@ -4057,7 +4092,7 @@ La línea `5` identificada arriba tiene menos indentación de la esperada.
 </div>
 </section>
 <section id="indentationerror-missing-continuation-line">
-<h2>(138) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this headline">¶</a></h2>
+<h2>(139) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4073,7 +4108,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\indentation_error_4.py'
 en la ubicación indicada.
 
-   6:          "c"
+   6|          "c"
                ^^^
 
 La línea `6` identificada arriba tiene más indentación de la esperada.
@@ -4087,7 +4122,7 @@ al final de la línea 5.
 </div>
 </section>
 <section id="forgot-o-for-octal">
-<h2>(139) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this headline">¶</a></h2>
+<h2>(140) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4104,7 +4139,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\integer_with_leading_zero_1.py'
 en la ubicación indicada.
 
-   1: x = 01
+   1| x = 01
            ^
 
 Tal vez querías escribir el número octal `0o1`
@@ -4114,7 +4149,7 @@ un número entero decimal y no sabía que no podía empezar con ceros.
 </div>
 </section>
 <section id="integer-with-leading-zeros">
-<h2>(140) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this headline">¶</a></h2>
+<h2>(141) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4131,7 +4166,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\integer_with_leading_zero_2.py'
 en la ubicación indicada.
 
-   1: x = 000_123_456
+   1| x = 000_123_456
              ^^^^^^^^
 
 Tal vez usted quiso escribir el número entero `123_456`
@@ -4140,7 +4175,7 @@ y no sabía que no podía empezar con ceros.
 </div>
 </section>
 <section id="invalid-character-in-identifier">
-<h2>(141) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this headline">¶</a></h2>
+<h2>(142) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4155,7 +4190,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_character_in_identifier.py'
 en la ubicación indicada.
 
-   6: 🤖 = 'Reeborg'
+   6| 🤖 = 'Reeborg'
       ^
 
 Python indica que has utilizado el carácter unicode `🤖`
@@ -4164,7 +4199,7 @@ que no está permitido.
 </div>
 </section>
 <section id="invalid-decimal-literal-1">
-<h2>(142) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
+<h2>(143) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4181,7 +4216,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_decimal_literal1.py'
 en la ubicación indicada.
 
-   1: a = 1e
+   1| a = 1e
            ^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4190,7 +4225,7 @@ Tal vez olvidó un operador de multiplicación, `1 * e`.
 </div>
 </section>
 <section id="invalid-encoding">
-<h2>(143) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
+<h2>(144) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4210,7 +4245,7 @@ La codificación del archivo no era valida.
 </div>
 </section>
 <section id="invalid-hexadecimal-number">
-<h2>(144) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(145) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4227,7 +4262,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_hexadecimal.py'
 en la ubicación indicada.
 
-   3: a = 0x123g4
+   3| a = 0x123g4
                ^^
 
 Parece que has utilizado un carácter no válido (`g`) en un número hexadecimal.
@@ -4241,7 +4276,7 @@ seguido de los caracteres utilizados para representar el valor de ese número en
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number">
-<h2>(145) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
+<h2>(146) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4258,7 +4293,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_identifier.py'
 en la ubicación indicada.
 
-   3: 36abc = 3
+   3| 36abc = 3
         ^^^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4266,7 +4301,7 @@ Los nombres válidos no pueden empezar por un número.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-2">
-<h2>(146) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
+<h2>(147) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4283,7 +4318,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_identifier_2.py'
 en la ubicación indicada.
 
-   3: tau = 2pi
+   3| tau = 2pi
              ^^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4292,7 +4327,7 @@ Tal vez olvidó un operador de multiplicación, `2 * pi`.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-3">
-<h2>(147) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
+<h2>(148) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4309,7 +4344,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_identifier_3.py'
 en la ubicación indicada.
 
-   1: 3job  # could be entered in a repl
+   1| 3job  # could be entered in a repl
         ^^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4321,7 +4356,7 @@ ya que `3j` es un número complejo].
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-4">
-<h2>(148) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
+<h2>(149) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4338,7 +4373,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_identifier_4.py'
 en la ubicación indicada.
 
-   1: 3job = 1
+   1| 3job = 1
         ^^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4346,7 +4381,7 @@ Los nombres válidos no pueden empezar por un número.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-5">
-<h2>(149) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
+<h2>(150) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4363,7 +4398,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_identifier_5.py'
 en la ubicación indicada.
 
-   1: print(42java)
+   1| print(42java)
                ^^^
 
 Los nombres válidos no pueden empezar por un número.
@@ -4375,7 +4410,7 @@ ya que `42j` es un número complejo].
 </div>
 </section>
 <section id="keyword-can-t-be-an-expression">
-<h2>(150) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(151) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4390,7 +4425,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_keyword_argument.py'
 en la ubicación indicada.
 
-   7: a = dict('key'=1)
+   7| a = dict('key'=1)
                ^^^^^
 
 Es probable que hayas llamado a una función con un argumento con nombre:
@@ -4404,7 +4439,7 @@ o contiene un punto, etc.
 </div>
 </section>
 <section id="named-argument-can-t-be-a-python-keyword">
-<h2>(151) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(152) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4421,7 +4456,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_keyword_argument_2.py'
 en la ubicación indicada.
 
-   7: a = dict(True=1)
+   7| a = dict(True=1)
                ^^^^
 
 Es probable que hayas llamado a una función utilizando la palabra clave de Python `True` como argumento:
@@ -4435,7 +4470,7 @@ No se puede asignar un valor a `True`.
 </div>
 </section>
 <section id="invalid-octal-number">
-<h2>(152) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(153) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4452,21 +4487,21 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\invalid_octal.py'
 en la ubicación indicada.
 
-   3: b = 0O1876
+   3| b = 0O1876
              ^^^
 
 Parece que has utilizado un carácter no válido (`8`) en un número octal.
 
 Los números octales son enteros de base 8 que sólo utilizan los símbolos `0` a `7`
 para representar valores.
-En Python, los números hexadecimales comienzan con `0o` o `0O`,
+En Python, los números octales comienzan con `0o` o `0O`,
 (el dígito cero seguido de la letra `o`)
 seguido de los caracteres utilizados para representar el valor de ese número entero.
 </pre></div>
 </div>
 </section>
 <section id="inverted-operators-1">
-<h2>(153) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(154) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4483,7 +4518,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\inverted_operators.py'
 en la ubicación indicada.
 
-   1: a =&lt; 3
+   1| a =&lt; 3
         ^^
 
 Parece que has escrito dos operadores (`=` y `&lt;`)
@@ -4492,7 +4527,7 @@ en el orden equivocado: `=&lt;` en lugar de `&lt;=`.
 </div>
 </section>
 <section id="inverted-operators-2">
-<h2>(154) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(155) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4509,7 +4544,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\inverted_operators_2.py'
 en la ubicación indicada.
 
-   1: a =&lt;* 3
+   1| a =&lt;* 3
         ^^
 
 Parece que has escrito dos operadores (`=` y `&lt;`)
@@ -4521,7 +4556,7 @@ todos los errores de sintaxis en el código que escribiste.
 </div>
 </section>
 <section id="iteration-variable-unpacking-in-comprehension">
-<h2>(155) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(156) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4536,7 +4571,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\iteration_unpacking_in_comprehension.py'
 en la ubicación indicada.
 
-   1: [*x for x in xs]
+   1| [*x for x in xs]
        ^
 
 No se puede utilizar el operador `*` para descomponer la variable de iteración
@@ -4549,7 +4584,7 @@ La siguiente declaración no tiene ningún error de sintaxis:
 </div>
 </section>
 <section id="keyword-arg-only-once-in-function-call">
-<h2>(156) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
+<h2>(157) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4564,7 +4599,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\keyword_arg_repeated.py'
 en la ubicación indicada.
 
-   4: f(ad=1, ad=2)
+   4| f(ad=1, ad=2)
               ^^
 
 Ha llamado a una función repitiendo el mismo argumento de palabra clave (`ad`).
@@ -4573,7 +4608,7 @@ Cada argumento de palabra clave debe aparecer sólo una vez en una llamada a una
 </div>
 </section>
 <section id="keyword-as-attribute">
-<h2>(157) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
+<h2>(158) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4590,7 +4625,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\keyword_as_attribute.py'
 en la ubicación indicada.
 
-   12: a.pass = 2
+   12| a.pass = 2
          ^^^^
 
 No se puede utilizar la palabra clave de Python `pass` como atributo.
@@ -4598,7 +4633,7 @@ No se puede utilizar la palabra clave de Python `pass` como atributo.
 </div>
 </section>
 <section id="lambda-with-parentheses-around-arguments">
-<h2>(158) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<h2>(159) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4613,7 +4648,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\lambda_with_parens.py'
 en la ubicación indicada.
 
-   2: x = lambda (a, b): a + b
+   2| x = lambda (a, b): a + b
                  ^
 
 `lambda` no permite paréntesis alrededor de sus argumentos.
@@ -4622,7 +4657,7 @@ Esto estaba permitido en Python 2 pero no en Python 3.
 </div>
 </section>
 <section id="lambda-with-tuple-as-argument">
-<h2>(159) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(160) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4637,7 +4672,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\lambda_with_tuple_argument.py'
 en la ubicación indicada.
 
-   2: x = lambda a, (b, c): a + b + b
+   2| x = lambda a, (b, c): a + b + b
                     ^
 
 No se pueden tener tuplas explícitas como argumentos.
@@ -4647,7 +4682,7 @@ dentro del cuerpo de la función.
 </div>
 </section>
 <section id="assign-to-literal-in-for-loop">
-<h2>(160) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(161) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4664,7 +4699,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\literal_in_for_loop.py'
 en la ubicación indicada.
 
-   1: for "char" in "word":
+   1| for "char" in "word":
           ^^^^^^
 
 Un bucle for debe tener la forma
@@ -4677,7 +4712,7 @@ y no literales como `"char"`.
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version">
-<h2>(161) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
+<h2>(162) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4691,8 +4726,8 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_code_block.py'
 en la ubicación indicada.
 
-   3: for i in range(10):
---&gt;4:
+   3| for i in range(10):
+--&gt;4|
                         ^
 
 Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloque indentado.
@@ -4700,7 +4735,7 @@ Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloq
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version-2">
-<h2>(162) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this headline">¶</a></h2>
+<h2>(163) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4714,15 +4749,15 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_code_block_2.py'
 
 
-   3: for i in "test":
-   4:
+   3| for i in "test":
+   4|
 
 Se esperaba que la línea `6` identificada anteriormente comenzara un nuevo bloque indentado.
 </pre></div>
 </div>
 </section>
 <section id="missing-colon-if">
-<h2>(163) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
+<h2>(164) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4739,7 +4774,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_colon_if.py'
 en la ubicación indicada.
 
-   3: if True
+   3| if True
              ^
 
 Ha escrito una sentencia que empieza por
@@ -4748,7 +4783,7 @@ if` pero se olvidó de añadir los dos puntos `:` al final.
 </div>
 </section>
 <section id="missing-colon-while">
-<h2>(164) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
+<h2>(165) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4765,7 +4800,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_colon_while.py'
 en la ubicación indicada.
 
-   3: while True  # a comment
+   3| while True  # a comment
                 ^
 
 Has escrito un bucle `while` pero
@@ -4774,7 +4809,7 @@ olvidó añadir dos puntos `:` al final
 </div>
 </section>
 <section id="missing-comma-in-a-dict">
-<h2>(165) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(166) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4791,12 +4826,12 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_comma_in_dict.py'
 en la ubicación indicada.
 
-   3: a = {'a': 1,
---&gt;4:      'b': 2
+   3| a = {'a': 1,
+--&gt;4|      'b': 2
                 ^--&gt;
---&gt;5:      'c': 3,
+--&gt;5|      'c': 3,
            ^^^
-   6: }
+   6| }
 
 Python indica que el error es causado por `'c'` escrito inmediatamente después de `2`.
 It is possible that you forgot a comma between items in a set or dict
@@ -4814,7 +4849,7 @@ Tal vez quiso decir
 </div>
 </section>
 <section id="missing-comma-between-strings-in-a-dict">
-<h2>(166) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(167) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4831,11 +4866,11 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_comma_in_dict_2.py'
 en la ubicación indicada.
 
-   2: a = {'a': '1',
-   3:      'b': '2'
---&gt;4:      'c': '3',
+   2| a = {'a': '1',
+   3|      'b': '2'
+--&gt;4|      'c': '3',
               ^
-   5: }
+   5| }
 
 Supongo que has olvidado una coma entre dos cadenas
 al definir un dict.
@@ -4851,7 +4886,7 @@ a = {'a': '1',
 </div>
 </section>
 <section id="missing-comma-in-a-list">
-<h2>(167) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
+<h2>(168) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4868,7 +4903,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_comma_in_list.py'
 en la ubicación indicada.
 
-   3: a = [1, 2  3]
+   3| a = [1, 2  3]
               ^^^^
 
 Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
@@ -4888,7 +4923,7 @@ algunas de ellas pueden generar otros tipos de excepciones.
 </div>
 </section>
 <section id="missing-comma-in-a-set">
-<h2>(168) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
+<h2>(169) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4905,7 +4940,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_comma_in_set.py'
 en la ubicación indicada.
 
-   3: a = {1, 2  3}
+   3| a = {1, 2  3}
               ^^^^
 
 Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
@@ -4925,7 +4960,7 @@ algunas de ellas pueden generar otros tipos de excepciones.
 </div>
 </section>
 <section id="missing-comma-in-a-tuple">
-<h2>(169) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
+<h2>(170) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4942,7 +4977,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_comma_in_tuple.py'
 en la ubicación indicada.
 
-   3: a = (1, 2  3)
+   3| a = (1, 2  3)
               ^^^^
 
 Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
@@ -4963,7 +4998,7 @@ algunas de ellas pueden generar otros tipos de excepciones.
 </div>
 </section>
 <section id="missing-parenthesis-for-range">
-<h2>(170) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
+<h2>(171) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4980,7 +5015,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\missing_parens_for_range.py'
 en la ubicación indicada.
 
-   1: for i in range 3:
+   1| for i in range 3:
                      ^
 
 Parece que te has olvidado de usar paréntesis con `range`.
@@ -4991,7 +5026,7 @@ Tal vez quisiste decir:
 </div>
 </section>
 <section id="misspelled-python-keyword">
-<h2>(171) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(172) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5008,7 +5043,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\misspelled_keyword.py'
 en la ubicación indicada.
 
-   2: is i in range(3):
+   2| is i in range(3):
       ^^
 
 Tal vez quiso escribir `if` y cometió un error.
@@ -5017,7 +5052,7 @@ La línea correcta podría ser `if i in range(3):`
 </div>
 </section>
 <section id="name-is-global-and-nonlocal">
-<h2>(172) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(173) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5032,7 +5067,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\name_is_global_and_nonlocal.py'
 en la ubicación indicada.
 
-   7:     global xy
+   7|     global xy
           ^^^^^^
 
 Has declarado que xy` es una variable global y no local.
@@ -5041,7 +5076,7 @@ Una variable puede ser global o no local, pero no ambas cosas a la vez.
 </div>
 </section>
 <section id="name-is-parameter-and-nonlocal">
-<h2>(173) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(174) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5056,7 +5091,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\name_is_param_and_nonlocal.py'
 en la ubicación indicada.
 
-   5:     nonlocal x
+   5|     nonlocal x
           ^^^^^^^^
 
 Ha utilizado `x` como parámetro de una función
@@ -5066,7 +5101,7 @@ x` no puede ser ambas cosas a la vez.
 </div>
 </section>
 <section id="nonlocal-variable-not-found">
-<h2>(174) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
+<h2>(175) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5081,7 +5116,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\no_binding_for_nonlocal.py'
 en la ubicación indicada.
 
-   5:     nonlocal ab
+   5|     nonlocal ab
           ^^^^^^^^
 
 Ha declarado la variable `ab` como una variable
@@ -5090,7 +5125,7 @@ variable no local, pero no se puede encontrar.
 </div>
 </section>
 <section id="nonlocal-variable-not-found-at-module-level">
-<h2>(175) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
+<h2>(176) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5105,7 +5140,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\nonlocal_at_module.py'
 en la ubicación indicada.
 
-   4: nonlocal cd
+   4| nonlocal cd
       ^^^^^^^^
 
 Ha utilizado la palabra clave nonlocal a nivel de módulo.
@@ -5115,7 +5150,7 @@ con un valor fuera de esa función.
 </div>
 </section>
 <section id="same-operator-twice-in-a-row">
-<h2>(176) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
+<h2>(177) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5130,7 +5165,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\operator_twice_in_a_row.py'
 en la ubicación indicada.
 
-   1: 4****5
+   1| 4****5
        ^^^^
 
 No se puede escribir el mismo operador, `**`, dos veces seguidas.
@@ -5140,7 +5175,7 @@ o se olvidó de escribir algo entre ellos.
 </div>
 </section>
 <section id="using-pip-from-interpreter">
-<h2>(177) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(178) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5157,7 +5192,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\pip_install_1.py'
 en la ubicación indicada.
 
-   2: pip install friendly
+   2| pip install friendly
           ^^^^^^^
 
 Parece que está intentando utilizar pip para instalar un módulo.
@@ -5167,7 +5202,7 @@ no desde un intérprete de Python.
 </div>
 </section>
 <section id="using-pip-from-interpreter-2">
-<h2>(178) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<h2>(179) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5184,7 +5219,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\pip_install_2.py'
 en la ubicación indicada.
 
-   2: python -m pip install friendly
+   2| python -m pip install friendly
                 ^^^
 
 Parece que está intentando utilizar pip para instalar un módulo.
@@ -5194,7 +5229,7 @@ no desde un intérprete de Python.
 </div>
 </section>
 <section id="print-is-a-function">
-<h2>(179) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
+<h2>(180) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5211,7 +5246,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_is_a_function.py'
 en la ubicación indicada.
 
-   2: print 'hello'
+   2| print 'hello'
             ^^^^^^^
 
 Tal vez tenga que escribir
@@ -5224,7 +5259,7 @@ Ahora, `print` es una función por lo que es necesario usar paréntesis para lla
 </div>
 </section>
 <section id="print-is-a-function-2">
-<h2>(180) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
+<h2>(181) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5241,7 +5276,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_is_a_function_2.py'
 en la ubicación indicada.
 
-   2: print len('hello')
+   2| print len('hello')
             ^^^
 
 Tal vez tenga que escribir
@@ -5254,7 +5289,7 @@ Ahora, `print` es una función por lo que es necesario usar paréntesis para lla
 </div>
 </section>
 <section id="print-is-a-function-3">
-<h2>(181) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
+<h2>(182) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5271,7 +5306,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_is_a_function_3.py'
 en la ubicación indicada.
 
-   1: print """This is a very long string which results in a very long error message."""
+   1| print """This is a very long string which results in a very long error message."""
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tal vez tenga que escribir
@@ -5284,7 +5319,7 @@ Ahora, `print` es una función por lo que es necesario usar paréntesis para lla
 </div>
 </section>
 <section id="print-is-a-function-4">
-<h2>(182) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
+<h2>(183) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5301,9 +5336,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_is_a_function_4.py'
 en la ubicación indicada.
 
---&gt;2: print len("""This is a long string
+--&gt;2| print len("""This is a long string
             ^^^
-   3:           that spans multiple lines.""")
+   3|           that spans multiple lines.""")
 
 Tal vez tenga que escribir
 
@@ -5315,7 +5350,7 @@ Ahora, `print` es una función por lo que es necesario usar paréntesis para lla
 </div>
 </section>
 <section id="print-is-a-function-5">
-<h2>(183) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
+<h2>(184) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5332,7 +5367,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_is_a_function_5.py'
 en la ubicación indicada.
 
-   2: print len('This is a long string that fits on a single line.')
+   2| print len('This is a long string that fits on a single line.')
             ^^^
 
 Tal vez tenga que escribir
@@ -5345,7 +5380,7 @@ Ahora, `print` es una función por lo que es necesario usar paréntesis para lla
 </div>
 </section>
 <section id="print-is-a-function-6">
-<h2>(184) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
+<h2>(185) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5362,7 +5397,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_non_paren_non_string1.py'
 en la ubicación indicada.
 
-   1: print hello world!
+   1| print hello world!
             ^^^^^
 
 Tal vez tenga que escribir
@@ -5376,7 +5411,7 @@ Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
 </div>
 </section>
 <section id="print-is-a-function-7">
-<h2>(185) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
+<h2>(186) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5393,7 +5428,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\print_non_paren_non_string2.py'
 en la ubicación indicada.
 
-   1: print len("hello") hello
+   1| print len("hello") hello
             ^^^
 
 Tal vez tenga que escribir
@@ -5407,7 +5442,7 @@ Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
 </div>
 </section>
 <section id="calling-python-from-interpreter">
-<h2>(186) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(187) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5422,7 +5457,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\python_interpreter.py'
 en la ubicación indicada.
 
-   1: python -i friendly
+   1| python -i friendly
                 ^^^^^^^^
 
 Supongo que estás intentando utilizar Python para ejecutar un programa.
@@ -5431,7 +5466,7 @@ Debe hacerlo desde un terminal y no desde un intérprete de Python.
 </div>
 </section>
 <section id="problem-with-assigning-a-variable-to-python">
-<h2>(187) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
+<h2>(188) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5448,7 +5483,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\python_not_interpreter.py'
 en la ubicación indicada.
 
-   1: python = a b
+   1| python = a b
                ^^^
 
 Python indica que el error es causado por `b` escrito inmediatamente después de `a`.
@@ -5466,7 +5501,7 @@ algunas de ellas pueden generar otros tipos de excepciones.
 </div>
 </section>
 <section id="quote-inside-a-string">
-<h2>(188) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
+<h2>(189) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5483,7 +5518,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\quote_inside_string.py'
 en la ubicación indicada.
 
-   3: message = 'I don't mind.'
+   3| message = 'I don't mind.'
                        ^
 
 I suspect that you were trying to use a quote character inside a string
@@ -5496,7 +5531,7 @@ Perhaps you should have escaped the inner quote character:
 </div>
 </section>
 <section id="raising-multiple-exceptions">
-<h2>(189) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(190) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5511,7 +5546,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\raise_multiple_exceptions.py'
 en la ubicación indicada.
 
-   2: raise X, Y
+   2| raise X, Y
              ^
 
 Parece que estás intentando lanzar una excepción utilizando la sintaxis de Python 2.
@@ -5519,7 +5554,7 @@ Parece que estás intentando lanzar una excepción utilizando la sintaxis de Pyt
 </div>
 </section>
 <section id="cannot-use-return-outside-function">
-<h2>(190) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(191) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5534,7 +5569,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\return_outside_function.py'
 en la ubicación indicada.
 
-   3: return
+   3| return
       ^^^^^^
 
 Sólo se puede utilizar una sentencia `return` dentro de una función o método.
@@ -5542,7 +5577,7 @@ Sólo se puede utilizar una sentencia `return` dentro de una función o método.
 </div>
 </section>
 <section id="semicolon-instead-of-colon">
-<h2>(191) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(192) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5559,7 +5594,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\semi_colon_instead_of_colon.py'
 en la ubicación indicada.
 
-   1: if True;  # A comment
+   1| if True;  # A comment
              ^
 
 Has escrito un punto y coma, `;`, donde se esperaba dos puntos.
@@ -5567,7 +5602,7 @@ Has escrito un punto y coma, `;`, donde se esperaba dos puntos.
 </div>
 </section>
 <section id="semicolon-instead-of-comma-1">
-<h2>(192) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<h2>(193) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5584,7 +5619,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\semi_colon_instead_of_comma_1.py'
 en la ubicación indicada.
 
-   1: a = [1, 2; 3]
+   1| a = [1, 2; 3]
                ^
 
 Has escrito un punto y coma, `;`, donde se esperaba una coma.
@@ -5592,7 +5627,7 @@ Has escrito un punto y coma, `;`, donde se esperaba una coma.
 </div>
 </section>
 <section id="semicolon-instead-of-commas-2">
-<h2>(193) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<h2>(194) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5609,7 +5644,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\semi_colon_instead_of_comma_2.py'
 en la ubicación indicada.
 
-   1: a = [1; 2; 3]
+   1| a = [1; 2; 3]
             ^
 
 Has escrito punto y coma, `;`, donde se esperaban comas.
@@ -5617,7 +5652,7 @@ Has escrito punto y coma, `;`, donde se esperaban comas.
 </div>
 </section>
 <section id="semicolon-instead-of-commas-3">
-<h2>(194) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<h2>(195) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5634,7 +5669,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\semi_colon_instead_of_comma_3.py'
 en la ubicación indicada.
 
-   1: a = [1; 2; 3];
+   1| a = [1; 2; 3];
             ^
 
 Has escrito punto y coma, `;`, donde se esperaban comas.
@@ -5642,7 +5677,7 @@ Has escrito punto y coma, `;`, donde se esperaban comas.
 </div>
 </section>
 <section id="code-block-inside-comprehension">
-<h2>(195) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(196) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5657,11 +5692,11 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\should_be_comprehension.py'
 en la ubicación indicada.
 
-   1: a = [
---&gt;2:     for i in 1, 2, 3:
+   1| a = [
+--&gt;2|     for i in 1, 2, 3:
           ^^^
-   3:         i**2
-   4: ]
+   3|         i**2
+   4| ]
 
 Tal vez usted escribió una declaración que comienza un bloque de código
 destinado a formar parte de una comprensión de lista.
@@ -5672,7 +5707,7 @@ Si esta explicación es incorrecta, por favor informe de este caso.
 </div>
 </section>
 <section id="single-instead-of-double-with-if">
-<h2>(196) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
+<h2>(197) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5689,7 +5724,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\single_equal_with_if.py'
 en la ubicación indicada.
 
-   3:     if i % 2 = 0:
+   3|     if i % 2 = 0:
                    ^
 
 Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
@@ -5700,7 +5735,7 @@ La siguiente sentencia no contendría un error de sintaxis:
 </div>
 </section>
 <section id="single-instead-of-double-with-elif">
-<h2>(197) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
+<h2>(198) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5717,7 +5752,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\single_equal_with_elif.py'
 en la ubicación indicada.
 
-   5:     elif i % 2 = 0:
+   5|     elif i % 2 = 0:
                      ^
 
 Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
@@ -5728,7 +5763,7 @@ La siguiente sentencia no contendría un error de sintaxis:
 </div>
 </section>
 <section id="single-instead-of-double-with-while">
-<h2>(198) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
+<h2>(199) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5745,7 +5780,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\single_equal_with_while.py'
 en la ubicación indicada.
 
-   4: while a = 1:
+   4| while a = 1:
               ^
 
 Has utilizado un operador de asignación `=`; quizás querías utilizar
@@ -5754,7 +5789,7 @@ un operador de igualdad, `==`, o el operador de asignación aumentado `:=`.
 </div>
 </section>
 <section id="space-between-operators-1">
-<h2>(199) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(200) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5769,7 +5804,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\space_between_operators_1.py'
 en la ubicación indicada.
 
-   1: a = 2 * * 5
+   1| a = 2 * * 5
             ^ ^
 
 No se puede escribir el mismo operador, `*`, dos veces seguidas.
@@ -5781,7 +5816,7 @@ y quiso escribir `**` como un solo operador.
 </div>
 </section>
 <section id="space-between-operators-2">
-<h2>(200) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(201) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5796,7 +5831,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\space_between_operators_2.py'
 en la ubicación indicada.
 
-   1: a / = b
+   1| a / = b
         ^ ^
 
 No puedes tener estos dos operadores, `/` y `=`,
@@ -5808,7 +5843,7 @@ y quiso escribir `/=` como un solo operador.
 </div>
 </section>
 <section id="space-in-variable-name">
-<h2>(201) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
+<h2>(202) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5825,7 +5860,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\space_in_variable_name.py'
 en la ubicación indicada.
 
-   1: my name = André
+   1| my name = André
          ^^^^
 
 No puede haber espacios en los identificadores (nombres de variables).
@@ -5834,7 +5869,7 @@ No puede haber espacios en los identificadores (nombres de variables).
 </div>
 </section>
 <section id="wrong-target-for-star-assignment">
-<h2>(202) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this headline">¶</a></h2>
+<h2>(203) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5849,7 +5884,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\star_assignment_target.py'
 en la ubicación indicada.
 
-   1: *a = 1
+   1| *a = 1
       ^
 
 Una asignación estrella debe ser de la forma:
@@ -5859,7 +5894,7 @@ Una asignación estrella debe ser de la forma:
 </div>
 </section>
 <section id="too-many-nested-blocks">
-<h2>(203) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>(204) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5874,7 +5909,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\too_many_nested_blocks.py'
 en la ubicación indicada.
 
-   22:                      while 22:
+   22|                      while 22:
                             ^^^^^
 
 Tu código es demasiado complejo para Python:
@@ -5884,7 +5919,7 @@ contenidos dentro de otros bloques de código.
 </div>
 </section>
 <section id="too-many-nested-parentheses">
-<h2>(204) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this headline">¶</a></h2>
+<h2>(205) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5899,14 +5934,14 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\too_many_parentheses.py'
 en la ubicación indicada.
 
-   1: ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
-   2:     ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
-   3:         (((((((((((((((((((((((((((((((((((((((((((((((((((
---&gt;4:             ((((((((((((((((((((((((((((((((((
+   1| ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+   2|     ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+   3|         (((((((((((((((((((((((((((((((((((((((((((((((((((
+--&gt;4|             ((((((((((((((((((((((((((((((((((
                                                    ^
-   5:                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
-   6:         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-   7:     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+   5|                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+   6|         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+   7|     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 Tu código es demasiado complejo para Python:
 necesitas reducir el número de paréntesis
@@ -5915,7 +5950,7 @@ contenidos dentro de otros paréntesis.
 </div>
 </section>
 <section id="trailing-comma-in-import-statement">
-<h2>(205) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(206) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5932,7 +5967,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\trailing_comma_in_import.py'
 en la ubicación indicada.
 
-   2: from math import sin, cos,
+   2| from math import sin, cos,
                                ^
 
 Python indica que hay que rodear una expresión
@@ -5945,7 +5980,7 @@ Quizás quisiste escribir
 </div>
 </section>
 <section id="triple-equal-sign">
-<h2>(206) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(207) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5962,7 +5997,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\triple_equal.py'
 en la ubicación indicada.
 
-   3: x = y === z
+   3| x = y === z
             ^^^
 
 Has escrito tres signos de igualdad seguidos, lo que está permitido en algunos
@@ -5973,7 +6008,7 @@ exactamente el mismo objeto, utiliza el operador `is`.
 </div>
 </section>
 <section id="unclosed-bracket">
-<h2>(207) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(208) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5988,11 +6023,11 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unclosed_bracket.py'
 en la ubicación indicada.
 
-   5:     return [1, 2, 3
-   6:
---&gt;7: print(foo())
+   5|     return [1, 2, 3
+   6|
+--&gt;7| print(foo())
       ^^^^^
-   8:
+   8|
 
 El corchete `[` de apertura en la línea 5 no está cerrado.
 
@@ -6002,7 +6037,7 @@ El corchete `[` de apertura en la línea 5 no está cerrado.
 </div>
 </section>
 <section id="unclosed-parenthesis-1">
-<h2>(208) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
+<h2>(209) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6017,11 +6052,11 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unclosed_paren_1.py'
 en la ubicación indicada.
 
-   2: x = int('1'
---&gt;3: if x == 1:
+   2| x = int('1'
+--&gt;3| if x == 1:
                ^
-   4:     print('yes')
-   5:
+   4|     print('yes')
+   5|
 
 El paréntesis `(` de apertura en la línea 2 no está cerrado.
 
@@ -6031,7 +6066,7 @@ El paréntesis `(` de apertura en la línea 2 no está cerrado.
 </div>
 </section>
 <section id="unclosed-parenthesis-2">
-<h2>(209) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
+<h2>(210) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6046,10 +6081,10 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unclosed_paren_2.py'
 en la ubicación indicada.
 
-   2: a = (b+c
---&gt;3: d = a*a
+   2| a = (b+c
+--&gt;3| d = a*a
       ^
-   4:
+   4|
 
 El paréntesis `(` de apertura en la línea 2 no está cerrado.
 
@@ -6059,7 +6094,7 @@ El paréntesis `(` de apertura en la línea 2 no está cerrado.
 </div>
 </section>
 <section id="unclosed-parenthesis-3">
-<h2>(210) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
+<h2>(211) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6074,11 +6109,11 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unclosed_paren_3.py'
 en la ubicación indicada.
 
-   5:         print(((123))
-   6:
---&gt;7: if 2:
+   5|         print(((123))
+   6|
+--&gt;7| if 2:
           ^
-   8:     print(123))
+   8|     print(123))
 
 El paréntesis `(` de apertura en la línea 5 no está cerrado.
 
@@ -6090,7 +6125,7 @@ Si esto es incorrecto, por favor reporte este caso.
 </div>
 </section>
 <section id="unclosed-parenthesis-4">
-<h2>(211) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
+<h2>(212) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6105,9 +6140,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unclosed_paren_4.py'
 en la ubicación indicada.
 
-   2: print('hello'
-   3:
---&gt;4: def test():
+   2| print('hello'
+   3|
+--&gt;4| def test():
       ^^^
 
 El paréntesis `(` de apertura en la línea 2 no está cerrado.
@@ -6118,7 +6153,7 @@ El paréntesis `(` de apertura en la línea 2 no está cerrado.
 </div>
 </section>
 <section id="content-passed-continuation-line-character">
-<h2>(212) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
+<h2>(213) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6133,7 +6168,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unexpected_after_continuation_character.py'
 en la ubicación indicada.
 
-   5: print(\t)
+   5| print(\t)
              ^
 
 Está utilizando el carácter de continuación `\` fuera de una cadena
@@ -6143,7 +6178,7 @@ Supongo que has olvidado encerrar algún contenido en una cadena.
 </div>
 </section>
 <section id="unexpected-eof-while-parsing">
-<h2>(213) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
+<h2>(214) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6156,10 +6191,10 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unexpected_eof.py'
 en la ubicación indicada.
 
-   5:     return [1, 2, 3,
-   6:
-   7: print(foo())
---&gt;8:
+   5|     return [1, 2, 3,
+   6|
+   7| print(foo())
+--&gt;8|
                  ^
 
 Python nos dice que llegó al final del archivo
@@ -6175,7 +6210,7 @@ El corchete `[` de apertura en la línea 5 no está cerrado.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-3-4">
-<h2>(214) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
+<h2>(215) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6192,7 +6227,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_fraction.py'
 en la ubicación indicada.
 
-   1: a = ¾  # 3/4
+   1| a = ¾  # 3/4
           ^
 
 ¿Usaste copiar y pegar?
@@ -6205,7 +6240,7 @@ Sospecho que querías escribir la fracción `3/4` en su lugar.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-1-2">
-<h2>(215) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
+<h2>(216) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6222,7 +6257,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_fraction2.py'
 en la ubicación indicada.
 
-   1: a = 1½  # 1 1/2
+   1| a = 1½  # 1 1/2
            ^
 
 ¿Usaste copiar y pegar?
@@ -6235,7 +6270,7 @@ Sospecho que querías escribir la fracción `1/2` en su lugar.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-slash">
-<h2>(216) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
+<h2>(217) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6252,7 +6287,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_fraction3.py'
 en la ubicación indicada.
 
-   1: a = 22 ⁄ 7
+   1| a = 22 ⁄ 7
              ^
 
 ¿Usaste copiar y pegar?
@@ -6265,7 +6300,7 @@ pero es diferente del operador de división `/`.
 </div>
 </section>
 <section id="invalid-character-unicode-quote">
-<h2>(217) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
+<h2>(218) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6282,7 +6317,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_quote.py'
 en la ubicación indicada.
 
-   3: a = « hello »
+   3| a = « hello »
           ^
 
 ¿Usaste copiar y pegar?
@@ -6295,7 +6330,7 @@ en lugar de una comilla simple o doble normal para una cadena.
 </div>
 </section>
 <section id="invalid-character-unicode-quote2">
-<h2>(218) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
+<h2>(219) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6312,7 +6347,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_quote2.py'
 en la ubicación indicada.
 
-   2: a = ‹ hello ›
+   2| a = ‹ hello ›
           ^
 
 ¿Usaste copiar y pegar?
@@ -6325,7 +6360,7 @@ en lugar de una comilla simple o doble normal para una cadena.
 </div>
 </section>
 <section id="invalid-character-mistaken">
-<h2>(219) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
+<h2>(220) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6342,7 +6377,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_quote3.py'
 en la ubicación indicada.
 
-   2: if a ‹ hello:
+   2| if a ‹ hello:
            ^
 
 ¿Usaste copiar y pegar?
@@ -6356,7 +6391,7 @@ O tal vez, quisiste escribir un signo menos que, `&lt;`.
 </div>
 </section>
 <section id="id9">
-<h2>(220) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>(221) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6373,7 +6408,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_quote4.py'
 en la ubicación indicada.
 
-   2: if a › hello:
+   2| if a › hello:
            ^
 
 ¿Usaste copiar y pegar?
@@ -6387,7 +6422,7 @@ O tal vez, quisiste escribir un signo mayor que, `&gt;`.
 </div>
 </section>
 <section id="invalid-character-mistaken-comma">
-<h2>(221) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(222) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6404,7 +6439,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_quote5.py'
 en la ubicación indicada.
 
-   2: a = (1‚ 2)
+   2| a = (1‚ 2)
             ^
 
 ¿Usaste copiar y pegar?
@@ -6418,7 +6453,7 @@ O tal vez, quisiste escribir una coma.
 </div>
 </section>
 <section id="unmatched-closing-curly-bracket">
-<h2>(222) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(223) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6433,9 +6468,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unmatched_closing_curly.py'
 en la ubicación indicada.
 
-   4: a = {1,
-   5:     2,
---&gt;6:     3, 4,}}
+   4| a = {1,
+   5|     2,
+--&gt;6|     3, 4,}}
                 ^
 
 El llave `}` de cierre de la línea 6 no coincide con nada.
@@ -6443,7 +6478,7 @@ El llave `}` de cierre de la línea 6 no coincide con nada.
 </div>
 </section>
 <section id="unmatched-closing-parenthesis">
-<h2>(223) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(224) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6458,9 +6493,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unmatched_closing_paren.py'
 en la ubicación indicada.
 
-   4: a = (1,
-   5:     2,
---&gt;6:     3, 4,))
+   4| a = (1,
+   5|     2,
+--&gt;6|     3, 4,))
                 ^
 
 El paréntesis `)` de cierre de la línea 6 no coincide con nada.
@@ -6468,7 +6503,7 @@ El paréntesis `)` de cierre de la línea 6 no coincide con nada.
 </div>
 </section>
 <section id="mismatched-brackets-1">
-<h2>(224) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
+<h2>(225) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6483,7 +6518,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unmatched_closing_bracket_1.py'
 en la ubicación indicada.
 
-   2: x = (1, 2, 3]
+   2| x = (1, 2, 3]
           ^       ^
 
 El corchete `]` de cierre de la línea 2 no coincide con el paréntesis `(` de apertura de la línea 2.
@@ -6494,7 +6529,7 @@ El corchete `]` de cierre de la línea 2 no coincide con el paréntesis `(` de a
 </div>
 </section>
 <section id="mismatched-brackets-2">
-<h2>(225) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
+<h2>(226) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6509,10 +6544,10 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unmatched_closing_bracket_2.py'
 en la ubicación indicada.
 
---&gt;2: x = (1,
+--&gt;2| x = (1,
           ^
-   3:      2,
---&gt;4:      3]
+   3|      2,
+--&gt;4|      3]
             ^
 
 El corchete `]` de cierre de la línea 4 no coincide con el paréntesis `(` de apertura de la línea 2.
@@ -6525,7 +6560,7 @@ El corchete `]` de cierre de la línea 4 no coincide con el paréntesis `(` de a
 </div>
 </section>
 <section id="unmatched-brackets-3">
-<h2>(226) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
+<h2>(227) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6540,9 +6575,9 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unmatched_closing_bracket_3.py'
 en la ubicación indicada.
 
-   1: x = [1,
-   2:      2,
---&gt;3:      3]]
+   1| x = [1,
+   2|      2,
+--&gt;3|      3]]
              ^
 
 El corchete `]` de cierre de la línea 3 no coincide con nada.
@@ -6550,7 +6585,7 @@ El corchete `]` de cierre de la línea 3 no coincide con nada.
 </div>
 </section>
 <section id="unpacking-a-dict-value">
-<h2>(227) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this headline">¶</a></h2>
+<h2>(228) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6565,7 +6600,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unpacking_dict_value.py'
 en la ubicación indicada.
 
-   1: {'a': *(1, 2, 3)}
+   1| {'a': *(1, 2, 3)}
           ^ ^
 
 No puedes tener estos dos operadores, `:` y `*`,
@@ -6580,7 +6615,7 @@ La siguiente declaración no tiene ningún error de sintaxis:
 </div>
 </section>
 <section id="unterminated-triple-quoted-string">
-<h2>(228) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
+<h2>(229) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6595,10 +6630,10 @@ Un `SyntaxError` ocurre cuando Python no puede entender tu código.
 
 Python no pudo entender el código en el archivo
 'TESTS:\syntax\unterminated_triple_quote_string.py'
+en la ubicación indicada.
 
-
-   1: some_text = """In a land
-   2:
+   1| some_text = """In a land
+                  ^^^^^^^^^^^^
 
 Empezó a escribir una cadena con comillas triples pero nunca escribió
 las comillas triples necesarias para terminar la cadena.
@@ -6606,7 +6641,7 @@ las comillas triples necesarias para terminar la cadena.
 </div>
 </section>
 <section id="taberror">
-<h2>(229) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
+<h2>(230) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6626,13 +6661,13 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\tab_error.py'
 en la ubicación indicada.
 
-   7:       pass
+   7|       pass
        ^^^^
 </pre></div>
 </div>
 </section>
 <section id="eol-unescaped-backslash">
-<h2>(230) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(231) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6649,8 +6684,8 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unescaped_backslash.py'
 en la ubicación indicada.
 
-   1: a = "abc\"
-               ^
+   1| a = "abc\"
+          ^
 
 Ha empezado a escribir una cadena con una comilla simple o doble
 pero nunca terminó la cadena con otra comilla en esa línea.
@@ -6661,7 +6696,7 @@ que necesitaba escapar escribiendo dos `\` seguidas.
 </div>
 </section>
 <section id="using-the-backquote-character">
-<h2>(231) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
+<h2>(232) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6678,7 +6713,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\use_backquote.py'
 en la ubicación indicada.
 
-   3: a = `1`
+   3| a = `1`
           ^
 
 Estás utilizando el carácter de comillas.
@@ -6688,7 +6723,7 @@ en este último caso, utiliza la función `repr(x)`.
 </div>
 </section>
 <section id="unicode-error">
-<h2>(232) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
+<h2>(233) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6705,7 +6740,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\unicode_error.py'
 en la ubicación indicada.
 
-   1: path = "c:\Users\andre"
+   1| path = "c:\Users\andre"
              ^^^^^^^^^^^^^^^^
 
 Sospecho que has escrito una cadena que contiene
@@ -6720,7 +6755,7 @@ delante de la cadena, o reemplazar `\U`, por `\\U`.
 </div>
 </section>
 <section id="walrus-instead-of-equal">
-<h2>(233) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(234) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6737,7 +6772,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\walrus_instead_of_equal.py'
 en la ubicación indicada.
 
-   1: a := 3
+   1| a := 3
            ^
 
 Se utiliza el operador de asignación aumentado `:=` donde
@@ -6746,7 +6781,7 @@ el operador de asignación normal `=` era necesario.
 </div>
 </section>
 <section id="missing-condition-in-while-statement">
-<h2>(234) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(235) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6763,7 +6798,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\while_missing_condition.py'
 en la ubicación indicada.
 
-   1: while:
+   1| while:
            ^
 
 Un bucle `while` requiere una condición:
@@ -6774,7 +6809,7 @@ Un bucle `while` requiere una condición:
 </div>
 </section>
 <section id="would-be-variable-declaration">
-<h2>(235) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(236) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6791,7 +6826,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\would_be_type_declaration_1.py'
 en la ubicación indicada.
 
-   3: if var start := begin &lt; end:
+   3| if var start := begin &lt; end:
              ^^^^^
 
 Parece que estabas intentando declarar que `start` era
@@ -6801,7 +6836,7 @@ Si eliminas `var`, tendrás una declaración válida de Python.
 </div>
 </section>
 <section id="would-be-variable-declaration-2">
-<h2>(236) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
+<h2>(237) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6818,10 +6853,10 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\would_be_type_declaration_2.py'
 en la ubicación indicada.
 
-   4: if (
---&gt;5:     var start := begin &lt; end
+   4| if (
+--&gt;5|     var start := begin &lt; end
               ^^^^^
-   6:    ):
+   6|    ):
 
 Parece que estabas intentando declarar que `start` era
 una variable utilizando la palabra `var`.
@@ -6830,7 +6865,7 @@ Si eliminas `var`, tendrás una declaración válida de Python.
 </div>
 </section>
 <section id="cannot-use-yield-outside-function">
-<h2>(237) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(238) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6845,7 +6880,7 @@ Python no pudo entender el código en el archivo
 'TESTS:\syntax\yield_outside_function.py'
 en la ubicación indicada.
 
-   1: (yield i) == 3
+   1| (yield i) == 3
        ^^^^^
 
 Sólo se puede utilizar una sentencia `yield` dentro de una función.
@@ -7017,132 +7052,133 @@ Sólo se puede utilizar una sentencia `yield` dentro de una función.
 <li><a class="reference internal" href="#dot-followed-by-parenthesis">(109) Dot followed by parenthesis</a></li>
 <li><a class="reference internal" href="#extra-token">(110) Extra token</a></li>
 <li><a class="reference internal" href="#elif-with-no-matching-if">(111) elif with no matching if</a></li>
-<li><a class="reference internal" href="#else-with-no-matching-statement">(112) else with no matching statement</a></li>
-<li><a class="reference internal" href="#write-elif-not-else-if">(113) Write elif, not else if</a></li>
-<li><a class="reference internal" href="#write-elif-not-elseif">(114) Write elif, not elseif</a></li>
-<li><a class="reference internal" href="#eol-while-scanning-string-literal">(115) EOL while scanning string literal</a></li>
-<li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(116) Used equal sign instead of colon</a></li>
-<li><a class="reference internal" href="#parens-around-multiple-exceptions">(117) Parens around multiple exceptions</a></li>
-<li><a class="reference internal" href="#id8">(118) Extra token</a></li>
-<li><a class="reference internal" href="#binary-f-string-not-allowed">(119) Binary f-string not allowed</a></li>
-<li><a class="reference internal" href="#f-string-closing-not-allowed">(120) f-string: closing } not allowed</a></li>
-<li><a class="reference internal" href="#f-string-missing-closing">(121) f-string: missing closing }</a></li>
-<li><a class="reference internal" href="#f-string-unterminated-string">(122) f-string: unterminated string</a></li>
-<li><a class="reference internal" href="#f-string-with-backslash">(123) f-string with backslash</a></li>
-<li><a class="reference internal" href="#missing-terms-in-for-statement">(124) Missing terms in for statement</a></li>
-<li><a class="reference internal" href="#not-a-chance">(125) Not a chance!</a></li>
-<li><a class="reference internal" href="#do-not-import-from-future">(126) Do not import * from __future__</a></li>
-<li><a class="reference internal" href="#future-at-beginning">(127) __future__ at beginning</a></li>
-<li><a class="reference internal" href="#typo-in-future">(128) Typo in __future__</a></li>
-<li><a class="reference internal" href="#unknown-feature-in-future">(129) Unknown feature in __future__</a></li>
-<li><a class="reference internal" href="#parenthesis-around-generator-expression">(130) Parenthesis around generator expression</a></li>
-<li><a class="reference internal" href="#space-between-names">(131) Space between names</a></li>
-<li><a class="reference internal" href="#missing-condition-in-if-statement">(132) Missing condition in if statement</a></li>
-<li><a class="reference internal" href="#use-j-instead-of-i">(133) use j instead of i</a></li>
-<li><a class="reference internal" href="#import-inversion-import-x-from-y">(134) Import inversion: import X from Y</a></li>
-<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(135) IndentationError: expected an indented block</a></li>
-<li><a class="reference internal" href="#indentationerror-unexpected-indent">(136) IndentationError: unexpected indent</a></li>
-<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(137) IndentationError: unindent does not match …</a></li>
-<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(138) IndentationError: missing continuation line</a></li>
-<li><a class="reference internal" href="#forgot-o-for-octal">(139) Forgot ‘o’ for octal</a></li>
-<li><a class="reference internal" href="#integer-with-leading-zeros">(140) Integer with leading zeros</a></li>
-<li><a class="reference internal" href="#invalid-character-in-identifier">(141) Invalid character in identifier</a></li>
-<li><a class="reference internal" href="#invalid-decimal-literal-1">(142) Invalid decimal literal - 1</a></li>
-<li><a class="reference internal" href="#invalid-encoding">(143) Invalid encoding</a></li>
-<li><a class="reference internal" href="#invalid-hexadecimal-number">(144) Invalid hexadecimal number</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(145) Valid names cannot begin with a number</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(146) Valid names cannot begin with a number - 2</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(147) Valid names cannot begin with a number - 3</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(148) Valid names cannot begin with a number - 4</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(149) Valid names cannot begin with a number - 5</a></li>
-<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(150) Keyword can’t be an expression</a></li>
-<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(151) Named argument can’t be a Python keyword</a></li>
-<li><a class="reference internal" href="#invalid-octal-number">(152) Invalid octal number</a></li>
-<li><a class="reference internal" href="#inverted-operators-1">(153) Inverted operators 1</a></li>
-<li><a class="reference internal" href="#inverted-operators-2">(154) Inverted operators 2</a></li>
-<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(155) Iteration variable unpacking in comprehension</a></li>
-<li><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(156) Keyword arg only once in function call</a></li>
-<li><a class="reference internal" href="#keyword-as-attribute">(157) Keyword as attribute</a></li>
-<li><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(158) lambda with parentheses around arguments</a></li>
-<li><a class="reference internal" href="#lambda-with-tuple-as-argument">(159) lambda with tuple as argument</a></li>
-<li><a class="reference internal" href="#assign-to-literal-in-for-loop">(160) Assign to literal in for loop</a></li>
-<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(161) IndentationError/SyntaxError depending on version</a></li>
-<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version-2">(162) IndentationError/SyntaxError depending on version - 2</a></li>
-<li><a class="reference internal" href="#missing-colon-if">(163) Missing colon - if</a></li>
-<li><a class="reference internal" href="#missing-colon-while">(164) Missing colon - while</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-dict">(165) Missing comma in a dict</a></li>
-<li><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(166) Missing comma between strings in a dict</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-list">(167) Missing comma in a list</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-set">(168) Missing comma in a set</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-tuple">(169) Missing comma in a tuple</a></li>
-<li><a class="reference internal" href="#missing-parenthesis-for-range">(170) Missing parenthesis for range</a></li>
-<li><a class="reference internal" href="#misspelled-python-keyword">(171) Misspelled Python keyword</a></li>
-<li><a class="reference internal" href="#name-is-global-and-nonlocal">(172) Name is global and nonlocal</a></li>
-<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(173) Name is parameter and nonlocal</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found">(174) nonlocal variable not found</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(175) nonlocal variable not found at module level</a></li>
-<li><a class="reference internal" href="#same-operator-twice-in-a-row">(176) Same operator twice in a row</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter">(177) Using pip from interpreter</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter-2">(178) Using pip from interpreter 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function">(179) print is a function</a></li>
-<li><a class="reference internal" href="#print-is-a-function-2">(180) print is a function 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function-3">(181) print is a function 3</a></li>
-<li><a class="reference internal" href="#print-is-a-function-4">(182) print is a function 4</a></li>
-<li><a class="reference internal" href="#print-is-a-function-5">(183) print is a function 5</a></li>
-<li><a class="reference internal" href="#print-is-a-function-6">(184) print is a function 6</a></li>
-<li><a class="reference internal" href="#print-is-a-function-7">(185) print is a function 7</a></li>
-<li><a class="reference internal" href="#calling-python-from-interpreter">(186) Calling python from interpreter</a></li>
-<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(187) problem with assigning a variable to Python</a></li>
-<li><a class="reference internal" href="#quote-inside-a-string">(188) Quote inside a string</a></li>
-<li><a class="reference internal" href="#raising-multiple-exceptions">(189) Raising multiple exceptions</a></li>
-<li><a class="reference internal" href="#cannot-use-return-outside-function">(190) Cannot use return outside function</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-colon">(191) Semicolon instead of colon</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-comma-1">(192) Semicolon instead of comma - 1</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-commas-2">(193) Semicolon instead of commas - 2</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-commas-3">(194) Semicolon instead of commas - 3</a></li>
-<li><a class="reference internal" href="#code-block-inside-comprehension">(195) Code block inside comprehension</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-if">(196) Single = instead of double == with if</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-elif">(197) Single = instead of double == with elif</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-while">(198) Single = instead of double == with while</a></li>
-<li><a class="reference internal" href="#space-between-operators-1">(199) Space between operators 1</a></li>
-<li><a class="reference internal" href="#space-between-operators-2">(200) Space between operators 2</a></li>
-<li><a class="reference internal" href="#space-in-variable-name">(201) Space in variable name</a></li>
-<li><a class="reference internal" href="#wrong-target-for-star-assignment">(202) Wrong target for star assignment</a></li>
-<li><a class="reference internal" href="#too-many-nested-blocks">(203) Too many nested blocks</a></li>
-<li><a class="reference internal" href="#too-many-nested-parentheses">(204) Too many nested parentheses.</a></li>
-<li><a class="reference internal" href="#trailing-comma-in-import-statement">(205) Trailing comma in import statement</a></li>
-<li><a class="reference internal" href="#triple-equal-sign">(206) Triple-equal sign</a></li>
-<li><a class="reference internal" href="#unclosed-bracket">(207) Unclosed bracket</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-1">(208) Unclosed parenthesis - 1</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-2">(209) Unclosed parenthesis - 2</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-3">(210) Unclosed parenthesis - 3</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-4">(211) Unclosed parenthesis - 4</a></li>
-<li><a class="reference internal" href="#content-passed-continuation-line-character">(212) Content passed continuation line character</a></li>
-<li><a class="reference internal" href="#unexpected-eof-while-parsing">(213) Unexpected EOF while parsing</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(214) Invalid character (unicode fraction 3/4)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(215) Invalid character (unicode fraction 1/2)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(216) Invalid character (unicode fraction slash)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote">(217) Invalid character (unicode quote)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote2">(218) Invalid character (unicode quote2)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken">(219) Invalid character (mistaken &lt;)</a></li>
-<li><a class="reference internal" href="#id9">(220) Invalid character (mistaken &gt;)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken-comma">(221) Invalid character (mistaken comma)</a></li>
-<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(222) Unmatched closing curly bracket</a></li>
-<li><a class="reference internal" href="#unmatched-closing-parenthesis">(223) Unmatched closing parenthesis</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-1">(224) Mismatched brackets - 1</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-2">(225) Mismatched brackets - 2</a></li>
-<li><a class="reference internal" href="#unmatched-brackets-3">(226) Unmatched brackets - 3</a></li>
-<li><a class="reference internal" href="#unpacking-a-dict-value">(227) Unpacking a dict value</a></li>
-<li><a class="reference internal" href="#unterminated-triple-quoted-string">(228) Unterminated triple quoted string</a></li>
-<li><a class="reference internal" href="#taberror">(229) TabError</a></li>
-<li><a class="reference internal" href="#eol-unescaped-backslash">(230) EOL unescaped backslash</a></li>
-<li><a class="reference internal" href="#using-the-backquote-character">(231) Using the backquote character</a></li>
-<li><a class="reference internal" href="#unicode-error">(232) unicode error</a></li>
-<li><a class="reference internal" href="#walrus-instead-of-equal">(233) Walrus instead of equal</a></li>
-<li><a class="reference internal" href="#missing-condition-in-while-statement">(234) Missing condition in while statement</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration">(235) Would-be variable declaration</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration-2">(236) Would-be variable declaration - 2</a></li>
-<li><a class="reference internal" href="#cannot-use-yield-outside-function">(237) Cannot use yield outside function</a></li>
+<li><a class="reference internal" href="#ellipsis-written-with-extra-dot">(112) Ellipsis written with extra dot</a></li>
+<li><a class="reference internal" href="#else-with-no-matching-statement">(113) else with no matching statement</a></li>
+<li><a class="reference internal" href="#write-elif-not-else-if">(114) Write elif, not else if</a></li>
+<li><a class="reference internal" href="#write-elif-not-elseif">(115) Write elif, not elseif</a></li>
+<li><a class="reference internal" href="#eol-while-scanning-string-literal">(116) EOL while scanning string literal</a></li>
+<li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(117) Used equal sign instead of colon</a></li>
+<li><a class="reference internal" href="#parens-around-multiple-exceptions">(118) Parens around multiple exceptions</a></li>
+<li><a class="reference internal" href="#id8">(119) Extra token</a></li>
+<li><a class="reference internal" href="#binary-f-string-not-allowed">(120) Binary f-string not allowed</a></li>
+<li><a class="reference internal" href="#f-string-closing-not-allowed">(121) f-string: closing } not allowed</a></li>
+<li><a class="reference internal" href="#f-string-missing-closing">(122) f-string: missing closing }</a></li>
+<li><a class="reference internal" href="#f-string-unterminated-string">(123) f-string: unterminated string</a></li>
+<li><a class="reference internal" href="#f-string-with-backslash">(124) f-string with backslash</a></li>
+<li><a class="reference internal" href="#missing-terms-in-for-statement">(125) Missing terms in for statement</a></li>
+<li><a class="reference internal" href="#not-a-chance">(126) Not a chance!</a></li>
+<li><a class="reference internal" href="#do-not-import-from-future">(127) Do not import * from __future__</a></li>
+<li><a class="reference internal" href="#future-at-beginning">(128) __future__ at beginning</a></li>
+<li><a class="reference internal" href="#typo-in-future">(129) Typo in __future__</a></li>
+<li><a class="reference internal" href="#unknown-feature-in-future">(130) Unknown feature in __future__</a></li>
+<li><a class="reference internal" href="#parenthesis-around-generator-expression">(131) Parenthesis around generator expression</a></li>
+<li><a class="reference internal" href="#space-between-names">(132) Space between names</a></li>
+<li><a class="reference internal" href="#missing-condition-in-if-statement">(133) Missing condition in if statement</a></li>
+<li><a class="reference internal" href="#use-j-instead-of-i">(134) use j instead of i</a></li>
+<li><a class="reference internal" href="#import-inversion-import-x-from-y">(135) Import inversion: import X from Y</a></li>
+<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(136) IndentationError: expected an indented block</a></li>
+<li><a class="reference internal" href="#indentationerror-unexpected-indent">(137) IndentationError: unexpected indent</a></li>
+<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(138) IndentationError: unindent does not match …</a></li>
+<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(139) IndentationError: missing continuation line</a></li>
+<li><a class="reference internal" href="#forgot-o-for-octal">(140) Forgot ‘o’ for octal</a></li>
+<li><a class="reference internal" href="#integer-with-leading-zeros">(141) Integer with leading zeros</a></li>
+<li><a class="reference internal" href="#invalid-character-in-identifier">(142) Invalid character in identifier</a></li>
+<li><a class="reference internal" href="#invalid-decimal-literal-1">(143) Invalid decimal literal - 1</a></li>
+<li><a class="reference internal" href="#invalid-encoding">(144) Invalid encoding</a></li>
+<li><a class="reference internal" href="#invalid-hexadecimal-number">(145) Invalid hexadecimal number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(146) Valid names cannot begin with a number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(147) Valid names cannot begin with a number - 2</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(148) Valid names cannot begin with a number - 3</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(149) Valid names cannot begin with a number - 4</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(150) Valid names cannot begin with a number - 5</a></li>
+<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(151) Keyword can’t be an expression</a></li>
+<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(152) Named argument can’t be a Python keyword</a></li>
+<li><a class="reference internal" href="#invalid-octal-number">(153) Invalid octal number</a></li>
+<li><a class="reference internal" href="#inverted-operators-1">(154) Inverted operators 1</a></li>
+<li><a class="reference internal" href="#inverted-operators-2">(155) Inverted operators 2</a></li>
+<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(156) Iteration variable unpacking in comprehension</a></li>
+<li><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(157) Keyword arg only once in function call</a></li>
+<li><a class="reference internal" href="#keyword-as-attribute">(158) Keyword as attribute</a></li>
+<li><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(159) lambda with parentheses around arguments</a></li>
+<li><a class="reference internal" href="#lambda-with-tuple-as-argument">(160) lambda with tuple as argument</a></li>
+<li><a class="reference internal" href="#assign-to-literal-in-for-loop">(161) Assign to literal in for loop</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(162) IndentationError/SyntaxError depending on version</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version-2">(163) IndentationError/SyntaxError depending on version - 2</a></li>
+<li><a class="reference internal" href="#missing-colon-if">(164) Missing colon - if</a></li>
+<li><a class="reference internal" href="#missing-colon-while">(165) Missing colon - while</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-dict">(166) Missing comma in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(167) Missing comma between strings in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-list">(168) Missing comma in a list</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-set">(169) Missing comma in a set</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-tuple">(170) Missing comma in a tuple</a></li>
+<li><a class="reference internal" href="#missing-parenthesis-for-range">(171) Missing parenthesis for range</a></li>
+<li><a class="reference internal" href="#misspelled-python-keyword">(172) Misspelled Python keyword</a></li>
+<li><a class="reference internal" href="#name-is-global-and-nonlocal">(173) Name is global and nonlocal</a></li>
+<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(174) Name is parameter and nonlocal</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found">(175) nonlocal variable not found</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(176) nonlocal variable not found at module level</a></li>
+<li><a class="reference internal" href="#same-operator-twice-in-a-row">(177) Same operator twice in a row</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter">(178) Using pip from interpreter</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter-2">(179) Using pip from interpreter 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function">(180) print is a function</a></li>
+<li><a class="reference internal" href="#print-is-a-function-2">(181) print is a function 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function-3">(182) print is a function 3</a></li>
+<li><a class="reference internal" href="#print-is-a-function-4">(183) print is a function 4</a></li>
+<li><a class="reference internal" href="#print-is-a-function-5">(184) print is a function 5</a></li>
+<li><a class="reference internal" href="#print-is-a-function-6">(185) print is a function 6</a></li>
+<li><a class="reference internal" href="#print-is-a-function-7">(186) print is a function 7</a></li>
+<li><a class="reference internal" href="#calling-python-from-interpreter">(187) Calling python from interpreter</a></li>
+<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(188) problem with assigning a variable to Python</a></li>
+<li><a class="reference internal" href="#quote-inside-a-string">(189) Quote inside a string</a></li>
+<li><a class="reference internal" href="#raising-multiple-exceptions">(190) Raising multiple exceptions</a></li>
+<li><a class="reference internal" href="#cannot-use-return-outside-function">(191) Cannot use return outside function</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-colon">(192) Semicolon instead of colon</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-comma-1">(193) Semicolon instead of comma - 1</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-2">(194) Semicolon instead of commas - 2</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-3">(195) Semicolon instead of commas - 3</a></li>
+<li><a class="reference internal" href="#code-block-inside-comprehension">(196) Code block inside comprehension</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-if">(197) Single = instead of double == with if</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-elif">(198) Single = instead of double == with elif</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-while">(199) Single = instead of double == with while</a></li>
+<li><a class="reference internal" href="#space-between-operators-1">(200) Space between operators 1</a></li>
+<li><a class="reference internal" href="#space-between-operators-2">(201) Space between operators 2</a></li>
+<li><a class="reference internal" href="#space-in-variable-name">(202) Space in variable name</a></li>
+<li><a class="reference internal" href="#wrong-target-for-star-assignment">(203) Wrong target for star assignment</a></li>
+<li><a class="reference internal" href="#too-many-nested-blocks">(204) Too many nested blocks</a></li>
+<li><a class="reference internal" href="#too-many-nested-parentheses">(205) Too many nested parentheses.</a></li>
+<li><a class="reference internal" href="#trailing-comma-in-import-statement">(206) Trailing comma in import statement</a></li>
+<li><a class="reference internal" href="#triple-equal-sign">(207) Triple-equal sign</a></li>
+<li><a class="reference internal" href="#unclosed-bracket">(208) Unclosed bracket</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-1">(209) Unclosed parenthesis - 1</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-2">(210) Unclosed parenthesis - 2</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-3">(211) Unclosed parenthesis - 3</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-4">(212) Unclosed parenthesis - 4</a></li>
+<li><a class="reference internal" href="#content-passed-continuation-line-character">(213) Content passed continuation line character</a></li>
+<li><a class="reference internal" href="#unexpected-eof-while-parsing">(214) Unexpected EOF while parsing</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(215) Invalid character (unicode fraction 3/4)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(216) Invalid character (unicode fraction 1/2)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(217) Invalid character (unicode fraction slash)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote">(218) Invalid character (unicode quote)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote2">(219) Invalid character (unicode quote2)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken">(220) Invalid character (mistaken &lt;)</a></li>
+<li><a class="reference internal" href="#id9">(221) Invalid character (mistaken &gt;)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken-comma">(222) Invalid character (mistaken comma)</a></li>
+<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(223) Unmatched closing curly bracket</a></li>
+<li><a class="reference internal" href="#unmatched-closing-parenthesis">(224) Unmatched closing parenthesis</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-1">(225) Mismatched brackets - 1</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-2">(226) Mismatched brackets - 2</a></li>
+<li><a class="reference internal" href="#unmatched-brackets-3">(227) Unmatched brackets - 3</a></li>
+<li><a class="reference internal" href="#unpacking-a-dict-value">(228) Unpacking a dict value</a></li>
+<li><a class="reference internal" href="#unterminated-triple-quoted-string">(229) Unterminated triple quoted string</a></li>
+<li><a class="reference internal" href="#taberror">(230) TabError</a></li>
+<li><a class="reference internal" href="#eol-unescaped-backslash">(231) EOL unescaped backslash</a></li>
+<li><a class="reference internal" href="#using-the-backquote-character">(232) Using the backquote character</a></li>
+<li><a class="reference internal" href="#unicode-error">(233) unicode error</a></li>
+<li><a class="reference internal" href="#walrus-instead-of-equal">(234) Walrus instead of equal</a></li>
+<li><a class="reference internal" href="#missing-condition-in-while-statement">(235) Missing condition in while statement</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration">(236) Would-be variable declaration</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration-2">(237) Would-be variable declaration - 2</a></li>
+<li><a class="reference internal" href="#cannot-use-yield-outside-function">(238) Cannot use yield outside function</a></li>
 </ul>
 </li>
 </ul>

@@ -18,7 +18,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.5.48
+Friendly-traceback version: 0.6.0
 Python version: 3.8.10
 
 
@@ -43,7 +43,7 @@ Python version: 3.8.10
     'TESTS:\syntax\and_in_import_statement.py'
     at the location indicated.
     
-       1: from math import sin and cos
+       1| from math import sin and cos
                                ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
@@ -72,7 +72,7 @@ Python version: 3.8.10
     'TESTS:\syntax\and_in_import_statement_2.py'
     at the location indicated.
     
-       1: from math import sin, tan, and cos
+       1| from math import sin, tan, and cos
                                      ^^^
 
     The Python keyword `and` can only be used for boolean expressions.
@@ -101,7 +101,7 @@ Python version: 3.8.10
     'TESTS:\syntax\annotated_name_global.py'
     at the location indicated.
     
-       4:     var:int = 1
+       4|     var:int = 1
               ^^^
 
     The object named `var` is defined with type annotation
@@ -128,7 +128,7 @@ Python version: 3.8.10
     'TESTS:\syntax\as_instead_of_comma_in_import.py'
     at the location indicated.
     
-       2: from math import (sin, cos) as funcs
+       2| from math import (sin, cos) as funcs
                                       ^^
 
     I am guessing that you are trying to import at least one object
@@ -164,7 +164,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_instead_of_equal.py'
     at the location indicated.
     
-       1: a = (b = 2)  # issue #65
+       1| a = (b = 2)  # issue #65
                  ^
 
     You used an assignment operator `=`; perhaps you meant to use 
@@ -191,7 +191,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_global_1.py'
     at the location indicated.
     
-       7:     global aa, bb, cc, dd
+       7|     global aa, bb, cc, dd
               ^^^^^^         ^^
 
     You assigned a value to the variable `cc`
@@ -218,7 +218,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_global_2.py'
     at the location indicated.
     
-       7:     global var
+       7|     global var
               ^^^^^^ ^^^
 
     You used the variable `var`
@@ -247,7 +247,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_nonlocal_1.py'
     at the location indicated.
     
-       11:         nonlocal pp, qq
+       11|         nonlocal pp, qq
                    ^^^^^^^^     ^^
 
     You used the variable `qq`
@@ -276,7 +276,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_name_before_nonlocal_2.py'
     at the location indicated.
     
-       9:         nonlocal s
+       9|         nonlocal s
                   ^^^^^^^^ ^
 
     You assigned a value to the variable `s`
@@ -305,7 +305,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_conditional.py'
     at the location indicated.
     
-       3: a if 1 else b = 1
+       3| a if 1 else b = 1
           ^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
@@ -337,7 +337,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_debug.py'
     at the location indicated.
     
-       4: __debug__ = 1
+       4| __debug__ = 1
           ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
@@ -365,7 +365,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_debug2.py'
     at the location indicated.
     
-       4: a.__debug__ = 1
+       4| a.__debug__ = 1
             ^^^^^^^^^
 
     `__debug__` is a constant in Python; you cannot assign it a different value.
@@ -393,7 +393,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_ellipsis.py'
     at the location indicated.
     
-       4: ... = 1
+       4| ... = 1
           ^^^
 
     The ellipsis symbol `...` is a constant in Python;you cannot assign it a different value.
@@ -421,7 +421,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_f_string.py'
     at the location indicated.
     
-       6: f'{x}' = 42
+       6| f'{x}' = 42
           ^^^^^^
 
     You wrote an expression that has the f-string `f'{x}'`
@@ -452,7 +452,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_1.py'
     at the location indicated.
     
-       6: len('a') = 3
+       6| len('a') = 3
           ^^^^^^^^
 
     You wrote the expression
@@ -486,7 +486,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_2.py'
     at the location indicated.
     
-       6: func(a, b=3) = 4
+       6| func(a, b=3) = 4
           ^^^^^^^^^^^^
 
     You wrote the expression
@@ -520,9 +520,9 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_function_call_3.py'
     at the location indicated.
     
-    -->6: a = f(1, 2,  # this is a comment
+    -->6| a = f(1, 2,  # this is a comment
               ^^^^^^^-->
-       7:       3, 4) = 5
+       7|       3, 4) = 5
 
     You wrote the expression
     
@@ -555,7 +555,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_generator.py'
     at the location indicated.
     
-       3: (x for x in x) = 1
+       3| (x for x in x) = 1
           ^^^^^^^^^^^^^^
 
     On the left-hand side of an equal sign, you have a
@@ -585,7 +585,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_dict.py'
     at the location indicated.
     
-       7: {1 : 2, 2 : 4} = 5
+       7| {1 : 2, 2 : 4} = 5
           ^^^^^^^^^^^^^^
 
     You wrote an expression like
@@ -619,7 +619,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int.py'
     at the location indicated.
     
-       3: 1 = a
+       3| 1 = a
           ^
 
     You wrote an expression like
@@ -656,7 +656,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int_2.py'
     at the location indicated.
     
-       3: 1 = 2
+       3| 1 = 2
           ^
 
     You wrote an expression like
@@ -691,7 +691,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_int_3.py'
     at the location indicated.
     
-       4: 1 = a = b
+       4| 1 = a = b
           ^
 
     You wrote an expression like
@@ -726,7 +726,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_literal_set.py'
     at the location indicated.
     
-       7: {1, 2, 3} = 4
+       7| {1, 2, 3} = 4
           ^^^^^^^^^
 
     You wrote an expression like
@@ -761,7 +761,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_def.py'
     at the location indicated.
     
-       3: def = 2
+       3| def = 2
           ^^^
 
     You were trying to assign a value to the Python keyword `def`.
@@ -791,7 +791,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_else.py'
     at the location indicated.
     
-       3: else = 1
+       3| else = 1
           ^^^^
 
     You were trying to assign a value to the Python keyword `else`.
@@ -821,7 +821,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_keyword_none.py'
     at the location indicated.
     
-       4: None = 1
+       4| None = 1
           ^^^^
 
     `None` is a constant in Python; you cannot assign it a different value.
@@ -849,7 +849,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_operation.py'
     at the location indicated.
     
-       4: a + 1 = 2
+       4| a + 1 = 2
           ^
 
     You wrote an expression that includes some mathematical operations
@@ -879,7 +879,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assign_to_yield_expression.py'
     at the location indicated.
     
-       1: (yield i) = 3
+       1| (yield i) = 3
           ^
 
     You wrote an expression that includes the `yield` keyword
@@ -909,7 +909,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assignment_expression_cannot_rebind.py'
     at the location indicated.
     
-       1: a = [(i := 1) for i in [1]]
+       1| a = [(i := 1) for i in [1]]
                ^
 
     You are using the augmented assignment operator `:=` inside
@@ -940,7 +940,7 @@ Python version: 3.8.10
     'TESTS:\syntax\assignment_expression_cannot_rebind_2.py'
     at the location indicated.
     
-       1: [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+       1| [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
           ^
 
     You are using the augmented assignment operator `:=` inside
@@ -973,7 +973,7 @@ Python version: 3.8.10
     'TESTS:\syntax\async_def_missing_parens.py'
     at the location indicated.
     
-       1: async def name:
+       1| async def name:
                         ^
 
     Perhaps you forgot to include parentheses.
@@ -1004,7 +1004,7 @@ Python version: 3.8.10
     'TESTS:\syntax\augmented_assignment_to_literal.py'
     at the location indicated.
     
-       1: if "word" := True:
+       1| if "word" := True:
              ^^^^^^
 
     You cannot use the augmented assignment operator `:=`,
@@ -1034,7 +1034,7 @@ Python version: 3.8.10
     'TESTS:\syntax\augmented_assigment_with_true.py'
     at the location indicated.
     
-       4: (True := 1)
+       4| (True := 1)
            ^^^^
 
     `True` is a constant in Python; you cannot assign it a different value.
@@ -1062,7 +1062,7 @@ Python version: 3.8.10
     'TESTS:\syntax\backslash_instead_of_slash.py'
     at the location indicated.
     
-       1: a = 3 \ 4.0
+       1| a = 3 \ 4.0
                   ^^^
 
     You are using the continuation character `\` outside of a string,
@@ -1092,7 +1092,7 @@ Python version: 3.8.10
     'TESTS:\syntax\bracket_instead_of_paren.py'
     at the location indicated.
     
-       1: print(sum[i for i in [1, 2, 3] if i%2==0])
+       1| print(sum[i for i in [1, 2, 3] if i%2==0])
                       ^^^
 
     You used square brackets, `[...]` instead of parentheses.
@@ -1120,7 +1120,7 @@ Python version: 3.8.10
     'TESTS:\syntax\break_outside_loop.py'
     at the location indicated.
     
-       4:     break
+       4|     break
               ^^^^^
 
     The Python keyword `break` can only be used inside a `for` loop or inside a `while` loop.
@@ -1148,7 +1148,7 @@ Python version: 3.8.10
     'TESTS:\syntax\cannot_assign_to_attribute_here.py'
     at the location indicated.
     
-       1: if x.a = 1:
+       1| if x.a = 1:
                  ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -1178,7 +1178,7 @@ Python version: 3.8.10
     'TESTS:\syntax\cannot_guess_the_cause.py'
     at the location indicated.
     
-       1: SyntaxErrors can be annoying!
+       1| SyntaxErrors can be annoying!
                        ^^^
 
     Currently, I cannot guess the likely cause of this error.
@@ -1189,7 +1189,7 @@ Python version: 3.8.10
     Unless your code uses type annotations, which are beyond our scope,
     if you think that this is something which should be handled
     by friendly, please report this case to
-    https://github.com/aroberge/friendly/issues
+    https://github.com/friendly-traceback/friendly-traceback/issues
     
     
 
@@ -1213,7 +1213,7 @@ Python version: 3.8.10
     'TESTS:\syntax\cannot_use_star.py'
     at the location indicated.
     
-       3: *a
+       3| *a
           ^
 
     The star operator `*` is interpreted to mean that
@@ -1241,7 +1241,7 @@ Python version: 3.8.10
     'TESTS:\<fstring>'
     at the location indicated.
     
-       1: (**k)
+       1| (**k)
            ^^
 
     The double star operator `**` is likely interpreted to mean that
@@ -1270,7 +1270,7 @@ Python version: 3.8.10
     'TESTS:\syntax\class_missing_name.py'
     at the location indicated.
     
-       1: class:
+       1| class:
                ^
 
     A `class` statement requires a name:
@@ -1302,7 +1302,7 @@ Python version: 3.8.10
     'TESTS:\syntax\comprehension_missing_tuple_paren.py'
     at the location indicated.
     
-       1: x = [i, i**2 for i in range(10)]
+       1| x = [i, i**2 for i in range(10)]
                        ^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1337,7 +1337,7 @@ Python version: 3.8.10
     'TESTS:\syntax\comprehension_with_condition_no_else.py'
     at the location indicated.
     
-       1: a = [f(x) if condition for x in sequence]
+       1| a = [f(x) if condition for x in sequence]
                                  ^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1374,7 +1374,7 @@ Python version: 3.8.10
     'TESTS:\syntax\comprehension_with_condition_with_else.py'
     at the location indicated.
     
-       1: a = [f(x) for x in sequence if condition else other]
+       1| a = [f(x) for x in sequence if condition else other]
                                                    ^^^^
 
     I am guessing that you were writing a comprehension or a generator expression
@@ -1411,7 +1411,7 @@ Python version: 3.8.10
     'TESTS:\syntax\continue_outside_loop.py'
     at the location indicated.
     
-       4:     continue
+       4|     continue
               ^^^^^^^^
 
     The Python keyword `continue` can only be used inside a `for` loop or inside a `while` loop.
@@ -1439,7 +1439,7 @@ Python version: 3.8.10
     'TESTS:\syntax\copy_pasted_code.py'
     at the location indicated.
     
-       2: >>> print("Hello World!")
+       2| >>> print("Hello World!")
           ^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
@@ -1468,7 +1468,7 @@ Python version: 3.8.10
     'TESTS:\syntax\copy_pasted_code_2.py'
     at the location indicated.
     
-       2: ... print("Hello World!")
+       2| ... print("Hello World!")
           ^^^
 
     It looks like you copy-pasted code from an interactive interpreter.
@@ -1497,7 +1497,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_arg_after_kwarg.py'
     at the location indicated.
     
-       1: def test(a, **kwargs, b):
+       1| def test(a, **kwargs, b):
                                 ^
 
     Positional arguments must come before keyword arguments.
@@ -1527,7 +1527,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_bare_star_arg.py'
     at the location indicated.
     
-       4: def f(*):
+       4| def f(*):
                 ^
 
     Assuming you were defining a function, you need
@@ -1557,7 +1557,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_code_block.py'
     at the location indicated.
     
-       3: def :
+       3| def :
               ^
 
     You tried to define a function and did not use the correct syntax.
@@ -1588,7 +1588,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_code_block_2.py'
     at the location indicated.
     
-       2:     def :
+       2|     def :
                   ^
 
     You tried to define a function or method and did not use the correct syntax.
@@ -1619,7 +1619,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_argument.py'
     at the location indicated.
     
-       3: def test(x.y):
+       3| def test(x.y):
                     ^
 
     You cannot use dotted names as function arguments.
@@ -1648,7 +1648,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_argument_2.py'
     at the location indicated.
     
-       2: def test(x., y):
+       2| def test(x., y):
                     ^
 
     You cannot use dotted names as function arguments.
@@ -1676,7 +1676,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dotted_function_name.py'
     at the location indicated.
     
-       3: def test.x():
+       3| def test.x():
                   ^
 
     You cannot use dots in function names.
@@ -1704,7 +1704,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_dict_as_arg.py'
     at the location indicated.
     
-       1: def test({'a': 1}, y):  # dict as first argument
+       1| def test({'a': 1}, y):  # dict as first argument
                    ^
 
     You cannot have any explicit dict or set as function arguments.
@@ -1731,7 +1731,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_duplicate_arg.py'
     at the location indicated.
     
-       4: def f(aa=1, aa=2):
+       4| def f(aa=1, aa=2):
                 ^^    ^^
 
     You have defined a function repeating the argument
@@ -1762,7 +1762,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_extra_semi_colon.py'
     at the location indicated.
     
-       1: def test():;
+       1| def test():;
                      ^
 
     A function definition statement must end with a colon.
@@ -1792,7 +1792,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_extra_comma.py'
     at the location indicated.
     
-       1: def test(a,,b):
+       1| def test(a,,b):
                      ^
 
     I suspect you made a typo and added `,` by mistake.
@@ -1822,7 +1822,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_forward_slash_1.py'
     at the location indicated.
     
-       1: def test(a, **kwargs, /):
+       1| def test(a, **kwargs, /):
                                 ^
 
     `/` indicates that the previous arguments in a function definition
@@ -1853,7 +1853,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_forward_slash_2.py'
     at the location indicated.
     
-       1: def test(a, *, b, /):
+       1| def test(a, *, b, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -1885,7 +1885,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_forward_slash_3.py'
     at the location indicated.
     
-       1: def test(a, *arg, /):
+       1| def test(a, *arg, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -1915,7 +1915,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_forward_slash_4.py'
     at the location indicated.
     
-       1: def test(a, /, b, /):
+       1| def test(a, /, b, /):
                             ^
 
     You can only use `/` once in a function definition.
@@ -1943,7 +1943,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_function_name_invalid.py'
     at the location indicated.
     
-       3: def 2be():
+       3| def 2be():
               ^
 
     The name of a function must be a valid Python identifier,
@@ -1976,7 +1976,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_function_name_string.py'
     at the location indicated.
     
-       3: def "function"():
+       3| def "function"():
               ^^^^^^^^^^
 
     The name of a function must be a valid Python identifier,
@@ -2005,7 +2005,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_1.py'
     at the location indicated.
     
-       5: def f(None=1):
+       5| def f(None=1):
                 ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2033,7 +2033,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_2.py'
     at the location indicated.
     
-       5: def f(x, True):
+       5| def f(x, True):
                    ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2061,7 +2061,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_3.py'
     at the location indicated.
     
-       5: def f(*None):
+       5| def f(*None):
                  ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2089,7 +2089,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_arg_4.py'
     at the location indicated.
     
-       5: def f(**None):
+       5| def f(**None):
                   ^^^^
 
     I am guessing that you tried to use the Python keyword
@@ -2119,7 +2119,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_keyword_as_name.py'
     at the location indicated.
     
-       3: def pass():
+       3| def pass():
               ^^^^
 
     You tried to use the Python keyword `pass` as a function name.
@@ -2149,7 +2149,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_list_as_arg_1.py'
     at the location indicated.
     
-       1: def test([x], y):  # list as first argument
+       1| def test([x], y):  # list as first argument
                    ^
 
     You cannot have explicit lists as function arguments.
@@ -2178,7 +2178,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_list_as_arg_2.py'
     at the location indicated.
     
-       1: def test(x, [y]):  # list as second argument, after comma
+       1| def test(x, [y]):  # list as second argument, after comma
                       ^
 
     You cannot have explicit lists as function arguments.
@@ -2207,7 +2207,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_colon.py'
     at the location indicated.
     
-       1: def test()
+       1| def test()
                     ^
 
     A function definition statement must end with a colon.
@@ -2235,7 +2235,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_comma.py'
     at the location indicated.
     
-       4: def a(b, c d):
+       4| def a(b, c d):
                    ^^^
 
     Python indicates that the error is caused by `d` written immediately after `c`.
@@ -2271,7 +2271,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_parens.py'
     at the location indicated.
     
-       3: def name:
+       3| def name:
                   ^
 
     Perhaps you forgot to include parentheses.
@@ -2302,7 +2302,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_parens_2.py'
     at the location indicated.
     
-       2: def name a, b:
+       2| def name a, b:
                    ^
 
     Perhaps you forgot to include parentheses.
@@ -2331,7 +2331,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_missing_name.py'
     at the location indicated.
     
-       3: def ( arg )  :
+       3| def ( arg )  :
               ^
 
     You forgot to name your function.
@@ -2360,7 +2360,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_name_is_parameter_and_global.py'
     at the location indicated.
     
-       6:     global x
+       6|     global x
               ^^^^^^
 
     You are including the statement
@@ -2394,7 +2394,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_non_default_after_default.py'
     at the location indicated.
     
-       5: def test(a=1, b):
+       5| def test(a=1, b):
                    ^
 
     In Python, you can define functions with only positional arguments
@@ -2435,7 +2435,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_number_as_arg.py'
     at the location indicated.
     
-       1: def f(1):
+       1| def f(1):
                 ^
 
     You used a number as an argument when defining a function.
@@ -2462,7 +2462,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_operator_after_2star.py'
     at the location indicated.
     
-       1: def test(**):
+       1| def test(**):
                      ^
 
     The `**` operator needs to be followed by an identifier (variable name).
@@ -2490,7 +2490,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_operator_instead_of_comma.py'
     at the location indicated.
     
-       1: def test(a + b):
+       1| def test(a + b):
                      ^
 
     You cannot have operators as function arguments.
@@ -2521,7 +2521,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_operator_instead_of_equal.py'
     at the location indicated.
     
-       1: def test(a, b=3, c+None):
+       1| def test(a, b=3, c+None):
                             ^
 
     You cannot have operators as function arguments.
@@ -2552,7 +2552,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_operator_instead_of_name.py'
     at the location indicated.
     
-       1: def test(a, +, b):
+       1| def test(a, +, b):
                       ^
 
     I suspect you made a typo and wrote `+` by mistake.
@@ -2580,7 +2580,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_positional_after_keyword_arg.py'
     at the location indicated.
     
-       5: test(a=1, b)
+       5| test(a=1, b)
                     ^
 
     In Python, you can call functions with only positional arguments
@@ -2621,7 +2621,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_semi_colon_instead_of_colon.py'
     at the location indicated.
     
-       1: def test();
+       1| def test();
                     ^
 
     A function definition statement must end with a colon.
@@ -2650,7 +2650,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_set_as_arg.py'
     at the location indicated.
     
-       1: def test(y, {'a', 'b'}):  # set as second argument, after comma
+       1| def test(y, {'a', 'b'}):  # set as second argument, after comma
                       ^
 
     You cannot have any explicit dict or set as function arguments.
@@ -2679,7 +2679,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_arg_before_slash.py'
     at the location indicated.
     
-       1: def test(a, *arg, /):
+       1| def test(a, *arg, /):
                             ^
 
     `/` indicates that the previous arguments in a function definition
@@ -2709,7 +2709,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_used_only_once.py'
     at the location indicated.
     
-       1: def test(a, *arg, *, b=1):
+       1| def test(a, *arg, *, b=1):
                             ^
 
     You can only use `*` once in a function definition.
@@ -2739,7 +2739,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_used_only_once_1.py'
     at the location indicated.
     
-       1: def test(a, *, *):
+       1| def test(a, *, *):
                          ^
 
     You can only use `*` once in a function definition.
@@ -2767,7 +2767,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_used_only_once_2.py'
     at the location indicated.
     
-       1: def test(a, *arg, *other):
+       1| def test(a, *arg, *other):
                             ^
 
     You can only use `*` once in a function definition.
@@ -2796,7 +2796,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_after_2star.py'
     at the location indicated.
     
-       1: def test(**kw, *arg):
+       1| def test(**kw, *arg):
                          ^
 
     `*arg` must appear before `**kw`.
@@ -2824,7 +2824,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_star_after_2star_2.py'
     at the location indicated.
     
-       1: def test(**kw, *):
+       1| def test(**kw, *):
                          ^
 
     `**kw` must appear after the `*` operator.
@@ -2852,7 +2852,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_string_as_arg.py'
     at the location indicated.
     
-       1: def f("1"):
+       1| def f("1"):
                 ^^^
 
     You used a string as an argument when defining a function.
@@ -2881,7 +2881,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_tuple_as_arg_1.py'
     at the location indicated.
     
-       1: def test((a, b), c):
+       1| def test((a, b), c):
                    ^
 
     You cannot have explicit tuples as function arguments.
@@ -2912,7 +2912,7 @@ Python version: 3.8.10
     'TESTS:\syntax\def_tuple_as_arg_2.py'
     at the location indicated.
     
-       1: def test(a, (b, c)):
+       1| def test(a, (b, c)):
                       ^
 
     You cannot have explicit tuples as function arguments.
@@ -2941,7 +2941,7 @@ Python version: 3.8.10
     'TESTS:\syntax\del_paren_star_1.py'
     at the location indicated.
     
-       1: del (*x)
+       1| del (*x)
                ^
 
     The star operator `*` is interpreted to mean that
@@ -2971,7 +2971,7 @@ Python version: 3.8.10
     'TESTS:\syntax\del_paren_star_2.py'
     at the location indicated.
     
-       1: del (*x,)
+       1| del (*x,)
                ^
 
     The star operator `*` is interpreted to mean that
@@ -3001,7 +3001,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_constant_keyword.py'
     at the location indicated.
     
-       1: del True
+       1| del True
               ^^^^
 
     You cannot delete the constant `True`.
@@ -3032,7 +3032,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_expression.py'
     at the location indicated.
     
-       1: del a.b.c[0] + 2
+       1| del a.b.c[0] + 2
               ^
 
     You cannot delete the expression `a.b.c[0] + 2`.
@@ -3060,7 +3060,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_function_call.py'
     at the location indicated.
     
-       5: del f(a)
+       5| del f(a)
               ^
 
     You attempted to delete a function call
@@ -3094,7 +3094,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_named_expression.py'
     at the location indicated.
     
-       1: del (a := 5)
+       1| del (a := 5)
               ^
 
     You cannot delete the named expression `(a := 5)`.
@@ -3122,7 +3122,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_names_or_items.py'
     at the location indicated.
     
-       1: del a += b
+       1| del a += b
                 ^^
 
     You can only delete names of objects, or items in mutable containers
@@ -3149,7 +3149,7 @@ Python version: 3.8.10
     'TESTS:\syntax\delete_string_literal.py'
     at the location indicated.
     
-       1: del "Hello world!"
+       1| del "Hello world!"
               ^^^^^^^^^^^^^^
 
     You cannot delete the literal `"Hello world!"`.
@@ -3179,7 +3179,7 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_1.py'
     at the location indicated.
     
-       1: a = {1:2, 3}
+       1| a = {1:2, 3}
                      ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3208,7 +3208,7 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_2.py'
     at the location indicated.
     
-       2: a = {1:2, 3:}
+       2| a = {1:2, 3:}
                       ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3237,7 +3237,7 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_3.py'
     at the location indicated.
     
-       3: a = {1:2, 3, 4:5}
+       3| a = {1:2, 3, 4:5}
                      ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3266,7 +3266,7 @@ Python version: 3.8.10
     'TESTS:\syntax\dict_value_missing_4.py'
     at the location indicated.
     
-       4: a = {1:2, 3:, 4:5}
+       4| a = {1:2, 3:, 4:5}
                       ^
 
     It looks like the error occurred as you were writing a Python dict.
@@ -3293,7 +3293,7 @@ Python version: 3.8.10
     'TESTS:\syntax\different_operators_in_a_row.py'
     at the location indicated.
     
-       1: 3 */ 4
+       1| 3 */ 4
             ^^
 
     You cannot have these two operators, `*` and `/`,
@@ -3321,7 +3321,7 @@ Python version: 3.8.10
     'TESTS:\syntax\dot_before_paren.py'
     at the location indicated.
     
-       3: print(len.('hello'))
+       3| print(len.('hello'))
                     ^
 
     You cannot have a dot `.` followed by `(`.
@@ -3350,7 +3350,7 @@ Python version: 3.8.10
     'TESTS:\syntax\duplicate_token.py'
     at the location indicated.
     
-       1: print(1 , , 2)
+       1| print(1 , , 2)
                     ^
 
     I am guessing that you wrote `,` twice in a row by mistake.
@@ -3377,14 +3377,42 @@ Python version: 3.8.10
     'TESTS:\syntax\elif_not_matching_if.py'
     at the location indicated.
     
-       3:    elif True:
+       3|    elif True:
              ^^^^
 
     The `elif` keyword does not begin a code block that matches
     an `if` block, possibly because `elif` is not indented correctly.
     
 
-(112) else with no matching statement
+(112) Ellipsis written with extra dot
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\ellipsis_extra_dot.py", line 2
+        ....
+            ^
+    SyntaxError: invalid syntax
+    
+        Did you mean to write `...`?
+        
+    A `SyntaxError` occurs when Python cannot understand your code.
+    
+    Python could not understand the code in the file
+    'TESTS:\syntax\ellipsis_extra_dot.py'
+    at the location indicated.
+    
+       2|     ....
+                 ^
+
+    It looks like you meant to write `...` but added an extra `.` by mistake.
+    
+
+(113) else with no matching statement
 -------------------------------------
 
 .. code-block:: none
@@ -3404,14 +3432,14 @@ Python version: 3.8.10
     'TESTS:\syntax\else_no_matching_statement.py'
     at the location indicated.
     
-       3:    else:
+       3|    else:
              ^^^^
 
     The `else` keyword does not begin a code block that matches
     a valid code block, possibly because `else` is not indented correctly.
     
 
-(113) Write elif, not else if
+(114) Write elif, not else if
 -----------------------------
 
 .. code-block:: none
@@ -3433,7 +3461,7 @@ Python version: 3.8.10
     'TESTS:\syntax\else_if_instead_of_elif.py'
     at the location indicated.
     
-       5: else if True:
+       5| else if True:
           ^^^^^^^
 
     You likely meant to use Python's `elif` keyword
@@ -3441,7 +3469,7 @@ Python version: 3.8.10
     
     
 
-(114) Write elif, not elseif
+(115) Write elif, not elseif
 ----------------------------
 
 .. code-block:: none
@@ -3463,7 +3491,7 @@ Python version: 3.8.10
     'TESTS:\syntax\elseif_instead_of_elif.py'
     at the location indicated.
     
-       5: elseif True:
+       5| elseif True:
           ^^^^^^
 
     You likely meant to use Python's `elif` keyword
@@ -3471,7 +3499,7 @@ Python version: 3.8.10
     
     
 
-(115) EOL while scanning string literal
+(116) EOL while scanning string literal
 ---------------------------------------
 
 .. code-block:: none
@@ -3493,14 +3521,14 @@ Python version: 3.8.10
     'TESTS:\syntax\eol_string_literal.py'
     at the location indicated.
     
-       3: alphabet = 'abc
-                      ^^^
+       3| alphabet = 'abc
+                     ^
 
     You started writing a string with a single or double quote
     but never ended the string with another quote on that line.
     
 
-(116) Used equal sign instead of colon
+(117) Used equal sign instead of colon
 --------------------------------------
 
 .. code-block:: none
@@ -3520,7 +3548,7 @@ Python version: 3.8.10
     'TESTS:\syntax\equal_sign_instead_of_colon.py'
     at the location indicated.
     
-       4: ages = {'Alice'=22, 'Bob'=24}
+       4| ages = {'Alice'=22, 'Bob'=24}
                          ^
 
     It is possible that you used an equal sign `=` instead of a colon `:`
@@ -3528,7 +3556,7 @@ Python version: 3.8.10
     before or at the position indicated by ^.
     
 
-(117) Parens around multiple exceptions
+(118) Parens around multiple exceptions
 ---------------------------------------
 
 .. code-block:: none
@@ -3550,7 +3578,7 @@ Python version: 3.8.10
     'TESTS:\syntax\except_multiple_exceptions.py'
     at the location indicated.
     
-       3: except NameError, ValueError as err:
+       3| except NameError, ValueError as err:
                           ^
 
     I am guessing that you wanted to use an `except` statement
@@ -3558,7 +3586,7 @@ Python version: 3.8.10
     surround them with parentheses.
     
 
-(118) Extra token
+(119) Extra token
 -----------------
 
 .. code-block:: none
@@ -3580,14 +3608,14 @@ Python version: 3.8.10
     'TESTS:\syntax\extra_token.py'
     at the location indicated.
     
-       1: print(1 / 2) ==
+       1| print(1 / 2) ==
                        ^^
 
     I am guessing that you wrote `==` by mistake.
     Removing it and writing `print(1 / 2)` seems to fix the error.
     
 
-(119) Binary f-string not allowed
+(120) Binary f-string not allowed
 ---------------------------------
 
 .. code-block:: none
@@ -3609,14 +3637,14 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_binary.py'
     at the location indicated.
     
-       1: greet = bf"Hello {name}"
+       1| greet = bf"Hello {name}"
                     ^^^^^^^^^^^^^^
 
     I am guessing that you wanted a binary f-string;
     this is not allowed.
     
 
-(120) f-string: closing } not allowed
+(121) f-string: closing } not allowed
 -------------------------------------
 
 .. code-block:: none
@@ -3636,7 +3664,7 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_curly_not_allowed.py'
     at the location indicated.
     
-       1: f"ab}"
+       1| f"ab}"
           ^^^^^^
 
     You have written an f-string which has an unmatched `}`.
@@ -3644,7 +3672,7 @@ Python version: 3.8.10
     otherwise, you need to add an opening `{`.
     
 
-(121) f-string: missing closing }
+(122) f-string: missing closing }
 ---------------------------------
 
 .. code-block:: none
@@ -3664,7 +3692,7 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_expected_curly.py'
     at the location indicated.
     
-       1: f"{ab"
+       1| f"{ab"
           ^^^^^^
 
     You have written an f-string which has an unmatched `{`.
@@ -3672,7 +3700,7 @@ Python version: 3.8.10
     otherwise, you need to add a closing `}`.
     
 
-(122) f-string: unterminated string
+(123) f-string: unterminated string
 -----------------------------------
 
 .. code-block:: none
@@ -3694,7 +3722,7 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_unterminated.py'
     at the location indicated.
     
-       4: print(f"Bob is {age['Bob]} years old.")
+       4| print(f"Bob is {age['Bob]} years old.")
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Inside the f-string `f"Bob is {age['Bob]} years old."`, 
@@ -3702,7 +3730,7 @@ Python version: 3.8.10
     single quote (') or double quote ("), without a matching closing one.
     
 
-(123) f-string with backslash
+(124) f-string with backslash
 -----------------------------
 
 .. code-block:: none
@@ -3722,7 +3750,7 @@ Python version: 3.8.10
     'TESTS:\syntax\f_string_with_backslash.py'
     at the location indicated.
     
-       2: print(f"{'\n'.join(names)}")
+       2| print(f"{'\n'.join(names)}")
                 ^^^^^^^^^^^^^^^^^^^^^
 
     You have written an f-string whose content `{...}`
@@ -3738,7 +3766,7 @@ Python version: 3.8.10
         f"{... hello ...}"
     
 
-(124) Missing terms in for statement
+(125) Missing terms in for statement
 ------------------------------------
 
 .. code-block:: none
@@ -3760,7 +3788,7 @@ Python version: 3.8.10
     'TESTS:\syntax\for_missing_terms.py'
     at the location indicated.
     
-       1: for:
+       1| for:
              ^
 
     A `for` loop is an iteration over a sequence:
@@ -3770,7 +3798,7 @@ Python version: 3.8.10
     
     
 
-(125) Not a chance!
+(126) Not a chance!
 -------------------
 
 .. code-block:: none
@@ -3790,7 +3818,7 @@ Python version: 3.8.10
     'TESTS:\syntax\future_braces.py'
     at the location indicated.
     
-       1: from __future__ import braces
+       1| from __future__ import braces
           ^^^^
 
     I suspect you wrote `from __future__ import braces` following
@@ -3800,7 +3828,7 @@ Python version: 3.8.10
     their indentation level, and not by using some curly braces, like `{...}`.
     
 
-(126) Do not import * from __future__
+(127) Do not import * from __future__
 -------------------------------------
 
 .. code-block:: none
@@ -3820,7 +3848,7 @@ Python version: 3.8.10
     'TESTS:\syntax\future_import_star.py'
     at the location indicated.
     
-       1: from __future__ import *
+       1| from __future__ import *
           ^^^^
 
     When using a `from __future__ import` statement,
@@ -3838,7 +3866,7 @@ Python version: 3.8.10
      annotations`.
     
 
-(127) __future__ at beginning
+(128) __future__ at beginning
 -----------------------------
 
 .. code-block:: none
@@ -3858,14 +3886,14 @@ Python version: 3.8.10
     'TESTS:\syntax\future_must_be_first.py'
     at the location indicated.
     
-       3:     from __future__ import generators
+       3|     from __future__ import generators
               ^^^^
 
     A `from __future__ import` statement changes the way Python
     interprets the code in a file.
     It must appear at the beginning of the file.
 
-(128) Typo in __future__
+(129) Typo in __future__
 ------------------------
 
 .. code-block:: none
@@ -3887,13 +3915,13 @@ Python version: 3.8.10
     'TESTS:\syntax\future_typo.py'
     at the location indicated.
     
-       1: from __future__ import divisio
+       1| from __future__ import divisio
           ^^^^
 
     Instead of `divisio`, perhaps you meant to import `division`.
     
 
-(129) Unknown feature in __future__
+(130) Unknown feature in __future__
 -----------------------------------
 
 .. code-block:: none
@@ -3913,7 +3941,7 @@ Python version: 3.8.10
     'TESTS:\syntax\future_unknown.py'
     at the location indicated.
     
-       1: from __future__ import something
+       1| from __future__ import something
           ^^^^
 
     `something` is not a valid feature of module `__future__`.
@@ -3930,7 +3958,7 @@ Python version: 3.8.10
      annotations`.
     
 
-(130) Parenthesis around generator expression
+(131) Parenthesis around generator expression
 ---------------------------------------------
 
 .. code-block:: none
@@ -3950,7 +3978,7 @@ Python version: 3.8.10
     'TESTS:\syntax\generator_expression_parens.py'
     at the location indicated.
     
-       6: f(x for x in L, 1)
+       6| f(x for x in L, 1)
             ^
 
     You are using a generator expression, something of the form
@@ -3960,7 +3988,7 @@ Python version: 3.8.10
     You must add parentheses enclosing that expression.
     
 
-(131) Space between names
+(132) Space between names
 -------------------------
 
 .. code-block:: none
@@ -3982,7 +4010,7 @@ Python version: 3.8.10
     'TESTS:\syntax\hyphen_instead_of_underscore.py'
     at the location indicated.
     
-       4: a-b = 2
+       4| a-b = 2
           ^
 
     You wrote an expression that includes some mathematical operations
@@ -3991,7 +4019,7 @@ Python version: 3.8.10
     Perhaps you meant to write `a_b` instead of `a-b`
     
 
-(132) Missing condition in if statement
+(133) Missing condition in if statement
 ---------------------------------------
 
 .. code-block:: none
@@ -4013,7 +4041,7 @@ Python version: 3.8.10
     'TESTS:\syntax\if_missing_condition.py'
     at the location indicated.
     
-       1: if:
+       1| if:
             ^
 
     An `if` statement requires a condition:
@@ -4023,7 +4051,7 @@ Python version: 3.8.10
     
     
 
-(133) use j instead of i
+(134) use j instead of i
 ------------------------
 
 .. code-block:: none
@@ -4045,7 +4073,7 @@ Python version: 3.8.10
     'TESTS:\syntax\imaginary_i.py'
     at the location indicated.
     
-       3: a = 3.0i
+       3| a = 3.0i
                  ^
 
     Perhaps you thought that `i` could be used to represent
@@ -4055,7 +4083,7 @@ Python version: 3.8.10
     Perhaps you meant to write `3.0j`.
     
 
-(134) Import inversion: import X from Y
+(135) Import inversion: import X from Y
 ---------------------------------------
 
 .. code-block:: none
@@ -4077,7 +4105,7 @@ Python version: 3.8.10
     'TESTS:\syntax\import_from.py'
     at the location indicated.
     
-       3: import pen from turtle
+       3| import pen from turtle
           ^^^^^^     ^^^^
 
     You wrote something like
@@ -4090,7 +4118,7 @@ Python version: 3.8.10
     
     
 
-(135) IndentationError: expected an indented block
+(136) IndentationError: expected an indented block
 --------------------------------------------------
 
 .. code-block:: none
@@ -4111,13 +4139,13 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_1.py'
     at the location indicated.
     
-       4: pass
+       4| pass
           ^^^^
 
     Line `4` identified above was expected to begin a new indented block.
     
 
-(136) IndentationError: unexpected indent
+(137) IndentationError: unexpected indent
 -----------------------------------------
 
 .. code-block:: none
@@ -4138,13 +4166,13 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_2.py'
     at the location indicated.
     
-       4:       pass
+       4|       pass
                 ^^^^
 
     Line `4` identified above is more indented than expected.
     
 
-(137) IndentationError: unindent does not match ...
+(138) IndentationError: unindent does not match ...
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4165,13 +4193,13 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_3.py'
     at the location indicated.
     
-       5:     pass
+       5|     pass
               ^^^^
 
     Line `5` identified above is less indented than expected.
     
 
-(138) IndentationError: missing continuation line
+(139) IndentationError: missing continuation line
 -------------------------------------------------
 
 .. code-block:: none
@@ -4192,7 +4220,7 @@ Python version: 3.8.10
     'TESTS:\syntax\indentation_error_4.py'
     at the location indicated.
     
-       6:          "c"
+       6|          "c"
                    ^^^
 
     Line `6` identified above is more indented than expected.
@@ -4204,7 +4232,7 @@ Python version: 3.8.10
     at the end of line 5.
     
 
-(139) Forgot 'o' for octal
+(140) Forgot 'o' for octal
 --------------------------
 
 .. code-block:: none
@@ -4226,7 +4254,7 @@ Python version: 3.8.10
     'TESTS:\syntax\integer_with_leading_zero_1.py'
     at the location indicated.
     
-       1: x = 01
+       1| x = 01
                ^
 
     Perhaps you meant to write the octal number `0o1`
@@ -4234,7 +4262,7 @@ Python version: 3.8.10
     a decimal integer and did not know that it could not start with zeros.
     
 
-(140) Integer with leading zeros
+(141) Integer with leading zeros
 --------------------------------
 
 .. code-block:: none
@@ -4256,14 +4284,14 @@ Python version: 3.8.10
     'TESTS:\syntax\integer_with_leading_zero_2.py'
     at the location indicated.
     
-       1: x = 000_123_456
+       1| x = 000_123_456
                  ^^^^^^^^
 
     Perhaps you meant to write the integer `123_456`
     and did not know that it could not start with zeros.
     
 
-(141) Invalid character in identifier
+(142) Invalid character in identifier
 -------------------------------------
 
 .. code-block:: none
@@ -4283,14 +4311,14 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_character_in_identifier.py'
     at the location indicated.
     
-       6: 🤖 = 'Reeborg'
+       6| 🤖 = 'Reeborg'
           ^
 
     Python indicates that you used the unicode character `🤖`
     which is not allowed.
     
 
-(142) Invalid decimal literal - 1
+(143) Invalid decimal literal - 1
 ---------------------------------
 
 .. code-block:: none
@@ -4312,7 +4340,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_decimal_literal1.py'
     at the location indicated.
     
-       1: a = 1e
+       1| a = 1e
                ^
 
     Valid names cannot begin with a number.
@@ -4320,7 +4348,7 @@ Python version: 3.8.10
     
     
 
-(143) Invalid encoding
+(144) Invalid encoding
 ----------------------
 
 .. code-block:: none
@@ -4343,7 +4371,7 @@ Python version: 3.8.10
     The encoding of the file was not valid.
     
 
-(144) Invalid hexadecimal number
+(145) Invalid hexadecimal number
 --------------------------------
 
 .. code-block:: none
@@ -4365,7 +4393,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_hexadecimal.py'
     at the location indicated.
     
-       3: a = 0x123g4
+       3| a = 0x123g4
                    ^^
 
     It looks like you used an invalid character (`g`) in an hexadecimal number.
@@ -4377,7 +4405,7 @@ Python version: 3.8.10
     followed by the characters used to represent the value of that integer.
     
 
-(145) Valid names cannot begin with a number
+(146) Valid names cannot begin with a number
 --------------------------------------------
 
 .. code-block:: none
@@ -4399,13 +4427,13 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier.py'
     at the location indicated.
     
-       3: 36abc = 3
+       3| 36abc = 3
             ^^^
 
     Valid names cannot begin with a number.
     
 
-(146) Valid names cannot begin with a number - 2
+(147) Valid names cannot begin with a number - 2
 ------------------------------------------------
 
 .. code-block:: none
@@ -4427,7 +4455,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier_2.py'
     at the location indicated.
     
-       3: tau = 2pi
+       3| tau = 2pi
                  ^^
 
     Valid names cannot begin with a number.
@@ -4435,7 +4463,7 @@ Python version: 3.8.10
     
     
 
-(147) Valid names cannot begin with a number - 3
+(148) Valid names cannot begin with a number - 3
 ------------------------------------------------
 
 .. code-block:: none
@@ -4457,7 +4485,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier_3.py'
     at the location indicated.
     
-       1: 3job  # could be entered in a repl
+       1| 3job  # could be entered in a repl
             ^^
 
     Valid names cannot begin with a number.
@@ -4467,7 +4495,7 @@ Python version: 3.8.10
     since `3j` is a complex number.]
     
 
-(148) Valid names cannot begin with a number - 4
+(149) Valid names cannot begin with a number - 4
 ------------------------------------------------
 
 .. code-block:: none
@@ -4489,13 +4517,13 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier_4.py'
     at the location indicated.
     
-       1: 3job = 1
+       1| 3job = 1
             ^^
 
     Valid names cannot begin with a number.
     
 
-(149) Valid names cannot begin with a number - 5
+(150) Valid names cannot begin with a number - 5
 ------------------------------------------------
 
 .. code-block:: none
@@ -4517,7 +4545,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_identifier_5.py'
     at the location indicated.
     
-       1: print(42java)
+       1| print(42java)
                    ^^^
 
     Valid names cannot begin with a number.
@@ -4527,7 +4555,7 @@ Python version: 3.8.10
     since `42j` is a complex number.]
     
 
-(150) Keyword can't be an expression
+(151) Keyword can't be an expression
 ------------------------------------
 
 .. code-block:: none
@@ -4547,7 +4575,7 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_keyword_argument.py'
     at the location indicated.
     
-       7: a = dict('key'=1)
+       7| a = dict('key'=1)
                    ^^^^^
 
     You likely called a function with a named argument:
@@ -4559,7 +4587,7 @@ Python version: 3.8.10
     or contains a period, etc.
     
 
-(151) Named argument can't be a Python keyword
+(152) Named argument can't be a Python keyword
 ----------------------------------------------
 
 .. code-block:: none
@@ -4581,13 +4609,13 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_keyword_argument_2.py'
     at the location indicated.
     
-       7: a = dict(True=1)
+       7| a = dict(True=1)
                    ^^^^
 
     `True` is a constant in Python; you cannot assign it a different value.
     
 
-(152) Invalid octal number
+(153) Invalid octal number
 --------------------------
 
 .. code-block:: none
@@ -4609,19 +4637,19 @@ Python version: 3.8.10
     'TESTS:\syntax\invalid_octal.py'
     at the location indicated.
     
-       3: b = 0O1876
+       3| b = 0O1876
                  ^^^
 
     It looks like you used an invalid character (`8`) in an octal number.
     
     Octal numbers are base 8 integers that only use the symbols `0` to `7`
     to represent values.
-    In Python, hexadecimal numbers start with either `0o` or `0O`,
+    In Python, octal numbers start with either `0o` or `0O`,
     (the digit zero followed by the letter `o`)
     followed by the characters used to represent the value of that integer.
     
 
-(153) Inverted operators 1
+(154) Inverted operators 1
 --------------------------
 
 .. code-block:: none
@@ -4643,14 +4671,14 @@ Python version: 3.8.10
     'TESTS:\syntax\inverted_operators.py'
     at the location indicated.
     
-       1: a =< 3
+       1| a =< 3
             ^^
 
     It looks like you wrote two operators (`=` and `<`)
     in the wrong order: `=<` instead of `<=`.
     
 
-(154) Inverted operators 2
+(155) Inverted operators 2
 --------------------------
 
 .. code-block:: none
@@ -4672,7 +4700,7 @@ Python version: 3.8.10
     'TESTS:\syntax\inverted_operators_2.py'
     at the location indicated.
     
-       1: a =<* 3
+       1| a =<* 3
             ^^
 
     It looks like you wrote two operators (`=` and `<`)
@@ -4682,7 +4710,7 @@ Python version: 3.8.10
     all the syntax errors in the code you wrote.
     
 
-(155) Iteration variable unpacking in comprehension
+(156) Iteration variable unpacking in comprehension
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4702,7 +4730,7 @@ Python version: 3.8.10
     'TESTS:\syntax\iteration_unpacking_in_comprehension.py'
     at the location indicated.
     
-       1: [*x for x in xs]
+       1| [*x for x in xs]
            ^
 
     You cannot use the `*` operator to unpack the iteration variable
@@ -4713,7 +4741,7 @@ Python version: 3.8.10
         [x for x in xs]
     
 
-(156) Keyword arg only once in function call
+(157) Keyword arg only once in function call
 --------------------------------------------
 
 .. code-block:: none
@@ -4733,14 +4761,14 @@ Python version: 3.8.10
     'TESTS:\syntax\keyword_arg_repeated.py'
     at the location indicated.
     
-       4: f(ad=1, ad=2)
+       4| f(ad=1, ad=2)
                   ^^
 
     You have called a function repeating the same keyword argument (`ad`).
     Each keyword argument should appear only once in a function call.
     
 
-(157) Keyword as attribute
+(158) Keyword as attribute
 --------------------------
 
 .. code-block:: none
@@ -4762,14 +4790,14 @@ Python version: 3.8.10
     'TESTS:\syntax\keyword_as_attribute.py'
     at the location indicated.
     
-       12: a.pass = 2
+       12| a.pass = 2
              ^^^^
 
     You cannot use the Python keyword `pass` as an attribute.
     
     
 
-(158) lambda with parentheses around arguments
+(159) lambda with parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
@@ -4789,14 +4817,14 @@ Python version: 3.8.10
     'TESTS:\syntax\lambda_with_parens.py'
     at the location indicated.
     
-       2: x = lambda (a, b): a + b
+       2| x = lambda (a, b): a + b
                      ^
 
     `lambda` does not allow parentheses around its arguments.
     This was allowed in Python 2 but it not allowed in Python 3.
     
 
-(159) lambda with tuple as argument
+(160) lambda with tuple as argument
 -----------------------------------
 
 .. code-block:: none
@@ -4816,7 +4844,7 @@ Python version: 3.8.10
     'TESTS:\syntax\lambda_with_tuple_argument.py'
     at the location indicated.
     
-       2: x = lambda a, (b, c): a + b + b
+       2| x = lambda a, (b, c): a + b + b
                         ^
 
     You cannot have explicit tuples as arguments.
@@ -4824,7 +4852,7 @@ Python version: 3.8.10
     within the body of the function.
     
 
-(160) Assign to literal in for loop
+(161) Assign to literal in for loop
 -----------------------------------
 
 .. code-block:: none
@@ -4846,7 +4874,7 @@ Python version: 3.8.10
     'TESTS:\syntax\literal_in_for_loop.py'
     at the location indicated.
     
-       1: for "char" in "word":
+       1| for "char" in "word":
               ^^^^^^
 
     A for loop must have the form:
@@ -4857,7 +4885,7 @@ Python version: 3.8.10
     and not literals like `"char"`.
     
 
-(161) IndentationError/SyntaxError depending on version
+(162) IndentationError/SyntaxError depending on version
 -------------------------------------------------------
 
 .. code-block:: none
@@ -4875,8 +4903,8 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_code_block.py'
     at the location indicated.
     
-       3: for i in range(10):
-    -->4: 
+       3| for i in range(10):
+    -->4| 
                             ^
 
     Python tells us that it reached the end of the file
@@ -4884,7 +4912,7 @@ Python version: 3.8.10
     
     
 
-(162) IndentationError/SyntaxError depending on version - 2
+(163) IndentationError/SyntaxError depending on version - 2
 -----------------------------------------------------------
 
 .. code-block:: none
@@ -4902,15 +4930,15 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_code_block_2.py'
     
     
-       3: for i in "test":
-       4: 
+       3| for i in "test":
+       4| 
 
     Python tells us that it reached the end of the file
     and expected more content.
     
     
 
-(163) Missing colon - if
+(164) Missing colon - if
 ------------------------
 
 .. code-block:: none
@@ -4932,7 +4960,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_colon_if.py'
     at the location indicated.
     
-       3: if True
+       3| if True
                  ^
 
     You wrote a statement beginning with
@@ -4940,7 +4968,7 @@ Python version: 3.8.10
     
     
 
-(164) Missing colon - while
+(165) Missing colon - while
 ---------------------------
 
 .. code-block:: none
@@ -4962,7 +4990,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_colon_while.py'
     at the location indicated.
     
-       3: while True  # a comment
+       3| while True  # a comment
                     ^
 
     You wrote a `while` loop but
@@ -4970,7 +4998,7 @@ Python version: 3.8.10
     
     
 
-(165) Missing comma in a dict
+(166) Missing comma in a dict
 -----------------------------
 
 .. code-block:: none
@@ -4992,12 +5020,12 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_dict.py'
     at the location indicated.
     
-       3: a = {'a': 1,
-    -->4:      'b': 2
+       3| a = {'a': 1,
+    -->4|      'b': 2
                     ^-->
-    -->5:      'c': 3,
+    -->5|      'c': 3,
                ^^^
-       6: }
+       6| }
 
     Python indicates that the error is caused by `'c'` written immediately after `2`.
     It is possible that you forgot a comma between items in a set or dict
@@ -5012,7 +5040,7 @@ Python version: 3.8.10
     
     
 
-(166) Missing comma between strings in a dict
+(167) Missing comma between strings in a dict
 ---------------------------------------------
 
 .. code-block:: none
@@ -5034,11 +5062,11 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_dict_2.py'
     at the location indicated.
     
-       2: a = {'a': '1',
-       3:      'b': '2'
-    -->4:      'c': '3',
+       2| a = {'a': '1',
+       3|      'b': '2'
+    -->4|      'c': '3',
                   ^
-       5: }
+       5| }
 
     I am guessing that you forgot a comma between two strings
     when defining a dict.
@@ -5051,7 +5079,7 @@ Python version: 3.8.10
     }
     ```
 
-(167) Missing comma in a list
+(168) Missing comma in a list
 -----------------------------
 
 .. code-block:: none
@@ -5073,7 +5101,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_list.py'
     at the location indicated.
     
-       3: a = [1, 2  3]
+       3| a = [1, 2  3]
                   ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
@@ -5091,7 +5119,7 @@ Python version: 3.8.10
     some of them might raise other types of exceptions.
     
 
-(168) Missing comma in a set
+(169) Missing comma in a set
 ----------------------------
 
 .. code-block:: none
@@ -5113,7 +5141,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_set.py'
     at the location indicated.
     
-       3: a = {1, 2  3}
+       3| a = {1, 2  3}
                   ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
@@ -5131,7 +5159,7 @@ Python version: 3.8.10
     some of them might raise other types of exceptions.
     
 
-(169) Missing comma in a tuple
+(170) Missing comma in a tuple
 ------------------------------
 
 .. code-block:: none
@@ -5153,7 +5181,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_comma_in_tuple.py'
     at the location indicated.
     
-       3: a = (1, 2  3)
+       3| a = (1, 2  3)
                   ^^^^
 
     Python indicates that the error is caused by `3` written immediately after `2`.
@@ -5172,7 +5200,7 @@ Python version: 3.8.10
     some of them might raise other types of exceptions.
     
 
-(170) For loop missing 'in' operator
+(171) For loop missing 'in' operator
 ------------------------------------
 
 .. code-block:: none
@@ -5194,7 +5222,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_in_with_for.py'
     at the location indicated.
     
-       1: for x range(4):
+       1| for x range(4):
                 ^^^^^
 
     It looks as though you forgot to use the keyword `in`
@@ -5204,7 +5232,7 @@ Python version: 3.8.10
     
     
 
-(171) Missing parenthesis for range
+(172) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
@@ -5226,7 +5254,7 @@ Python version: 3.8.10
     'TESTS:\syntax\missing_parens_for_range.py'
     at the location indicated.
     
-       1: for i in range 3:
+       1| for i in range 3:
                          ^
 
     It looks as though you forgot to use to use parenthesis with `range`.
@@ -5236,7 +5264,7 @@ Python version: 3.8.10
     
     
 
-(172) Misspelled Python keyword
+(173) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
@@ -5258,14 +5286,14 @@ Python version: 3.8.10
     'TESTS:\syntax\misspelled_keyword.py'
     at the location indicated.
     
-       2: is i in range(3):
+       2| is i in range(3):
           ^^
 
     Perhaps you meant to write `if` and made a typo.
     The correct line might be `if i in range(3):`
     
 
-(173) Name is global and nonlocal
+(174) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
@@ -5285,14 +5313,14 @@ Python version: 3.8.10
     'TESTS:\syntax\name_is_global_and_nonlocal.py'
     at the location indicated.
     
-       7:     global xy
+       7|     global xy
               ^^^^^^
 
     You declared `xy` as being both a global and nonlocal variable.
     A variable can be global, or nonlocal, but not both at the same time.
     
 
-(174) Name is parameter and nonlocal
+(175) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
@@ -5312,7 +5340,7 @@ Python version: 3.8.10
     'TESTS:\syntax\name_is_param_and_nonlocal.py'
     at the location indicated.
     
-       5:     nonlocal x
+       5|     nonlocal x
               ^^^^^^^^
 
     You used `x` as a parameter for a function
@@ -5320,7 +5348,7 @@ Python version: 3.8.10
     `x` cannot be both at the same time.
     
 
-(175) nonlocal variable not found
+(176) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
@@ -5340,14 +5368,14 @@ Python version: 3.8.10
     'TESTS:\syntax\no_binding_for_nonlocal.py'
     at the location indicated.
     
-       5:     nonlocal ab
+       5|     nonlocal ab
               ^^^^^^^^
 
     You declared the variable `ab` as being a
     nonlocal variable but it cannot be found.
     
 
-(176) nonlocal variable not found at module level
+(177) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
@@ -5367,14 +5395,14 @@ Python version: 3.8.10
     'TESTS:\syntax\nonlocal_at_module.py'
     at the location indicated.
     
-       4: nonlocal cd
+       4| nonlocal cd
           ^^^^^^^^
 
     You used the nonlocal keyword at a module level.
     The nonlocal keyword refers to a variable inside a function
     given a value outside that function.
 
-(177) Same operator twice in a row
+(178) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
@@ -5394,7 +5422,7 @@ Python version: 3.8.10
     'TESTS:\syntax\operator_twice_in_a_row.py'
     at the location indicated.
     
-       1: 4****5
+       1| 4****5
            ^^^^
 
     You cannot have write the same operator, `**`, twice in a row.
@@ -5402,7 +5430,7 @@ Python version: 3.8.10
     or forgot to write something between them.
     
 
-(178) Using pip from interpreter
+(179) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -5424,7 +5452,7 @@ Python version: 3.8.10
     'TESTS:\syntax\pip_install_1.py'
     at the location indicated.
     
-       2: pip install friendly
+       2| pip install friendly
               ^^^^^^^
 
     It looks as if you are attempting to use pip to install a module.
@@ -5432,7 +5460,7 @@ Python version: 3.8.10
     not from a Python interpreter.
     
 
-(179) Using pip from interpreter 2
+(180) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
@@ -5454,7 +5482,7 @@ Python version: 3.8.10
     'TESTS:\syntax\pip_install_2.py'
     at the location indicated.
     
-       2: python -m pip install friendly
+       2| python -m pip install friendly
                     ^^^
 
     It looks as if you are attempting to use pip to install a module.
@@ -5462,7 +5490,7 @@ Python version: 3.8.10
     not from a Python interpreter.
     
 
-(180) print is a function
+(181) print is a function
 -------------------------
 
 .. code-block:: none
@@ -5484,7 +5512,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function.py'
     at the location indicated.
     
-       2: print 'hello'
+       2| print 'hello'
                 ^^^^^^^
 
     Perhaps you need to type
@@ -5495,7 +5523,7 @@ Python version: 3.8.10
     Now, `print` is a function; you need to use parentheses to call it.
     
 
-(181) print is a function 2
+(182) print is a function 2
 ---------------------------
 
 .. code-block:: none
@@ -5517,7 +5545,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_2.py'
     at the location indicated.
     
-       2: print len('hello')
+       2| print len('hello')
                 ^^^
 
     Perhaps you need to type
@@ -5528,7 +5556,7 @@ Python version: 3.8.10
     Now, `print` is a function; you need to use parentheses to call it.
     
 
-(182) print is a function 3
+(183) print is a function 3
 ---------------------------
 
 .. code-block:: none
@@ -5550,7 +5578,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_3.py'
     at the location indicated.
     
-       1: print """This is a very long string which results in a very long error message."""
+       1| print """This is a very long string which results in a very long error message."""
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Perhaps you need to type
@@ -5561,7 +5589,7 @@ Python version: 3.8.10
     Now, `print` is a function; you need to use parentheses to call it.
     
 
-(183) print is a function 4
+(184) print is a function 4
 ---------------------------
 
 .. code-block:: none
@@ -5583,9 +5611,9 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_4.py'
     at the location indicated.
     
-    -->2: print len("""This is a long string
+    -->2| print len("""This is a long string
                 ^^^
-       3:           that spans multiple lines.""")
+       3|           that spans multiple lines.""")
 
     Perhaps you need to type
     
@@ -5595,7 +5623,7 @@ Python version: 3.8.10
     Now, `print` is a function; you need to use parentheses to call it.
     
 
-(184) print is a function 5
+(185) print is a function 5
 ---------------------------
 
 .. code-block:: none
@@ -5617,7 +5645,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_is_a_function_5.py'
     at the location indicated.
     
-       2: print len('This is a long string that fits on a single line.')
+       2| print len('This is a long string that fits on a single line.')
                 ^^^
 
     Perhaps you need to type
@@ -5628,7 +5656,7 @@ Python version: 3.8.10
     Now, `print` is a function; you need to use parentheses to call it.
     
 
-(185) print is a function 6
+(186) print is a function 6
 ---------------------------
 
 .. code-block:: none
@@ -5650,7 +5678,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_non_paren_non_string1.py'
     at the location indicated.
     
-       1: print hello world!
+       1| print hello world!
                 ^^^^^
 
     Perhaps you need to type
@@ -5662,7 +5690,7 @@ Python version: 3.8.10
     Note that arguments of `print` must be separated by commas.
     
 
-(186) print is a function 7
+(187) print is a function 7
 ---------------------------
 
 .. code-block:: none
@@ -5684,7 +5712,7 @@ Python version: 3.8.10
     'TESTS:\syntax\print_non_paren_non_string2.py'
     at the location indicated.
     
-       1: print len("hello") hello
+       1| print len("hello") hello
                 ^^^
 
     Perhaps you need to type
@@ -5696,7 +5724,7 @@ Python version: 3.8.10
     Note that arguments of `print` must be separated by commas.
     
 
-(187) Calling python from interpreter
+(188) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
@@ -5716,14 +5744,14 @@ Python version: 3.8.10
     'TESTS:\syntax\python_interpreter.py'
     at the location indicated.
     
-       1: python -i friendly
+       1| python -i friendly
                     ^^^^^^^^
 
     I am guessing that you are attempting to use Python to run a program.
     You must do so from a terminal and not from a Python interpreter.
     
 
-(188) problem with assigning a variable to Python
+(189) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
@@ -5745,7 +5773,7 @@ Python version: 3.8.10
     'TESTS:\syntax\python_not_interpreter.py'
     at the location indicated.
     
-       1: python = a b
+       1| python = a b
                    ^^^
 
     Python indicates that the error is caused by `b` written immediately after `a`.
@@ -5761,7 +5789,7 @@ Python version: 3.8.10
     some of them might raise other types of exceptions.
     
 
-(189) Quote inside a string
+(190) Quote inside a string
 ---------------------------
 
 .. code-block:: none
@@ -5783,7 +5811,7 @@ Python version: 3.8.10
     'TESTS:\syntax\quote_inside_string.py'
     at the location indicated.
     
-       3: message = 'I don't mind.'
+       3| message = 'I don't mind.'
                            ^
 
     I suspect that you were trying to use a quote character inside a string
@@ -5794,7 +5822,7 @@ Python version: 3.8.10
                         ^^
     
 
-(190) Raising multiple exceptions
+(191) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
@@ -5814,13 +5842,13 @@ Python version: 3.8.10
     'TESTS:\syntax\raise_multiple_exceptions.py'
     at the location indicated.
     
-       2: raise X, Y
+       2| raise X, Y
                  ^
 
     It looks like you are trying to raise an exception using Python 2 syntax.
     
 
-(191) Cannot use return outside function
+(192) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
@@ -5840,13 +5868,13 @@ Python version: 3.8.10
     'TESTS:\syntax\return_outside_function.py'
     at the location indicated.
     
-       3: return
+       3| return
           ^^^^^^
 
     You can only use a `return` statement inside a function or method.
     
 
-(192) Semicolon instead of colon
+(193) Semicolon instead of colon
 --------------------------------
 
 .. code-block:: none
@@ -5868,13 +5896,13 @@ Python version: 3.8.10
     'TESTS:\syntax\semi_colon_instead_of_colon.py'
     at the location indicated.
     
-       1: if True;  # A comment
+       1| if True;  # A comment
                  ^
 
     You wrote a semicolon, `;`, where a colon was expected.
     
 
-(193) Semicolon instead of comma - 1
+(194) Semicolon instead of comma - 1
 ------------------------------------
 
 .. code-block:: none
@@ -5896,13 +5924,13 @@ Python version: 3.8.10
     'TESTS:\syntax\semi_colon_instead_of_comma_1.py'
     at the location indicated.
     
-       1: a = [1, 2; 3]
+       1| a = [1, 2; 3]
                    ^
 
     You wrote a semicolon, `;`, where a comma was expected.
     
 
-(194) Semicolon instead of commas - 2
+(195) Semicolon instead of commas - 2
 -------------------------------------
 
 .. code-block:: none
@@ -5924,13 +5952,13 @@ Python version: 3.8.10
     'TESTS:\syntax\semi_colon_instead_of_comma_2.py'
     at the location indicated.
     
-       1: a = [1; 2; 3]
+       1| a = [1; 2; 3]
                 ^
 
     You wrote semicolons, `;`, where commas were expected.
     
 
-(195) Semicolon instead of commas - 3
+(196) Semicolon instead of commas - 3
 -------------------------------------
 
 .. code-block:: none
@@ -5952,13 +5980,13 @@ Python version: 3.8.10
     'TESTS:\syntax\semi_colon_instead_of_comma_3.py'
     at the location indicated.
     
-       1: a = [1; 2; 3];
+       1| a = [1; 2; 3];
                 ^
 
     You wrote semicolons, `;`, where commas were expected.
     
 
-(196) Code block inside comprehension
+(197) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -5978,11 +6006,11 @@ Python version: 3.8.10
     'TESTS:\syntax\should_be_comprehension.py'
     at the location indicated.
     
-       1: a = [
-    -->2:     for i in 1, 2, 3:
+       1| a = [
+    -->2|     for i in 1, 2, 3:
               ^^^
-       3:         i**2
-       4: ]
+       3|         i**2
+       4| ]
 
     Perhaps you wrote a statement beginning a code block
     intended to be part of a list comprehension.
@@ -5991,7 +6019,7 @@ Python version: 3.8.10
     If this explanation is incorrect, please report this case.
     
 
-(197) Single = instead of double == with if
+(198) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6013,7 +6041,7 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_if.py'
     at the location indicated.
     
-       3:     if i % 2 = 0:
+       3|     if i % 2 = 0:
                        ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -6021,7 +6049,7 @@ Python version: 3.8.10
     
         if i % 2 == 0:
 
-(198) Single = instead of double == with elif
+(199) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6043,7 +6071,7 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_elif.py'
     at the location indicated.
     
-       5:     elif i % 2 = 0:
+       5|     elif i % 2 = 0:
                          ^
 
     You likely used an assignment operator `=` instead of an equality operator `==`.
@@ -6051,7 +6079,7 @@ Python version: 3.8.10
     
         elif i % 2 == 0:
 
-(199) Single = instead of double == with while
+(200) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6073,14 +6101,14 @@ Python version: 3.8.10
     'TESTS:\syntax\single_equal_with_while.py'
     at the location indicated.
     
-       4: while a = 1:
+       4| while a = 1:
                   ^
 
     You used an assignment operator `=`; perhaps you meant to use 
     an equality operator, `==`, or the walrus operator `:=`.
     
 
-(200) Space between operators 1
+(201) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6100,7 +6128,7 @@ Python version: 3.8.10
     'TESTS:\syntax\space_between_operators_1.py'
     at the location indicated.
     
-       1: a = 2 * * 5
+       1| a = 2 * * 5
                 ^ ^
 
     You cannot have write the same operator, `*`, twice in a row.
@@ -6110,7 +6138,7 @@ Python version: 3.8.10
     and meant to write `**` as a single operator.
     
 
-(201) Space between operators 2
+(202) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6130,7 +6158,7 @@ Python version: 3.8.10
     'TESTS:\syntax\space_between_operators_2.py'
     at the location indicated.
     
-       1: a / = b
+       1| a / = b
             ^ ^
 
     You cannot have these two operators, `/` and `=`,
@@ -6140,7 +6168,7 @@ Python version: 3.8.10
     and meant to write `/=` as a single operator.
     
 
-(202) Space in variable name
+(203) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6162,14 +6190,14 @@ Python version: 3.8.10
     'TESTS:\syntax\space_in_variable_name.py'
     at the location indicated.
     
-       1: my name = André
+       1| my name = André
              ^^^^
 
     You cannot have spaces in identifiers (variable names).
     Perhaps you meant `my_name`?
     
 
-(203) Wrong target for star assignment
+(204) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6189,7 +6217,7 @@ Python version: 3.8.10
     'TESTS:\syntax\star_assignment_target.py'
     at the location indicated.
     
-       1: *a = 1
+       1| *a = 1
           ^
 
     A star assignment must be of the form:
@@ -6198,7 +6226,7 @@ Python version: 3.8.10
     
     
 
-(204) Too many nested blocks
+(205) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6216,7 +6244,7 @@ Python version: 3.8.10
     contained inside other code blocks.
     
 
-(205) Trailing comma in import statement
+(206) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6238,7 +6266,7 @@ Python version: 3.8.10
     'TESTS:\syntax\trailing_comma_in_import.py'
     at the location indicated.
     
-       2: from math import sin, cos,
+       2| from math import sin, cos,
                            ^^^
 
     Python indicates that you need to surround an expression
@@ -6249,7 +6277,7 @@ Python version: 3.8.10
     `from math import sin, cos`
     
 
-(206) Triple-equal sign
+(207) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6271,7 +6299,7 @@ Python version: 3.8.10
     'TESTS:\syntax\triple_equal.py'
     at the location indicated.
     
-       3: x = y === z
+       3| x = y === z
                 ^^^
 
     You wrote three equal signs in a row which is allowed in some
@@ -6280,7 +6308,7 @@ Python version: 3.8.10
     the exact same object, use the operator `is`.
     
 
-(207) Unclosed bracket
+(208) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6300,11 +6328,11 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_bracket.py'
     at the location indicated.
     
-       5:     return [1, 2, 3
-       6: 
-    -->7: print(foo())
+       5|     return [1, 2, 3
+       6| 
+    -->7| print(foo())
           ^^^^^
-       8: 
+       8| 
 
     The opening square bracket `[` on line 5 is not closed.
     
@@ -6312,7 +6340,7 @@ Python version: 3.8.10
                       ^
     
 
-(208) Unclosed parenthesis - 1
+(209) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6332,11 +6360,11 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_1.py'
     at the location indicated.
     
-       2: x = int('1'
-    -->3: if x == 1:
+       2| x = int('1'
+    -->3| if x == 1:
                    ^
-       4:     print('yes')
-       5: 
+       4|     print('yes')
+       5| 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6344,7 +6372,7 @@ Python version: 3.8.10
                   ^
     
 
-(209) Unclosed parenthesis - 2
+(210) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6364,10 +6392,10 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_2.py'
     at the location indicated.
     
-       2: a = (b+c
-    -->3: d = a*a
+       2| a = (b+c
+    -->3| d = a*a
           ^
-       4: 
+       4| 
 
     The opening parenthesis `(` on line 2 is not closed.
     
@@ -6375,7 +6403,7 @@ Python version: 3.8.10
                ^
     
 
-(210) Unclosed parenthesis - 3
+(211) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6395,11 +6423,11 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_3.py'
     at the location indicated.
     
-       5:         print(((123))
-       6: 
-    -->7: if 2:
+       5|         print(((123))
+       6| 
+    -->7| if 2:
               ^
-       8:     print(123))
+       8|     print(123))
 
     The opening parenthesis `(` on line 5 is not closed.
     
@@ -6409,7 +6437,7 @@ Python version: 3.8.10
     If this is incorrect, please report this case.
     
 
-(211) Unclosed parenthesis - 4
+(212) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6429,9 +6457,9 @@ Python version: 3.8.10
     'TESTS:\syntax\unclosed_paren_4.py'
     at the location indicated.
     
-       2: print('hello'
-       3: 
-    -->4: def test():
+       2| print('hello'
+       3| 
+    -->4| def test():
           ^^^
 
     The opening parenthesis `(` on line 2 is not closed.
@@ -6440,7 +6468,7 @@ Python version: 3.8.10
                 ^
     
 
-(212) Content passed continuation line character
+(213) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6460,7 +6488,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unexpected_after_continuation_character.py'
     at the location indicated.
     
-       5: print(\t)
+       5| print(\t)
                   ^
 
     You are using the continuation character `\` outside of a string,
@@ -6468,7 +6496,7 @@ Python version: 3.8.10
     I am guessing that you forgot to enclose some content in a string.
     
 
-(213) Unexpected EOF while parsing
+(214) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6486,10 +6514,10 @@ Python version: 3.8.10
     'TESTS:\syntax\unexpected_eof.py'
     at the location indicated.
     
-       5:     return [1, 2, 3,
-       6: 
-       7: print(foo())
-    -->8: 
+       5|     return [1, 2, 3,
+       6| 
+       7| print(foo())
+    -->8| 
                      ^
 
     Python tells us that it reached the end of the file
@@ -6503,7 +6531,7 @@ Python version: 3.8.10
                       ^
     
 
-(214) Invalid character (unicode fraction 3/4)
+(215) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6525,7 +6553,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_fraction.py'
     at the location indicated.
     
-       1: a = ¾  # 3/4
+       1| a = ¾  # 3/4
               ^
 
     Did you use copy-paste?
@@ -6536,7 +6564,7 @@ Python version: 3.8.10
     I suspect that you meant to write the fraction `3/4` instead.
     
 
-(215) Invalid character (unicode fraction 1/2)
+(216) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6558,7 +6586,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_fraction2.py'
     at the location indicated.
     
-       1: a = 1½  # 1 1/2
+       1| a = 1½  # 1 1/2
                ^
 
     Did you use copy-paste?
@@ -6569,7 +6597,7 @@ Python version: 3.8.10
     I suspect that you meant to write the fraction `1/2` instead.
     
 
-(216) Invalid character (unicode fraction slash)
+(217) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6591,7 +6619,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_fraction3.py'
     at the location indicated.
     
-       1: a = 22 ⁄ 7
+       1| a = 22 ⁄ 7
                  ^
 
     Did you use copy-paste?
@@ -6602,7 +6630,7 @@ Python version: 3.8.10
     but is different from the division operator `/`.
     
 
-(217) Invalid character (unicode quote)
+(218) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6624,7 +6652,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote.py'
     at the location indicated.
     
-       3: a = « hello »
+       3| a = « hello »
               ^
 
     Did you use copy-paste?
@@ -6635,7 +6663,7 @@ Python version: 3.8.10
     instead of a normal single or double quote for a string.
     
 
-(218) Invalid character (unicode quote2)
+(219) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6657,7 +6685,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote2.py'
     at the location indicated.
     
-       2: a = ‹ hello ›
+       2| a = ‹ hello ›
               ^
 
     Did you use copy-paste?
@@ -6668,7 +6696,7 @@ Python version: 3.8.10
     instead of a normal single or double quote for a string.
     
 
-(219) Invalid character (mistaken <)
+(220) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6690,7 +6718,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote3.py'
     at the location indicated.
     
-       2: if a ‹ hello:
+       2| if a ‹ hello:
                ^
 
     Did you use copy-paste?
@@ -6702,7 +6730,7 @@ Python version: 3.8.10
     Or perhaps, you meant to write a less than sign, `<`.
     
 
-(220) Invalid character (mistaken >)
+(221) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -6724,7 +6752,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote4.py'
     at the location indicated.
     
-       2: if a › hello:
+       2| if a › hello:
                ^
 
     Did you use copy-paste?
@@ -6736,7 +6764,7 @@ Python version: 3.8.10
     Or perhaps, you meant to write a greater than sign, `>`.
     
 
-(221) Invalid character (mistaken comma)
+(222) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -6758,7 +6786,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_quote5.py'
     at the location indicated.
     
-       2: a = (1‚ 2)
+       2| a = (1‚ 2)
                 ^
 
     Did you use copy-paste?
@@ -6770,7 +6798,7 @@ Python version: 3.8.10
     Or perhaps, you meant to write a comma.
     
 
-(222) Unmatched closing curly bracket
+(223) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -6790,15 +6818,15 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_curly.py'
     at the location indicated.
     
-       4: a = {1,
-       5:     2,
-    -->6:     3, 4,}}
+       4| a = {1,
+       5|     2,
+    -->6|     3, 4,}}
                     ^
 
     The closing curly bracket `}` on line 6 does not match anything.
     
 
-(223) Unmatched closing parenthesis
+(224) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -6818,15 +6846,15 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_paren.py'
     at the location indicated.
     
-       4: a = (1,
-       5:     2,
-    -->6:     3, 4,))
+       4| a = (1,
+       5|     2,
+    -->6|     3, 4,))
                     ^
 
     The closing parenthesis `)` on line 6 does not match anything.
     
 
-(224) Mismatched brackets - 1
+(225) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -6846,7 +6874,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_bracket_1.py'
     at the location indicated.
     
-       2: x = (1, 2, 3]
+       2| x = (1, 2, 3]
               ^       ^
 
     The closing square bracket `]` on line 2 does not match the opening parenthesis `(` on line 2.
@@ -6855,7 +6883,7 @@ Python version: 3.8.10
                ^       ^
     
 
-(225) Mismatched brackets - 2
+(226) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -6875,10 +6903,10 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_bracket_2.py'
     at the location indicated.
     
-    -->2: x = (1,
+    -->2| x = (1,
               ^
-       3:      2,
-    -->4:      3]
+       3|      2,
+    -->4|      3]
                 ^
 
     The closing square bracket `]` on line 4 does not match the opening parenthesis `(` on line 2.
@@ -6889,7 +6917,7 @@ Python version: 3.8.10
                  ^
     
 
-(226) Unmatched brackets - 3
+(227) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -6909,15 +6937,15 @@ Python version: 3.8.10
     'TESTS:\syntax\unmatched_closing_bracket_3.py'
     at the location indicated.
     
-       1: x = [1,
-       2:      2,
-    -->3:      3]]
+       1| x = [1,
+       2|      2,
+    -->3|      3]]
                  ^
 
     The closing square bracket `]` on line 3 does not match anything.
     
 
-(227) Unpacking a dict value
+(228) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -6937,7 +6965,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unpacking_dict_value.py'
     at the location indicated.
     
-       1: {'a': *(1, 2, 3)}
+       1| {'a': *(1, 2, 3)}
               ^ ^
 
     You cannot have these two operators, `:` and `*`,
@@ -6950,7 +6978,7 @@ Python version: 3.8.10
         {'a': (1, 2, 3)}
     
 
-(228) Unterminated triple quoted string
+(229) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -6970,16 +6998,16 @@ Python version: 3.8.10
     
     Python could not understand the code in the file
     'TESTS:\syntax\unterminated_triple_quote_string.py'
+    at the location indicated.
     
-    
-       1: some_text = """In a land
-       2: 
+       1| some_text = """In a land
+                      ^^^^^^^^^^^^
 
     You started writing a triple-quoted string but never wrote
     the triple quotes needed to end the string.
     
 
-(229) TabError
+(230) TabError
 --------------
 
 .. code-block:: none
@@ -7004,10 +7032,10 @@ Python version: 3.8.10
     'TESTS:\syntax\tab_error.py'
     at the location indicated.
     
-       7: 	pass
+       7| 	pass
            ^^^^
 
-(230) EOL unescaped backslash
+(231) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7029,8 +7057,8 @@ Python version: 3.8.10
     'TESTS:\syntax\unescaped_backslash.py'
     at the location indicated.
     
-       1: a = "abc\"
-                   ^
+       1| a = "abc\"
+              ^
 
     You started writing a string with a single or double quote
     but never ended the string with another quote on that line.
@@ -7039,7 +7067,7 @@ Python version: 3.8.10
     needed to escape it by writing two `\` in a row.
     
 
-(231) Using the backquote character
+(232) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7061,14 +7089,14 @@ Python version: 3.8.10
     'TESTS:\syntax\use_backquote.py'
     at the location indicated.
     
-       3: a = `1`
+       3| a = `1`
               ^
 
     You are using the backquote character.
     Either you meant to write a single quote, ', or copied Python 2 code;
     in this latter case, use the function `repr(x)`.
 
-(232) unicode error
+(233) unicode error
 -------------------
 
 .. code-block:: none
@@ -7090,7 +7118,7 @@ Python version: 3.8.10
     'TESTS:\syntax\unicode_error.py'
     at the location indicated.
     
-       1: path = "c:\Users\andre"
+       1| path = "c:\Users\andre"
                  ^^^^^^^^^^^^^^^^
 
     I suspect that you wrote a string that contains
@@ -7103,7 +7131,7 @@ Python version: 3.8.10
     front of the string, or replace `\U`, by `\\U`.
     
 
-(233) Walrus instead of equal
+(234) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7125,14 +7153,14 @@ Python version: 3.8.10
     'TESTS:\syntax\walrus_instead_of_equal.py'
     at the location indicated.
     
-       1: a := 3
+       1| a := 3
             ^^
 
     You use the augmented assignment operator `:=` where
     the normal assignment operator `=` was required.
     
 
-(234) Missing condition in while statement
+(235) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7154,7 +7182,7 @@ Python version: 3.8.10
     'TESTS:\syntax\while_missing_condition.py'
     at the location indicated.
     
-       1: while:
+       1| while:
                ^
 
     A `while` loop requires a condition:
@@ -7164,7 +7192,7 @@ Python version: 3.8.10
     
     
 
-(235) Would-be variable declaration
+(236) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7186,7 +7214,7 @@ Python version: 3.8.10
     'TESTS:\syntax\would_be_type_declaration_1.py'
     at the location indicated.
     
-       3: if var start := begin < end:
+       3| if var start := begin < end:
                  ^^^^^
 
     It looks like you were trying to declare that `start` was
@@ -7194,7 +7222,7 @@ Python version: 3.8.10
     If you remove `var`, you will have a valid Python statement.
     
 
-(236) Would-be variable declaration - 2
+(237) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7216,17 +7244,17 @@ Python version: 3.8.10
     'TESTS:\syntax\would_be_type_declaration_2.py'
     at the location indicated.
     
-       4: if (
-    -->5:     var start := begin < end
+       4| if (
+    -->5|     var start := begin < end
                   ^^^^^
-       6:    ):
+       6|    ):
 
     It looks like you were trying to declare that `start` was
     a variable using the word `var`.
     If you remove `var`, you will have a valid Python statement.
     
 
-(237) Cannot use yield outside function
+(238) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
@@ -7246,7 +7274,7 @@ Python version: 3.8.10
     'TESTS:\syntax\yield_outside_function.py'
     at the location indicated.
     
-       1: (yield i) == 3
+       1| (yield i) == 3
            ^^^^^
 
     You can only use a `yield` statement inside a function.
