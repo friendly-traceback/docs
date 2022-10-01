@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Console basics" href="repl.html" /><link rel="prev" title="Other details for advanced users" href="usage_adv.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Keeping confidential information secret - friendly-traceback 0.7.27</title>
+        <title>Logging and keeping confidential information secret - friendly-traceback 0.7.29</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -166,7 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Keeping confidential information secret</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Logging and keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -307,16 +307,278 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="keeping-confidential-information-secret">
-<h1>Keeping confidential information secret<a class="headerlink" href="#keeping-confidential-information-secret" title="Permalink to this headline">¶</a></h1>
-<p>To be written.</p>
-<p>Perhaps move the logging section here.</p>
+          <section id="logging-and-keeping-confidential-information-secret">
+<h1>Logging and keeping confidential information secret<a class="headerlink" href="#logging-and-keeping-confidential-information-secret" title="Permalink to this headline">¶</a></h1>
+<p>In some situations, it is useful to log exceptions that are raised
+and continue the execution. Since the information cannot be queried
+interactively, one might want to capture all the required information
+to figure out what went wrong. While friendly_traceback was not initially
+designed with this purpose in mind, it is perfectly suitable to use
+in such cases.</p>
+<p>Let’s look at a fairly detailed example meant for more advanced programmes.
+First, here’s the code that we wish to run</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">compute_fraction</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="linenos"> 5</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos"> 6</span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 7</span><span class="c1"># The following will raise an exception</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">def</span> <span class="nf">fn_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
+<span class="linenos">11</span>    <span class="n">irrelevant</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">e</span>
+<span class="linenos">12</span>    <span class="k">return</span> <span class="n">irrelevant</span> <span class="o">+</span> <span class="n">fn_2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">irrelevant</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">def</span> <span class="nf">fn_2</span><span class="p">(</span><span class="n">secret_x</span><span class="p">,</span> <span class="n">secret_y</span><span class="p">):</span>
+<span class="linenos">15</span>    <span class="k">return</span> <span class="n">fn_3</span> <span class="p">(</span><span class="n">secret_x</span><span class="p">,</span> <span class="n">secret_y</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="k">def</span> <span class="nf">fn_3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="linenos">18</span>    <span class="k">return</span> <span class="n">compute_fraction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="n">fraction</span> <span class="o">=</span> <span class="n">fn_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At this point, note on line 12 that the <code class="docutils literal notranslate"><span class="pre">fn_2</span></code> function call is
+part of an expression between two terms that we named <code class="docutils literal notranslate"><span class="pre">irrelevant</span></code>.
+This will be relevant later.</p>
+<p>Furthermore, on line 15, we have two variable names beginning with <code class="docutils literal notranslate"><span class="pre">secret</span></code>.</p>
+<p>Suppose we wish to run this code and log any exception that arise.
+Furthermore, we do not want to reveal what the value of any variable
+whose name begins by <code class="docutils literal notranslate"><span class="pre">secret</span></code>, while having as much information as possible
+about the state of the program and values of variables when
+the exception was raised. Here’s how we can do it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">friendly_traceback.console_helpers</span> <span class="kn">import</span> <span class="n">history</span><span class="p">,</span> <span class="n">where</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Configure as desired before running the code</span>
+<span class="linenos"> 6</span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"ignore.log"</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_stream</span><span class="p">(</span><span class="n">redirect</span><span class="o">=</span><span class="s2">"capture"</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1"># We don't ever want to show the name</span>
+<span class="linenos">10</span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">hide_secrets</span><span class="p">(</span><span class="n">patterns</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s2">"secret\w*"</span><span class="p">])</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">13</span>    <span class="kn">import</span> <span class="nn">example_logging_source</span>
+<span class="linenos">14</span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">explain_traceback</span><span class="p">()</span>
+<span class="linenos">16</span>    <span class="n">log</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="c1"># The following will add some detailed information about variables</span>
+<span class="linenos">19</span>    <span class="c1"># in each frame, in case it is relevant</span>
+<span class="linenos">20</span>    <span class="n">where</span><span class="p">(</span><span class="n">more</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">where_log</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="n">history</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># prevent memory leaks</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>    <span class="n">full_log</span> <span class="o">=</span> <span class="p">(</span>
+<span class="linenos">26</span>        <span class="s2">" Output from friendly_traceback</span><span class="se">\n</span><span class="s2">"</span>
+<span class="linenos">27</span>        <span class="o">+</span> <span class="n">log</span>
+<span class="linenos">28</span>        <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">------More details--------</span><span class="se">\n</span><span class="s2">"</span>
+<span class="linenos">29</span>        <span class="o">+</span> <span class="n">where_log</span>
+<span class="linenos">30</span>        <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">======Original traceback=======</span><span class="se">\n</span><span class="s2">"</span>
+<span class="linenos">31</span>    <span class="p">)</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span>    <span class="c1"># exc_info=True below will append the original traceback</span>
+<span class="linenos">34</span>    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">full_log</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>On line 7 we set friendly_traceback so that its output is (temporarily) captured
+rather than printed out.</p></li>
+<li><p>On line xxx we add a regular expression pattern identifying variable names whose
+value we wish to keep secret.</p></li>
+<li><p>On line 10, we extract the content that was captured and, in doing so, clear the buffer
+where that content was held. It is possible to pass the argument <code class="docutils literal notranslate"><span class="pre">flush=False</span></code> to
+keep that content if needed.</p></li>
+<li><p>By default, friendly_traceback gives a “short” traceback, with more details given
+for the initial and final frame. On line 20, with <code class="docutils literal notranslate"><span class="pre">where(more=True)</span></code>, we get
+friendly_traceback to output detailed information about each frame involved in
+the traceback.</p></li>
+<li><p>By default, friendly_traceback keeps a copy of each traceback that was generated.
+This is sometimes useful in interactive mode, especially if warnings are emitted
+as they do not cause an interruption to the program. By calling <code class="docutils literal notranslate"><span class="pre">history.clear()</span></code>
+on line 23, we remove this content, helping to reduce the risk of memory leaks.</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>ERROR:root: Output from friendly_traceback
+<span class="linenos">  2</span>
+<span class="linenos">  3</span>Traceback (most recent call last):
+<span class="linenos">  4</span>  File "HOME:\example_logging.py", line 13, in &lt;module&gt;
+<span class="linenos">  5</span>    import example_logging_source
+<span class="linenos">  6</span>       ... More lines not shown. ...
+<span class="linenos">  7</span>  File "HOME:\example_logging_source.py", line 18, in fn_3
+<span class="linenos">  8</span>    return compute_fraction(x, y)
+<span class="linenos">  9</span>  File "HOME:\example_logging_source.py", line 2, in compute_fraction
+<span class="linenos"> 10</span>    return numerator / denominator
+<span class="linenos"> 11</span>ZeroDivisionError: division by zero
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span>    A `ZeroDivisionError` occurs when you are attempting to divide a value
+<span class="linenos"> 14</span>    by zero either directly or by using some other mathematical operation.
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span>    You are dividing by the following term
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span>         denominator
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span>    which is equal to zero.
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span>    Execution stopped on line `13` of file 'HOME:\example_logging.py'.
+<span class="linenos"> 23</span>
+<span class="linenos"> 24</span>        9| # We don't ever want to show the name
+<span class="linenos"> 25</span>       10| friendly_traceback.hide_secrets(patterns=[r"secret\w*"])
+<span class="linenos"> 26</span>       11|
+<span class="linenos"> 27</span>       12| try:
+<span class="linenos"> 28</span>    --&gt;13|     import example_logging_source
+<span class="linenos"> 29</span>       14| except Exception:
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span>    Exception raised on line `2` of file 'HOME:\example_logging_source.py'.
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span>       1| def compute_fraction(numerator, denominator):
+<span class="linenos"> 34</span>    --&gt;2|     return numerator / denominator
+<span class="linenos"> 35</span>                     ^^^^^^^^^^^^^^^^^^^^^^^
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>            denominator:  0
+<span class="linenos"> 38</span>            numerator:  1
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span>------More details--------
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span>    File 'HOME:\example_logging.py', line `13`
+<span class="linenos"> 44</span>        9| # We don't ever want to show the name
+<span class="linenos"> 45</span>       10| friendly_traceback.hide_secrets(patterns=[r"secret\w*"])
+<span class="linenos"> 46</span>       11|
+<span class="linenos"> 47</span>       12| try:
+<span class="linenos"> 48</span>    --&gt;13|     import example_logging_source
+<span class="linenos"> 49</span>       14| except Exception:
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span>    File 'HOME:\example_logging_source.py', line `21`
+<span class="linenos"> 53</span>       15|     return fn_3 (secret_x, secret_y)
+<span class="linenos"> 54</span>       16|
+<span class="linenos"> 55</span>       17| def fn_3(x, y):
+<span class="linenos"> 56</span>       18|     return compute_fraction(x, y)
+<span class="linenos"> 57</span>        :
+<span class="linenos"> 58</span>    --&gt;21| fraction = fn_1(a, b)
+<span class="linenos"> 59</span>                      ^^^^^^^^^^
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span>            a:  4
+<span class="linenos"> 62</span>            b:  2
+<span class="linenos"> 63</span>            fn_1:  &lt;function fn_1&gt;
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span>    File 'HOME:\example_logging_source.py', line `12`
+<span class="linenos"> 66</span>        9| def fn_1(a, b):
+<span class="linenos"> 67</span>       10|     d, e = 4, 5
+<span class="linenos"> 68</span>       11|     irrelevant = d * e
+<span class="linenos"> 69</span>    --&gt;12|     return irrelevant + fn_2(c, a - b**2) + irrelevant
+<span class="linenos"> 70</span>                                   ^^^^^^^^^^^^^^^^^
+<span class="linenos"> 71</span>
+<span class="linenos"> 72</span>            a:  4
+<span class="linenos"> 73</span>            b:  2
+<span class="linenos"> 74</span>            global c:  1
+<span class="linenos"> 75</span>            global fn_2:  &lt;function fn_2&gt;
+<span class="linenos"> 76</span>            a - b**2:  0
+<span class="linenos"> 77</span>            b**2:  4
+<span class="linenos"> 78</span>
+<span class="linenos"> 79</span>    File 'HOME:\example_logging_source.py', line `15`
+<span class="linenos"> 80</span>       14| def fn_2(secret_x, secret_y):
+<span class="linenos"> 81</span>    --&gt;15|     return fn_3 (secret_x, secret_y)
+<span class="linenos"> 82</span>                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span>            secret_x:  '••••••'
+<span class="linenos"> 85</span>            secret_y:  '••••••'
+<span class="linenos"> 86</span>            global fn_3:  &lt;function fn_3&gt;
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span>    File 'HOME:\example_logging_source.py', line `18`
+<span class="linenos"> 89</span>       17| def fn_3(x, y):
+<span class="linenos"> 90</span>    --&gt;18|     return compute_fraction(x, y)
+<span class="linenos"> 91</span>                      ^^^^^^^^^^^^^^^^^^^^^^
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>            x:  1
+<span class="linenos"> 94</span>            y:  0
+<span class="linenos"> 95</span>            global compute_fraction:  &lt;function compute_fraction&gt;
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>    File 'HOME:\example_logging_source.py', line `2`
+<span class="linenos"> 98</span>       1| def compute_fraction(numerator, denominator):
+<span class="linenos"> 99</span>    --&gt;2|     return numerator / denominator
+<span class="linenos">100</span>                     ^^^^^^^^^^^^^^^^^^^^^^^
+<span class="linenos">101</span>
+<span class="linenos">102</span>            denominator:  0
+<span class="linenos">103</span>            numerator:  1
+<span class="linenos">104</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span>======Original traceback=======
+<span class="linenos">107</span>Traceback (most recent call last):
+<span class="linenos">108</span>  File "C:\Users\Andre\example_logging.py", line 13, in &lt;module&gt;
+<span class="linenos">109</span>    import example_logging_source
+<span class="linenos">110</span>  File "C:\Users\Andre\example_logging_source.py", line 21, in &lt;module&gt;
+<span class="linenos">111</span>    fraction = fn_1(a, b)
+<span class="linenos">112</span>  File "C:\Users\Andre\example_logging_source.py", line 12, in fn_1
+<span class="linenos">113</span>    return irrelevant + fn_2(c, a - b**2) + irrelevant
+<span class="linenos">114</span>  File "C:\Users\Andre\example_logging_source.py", line 15, in fn_2
+<span class="linenos">115</span>    return fn_3 (secret_x, secret_y)
+<span class="linenos">116</span>  File "C:\Users\Andre\example_logging_source.py", line 18, in fn_3
+<span class="linenos">117</span>    return compute_fraction(x, y)
+<span class="linenos">118</span>  File "C:\Users\Andre\example_logging_source.py", line 2, in compute_fraction
+<span class="linenos">119</span>    return numerator / denominator
+<span class="linenos">120</span>ZeroDivisionError: division by zero
+</pre></div>
+</div>
+<section id="about-keeping-secrets">
+<h2>About keeping secrets<a class="headerlink" href="#about-keeping-secrets" title="Permalink to this headline">¶</a></h2>
+<p>More information about keeping and testing secrets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly_traceback</span> <span class="k">as</span> <span class="nn">ft</span>
+
+<span class="n">ft</span><span class="o">.</span><span class="n">hide_secrets</span><span class="p">([</span><span class="s2">"secret\w*"</span><span class="p">])</span>
+<span class="n">not_secret</span> <span class="o">=</span> <span class="s2">"should be public"</span>
+<span class="n">secret1</span> <span class="o">=</span> <span class="s2">"confidential because of the variable name."</span>
+<span class="n">hidden</span> <span class="o">=</span> <span class="s2">"contains a secret."</span>
+<span class="n">long_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">fn</span><span class="p">():</span> <span class="o">...</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">true_repr</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">"not_secret"</span><span class="p">,</span> <span class="n">not_secret</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"secret1"</span><span class="p">,</span> <span class="n">secret1</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"hidden"</span><span class="p">,</span> <span class="n">hidden</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"long_list"</span><span class="p">,</span> <span class="n">long_list</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">"fn"</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
+<span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">true_repr</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">test_secrets</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"display by friendly_traceback:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And here’s the result.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>true_repr='should be public'
+display by friendly_traceback:
+     not_secret:  'should be public'
+
+true_repr='confidential because of the variable name.'
+display by friendly_traceback:
+     secret1:  '••••••'
+
+true_repr='contains a secret.'
+display by friendly_traceback:
+     hidden:  '••••••'
+
+true_repr=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+display by friendly_traceback:
+     long_list:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
+            len(long_list): 100
+
+
+true_repr=&lt;function fn at 0x0000023843D6F160&gt;
+display by friendly_traceback:
+     fn:  &lt;function fn&gt;
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -358,8 +620,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Logging and keeping confidential information secret</a><ul>
+<li><a class="reference internal" href="#about-keeping-secrets">About keeping secrets</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

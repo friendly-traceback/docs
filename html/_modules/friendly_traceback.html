@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback - friendly-traceback 0.7.27</title>
+        <title>friendly_traceback - friendly-traceback 0.7.29</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
+      <a href="../index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -165,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage_adv.html">Other details for advanced users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../confidential.html">Keeping confidential information secret</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../confidential.html">Logging and keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -345,7 +345,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Python 3.6 or newer is required."</span><span class="p">)</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.27"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.29"</span>
 
 <span class="c1"># ===========================================</span>
 
@@ -400,17 +400,31 @@
 <div class="viewcode-block" id="hide_secrets"><a class="viewcode-back" href="../api.html#friendly_traceback.hide_secrets">[docs]</a><span class="k">def</span> <span class="nf">hide_secrets</span><span class="p">(</span><span class="n">patterns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Intended to prevent values of certain variables to be shown.</span>
 <span class="sd">    Parameter:</span>
-<span class="sd">        * patterns: a list of regular expression patterns.</span>
+
+<span class="sd">        - patterns: a list of regular expression patterns.</span>
 <span class="sd">    """</span>
     <span class="n">info_variables</span><span class="o">.</span><span class="n">confidential</span><span class="o">.</span><span class="n">hide_confidential_information</span><span class="p">(</span><span class="n">patterns</span><span class="o">=</span><span class="n">patterns</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="test_secrets"><a class="viewcode-back" href="../api.html#friendly_traceback.test_secrets">[docs]</a><span class="k">def</span> <span class="nf">test_secrets</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-    <span class="sd">"""Given a variable name and its string value, usually obtained as the</span>
-<span class="sd">    repr() of the variable, returns the value that will be shown</span>
-<span class="sd">    if the variable value needs to be shown in a traceback.</span>
+<div class="viewcode-block" id="test_secrets"><a class="viewcode-back" href="../api.html#friendly_traceback.test_secrets">[docs]</a><span class="k">def</span> <span class="nf">test_secrets</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+    <span class="sd">"""Given a variable name that exists in the local scope where this function is invoked</span>
+<span class="sd">    returns the value that will be shown if the variable value needs to be</span>
+<span class="sd">    shown in a traceback.</span>
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="n">info_variables</span><span class="o">.</span><span class="n">confidential</span><span class="o">.</span><span class="n">redact_confidential</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"The argument of test_secrets must be a string representing the name of local object."</span>
+        <span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">frame</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"The argument of test_secrets must be a string representing the name of a local object."</span>
+        <span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">obj_repr</span> <span class="o">=</span> <span class="n">info_variables</span><span class="o">.</span><span class="n">format_var_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj_repr</span></div>
 
 
 <div class="viewcode-block" id="get_output"><a class="viewcode-back" href="../api.html#friendly_traceback.get_output">[docs]</a><span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="n">flush</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
