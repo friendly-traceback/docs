@@ -2245,18 +2245,6 @@ Generic
             a:  <function a> defined in <function test_Generic>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 TypeError
 ---------
