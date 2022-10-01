@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Custom formatter" href="formatter.html" /><link rel="prev" title="IDLE’s colours" href="idle_colours.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Public API - friendly-traceback 0.6.0</title>
+        <title>Public API - friendly-traceback 0.7.27</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.6.0</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.6.0</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="confidential.html">Keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
@@ -403,6 +405,17 @@ However, this can be overridden if desired.</p>
 <dd><p>Returns the value of the current stream used for output.</p>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.hide_secrets">
+<span class="sig-name descname"><span class="pre">hide_secrets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#hide_secrets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.hide_secrets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intended to prevent values of certain variables to be shown.
+Parameter:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>patterns: a list of regular expression patterns.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.install">
 <span class="sig-name descname"><span class="pre">install</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'explain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.install" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces <code class="docutils literal notranslate"><span class="pre">sys.excepthook</span></code> by friendly’s own version.
@@ -462,7 +475,6 @@ formatter is used.</p>
 <p>The allowed values are:</p>
 <blockquote>
 <div><p>message,
-message_plus,
 hint,
 what,
 why,
@@ -494,6 +506,13 @@ output is saved and can be later retrieved by <code class="docutils literal notr
 <dt class="sig sig-object py" id="friendly_traceback.start_console">
 <span class="sig-name descname"><span class="pre">start_console</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">banner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayhook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipython_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#start_console"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.start_console" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts a Friendly console.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.test_secrets">
+<span class="sig-name descname"><span class="pre">test_secrets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#test_secrets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.test_secrets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a variable name and its string value, usually obtained as the
+repr() of the variable, returns the value that will be shown
+if the variable value needs to be shown in a traceback.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.uninstall">

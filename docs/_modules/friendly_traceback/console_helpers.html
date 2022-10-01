@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.console_helpers - friendly-traceback 0.5.63</title>
+        <title>friendly_traceback.console_helpers - friendly-traceback 0.7.27</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.5.63</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.63</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -178,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
@@ -342,30 +344,12 @@
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">"Nothing to show: no exception recorded."</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="back"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.back">[docs]</a><span class="k">def</span> <span class="nf">back</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Removes the last recorded traceback item.</span>
-
-<span class="sd">    The intention is to allow recovering from a typo when trying interactively</span>
-<span class="sd">    to find out specific information about a given exception.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
-        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">"Nothing to go back to: no exception recorded."</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-        <span class="n">debug_helper</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">"Problem: saved info is not empty but friendly is"</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
-        <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s2">"lang"</span><span class="p">]</span> <span class="o">!=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_lang</span><span class="p">():</span>
-            <span class="n">info</span><span class="p">[</span><span class="s2">"lang"</span><span class="p">]</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_lang</span><span class="p">()</span>
-            <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">recompile_info</span><span class="p">()</span></div>
-
-
 <div class="viewcode-block" id="disable"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.disable">[docs]</a><span class="k">def</span> <span class="nf">disable</span><span class="p">():</span>
     <span class="sd">"""Disable friendly-traceback exception hook"""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">installed</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">"Friendly-traceback is already disabled."</span><span class="p">))</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">"Friendly-traceback is already disabled."</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">}</span>
+        <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="n">session</span><span class="o">.</span><span class="n">uninstall</span><span class="p">()</span></div>
 
@@ -373,51 +357,88 @@
 <div class="viewcode-block" id="enable"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.enable">[docs]</a><span class="k">def</span> <span class="nf">enable</span><span class="p">():</span>
     <span class="sd">"""Enable friendly-traceback exception hook"""</span>
     <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">installed</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">"Friendly-traceback is already enabled."</span><span class="p">))</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">"Friendly-traceback is already enabled."</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">}</span>
+        <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="explain"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.explain">[docs]</a><span class="k">def</span> <span class="nf">explain</span><span class="p">(</span><span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">"explain"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="explain"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.explain">[docs]</a><span class="k">def</span> <span class="nf">explain</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">"explain"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the previously recorded traceback info again,</span>
 <span class="sd">    with the option to specify different items to include.</span>
 <span class="sd">    For example, ``explain("why")`` is equivalent to ``why()``.</span>
 <span class="sd">    """</span>
     <span class="n">old_include</span> <span class="o">=</span> <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">get_include</span><span class="p">()</span>
     <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_include</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">show_traceback_info_again</span><span class="p">()</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">show_traceback_info_again</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
     <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_include</span><span class="p">(</span><span class="n">old_include</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="friendly_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.friendly_tb">[docs]</a><span class="k">def</span> <span class="nf">friendly_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="friendly_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.friendly_tb">[docs]</a><span class="k">def</span> <span class="nf">friendly_tb</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the simplified Python traceback,</span>
 <span class="sd">    which includes the hint/suggestion if available.</span>
 <span class="sd">    """</span>
-    <span class="n">explain</span><span class="p">(</span><span class="s2">"friendly_tb"</span><span class="p">)</span></div>
+    <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"friendly_tb"</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hint"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.hint">[docs]</a><span class="k">def</span> <span class="nf">hint</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="hint"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.hint">[docs]</a><span class="k">def</span> <span class="nf">hint</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows hint/suggestion if available."""</span>
-    <span class="n">explain</span><span class="p">(</span><span class="s2">"hint"</span><span class="p">)</span></div>
+    <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="history"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.history">[docs]</a><span class="k">def</span> <span class="nf">history</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Prints the list of error messages recorded so far."""</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
-        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"message"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">message</span><span class="p">:</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-            <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+<span class="k">class</span> <span class="nc">History</span><span class="p">:</span>
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">"history"</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="sd">"""Used to delete a particular item: del history[index]"""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">"Nothing to delete: no exception recorded."</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">}</span>
+            <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s2">"There is no such history item."</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">}</span>
+            <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">_</span><span class="p">(</span><span class="s2">"Shows a list of recorded traceback messages."</span><span class="p">)</span>
+            <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="o">+</span> <span class="n">_</span><span class="p">(</span><span class="s2">"You can also use `history.clear()` and `del history[index]`."</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Removes all recorded tracebacks and warnings"""</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Prints a list of recorded tracebacks and warning messages"""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">:</span> <span class="n">_nothing_to_show</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">}</span>
+            <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"hint"</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">rich_add_vspace</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># for friendly</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">tb</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">"message"</span> <span class="ow">in</span> <span class="n">tb</span><span class="o">.</span><span class="n">info</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">tb</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'message'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+                <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"message"</span><span class="p">)</span>
+                <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">rich_add_vspace</span> <span class="o">=</span> <span class="kc">True</span>
 
 
-<div class="viewcode-block" id="python_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.python_tb">[docs]</a><span class="k">def</span> <span class="nf">python_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">History</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="python_tb"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.python_tb">[docs]</a><span class="k">def</span> <span class="nf">python_tb</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the Python traceback, excluding files from friendly</span>
 <span class="sd">    itself.</span>
 <span class="sd">    """</span>
-    <span class="n">explain</span><span class="p">(</span><span class="s2">"python_tb"</span><span class="p">)</span></div>
+    <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"python_tb"</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="toggle_prompt"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.toggle_prompt">[docs]</a><span class="k">def</span> <span class="nf">toggle_prompt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -426,7 +447,9 @@
 
 
 <div class="viewcode-block" id="what"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.what">[docs]</a><span class="k">def</span> <span class="nf">what</span><span class="p">(</span>
-    <span class="n">exception</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">CodeType</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exception_or_index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">CodeType</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">pre</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""If known, shows the generic explanation about a given exception.</span>
@@ -435,23 +458,30 @@
 <span class="sd">    formatted in a way that is suitable for inclusion in the</span>
 <span class="sd">    documentation.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">exception</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">explain</span><span class="p">(</span><span class="s2">"what"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exception_or_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"what"</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception_or_index</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">exception_or_index</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"what"</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_or_index</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span>
+        <span class="n">exception_or_index</span><span class="p">,</span> <span class="ne">BaseException</span>
+    <span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exception_or_index</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">exc</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>  <span class="c1"># skipcq PYL-W0123</span>
+            <span class="n">exc</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">exception_or_index</span><span class="p">)</span>  <span class="c1"># skipcq PYL-W0123</span>
             <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">"</span><span class="si">{exception}</span><span class="s2"> is not an exception."</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">exception</span><span class="o">=</span><span class="n">exception</span>
+                    <span class="n">exception</span><span class="o">=</span><span class="sa">f</span><span class="s2">"`</span><span class="si">{</span><span class="n">exception_or_index</span><span class="si">}</span><span class="s2">`"</span>
                 <span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">"</span><span class="si">{exception}</span><span class="s2"> is not an exception."</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="n">exception</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">"</span><span class="si">{exception}</span><span class="s2"> is not an exception."</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">exception</span><span class="o">=</span><span class="sa">f</span><span class="s2">"`</span><span class="si">{</span><span class="n">exception_or_index</span><span class="si">}</span><span class="s2">`"</span>
+            <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">pre</span><span class="p">:</span>  <span class="c1"># for documentation # pragma: no cover</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -459,24 +489,37 @@
             <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="sa">f</span><span class="s2">"    </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"generic"</span><span class="p">:</span> <span class="n">result</span><span class="p">}</span>
+        <span class="n">explanation</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"what"</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="where"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.where">[docs]</a><span class="k">def</span> <span class="nf">where</span><span class="p">(</span><span class="n">more</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="where"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.where">[docs]</a><span class="k">def</span> <span class="nf">where</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">more</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the information about where the exception occurred"""</span>
     <span class="k">if</span> <span class="n">more</span><span class="p">:</span>
-        <span class="n">explain</span><span class="p">(</span><span class="s2">"detailed_tb"</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">info</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"where"</span><span class="p">)</span>  <span class="c1"># let the error bubble up</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">"detailed_tb"</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+                <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"detailed_tb"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"where"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">explain</span><span class="p">(</span><span class="s2">"where"</span><span class="p">)</span></div>
+        <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"where"</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="why"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.why">[docs]</a><span class="k">def</span> <span class="nf">why</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="why"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.why">[docs]</a><span class="k">def</span> <span class="nf">why</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Shows the likely cause of the exception."""</span>
     <span class="c1"># If no cause is found, and the exception name is not accompanied by a</span>
     <span class="c1"># message, as in "StopIteration:", we use the same info for</span>
     <span class="c1"># the cause as we used for the generic information as per issue #66</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">info</span>
     <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
         <span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="p">(</span>
@@ -485,9 +528,9 @@
         <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span>
         <span class="ow">and</span> <span class="ow">not</span> <span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># empty message</span>
     <span class="p">):</span>
-        <span class="n">explain</span><span class="p">(</span><span class="s2">"what"</span><span class="p">)</span>
+        <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"what"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">explain</span><span class="p">(</span><span class="s2">"why"</span><span class="p">)</span></div>
+        <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"why"</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="www"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.www">[docs]</a><span class="k">def</span> <span class="nf">www</span><span class="p">(</span><span class="n">site</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Site</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
@@ -543,7 +586,7 @@
         <span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span> <span class="k">else</span> <span class="p">{}</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">info</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span> <span class="k">else</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="n">site</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">info</span><span class="p">:</span>
         <span class="n">message</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">" ("</span> <span class="ow">in</span> <span class="n">message</span><span class="p">:</span>
@@ -583,18 +626,20 @@
     <span class="sd">"""Shows the true Python traceback, which includes</span>
 <span class="sd">    files from friendly itself.</span>
 <span class="sd">    """</span>
-    <span class="n">explain</span><span class="p">(</span><span class="s2">"debug_tb"</span><span class="p">)</span>
+    <span class="n">explain</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"debug_tb"</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_get_exception</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">"""Debugging tool: returns the exception instance or None if no exception</span>
 <span class="sd">    has been raised.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
         <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># add explicit None here and elsewhere to silence mypy</span>
-    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">"_exc_instance"</span><span class="p">]</span>
+    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">exception_instance</span>
+    <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">warning_instance</span>
 
 
 <span class="k">def</span> <span class="nf">_get_frame</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FrameType</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
@@ -602,11 +647,13 @@
 
 <span class="sd">    This is not intended for end-users but is useful in development.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
         <span class="k">return</span> <span class="kc">None</span>
-    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">"_frame"</span><span class="p">]</span>
+    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">exception_frame</span>
+    <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">frame</span>  <span class="c1"># warnings</span>
 
 
 <span class="k">def</span> <span class="nf">_get_statement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Statement</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
@@ -616,12 +663,18 @@
 
 <span class="sd">    This is not intended for end-users but is useful in development.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
         <span class="k">return</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"_exc_instance"</span><span class="p">],</span> <span class="ne">SyntaxError</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">friendly_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">statement</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"No statement: not a SyntaxError."</span><span class="p">)</span>
+    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">exception_instance</span><span class="p">,</span> <span class="ne">SyntaxError</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">statement</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"problem_statement"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">problem_statement</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No statement: likely not a SyntaxError nor a SyntaxWarning."</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 
@@ -631,16 +684,18 @@
 
 <span class="sd">    This is not intended for end-users but is useful in development.</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
         <span class="k">return</span> <span class="kc">None</span>
-    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">"_tb_data"</span><span class="p">]</span>
+    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">tb_data</span>
+    <span class="k">return</span> <span class="n">current_tb</span>
 
 
 <span class="k">def</span> <span class="nf">_get_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="sd">"""Debugging tool: returns the content of a traceback info."""</span>
-    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span> <span class="k">else</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">info</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span> <span class="k">else</span> <span class="p">[]</span>
 
 
 <span class="k">def</span> <span class="nf">_show_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
@@ -648,7 +703,7 @@
 
 <span class="sd">    Prints ``''`` for a given item if it is not present.</span>
 <span class="sd">    """</span>
-    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">saved_info</span> <span class="k">else</span> <span class="p">[]</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">info</span> <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span> <span class="k">else</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">base_formatters</span><span class="o">.</span><span class="n">items_in_order</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">info</span> <span class="ow">and</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
@@ -659,13 +714,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">: ''"</span><span class="p">)</span>
 
-    <span class="n">header_printed</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">base_formatters</span><span class="o">.</span><span class="n">items_in_order</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">header_printed</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">56</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"The following are not meant to be shown to the end user:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-                <span class="n">header_printed</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 
@@ -678,7 +728,6 @@
     <span class="s2">"hint"</span><span class="p">:</span> <span class="n">hint</span><span class="p">,</span>
     <span class="s2">"enable"</span><span class="p">:</span> <span class="n">enable</span><span class="p">,</span>
     <span class="s2">"disable"</span><span class="p">:</span> <span class="n">disable</span><span class="p">,</span>
-    <span class="s2">"back"</span><span class="p">:</span> <span class="n">back</span><span class="p">,</span>
     <span class="s2">"history"</span><span class="p">:</span> <span class="n">history</span><span class="p">,</span>
     <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="n">friendly_tb</span><span class="p">,</span>
     <span class="s2">"python_tb"</span><span class="p">:</span> <span class="n">python_tb</span><span class="p">,</span>

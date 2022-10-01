@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.info_generic - friendly-traceback 0.5.63</title>
+        <title>friendly_traceback.info_generic - friendly-traceback 0.7.27</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.5.63</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.63</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -178,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
@@ -334,10 +336,6 @@
         <span class="n">exception_name</span> <span class="o">=</span> <span class="n">exception_type</span>
     <span class="k">if</span> <span class="n">exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">exception_type</span><span class="p">]()</span>
-    <span class="k">elif</span> <span class="n">exception_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="s2">"UnknownWarning"</span><span class="p">]()</span>
-    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="s2">"__help__"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">exception_type</span><span class="o">.</span><span class="n">__help__</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">known_exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span>
@@ -349,9 +347,14 @@
             <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span>
                 <span class="n">exception_type</span><span class="p">,</span> <span class="n">known_exception_type</span>
             <span class="p">):</span>
-                <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
-                    <span class="s2">"An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">"</span>
-                <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">):</span>
+                    <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                        <span class="s2">"A warning of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">"</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                        <span class="s2">"An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">"</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">known_exception_type</span><span class="p">]()</span>
         <span class="k">return</span> <span class="n">no_information</span><span class="p">()</span>
 
@@ -362,6 +365,11 @@
     <span class="sd">"""Decorator used to record as available an explanation for a given exception"""</span>
 
     <span class="k">def</span> <span class="nf">add_exception</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">error_class</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"A description of `</span><span class="si">{</span><span class="n">error_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">` already exists:</span><span class="se">\n\n</span><span class="s2">"</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">error_class</span><span class="p">]()</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
         <span class="n">GENERIC</span><span class="p">[</span><span class="n">error_class</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span>
 
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
@@ -370,6 +378,22 @@
         <span class="k">return</span> <span class="n">wrapper</span>
 
     <span class="k">return</span> <span class="n">add_exception</span></div>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_exception</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"All built-in exceptions defined by Python are derived from `Exception`.</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"All user-defined exceptions should also be derived from this class.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">base_exception</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`BaseException` is the base class for all built-in exceptions.</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"It is not meant to be directly inherited by user-defined classes.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
 
 
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ArithmeticError</span><span class="p">)</span>
@@ -585,17 +609,75 @@
     <span class="p">)</span>
 
 
-<span class="nd">@register</span><span class="p">(</span><span class="s2">"UnknownWarning"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">unknown_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">"No information is available about this warning.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-
 <span class="nd">@register</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">zero_division_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">"A `ZeroDivisionError` occurs when you are attempting to divide a value</span><span class="se">\n</span><span class="s2">"</span>
         <span class="s2">"by zero either directly or by using some other mathematical operation.</span><span class="se">\n</span><span class="s2">"</span>
     <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">"`UserWarning` is the default class for `warnings.warn()`.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">SyntaxWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">syntax_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`SyntaxWarning` often indicates that your code will likely not give the result you expect.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">deprecation_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`DeprecationWarning` indicates that some feature will not be available in a future version.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">RuntimeWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">runtime_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`RuntimeWarning` often indicates some not recommended runtime features.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">future_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`FutureWarning` is the base category for features that will likely be deprecated</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"in future Python versions.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">UnicodeWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unicode_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">"`UnicodeWarning` is the base category for warnings related to unicode.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">BytesWarning</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">bytes_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
+        <span class="s2">"`BytesWarning` is the base category for warnings related to bytes and bytearray.</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@register</span><span class="p">(</span><span class="ne">Warning</span><span class="p">)</span>  <span class="c1"># Keep this one as the last warning</span>
+<span class="k">def</span> <span class="nf">_warning</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s2">"`Warning` is the base class of all warning category classes.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="c1"># The following are ignored by default:</span>
+<span class="c1">#</span>
+<span class="c1"># PendingDeprecationWarning</span>
+<span class="c1"># Base category for warnings about features that will be deprecated in the future</span>
+<span class="c1">#</span>
+<span class="c1"># ImportWarning</span>
+<span class="c1"># Base category for warnings triggered during the process of importing a module.</span>
+<span class="c1">#</span>
+<span class="c1"># ResourceWarning</span>
+<span class="c1"># Base category for warnings related to resource usage (ignored by default).</span>
 </pre></div>
         </article>
       </div>

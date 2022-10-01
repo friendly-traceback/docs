@@ -258,6 +258,7 @@ could easily be added.
    install
    usage
    usage_adv
+   confidential
 
 
 .. toctree::
@@ -275,6 +276,7 @@ could easily be added.
    friendly_object
    repl_api
    about_warnings
+   friendly_exec
 
 .. toctree::
    :maxdepth: 1

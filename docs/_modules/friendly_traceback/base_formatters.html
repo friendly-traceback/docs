@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.base_formatters - friendly-traceback 0.5.63</title>
+        <title>friendly_traceback.base_formatters - friendly-traceback 0.7.27</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.5.63</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.5.63</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -178,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
 <ul>
@@ -361,7 +363,7 @@
     <span class="s2">"simulated_python_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- python_tb()</span>
     <span class="s2">"shortened_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- friendly_tb()</span>
     <span class="s2">"suggest"</span><span class="p">,</span>  <span class="c1"># &lt;-- hint()</span>
-    <span class="s2">"warnings"</span><span class="p">,</span>
+    <span class="s2">"warning message"</span><span class="p">,</span>
     <span class="s2">"generic"</span><span class="p">,</span>  <span class="c1"># &lt;-- what()</span>
     <span class="s2">"parsing_error"</span><span class="p">,</span>
     <span class="s2">"parsing_error_source"</span><span class="p">,</span>
@@ -372,6 +374,10 @@
     <span class="s2">"exception_raised_header"</span><span class="p">,</span>
     <span class="s2">"exception_raised_source"</span><span class="p">,</span>
     <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
+    <span class="s2">"warning location header"</span><span class="p">,</span>
+    <span class="s2">"warning source"</span><span class="p">,</span>
+    <span class="s2">"warning variables"</span><span class="p">,</span>
+    <span class="s2">"additional variable warning"</span><span class="p">,</span>
 <span class="p">]</span>
 
 
@@ -382,7 +388,7 @@
     <span class="s2">"original_python_traceback"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"shortened_traceback"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"suggest"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
-    <span class="s2">"warnings"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+    <span class="s2">"warning message"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"generic"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"parsing_error"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"parsing_error_source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
@@ -393,6 +399,10 @@
     <span class="s2">"exception_raised_header"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"exception_raised_source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"exception_raised_variables"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
+    <span class="s2">"warning location header"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+    <span class="s2">"warning source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
+    <span class="s2">"warning variables"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
+    <span class="s2">"additional variable warning"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
 <span class="p">}</span>
 
 
@@ -500,7 +510,6 @@
 
 <span class="n">items_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"message"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">},</span>  <span class="c1"># Also included as last line of traceback</span>
-    <span class="s2">"message_plus"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">,</span> <span class="s2">"suggest"</span><span class="p">},</span>
     <span class="s2">"hint"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">},</span>
     <span class="s2">"what"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"generic"</span><span class="p">},</span>
     <span class="s2">"why"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"warnings"</span><span class="p">,</span> <span class="s2">"cause"</span><span class="p">},</span>
@@ -513,8 +522,12 @@
         <span class="s2">"exception_raised_header"</span><span class="p">,</span>
         <span class="s2">"exception_raised_source"</span><span class="p">,</span>
         <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
+        <span class="s2">"warning location header"</span><span class="p">,</span>
+        <span class="s2">"warning source"</span><span class="p">,</span>
+        <span class="s2">"warning variables"</span><span class="p">,</span>
+        <span class="s2">"additional variable warning"</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"shortened_traceback"</span><span class="p">,</span> <span class="s2">"suggest"</span><span class="p">,</span> <span class="s2">"warnings"</span><span class="p">},</span>
+    <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"shortened_traceback"</span><span class="p">,</span> <span class="s2">"suggest"</span><span class="p">,</span> <span class="s2">"warnings"</span><span class="p">,</span> <span class="s2">"warning message"</span><span class="p">},</span>
     <span class="s2">"python_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"simulated_python_traceback"</span><span class="p">},</span>
     <span class="s2">"debug_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"original_python_traceback"</span><span class="p">},</span>
     <span class="s2">"detailed_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"detailed_tb"</span><span class="p">},</span>
