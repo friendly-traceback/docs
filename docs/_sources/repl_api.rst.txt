@@ -1,9 +1,8 @@
 .. _console_api:
 
 
-Everything about the friendly console
-=======================================
-
+Everything about the interactive friendly console
+===================================================
 
 .. note::
 
@@ -13,20 +12,10 @@ Everything about the friendly console
     extracting information from the **friendly-traceback** code.
 
     Note that, in addition to the functions shown below,
-    when using **Friendly** instead of **friendly-traceback**,
-    some additional functions might be included as means to
-    change the colour scheme used by **Friendly**.
+    when using **friendly** instead of **friendly-traceback** in a given environment,
+    some additional functions might be included that are specific
+    to that environment.
 
 
 .. automodule:: friendly_traceback.console_helpers
    :members:
-
-.. class:: FriendlyHelpers
-
-    Helper class which can be used in a console as an alternative
-    to using the helper functions directly.
-    This can be helpful if one of the helper functions gets redefined.
-
-    It is usually instantiated using the name ``Friendly``.
-
-    For example, we can write ``Friendly.why()`` as equivalent to ``why()``.

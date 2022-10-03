@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Custom formatter" href="formatter.html" /><link rel="prev" title="IDLE’s colours" href="idle_colours.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Custom formatter" href="formatter.html" /><link rel="prev" title="Google’s colab" href="colab.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Public API - friendly-traceback 0.7.29</title>
+        <title>Public API - friendly-traceback 0.7.30</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -178,8 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
@@ -214,6 +213,13 @@
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
@@ -224,13 +230,6 @@
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Public API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
@@ -313,23 +312,16 @@
           </label>
         </div>
         <article role="main">
-          <section id="public-api">
-<h1>Public API<a class="headerlink" href="#public-api" title="Permalink to this headline">¶</a></h1>
-<p>Before getting Sphinx to document the public API automatically,
-I need to let you in on a little secret:
-occasionally, friendly-traceback will lie to you.
-Furthermore, I encourage you to do the same.</p>
-<p>Actually, if you have read the section
-<a class="reference internal" href="multiple_tracebacks.html#multiple-tracebacks"><span class="std std-ref">Multiple tracebacks</span></a>, you already have seen that the
-traceback shown usually does not include modules from friendly
-itself.  You can do the same for your own modules
-using something like the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_module</span>
-<span class="n">friendly_traceback</span><span class="o">.</span><span class="n">add_excluded_path</span><span class="p">(</span><span class="n">my_module</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
-</pre></div>
+          <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most of the documentation was written prior to version 0.5 and needs to be
+updated. This work has now started for version 0.7 and we aim to have
+it completed before version 0.8 is available.</p>
 </div>
-<p>Without further ado, here’s the API automatically obtained
-by Sphinx from the source code.</p>
+<section id="public-api">
+<h1>Public API<a class="headerlink" href="#public-api" title="Permalink to this headline">¶</a></h1>
+<p>The following Public API has been generated automatically by Sphinx
+last time the documentation was updated.</p>
 <section id="module-friendly_traceback">
 <span id="friendly-traceback"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code><a class="headerlink" href="#module-friendly_traceback" title="Permalink to this headline">¶</a></h2>
 <p>With the exceptions of the functions that are specific to the console,
@@ -346,19 +338,36 @@ or newer.</p>
 <p>If you find that some additional functionality would be useful to
 have as part of the public API, please let us know.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.enable_warnings">
+<span class="sig-name descname"><span class="pre">enable_warnings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/about_warnings.html#enable_warnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.enable_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to enable all warnings, with ‘always’ being used as the
+parameter for warnings.simplefilter.</p>
+<p>While friendly_traceback, used by many third-party packages, does not
+automatically handle warnings by default, friendly, which is meant to
+be used by end-users instead of other packages/libraries, does call
+enable_warnings by default.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.friendly_exec">
+<span class="sig-name descname"><span class="pre">friendly_exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globals_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locals_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/source_cache.html#friendly_exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.friendly_exec" title="Permalink to this definition">¶</a></dt>
+<dd><p>A version of exec that uses a different filename each time
+instead of the Python default ‘&lt;string&gt;’, and caches the source.
+This makes it possible to provide more help on code executed via ‘exec’.</p>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.exclude_directory_from_traceback">
 <span class="sig-name descname"><span class="pre">exclude_directory_from_traceback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#exclude_directory_from_traceback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.exclude_directory_from_traceback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exclude all files found in a given directory, including subdirectories,
 from appearing in a traceback generated by Friendly.
 Note that this does not apply to the true Python traceback
-obtained using “debug_tb”.</p>
+obtained using <cite>“debug_tb”</cite>.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.exclude_file_from_traceback">
 <span class="sig-name descname"><span class="pre">exclude_file_from_traceback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#exclude_file_from_traceback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.exclude_file_from_traceback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exclude a file from appearing in a traceback generated by
 Friendly.  Note that this does not apply to
-the true Python traceback obtained using “debug_tb”.</p>
+the true Python traceback obtained using <cite>“debug_tb”</cite>.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.explain_traceback">
@@ -408,12 +417,10 @@ However, this can be overridden if desired.</p>
 <dt class="sig sig-object py" id="friendly_traceback.hide_secrets">
 <span class="sig-name descname"><span class="pre">hide_secrets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#hide_secrets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.hide_secrets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Intended to prevent values of certain variables to be shown.
-Parameter:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>patterns: a list of regular expression patterns.</p></li>
-</ul>
-</div></blockquote>
+Argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patterns</span><span class="p">:</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">patterns</span><span class="o">.</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.install">
@@ -422,43 +429,44 @@ Parameter:</p>
 Intercepts, and can provide an explanation for all Python exceptions except
 for <code class="docutils literal notranslate"><span class="pre">SystemExist</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code>.</p>
 <p>The optional arguments are:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>lang: language to be used for translations. If not available,</dt><dd><p>English will be used as a default.</p>
-</dd>
-<dt>redirect: stream to be used to send the output.</dt><dd><p>The default is sys.stderr</p>
-</dd>
-</dl>
-<p>include: controls the amount of information displayed.
-See set_include() for details.</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span><span class="p">:</span> <span class="n">language</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">translations</span><span class="o">.</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">available</span><span class="p">,</span>
+      <span class="n">English</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">as</span> <span class="n">a</span> <span class="n">default</span><span class="o">.</span>
+
+<span class="n">redirect</span><span class="p">:</span> <span class="n">stream</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">send</span> <span class="n">the</span> <span class="n">output</span><span class="o">.</span>
+          <span class="n">The</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span>
+
+<span class="n">include</span><span class="p">:</span> <span class="n">controls</span> <span class="n">the</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">information</span> <span class="n">displayed</span><span class="o">.</span>
+         <span class="n">See</span> <span class="n">set_include</span><span class="p">()</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.is_installed">
 <span class="sig-name descname"><span class="pre">is_installed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#is_installed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.is_installed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if Friendly is installed, False otherwise.</p>
+<dd><p>Returns True if friendly_traceback is installed, False otherwise.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipython_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a filename (relative or absolute path) ending with the “.py”
-extension, this function uses the
-more complex <code class="docutils literal notranslate"><span class="pre">exec_code()</span></code> to run a file.</p>
+extension, this function executes the code in the file.</p>
 <p>If console is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">run()</span></code> returns an empty dict
 if a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> was raised, otherwise returns the dict in
 which the module (<code class="docutils literal notranslate"><span class="pre">filename</span></code>) was executed.</p>
 <p>If console is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default), the execution continues
 as an interactive session in a Friendly console, with the module
-dict being used as the locals dict.</p>
+dict being used as the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> dict.</p>
 <p>Other arguments include:</p>
-<p><code class="docutils literal notranslate"><span class="pre">lang</span></code>: language used; currently only <code class="docutils literal notranslate"><span class="pre">'en'</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">'fr'</span></code>
-are available.</p>
-<p><code class="docutils literal notranslate"><span class="pre">include</span></code>: specifies what information is to be included if an
-exception is raised; the default is <code class="docutils literal notranslate"><span class="pre">"friendly_tb"</span></code> if console
-is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, otherwise it is <code class="docutils literal notranslate"><span class="pre">"explain"</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">args</span></code>: strings tuple that is passed to the program as though it
-was run on the command line as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span> <span class="n">arg1</span> <span class="n">arg2</span> <span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span><span class="p">:</span> <span class="n">language</span> <span class="n">used</span><span class="p">;</span> <span class="n">currently</span> <span class="s1">'en'</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="s1">'fr'</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">,</span> <span class="s1">'ta'</span><span class="p">,</span>
+      <span class="s1">'ru'</span><span class="p">,</span> <span class="s1">'it'</span><span class="p">,</span> <span class="s1">'he'</span> <span class="n">are</span> <span class="n">available</span><span class="o">.</span>
+
+<span class="n">include</span><span class="p">:</span> <span class="n">specifies</span> <span class="n">what</span> <span class="n">information</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">be</span> <span class="n">included</span> <span class="k">if</span> <span class="n">an</span>
+         <span class="n">exception</span> <span class="ow">is</span> <span class="n">raised</span><span class="p">;</span> <span class="n">the</span> <span class="n">default</span> <span class="ow">is</span> <span class="s2">"friendly_tb"</span> <span class="k">if</span> <span class="n">console</span>
+         <span class="ow">is</span> <span class="nb">set</span> <span class="n">to</span> <span class="kc">True</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">it</span> <span class="ow">is</span> <span class="s2">"explain"</span>
+
+<span class="n">args</span><span class="p">:</span> <span class="n">strings</span> <span class="nb">tuple</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">program</span> <span class="k">as</span> <span class="n">though</span> <span class="n">it</span>
+      <span class="n">was</span> <span class="n">run</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span> <span class="k">as</span> <span class="n">follows</span><span class="p">:</span>
+          <span class="n">python</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span> <span class="n">arg1</span> <span class="n">arg2</span> <span class="o">...</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -473,19 +481,19 @@ formatter is used.</p>
 <span class="sig-name descname"><span class="pre">set_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.set_include" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the information to include in the traceback.</p>
 <p>The allowed values are:</p>
-<blockquote>
-<div><p>message,
-hint,
-what,
-why,
-where,
-friendly_tb,
-python_tb,
-debug_tb,
-detailed_tb,
-explain,
-no_tb</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">,</span>
+<span class="n">hint</span><span class="p">,</span>
+<span class="n">what</span><span class="p">,</span>
+<span class="n">why</span><span class="p">,</span>
+<span class="n">where</span><span class="p">,</span>
+<span class="n">friendly_tb</span><span class="p">,</span>
+<span class="n">python_tb</span><span class="p">,</span>
+<span class="n">debug_tb</span><span class="p">,</span>
+<span class="n">detailed_tb</span><span class="p">,</span>
+<span class="n">explain</span><span class="p">,</span>
+<span class="n">no_tb</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.set_lang">
@@ -500,7 +508,7 @@ English strings will be used.</p>
 <dd><p>Sets the stream to which the output should be directed.</p>
 <p>If the string <code class="docutils literal notranslate"><span class="pre">"capture"</span></code> is given as argument, the
 output is saved and can be later retrieved by <code class="docutils literal notranslate"><span class="pre">get_output()</span></code>.</p>
-<p>If no argument is given, the default stream (stderr) is set.</p>
+<p>If no argument is given, the default stream (<code class="docutils literal notranslate"><span class="pre">stderr</span></code>) is set.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.start_console">
@@ -517,21 +525,84 @@ shown in a traceback.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.uninstall">
 <span class="sig-name descname"><span class="pre">uninstall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#uninstall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.uninstall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resets sys.excepthook to Python’s default.</p>
+<dd><p>Resets <code class="docutils literal notranslate"><span class="pre">sys.excepthook</span></code> to Python’s default.</p>
 </dd></dl>
 </section>
 <section id="module-friendly_traceback.info_generic">
 <span id="friendly-traceback-info-generic"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code><a class="headerlink" href="#module-friendly_traceback.info_generic" title="Permalink to this headline">¶</a></h2>
-<p>info_generic.py</p>
-<p>Generic information about Python exceptions.</p>
+<p>This module contains the necessary class and functions needed to
+help describing what a given exception or warning means
+(i.e. the answer to <code class="docutils literal notranslate"><span class="pre">why()</span></code>)
+of an exception. Most of the content should be considered to be private.</p>
+<p>It does contain one decorator (<code class="docutils literal notranslate"><span class="pre">register</span></code>)
+which is intended to be part of the public API, but needs to be
+imported from this module instead of simply from <code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.info_generic.register">
 <span class="sig-prename descclassname"><span class="pre">@</span></span><span class="sig-name descname"><span class="pre">register</span></span><a class="reference internal" href="_modules/friendly_traceback/info_generic.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.info_generic.register" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decorator used to record as available an explanation for a given exception</p>
+<dd><p>Decorator used to record as available an explanation for a given exception.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly_traceback.info_generic</span> <span class="kn">import</span> <span class="n">register</span>
+
+<span class="nd">@register</span>
+<span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">SomeErrorOrWarning</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">'''`SomeErrorOrWarning` means that ...'''</span>
+</pre></div>
+</div>
 </dd></dl>
 </section>
-<section id="friendly-traceback-info-specific">
-<h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_specific</span></code><a class="headerlink" href="#friendly-traceback-info-specific" title="Permalink to this headline">¶</a></h2>
+<section id="module-friendly_traceback.message_parser">
+<span id="friendly-traceback-message-parser"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code><a class="headerlink" href="#module-friendly_traceback.message_parser" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the necessary class and functions needed to
+help finding the cause (specific information aka answer to <code class="docutils literal notranslate"><span class="pre">why()</span></code>)
+of an exception. Most of the content should be considered to be private.</p>
+<p>It does contain one function (<code class="docutils literal notranslate"><span class="pre">get_parser</span></code>)
+which is intended to be part of the public API, but needs to be
+imported from this module instead of simply from <code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.message_parser.get_parser">
+<span class="sig-name descname"><span class="pre">get_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/message_parser.html#get_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.message_parser.get_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a ‘parser’ to find the cause for a given exception.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="n">SomeSpecificError</span><span class="p">)</span>
+
+<span class="nd">@parser</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">some_meaningful_name</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">tb_data</span><span class="p">:</span> <span class="n">TracebackData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">handled_by_this_function</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>  <span class="c1"># let other parsers deal with it</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
+</section>
+<section id="module-friendly_traceback.about_warnings">
+<span id="friendly-traceback-about-warnings"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code><a class="headerlink" href="#module-friendly_traceback.about_warnings" title="Permalink to this headline">¶</a></h2>
+<p>This module includes all relevant classes and functions so that
+friendly-traceback can give help with warnings.</p>
+<p>It contains one function (<code class="docutils literal notranslate"><span class="pre">enable_warnings</span></code>) which is part of the API,
+and one (<code class="docutils literal notranslate"><span class="pre">get_warning_parser</span></code>) which is the only other function in this module
+which is intended to be part of the public API. However, while the latter
+can be imported using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">friendly_traceback</span> <span class="pre">import</span> <span class="pre">enable_warnings</span></code>,
+<code class="docutils literal notranslate"><span class="pre">get_warning_parser</span></code> needs to be imported from this module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.about_warnings.get_warning_parser">
+<span class="sig-name descname"><span class="pre">get_warning_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warning_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/about_warnings.html#get_warning_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.about_warnings.get_warning_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a ‘parser’ to find the cause for a given warning.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">get_warning_parser</span><span class="p">(</span><span class="n">SomeSpecificWarning</span><span class="p">)</span>
+
+<span class="nd">@parser</span><span class="o">.</span><span class="n">add</span>
+<span class="k">def</span> <span class="nf">some_meaningful_name</span><span class="p">(</span><span class="n">warning_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">warning_data</span><span class="p">:</span> <span class="n">WarningDataParser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">handled_by_this_function</span><span class="p">(</span><span class="n">warning_message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>  <span class="c1"># let other parsers deal with it</span>
+
+    <span class="o">...</span>
+</pre></div>
+</div>
+</dd></dl>
 </section>
 </section>
 
@@ -549,14 +620,14 @@ shown in a traceback.</p>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="idle_colours.html">
+          <a class="prev-page" href="colab.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">IDLE’s colours</div>
+                <div class="title">Google’s colab</div>
                 
               </div>
             </a>
@@ -589,7 +660,8 @@ shown in a traceback.</p>
 <li><a class="reference internal" href="#">Public API</a><ul>
 <li><a class="reference internal" href="#module-friendly_traceback"><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code></a></li>
 <li><a class="reference internal" href="#module-friendly_traceback.info_generic"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code></a></li>
-<li><a class="reference internal" href="#friendly-traceback-info-specific"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_specific</span></code></a></li>
+<li><a class="reference internal" href="#module-friendly_traceback.message_parser"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code></a></li>
+<li><a class="reference internal" href="#module-friendly_traceback.about_warnings"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code></a></li>
 </ul>
 </li>
 </ul>

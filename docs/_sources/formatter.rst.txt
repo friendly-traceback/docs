@@ -21,35 +21,36 @@ or, from the command line:
 Currently, a formatter must accept two arguments:
 
 1. A dict (``info``) which contains the friendly traceback information.
-   At the time this documenation was written, the dict items were the following::
+   At the time this documentation was written, the dict items were the following::
 
-       items = [
-            "header",
-            "message",
-            "original_python_traceback",
-            "simulated_python_traceback",
-            "shortened_traceback",
-            "suggest",
-            "generic",
+        items_in_order = [
+            "header",  # Currently unused by this project; used by HackInScience
+            "message",  # The last line of a Python traceback
+            "original_python_traceback",  # <-- Friendly._debug_tb()
+            "simulated_python_traceback",  # <-- python_tb()
+            "shortened_traceback",  # <-- friendly_tb()
+            "suggest",  # <-- hint()
+            "warning message",
+            "generic",  # <-- what()
             "parsing_error",
             "parsing_error_source",
-            "cause",
+            "cause",  # <-- why()
             "last_call_header",
             "last_call_source",
             "last_call_variables",
             "exception_raised_header",
             "exception_raised_source",
             "exception_raised_variables",
+            "warning location header",
+            "warning source",
+            "warning variables",
+            "additional variable warning",
         ]
 
 
 .. tip::
 
     Use ``Friendly._show_info()`` in a friendly console to see all possible items.
-    Note that, when an actual exception is recorded, a few items not meant to
-    be shown to the end user are stored in ``info``; this is done so as
-    to make them available in the console using method calls like
-    ``Friendly._get_exception()``, ``Friendly._get_frame()``, etc.
 
 
 2. A string (``include``) which specifies which parts of the friendly

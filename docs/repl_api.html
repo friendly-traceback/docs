@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="One last thing" href="about_warnings.html" /><link rel="prev" title="Friendly object" href="friendly_object.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendlier exec" href="friendly_exec.html" /><link rel="prev" title="Friendly object" href="friendly_object.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Everything about the friendly console - friendly-traceback 0.7.29</title>
+        <title>Everything about the interactive friendly console - friendly-traceback 0.7.30</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -178,8 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
@@ -214,6 +213,13 @@
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
@@ -224,13 +230,6 @@
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
@@ -307,14 +306,20 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="everything-about-the-friendly-console">
-<span id="console-api"></span><h1>Everything about the friendly console<a class="headerlink" href="#everything-about-the-friendly-console" title="Permalink to this headline">¶</a></h1>
+          <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most of the documentation was written prior to version 0.5 and needs to be
+updated. This work has now started for version 0.7 and we aim to have
+it completed before version 0.8 is available.</p>
+</div>
+<section id="everything-about-the-interactive-friendly-console">
+<span id="console-api"></span><h1>Everything about the interactive friendly console<a class="headerlink" href="#everything-about-the-interactive-friendly-console" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The hand-written documentation about the console
@@ -322,14 +327,29 @@ might not reflect the latest version of the code.
 This page documents the relevant API by automatically
 extracting information from the <strong>friendly-traceback</strong> code.</p>
 <p>Note that, in addition to the functions shown below,
-when using <strong>Friendly</strong> instead of <strong>friendly-traceback</strong>,
-some additional functions might be included as means to
-change the colour scheme used by <strong>Friendly</strong>.</p>
+when using <strong>friendly</strong> instead of <strong>friendly-traceback</strong> in a given environment,
+some additional functions might be included that are specific
+to that environment.</p>
 </div>
-<span class="target" id="module-friendly_traceback.console_helpers"></span><section id="console-helpers-py">
-<h2>console_helpers.py<a class="headerlink" href="#console-helpers-py" title="Permalink to this headline">¶</a></h2>
-<p>Functions that can be used in a friendly console or in other interactive
-environments such as in a Jupyter notebook.</p>
+<span class="target" id="module-friendly_traceback.console_helpers"></span><p>This module includes functions that can be used in a friendly console
+or in other <strong>interactive</strong> environments such as in a Jupyter notebook.</p>
+<p>If you intend to use <code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> in an interactive environment,
+you should use <code class="docutils literal notranslate"><span class="pre">friendly</span></code> instead, as in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.ipython</span> <span class="kn">import</span> <span class="o">...</span>
+<span class="c1"># or</span>
+<span class="kn">from</span> <span class="nn">friendly.jupyter</span> <span class="kn">import</span> <span class="o">...</span>
+<span class="c1"># etc.</span>
+</pre></div>
+</div>
+<p>Since this documentation is generated automatically by Sphinx using
+<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> code, it will not contain all the relevant
+functions specific to a given environment. To find out about what
+functions are available in such environments, do the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">friendly.X</span> <span class="kn">import</span> <span class="n">Friendly</span>
+<span class="n">prompt</span><span class="o">&gt;&gt;</span> <span class="n">Friendly</span>
+<span class="c1"># The output will include the required information</span>
+</pre></div>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.console_helpers.disable">
 <span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.disable" title="Permalink to this definition">¶</a></dt>
@@ -394,19 +414,19 @@ formatter is used.</p>
 <span class="sig-name descname"><span class="pre">set_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.set_include" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the information to include in the traceback.</p>
 <p>The allowed values are:</p>
-<blockquote>
-<div><p>message,
-hint,
-what,
-why,
-where,
-friendly_tb,
-python_tb,
-debug_tb,
-detailed_tb,
-explain,
-no_tb</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">,</span>
+<span class="n">hint</span><span class="p">,</span>
+<span class="n">what</span><span class="p">,</span>
+<span class="n">why</span><span class="p">,</span>
+<span class="n">where</span><span class="p">,</span>
+<span class="n">friendly_tb</span><span class="p">,</span>
+<span class="n">python_tb</span><span class="p">,</span>
+<span class="n">debug_tb</span><span class="p">,</span>
+<span class="n">detailed_tb</span><span class="p">,</span>
+<span class="n">explain</span><span class="p">,</span>
+<span class="n">no_tb</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.console_helpers.set_lang">
@@ -471,19 +491,7 @@ the Issues page for Friendly on Github will open.</p></li>
 <li><p>If the argument ‘site’ == “email”,
 the default email client should open with Friendly’s
 developer’s address already filled in.</p></li>
-<li><p>If the argument ‘site’ == “warnings”, a specific issue
-on Github will be shown, inviting comments.</p></li>
 </ul>
-</dd></dl>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py" id="friendly_traceback.console_helpers.FriendlyHelpers">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FriendlyHelpers</span></span><a class="reference internal" href="_modules/friendly_traceback/console_helpers.html#FriendlyHelpers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.console_helpers.FriendlyHelpers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Helper class which can be used in a console as an alternative
-to using the helper functions directly.
-This can be helpful if one of the helper functions gets redefined.</p>
-<p>It is usually instantiated using the name <code class="docutils literal notranslate"><span class="pre">Friendly</span></code>.</p>
-<p>For example, we can write <code class="docutils literal notranslate"><span class="pre">Friendly.why()</span></code> as equivalent to <code class="docutils literal notranslate"><span class="pre">why()</span></code>.</p>
 </dd></dl>
 </section>
 
@@ -492,12 +500,12 @@ This can be helpful if one of the helper functions gets redefined.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="about_warnings.html">
+          <a class="next-page" href="friendly_exec.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">One last thing</div>
+                <div class="title">Friendlier exec</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -526,27 +534,8 @@ This can be helpful if one of the helper functions gets redefined.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Everything about the friendly console</a><ul>
-<li><a class="reference internal" href="#console-helpers-py">console_helpers.py</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

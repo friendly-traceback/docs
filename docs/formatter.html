@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Registering custom error types" href="custom_errors.html" /><link rel="prev" title="Public API" href="api.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Custom formatter - friendly-traceback 0.7.29</title>
+        <title>Custom formatter - friendly-traceback 0.7.30</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -178,8 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
@@ -214,6 +213,13 @@
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
@@ -224,13 +230,6 @@
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Custom formatter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
@@ -313,7 +312,13 @@
           </label>
         </div>
         <article role="main">
-          <section id="custom-formatter">
+          <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most of the documentation was written prior to version 0.5 and needs to be
+updated. This work has now started for version 0.7 and we aim to have
+it completed before version 0.8 is available.</p>
+</div>
+<section id="custom-formatter">
 <h1>Custom formatter<a class="headerlink" href="#custom-formatter" title="Permalink to this headline">¶</a></h1>
 <p>friendly comes with various formatters which style
 the information differently based on the environment.
@@ -332,36 +337,37 @@ your own and set it as a default using either:</p>
 <p>Currently, a formatter must accept two arguments:</p>
 <ol class="arabic">
 <li><p>A dict (<code class="docutils literal notranslate"><span class="pre">info</span></code>) which contains the friendly traceback information.
-At the time this documenation was written, the dict items were the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
-     <span class="s2">"header"</span><span class="p">,</span>
-     <span class="s2">"message"</span><span class="p">,</span>
-     <span class="s2">"original_python_traceback"</span><span class="p">,</span>
-     <span class="s2">"simulated_python_traceback"</span><span class="p">,</span>
-     <span class="s2">"shortened_traceback"</span><span class="p">,</span>
-     <span class="s2">"suggest"</span><span class="p">,</span>
-     <span class="s2">"generic"</span><span class="p">,</span>
-     <span class="s2">"parsing_error"</span><span class="p">,</span>
-     <span class="s2">"parsing_error_source"</span><span class="p">,</span>
-     <span class="s2">"cause"</span><span class="p">,</span>
-     <span class="s2">"last_call_header"</span><span class="p">,</span>
-     <span class="s2">"last_call_source"</span><span class="p">,</span>
-     <span class="s2">"last_call_variables"</span><span class="p">,</span>
-     <span class="s2">"exception_raised_header"</span><span class="p">,</span>
-     <span class="s2">"exception_raised_source"</span><span class="p">,</span>
-     <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
- <span class="p">]</span>
+At the time this documentation was written, the dict items were the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items_in_order</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"header"</span><span class="p">,</span>  <span class="c1"># Currently unused by this project; used by HackInScience</span>
+    <span class="s2">"message"</span><span class="p">,</span>  <span class="c1"># The last line of a Python traceback</span>
+    <span class="s2">"original_python_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- Friendly._debug_tb()</span>
+    <span class="s2">"simulated_python_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- python_tb()</span>
+    <span class="s2">"shortened_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- friendly_tb()</span>
+    <span class="s2">"suggest"</span><span class="p">,</span>  <span class="c1"># &lt;-- hint()</span>
+    <span class="s2">"warning message"</span><span class="p">,</span>
+    <span class="s2">"generic"</span><span class="p">,</span>  <span class="c1"># &lt;-- what()</span>
+    <span class="s2">"parsing_error"</span><span class="p">,</span>
+    <span class="s2">"parsing_error_source"</span><span class="p">,</span>
+    <span class="s2">"cause"</span><span class="p">,</span>  <span class="c1"># &lt;-- why()</span>
+    <span class="s2">"last_call_header"</span><span class="p">,</span>
+    <span class="s2">"last_call_source"</span><span class="p">,</span>
+    <span class="s2">"last_call_variables"</span><span class="p">,</span>
+    <span class="s2">"exception_raised_header"</span><span class="p">,</span>
+    <span class="s2">"exception_raised_source"</span><span class="p">,</span>
+    <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
+    <span class="s2">"warning location header"</span><span class="p">,</span>
+    <span class="s2">"warning source"</span><span class="p">,</span>
+    <span class="s2">"warning variables"</span><span class="p">,</span>
+    <span class="s2">"additional variable warning"</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">Friendly._show_info()</span></code> in a friendly console to see all possible items.
-Note that, when an actual exception is recorded, a few items not meant to
-be shown to the end user are stored in <code class="docutils literal notranslate"><span class="pre">info</span></code>; this is done so as
-to make them available in the console using method calls like
-<code class="docutils literal notranslate"><span class="pre">Friendly._get_exception()</span></code>, <code class="docutils literal notranslate"><span class="pre">Friendly._get_frame()</span></code>, etc.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Friendly._show_info()</span></code> in a friendly console to see all possible items.</p>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>A string (<code class="docutils literal notranslate"><span class="pre">include</span></code>) which specifies which parts of the friendly
@@ -398,7 +404,7 @@ written to stderr; however this can be changed by the calling program.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">repl()</span></code>: This is used to print the information in a traditional console.
 The indentation of the traceback itself is chosen
-so as to reproduce that of a normal Python traceback.</p></li>
+to reproduce that of a normal Python traceback.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">docs()</span></code>: this produces output with leading spaces so that it can be
 embedded as a code-block in a file (such as .rst). It can also be used
 to print the information in a traditional console.</p></li>

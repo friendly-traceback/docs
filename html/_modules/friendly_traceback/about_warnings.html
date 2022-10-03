@@ -1,0 +1,654 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
+        <title>friendly_traceback.about_warnings - friendly-traceback 0.7.30</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #FFFFFF;
+  --color-code-foreground: #101010;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #101010;
+  --color-code-foreground: #F4F0EC;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Begin here</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beginner.html">Useful information for beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Getting Friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Logging and keeping confidential information secret</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the interactive friendly console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../import_all.html">Why <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>?</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IDLE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../idle.html">About IDLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_repl.html">IDLE’s shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_run.html">IDLE: using the editor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Mu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_about.html">About Mu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_install.html">Using with Mu: installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_repl.html">Mu’s REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mu_run.html">Mu: executing a program</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other consoles</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyrepl.html">Using another REPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code_repl.html">Visual Studio Code’s terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_repl.html">IPython’s console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_repl.html">Other repl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Editors and Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install_thonny.html">Information for Thonny</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor.html">Using with an editor or IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter.html">Jupyter notebooks and JupyterLab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../themes.html">Themes, Styles, and Colours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multiple_tracebacks.html">Multiple tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../friendly_tb.html">friendly tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ipython_tb.html">IPython tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">Jupyter tracebacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.9.html">Friendly tracebacks - Python 3.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.9.html">SyntaxError - Python 3.9</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En español</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_es.html">Friendly tracebacks - en español</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_es.html">Friendly SyntaxError tracebacks - en español</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">En français</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_fr.html"> Friendly tracebacks - en Français</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_fr.html"> Friendly SyntaxError tracebacks - en Français</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">In italiano</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_it.html">Friendly tracebacks - in italiano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_it.html">Friendly SyntaxError tracebacks - in italiano</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Русский</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_ru.html">Friendly tracebacks - in Русский</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_ru.html">Friendly SyntaxError tracebacks - in Русский</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">தமிழ் மொழி</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_ta.html">Friendly tracebacks - in தமிழ் மொழி</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_ta.html">Friendly SyntaxError tracebacks - in தமிழ் மொழி</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">בעברית</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_he.html">Friendly tracebacks - בעברית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_he.html">Friendly SyntaxError tracebacks - בעברית</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More tracebacks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../known.html">Generic information about various exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.6.html">Friendly tracebacks - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.6.html">SyntaxError - Python 3.6 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.7.html">Friendly tracebacks - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.7.html">SyntaxError - Python 3.7 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.8.html">Friendly tracebacks - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.8.html">SyntaxError - Python 3.8 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.10.html">Friendly tracebacks - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.10.html">SyntaxError - Python 3.10 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tracebacks_en_3.11.html">Friendly tracebacks - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syntax_tracebacks_en_3.11.html">SyntaxError - Python 3.11 in English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare_exceptions.html">Comparing Exception messages between Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compare.html">Comparison between Python versions: SyntaxErrors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contribute</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../suggest.html">Suggest an addition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../translation_notes.html">Notes on translations - using gettext</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for friendly_traceback.about_warnings</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""This module includes all relevant classes and functions so that</span>
+<span class="sd">friendly-traceback can give help with warnings.</span>
+
+<span class="sd">It contains one function (``enable_warnings``) which is part of the API,</span>
+<span class="sd">and one (``get_warning_parser``) which is the only other function in this module</span>
+<span class="sd">which is intended to be part of the public API. However, while the latter</span>
+<span class="sd">can be imported using ``from friendly_traceback import enable_warnings``,</span>
+<span class="sd">``get_warning_parser`` needs to be imported from this module.</span>
+<span class="sd">"""</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">import_module</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">import</span> <span class="nn">executing</span>
+<span class="kn">from</span> <span class="nn">stack_data</span> <span class="kn">import</span> <span class="n">BlankLines</span><span class="p">,</span> <span class="n">Formatter</span><span class="p">,</span> <span class="n">Options</span>
+
+<span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span> <span class="nn">.frame_info</span> <span class="kn">import</span> <span class="n">FriendlyFormatter</span>
+<span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span><span class="p">,</span> <span class="n">internal_error</span>
+<span class="kn">from</span> <span class="nn">.info_generic</span> <span class="kn">import</span> <span class="n">get_generic_explanation</span>
+<span class="kn">from</span> <span class="nn">.info_variables</span> <span class="kn">import</span> <span class="n">get_var_info</span>
+<span class="kn">from</span> <span class="nn">.path_info</span> <span class="kn">import</span> <span class="n">path_utils</span>
+<span class="kn">from</span> <span class="nn">.typing_info</span> <span class="kn">import</span> <span class="n">_E</span><span class="p">,</span> <span class="n">CauseInfo</span><span class="p">,</span> <span class="n">Parser</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+<span class="n">_warnings_seen</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">_run_with_pytest</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="s2">"pytest"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="n">_run_with_pytest</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<div class="viewcode-block" id="enable_warnings"><a class="viewcode-back" href="../../api.html#friendly_traceback.enable_warnings">[docs]</a><span class="k">def</span> <span class="nf">enable_warnings</span><span class="p">():</span>
+    <span class="sd">"""Used to enable all warnings, with 'always' being used as the</span>
+<span class="sd">    parameter for warnings.simplefilter.</span>
+
+<span class="sd">    While friendly_traceback, used by many third-party packages, does not</span>
+<span class="sd">    automatically handle warnings by default, friendly, which is meant to</span>
+<span class="sd">    be used by end-users instead of other packages/libraries, does call</span>
+<span class="sd">    enable_warnings by default.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Note: enable_warnings is imported by friendly_traceback.__init__</span>
+    <span class="c1"># so that it is part of the public API.</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"always"</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">showwarning</span> <span class="o">=</span> <span class="n">show_warning</span></div>
+
+
+<span class="k">class</span> <span class="nc">MyFormatter</span><span class="p">(</span><span class="n">Formatter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">format_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+        <span class="k">yield from</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">format_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">WarningInfo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">warning_instance</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warning_instance</span> <span class="o">=</span> <span class="n">warning_instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warning_type</span> <span class="o">=</span> <span class="n">warning_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span> <span class="o">=</span> <span class="n">lineno</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">begin_lineno</span> <span class="o">=</span> <span class="n">lineno</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning message"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">warning_type</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning message"</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">frame</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_source</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span> <span class="o">=</span> <span class="n">executing</span><span class="o">.</span><span class="n">Source</span><span class="o">.</span><span class="n">executing</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+            <span class="n">var_info</span> <span class="o">=</span> <span class="n">get_var_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning variables"</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_info</span><span class="p">[</span><span class="s2">"var_info"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">"additional variable warning"</span> <span class="ow">in</span> <span class="n">var_info</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"additional variable warning"</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_info</span><span class="p">[</span>
+                    <span class="s2">"additional variable warning"</span>
+                <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning source"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_source_frame_missing</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recompile_info</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">recompile_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"lang"</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">lang</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"generic"</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_generic_explanation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">warning_type</span><span class="p">)</span>
+        <span class="n">short_filename</span> <span class="o">=</span> <span class="n">path_utils</span><span class="o">.</span><span class="n">shorten_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"["</span> <span class="ow">in</span> <span class="n">short_filename</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                <span class="s2">"Warning issued on line `</span><span class="si">{line}</span><span class="s2">` of code block </span><span class="si">{filename}</span><span class="s2">."</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">short_filename</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                <span class="s2">"Warning issued on line `</span><span class="si">{line}</span><span class="s2">` of file '</span><span class="si">{filename}</span><span class="s2">'."</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">short_filename</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"warning location header"</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">get_warning_cause</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">warning_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">format_source</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">nb_digits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">))</span>
+        <span class="n">lineno_fmt_string</span> <span class="o">=</span> <span class="s2">"{:</span><span class="si">%d</span><span class="s2">}| "</span> <span class="o">%</span> <span class="n">nb_digits</span>  <span class="c1"># noqa</span>
+        <span class="n">line_gap_string</span> <span class="o">=</span> <span class="s2">" "</span> <span class="o">*</span> <span class="n">nb_digits</span> <span class="o">+</span> <span class="s2">"(...)"</span>
+        <span class="n">line_number_gap_string</span> <span class="o">=</span> <span class="s2">" "</span> <span class="o">*</span> <span class="p">(</span><span class="n">nb_digits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">":"</span>
+
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">FriendlyFormatter</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="n">Options</span><span class="p">(</span><span class="n">blank_lines</span><span class="o">=</span><span class="n">BlankLines</span><span class="o">.</span><span class="n">SINGLE</span><span class="p">,</span> <span class="n">before</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">line_number_format_string</span><span class="o">=</span><span class="n">lineno_fmt_string</span><span class="p">,</span>
+            <span class="n">line_gap_string</span><span class="o">=</span><span class="n">line_gap_string</span><span class="p">,</span>
+            <span class="n">line_number_gap_string</span><span class="o">=</span><span class="n">line_number_gap_string</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">formatted</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format_frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">formatted</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="k">def</span> <span class="nf">get_source_frame_missing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new_lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="n">executing</span><span class="o">.</span><span class="n">Source</span><span class="o">.</span><span class="n">for_filename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+            <span class="n">statement</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">statements_at_line</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="n">statement</span><span class="o">.</span><span class="n">lineno</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">statement</span><span class="o">.</span><span class="n">end_lineno</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">statement</span><span class="o">.</span><span class="n">lineno</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">:</span>
+                    <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"    --&gt;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"       </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_lines</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="c1"># self.lines comes from Python; it should correspond to a single logical line</span>
+            <span class="c1"># but is sometimes seemingly split in two parts.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lines</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lines</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span><span class="p">:</span>  <span class="c1"># should not happen</span>
+                <span class="n">formatted_source</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                    <span class="s2">"The source is unavailable.</span><span class="se">\n</span><span class="s2">"</span>
+                    <span class="s2">"If you used `exec`, consider using `friendly_exec` instead."</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># assume single line</span>
+                <span class="n">formatted_source</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"    --&gt;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="si">}</span><span class="s2">| "</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">problem_statement</span>
+            <span class="k">return</span> <span class="n">formatted_source</span>
+
+
+<span class="k">def</span> <span class="nf">saw_warning_before</span><span class="p">(</span><span class="n">warning_type</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">):</span>
+    <span class="sd">"""Records a warning if it has not been seen at the exact location</span>
+<span class="sd">    and returns True; returns False otherwise.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Note: unlike show_warning whose API is dictated by Python,</span>
+    <span class="c1"># we order the argument in some grouping that seems more logical</span>
+    <span class="c1"># for the recorded structure</span>
+    <span class="k">if</span> <span class="n">warning_type</span> <span class="ow">in</span> <span class="n">_warnings_seen</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">lineno</span> <span class="ow">in</span> <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">][</span><span class="n">filename</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">][</span><span class="n">filename</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lineno</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">][</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">lineno</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">][</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">lineno</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">_warnings_seen</span><span class="p">[</span><span class="n">warning_type</span><span class="p">][</span><span class="n">message</span><span class="p">][</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">lineno</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">show_warning</span><span class="p">(</span>
+    <span class="n">warning_instance</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">"&lt;&gt;"</span><span class="p">:</span>  <span class="c1"># internal to IPython</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="p">(</span>  <span class="c1"># friendly_idle causes these two warnings.</span>
+        <span class="n">warning_type</span> <span class="o">==</span> <span class="ne">ImportWarning</span>
+        <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">)</span>
+        <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">"PatchingFinder.find_spec() not found; falling back to find_module()"</span><span class="p">,</span>
+            <span class="s2">"PatchingLoader.exec_module() not found; falling back to load_module()"</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">):</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="n">saw_warning_before</span><span class="p">(</span>
+        <span class="n">warning_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">),</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span>
+    <span class="p">):</span>
+        <span class="c1"># Avoid showing the same warning if it occurs in a loop, or in</span>
+        <span class="c1"># other way in which a given instruction that give rise to a warning</span>
+        <span class="c1"># is repeated</span>
+        <span class="k">return</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">outer_frame</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">outer_frame</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="n">filename</span> <span class="ow">and</span> <span class="n">outer_frame</span><span class="o">.</span><span class="n">lineno</span> <span class="o">==</span> <span class="n">lineno</span><span class="p">:</span>
+                <span class="n">warning_data</span> <span class="o">=</span> <span class="n">WarningInfo</span><span class="p">(</span>
+                    <span class="n">warning_instance</span><span class="p">,</span>
+                    <span class="n">warning_type</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="p">,</span>
+                    <span class="n">lineno</span><span class="p">,</span>
+                    <span class="n">frame</span><span class="o">=</span><span class="n">outer_frame</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
+                    <span class="n">lines</span><span class="o">=</span><span class="n">outer_frame</span><span class="o">.</span><span class="n">code_context</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warning_data</span> <span class="o">=</span> <span class="n">WarningInfo</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">warning_data</span> <span class="o">=</span> <span class="n">WarningInfo</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">,</span> <span class="n">warning_type</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">)</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">warning_instance</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_run_with_pytest</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">warning_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">"cause"</span> <span class="ow">in</span> <span class="n">warning_data</span><span class="o">.</span><span class="n">info</span><span class="p">:</span>
+        <span class="c1"># We know how to explain this; we do not print while running tests</span>
+        <span class="k">return</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="sa">f</span><span class="s2">"`</span><span class="si">{</span><span class="n">warning_type</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">`: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="n">INCLUDED_PARSERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ne">SyntaxWarning</span><span class="p">:</span> <span class="s2">"syntax_warning"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">WARNING_DATA_PARSERS</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">class</span> <span class="nc">WarningDataParser</span><span class="p">:</span>
+    <span class="sd">"""This class is used to create objects that collect message parsers."""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Parser</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Parser</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Parser</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Parser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""This method is meant to be used only within friendly-traceback.</span>
+<span class="sd">        It is used as a decorator to add a message parser to a list that is</span>
+<span class="sd">        automatically updated.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Parser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""This method is meant to be used by projects that extend</span>
+<span class="sd">        friendly-traceback. It is used as a decorator to add a message parser</span>
+<span class="sd">        to a list that is automatically updated::</span>
+
+<span class="sd">            @instance.add</span>
+<span class="sd">            def some_warning_parsers(message, traceback_data):</span>
+<span class="sd">                ....</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span>
+
+
+<div class="viewcode-block" id="get_warning_parser"><a class="viewcode-back" href="../../api.html#friendly_traceback.get_warning_parser">[docs]</a><span class="k">def</span> <span class="nf">get_warning_parser</span><span class="p">(</span><span class="n">warning_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">_E</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">WarningDataParser</span><span class="p">:</span>
+    <span class="sd">"""Gets a 'parser' to find the cause for a given warning.</span>
+<span class="sd">    Usage::</span>
+
+<span class="sd">        parser = get_warning_parser(SomeSpecificWarning)</span>
+
+<span class="sd">        @parser.add</span>
+<span class="sd">        def some_meaningful_name(warning_message: str,</span>
+<span class="sd">                                 warning_data: WarningDataParser) -&gt; dict:</span>
+<span class="sd">            if not handled_by_this_function(warning_message):</span>
+<span class="sd">                return {}  # let other parsers deal with it</span>
+
+<span class="sd">            ...</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">warning_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WARNING_DATA_PARSERS</span><span class="p">:</span>
+        <span class="n">WARNING_DATA_PARSERS</span><span class="p">[</span><span class="n">warning_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">WarningDataParser</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">warning_type</span> <span class="ow">in</span> <span class="n">INCLUDED_PARSERS</span><span class="p">:</span>
+            <span class="n">base_path</span> <span class="o">=</span> <span class="s2">"friendly_traceback.warning_parsers."</span>
+            <span class="n">import_module</span><span class="p">(</span><span class="n">base_path</span> <span class="o">+</span> <span class="n">INCLUDED_PARSERS</span><span class="p">[</span><span class="n">warning_type</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">WARNING_DATA_PARSERS</span><span class="p">[</span><span class="n">warning_type</span><span class="p">]</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_warning_cause</span><span class="p">(</span>
+    <span class="n">warning_type</span><span class="p">,</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">warning_data</span><span class="p">:</span> <span class="n">WarningDataParser</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="sd">"""Attempts to get the likely cause of an exception."""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_cause</span><span class="p">(</span><span class="n">warning_type</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">warning_data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># noqa # pragma: no cover</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="s2">"Exception raised"</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">write_err</span><span class="p">(</span><span class="n">internal_error</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{}</span>
+
+
+<span class="k">def</span> <span class="nf">get_cause</span><span class="p">(</span>
+    <span class="n">warning_type</span><span class="p">,</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">warning_data</span><span class="p">:</span> <span class="n">WarningDataParser</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CauseInfo</span><span class="p">:</span>
+    <span class="sd">"""For a given exception type, cycle through the known message parsers,</span>
+<span class="sd">    looking for one that can find a cause of the exception."""</span>
+    <span class="n">warning_parsers</span> <span class="o">=</span> <span class="n">get_warning_parser</span><span class="p">(</span><span class="n">warning_type</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">parser</span> <span class="ow">in</span> <span class="n">warning_parsers</span><span class="o">.</span><span class="n">parsers</span><span class="p">:</span>
+        <span class="c1"># This could be simpler if we could use the walrus operator</span>
+        <span class="n">cause</span> <span class="o">=</span> <span class="n">parser</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">warning_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cause</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cause</span>
+    <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; André Roberge |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>

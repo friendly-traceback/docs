@@ -93,9 +93,13 @@ rst_epilog = """
 .. |france| image:: images/france.png
 """
 
-# rst_prolog = """
-# Add info here
-# """
+rst_prolog = """
+.. warning::
+
+    Most of the documentation was written prior to version 0.5 and needs to be
+    updated. This work has now started for version 0.7 and we aim to have
+    it completed before version 0.8 is available.
+"""
 #
 add_module_names = False
 # -- Options for HTML output -------------------------------------------------

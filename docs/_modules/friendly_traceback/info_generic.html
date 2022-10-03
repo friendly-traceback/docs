@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.info_generic - friendly-traceback 0.7.27</title>
+        <title>friendly_traceback.info_generic - friendly-traceback 0.7.30</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.27</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.27</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -165,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Getting Friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Basic usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage_adv.html">Other details for advanced users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Keeping confidential information secret</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../confidential.html">Logging and keeping confidential information secret</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
@@ -177,8 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
@@ -213,6 +212,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../colab.html">Google’s colab</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../design.html">Some thoughts on the design of friendly</a></li>
@@ -223,13 +229,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter_tb.html">Jupyter tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../idle_colours.html">IDLE’s colours</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">Public API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../formatter.html">Custom formatter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
@@ -313,9 +312,14 @@
         </div>
         <article role="main">
           <h1>Source code for friendly_traceback.info_generic</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""info_generic.py</span>
+<span></span><span class="sd">"""This module contains the necessary class and functions needed to</span>
+<span class="sd">help describing what a given exception or warning means</span>
+<span class="sd">(i.e. the answer to ``why()``)</span>
+<span class="sd">of an exception. Most of the content should be considered to be private.</span>
 
-<span class="sd">Generic information about Python exceptions.</span>
+<span class="sd">It does contain one decorator (``register``)</span>
+<span class="sd">which is intended to be part of the public API, but needs to be</span>
+<span class="sd">imported from this module instead of simply from ``friendly_traceback``.</span>
 <span class="sd">"""</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Type</span>
@@ -362,7 +366,16 @@
 <div class="viewcode-block" id="register"><a class="viewcode-back" href="../../api.html#friendly_traceback.info_generic.register">[docs]</a><span class="k">def</span> <span class="nf">register</span><span class="p">(</span>
     <span class="n">error_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">GenericExplain</span><span class="p">],</span> <span class="n">GenericExplain</span><span class="p">]:</span>
-    <span class="sd">"""Decorator used to record as available an explanation for a given exception"""</span>
+    <span class="sd">"""Decorator used to record as available an explanation for a given exception.</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from friendly_traceback.info_generic import register</span>
+
+<span class="sd">        @register</span>
+<span class="sd">        def describe(SomeErrorOrWarning) -&gt; str:</span>
+<span class="sd">            '''`SomeErrorOrWarning` means that ...'''</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span> <span class="nf">add_exception</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">error_class</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>

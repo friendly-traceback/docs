@@ -40,12 +40,6 @@ will accept any parameterless function that returns a string.
     the following will need to be rewritten for the newer version.
 
 
-
-Use the second decorator
-:func:`@friendly_traceback.info_specific.register <friendly_traceback.info_specific.register>`
-to register a specific description for a particular error instance.
-
-
 Example:
 
 .. code-block::
@@ -73,7 +67,7 @@ a simple suggestion for avoiding or mitigating the error as part of
 the friendly traceback (``friendly_tb()``).
 
 Example
-^^^^^^^
+-------
 
 Imagine we have a container ``api`` with a web service running behind
 the address ``https://my-services/api``. The following snippet requests
@@ -199,3 +193,4 @@ This results in the following customized ``friendly`` output:
 
             request:  <PreparedRequest [GET]>
             global ConnectionError:  <class requests.exceptions.ConnectionError>
+

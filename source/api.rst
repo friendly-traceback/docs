@@ -1,29 +1,20 @@
 Public API
 ==========
 
-Before getting Sphinx to document the public API automatically,
-I need to let you in on a little secret:
-occasionally, friendly-traceback will lie to you.
-Furthermore, I encourage you to do the same.
+The following Public API has been generated automatically by Sphinx
+last time the documentation was updated.
 
-Actually, if you have read the section
-:ref:`multiple_tracebacks`, you already have seen that the
-traceback shown usually does not include modules from friendly
-itself.  You can do the same for your own modules
-using something like the following::
-
-    import my_module
-    friendly_traceback.add_excluded_path(my_module.__file__)
-
-
-Without further ado, here's the API automatically obtained
-by Sphinx from the source code.
 
 ``friendly_traceback``
 ----------------------
 
 .. automodule:: friendly_traceback
    :members:
+
+   .. autofunction:: friendly_traceback.enable_warnings
+   .. autofunction:: friendly_traceback.friendly_exec
+
+
 
 ``friendly_traceback.info_generic``
 -----------------------------------
@@ -32,9 +23,18 @@ by Sphinx from the source code.
 
    .. autodecorator:: friendly_traceback.info_generic.register
 
-``friendly_traceback.info_specific``
-------------------------------------
+``friendly_traceback.message_parser``
+---------------------------------------
 
-.. automodule:: friendly_traceback.info_specific
+.. automodule:: friendly_traceback.message_parser
+   
 
-   .. autodecorator:: friendly_traceback.info_specific.register
+   .. autofunction:: friendly_traceback.message_parser.get_parser
+
+
+``friendly_traceback.about_warnings``
+---------------------------------------
+
+.. automodule:: friendly_traceback.about_warnings
+
+   .. autofunction:: friendly_traceback.about_warnings.get_warning_parser

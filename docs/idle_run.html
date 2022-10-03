@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="About Mu" href="mu_about.html" /><link rel="prev" title="IDLE’s shell" href="idle_repl.html" />
 
     <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>IDLE: using the editor - friendly-traceback 0.7.29</title>
+        <title>IDLE: using the editor - friendly-traceback 0.7.30</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.29</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.29</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -178,8 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the friendly console</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about_warnings.html">One last thing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Why import *?</span></p>
@@ -214,6 +213,13 @@
 <li class="toctree-l1"><a class="reference internal" href="vs_code.html">Visual Studio Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="colab.html">Google’s colab</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Use in your project/package/library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Thoughts on design</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
@@ -224,13 +230,6 @@
 <li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Use in your project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Public API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="formatter.html">Custom formatter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom_errors.html">Registering custom error types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Editor plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
 <ul>
@@ -313,7 +312,13 @@
           </label>
         </div>
         <article role="main">
-          <section id="idle-using-the-editor">
+          <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Most of the documentation was written prior to version 0.5 and needs to be
+updated. This work has now started for version 0.7 and we aim to have
+it completed before version 0.8 is available.</p>
+</div>
+<section id="idle-using-the-editor">
 <h1>IDLE: using the editor<a class="headerlink" href="#idle-using-the-editor" title="Permalink to this headline">¶</a></h1>
 <p>Since IDLE is part of the standard library, it is often the first
 editor that is used by beginners learning Python.

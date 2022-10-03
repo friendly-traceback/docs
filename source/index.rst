@@ -175,9 +175,14 @@ making use of
 
 
 One unique feature of friendly is that all the information
-it provides can be translated into another language; currently, only
-English (by default) and French are available but other languages
-could easily be added.
+it provides can be translated into another language.
+As a rule, French translations is (almost) always at 100%.
+Currently, Spanish, Russian, and Tamil translations are at more
+than 95% done, and Italian is about 10% done.
+
+A translation to Hebrew is approximately 80% done.
+However, since Hebrew is a right-to-left language, I am not sure that
+the translation appears correctly. 
 
 .. tab:: Screen capture
 
@@ -240,12 +245,6 @@ could easily be added.
                     seq:  [1, 2, 3]
 
 
-.. note::
-
-    New: Spanish translation is approximately half done and work
-    has started on an Italian translation.
-
-
 **Keep reading if you want to find out more.**
 
 
@@ -275,7 +274,6 @@ could easily be added.
    history
    friendly_object
    repl_api
-   about_warnings
    friendly_exec
 
 .. toctree::
@@ -327,6 +325,16 @@ could easily be added.
    vs_code
    colab
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Use in your project/package/library
+
+   api
+   formatter
+   custom_errors
+   plugins
+
 
 .. toctree::
    :maxdepth: 1
@@ -341,16 +349,6 @@ could easily be added.
    jupyter_tb
    numbered_prompt
    idle_colours
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Use in your project
-
-   api
-   formatter
-   custom_errors
-   plugins
 
 .. toctree::
    :maxdepth: 1
