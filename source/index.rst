@@ -266,12 +266,12 @@ the translation appears correctly.
    :caption: friendly console
 
    repl
+   history
    why
    what
    where
    explain
    www
-   history
    friendly_object
    repl_api
    friendly_exec

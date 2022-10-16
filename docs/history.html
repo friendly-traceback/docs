@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly object" href="friendly_object.html" /><link rel="prev" title="www()" href="www.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="why()" href="why.html" /><link rel="prev" title="Interactive mode" href="repl.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>history() and back() - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>history() - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -318,31 +318,21 @@
 updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
-<section id="history-and-back">
-<h1>history() and back()<a class="headerlink" href="#history-and-back" title="Permalink to this headline">¶</a></h1>
-<p>Earlier, I mentioned that I recommend that beginners use an editor
-instead of a REPL for writing Python code.
-The main reason is that it is easier to correct
-mistakes, and does not require to rewrite entire lines of code.
-At the same time, I recommend the use of friendly’s console to “ask questions”
-when an exception is raised.</p>
-<p>Consider the following situation, with some code that takes
-a long time to execute:</p>
-<a class="reference internal image-reference" href="_images/history1.png"><img alt="_images/history1.png" src="_images/history1.png" style="width: 742.4000000000001px; height: 170.4px;"/></a>
-<p>Suppose I want to have more details about where the exception
-was raised.</p>
-<a class="reference internal image-reference" href="_images/history2.png"><img alt="_images/history2.png" src="_images/history2.png" style="width: 742.4000000000001px; height: 186.4px;"/></a>
-<p>I made a mistake; no problem, friendly told me how to fix it.</p>
-<a class="reference internal image-reference" href="_images/history3.png"><img alt="_images/history3.png" src="_images/history3.png" style="width: 742.4000000000001px; height: 139.6px;"/></a>
-<p>Unfortunately, this is not the exception I was looking for.</p>
-<p>Instead of having to run the entire program once again, friendly
-has preserved a history of the exceptions seen so far, and allows me
-to discard them one by one, starting with the last one.</p>
-<a class="reference internal image-reference" href="_images/history4.png"><img alt="_images/history4.png" src="_images/history4.png" style="width: 742.4000000000001px; height: 117.2px;"/></a>
-<p>The only exception left is the one of interest.</p>
-<a class="reference internal image-reference" href="_images/history5.png"><img alt="_images/history5.png" src="_images/history5.png" style="width: 742.4000000000001px; height: 368.40000000000003px;"/></a>
-<p>I found the cause of the error: I wrote a string <code class="docutils literal notranslate"><span class="pre">'13'</span></code> instead of an
-integer.</p>
+<section id="history">
+<h1>history()<a class="headerlink" href="#history" title="Permalink to this heading">¶</a></h1>
+<p><strong>Friendly</strong> keeps a record of all warnings and exceptions raised during
+an interactive session. We can get a list of these at any time
+using <code class="docutils literal notranslate"><span class="pre">history()</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[1]: history()
+0. DeprecationWarning: Indiana, February 6, 1897
+1. IndexError: list index out of range
+</pre></div>
+</div>
+<p>Note that each recorded item is shown with an index, starting at 0.
+If we want <strong>Friendly</strong> to forget about the last recorded item, we can
+use <code class="docutils literal notranslate"><span class="pre">history.pop()</span></code>. If we want Friendly to remove one particular
+item, we can use <code class="docutils literal notranslate"><span class="pre">history.pop(index)</span></code>. Finally, if we want <strong>Friendly</strong>
+to forget about all recorded items so far, we can use <code class="docutils literal notranslate"><span class="pre">history.clear()</span></code>.</p>
 </section>
 
         </article>
@@ -350,23 +340,23 @@ integer.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="friendly_object.html">
+          <a class="next-page" href="why.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Friendly object</div>
+                <div class="title">why()</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="www.html">
+          <a class="prev-page" href="repl.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">www()</div>
+                <div class="title">Interactive mode</div>
                 
               </div>
             </a>
@@ -393,7 +383,9 @@ integer.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

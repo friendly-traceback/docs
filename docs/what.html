@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="where()" href="where.html" /><link rel="prev" title="why()" href="why.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>what() - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>what() - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,40 +319,35 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="what">
-<h1>what()<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h1>
-<p>Imagine that you are a beginner. You write some code and are
-suddenly confronted with the following:</p>
-<a class="reference internal image-reference" href="_images/greet_what_1.png"><img alt="Screen capture of unbound local error" src="_images/greet_what_1.png" style="width: 642.6px; height: 157.79999999999998px;"/></a>
-<p>You see <code class="docutils literal notranslate"><span class="pre">UnboundLocalError</span></code>, and have no idea what it might mean,
-in spite of the hint provided by friendly.
-Rather than heading to StackOverflow to ask a question and have it
-immediately closed as being a duplicate, you simply ask <code class="docutils literal notranslate"><span class="pre">what()</span></code>
-and friendly tries to help you.</p>
-<a class="reference internal image-reference" href="_images/greet_what_2.png"><img alt="Screen capture of explanation about unbound local error" src="_images/greet_what_2.png" style="width: 666.0px; height: 183.0px;"/></a>
-<p><code class="docutils literal notranslate"><span class="pre">what()</span></code> only gives here some generic information about what an <code class="docutils literal notranslate"><span class="pre">UnboundLocalError</span></code> is.
-Later, you will see how friendly can often give more useful
-information regarding the exact cause of the exception, and how to fix it.</p>
-<p><code class="docutils literal notranslate"><span class="pre">what()</span></code> can be useful even if an exception has not been raised.
-In principle, you can get information about any exception by passing it as
-an object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">what</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">)</span>
+<h1>what()<a class="headerlink" href="#what" title="Permalink to this heading">¶</a></h1>
+<p>Perhaps you are a beginner and do not known what <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> and <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code>
+mean. Here’s how <strong>Friendly</strong> can help you.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[4]: what()
 
-<span class="go">An IndexError occurs when you are try to get an item from a list, a tuple, or a similar</span>
-<span class="go">object (sequence), by using an index which does not exists; typically, this is because</span>
-<span class="go">the index you give is greater than the length of the sequence. Reminder: the first item</span>
-<span class="go">of a sequence is at index 0.</span>
+An IndexError occurs when you try to get an item from a list, a tuple,
+or a similar object (sequence), and use an index which does not exist;
+typically, this happens because the index you give is greater than the
+length of the sequence.
+
+
+[5]: what(0)
+
+DeprecationWarning indicates that some feature will not be available in
+a future version.
 </pre></div>
 </div>
-<p>Instead of using a known Exception object, you can pass its name as a string
-if you prefer. You can even specify a language other than English …
-as long as it is French - hopefully, support for more languages will be added
-by contributors:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_lang</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">what</span><span class="p">(</span><span class="s2">"IndentationError"</span><span class="p">)</span>
+<p>At any time, you can change the language used and <strong>Friendly</strong> will
+try to provide some help in that language provided a translation exists:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[6]: set_lang('fr')
 
-<span class="go">Une exception de type IndentationError se produit lorsqu'une ligne de code n'est pas</span>
-<span class="go">indentée (c'est-à-dire alignée verticalement avec les autres lignes) de la façon</span>
-<span class="go">attendue.</span>
+[7]: what()
+
+Une exception IndexError se produit lorsque vous essayez d’obtenir un
+élément d'une liste, d'un tuple, ou d'un objet similaire (séquence), à
+l’aide d’un indice qui n’existe pas; typiquement, c’est parce que
+l’indice que vous donnez est plus grand que la longueur de la séquence.
+
+[8]: set_lang('en')
 </pre></div>
 </div>
 </section>
@@ -405,7 +400,9 @@ by contributors:</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

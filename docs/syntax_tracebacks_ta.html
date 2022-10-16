@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - בעברית" href="tracebacks_he.html" /><link rel="prev" title="Friendly tracebacks - in தமிழ் மொழி" href="tracebacks_ta.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - in தமிழ் மொழி - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Friendly SyntaxError tracebacks - in தமிழ் மொழி - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,7 +319,7 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="friendly-syntaxerror-tracebacks-in">
-<h1>Friendly SyntaxError tracebacks - in தமிழ் மொழி<a class="headerlink" href="#friendly-syntaxerror-tracebacks-in" title="Permalink to this headline">¶</a></h1>
+<h1>Friendly SyntaxError tracebacks - in தமிழ் மொழி<a class="headerlink" href="#friendly-syntaxerror-tracebacks-in" title="Permalink to this heading">¶</a></h1>
 <p>Friendly aims to provide friendlier feedback when an exception
 is raised than what is done by Python.</p>
 <p>This file contains only examples of SyntaxError and its sub-classes.
@@ -338,7 +338,7 @@ similar files for all languages <em>and</em> update the documentation.</p>
 <p>Friendly-traceback version: 0.6.0
 Python version: 3.9.10</p>
 <section id="using-and-in-import-statement">
-<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -364,7 +364,7 @@ SyntaxError: invalid syntax
 </div>
 </section>
 <section id="using-and-after-comma-in-import-statement">
-<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -390,7 +390,7 @@ SyntaxError: invalid syntax
 </div>
 </section>
 <section id="annotated-name-cannot-be-global">
-<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this headline">¶</a></h2>
+<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -414,7 +414,7 @@ SyntaxError: annotated name 'var' can't be global
 </div>
 </section>
 <section id="incorrect-use-of-from-module-import-as">
-<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this headline">¶</a></h2>
+<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -445,7 +445,7 @@ SyntaxError: invalid syntax
 </div>
 </section>
 <section id="assign-instead-of-equal-or-walrus">
-<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this headline">¶</a></h2>
+<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -471,7 +471,7 @@ SyntaxError: invalid syntax
 </div>
 </section>
 <section id="name-assigned-prior-to-global-declaration">
-<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -495,7 +495,7 @@ SyntaxError: name 'cc' is assigned to before global declaration
 </div>
 </section>
 <section id="name-used-prior-to-global-declaration">
-<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -519,7 +519,7 @@ SyntaxError: name 'var' is used prior to global declaration
 </div>
 </section>
 <section id="name-used-prior-to-nonlocal-declaration">
-<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -545,7 +545,7 @@ SyntaxError: name 'qq' is used prior to nonlocal declaration
 </div>
 </section>
 <section id="name-assigned-prior-to-nonlocal-declaration">
-<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -571,7 +571,7 @@ SyntaxError: name 's' is assigned to before nonlocal declaration
 </div>
 </section>
 <section id="assign-to-conditional-expression">
-<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -600,7 +600,7 @@ conditional expression instead of the name of a variable.
 </div>
 </section>
 <section id="assignment-to-keyword-debug">
-<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this headline">¶</a></h2>
+<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -625,7 +625,7 @@ SyntaxError: cannot assign to __debug__
 </div>
 </section>
 <section id="id1">
-<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -650,7 +650,7 @@ SyntaxError: cannot assign to __debug__
 </div>
 </section>
 <section id="assignment-to-ellipsis-symbol">
-<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this headline">¶</a></h2>
+<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -675,7 +675,7 @@ SyntaxError: cannot assign to Ellipsis
 </div>
 </section>
 <section id="cannot-assign-to-f-string">
-<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this headline">¶</a></h2>
+<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -703,7 +703,7 @@ SyntaxError: cannot assign to f-string expression
 </div>
 </section>
 <section id="cannot-assign-to-function-call-single-sign">
-<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -791,7 +791,9 @@ SyntaxError: cannot assign to f-string expression
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

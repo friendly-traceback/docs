@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Themes, Styles, and Colours" href="themes.html" /><link rel="prev" title="Editor plugins" href="plugins.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Some thoughts on the design of friendly - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Some thoughts on the design of friendly - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,14 +319,14 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="some-thoughts-on-the-design-of-friendly">
-<h1>Some thoughts on the design of friendly<a class="headerlink" href="#some-thoughts-on-the-design-of-friendly" title="Permalink to this headline">¶</a></h1>
+<h1>Some thoughts on the design of friendly<a class="headerlink" href="#some-thoughts-on-the-design-of-friendly" title="Permalink to this heading">¶</a></h1>
 <p>The following are thoughts on the design of this project.
 More information about various design choices are scattered
 throughout this documentation.
 If you can think of better design choices,
 please feel free to file an issue.</p>
 <section id="original-purpose">
-<h2>Original purpose<a class="headerlink" href="#original-purpose" title="Permalink to this headline">¶</a></h2>
+<h2>Original purpose<a class="headerlink" href="#original-purpose" title="Permalink to this heading">¶</a></h2>
 <p>friendly’s primary purpose is to make it easier for
 beginners and/or for people that have limited knowledge of English
 to understand what caused a program to generate a traceback.</p>
@@ -335,7 +335,7 @@ traceback and use the information <strong>provided by Python</strong>
 to understand what went wrong and how to fix it.</p>
 </section>
 <section id="revised-purpose">
-<h2>Revised purpose<a class="headerlink" href="#revised-purpose" title="Permalink to this headline">¶</a></h2>
+<h2>Revised purpose<a class="headerlink" href="#revised-purpose" title="Permalink to this heading">¶</a></h2>
 <p>As friendly was developed, we found that going beyond
 providing an explanation for the traceback printed by Python
 was potentially very useful. This is something that is currently
@@ -352,7 +352,7 @@ of the exception, but makes some additional suggestions in
 a few relatively rare cases.</p>
 </section>
 <section id="gradual-reveal">
-<h2>Gradual reveal<a class="headerlink" href="#gradual-reveal" title="Permalink to this headline">¶</a></h2>
+<h2>Gradual reveal<a class="headerlink" href="#gradual-reveal" title="Permalink to this heading">¶</a></h2>
 <p>Initially, it was thought that the information provided by friendly
 should be shown all at once. As we accumulated more and more cases,
 we realised that this could yield a huge amount of material which could
@@ -368,7 +368,7 @@ This has been inspired in parts by the
 project.</p>
 </section>
 <section id="summary-of-design-choices">
-<h2>Summary of design choices<a class="headerlink" href="#summary-of-design-choices" title="Permalink to this headline">¶</a></h2>
+<h2>Summary of design choices<a class="headerlink" href="#summary-of-design-choices" title="Permalink to this heading">¶</a></h2>
 <p>Scattered throughout this documentation, we added notes about choices
 that were made in designing friendly and friendly-traceback.
 These are are listed below.</p>
@@ -419,20 +419,20 @@ and for headings showing where an exception occurred.</p>
 </div>
 </section>
 <section id="about-warnings">
-<h2>About Warnings<a class="headerlink" href="#about-warnings" title="Permalink to this headline">¶</a></h2>
+<h2>About Warnings<a class="headerlink" href="#about-warnings" title="Permalink to this heading">¶</a></h2>
 <p>In addition to generating exceptions, Python can provide some Warnings
 to users. For now, these are simply silenced but we would like to
 consider including them in the information provided by
 friendly.</p>
 </section>
 <section id="location-of-the-exception">
-<h2>Location of the exception<a class="headerlink" href="#location-of-the-exception" title="Permalink to this headline">¶</a></h2>
+<h2>Location of the exception<a class="headerlink" href="#location-of-the-exception" title="Permalink to this heading">¶</a></h2>
 <p>While a Python traceback includes the information from all the frames
 that were involved, friendly focus on the first and last frame,
 as these are more likely to contain the relevant information to the user.</p>
 </section>
 <section id="variable-information">
-<h2>Variable information<a class="headerlink" href="#variable-information" title="Permalink to this headline">¶</a></h2>
+<h2>Variable information<a class="headerlink" href="#variable-information" title="Permalink to this heading">¶</a></h2>
 <aside class="sidebar">
 <p class="sidebar-title">Very old version!</p>
 <p>The screenshots on this page have been done with a very old
@@ -453,7 +453,7 @@ we show its value as it can sometimes be helpful in identifying the problem.</p>
 <a class="reference internal image-reference" href="_images/index_error2.png"><img alt="IndexError traceback" src="_images/index_error2.png" style="width: 561.0px; height: 123.5px;"/></a>
 </section>
 <section id="syntaxerror-invalid-syntax">
-<h2>SyntaxError: invalid syntax<a class="headerlink" href="#syntaxerror-invalid-syntax" title="Permalink to this headline">¶</a></h2>
+<h2>SyntaxError: invalid syntax<a class="headerlink" href="#syntaxerror-invalid-syntax" title="Permalink to this heading">¶</a></h2>
 <p>For <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, Python often offers very little useful information
 beyond where it finally identified that a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> occurred.
 Sometimes, the offending code actually occurred well before: for example,
@@ -465,7 +465,7 @@ error.</p>
 <a class="reference internal image-reference" href="_images/syntax_error.png"><img alt="SyntaxError traceback" src="_images/syntax_error.png" style="width: 556.0px; height: 275.0px;"/></a>
 </section>
 <section id="localization">
-<h2>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h2>
+<h2>Localization<a class="headerlink" href="#localization" title="Permalink to this heading">¶</a></h2>
 <p>It is possible to translate almost all the text provided
 by friendly.</p>
 <p>When using Python, it is customary to determine which language should
@@ -495,7 +495,7 @@ specific version.</p>
 </div>
 </section>
 <section id="other-similar-projects">
-<h2>Other similar projects<a class="headerlink" href="#other-similar-projects" title="Permalink to this headline">¶</a></h2>
+<h2>Other similar projects<a class="headerlink" href="#other-similar-projects" title="Permalink to this heading">¶</a></h2>
 <p>Many other projects do some enhanced traceback formatting, however
 <strong>none that we know of</strong> aim at</p>
 <ol class="arabic simple">
@@ -606,7 +606,9 @@ The following is an incomplete list of projects or modules to look at:</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

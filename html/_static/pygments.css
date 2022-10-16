@@ -54,6 +54,7 @@
 .highlight .nt { color: #0011AA } /* Name.Tag */
 .highlight .nv { color: #101010 } /* Name.Variable */
 .highlight .ow { color: #005500 } /* Operator.Word */
+.highlight .pm { color: #783114 } /* Punctuation.Marker */
 .highlight .w { color: #101010 } /* Text.Whitespace */
 .highlight .mb { color: #101010 } /* Literal.Number.Bin */
 .highlight .mf { color: #101010 } /* Literal.Number.Float */
@@ -136,6 +137,7 @@ body[data-theme="dark"] .highlight .py { color: #DEB887 } /* Name.Property */
 body[data-theme="dark"] .highlight .nt { color: #DEB887 } /* Name.Tag */
 body[data-theme="dark"] .highlight .nv { color: #F4F0EC } /* Name.Variable */
 body[data-theme="dark"] .highlight .ow { color: #F0E68C } /* Operator.Word */
+body[data-theme="dark"] .highlight .pm { color: #87CEEB } /* Punctuation.Marker */
 body[data-theme="dark"] .highlight .w { color: #F4F0EC } /* Text.Whitespace */
 body[data-theme="dark"] .highlight .mb { color: #F4F0EC } /* Literal.Number.Bin */
 body[data-theme="dark"] .highlight .mf { color: #F4F0EC } /* Literal.Number.Float */
@@ -219,6 +221,7 @@ body:not([data-theme="light"]) .highlight .py { color: #DEB887 } /* Name.Propert
 body:not([data-theme="light"]) .highlight .nt { color: #DEB887 } /* Name.Tag */
 body:not([data-theme="light"]) .highlight .nv { color: #F4F0EC } /* Name.Variable */
 body:not([data-theme="light"]) .highlight .ow { color: #F0E68C } /* Operator.Word */
+body:not([data-theme="light"]) .highlight .pm { color: #87CEEB } /* Punctuation.Marker */
 body:not([data-theme="light"]) .highlight .w { color: #F4F0EC } /* Text.Whitespace */
 body:not([data-theme="light"]) .highlight .mb { color: #F4F0EC } /* Literal.Number.Bin */
 body:not([data-theme="light"]) .highlight .mf { color: #F4F0EC } /* Literal.Number.Float */

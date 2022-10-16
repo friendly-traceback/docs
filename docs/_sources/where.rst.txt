@@ -3,63 +3,89 @@ where()
 =======
 
 Python traceback give information about where an exception was raised and
-more. But it does so in a way that's not entirely friendly to users.
-Let's look at a different example, and see how friendly
-can give a bit more information about the location of the problem.
+more. But it does so in a way that's not entirely friendly to users, showing a
+single line for each "frame" in which a function call took place::
+
+  > python example2.py
+  C:\Users\Andre\demos\example2.py:9: DeprecationWarning: Indiana, February 6, 1897
+    indiana_tau = indiana_pi() * 2
+  Traceback (most recent call last):
+    File "C:\Users\Andre\demos\example2.py", line 15, in <module>
+      print(get_last([1, 2, 3]))
+    File "C:\Users\Andre\demos\example2.py", line 13, in get_last
+      return seq[last_index]
+  IndexError: list index out of range
 
 
-.. code-block:: python
-
-    >>> test_4(42)
-
-    Traceback (most recent call last):
-      File "<friendly-console:10>", line 1, in <module>
-        test_4(42)
-
-           ... More lines not shown. ...
-
-        test_2(x)
-      File "<friendly-console:7>", line 2, in test_2
-        test_1(x)
-      File "<friendly-console:8>", line 3, in test_1
-        print(arg + something + others)
-    NameError: name 'others' is not defined
-
-    Did you mean other?
+Friendly, can give more information about the location of the error.
 
 
-By default, friendly limits the length of the traceback
-shown to the user.
-[If you want to see a full traceback instead, use ``python_tb()`` or
-see :ref:`multiple_tracebacks` for more details.]
-Still, Python tracebacks can be rather too terse looking for
-beginners, making it difficult for them to grasp where the error occurred.
+.. tab:: Screen capture
+
+    .. image:: images/where.png
+       :scale: 70 %
+       :alt: Python IndexError example - where()
 
 
-Let's see how ``where()`` can get a bit more information about this::
+.. tab:: Text version
 
-    >>> where()
+  .. code-block:: python
 
-    Execution stopped on line 1 of file '<friendly-console:10>'.
 
-        -->1: test_4(42)
+    [10]: where()
 
-        test_4: <function test_4>
+        Execution stopped on line `15` of file 'HOME:\demos\example2.py'.
 
-    Exception raised on line 3 of file '<friendly-console:8>'.
+           11| def get_last(seq):
+           12|     last_index = len(seq)
+           13|     return seq[last_index]
+           14|
+        -->15| print(get_last([1, 2, 3]))
+                     ^^^^^^^^^^^^^^^^^^^
 
-           1: def test_1(arg):
-           2:     other = 3
-        -->3:     print(arg + something + others)
-                                          ^^^^^^
+                get_last:  <function get_last>
 
-        arg: 42
-        global something: 4
-        print: <builtin function print>
-    >>>
+        Exception raised on line `13` of file 'HOME:\demos\example2.py'.
 
-friendly gives detailed information about two locations
-at most: where the program stopped and where the exception was
-raised. It shows a few lines of code near the source of the problem,
-and gives some information about what it thinks might be
-relevant identifiers.
+           11| def get_last(seq):
+           12|     last_index = len(seq)
+        -->13|     return seq[last_index]
+                          ^^^^^^^^^^^^^^^
+
+                last_index:  3
+                seq:  [1, 2, 3]
+
+.. note::
+
+    In the text version above, instead of using ``friendly example2.py -x``,
+    which highlights the location of the error with a different background
+    colour, I have used ``friendlyl example2.py -x -f docs`` to get a text
+    version which uses carets (``^``) to indicate the location of the error.
+
+We can do the same for the deprecation warning::
+
+  [11]: where(0)
+
+      Warning issued on line `9` of file 'HOME:\demos\example2.py'.
+
+         5|     warnings.warn("Indiana, February 6, 1897", DeprecationWarning,
+         6|                   stacklevel = 2)
+         7|     return 3.2
+         8|
+      -->9| indiana_tau = indiana_pi() * 2
+                          ^^^^^^^^^^^^
+         10|
+         11| def get_last(seq):
+
+              indiana_pi:  <function indiana_pi>
+
+
+More details
+-------------
+
+By default, ``where()`` focuses on the last line where the exception was actually 
+raised and, if different, the first line entered by a user which started the
+series of call that resulted in a traceback. Sometimes, it might
+be useful to get more information about each "frame" which was involved in 
+a traceback. This can be done using an optional argument:
+``where(more=True)``. 

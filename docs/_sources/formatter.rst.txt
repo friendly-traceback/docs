@@ -50,7 +50,13 @@ Currently, a formatter must accept two arguments:
 
 .. tip::
 
-    Use ``Friendly._show_info()`` in a friendly console to see all possible items.
+    To see all the items of a traceback when object ``Friendly`` is available, do the
+    following::
+
+        from pprint import pprint
+        
+        info = Friendly._get_info()
+        pprint(info)
 
 
 2. A string (``include``) which specifies which parts of the friendly

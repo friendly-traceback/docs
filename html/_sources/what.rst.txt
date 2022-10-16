@@ -1,50 +1,36 @@
 what()
 ======
 
-Imagine that you are a beginner. You write some code and are
-suddenly confronted with the following:
+Perhaps you are a beginner and do not known what ``IndexError`` and ``DeprecationWarning``
+mean. Here's how **Friendly** can help you.
 
-.. image:: images/greet_what_1.png
-   :scale: 60 %
-   :alt: Screen capture of unbound local error
+.. code-block:: none
 
+   [4]: what()
 
-You see ``UnboundLocalError``, and have no idea what it might mean,
-in spite of the hint provided by friendly.
-Rather than heading to StackOverflow to ask a question and have it
-immediately closed as being a duplicate, you simply ask ``what()``
-and friendly tries to help you.
-
-.. image:: images/greet_what_2.png
-   :scale: 60 %
-   :alt: Screen capture of explanation about unbound local error
+   An IndexError occurs when you try to get an item from a list, a tuple,
+   or a similar object (sequence), and use an index which does not exist;
+   typically, this happens because the index you give is greater than the
+   length of the sequence.
 
 
-``what()`` only gives here some generic information about what an ``UnboundLocalError`` is.
-Later, you will see how friendly can often give more useful
-information regarding the exact cause of the exception, and how to fix it.
+   [5]: what(0)
 
-``what()`` can be useful even if an exception has not been raised.
-In principle, you can get information about any exception by passing it as
-an object::
+   DeprecationWarning indicates that some feature will not be available in
+   a future version.
 
-    >>> what(IndexError)
+At any time, you can change the language used and **Friendly** will
+try to provide some help in that language provided a translation exists::
 
-    An IndexError occurs when you are try to get an item from a list, a tuple, or a similar
-    object (sequence), by using an index which does not exists; typically, this is because
-    the index you give is greater than the length of the sequence. Reminder: the first item
-    of a sequence is at index 0.
+   [6]: set_lang('fr')
 
+   [7]: what()
 
-Instead of using a known Exception object, you can pass its name as a string
-if you prefer. You can even specify a language other than English ...
-as long as it is French - hopefully, support for more languages will be added
-by contributors::
+   Une exception IndexError se produit lorsque vous essayez d’obtenir un
+   élément d'une liste, d'un tuple, ou d'un objet similaire (séquence), à
+   l’aide d’un indice qui n’existe pas; typiquement, c’est parce que
+   l’indice que vous donnez est plus grand que la longueur de la séquence.
 
-    >>> set_lang('fr')
-    >>> what("IndentationError")
+   [8]: set_lang('en')
 
-    Une exception de type IndentationError se produit lorsqu'une ligne de code n'est pas
-    indentée (c'est-à-dire alignée verticalement avec les autres lignes) de la façon
-    attendue.
 

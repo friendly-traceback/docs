@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visual Studio Code" href="vs_code.html" /><link rel="prev" title="Using with an editor or IDE" href="editor.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Jupyter notebooks and JupyterLab - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Jupyter notebooks and JupyterLab - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,14 +319,14 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="jupyter-notebooks-and-jupyterlab">
-<h1>Jupyter notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this headline">¶</a></h1>
+<h1>Jupyter notebooks and JupyterLab<a class="headerlink" href="#jupyter-notebooks-and-jupyterlab" title="Permalink to this heading">¶</a></h1>
 <p>Friendly supports Jupyter notebooks and variants.
 Note that, other than when I specifically do work to improve
 friendly’s integration with Jupyter, I do not use Jupyter
 and may not notice any bugs due to changes in Jupyter and iPython;
 please feel free to report any issues.</p>
 <section id="suggested-usage">
-<h2>Suggested usage<a class="headerlink" href="#suggested-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Suggested usage<a class="headerlink" href="#suggested-usage" title="Permalink to this heading">¶</a></h2>
 <p>If you are using a Classic notebook, or JupyterLab
 with a light theme, I suggest that use the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.jupyter</span> <span class="kn">import</span> <span class="n">Friendly</span>
@@ -380,11 +380,11 @@ button.</p>
 </div>
 </section>
 <section id="available-formatters">
-<h2>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this headline">¶</a></h2>
+<h2>Available formatters<a class="headerlink" href="#available-formatters" title="Permalink to this heading">¶</a></h2>
 <p>To be added</p>
 </section>
 <section id="normal-jupyter-tracebacks">
-<h2>Normal Jupyter tracebacks.<a class="headerlink" href="#normal-jupyter-tracebacks" title="Permalink to this headline">¶</a></h2>
+<h2>Normal Jupyter tracebacks.<a class="headerlink" href="#normal-jupyter-tracebacks" title="Permalink to this heading">¶</a></h2>
 <p>By default, tracebacks in JupyterLab notebooks (or Juypter notebooks)
 displayed in a browser are given a pink background (1).
 The image below shows the “old” style of tracebacks.</p>
@@ -423,7 +423,7 @@ the default formatter is known as <code class="docutils literal notranslate"><sp
 <a class="reference internal image-reference" href="_images/jupyter-lab-default3.png"><img alt="_images/jupyter-lab-default3.png" src="_images/jupyter-lab-default3.png" style="width: 723.6px; height: 517.8px;"/></a>
 </section>
 <section id="dark-background">
-<h2>Dark background<a class="headerlink" href="#dark-background" title="Permalink to this headline">¶</a></h2>
+<h2>Dark background<a class="headerlink" href="#dark-background" title="Permalink to this heading">¶</a></h2>
 <p>JupyterLab also gives the choice of a dark background theme.
 Here’s how the previous example look with this dark theme.</p>
 <a class="reference internal image-reference" href="_images/jupyter-lab-dark.png"><img alt="_images/jupyter-lab-dark.png" src="_images/jupyter-lab-dark.png" style="width: 658.1999999999999px; height: 813.0px;"/></a>
@@ -438,7 +438,7 @@ are very difficult to read.
 For this reason, I much prefer using the <code class="docutils literal notranslate"><span class="pre">'dark'</span></code> friendly
 formatter in this case.</p>
 <section id="about-the-hash-digest">
-<h3>About the hash_digest<a class="headerlink" href="#about-the-hash-digest" title="Permalink to this headline">¶</a></h3>
+<h3>About the hash_digest<a class="headerlink" href="#about-the-hash-digest" title="Permalink to this heading">¶</a></h3>
 <p>The hash_digest is meant to uniquely identify the content of a code block.
 However, this does not appear the case when the same code is entered
 in different cells for sessions where one uses more than one notebook.
@@ -452,7 +452,7 @@ the need to restart a kernel.</p>
 </section>
 </section>
 <section id="developer-s-notes">
-<h2>Developer’s notes<a class="headerlink" href="#developer-s-notes" title="Permalink to this headline">¶</a></h2>
+<h2>Developer’s notes<a class="headerlink" href="#developer-s-notes" title="Permalink to this heading">¶</a></h2>
 <div class="admonition-design_choice admonition" id="id5">
 <p class="admonition-title">Design Choice: Jupyter font family with Rich</p>
 <p>Instead of using the Jupyter default, Rich specifies a
@@ -539,7 +539,9 @@ look and feel.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Custom formatter" href="formatter.html" /><link rel="prev" title="Google’s colab" href="colab.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Public API - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Public API - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,11 +319,11 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="public-api">
-<h1>Public API<a class="headerlink" href="#public-api" title="Permalink to this headline">¶</a></h1>
+<h1>Public API<a class="headerlink" href="#public-api" title="Permalink to this heading">¶</a></h1>
 <p>The following Public API has been generated automatically by Sphinx
 last time the documentation was updated.</p>
 <section id="module-friendly_traceback">
-<span id="friendly-traceback"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code><a class="headerlink" href="#module-friendly_traceback" title="Permalink to this headline">¶</a></h2>
+<span id="friendly-traceback"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code><a class="headerlink" href="#module-friendly_traceback" title="Permalink to this heading">¶</a></h2>
 <p>With the exceptions of the functions that are specific to the console,
 this module contains all the functions that are part of the public API.
 While Friendly-traceback is still considered to be in beta stage,
@@ -339,13 +339,18 @@ or newer.</p>
 have as part of the public API, please let us know.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.enable_warnings">
-<span class="sig-name descname"><span class="pre">enable_warnings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/about_warnings.html#enable_warnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.enable_warnings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">enable_warnings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/about_warnings.html#enable_warnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.enable_warnings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used to enable all warnings, with ‘always’ being used as the
 parameter for warnings.simplefilter.</p>
 <p>While friendly_traceback, used by many third-party packages, does not
 automatically handle warnings by default, friendly, which is meant to
 be used by end-users instead of other packages/libraries, does call
 enable_warnings by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.friendly_exec">
@@ -353,6 +358,40 @@ enable_warnings by default.</p>
 <dd><p>A version of exec that uses a different filename each time
 instead of the Python default ‘&lt;string&gt;’, and caches the source.
 This makes it possible to provide more help on code executed via ‘exec’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.add_ignored_warnings">
+<span class="sig-name descname"><span class="pre">add_ignored_warnings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_not_show_warning</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_ignored_warnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_ignored_warnings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a function which will be passed
+<code class="docutils literal notranslate"><span class="pre">warning_instance,</span> <span class="pre">warning_type,</span> <span class="pre">filename,</span> <span class="pre">lineno</span></code> as arguments
+when a warning is raised. If this function returns <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
+warning will be ignored.</p>
+<p>This is intended for third-party packages that might trigger warnings
+which should not be shown to a user of friendly_traceback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.add_other_set_lang">
+<span class="sig-name descname"><span class="pre">add_other_set_lang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_other_set_lang"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_other_set_lang" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intended for extension to friendly_traceback that can also do translations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – a callable that should be invoked when <code class="docutils literal notranslate"><span class="pre">set_lang</span></code> is called to
+also set the language of the extension.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.exclude_directory_from_traceback">
@@ -360,14 +399,31 @@ This makes it possible to provide more help on code executed via ‘exec’.</p>
 <dd><p>Exclude all files found in a given directory, including subdirectories,
 from appearing in a traceback generated by Friendly.
 Note that this does not apply to the true Python traceback
-obtained using <cite>“debug_tb”</cite>.</p>
+obtained using <code class="docutils literal notranslate"><span class="pre">"debug_tb"</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dir_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>]) – the path representing the directory to exclude.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.exclude_file_from_traceback">
 <span class="sig-name descname"><span class="pre">exclude_file_from_traceback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#exclude_file_from_traceback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.exclude_file_from_traceback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exclude a file from appearing in a traceback generated by
-Friendly.  Note that this does not apply to
-the true Python traceback obtained using <cite>“debug_tb”</cite>.</p>
+Friendly.
+Note that this does not apply to the true Python traceback
+obtained using <code class="docutils literal notranslate"><span class="pre">"debug_tb"</span></code> in interactive mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>full_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code>]) – the path of the file to exclude from the traceback.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.explain_traceback">
@@ -376,21 +432,28 @@ the true Python traceback obtained using <cite>“debug_tb”</cite>.</p>
 information about a given exception than a standard traceback.
 Note that this excludes <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code>
 which are re-raised.</p>
-<p>By default, the output goes to <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code> or to some other stream
-set to be the default by another API call. However, if:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redirect</span> <span class="o">=</span> <span class="n">some_stream</span>
-</pre></div>
-</div>
-<p>is specified, the output goes to that stream, but without changing
-the global settings.</p>
-<p>If the string <code class="docutils literal notranslate"><span class="pre">"capture"</span></code> is given as the value for <code class="docutils literal notranslate"><span class="pre">redirect</span></code>, the
-output is saved and can be later retrieved by <code class="docutils literal notranslate"><span class="pre">get_output()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>redirect</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – some specified stream. By default, the output goes to
+<code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code>. If the string <code class="docutils literal notranslate"><span class="pre">"capture"</span></code> is given as the value
+for <code class="docutils literal notranslate"><span class="pre">redirect</span></code>, the output is saved and can be later retrieved
+by <code class="docutils literal notranslate"><span class="pre">get_output()</span></code>.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.get_include">
 <span class="sig-name descname"><span class="pre">get_include</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#get_include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.get_include" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the value used to determine what to include in the
+<dd><p>Retrieves the single string value used to determine what to include in the
 traceback. See <code class="docutils literal notranslate"><span class="pre">set_include()</span></code> for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘message’, ‘hint’, ‘what’, ‘why’, ‘where’, ‘friendly_tb’, ‘python_tb’, ‘debug_tb’, ‘explain’, ‘no_tb’]</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.get_lang">
@@ -399,51 +462,82 @@ traceback. See <code class="docutils literal notranslate"><span class="pre">set_
 <p>Note that the value returned may not reflect truly what is being
 seen by the end user: if the translations do not exist for that language,
 the default English strings are used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.get_output">
 <span class="sig-name descname"><span class="pre">get_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flush</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#get_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.get_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the result of captured output as a string which can be
 written anywhere desired.</p>
-<p>By default, flushes all the captured content.
-However, this can be overridden if desired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flush</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – True y default, flushes all the captured content.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.get_stream">
 <span class="sig-name descname"><span class="pre">get_stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#get_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.get_stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the value of the current stream used for output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.hide_secrets">
 <span class="sig-name descname"><span class="pre">hide_secrets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patterns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#hide_secrets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.hide_secrets" title="Permalink to this definition">¶</a></dt>
-<dd><p>Intended to prevent values of certain variables to be shown.
-Argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patterns</span><span class="p">:</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">patterns</span><span class="o">.</span>
-</pre></div>
-</div>
+<dd><p>Intended to prevent values of certain variables to be shown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>patterns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>]) – a list of regular expression patterns.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.install">
-<span class="sig-name descname"><span class="pre">install</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'explain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.install" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">install</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'explain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.install" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces <code class="docutils literal notranslate"><span class="pre">sys.excepthook</span></code> by friendly’s own version.
 Intercepts, and can provide an explanation for all Python exceptions except
 for <code class="docutils literal notranslate"><span class="pre">SystemExist</span></code> and <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code>.</p>
-<p>The optional arguments are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span><span class="p">:</span> <span class="n">language</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">translations</span><span class="o">.</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">available</span><span class="p">,</span>
-      <span class="n">English</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">as</span> <span class="n">a</span> <span class="n">default</span><span class="o">.</span>
-
-<span class="n">redirect</span><span class="p">:</span> <span class="n">stream</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">send</span> <span class="n">the</span> <span class="n">output</span><span class="o">.</span>
-          <span class="n">The</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span>
-
-<span class="n">include</span><span class="p">:</span> <span class="n">controls</span> <span class="n">the</span> <span class="n">amount</span> <span class="n">of</span> <span class="n">information</span> <span class="n">displayed</span><span class="o">.</span>
-         <span class="n">See</span> <span class="n">set_include</span><span class="p">()</span> <span class="k">for</span> <span class="n">details</span><span class="o">.</span>
-</pre></div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lang</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – language to be used for translations. If not available,
+English will be used as a default.</p></li>
+<li><p><strong>redirect</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – stream to be used to send the output.
+The default is <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code>.</p></li>
+<li><p><strong>include</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘message’, ‘hint’, ‘what’, ‘why’, ‘where’, ‘friendly_tb’, ‘python_tb’, ‘debug_tb’, ‘explain’, ‘no_tb’]) – controls the amount of information displayed.
+See <code class="docutils literal notranslate"><span class="pre">set_include()</span></code> for details.</p></li>
+<li><p><strong>_debug</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – optional argument that can be used to enable some debugging
+features.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.is_installed">
 <span class="sig-name descname"><span class="pre">is_installed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#is_installed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.is_installed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if friendly_traceback is installed, False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.run">
@@ -456,64 +550,91 @@ which the module (<code class="docutils literal notranslate"><span class="pre">f
 <p>If console is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default), the execution continues
 as an interactive session in a Friendly console, with the module
 dict being used as the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> dict.</p>
-<p>Other arguments include:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span><span class="p">:</span> <span class="n">language</span> <span class="n">used</span><span class="p">;</span> <span class="n">currently</span> <span class="s1">'en'</span> <span class="p">(</span><span class="n">default</span><span class="p">),</span> <span class="s1">'fr'</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">,</span> <span class="s1">'ta'</span><span class="p">,</span>
-      <span class="s1">'ru'</span><span class="p">,</span> <span class="s1">'it'</span><span class="p">,</span> <span class="s1">'he'</span> <span class="n">are</span> <span class="n">available</span><span class="o">.</span>
-
-<span class="n">include</span><span class="p">:</span> <span class="n">specifies</span> <span class="n">what</span> <span class="n">information</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">be</span> <span class="n">included</span> <span class="k">if</span> <span class="n">an</span>
-         <span class="n">exception</span> <span class="ow">is</span> <span class="n">raised</span><span class="p">;</span> <span class="n">the</span> <span class="n">default</span> <span class="ow">is</span> <span class="s2">"friendly_tb"</span> <span class="k">if</span> <span class="n">console</span>
-         <span class="ow">is</span> <span class="nb">set</span> <span class="n">to</span> <span class="kc">True</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">it</span> <span class="ow">is</span> <span class="s2">"explain"</span>
-
-<span class="n">args</span><span class="p">:</span> <span class="n">strings</span> <span class="nb">tuple</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">program</span> <span class="k">as</span> <span class="n">though</span> <span class="n">it</span>
-      <span class="n">was</span> <span class="n">run</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span> <span class="k">as</span> <span class="n">follows</span><span class="p">:</span>
-          <span class="n">python</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span> <span class="n">arg1</span> <span class="n">arg2</span> <span class="o">...</span>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lang</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – language used; currently ‘en’ (default), ‘fr’, ‘es’, ‘ta’,
+‘ru’, ‘it’, ‘he’ are available.</p></li>
+<li><p><strong>include</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘message’, ‘hint’, ‘what’, ‘why’, ‘where’, ‘friendly_tb’, ‘python_tb’, ‘debug_tb’, ‘explain’, ‘no_tb’]]) – specifies what information is to be included if an
+exception is raised; the default is “friendly_tb” if console
+is set to True, otherwise it is “explain”</p></li>
+<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – <p>strings tuple that is passed to the program as though it
+was run on the command line as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span> <span class="n">arg1</span> <span class="n">arg2</span> <span class="o">...</span>
 </pre></div>
 </div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.set_formatter">
 <span class="sig-name descname"><span class="pre">set_formatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_formatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.set_formatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the default formatter. If no argument is given, the default
 formatter is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.set_include">
 <span class="sig-name descname"><span class="pre">set_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.set_include" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the information to include in the traceback.</p>
-<p>The allowed values are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">,</span>
-<span class="n">hint</span><span class="p">,</span>
-<span class="n">what</span><span class="p">,</span>
-<span class="n">why</span><span class="p">,</span>
-<span class="n">where</span><span class="p">,</span>
-<span class="n">friendly_tb</span><span class="p">,</span>
-<span class="n">python_tb</span><span class="p">,</span>
-<span class="n">debug_tb</span><span class="p">,</span>
-<span class="n">detailed_tb</span><span class="p">,</span>
-<span class="n">explain</span><span class="p">,</span>
-<span class="n">no_tb</span>
-</pre></div>
-</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>include</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘message’, ‘hint’, ‘what’, ‘why’, ‘where’, ‘friendly_tb’, ‘python_tb’, ‘debug_tb’, ‘explain’, ‘no_tb’]) – one of the following allowed values: message, message_plus, hint, what, why, where, friendly_tb, python_tb, debug_tb, detailed_tb, explain, no_tb</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.set_lang">
 <span class="sig-name descname"><span class="pre">set_lang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_lang"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.set_lang" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the language to be used for the display.</p>
-<p>If no translations exist for that language, the original
-English strings will be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lang</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – If no translations exist for that language, the original
+English strings will be used.
+If a value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is used, a list of
+available languages is returned.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.set_stream">
 <span class="sig-name descname"><span class="pre">set_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#set_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.set_stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the stream to which the output should be directed.</p>
-<p>If the string <code class="docutils literal notranslate"><span class="pre">"capture"</span></code> is given as argument, the
-output is saved and can be later retrieved by <code class="docutils literal notranslate"><span class="pre">get_output()</span></code>.</p>
-<p>If no argument is given, the default stream (<code class="docutils literal notranslate"><span class="pre">stderr</span></code>) is set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>redirect</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – if the string <code class="docutils literal notranslate"><span class="pre">"capture"</span></code> is given as argument, the
+output is saved and can be later retrieved by <code class="docutils literal notranslate"><span class="pre">get_output()</span></code>.
+If no argument is given, the default stream (<code class="docutils literal notranslate"><span class="pre">stderr</span></code>) is set.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.start_console">
 <span class="sig-name descname"><span class="pre">start_console</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'friendly_tb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">banner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayhook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipython_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#start_console"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.start_console" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts a Friendly console.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.test_secrets">
@@ -526,10 +647,15 @@ shown in a traceback.</p>
 <dt class="sig sig-object py" id="friendly_traceback.uninstall">
 <span class="sig-name descname"><span class="pre">uninstall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#uninstall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.uninstall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets <code class="docutils literal notranslate"><span class="pre">sys.excepthook</span></code> to Python’s default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 </section>
 <section id="module-friendly_traceback.info_generic">
-<span id="friendly-traceback-info-generic"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code><a class="headerlink" href="#module-friendly_traceback.info_generic" title="Permalink to this headline">¶</a></h2>
+<span id="friendly-traceback-info-generic"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code><a class="headerlink" href="#module-friendly_traceback.info_generic" title="Permalink to this heading">¶</a></h2>
 <p>This module contains the necessary class and functions needed to
 help describing what a given exception or warning means
 (i.e. the answer to <code class="docutils literal notranslate"><span class="pre">why()</span></code>)
@@ -539,8 +665,13 @@ which is intended to be part of the public API, but needs to be
 imported from this module instead of simply from <code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.info_generic.register">
-<span class="sig-prename descclassname"><span class="pre">@</span></span><span class="sig-name descname"><span class="pre">register</span></span><a class="reference internal" href="_modules/friendly_traceback/info_generic.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.info_generic.register" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">@</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_class</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/info_generic.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.info_generic.register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator used to record as available an explanation for a given exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>error_class</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code>]) – an exception class.</p>
+</dd>
+</dl>
 <p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly_traceback.info_generic</span> <span class="kn">import</span> <span class="n">register</span>
 
@@ -549,10 +680,15 @@ imported from this module instead of simply from <code class="docutils literal n
     <span class="sd">'''`SomeErrorOrWarning` means that ...'''</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd>
+</dl>
 </dd></dl>
 </section>
 <section id="module-friendly_traceback.message_parser">
-<span id="friendly-traceback-message-parser"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code><a class="headerlink" href="#module-friendly_traceback.message_parser" title="Permalink to this headline">¶</a></h2>
+<span id="friendly-traceback-message-parser"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code><a class="headerlink" href="#module-friendly_traceback.message_parser" title="Permalink to this heading">¶</a></h2>
 <p>This module contains the necessary class and functions needed to
 help finding the cause (specific information aka answer to <code class="docutils literal notranslate"><span class="pre">why()</span></code>)
 of an exception. Most of the content should be considered to be private.</p>
@@ -562,8 +698,13 @@ imported from this module instead of simply from <code class="docutils literal n
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.message_parser.get_parser">
 <span class="sig-name descname"><span class="pre">get_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/message_parser.html#get_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.message_parser.get_parser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a ‘parser’ to find the cause for a given exception.
-Usage:</p>
+<dd><p>Gets a ‘parser’ to find the cause for a given exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>exception_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">_E</span></code>, bound= <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code>)]) – an exception class.</p>
+</dd>
+</dl>
+<p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">(</span><span class="n">SomeSpecificError</span><span class="p">)</span>
 
 <span class="nd">@parser</span><span class="o">.</span><span class="n">add</span>
@@ -575,10 +716,15 @@ Usage:</p>
     <span class="o">...</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeMessageParser</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 </section>
 <section id="module-friendly_traceback.about_warnings">
-<span id="friendly-traceback-about-warnings"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code><a class="headerlink" href="#module-friendly_traceback.about_warnings" title="Permalink to this headline">¶</a></h2>
+<span id="friendly-traceback-about-warnings"></span><h2><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code><a class="headerlink" href="#module-friendly_traceback.about_warnings" title="Permalink to this heading">¶</a></h2>
 <p>This module includes all relevant classes and functions so that
 friendly-traceback can give help with warnings.</p>
 <p>It contains one function (<code class="docutils literal notranslate"><span class="pre">enable_warnings</span></code>) which is part of the API,
@@ -589,8 +735,13 @@ can be imported using <code class="docutils literal notranslate"><span class="pr
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.about_warnings.get_warning_parser">
 <span class="sig-name descname"><span class="pre">get_warning_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">warning_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback/about_warnings.html#get_warning_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.about_warnings.get_warning_parser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a ‘parser’ to find the cause for a given warning.
-Usage:</p>
+<dd><p>Gets a ‘parser’ to find the cause for a given warning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>warning_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">_E</span></code>, bound= <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code>)]) – a warning class.</p>
+</dd>
+</dl>
+<p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">get_warning_parser</span><span class="p">(</span><span class="n">SomeSpecificWarning</span><span class="p">)</span>
 
 <span class="nd">@parser</span><span class="o">.</span><span class="n">add</span>
@@ -602,6 +753,11 @@ Usage:</p>
     <span class="o">...</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">WarningDataParser</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 </section>
 </section>
@@ -658,10 +814,43 @@ Usage:</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Public API</a><ul>
-<li><a class="reference internal" href="#module-friendly_traceback"><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code></a></li>
-<li><a class="reference internal" href="#module-friendly_traceback.info_generic"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code></a></li>
-<li><a class="reference internal" href="#module-friendly_traceback.message_parser"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code></a></li>
-<li><a class="reference internal" href="#module-friendly_traceback.about_warnings"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code></a></li>
+<li><a class="reference internal" href="#module-friendly_traceback"><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code></a><ul>
+<li><a class="reference internal" href="#friendly_traceback.enable_warnings"><code class="docutils literal notranslate"><span class="pre">enable_warnings()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.friendly_exec"><code class="docutils literal notranslate"><span class="pre">friendly_exec()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.add_ignored_warnings"><code class="docutils literal notranslate"><span class="pre">add_ignored_warnings()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.add_other_set_lang"><code class="docutils literal notranslate"><span class="pre">add_other_set_lang()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.exclude_directory_from_traceback"><code class="docutils literal notranslate"><span class="pre">exclude_directory_from_traceback()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.exclude_file_from_traceback"><code class="docutils literal notranslate"><span class="pre">exclude_file_from_traceback()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.explain_traceback"><code class="docutils literal notranslate"><span class="pre">explain_traceback()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.get_include"><code class="docutils literal notranslate"><span class="pre">get_include()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.get_lang"><code class="docutils literal notranslate"><span class="pre">get_lang()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.get_output"><code class="docutils literal notranslate"><span class="pre">get_output()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.get_stream"><code class="docutils literal notranslate"><span class="pre">get_stream()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.hide_secrets"><code class="docutils literal notranslate"><span class="pre">hide_secrets()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.install"><code class="docutils literal notranslate"><span class="pre">install()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.is_installed"><code class="docutils literal notranslate"><span class="pre">is_installed()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.set_formatter"><code class="docutils literal notranslate"><span class="pre">set_formatter()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.set_include"><code class="docutils literal notranslate"><span class="pre">set_include()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.set_lang"><code class="docutils literal notranslate"><span class="pre">set_lang()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.set_stream"><code class="docutils literal notranslate"><span class="pre">set_stream()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.start_console"><code class="docutils literal notranslate"><span class="pre">start_console()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.test_secrets"><code class="docutils literal notranslate"><span class="pre">test_secrets()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.uninstall"><code class="docutils literal notranslate"><span class="pre">uninstall()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-friendly_traceback.info_generic"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.info_generic</span></code></a><ul>
+<li><a class="reference internal" href="#friendly_traceback.info_generic.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-friendly_traceback.message_parser"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.message_parser</span></code></a><ul>
+<li><a class="reference internal" href="#friendly_traceback.message_parser.get_parser"><code class="docutils literal notranslate"><span class="pre">get_parser()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-friendly_traceback.about_warnings"><code class="docutils literal notranslate"><span class="pre">friendly_traceback.about_warnings</span></code></a><ul>
+<li><a class="reference internal" href="#friendly_traceback.about_warnings.get_warning_parser"><code class="docutils literal notranslate"><span class="pre">get_warning_parser()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -676,7 +865,9 @@ Usage:</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

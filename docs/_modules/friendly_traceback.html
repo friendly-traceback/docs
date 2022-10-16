@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>friendly_traceback - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="../index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -169,13 +169,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../friendly_exec.html">Friendlier exec</a></li>
@@ -335,6 +335,7 @@
 <span class="k">except</span> <span class="p">(</span><span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">ImportError</span><span class="p">):</span>
     <span class="k">pass</span>
 
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span>
 
@@ -344,7 +345,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Python 3.6 or newer is required."</span><span class="p">)</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.30"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.45"</span>
 
 <span class="c1"># ===========================================</span>
 
@@ -353,16 +354,43 @@
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">base_formatters</span><span class="p">,</span> <span class="n">debug_helper</span><span class="p">,</span> <span class="n">editors_helpers</span><span class="p">,</span> <span class="n">info_variables</span><span class="p">,</span> <span class="n">path_info</span>
 <span class="kn">from</span> <span class="nn">.about_warnings</span> <span class="kn">import</span> <span class="n">enable_warnings</span>  <span class="c1"># noqa</span>
+<span class="kn">from</span> <span class="nn">.about_warnings</span> <span class="kn">import</span> <span class="n">IGNORE_WARNINGS</span>
 <span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">session</span>
 <span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">current_lang</span>
 <span class="kn">from</span> <span class="nn">.source_cache</span> <span class="kn">import</span> <span class="n">friendly_exec</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span> <span class="nn">.typing_info</span> <span class="kn">import</span> <span class="n">Formatter</span><span class="p">,</span> <span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">StrPath</span><span class="p">,</span> <span class="n">Writer</span>
 
 
+<div class="viewcode-block" id="add_other_set_lang"><a class="viewcode-back" href="../api.html#friendly_traceback.add_other_set_lang">[docs]</a><span class="k">def</span> <span class="nf">add_other_set_lang</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Intended for extension to friendly_traceback that can also do translations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        func: a callable that should be invoked when ``set_lang`` is called to</span>
+<span class="sd">              also set the language of the extension.</span>
+<span class="sd">    """</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">other_set_lang</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_ignored_warnings"><a class="viewcode-back" href="../api.html#friendly_traceback.add_ignored_warnings">[docs]</a><span class="k">def</span> <span class="nf">add_ignored_warnings</span><span class="p">(</span><span class="n">do_not_show_warning</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Adds a function which will be passed</span>
+<span class="sd">    ``warning_instance, warning_type, filename, lineno`` as arguments</span>
+<span class="sd">    when a warning is raised. If this function returns ``True``, the</span>
+<span class="sd">    warning will be ignored.</span>
+
+<span class="sd">    This is intended for third-party packages that might trigger warnings</span>
+<span class="sd">    which should not be shown to a user of friendly_traceback.</span>
+<span class="sd">    """</span>
+    <span class="n">IGNORE_WARNINGS</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">do_not_show_warning</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="exclude_file_from_traceback"><a class="viewcode-back" href="../api.html#friendly_traceback.exclude_file_from_traceback">[docs]</a><span class="k">def</span> <span class="nf">exclude_file_from_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="n">StrPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Exclude a file from appearing in a traceback generated by</span>
-<span class="sd">    Friendly.  Note that this does not apply to</span>
-<span class="sd">    the true Python traceback obtained using `"debug_tb"`.</span>
+<span class="sd">    Friendly.</span>
+<span class="sd">    Note that this does not apply to the true Python traceback</span>
+<span class="sd">    obtained using ``"debug_tb"`` in interactive mode.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        full_path: the path of the file to exclude from the traceback.</span>
 <span class="sd">    """</span>
     <span class="n">path_info</span><span class="o">.</span><span class="n">exclude_file_from_traceback</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span></div>
 
@@ -371,7 +399,10 @@
     <span class="sd">"""Exclude all files found in a given directory, including subdirectories,</span>
 <span class="sd">    from appearing in a traceback generated by Friendly.</span>
 <span class="sd">    Note that this does not apply to the true Python traceback</span>
-<span class="sd">    obtained using `"debug_tb"`.</span>
+<span class="sd">    obtained using ``"debug_tb"``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dir_name: the path representing the directory to exclude.</span>
 <span class="sd">    """</span>
     <span class="n">path_info</span><span class="o">.</span><span class="n">exclude_directory_from_traceback</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span></div>
 
@@ -382,23 +413,19 @@
 <span class="sd">    Note that this excludes ``SystemExit`` and ``KeyboardInterrupt``</span>
 <span class="sd">    which are re-raised.</span>
 
-<span class="sd">    By default, the output goes to ``sys.stderr`` or to some other stream</span>
-<span class="sd">    set to be the default by another API call. However, if::</span>
-
-<span class="sd">       redirect = some_stream</span>
-
-<span class="sd">    is specified, the output goes to that stream, but without changing</span>
-<span class="sd">    the global settings.</span>
-
-<span class="sd">    If the string ``"capture"`` is given as the value for ``redirect``, the</span>
-<span class="sd">    output is saved and can be later retrieved by ``get_output()``.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        redirect: some specified stream. By default, the output goes to</span>
+<span class="sd">            ``sys.stderr``. If the string ``"capture"`` is given as the value</span>
+<span class="sd">            for ``redirect``, the output is saved and can be later retrieved</span>
+<span class="sd">            by ``get_output()``.</span>
 <span class="sd">    """</span>
     <span class="n">session</span><span class="o">.</span><span class="n">explain_traceback</span><span class="p">(</span><span class="n">redirect</span><span class="o">=</span><span class="n">redirect</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="hide_secrets"><a class="viewcode-back" href="../api.html#friendly_traceback.hide_secrets">[docs]</a><span class="k">def</span> <span class="nf">hide_secrets</span><span class="p">(</span><span class="n">patterns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Intended to prevent values of certain variables to be shown.</span>
-<span class="sd">    Argument::</span>
+
+<span class="sd">    Args:</span>
 
 <span class="sd">        patterns: a list of regular expression patterns.</span>
 <span class="sd">    """</span>
@@ -422,16 +449,16 @@
         <span class="p">)</span>
         <span class="k">return</span>
     <span class="n">obj</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-    <span class="n">obj_repr</span> <span class="o">=</span> <span class="n">info_variables</span><span class="o">.</span><span class="n">format_var_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">obj_repr</span></div>
+    <span class="k">return</span> <span class="n">info_variables</span><span class="o">.</span><span class="n">format_var_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_output"><a class="viewcode-back" href="../api.html#friendly_traceback.get_output">[docs]</a><span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="n">flush</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">"""Returns the result of captured output as a string which can be</span>
 <span class="sd">    written anywhere desired.</span>
 
-<span class="sd">    By default, flushes all the captured content.</span>
-<span class="sd">    However, this can be overridden if desired.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        flush: True y default, flushes all the captured content.</span>
+
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">get_captured</span><span class="p">(</span><span class="n">flush</span><span class="o">=</span><span class="n">flush</span><span class="p">)</span></div>
 
@@ -440,25 +467,25 @@
     <span class="n">lang</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">redirect</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Writer</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span> <span class="o">=</span> <span class="s2">"explain"</span><span class="p">,</span>
-    <span class="n">_debug</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">_debug</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Replaces ``sys.excepthook`` by friendly's own version.</span>
 <span class="sd">    Intercepts, and can provide an explanation for all Python exceptions except</span>
 <span class="sd">    for ``SystemExist`` and ``KeyboardInterrupt``.</span>
 
-<span class="sd">    The optional arguments are::</span>
-
+<span class="sd">    Args:</span>
 <span class="sd">        lang: language to be used for translations. If not available,</span>
 <span class="sd">              English will be used as a default.</span>
-
 <span class="sd">        redirect: stream to be used to send the output.</span>
-<span class="sd">                  The default is sys.stderr.</span>
-
+<span class="sd">                  The default is ``sys.stderr``.</span>
 <span class="sd">        include: controls the amount of information displayed.</span>
-<span class="sd">                 See set_include() for details.</span>
+<span class="sd">                 See ``set_include()`` for details.</span>
+<span class="sd">        _debug: optional argument that can be used to enable some debugging</span>
+<span class="sd">                features.</span>
+
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">_debug</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">_debug</span><span class="p">:</span>  <span class="c1"># Note that the debugging mode can be set via other methods</span>
         <span class="n">debug_helper</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">_debug</span>
     <span class="n">session</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">,</span> <span class="n">redirect</span><span class="o">=</span><span class="n">redirect</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">)</span></div>
 
@@ -494,17 +521,15 @@
 <span class="sd">    as an interactive session in a Friendly console, with the module</span>
 <span class="sd">    dict being used as the ``locals()`` dict.</span>
 
-<span class="sd">    Other arguments include::</span>
-
+<span class="sd">    Args:</span>
 <span class="sd">        lang: language used; currently 'en' (default), 'fr', 'es', 'ta',</span>
 <span class="sd">              'ru', 'it', 'he' are available.</span>
-
 <span class="sd">        include: specifies what information is to be included if an</span>
 <span class="sd">                 exception is raised; the default is "friendly_tb" if console</span>
 <span class="sd">                 is set to True, otherwise it is "explain"</span>
-
 <span class="sd">        args: strings tuple that is passed to the program as though it</span>
-<span class="sd">              was run on the command line as follows:</span>
+<span class="sd">              was run on the command line as follows::</span>
+
 <span class="sd">                  python filename.py arg1 arg2 ...</span>
 <span class="sd">    """</span>
     <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
@@ -585,12 +610,27 @@
 <span class="c1"># =========================================================================</span>
 
 
-<div class="viewcode-block" id="set_lang"><a class="viewcode-back" href="../repl_api.html#friendly_traceback.set_lang">[docs]</a><span class="k">def</span> <span class="nf">set_lang</span><span class="p">(</span><span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"en"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="set_lang"><a class="viewcode-back" href="../repl_api.html#friendly_traceback.set_lang">[docs]</a><span class="k">def</span> <span class="nf">set_lang</span><span class="p">(</span><span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"en"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]:</span>
     <span class="sd">"""Sets the language to be used for the display.</span>
 
-<span class="sd">    If no translations exist for that language, the original</span>
-<span class="sd">    English strings will be used.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        lang: If no translations exist for that language, the original</span>
+<span class="sd">              English strings will be used.</span>
+<span class="sd">              If a value of ``None`` is used, a list of</span>
+<span class="sd">              available languages is returned.</span>
+
 <span class="sd">    """</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
+    <span class="k">if</span> <span class="n">lang</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">language</span>
+            <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">"locales"</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">language</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pot"</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">"The available languages are:"</span><span class="p">),</span> <span class="n">languages</span><span class="p">)</span>
+        <span class="k">return</span>
     <span class="n">session</span><span class="o">.</span><span class="n">set_lang</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span></div>
 
 
@@ -610,9 +650,8 @@
 <div class="viewcode-block" id="set_include"><a class="viewcode-back" href="../repl_api.html#friendly_traceback.set_include">[docs]</a><span class="k">def</span> <span class="nf">set_include</span><span class="p">(</span><span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Specifies the information to include in the traceback.</span>
 
-<span class="sd">    The allowed values are::</span>
-
-<span class="sd">        {choices}</span>
+<span class="sd">    Args:</span>
+<span class="sd">        include: one of the following allowed values: {choices}</span>
 <span class="sd">    """</span>
     <span class="n">_</span> <span class="o">=</span> <span class="n">current_lang</span><span class="o">.</span><span class="n">translate</span>
 
@@ -625,12 +664,12 @@
 
 
 <span class="k">if</span> <span class="n">set_include</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># protect against -OO optimization</span>
-    <span class="n">_choices</span> <span class="o">=</span> <span class="s2">",</span><span class="se">\n</span><span class="s2">        "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_include_choices</span><span class="p">)</span>
+    <span class="n">_choices</span> <span class="o">=</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_include_choices</span><span class="p">)</span>
     <span class="n">set_include</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">set_include</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">_choices</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_include"><a class="viewcode-back" href="../repl_api.html#friendly_traceback.get_include">[docs]</a><span class="k">def</span> <span class="nf">get_include</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">InclusionChoice</span><span class="p">:</span>
-    <span class="sd">"""Retrieves the value used to determine what to include in the</span>
+    <span class="sd">"""Retrieves the single string value used to determine what to include in the</span>
 <span class="sd">    traceback. See ``set_include()`` for details.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">get_include</span><span class="p">()</span></div>
@@ -639,10 +678,10 @@
 <div class="viewcode-block" id="set_stream"><a class="viewcode-back" href="../api.html#friendly_traceback.set_stream">[docs]</a><span class="k">def</span> <span class="nf">set_stream</span><span class="p">(</span><span class="n">redirect</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Writer</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Sets the stream to which the output should be directed.</span>
 
-<span class="sd">    If the string ``"capture"`` is given as argument, the</span>
-<span class="sd">    output is saved and can be later retrieved by ``get_output()``.</span>
-
-<span class="sd">    If no argument is given, the default stream (``stderr``) is set.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        redirect: if the string ``"capture"`` is given as argument, the</span>
+<span class="sd">            output is saved and can be later retrieved by ``get_output()``.</span>
+<span class="sd">            If no argument is given, the default stream (``stderr``) is set.</span>
 <span class="sd">    """</span>
     <span class="n">session</span><span class="o">.</span><span class="n">set_redirect</span><span class="p">(</span><span class="n">redirect</span><span class="o">=</span><span class="n">redirect</span><span class="p">)</span></div>
 
@@ -682,7 +721,9 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>
     <script src="../_static/clipboard.min.js"></script>

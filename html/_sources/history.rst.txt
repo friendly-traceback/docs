@@ -1,45 +1,19 @@
-history() and back()
-=====================
+history() 
+=========
 
-Earlier, I mentioned that I recommend that beginners use an editor
-instead of a REPL for writing Python code.
-The main reason is that it is easier to correct
-mistakes, and does not require to rewrite entire lines of code.
-At the same time, I recommend the use of friendly's console to "ask questions"
-when an exception is raised.
+**Friendly** keeps a record of all warnings and exceptions raised during
+an interactive session. We can get a list of these at any time
+using ``history()``.
 
-Consider the following situation, with some code that takes
-a long time to execute:
+.. code-block:: none
 
-.. image:: images/history1.png
-   :scale: 40 %
+   [1]: history()
+   0. DeprecationWarning: Indiana, February 6, 1897
+   1. IndexError: list index out of range
 
-Suppose I want to have more details about where the exception
-was raised.
+Note that each recorded item is shown with an index, starting at 0.
+If we want **Friendly** to forget about the last recorded item, we can
+use ``history.pop()``. If we want Friendly to remove one particular
+item, we can use ``history.pop(index)``. Finally, if we want **Friendly**
+to forget about all recorded items so far, we can use ``history.clear()``.
 
-.. image:: images/history2.png
-   :scale: 40 %
-
-I made a mistake; no problem, friendly told me how to fix it.
-
-
-.. image:: images/history3.png
-   :scale: 40 %
-
-Unfortunately, this is not the exception I was looking for.
-
-Instead of having to run the entire program once again, friendly
-has preserved a history of the exceptions seen so far, and allows me
-to discard them one by one, starting with the last one.
-
-
-.. image:: images/history4.png
-   :scale: 40 %
-
-The only exception left is the one of interest.
-
-.. image:: images/history5.png
-   :scale: 40 %
-
-I found the cause of the error: I wrote a string ``'13'`` instead of an
-integer.

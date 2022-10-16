@@ -84,8 +84,8 @@ data from the service:
 
    fetch_data()
 
-When the connection can not be established, a :exc:`requests.ConnectionError` will be raised.
-Fortunately, since it inherits from :exc:`OSError`, ``friendly`` is **already**
+When the connection can not be established, a ``requests.ConnectionError`` will be raised.
+Fortunately, since it inherits from ``OSError``, ``friendly`` is **already**
 able to provide a default explanation about the error cause **in this particular case**:
 
 .. code-block:: none
@@ -100,7 +100,7 @@ able to provide a default explanation about the error cause **in this particular
 
 
 What if we want to add a more detailed information? First, we can register a custom generic
-description for any occurences of the :exc:`requests.ConnectionError`:
+description for any occurences of the ``requests.ConnectionError``:
 
 .. code-block::
 

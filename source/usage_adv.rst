@@ -165,7 +165,15 @@ Language used
 
 .. sidebar::  Supported languages
 
-    Currently, only English and French are available.
+    English is the default language. 
+    As a rule, French translations is (almost) always at 100%.
+    Currently, Spanish, Russian, and Tamil translations are at more
+    than 95% done, and Italian is about 10% done.
+
+    A translation to Hebrew is approximately 80% done.
+    However, since Hebrew is a right-to-left language, I am not sure that
+    the translation appears correctly. 
+    
     Additional translations are more than welcome.
 
 The language used can be explicitly set as follows::

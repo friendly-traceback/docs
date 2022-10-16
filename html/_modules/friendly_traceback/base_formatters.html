@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.base_formatters - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>friendly_traceback.base_formatters - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -169,13 +169,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
@@ -361,8 +361,10 @@
     <span class="s2">"original_python_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- Friendly._debug_tb()</span>
     <span class="s2">"simulated_python_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- python_tb()</span>
     <span class="s2">"shortened_traceback"</span><span class="p">,</span>  <span class="c1"># &lt;-- friendly_tb()</span>
+    <span class="s2">"exception_notes_intro"</span><span class="p">,</span>  <span class="c1"># New for Python 3.11</span>
+    <span class="s2">"exception_notes"</span><span class="p">,</span>  <span class="c1"># New in Python 3.11</span>
     <span class="s2">"suggest"</span><span class="p">,</span>  <span class="c1"># &lt;-- hint()</span>
-    <span class="s2">"warning message"</span><span class="p">,</span>
+    <span class="s2">"warning_message"</span><span class="p">,</span>
     <span class="s2">"generic"</span><span class="p">,</span>  <span class="c1"># &lt;-- what()</span>
     <span class="s2">"parsing_error"</span><span class="p">,</span>
     <span class="s2">"parsing_error_source"</span><span class="p">,</span>
@@ -373,10 +375,10 @@
     <span class="s2">"exception_raised_header"</span><span class="p">,</span>
     <span class="s2">"exception_raised_source"</span><span class="p">,</span>
     <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
-    <span class="s2">"warning location header"</span><span class="p">,</span>
-    <span class="s2">"warning source"</span><span class="p">,</span>
-    <span class="s2">"warning variables"</span><span class="p">,</span>
-    <span class="s2">"additional variable warning"</span><span class="p">,</span>
+    <span class="s2">"warning_location_header"</span><span class="p">,</span>
+    <span class="s2">"warning_source"</span><span class="p">,</span>
+    <span class="s2">"warning_variables"</span><span class="p">,</span>
+    <span class="s2">"additional_variable_warning"</span><span class="p">,</span>
 <span class="p">]</span>
 
 
@@ -386,8 +388,10 @@
     <span class="s2">"simulated_python_traceback"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"original_python_traceback"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"shortened_traceback"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
+    <span class="s2">"exception_notes_intro"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
+    <span class="s2">"exception_notes"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"suggest"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
-    <span class="s2">"warning message"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+    <span class="s2">"warning_message"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"generic"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"parsing_error"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"parsing_error_source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
@@ -398,10 +402,10 @@
     <span class="s2">"exception_raised_header"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
     <span class="s2">"exception_raised_source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
     <span class="s2">"exception_raised_variables"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
-    <span class="s2">"warning location header"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
-    <span class="s2">"warning source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
-    <span class="s2">"warning variables"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
-    <span class="s2">"additional variable warning"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+    <span class="s2">"warning_location_header"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+    <span class="s2">"warning_source"</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
+    <span class="s2">"warning_variables"</span><span class="p">:</span> <span class="s2">"double"</span><span class="p">,</span>
+    <span class="s2">"additional_variable_warning"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
 <span class="p">}</span>
 
 
@@ -414,20 +418,28 @@
     <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="s2">"message"</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="s2">"detailed_tb"</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">"detailed_tb"</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">detailed_tb</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">""</span>
+        <span class="k">return</span> <span class="n">detailed_tb</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"detailed_tb"</span> <span class="ow">in</span> <span class="n">info</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="n">items_to_show</span> <span class="o">=</span> <span class="n">select_items</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
     <span class="n">spacing</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"single"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"double"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"none"</span><span class="p">:</span> <span class="s2">""</span><span class="p">}</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items_to_show</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
             <span class="n">indentation</span> <span class="o">=</span> <span class="n">spacing</span><span class="p">[</span><span class="n">repl_indentation</span><span class="p">[</span><span class="n">item</span><span class="p">]]</span>
-            <span class="n">lines</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indentation</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
-
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"exception_notes"</span><span class="p">:</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]:</span>
+                    <span class="n">note_lines</span> <span class="o">=</span> <span class="n">note</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s2">"exception_notes_intro"</span> <span class="ow">in</span> <span class="n">items_to_show</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">note_lines</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">note_lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"* </span><span class="si">{</span><span class="n">note_lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">note_lines</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">note_lines</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+                    <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">note_lines</span><span class="p">)</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">indentation</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="p">)</span>
 
@@ -445,10 +457,8 @@
     <span class="n">spacing</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"location"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"var_info"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">8</span><span class="p">}</span>
     <span class="k">for</span> <span class="n">location</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">var_info</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s2">"detailed_tb"</span><span class="p">]:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spacing</span><span class="p">[</span><span class="s2">"location"</span><span class="p">]</span> <span class="o">+</span> <span class="n">location</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">):</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">var_info</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">):</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spacing</span><span class="p">[</span><span class="s2">"var_info"</span><span class="p">]</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">spacing</span><span class="p">[</span><span class="s2">"var_info"</span><span class="p">]</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">var_info</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">))</span>
     <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 
@@ -470,22 +480,22 @@
             <span class="s2">"simulated_python_traceback"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
             <span class="s2">"original_python_traceback"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
             <span class="s2">"shortened_traceback"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+            <span class="s2">"exception_notes_intro"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+            <span class="s2">"exception_notes"</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
         <span class="p">}</span>
     <span class="p">)</span>
-
+    <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="s2">"message"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">info</span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="s2">"detailed_tb"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">detailed_tb</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"detailed_tb"</span> <span class="ow">in</span> <span class="n">info</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="n">items_to_show</span> <span class="o">=</span> <span class="n">select_items</span><span class="p">(</span><span class="n">include</span><span class="p">)</span>
     <span class="n">spacing</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"single"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"double"</span><span class="p">:</span> <span class="s2">" "</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"none"</span><span class="p">:</span> <span class="s2">""</span><span class="p">}</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items_to_show</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">info</span> <span class="ow">and</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
             <span class="n">indentation</span> <span class="o">=</span> <span class="n">spacing</span><span class="p">[</span><span class="n">pre_items</span><span class="p">[</span><span class="n">item</span><span class="p">]]</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">):</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indentation</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="s2">""</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+            <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">indentation</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">include</span><span class="p">)</span> <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="k">else</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="no_result"><a class="viewcode-back" href="../../formatter.html#friendly_traceback.base_formatters.no_result">[docs]</a><span class="k">def</span> <span class="nf">no_result</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="n">Info</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="n">InclusionChoice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -509,6 +519,7 @@
 
 <span class="n">items_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">InclusionChoice</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"message"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">},</span>  <span class="c1"># Also included as last line of traceback</span>
+    <span class="s2">"message_plus"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"message"</span><span class="p">,</span> <span class="s2">"suggest"</span><span class="p">},</span>  <span class="c1"># for SyntaxError in IDLE</span>
     <span class="s2">"hint"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"suggest"</span><span class="p">},</span>
     <span class="s2">"what"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"generic"</span><span class="p">},</span>
     <span class="s2">"why"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"warnings"</span><span class="p">,</span> <span class="s2">"cause"</span><span class="p">},</span>
@@ -521,14 +532,21 @@
         <span class="s2">"exception_raised_header"</span><span class="p">,</span>
         <span class="s2">"exception_raised_source"</span><span class="p">,</span>
         <span class="s2">"exception_raised_variables"</span><span class="p">,</span>
-        <span class="s2">"warning location header"</span><span class="p">,</span>
-        <span class="s2">"warning source"</span><span class="p">,</span>
-        <span class="s2">"warning variables"</span><span class="p">,</span>
-        <span class="s2">"additional variable warning"</span><span class="p">,</span>
+        <span class="s2">"warning_location_header"</span><span class="p">,</span>
+        <span class="s2">"warning_source"</span><span class="p">,</span>
+        <span class="s2">"warning_variables"</span><span class="p">,</span>
+        <span class="s2">"additional_variable_warning"</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"shortened_traceback"</span><span class="p">,</span> <span class="s2">"suggest"</span><span class="p">,</span> <span class="s2">"warnings"</span><span class="p">,</span> <span class="s2">"warning message"</span><span class="p">},</span>
-    <span class="s2">"python_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"simulated_python_traceback"</span><span class="p">},</span>
-    <span class="s2">"debug_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"original_python_traceback"</span><span class="p">},</span>
+    <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"shortened_traceback"</span><span class="p">,</span>
+        <span class="s2">"suggest"</span><span class="p">,</span>
+        <span class="s2">"warnings"</span><span class="p">,</span>
+        <span class="s2">"warning_message"</span><span class="p">,</span>
+        <span class="s2">"exception_notes_intro"</span><span class="p">,</span>
+        <span class="s2">"exception_notes"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"python_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"simulated_python_traceback"</span><span class="p">,</span> <span class="s2">"exception_notes"</span><span class="p">},</span>
+    <span class="s2">"debug_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"original_python_traceback"</span><span class="p">,</span> <span class="s2">"exception_notes"</span><span class="p">},</span>
     <span class="s2">"detailed_tb"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"detailed_tb"</span><span class="p">},</span>
 <span class="p">}</span>
 <span class="n">items_groups</span><span class="p">[</span><span class="s2">"explain"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
@@ -573,7 +591,9 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>

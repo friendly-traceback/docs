@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.console_helpers - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>friendly_traceback.console_helpers - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -169,13 +169,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
@@ -454,11 +454,6 @@
     <span class="n">explain</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"python_tb"</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="toggle_prompt"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.toggle_prompt">[docs]</a><span class="k">def</span> <span class="nf">toggle_prompt</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Toggles the style of prompt to use in the console."""</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">ipython_prompt</span></div>
-
-
 <div class="viewcode-block" id="what"><a class="viewcode-back" href="../../repl_api.html#friendly_traceback.console_helpers.what">[docs]</a><span class="k">def</span> <span class="nf">what</span><span class="p">(</span>
     <span class="n">exception_or_index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
         <span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">CodeType</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="kc">None</span>
@@ -631,40 +626,6 @@
 <span class="c1"># ===== Debugging functions are not unit tested by choice =====</span>
 
 
-<span class="k">def</span> <span class="nf">_debug_tb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="sd">"""Shows the true Python traceback, which includes</span>
-<span class="sd">    files from friendly itself.</span>
-<span class="sd">    """</span>
-    <span class="n">explain</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"debug_tb"</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">_get_exception</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="sd">"""Debugging tool: returns the exception instance or None if no exception</span>
-<span class="sd">    has been raised.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
-        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># add explicit None here and elsewhere to silence mypy</span>
-    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">exception_instance</span>
-    <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">warning_instance</span>
-
-
-<span class="k">def</span> <span class="nf">_get_frame</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">FrameType</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="sd">"""This returns the frame in which the exception occurred.</span>
-
-<span class="sd">    This is not intended for end-users but is useful in development.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">_nothing_to_show</span><span class="p">())</span>
-        <span class="k">return</span> <span class="kc">None</span>
-    <span class="n">current_tb</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recorded_tracebacks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_tb</span><span class="p">,</span> <span class="s2">"tb_data"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">tb_data</span><span class="o">.</span><span class="n">exception_frame</span>
-    <span class="k">return</span> <span class="n">current_tb</span><span class="o">.</span><span class="n">frame</span>  <span class="c1"># warnings</span>
-
-
 <span class="k">def</span> <span class="nf">_get_statement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Statement</span><span class="p">]:</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">"""This returns a 'Statement' instance obtained for SyntaxErrors and</span>
 <span class="sd">    subclasses.  Such a Statement instance contains essentially all</span>
@@ -740,7 +701,6 @@
     <span class="s2">"history"</span><span class="p">:</span> <span class="n">history</span><span class="p">,</span>
     <span class="s2">"friendly_tb"</span><span class="p">:</span> <span class="n">friendly_tb</span><span class="p">,</span>
     <span class="s2">"python_tb"</span><span class="p">:</span> <span class="n">python_tb</span><span class="p">,</span>
-    <span class="s2">"toggle_prompt"</span><span class="p">:</span> <span class="n">toggle_prompt</span><span class="p">,</span>
     <span class="s2">"show_paths"</span><span class="p">:</span> <span class="n">show_paths</span><span class="p">,</span>
     <span class="s2">"get_include"</span><span class="p">:</span> <span class="n">get_include</span><span class="p">,</span>
     <span class="s2">"set_include"</span><span class="p">:</span> <span class="n">set_include</span><span class="p">,</span>
@@ -752,12 +712,8 @@
 <span class="n">add_help_attribute</span><span class="p">(</span><span class="n">helpers</span><span class="p">)</span>
 
 <span class="n">debug_helper_methods</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"_debug_tb"</span><span class="p">:</span> <span class="n">_debug_tb</span><span class="p">,</span>
-    <span class="s2">"_get_frame"</span><span class="p">:</span> <span class="n">_get_frame</span><span class="p">,</span>
     <span class="s2">"_get_info"</span><span class="p">:</span> <span class="n">_get_info</span><span class="p">,</span>
-    <span class="s2">"_show_info"</span><span class="p">:</span> <span class="n">_show_info</span><span class="p">,</span>
     <span class="s2">"_get_tb_data"</span><span class="p">:</span> <span class="n">_get_tb_data</span><span class="p">,</span>
-    <span class="s2">"_get_exception"</span><span class="p">:</span> <span class="n">_get_exception</span><span class="p">,</span>
     <span class="s2">"_get_statement"</span><span class="p">:</span> <span class="n">_get_statement</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">add_help_attribute</span><span class="p">(</span><span class="n">debug_helper_methods</span><span class="p">)</span>
@@ -884,7 +840,9 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>

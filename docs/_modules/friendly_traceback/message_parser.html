@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>friendly_traceback.message_parser - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>friendly_traceback.message_parser - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -169,13 +169,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../friendly_exec.html">Friendlier exec</a></li>
@@ -323,12 +323,14 @@
 
 
 <span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">import_module</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span>
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">debug_helper</span>
 <span class="kn">from</span> <span class="nn">.ft_gettext</span> <span class="kn">import</span> <span class="n">internal_error</span><span class="p">,</span> <span class="n">no_information</span><span class="p">,</span> <span class="n">unknown_case</span>
 <span class="kn">from</span> <span class="nn">.tb_data</span> <span class="kn">import</span> <span class="n">TracebackData</span>  <span class="c1"># for type checking only</span>
 <span class="kn">from</span> <span class="nn">.typing_info</span> <span class="kn">import</span> <span class="n">_E</span><span class="p">,</span> <span class="n">CauseInfo</span><span class="p">,</span> <span class="n">Parser</span>
+
+<span class="n">_P</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"_P"</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Parser</span><span class="p">)</span>
 
 <span class="n">INCLUDED_PARSERS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="ne">AttributeError</span><span class="p">:</span> <span class="s2">"attribute_error"</span><span class="p">,</span>
@@ -356,15 +358,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Parser</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Parser</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Parser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">_P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_P</span><span class="p">:</span>
         <span class="sd">"""This method is meant to be used only within friendly-traceback.</span>
 <span class="sd">        It is used as a decorator to add a message parser to a list that is</span>
 <span class="sd">        automatically updated.</span>
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span>
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Parser</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">_P</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_P</span><span class="p">:</span>
         <span class="sd">"""This method is meant to be used by projects that extend</span>
 <span class="sd">        friendly-traceback. It is used as a decorator to add a message parser</span>
 <span class="sd">        to a list that is automatically updated::</span>
@@ -375,10 +378,15 @@
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parsers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_parsers</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_parsers</span>
+        <span class="k">return</span> <span class="n">func</span>
 
 
 <div class="viewcode-block" id="get_parser"><a class="viewcode-back" href="../../api.html#friendly_traceback.message_parser.get_parser">[docs]</a><span class="k">def</span> <span class="nf">get_parser</span><span class="p">(</span><span class="n">exception_type</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">_E</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">RuntimeMessageParser</span><span class="p">:</span>
     <span class="sd">"""Gets a 'parser' to find the cause for a given exception.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        exception_type: an exception class.</span>
+
 <span class="sd">    Usage::</span>
 
 <span class="sd">        parser = get_parser(SomeSpecificError)</span>
@@ -473,7 +481,9 @@
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/clipboard.min.js"></script>

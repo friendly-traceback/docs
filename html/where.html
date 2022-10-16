@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="explain()" href="explain.html" /><link rel="prev" title="what()" href="what.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>where() - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>where() - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -306,7 +306,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -319,62 +319,86 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="where">
-<h1>where()<a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h1>
+<h1>where()<a class="headerlink" href="#where" title="Permalink to this heading">¶</a></h1>
 <p>Python traceback give information about where an exception was raised and
-more. But it does so in a way that’s not entirely friendly to users.
-Let’s look at a different example, and see how friendly
-can give a bit more information about the location of the problem.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_4</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;friendly-console:10&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-    <span class="n">test_4</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="go">       ... More lines not shown. ...</span>
-
-<span class="go">    test_2(x)</span>
-<span class="go">  File "&lt;friendly-console:7&gt;", line 2, in test_2</span>
-<span class="go">    test_1(x)</span>
-<span class="go">  File "&lt;friendly-console:8&gt;", line 3, in test_1</span>
-<span class="go">    print(arg + something + others)</span>
-<span class="go">NameError: name 'others' is not defined</span>
-
-<span class="go">Did you mean other?</span>
+more. But it does so in a way that’s not entirely friendly to users, showing a
+single line for each “frame” in which a function call took place:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">example2</span><span class="o">.</span><span class="n">py</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Andre</span>\<span class="n">demos</span>\<span class="n">example2</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span> <span class="ne">DeprecationWarning</span><span class="p">:</span> <span class="n">Indiana</span><span class="p">,</span> <span class="n">February</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1897</span>
+  <span class="n">indiana_tau</span> <span class="o">=</span> <span class="n">indiana_pi</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"C:\Users\Andre\demos\example2.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">15</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">get_last</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+  <span class="n">File</span> <span class="s2">"C:\Users\Andre\demos\example2.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">13</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get_last</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="p">[</span><span class="n">last_index</span><span class="p">]</span>
+<span class="ne">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
 </pre></div>
 </div>
-<p>By default, friendly limits the length of the traceback
-shown to the user.
-[If you want to see a full traceback instead, use <code class="docutils literal notranslate"><span class="pre">python_tb()</span></code> or
-see <a class="reference internal" href="multiple_tracebacks.html#multiple-tracebacks"><span class="std std-ref">Multiple tracebacks</span></a> for more details.]
-Still, Python tracebacks can be rather too terse looking for
-beginners, making it difficult for them to grasp where the error occurred.</p>
-<p>Let’s see how <code class="docutils literal notranslate"><span class="pre">where()</span></code> can get a bit more information about this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">where</span><span class="p">()</span>
+<p>Friendly, can give more information about the location of the error.</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Screen capture</label><div class="tab-content docutils container">
+<a class="reference internal image-reference" href="_images/where.png"><img alt="Python IndexError example - where()" src="_images/where.png" style="width: 719.5999999999999px; height: 434.7px;"/></a>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">Text version</label><div class="tab-content docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>[10]: where()
 
-<span class="go">Execution stopped on line 1 of file '&lt;friendly-console:10&gt;'.</span>
+    Execution stopped on line `15` of file 'HOME:\demos\example2.py'.
 
-<span class="go">    --&gt;1: test_4(42)</span>
+       11| def get_last(seq):
+       12|     last_index = len(seq)
+       13|     return seq[last_index]
+       14|
+    --&gt;15| print(get_last([1, 2, 3]))
+                 ^^^^^^^^^^^^^^^^^^^
 
-<span class="go">    test_4: &lt;function test_4&gt;</span>
+            get_last:  &lt;function get_last&gt;
 
-<span class="go">Exception raised on line 3 of file '&lt;friendly-console:8&gt;'.</span>
+    Exception raised on line `13` of file 'HOME:\demos\example2.py'.
 
-<span class="go">       1: def test_1(arg):</span>
-<span class="go">       2:     other = 3</span>
-<span class="go">    --&gt;3:     print(arg + something + others)</span>
-<span class="go">                                      ^^^^^^</span>
+       11| def get_last(seq):
+       12|     last_index = len(seq)
+    --&gt;13|     return seq[last_index]
+                      ^^^^^^^^^^^^^^^
 
-<span class="go">    arg: 42</span>
-<span class="go">    global something: 4</span>
-<span class="go">    print: &lt;builtin function print&gt;</span>
-<span class="go">&gt;&gt;&gt;</span>
+            last_index:  3
+            seq:  [1, 2, 3]
 </pre></div>
 </div>
-<p>friendly gives detailed information about two locations
-at most: where the program stopped and where the exception was
-raised. It shows a few lines of code near the source of the problem,
-and gives some information about what it thinks might be
-relevant identifiers.</p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the text version above, instead of using <code class="docutils literal notranslate"><span class="pre">friendly</span> <span class="pre">example2.py</span> <span class="pre">-x</span></code>,
+which highlights the location of the error with a different background
+colour, I have used <code class="docutils literal notranslate"><span class="pre">friendlyl</span> <span class="pre">example2.py</span> <span class="pre">-x</span> <span class="pre">-f</span> <span class="pre">docs</span></code> to get a text
+version which uses carets (<code class="docutils literal notranslate"><span class="pre">^</span></code>) to indicate the location of the error.</p>
+</div>
+<p>We can do the same for the deprecation warning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[11]: where(0)
+
+    Warning issued on line `9` of file 'HOME:\demos\example2.py'.
+
+       5|     warnings.warn("Indiana, February 6, 1897", DeprecationWarning,
+       6|                   stacklevel = 2)
+       7|     return 3.2
+       8|
+    --&gt;9| indiana_tau = indiana_pi() * 2
+                        ^^^^^^^^^^^^
+       10|
+       11| def get_last(seq):
+
+            indiana_pi:  &lt;function indiana_pi&gt;
+</pre></div>
+</div>
+<section id="more-details">
+<h2>More details<a class="headerlink" href="#more-details" title="Permalink to this heading">¶</a></h2>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">where()</span></code> focuses on the last line where the exception was actually
+raised and, if different, the first line entered by a user which started the
+series of call that resulted in a traceback. Sometimes, it might
+be useful to get more information about each “frame” which was involved in
+a traceback. This can be done using an optional argument:
+<code class="docutils literal notranslate"><span class="pre">where(more=True)</span></code>.</p>
+</section>
 </section>
 
         </article>
@@ -416,8 +440,27 @@ relevant identifiers.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">where()</a><ul>
+<li><a class="reference internal" href="#more-details">More details</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -425,7 +468,9 @@ relevant identifiers.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

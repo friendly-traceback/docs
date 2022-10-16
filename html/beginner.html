@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting Friendly" href="install.html" /><link rel="prev" title="Welcome வரவேற்பு ¡Bienvenido! - Bienvenue Добро пожаловать Benvenuto!" href="index.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Useful information for beginners - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Useful information for beginners - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,7 +319,7 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="useful-information-for-beginners">
-<h1>Useful information for beginners<a class="headerlink" href="#useful-information-for-beginners" title="Permalink to this headline">¶</a></h1>
+<h1>Useful information for beginners<a class="headerlink" href="#useful-information-for-beginners" title="Permalink to this heading">¶</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you already know how to run Python programs from a terminal/command line,
@@ -327,7 +327,7 @@ and know what is meant by a “REPL”, you should go directly to the
 next page.</p>
 </div>
 <section id="get-someone-to-help-you">
-<h2>Get someone to help you<a class="headerlink" href="#get-someone-to-help-you" title="Permalink to this headline">¶</a></h2>
+<h2>Get someone to help you<a class="headerlink" href="#get-someone-to-help-you" title="Permalink to this heading">¶</a></h2>
 <p>Learning programming on your own can be extremely challenging.
 Having a teacher or an experienced friend helping you can be invaluable.</p>
 <p><strong>Friendly</strong> has been designed to help beginners when they encounter
@@ -356,7 +356,7 @@ include <strong>all the text</strong> that was shown.</p></li>
 </div>
 </section>
 <section id="what-is-a-repl">
-<h2>What is a REPL?<a class="headerlink" href="#what-is-a-repl" title="Permalink to this headline">¶</a></h2>
+<h2>What is a REPL?<a class="headerlink" href="#what-is-a-repl" title="Permalink to this heading">¶</a></h2>
 <p>A REPL (Read-Eval-Print Loop) is an interactive mode where
 we are invited to type in some Python code after
 <strong>prompt</strong> (most often written as <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>). Python reads
@@ -374,7 +374,7 @@ favourite Python interpreter in a terminal on your computer.
 It could be <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">python3</span></code>, <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-3.8</span></code>, etc.</p>
 </section>
 <section id="how-to-run-a-python-program">
-<h2>How to run a Python program<a class="headerlink" href="#how-to-run-a-python-program" title="Permalink to this headline">¶</a></h2>
+<h2>How to run a Python program<a class="headerlink" href="#how-to-run-a-python-program" title="Permalink to this heading">¶</a></h2>
 <p>Instead of using an interpreter to type code when prompted
 by Python, you can use an editor, save your program in
 a file (named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> in my example) and run
@@ -390,7 +390,7 @@ For example, some of you might be familiar with Mu:</p>
 <a class="reference internal image-reference" href="_images/beginner_mu.png"><img alt="Python runing in Mu" src="_images/beginner_mu.png" style="width: 591.5px; height: 384.0px;"/></a>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>You can run Python programs by typing <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">...</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">...</span></code>
 in a terminal or by using and editor with a built-in menu
 for running Python programs.</p>
@@ -472,7 +472,9 @@ something similar to what I show.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

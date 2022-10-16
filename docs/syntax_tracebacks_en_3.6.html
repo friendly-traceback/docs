@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in English" href="tracebacks_en_3.7.html" /><link rel="prev" title="Friendly tracebacks - in English" href="tracebacks_en_3.6.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Friendly SyntaxError tracebacks - in English - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,7 +319,7 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="friendly-syntaxerror-tracebacks-in-english">
-<h1>Friendly SyntaxError tracebacks - in English<a class="headerlink" href="#friendly-syntaxerror-tracebacks-in-english" title="Permalink to this headline">¶</a></h1>
+<h1>Friendly SyntaxError tracebacks - in English<a class="headerlink" href="#friendly-syntaxerror-tracebacks-in-english" title="Permalink to this heading">¶</a></h1>
 <p>Friendly aims to provide friendlier feedback when an exception
 is raised than what is done by Python.
 This file contains only examples of SyntaxError and its sub-classes.
@@ -338,7 +338,7 @@ similar files for all languages <em>and</em> update the documentation.</p>
 <p>Friendly-traceback version: 0.6.0
 Python version: 3.6.8</p>
 <section id="using-and-in-import-statement">
-<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -364,7 +364,7 @@ Perhaps you meant to write
 </div>
 </section>
 <section id="using-and-after-comma-in-import-statement">
-<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(2) Using ‘and’ after comma in import statement<a class="headerlink" href="#using-and-after-comma-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -390,7 +390,7 @@ Perhaps you meant to write
 </div>
 </section>
 <section id="annotated-name-cannot-be-global">
-<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this headline">¶</a></h2>
+<h2>(3) Annotated name cannot be global<a class="headerlink" href="#annotated-name-cannot-be-global" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -414,7 +414,7 @@ as a local variable. It cannot be declared to be a global variable.
 </div>
 </section>
 <section id="incorrect-use-of-from-module-import-as">
-<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this headline">¶</a></h2>
+<h2>(4) Incorrect use of ‘from module import … as …<a class="headerlink" href="#incorrect-use-of-from-module-import-as" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -445,7 +445,7 @@ renamed on a separate line as follows:
 </div>
 </section>
 <section id="assign-instead-of-equal-or-walrus">
-<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this headline">¶</a></h2>
+<h2>(5) Assign instead of equal (or walrus).<a class="headerlink" href="#assign-instead-of-equal-or-walrus" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -473,7 +473,7 @@ The following statement would not contain a syntax error:
 </div>
 </section>
 <section id="name-assigned-prior-to-global-declaration">
-<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(6) Name assigned prior to global declaration<a class="headerlink" href="#name-assigned-prior-to-global-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -497,7 +497,7 @@ before declaring it as a global variable.
 </div>
 </section>
 <section id="name-used-prior-to-global-declaration">
-<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(7) Name used prior to global declaration<a class="headerlink" href="#name-used-prior-to-global-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -521,7 +521,7 @@ before declaring it as a global variable.
 </div>
 </section>
 <section id="name-used-prior-to-nonlocal-declaration">
-<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(8) Name used prior to nonlocal declaration<a class="headerlink" href="#name-used-prior-to-nonlocal-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -547,7 +547,7 @@ before declaring it as a nonlocal variable.
 </div>
 </section>
 <section id="name-assigned-prior-to-nonlocal-declaration">
-<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(9) Name assigned prior to nonlocal declaration<a class="headerlink" href="#name-assigned-prior-to-nonlocal-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -573,7 +573,7 @@ before declaring it as a nonlocal variable.
 </div>
 </section>
 <section id="assign-to-conditional-expression">
-<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(10) Assign to conditional expression<a class="headerlink" href="#assign-to-conditional-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -602,7 +602,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="assignment-to-keyword-debug">
-<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this headline">¶</a></h2>
+<h2>(11) Assignment to keyword (__debug__)<a class="headerlink" href="#assignment-to-keyword-debug" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -627,7 +627,7 @@ at the location indicated.
 </div>
 </section>
 <section id="id1">
-<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>(12) Assignment to keyword (__debug__)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -652,7 +652,7 @@ at the location indicated.
 </div>
 </section>
 <section id="assignment-to-ellipsis-symbol">
-<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this headline">¶</a></h2>
+<h2>(13) Assignment to Ellipsis symbol<a class="headerlink" href="#assignment-to-ellipsis-symbol" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -677,7 +677,7 @@ The ellipsis symbol `...` is a constant in Python;you cannot assign it a differe
 </div>
 </section>
 <section id="cannot-assign-to-f-string">
-<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this headline">¶</a></h2>
+<h2>(14) Cannot assign to f-string<a class="headerlink" href="#cannot-assign-to-f-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -702,7 +702,7 @@ An f-string should only appear on the right-hand side of an equal sign.
 </div>
 </section>
 <section id="cannot-assign-to-function-call-single-sign">
-<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(15) Cannot assign to function call: single = sign<a class="headerlink" href="#cannot-assign-to-function-call-single-sign" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -733,7 +733,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-function-call-two-signs">
-<h2>(16) Cannot assign to function call: two = signs<a class="headerlink" href="#cannot-assign-to-function-call-two-signs" title="Permalink to this headline">¶</a></h2>
+<h2>(16) Cannot assign to function call: two = signs<a class="headerlink" href="#cannot-assign-to-function-call-two-signs" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -764,7 +764,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-function-call-continues-on-second-line">
-<h2>(17) Cannot assign to function call: continues on second line<a class="headerlink" href="#cannot-assign-to-function-call-continues-on-second-line" title="Permalink to this headline">¶</a></h2>
+<h2>(17) Cannot assign to function call: continues on second line<a class="headerlink" href="#cannot-assign-to-function-call-continues-on-second-line" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -796,7 +796,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="assign-to-generator-expression">
-<h2>(18) Assign to generator expression<a class="headerlink" href="#assign-to-generator-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(18) Assign to generator expression<a class="headerlink" href="#assign-to-generator-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -823,7 +823,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-literal-4">
-<h2>(19) Cannot assign to literal - 4<a class="headerlink" href="#cannot-assign-to-literal-4" title="Permalink to this headline">¶</a></h2>
+<h2>(19) Cannot assign to literal - 4<a class="headerlink" href="#cannot-assign-to-literal-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -855,7 +855,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-literal-int">
-<h2>(20) Cannot assign to literal int<a class="headerlink" href="#cannot-assign-to-literal-int" title="Permalink to this headline">¶</a></h2>
+<h2>(20) Cannot assign to literal int<a class="headerlink" href="#cannot-assign-to-literal-int" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -887,7 +887,7 @@ Perhaps you meant to write:
 </div>
 </section>
 <section id="cannot-assign-to-literal-int-2">
-<h2>(21) Cannot assign to literal int - 2<a class="headerlink" href="#cannot-assign-to-literal-int-2" title="Permalink to this headline">¶</a></h2>
+<h2>(21) Cannot assign to literal int - 2<a class="headerlink" href="#cannot-assign-to-literal-int-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -919,7 +919,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-literal-5">
-<h2>(22) Cannot assign to literal - 5<a class="headerlink" href="#cannot-assign-to-literal-5" title="Permalink to this headline">¶</a></h2>
+<h2>(22) Cannot assign to literal - 5<a class="headerlink" href="#cannot-assign-to-literal-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -951,7 +951,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="cannot-assign-to-literal-3">
-<h2>(23) Cannot assign to literal - 3<a class="headerlink" href="#cannot-assign-to-literal-3" title="Permalink to this headline">¶</a></h2>
+<h2>(23) Cannot assign to literal - 3<a class="headerlink" href="#cannot-assign-to-literal-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -983,7 +983,7 @@ You can only assign objects to identifiers (variable names).
 </div>
 </section>
 <section id="assign-to-keyword-def">
-<h2>(24) Assign to keyword def<a class="headerlink" href="#assign-to-keyword-def" title="Permalink to this headline">¶</a></h2>
+<h2>(24) Assign to keyword def<a class="headerlink" href="#assign-to-keyword-def" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1009,7 +1009,7 @@ This is not allowed.
 </div>
 </section>
 <section id="assign-to-keyword-else">
-<h2>(25) Assign to keyword else<a class="headerlink" href="#assign-to-keyword-else" title="Permalink to this headline">¶</a></h2>
+<h2>(25) Assign to keyword else<a class="headerlink" href="#assign-to-keyword-else" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1035,7 +1035,7 @@ This is not allowed.
 </div>
 </section>
 <section id="assignment-to-keyword-none">
-<h2>(26) Assignment to keyword (None)<a class="headerlink" href="#assignment-to-keyword-none" title="Permalink to this headline">¶</a></h2>
+<h2>(26) Assignment to keyword (None)<a class="headerlink" href="#assignment-to-keyword-none" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1060,7 +1060,7 @@ at the location indicated.
 </div>
 </section>
 <section id="assign-to-math-operation">
-<h2>(27) Assign to math operation<a class="headerlink" href="#assign-to-math-operation" title="Permalink to this headline">¶</a></h2>
+<h2>(27) Assign to math operation<a class="headerlink" href="#assign-to-math-operation" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1087,7 +1087,7 @@ only used to assign a value to a variable.
 </div>
 </section>
 <section id="assign-to-yield-expression">
-<h2>(28) Assign to yield expression<a class="headerlink" href="#assign-to-yield-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(28) Assign to yield expression<a class="headerlink" href="#assign-to-yield-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1116,7 +1116,7 @@ Note that, like the keyword `return`,
 </div>
 </section>
 <section id="augmented-assignment-inside-comprehension">
-<h2>(29) Augmented assignment inside comprehension<a class="headerlink" href="#augmented-assignment-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(29) Augmented assignment inside comprehension<a class="headerlink" href="#augmented-assignment-inside-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1143,7 +1143,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="augmented-assignment-inside-comprehension-inner-loop">
-<h2>(30) Augmented assignment inside comprehension - inner loop<a class="headerlink" href="#augmented-assignment-inside-comprehension-inner-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(30) Augmented assignment inside comprehension - inner loop<a class="headerlink" href="#augmented-assignment-inside-comprehension-inner-loop" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1170,7 +1170,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="def-missing-parentheses">
-<h2>(31) def: missing parentheses<a class="headerlink" href="#def-missing-parentheses" title="Permalink to this headline">¶</a></h2>
+<h2>(31) def: missing parentheses<a class="headerlink" href="#def-missing-parentheses" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1198,7 +1198,7 @@ You might have meant to write
 </div>
 </section>
 <section id="augmented-assignment-to-literal">
-<h2>(32) Augmented assignment to literal<a class="headerlink" href="#augmented-assignment-to-literal" title="Permalink to this headline">¶</a></h2>
+<h2>(32) Augmented assignment to literal<a class="headerlink" href="#augmented-assignment-to-literal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1225,7 +1225,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="walrus-named-assignment-depending-on-python-version">
-<h2>(33) Walrus/Named assignment depending on Python version<a class="headerlink" href="#walrus-named-assignment-depending-on-python-version" title="Permalink to this headline">¶</a></h2>
+<h2>(33) Walrus/Named assignment depending on Python version<a class="headerlink" href="#walrus-named-assignment-depending-on-python-version" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1252,7 +1252,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="backslash-instead-of-slash">
-<h2>(34) Backslash instead of slash<a class="headerlink" href="#backslash-instead-of-slash" title="Permalink to this headline">¶</a></h2>
+<h2>(34) Backslash instead of slash<a class="headerlink" href="#backslash-instead-of-slash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1280,7 +1280,7 @@ and wrote \ instead of /.
 </div>
 </section>
 <section id="brackets-instead-of-parentheses">
-<h2>(35) Brackets instead of parentheses<a class="headerlink" href="#brackets-instead-of-parentheses" title="Permalink to this headline">¶</a></h2>
+<h2>(35) Brackets instead of parentheses<a class="headerlink" href="#brackets-instead-of-parentheses" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1308,7 +1308,7 @@ Write the following instead:
 </div>
 </section>
 <section id="break-outside-loop">
-<h2>(36) break outside loop<a class="headerlink" href="#break-outside-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(36) break outside loop<a class="headerlink" href="#break-outside-loop" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1331,7 +1331,7 @@ The Python keyword `break` can only be used inside a `for` loop or inside a `whi
 </div>
 </section>
 <section id="cannot-assign-to-attribute-here">
-<h2>(37) Cannot assign to attribute here.<a class="headerlink" href="#cannot-assign-to-attribute-here" title="Permalink to this headline">¶</a></h2>
+<h2>(37) Cannot assign to attribute here.<a class="headerlink" href="#cannot-assign-to-attribute-here" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1359,7 +1359,7 @@ The following statement would not contain a syntax error:
 </div>
 </section>
 <section id="cannot-guess-the-cause">
-<h2>(38) Cannot guess the cause<a class="headerlink" href="#cannot-guess-the-cause" title="Permalink to this headline">¶</a></h2>
+<h2>(38) Cannot guess the cause<a class="headerlink" href="#cannot-guess-the-cause" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1392,7 +1392,7 @@ https://github.com/friendly-traceback/friendly-traceback/issues
 </div>
 </section>
 <section id="cannot-use-star-operator">
-<h2>(39) Cannot use star operator<a class="headerlink" href="#cannot-use-star-operator" title="Permalink to this headline">¶</a></h2>
+<h2>(39) Cannot use star operator<a class="headerlink" href="#cannot-use-star-operator" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1417,7 +1417,7 @@ to each item of an iterable, which does not make sense here.
 </div>
 </section>
 <section id="cannot-use-double-star-operator">
-<h2>(40) Cannot use double star operator<a class="headerlink" href="#cannot-use-double-star-operator" title="Permalink to this headline">¶</a></h2>
+<h2>(40) Cannot use double star operator<a class="headerlink" href="#cannot-use-double-star-operator" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1441,7 +1441,7 @@ dict unpacking is to be used which is not allowed or does not make sense here.
 </div>
 </section>
 <section id="missing-class-name">
-<h2>(41) Missing class name<a class="headerlink" href="#missing-class-name" title="Permalink to this headline">¶</a></h2>
+<h2>(41) Missing class name<a class="headerlink" href="#missing-class-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1469,7 +1469,7 @@ A `class` statement requires a name:
 </div>
 </section>
 <section id="missing-for-tuples-in-comprehension">
-<h2>(42) Missing () for tuples in comprehension<a class="headerlink" href="#missing-for-tuples-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(42) Missing () for tuples in comprehension<a class="headerlink" href="#missing-for-tuples-in-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1502,7 +1502,7 @@ you would need to write
 </div>
 </section>
 <section id="comprehension-with-condition-no-else">
-<h2>(43) Comprehension with condition (no else)<a class="headerlink" href="#comprehension-with-condition-no-else" title="Permalink to this headline">¶</a></h2>
+<h2>(43) Comprehension with condition (no else)<a class="headerlink" href="#comprehension-with-condition-no-else" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1535,7 +1535,7 @@ or, if there is no `else`
 </div>
 </section>
 <section id="comprehension-with-condition-with-else">
-<h2>(44) Comprehension with condition (with else)<a class="headerlink" href="#comprehension-with-condition-with-else" title="Permalink to this headline">¶</a></h2>
+<h2>(44) Comprehension with condition (with else)<a class="headerlink" href="#comprehension-with-condition-with-else" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1568,7 +1568,7 @@ or, if there is no `else`
 </div>
 </section>
 <section id="continue-outside-loop">
-<h2>(45) continue outside loop<a class="headerlink" href="#continue-outside-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(45) continue outside loop<a class="headerlink" href="#continue-outside-loop" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1591,7 +1591,7 @@ The Python keyword `continue` can only be used inside a `for` loop or inside a `
 </div>
 </section>
 <section id="copy-paste-from-interpreter">
-<h2>(46) Copy/paste from interpreter<a class="headerlink" href="#copy-paste-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(46) Copy/paste from interpreter<a class="headerlink" href="#copy-paste-from-interpreter" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1617,7 +1617,7 @@ The Python prompt, `&gt;&gt;&gt;`, should not be included in your code.
 </div>
 </section>
 <section id="copy-paste-from-interpreter-2">
-<h2>(47) Copy/paste from interpreter - 2<a class="headerlink" href="#copy-paste-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<h2>(47) Copy/paste from interpreter - 2<a class="headerlink" href="#copy-paste-from-interpreter-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1643,7 +1643,7 @@ The Python prompt, `...`, should not be included in your code.
 </div>
 </section>
 <section id="debug-feature-of-f-string-not-supported">
-<h2>(48) Debug-feature of f-string not supported<a class="headerlink" href="#debug-feature-of-f-string-not-supported" title="Permalink to this headline">¶</a></h2>
+<h2>(48) Debug-feature of f-string not supported<a class="headerlink" href="#debug-feature-of-f-string-not-supported" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1669,7 +1669,7 @@ in Python version 3.8. You are using version 3.6.
 </div>
 </section>
 <section id="def-positional-arg-after-kwargs">
-<h2>(49) def: positional arg after kwargs<a class="headerlink" href="#def-positional-arg-after-kwargs" title="Permalink to this headline">¶</a></h2>
+<h2>(49) def: positional arg after kwargs<a class="headerlink" href="#def-positional-arg-after-kwargs" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1696,7 +1696,7 @@ keyword arguments in your function definition.
 </div>
 </section>
 <section id="def-named-arguments-must-follow-bare">
-<h2>(50) def: named arguments must follow bare *<a class="headerlink" href="#def-named-arguments-must-follow-bare" title="Permalink to this headline">¶</a></h2>
+<h2>(50) def: named arguments must follow bare *<a class="headerlink" href="#def-named-arguments-must-follow-bare" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1723,7 +1723,7 @@ by `*, named_argument=value`.
 </div>
 </section>
 <section id="def-misused-as-code-block">
-<h2>(51) def: misused as code block<a class="headerlink" href="#def-misused-as-code-block" title="Permalink to this headline">¶</a></h2>
+<h2>(51) def: misused as code block<a class="headerlink" href="#def-misused-as-code-block" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1751,7 +1751,7 @@ The correct syntax is:
 </div>
 </section>
 <section id="def-misused-as-code-block-2">
-<h2>(52) def: misused as code block - 2<a class="headerlink" href="#def-misused-as-code-block-2" title="Permalink to this headline">¶</a></h2>
+<h2>(52) def: misused as code block - 2<a class="headerlink" href="#def-misused-as-code-block-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1779,7 +1779,7 @@ The correct syntax is:
 </div>
 </section>
 <section id="dotted-name-as-function-argument">
-<h2>(53) Dotted name as function argument<a class="headerlink" href="#dotted-name-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(53) Dotted name as function argument<a class="headerlink" href="#dotted-name-as-function-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1805,7 +1805,7 @@ Perhaps you meant to write a comma.
 </div>
 </section>
 <section id="id2">
-<h2>(54) Dotted name as function argument<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>(54) Dotted name as function argument<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1830,7 +1830,7 @@ You cannot use dotted names as function arguments.
 </div>
 </section>
 <section id="dotted-function-name">
-<h2>(55) Dotted function name<a class="headerlink" href="#dotted-function-name" title="Permalink to this headline">¶</a></h2>
+<h2>(55) Dotted function name<a class="headerlink" href="#dotted-function-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1855,7 +1855,7 @@ You cannot use dots in function names.
 </div>
 </section>
 <section id="def-dict-as-argument">
-<h2>(56) def: dict as argument<a class="headerlink" href="#def-dict-as-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(56) def: dict as argument<a class="headerlink" href="#def-dict-as-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1881,7 +1881,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="def-arguments-must-be-unique-in-function-definition">
-<h2>(57) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this headline">¶</a></h2>
+<h2>(57) def: arguments must be unique in function definition<a class="headerlink" href="#def-arguments-must-be-unique-in-function-definition" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1907,7 +1907,7 @@ Each argument should appear only once in a function definition.
 </div>
 </section>
 <section id="def-semicolon-after-colon">
-<h2>(58) def: semicolon after colon<a class="headerlink" href="#def-semicolon-after-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(58) def: semicolon after colon<a class="headerlink" href="#def-semicolon-after-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1934,7 +1934,7 @@ Removing `;`, might fix the problem.
 </div>
 </section>
 <section id="def-extra-comma">
-<h2>(59) def: extra comma<a class="headerlink" href="#def-extra-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(59) def: extra comma<a class="headerlink" href="#def-extra-comma" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1962,7 +1962,7 @@ The following statement contains no syntax error:
 </div>
 </section>
 <section id="def-unspecified-keywords-before">
-<h2>(60) def: unspecified keywords before /<a class="headerlink" href="#def-unspecified-keywords-before" title="Permalink to this headline">¶</a></h2>
+<h2>(60) def: unspecified keywords before /<a class="headerlink" href="#def-unspecified-keywords-before" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -1990,7 +1990,7 @@ You are using Python version 3.6.8.
 </div>
 </section>
 <section id="def-before-star">
-<h2>(61) def: / before star<a class="headerlink" href="#def-before-star" title="Permalink to this headline">¶</a></h2>
+<h2>(61) def: / before star<a class="headerlink" href="#def-before-star" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2018,7 +2018,7 @@ You are using Python version 3.6.8.
 </div>
 </section>
 <section id="def-before-star-arg">
-<h2>(62) def: / before star arg<a class="headerlink" href="#def-before-star-arg" title="Permalink to this headline">¶</a></h2>
+<h2>(62) def: / before star arg<a class="headerlink" href="#def-before-star-arg" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2046,7 +2046,7 @@ You are using Python version 3.6.8.
 </div>
 </section>
 <section id="def-used-twice">
-<h2>(63) def: / used twice<a class="headerlink" href="#def-used-twice" title="Permalink to this headline">¶</a></h2>
+<h2>(63) def: / used twice<a class="headerlink" href="#def-used-twice" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2074,7 +2074,7 @@ You are using Python version 3.6.8.
 </div>
 </section>
 <section id="def-non-identifier-as-a-function-name">
-<h2>(64) def: non-identifier as a function name<a class="headerlink" href="#def-non-identifier-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<h2>(64) def: non-identifier as a function name<a class="headerlink" href="#def-non-identifier-as-a-function-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2101,7 +2101,7 @@ and which contains only letters, digits or the underscore character.
 </div>
 </section>
 <section id="def-using-a-string-as-a-function-name">
-<h2>(65) def: using a string as a function name<a class="headerlink" href="#def-using-a-string-as-a-function-name" title="Permalink to this headline">¶</a></h2>
+<h2>(65) def: using a string as a function name<a class="headerlink" href="#def-using-a-string-as-a-function-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2132,7 +2132,7 @@ You attempted to use a string as a function name.
 </div>
 </section>
 <section id="def-keyword-cannot-be-argument-in-def-1">
-<h2>(66) def: keyword cannot be argument in def - 1<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-1" title="Permalink to this headline">¶</a></h2>
+<h2>(66) def: keyword cannot be argument in def - 1<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2157,7 +2157,7 @@ where an identifier (variable name) was expected.
 </div>
 </section>
 <section id="def-keyword-cannot-be-argument-in-def-2">
-<h2>(67) def: keyword cannot be argument in def - 2<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-2" title="Permalink to this headline">¶</a></h2>
+<h2>(67) def: keyword cannot be argument in def - 2<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2182,7 +2182,7 @@ where an identifier (variable name) was expected.
 </div>
 </section>
 <section id="def-keyword-cannot-be-argument-in-def-3">
-<h2>(68) def: keyword cannot be argument in def - 3<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-3" title="Permalink to this headline">¶</a></h2>
+<h2>(68) def: keyword cannot be argument in def - 3<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2207,7 +2207,7 @@ where an identifier (variable name) was expected.
 </div>
 </section>
 <section id="def-keyword-cannot-be-argument-in-def-4">
-<h2>(69) def: keyword cannot be argument in def - 4<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-4" title="Permalink to this headline">¶</a></h2>
+<h2>(69) def: keyword cannot be argument in def - 4<a class="headerlink" href="#def-keyword-cannot-be-argument-in-def-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2232,7 +2232,7 @@ where an identifier (variable name) was expected.
 </div>
 </section>
 <section id="def-python-keyword-as-function-name">
-<h2>(70) def: Python keyword as function name<a class="headerlink" href="#def-python-keyword-as-function-name" title="Permalink to this headline">¶</a></h2>
+<h2>(70) def: Python keyword as function name<a class="headerlink" href="#def-python-keyword-as-function-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2259,7 +2259,7 @@ There are more syntax errors later in your code.
 </div>
 </section>
 <section id="def-list-as-argument-1">
-<h2>(71) def: list as argument - 1<a class="headerlink" href="#def-list-as-argument-1" title="Permalink to this headline">¶</a></h2>
+<h2>(71) def: list as argument - 1<a class="headerlink" href="#def-list-as-argument-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2285,7 +2285,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="def-list-as-argument-2">
-<h2>(72) def: list as argument - 2<a class="headerlink" href="#def-list-as-argument-2" title="Permalink to this headline">¶</a></h2>
+<h2>(72) def: list as argument - 2<a class="headerlink" href="#def-list-as-argument-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2311,7 +2311,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="def-missing-colon">
-<h2>(73) def: missing colon<a class="headerlink" href="#def-missing-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(73) def: missing colon<a class="headerlink" href="#def-missing-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2336,7 +2336,7 @@ A function definition statement must end with a colon.
 </div>
 </section>
 <section id="def-missing-comma-between-function-args">
-<h2>(74) def: missing comma between function args<a class="headerlink" href="#def-missing-comma-between-function-args" title="Permalink to this headline">¶</a></h2>
+<h2>(74) def: missing comma between function args<a class="headerlink" href="#def-missing-comma-between-function-args" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2368,7 +2368,7 @@ Perhaps you meant
 </div>
 </section>
 <section id="id3">
-<h2>(75) def: missing parentheses<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>(75) def: missing parentheses<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2396,7 +2396,7 @@ You might have meant to write
 </div>
 </section>
 <section id="def-missing-parentheses-around-arguments">
-<h2>(76) def: missing parentheses around arguments<a class="headerlink" href="#def-missing-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<h2>(76) def: missing parentheses around arguments<a class="headerlink" href="#def-missing-parentheses-around-arguments" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2424,7 +2424,7 @@ You might have meant to write
 </div>
 </section>
 <section id="def-missing-function-name">
-<h2>(77) def: missing function name<a class="headerlink" href="#def-missing-function-name" title="Permalink to this headline">¶</a></h2>
+<h2>(77) def: missing function name<a class="headerlink" href="#def-missing-function-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2450,7 +2450,7 @@ The correct syntax is:
 </div>
 </section>
 <section id="def-name-is-parameter-and-global">
-<h2>(78) def: name is parameter and global<a class="headerlink" href="#def-name-is-parameter-and-global" title="Permalink to this headline">¶</a></h2>
+<h2>(78) def: name is parameter and global<a class="headerlink" href="#def-name-is-parameter-and-global" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2481,7 +2481,7 @@ inside that function, which is the contrary of what `global` implied.
 </div>
 </section>
 <section id="def-non-default-argument-follows-default-argument">
-<h2>(79) def: non-default argument follows default argument<a class="headerlink" href="#def-non-default-argument-follows-default-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(79) def: non-default argument follows default argument<a class="headerlink" href="#def-non-default-argument-follows-default-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2517,7 +2517,7 @@ According to Python, you used positional arguments after keyword ones.
 </div>
 </section>
 <section id="single-number-used-as-arg-in-function-def">
-<h2>(80) Single number used as arg in function def<a class="headerlink" href="#single-number-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<h2>(80) Single number used as arg in function def<a class="headerlink" href="#single-number-used-as-arg-in-function-def" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2543,7 +2543,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="operator-after">
-<h2>(81) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#operator-after" title="Permalink to this headline">¶</a></h2>
+<h2>(81) Operator after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#operator-after" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2566,7 +2566,7 @@ The `**` operator needs to be followed by an identifier (variable name).
 </div>
 </section>
 <section id="def-operator-instead-of-comma">
-<h2>(82) def: operator instead of comma<a class="headerlink" href="#def-operator-instead-of-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(82) def: operator instead of comma<a class="headerlink" href="#def-operator-instead-of-comma" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2595,7 +2595,7 @@ The following statement contains no syntax error:
 </div>
 </section>
 <section id="def-operator-instead-of-equal">
-<h2>(83) def: operator instead of equal<a class="headerlink" href="#def-operator-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(83) def: operator instead of equal<a class="headerlink" href="#def-operator-instead-of-equal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2624,7 +2624,7 @@ The following statement contains no syntax error:
 </div>
 </section>
 <section id="def-operator-instead-of-name">
-<h2>(84) def: operator instead of name<a class="headerlink" href="#def-operator-instead-of-name" title="Permalink to this headline">¶</a></h2>
+<h2>(84) def: operator instead of name<a class="headerlink" href="#def-operator-instead-of-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2651,7 +2651,7 @@ will contain no syntax error.
 </div>
 </section>
 <section id="def-positional-argument-follows-keyword-argument">
-<h2>(85) def: positional argument follows keyword argument<a class="headerlink" href="#def-positional-argument-follows-keyword-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(85) def: positional argument follows keyword argument<a class="headerlink" href="#def-positional-argument-follows-keyword-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2687,7 +2687,7 @@ According to Python, you used positional arguments after keyword ones.
 </div>
 </section>
 <section id="def-semicolon-instead-of-colon">
-<h2>(86) def: semicolon instead of colon<a class="headerlink" href="#def-semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(86) def: semicolon instead of colon<a class="headerlink" href="#def-semicolon-instead-of-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2713,7 +2713,7 @@ You wrote `;` instead of a colon.
 </div>
 </section>
 <section id="def-set-as-argument">
-<h2>(87) def: set as argument<a class="headerlink" href="#def-set-as-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(87) def: set as argument<a class="headerlink" href="#def-set-as-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2739,7 +2739,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="def-arg-before">
-<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /<a class="headerlink" href="#def-arg-before" title="Permalink to this headline">¶</a></h2>
+<h2>(88) def: <code class="docutils literal notranslate"><span class="pre">*arg</span></code> before /<a class="headerlink" href="#def-arg-before" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2767,7 +2767,7 @@ You are using Python version 3.6.8.
 </div>
 </section>
 <section id="id4">
-<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>(89) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2794,7 +2794,7 @@ or in the form `*arg`, but not both.
 </div>
 </section>
 <section id="id5">
-<h2>(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>(90) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2819,7 +2819,7 @@ You can only use `*` once in a function definition.
 </div>
 </section>
 <section id="id6">
-<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>(91) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> used twice<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2845,7 +2845,7 @@ You have used it twice, with `*arg` and `*other`.
 </div>
 </section>
 <section id="def-after">
-<h2>(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#def-after" title="Permalink to this headline">¶</a></h2>
+<h2>(92) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#def-after" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2870,7 +2870,7 @@ at the location indicated.
 </div>
 </section>
 <section id="id7">
-<h2>(93) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>(93) def: <code class="docutils literal notranslate"><span class="pre">*</span></code> after <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2895,7 +2895,7 @@ at the location indicated.
 </div>
 </section>
 <section id="single-string-used-as-arg-in-function-def">
-<h2>(94) Single string used as arg in function def<a class="headerlink" href="#single-string-used-as-arg-in-function-def" title="Permalink to this headline">¶</a></h2>
+<h2>(94) Single string used as arg in function def<a class="headerlink" href="#single-string-used-as-arg-in-function-def" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2921,7 +2921,7 @@ You can only use identifiers (variable names) as function arguments.
 </div>
 </section>
 <section id="def-tuple-as-function-argument">
-<h2>(95) def: tuple as function argument<a class="headerlink" href="#def-tuple-as-function-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(95) def: tuple as function argument<a class="headerlink" href="#def-tuple-as-function-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2949,7 +2949,7 @@ within the body of the function.
 </div>
 </section>
 <section id="def-tuple-as-function-argument-2">
-<h2>(96) def: tuple as function argument - 2<a class="headerlink" href="#def-tuple-as-function-argument-2" title="Permalink to this headline">¶</a></h2>
+<h2>(96) def: tuple as function argument - 2<a class="headerlink" href="#def-tuple-as-function-argument-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -2977,7 +2977,7 @@ within the body of the function.
 </div>
 </section>
 <section id="deleting-star-expression-1">
-<h2>(97) Deleting star expression - 1<a class="headerlink" href="#deleting-star-expression-1" title="Permalink to this headline">¶</a></h2>
+<h2>(97) Deleting star expression - 1<a class="headerlink" href="#deleting-star-expression-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3004,7 +3004,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="deleting-star-expression-2">
-<h2>(98) Deleting star expression - 2<a class="headerlink" href="#deleting-star-expression-2" title="Permalink to this headline">¶</a></h2>
+<h2>(98) Deleting star expression - 2<a class="headerlink" href="#deleting-star-expression-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3031,7 +3031,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="cannot-delete-a-constant">
-<h2>(99) Cannot delete a constant<a class="headerlink" href="#cannot-delete-a-constant" title="Permalink to this headline">¶</a></h2>
+<h2>(99) Cannot delete a constant<a class="headerlink" href="#cannot-delete-a-constant" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3056,7 +3056,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="cannot-delete-expression">
-<h2>(100) Cannot delete expression<a class="headerlink" href="#cannot-delete-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(100) Cannot delete expression<a class="headerlink" href="#cannot-delete-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3084,7 +3084,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="cannot-delete-function-call">
-<h2>(101) Cannot delete function call<a class="headerlink" href="#cannot-delete-function-call" title="Permalink to this headline">¶</a></h2>
+<h2>(101) Cannot delete function call<a class="headerlink" href="#cannot-delete-function-call" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3112,7 +3112,7 @@ instead of deleting the function's name
 </div>
 </section>
 <section id="cannot-delete-named-expression">
-<h2>(102) Cannot delete named expression<a class="headerlink" href="#cannot-delete-named-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(102) Cannot delete named expression<a class="headerlink" href="#cannot-delete-named-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3139,7 +3139,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="delete-only-names-or-items">
-<h2>(103) Delete only names or items<a class="headerlink" href="#delete-only-names-or-items" title="Permalink to this headline">¶</a></h2>
+<h2>(103) Delete only names or items<a class="headerlink" href="#delete-only-names-or-items" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3163,7 +3163,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="deleting-string-literal">
-<h2>(104) Deleting string literal<a class="headerlink" href="#deleting-string-literal" title="Permalink to this headline">¶</a></h2>
+<h2>(104) Deleting string literal<a class="headerlink" href="#deleting-string-literal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3188,7 +3188,7 @@ such as `list`, `set`, or `dict`.
 </div>
 </section>
 <section id="value-missing-in-dict-1">
-<h2>(105) Value missing in dict - 1<a class="headerlink" href="#value-missing-in-dict-1" title="Permalink to this headline">¶</a></h2>
+<h2>(105) Value missing in dict - 1<a class="headerlink" href="#value-missing-in-dict-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3214,7 +3214,7 @@ Perhaps wrote a dict key without writing the corresponding value.
 </div>
 </section>
 <section id="value-missing-in-dict-2">
-<h2>(106) Value missing in dict - 2<a class="headerlink" href="#value-missing-in-dict-2" title="Permalink to this headline">¶</a></h2>
+<h2>(106) Value missing in dict - 2<a class="headerlink" href="#value-missing-in-dict-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3240,7 +3240,7 @@ Perhaps you forgot to write a value after a colon.
 </div>
 </section>
 <section id="value-missing-in-dict-3">
-<h2>(107) Value missing in dict - 3<a class="headerlink" href="#value-missing-in-dict-3" title="Permalink to this headline">¶</a></h2>
+<h2>(107) Value missing in dict - 3<a class="headerlink" href="#value-missing-in-dict-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3266,7 +3266,7 @@ Perhaps wrote a dict key without writing the corresponding value.
 </div>
 </section>
 <section id="value-missing-in-dict-4">
-<h2>(108) Value missing in dict - 4<a class="headerlink" href="#value-missing-in-dict-4" title="Permalink to this headline">¶</a></h2>
+<h2>(108) Value missing in dict - 4<a class="headerlink" href="#value-missing-in-dict-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3292,7 +3292,7 @@ Perhaps you forgot to write a value after a colon.
 </div>
 </section>
 <section id="different-operators-in-a-row">
-<h2>(109) Different operators in a row<a class="headerlink" href="#different-operators-in-a-row" title="Permalink to this headline">¶</a></h2>
+<h2>(109) Different operators in a row<a class="headerlink" href="#different-operators-in-a-row" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3317,7 +3317,7 @@ or forgot to write something between them.
 </div>
 </section>
 <section id="dot-followed-by-parenthesis">
-<h2>(110) Dot followed by parenthesis<a class="headerlink" href="#dot-followed-by-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(110) Dot followed by parenthesis<a class="headerlink" href="#dot-followed-by-parenthesis" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3341,7 +3341,7 @@ Perhaps you need to replace the dot by a comma.
 </div>
 </section>
 <section id="extra-token">
-<h2>(111) Extra token<a class="headerlink" href="#extra-token" title="Permalink to this headline">¶</a></h2>
+<h2>(111) Extra token<a class="headerlink" href="#extra-token" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3367,7 +3367,7 @@ If that is the case, you need to remove the second one.
 </div>
 </section>
 <section id="elif-with-no-matching-if">
-<h2>(112) elif with no matching if<a class="headerlink" href="#elif-with-no-matching-if" title="Permalink to this headline">¶</a></h2>
+<h2>(112) elif with no matching if<a class="headerlink" href="#elif-with-no-matching-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3391,7 +3391,7 @@ an `if` block, possibly because `elif` is not indented correctly.
 </div>
 </section>
 <section id="ellipsis-written-with-extra-dot">
-<h2>(113) Ellipsis written with extra dot<a class="headerlink" href="#ellipsis-written-with-extra-dot" title="Permalink to this headline">¶</a></h2>
+<h2>(113) Ellipsis written with extra dot<a class="headerlink" href="#ellipsis-written-with-extra-dot" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3416,7 +3416,7 @@ It looks like you meant to write `...` but added an extra `.` by mistake.
 </div>
 </section>
 <section id="else-with-no-matching-statement">
-<h2>(114) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(114) else with no matching statement<a class="headerlink" href="#else-with-no-matching-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3440,7 +3440,7 @@ a valid code block, possibly because `else` is not indented correctly.
 </div>
 </section>
 <section id="write-elif-not-else-if">
-<h2>(115) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this headline">¶</a></h2>
+<h2>(115) Write elif, not else if<a class="headerlink" href="#write-elif-not-else-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3466,7 +3466,7 @@ but wrote `else if` instead.
 </div>
 </section>
 <section id="write-elif-not-elseif">
-<h2>(116) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this headline">¶</a></h2>
+<h2>(116) Write elif, not elseif<a class="headerlink" href="#write-elif-not-elseif" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3492,7 +3492,7 @@ but wrote `elseif` instead.
 </div>
 </section>
 <section id="eol-while-scanning-string-literal">
-<h2>(117) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this headline">¶</a></h2>
+<h2>(117) EOL while scanning string literal<a class="headerlink" href="#eol-while-scanning-string-literal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3518,7 +3518,7 @@ but never ended the string with another quote on that line.
 </div>
 </section>
 <section id="used-equal-sign-instead-of-colon">
-<h2>(118) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(118) Used equal sign instead of colon<a class="headerlink" href="#used-equal-sign-instead-of-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3543,7 +3543,7 @@ before or at the position indicated by ^.
 </div>
 </section>
 <section id="parens-around-multiple-exceptions">
-<h2>(119) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(119) Parens around multiple exceptions<a class="headerlink" href="#parens-around-multiple-exceptions" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3570,7 +3570,7 @@ surround them with parentheses.
 </div>
 </section>
 <section id="id8">
-<h2>(120) Extra token<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2>(120) Extra token<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3596,7 +3596,7 @@ Removing it and writing `print(1 / 2)` seems to fix the error.
 </div>
 </section>
 <section id="cannot-assign-a-value-within-an-fstring">
-<h2>(121) Cannot assign a value within an fstring<a class="headerlink" href="#cannot-assign-a-value-within-an-fstring" title="Permalink to this headline">¶</a></h2>
+<h2>(121) Cannot assign a value within an fstring<a class="headerlink" href="#cannot-assign-a-value-within-an-fstring" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3620,7 +3620,7 @@ This is not allowed.
 </div>
 </section>
 <section id="binary-f-string-not-allowed">
-<h2>(122) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this headline">¶</a></h2>
+<h2>(122) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3646,7 +3646,7 @@ this is not allowed.
 </div>
 </section>
 <section id="f-string-closing-not-allowed">
-<h2>(123) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this headline">¶</a></h2>
+<h2>(123) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3671,7 +3671,7 @@ otherwise, you need to add an opening `{`.
 </div>
 </section>
 <section id="f-string-missing-closing">
-<h2>(124) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this headline">¶</a></h2>
+<h2>(124) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3696,7 +3696,7 @@ otherwise, you need to add a closing `}`.
 </div>
 </section>
 <section id="f-string-unterminated-string">
-<h2>(125) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this headline">¶</a></h2>
+<h2>(125) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3723,7 +3723,7 @@ single quote (') or double quote ("), without a matching closing one.
 </div>
 </section>
 <section id="f-string-with-backslash">
-<h2>(126) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(126) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3756,7 +3756,7 @@ you could write this as
 </div>
 </section>
 <section id="missing-terms-in-for-statement">
-<h2>(127) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(127) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3784,7 +3784,7 @@ A `for` loop is an iteration over a sequence:
 </div>
 </section>
 <section id="not-a-chance">
-<h2>(128) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this headline">¶</a></h2>
+<h2>(128) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3811,7 +3811,7 @@ their indentation level, and not by using some curly braces, like `{...}`.
 </div>
 </section>
 <section id="do-not-import-from-future">
-<h2>(129) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this headline">¶</a></h2>
+<h2>(129) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3845,7 +3845,7 @@ The available features are `nested_scopes,
 </div>
 </section>
 <section id="future-at-beginning">
-<h2>(130) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this headline">¶</a></h2>
+<h2>(130) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3870,7 +3870,7 @@ It must appear at the beginning of the file.
 </div>
 </section>
 <section id="typo-in-future">
-<h2>(131) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this headline">¶</a></h2>
+<h2>(131) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3895,7 +3895,7 @@ Instead of `divisio`, perhaps you meant to import `division`.
 </div>
 </section>
 <section id="unknown-feature-in-future">
-<h2>(132) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this headline">¶</a></h2>
+<h2>(132) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3928,7 +3928,7 @@ The available features are `nested_scopes,
 </div>
 </section>
 <section id="parenthesis-around-generator-expression">
-<h2>(133) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(133) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3955,7 +3955,7 @@ You must add parentheses enclosing that expression.
 </div>
 </section>
 <section id="space-between-names">
-<h2>(134) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this headline">¶</a></h2>
+<h2>(134) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -3983,7 +3983,7 @@ Perhaps you meant to write `a_b` instead of `a-b`
 </div>
 </section>
 <section id="missing-condition-in-if-statement">
-<h2>(135) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(135) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4011,7 +4011,7 @@ An `if` statement requires a condition:
 </div>
 </section>
 <section id="use-j-instead-of-i">
-<h2>(136) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this headline">¶</a></h2>
+<h2>(136) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4040,7 +4040,7 @@ Perhaps you meant to write `3.0j`.
 </div>
 </section>
 <section id="import-inversion-import-x-from-y">
-<h2>(137) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this headline">¶</a></h2>
+<h2>(137) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4071,7 +4071,7 @@ instead of
 </div>
 </section>
 <section id="indentationerror-expected-an-indented-block">
-<h2>(138) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this headline">¶</a></h2>
+<h2>(138) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4095,7 +4095,7 @@ Line `4` identified above was expected to begin a new indented block.
 </div>
 </section>
 <section id="indentationerror-unexpected-indent">
-<h2>(139) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this headline">¶</a></h2>
+<h2>(139) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4119,7 +4119,7 @@ Line `4` identified above is more indented than expected.
 </div>
 </section>
 <section id="indentationerror-unindent-does-not-match">
-<h2>(140) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this headline">¶</a></h2>
+<h2>(140) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4143,7 +4143,7 @@ Line `5` identified above is less indented than expected.
 </div>
 </section>
 <section id="indentationerror-missing-continuation-line">
-<h2>(141) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this headline">¶</a></h2>
+<h2>(141) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4173,7 +4173,7 @@ at the end of line 5.
 </div>
 </section>
 <section id="forgot-o-for-octal">
-<h2>(142) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this headline">¶</a></h2>
+<h2>(142) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4200,7 +4200,7 @@ a decimal integer and did not know that it could not start with zeros.
 </div>
 </section>
 <section id="integer-with-leading-zeros">
-<h2>(143) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this headline">¶</a></h2>
+<h2>(143) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4226,7 +4226,7 @@ and did not know that it could not start with zeros.
 </div>
 </section>
 <section id="invalid-character-in-identifier">
-<h2>(144) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this headline">¶</a></h2>
+<h2>(144) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4250,7 +4250,7 @@ which is not allowed.
 </div>
 </section>
 <section id="invalid-decimal-literal-1">
-<h2>(145) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this headline">¶</a></h2>
+<h2>(145) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4276,7 +4276,7 @@ Perhaps you forgot a multiplication operator, `1 * e`.
 </div>
 </section>
 <section id="invalid-encoding">
-<h2>(146) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this headline">¶</a></h2>
+<h2>(146) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4296,7 +4296,7 @@ The encoding of the file was not valid.
 </div>
 </section>
 <section id="invalid-hexadecimal-number">
-<h2>(147) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(147) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4327,7 +4327,7 @@ followed by the characters used to represent the value of that integer.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number">
-<h2>(148) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this headline">¶</a></h2>
+<h2>(148) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4352,7 +4352,7 @@ Valid names cannot begin with a number.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-2">
-<h2>(149) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this headline">¶</a></h2>
+<h2>(149) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4378,7 +4378,7 @@ Perhaps you forgot a multiplication operator, `2 * pi`.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-3">
-<h2>(150) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this headline">¶</a></h2>
+<h2>(150) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4407,7 +4407,7 @@ since `3j` is a complex number.]
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-4">
-<h2>(151) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this headline">¶</a></h2>
+<h2>(151) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4432,7 +4432,7 @@ Valid names cannot begin with a number.
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-5">
-<h2>(152) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this headline">¶</a></h2>
+<h2>(152) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4461,7 +4461,7 @@ since `42j` is a complex number.]
 </div>
 </section>
 <section id="keyword-can-t-be-an-expression">
-<h2>(153) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this headline">¶</a></h2>
+<h2>(153) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4490,7 +4490,7 @@ or contains a period, etc.
 </div>
 </section>
 <section id="named-argument-can-t-be-a-python-keyword">
-<h2>(154) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(154) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4521,7 +4521,7 @@ You cannot assign a value to `True`.
 </div>
 </section>
 <section id="invalid-octal-number">
-<h2>(155) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this headline">¶</a></h2>
+<h2>(155) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4552,7 +4552,7 @@ followed by the characters used to represent the value of that integer.
 </div>
 </section>
 <section id="inverted-operators-1">
-<h2>(156) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(156) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4578,7 +4578,7 @@ in the wrong order: `=&lt;` instead of `&lt;=`.
 </div>
 </section>
 <section id="inverted-operators-2">
-<h2>(157) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(157) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4607,7 +4607,7 @@ all the syntax errors in the code you wrote.
 </div>
 </section>
 <section id="iteration-variable-unpacking-in-comprehension">
-<h2>(158) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(158) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4635,7 +4635,7 @@ The following statement has no syntax error:
 </div>
 </section>
 <section id="keyword-arg-only-once-in-function-call">
-<h2>(159) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this headline">¶</a></h2>
+<h2>(159) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4659,7 +4659,7 @@ Each keyword argument should appear only once in a function call.
 </div>
 </section>
 <section id="keyword-as-attribute">
-<h2>(160) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this headline">¶</a></h2>
+<h2>(160) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4684,7 +4684,7 @@ You cannot use the Python keyword `pass` as an attribute.
 </div>
 </section>
 <section id="lambda-with-parentheses-around-arguments">
-<h2>(161) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this headline">¶</a></h2>
+<h2>(161) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4708,7 +4708,7 @@ This was allowed in Python 2 but it not allowed in Python 3.
 </div>
 </section>
 <section id="lambda-with-tuple-as-argument">
-<h2>(162) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this headline">¶</a></h2>
+<h2>(162) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4733,7 +4733,7 @@ within the body of the function.
 </div>
 </section>
 <section id="assign-to-literal-in-for-loop">
-<h2>(163) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this headline">¶</a></h2>
+<h2>(163) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4763,7 +4763,7 @@ and not literals like `"char"`.
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version">
-<h2>(164) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this headline">¶</a></h2>
+<h2>(164) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4786,7 +4786,7 @@ and expected more content.
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version-2">
-<h2>(165) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this headline">¶</a></h2>
+<h2>(165) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4808,7 +4808,7 @@ and expected more content.
 </div>
 </section>
 <section id="missing-colon-if">
-<h2>(166) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this headline">¶</a></h2>
+<h2>(166) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4834,7 +4834,7 @@ You wrote a statement beginning with
 </div>
 </section>
 <section id="missing-colon-while">
-<h2>(167) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this headline">¶</a></h2>
+<h2>(167) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4860,7 +4860,7 @@ forgot to add a colon `:` at the end
 </div>
 </section>
 <section id="missing-comma-in-a-dict">
-<h2>(168) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(168) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4898,7 +4898,7 @@ Perhaps you meant
 </div>
 </section>
 <section id="missing-comma-between-strings-in-a-dict">
-<h2>(169) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this headline">¶</a></h2>
+<h2>(169) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4935,7 +4935,7 @@ a = {'a': '1',
 </div>
 </section>
 <section id="missing-comma-in-a-list">
-<h2>(170) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this headline">¶</a></h2>
+<h2>(170) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -4972,7 +4972,7 @@ some of them might raise other types of exceptions.
 </div>
 </section>
 <section id="missing-comma-in-a-set">
-<h2>(171) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this headline">¶</a></h2>
+<h2>(171) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5009,7 +5009,7 @@ some of them might raise other types of exceptions.
 </div>
 </section>
 <section id="missing-comma-in-a-tuple">
-<h2>(172) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this headline">¶</a></h2>
+<h2>(172) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5047,7 +5047,7 @@ some of them might raise other types of exceptions.
 </div>
 </section>
 <section id="for-loop-missing-in-operator">
-<h2>(173) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this headline">¶</a></h2>
+<h2>(173) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5075,7 +5075,7 @@ as part of a `for` statement. Perhaps you meant:
 </div>
 </section>
 <section id="missing-parenthesis-for-range">
-<h2>(174) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this headline">¶</a></h2>
+<h2>(174) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5103,7 +5103,7 @@ Perhaps you meant:
 </div>
 </section>
 <section id="misspelled-python-keyword">
-<h2>(175) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this headline">¶</a></h2>
+<h2>(175) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5129,7 +5129,7 @@ The correct line might be `if i in range(3):`
 </div>
 </section>
 <section id="name-is-global-and-nonlocal">
-<h2>(176) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(176) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5153,7 +5153,7 @@ A variable can be global, or nonlocal, but not both at the same time.
 </div>
 </section>
 <section id="name-is-parameter-and-nonlocal">
-<h2>(177) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this headline">¶</a></h2>
+<h2>(177) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5178,7 +5178,7 @@ before declaring it also as a nonlocal variable:
 </div>
 </section>
 <section id="nonlocal-variable-not-found">
-<h2>(178) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this headline">¶</a></h2>
+<h2>(178) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5202,7 +5202,7 @@ nonlocal variable but it cannot be found.
 </div>
 </section>
 <section id="nonlocal-variable-not-found-at-module-level">
-<h2>(179) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this headline">¶</a></h2>
+<h2>(179) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5227,7 +5227,7 @@ given a value outside that function.
 </div>
 </section>
 <section id="same-operator-twice-in-a-row">
-<h2>(180) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this headline">¶</a></h2>
+<h2>(180) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5252,7 +5252,7 @@ or forgot to write something between them.
 </div>
 </section>
 <section id="using-pip-from-interpreter">
-<h2>(181) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(181) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5279,7 +5279,7 @@ not from a Python interpreter.
 </div>
 </section>
 <section id="using-pip-from-interpreter-2">
-<h2>(182) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this headline">¶</a></h2>
+<h2>(182) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5306,7 +5306,7 @@ not from a Python interpreter.
 </div>
 </section>
 <section id="print-is-a-function">
-<h2>(183) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this headline">¶</a></h2>
+<h2>(183) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5336,7 +5336,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </section>
 <section id="print-is-a-function-2">
-<h2>(184) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this headline">¶</a></h2>
+<h2>(184) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5366,7 +5366,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </section>
 <section id="print-is-a-function-3">
-<h2>(185) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this headline">¶</a></h2>
+<h2>(185) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5396,7 +5396,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </section>
 <section id="print-is-a-function-4">
-<h2>(186) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this headline">¶</a></h2>
+<h2>(186) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5427,7 +5427,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </section>
 <section id="print-is-a-function-5">
-<h2>(187) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this headline">¶</a></h2>
+<h2>(187) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5457,7 +5457,7 @@ Now, `print` is a function; you need to use parentheses to call it.
 </div>
 </section>
 <section id="print-is-a-function-6">
-<h2>(188) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this headline">¶</a></h2>
+<h2>(188) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5488,7 +5488,7 @@ Note that arguments of `print` must be separated by commas.
 </div>
 </section>
 <section id="print-is-a-function-7">
-<h2>(189) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this headline">¶</a></h2>
+<h2>(189) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5519,7 +5519,7 @@ Note that arguments of `print` must be separated by commas.
 </div>
 </section>
 <section id="calling-python-from-interpreter">
-<h2>(190) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this headline">¶</a></h2>
+<h2>(190) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5543,7 +5543,7 @@ You must do so from a terminal and not from a Python interpreter.
 </div>
 </section>
 <section id="problem-with-assigning-a-variable-to-python">
-<h2>(191) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this headline">¶</a></h2>
+<h2>(191) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5578,7 +5578,7 @@ some of them might raise other types of exceptions.
 </div>
 </section>
 <section id="quote-inside-a-string">
-<h2>(192) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this headline">¶</a></h2>
+<h2>(192) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5608,7 +5608,7 @@ Perhaps you should have escaped the inner quote character:
 </div>
 </section>
 <section id="raising-multiple-exceptions">
-<h2>(193) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>(193) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5631,7 +5631,7 @@ It looks like you are trying to raise an exception using Python 2 syntax.
 </div>
 </section>
 <section id="cannot-use-return-outside-function">
-<h2>(194) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(194) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5654,7 +5654,7 @@ You can only use a `return` statement inside a function or method.
 </div>
 </section>
 <section id="semicolon-instead-of-colon">
-<h2>(195) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this headline">¶</a></h2>
+<h2>(195) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5679,7 +5679,7 @@ You wrote a semicolon, `;`, where a colon was expected.
 </div>
 </section>
 <section id="semicolon-instead-of-comma-1">
-<h2>(196) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this headline">¶</a></h2>
+<h2>(196) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5704,7 +5704,7 @@ You wrote a semicolon, `;`, where a comma was expected.
 </div>
 </section>
 <section id="semicolon-instead-of-commas-2">
-<h2>(197) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this headline">¶</a></h2>
+<h2>(197) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5729,7 +5729,7 @@ You wrote semicolons, `;`, where commas were expected.
 </div>
 </section>
 <section id="semicolon-instead-of-commas-3">
-<h2>(198) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this headline">¶</a></h2>
+<h2>(198) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5754,7 +5754,7 @@ You wrote semicolons, `;`, where commas were expected.
 </div>
 </section>
 <section id="code-block-inside-comprehension">
-<h2>(199) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this headline">¶</a></h2>
+<h2>(199) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5784,7 +5784,7 @@ If this explanation is incorrect, please report this case.
 </div>
 </section>
 <section id="single-instead-of-double-with-if">
-<h2>(200) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this headline">¶</a></h2>
+<h2>(200) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5812,7 +5812,7 @@ The following statement would not contain a syntax error:
 </div>
 </section>
 <section id="single-instead-of-double-with-elif">
-<h2>(201) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this headline">¶</a></h2>
+<h2>(201) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5840,7 +5840,7 @@ The following statement would not contain a syntax error:
 </div>
 </section>
 <section id="single-instead-of-double-with-while">
-<h2>(202) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this headline">¶</a></h2>
+<h2>(202) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5868,7 +5868,7 @@ The following statement would not contain a syntax error:
 </div>
 </section>
 <section id="space-between-operators-1">
-<h2>(203) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this headline">¶</a></h2>
+<h2>(203) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5895,7 +5895,7 @@ and meant to write `**` as a single operator.
 </div>
 </section>
 <section id="space-between-operators-2">
-<h2>(204) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this headline">¶</a></h2>
+<h2>(204) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5922,7 +5922,7 @@ and meant to write `/=` as a single operator.
 </div>
 </section>
 <section id="space-in-variable-name">
-<h2>(205) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this headline">¶</a></h2>
+<h2>(205) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5948,7 +5948,7 @@ Perhaps you meant `my_name`?
 </div>
 </section>
 <section id="wrong-target-for-star-assignment">
-<h2>(206) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this headline">¶</a></h2>
+<h2>(206) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -5973,7 +5973,7 @@ A star assignment must be of the form:
 </div>
 </section>
 <section id="too-many-nested-blocks">
-<h2>(207) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this headline">¶</a></h2>
+<h2>(207) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
   File "TESTS:\None", line TESTS:\None
@@ -5988,7 +5988,7 @@ contained inside other code blocks.
 </div>
 </section>
 <section id="trailing-comma-in-import-statement">
-<h2>(208) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(208) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6018,7 +6018,7 @@ Perhaps you meant to write
 </div>
 </section>
 <section id="triple-equal-sign">
-<h2>(209) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this headline">¶</a></h2>
+<h2>(209) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6046,7 +6046,7 @@ the exact same object, use the operator `is`.
 </div>
 </section>
 <section id="unclosed-bracket">
-<h2>(210) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(210) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6075,7 +6075,7 @@ The opening square bracket `[` on line 5 is not closed.
 </div>
 </section>
 <section id="unclosed-parenthesis-1">
-<h2>(211) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this headline">¶</a></h2>
+<h2>(211) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6104,7 +6104,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </section>
 <section id="unclosed-parenthesis-2">
-<h2>(212) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this headline">¶</a></h2>
+<h2>(212) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6132,7 +6132,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </section>
 <section id="unclosed-parenthesis-3">
-<h2>(213) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this headline">¶</a></h2>
+<h2>(213) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6163,7 +6163,7 @@ If this is incorrect, please report this case.
 </div>
 </section>
 <section id="unclosed-parenthesis-4">
-<h2>(214) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this headline">¶</a></h2>
+<h2>(214) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6191,7 +6191,7 @@ The opening parenthesis `(` on line 2 is not closed.
 </div>
 </section>
 <section id="content-passed-continuation-line-character">
-<h2>(215) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this headline">¶</a></h2>
+<h2>(215) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6216,7 +6216,7 @@ I am guessing that you forgot to enclose some content in a string.
 </div>
 </section>
 <section id="unexpected-eof-while-parsing">
-<h2>(216) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this headline">¶</a></h2>
+<h2>(216) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6248,7 +6248,7 @@ The opening square bracket `[` on line 5 is not closed.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-3-4">
-<h2>(217) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this headline">¶</a></h2>
+<h2>(217) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6278,7 +6278,7 @@ I suspect that you meant to write the fraction `3/4` instead.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-1-2">
-<h2>(218) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this headline">¶</a></h2>
+<h2>(218) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6308,7 +6308,7 @@ I suspect that you meant to write the fraction `1/2` instead.
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-slash">
-<h2>(219) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this headline">¶</a></h2>
+<h2>(219) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6338,7 +6338,7 @@ but is different from the division operator `/`.
 </div>
 </section>
 <section id="invalid-character-unicode-quote">
-<h2>(220) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this headline">¶</a></h2>
+<h2>(220) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6368,7 +6368,7 @@ instead of a normal single or double quote for a string.
 </div>
 </section>
 <section id="invalid-character-unicode-quote2">
-<h2>(221) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this headline">¶</a></h2>
+<h2>(221) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6398,7 +6398,7 @@ instead of a normal single or double quote for a string.
 </div>
 </section>
 <section id="invalid-character-mistaken">
-<h2>(222) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this headline">¶</a></h2>
+<h2>(222) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6429,7 +6429,7 @@ Or perhaps, you meant to write a less than sign, `&lt;`.
 </div>
 </section>
 <section id="id9">
-<h2>(223) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>(223) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6460,7 +6460,7 @@ Or perhaps, you meant to write a greater than sign, `&gt;`.
 </div>
 </section>
 <section id="invalid-character-mistaken-comma">
-<h2>(224) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this headline">¶</a></h2>
+<h2>(224) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6491,7 +6491,7 @@ Or perhaps, you meant to write a comma.
 </div>
 </section>
 <section id="unmatched-closing-curly-bracket">
-<h2>(225) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this headline">¶</a></h2>
+<h2>(225) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6519,7 +6519,7 @@ The closing curly bracket `}` on line 6 does not match anything.
 </div>
 </section>
 <section id="unmatched-closing-parenthesis">
-<h2>(226) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this headline">¶</a></h2>
+<h2>(226) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6547,7 +6547,7 @@ The closing parenthesis `)` on line 6 does not match anything.
 </div>
 </section>
 <section id="mismatched-brackets-1">
-<h2>(227) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this headline">¶</a></h2>
+<h2>(227) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6573,7 +6573,7 @@ The closing square bracket `]` on line 2 does not match the opening parenthesis 
 </div>
 </section>
 <section id="mismatched-brackets-2">
-<h2>(228) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this headline">¶</a></h2>
+<h2>(228) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6604,7 +6604,7 @@ The closing square bracket `]` on line 4 does not match the opening parenthesis 
 </div>
 </section>
 <section id="unmatched-brackets-3">
-<h2>(229) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this headline">¶</a></h2>
+<h2>(229) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6632,7 +6632,7 @@ The closing square bracket `]` on line 3 does not match anything.
 </div>
 </section>
 <section id="unpacking-a-dict-value">
-<h2>(230) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this headline">¶</a></h2>
+<h2>(230) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6662,7 +6662,7 @@ The following statement has no syntax error:
 </div>
 </section>
 <section id="unterminated-triple-quoted-string">
-<h2>(231) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this headline">¶</a></h2>
+<h2>(231) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6688,7 +6688,7 @@ the triple quotes needed to end the string.
 </div>
 </section>
 <section id="taberror">
-<h2>(232) TabError<a class="headerlink" href="#taberror" title="Permalink to this headline">¶</a></h2>
+<h2>(232) TabError<a class="headerlink" href="#taberror" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6714,7 +6714,7 @@ at the location indicated.
 </div>
 </section>
 <section id="eol-unescaped-backslash">
-<h2>(233) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this headline">¶</a></h2>
+<h2>(233) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6743,7 +6743,7 @@ needed to escape it by writing two `\` in a row.
 </div>
 </section>
 <section id="using-the-backquote-character">
-<h2>(234) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this headline">¶</a></h2>
+<h2>(234) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6770,7 +6770,7 @@ in this latter case, use the function `repr(x)`.
 </div>
 </section>
 <section id="unicode-error">
-<h2>(235) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this headline">¶</a></h2>
+<h2>(235) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6802,7 +6802,7 @@ front of the string, or replace `\U`, by `\\U`.
 </div>
 </section>
 <section id="walrus-operator-does-not-exist-yet">
-<h2>(236) Walrus operator does not exist - yet<a class="headerlink" href="#walrus-operator-does-not-exist-yet" title="Permalink to this headline">¶</a></h2>
+<h2>(236) Walrus operator does not exist - yet<a class="headerlink" href="#walrus-operator-does-not-exist-yet" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6829,7 +6829,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="walrus-instead-of-equal">
-<h2>(237) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this headline">¶</a></h2>
+<h2>(237) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6856,7 +6856,7 @@ Python 3.8 or newer. You are using version 3.6.
 </div>
 </section>
 <section id="missing-condition-in-while-statement">
-<h2>(238) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this headline">¶</a></h2>
+<h2>(238) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6884,7 +6884,7 @@ A `while` loop requires a condition:
 </div>
 </section>
 <section id="would-be-variable-declaration">
-<h2>(239) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this headline">¶</a></h2>
+<h2>(239) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6912,7 +6912,7 @@ some syntax errors.
 </div>
 </section>
 <section id="would-be-variable-declaration-2">
-<h2>(240) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this headline">¶</a></h2>
+<h2>(240) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -6942,7 +6942,7 @@ some syntax errors.
 </div>
 </section>
 <section id="cannot-use-yield-outside-function">
-<h2>(241) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this headline">¶</a></h2>
+<h2>(241) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
     __import__(name)
@@ -7273,7 +7273,9 @@ You can only use a `yield` statement inside a function.
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>

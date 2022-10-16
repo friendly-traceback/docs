@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - בעברית" href="syntax_tracebacks_he.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in தமிழ் மொழி" href="syntax_tracebacks_ta.html" />
 
-    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
-        <title>Friendly tracebacks - בעברית - friendly-traceback 0.7.30</title>
+    <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
+        <title>Friendly tracebacks - בעברית - friendly-traceback 0.7.45</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.30</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.30</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -170,13 +170,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="repl.html">Console basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why.html">why()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="what.html">what()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="where.html">where()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explain.html">explain()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="www.html">www()</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">history() and back()</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_object.html">Friendly object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="repl_api.html">Everything about the interactive friendly console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="friendly_exec.html">Friendlier exec</a></li>
@@ -319,7 +319,7 @@ updated. This work has now started for version 0.7 and we aim to have
 it completed before version 0.8 is available.</p>
 </div>
 <section id="friendly-tracebacks">
-<h1>Friendly tracebacks - בעברית<a class="headerlink" href="#friendly-tracebacks" title="Permalink to this headline">¶</a></h1>
+<h1>Friendly tracebacks - בעברית<a class="headerlink" href="#friendly-tracebacks" title="Permalink to this heading">¶</a></h1>
 <p>Friendly שואפת לספק משוב ידידותי יותר כאשר מדובר בחריג
 מוגדל ממה שנעשה על ידי Python.
 (sentence translated by Google Translate).</p>
@@ -336,9 +336,9 @@ documentation using Sphinx.</p>
 <p>Friendly-traceback version: 0.6.0
 Python version: 3.9.10</p>
 <section id="arithmeticerror">
-<h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this headline">¶</a></h2>
+<h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this heading">¶</a></h2>
 <section id="generic">
-<h3>Generic<a class="headerlink" href="#generic" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#generic" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_arithmetic_error.py", line 9, in test_Generic
     raise ArithmeticError('error')
@@ -365,9 +365,9 @@ ArithmeticError: error
 </section>
 </section>
 <section id="assertionerror">
-<h2>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this headline">¶</a></h2>
+<h2>AssertionError<a class="headerlink" href="#assertionerror" title="Permalink to this heading">¶</a></h2>
 <section id="id1">
-<h3>Generic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_assertion_error.py", line 8, in test_Generic
     raise AssertionError("Fake message")
@@ -394,9 +394,9 @@ AssertionError: Fake message
 </section>
 </section>
 <section id="attributeerror">
-<h2>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this headline">¶</a></h2>
+<h2>AttributeError<a class="headerlink" href="#attributeerror" title="Permalink to this heading">¶</a></h2>
 <section id="attribute-from-other-module">
-<h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this headline">¶</a></h3>
+<h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 325, in test_Attribute_from_other_module
     keyword.pi
@@ -426,7 +426,7 @@ AttributeError: module 'keyword' has no attribute 'pi'
 </div>
 </section>
 <section id="builtin-function">
-<h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this headline">¶</a></h3>
+<h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
     len.text
@@ -456,7 +456,7 @@ AttributeError: 'builtin_function_or_method' object has no attribute 'text'
 </div>
 </section>
 <section id="builtin-module-with-no-file">
-<h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this headline">¶</a></h3>
+<h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
     sys.foo
@@ -484,7 +484,7 @@ AttributeError: module 'sys' has no attribute 'foo'
 </div>
 </section>
 <section id="circular-import">
-<h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this headline">¶</a></h3>
+<h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
     import my_turtle1
@@ -524,7 +524,7 @@ AttributeError: partially initialized module 'my_turtle1' has no attribute 'some
 </div>
 </section>
 <section id="circular-import-b">
-<h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this headline">¶</a></h3>
+<h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
     import circular_c
@@ -562,7 +562,7 @@ AttributeError: partially initialized module 'circular_c' has no attribute 'some
 </div>
 </section>
 <section id="id2">
-<h3>Generic<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 26, in test_Generic
     A.x  # testing type
@@ -589,7 +589,7 @@ AttributeError: type object 'A' has no attribute 'x'
 </div>
 </section>
 <section id="generic-different-frame">
-<h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this headline">¶</a></h3>
+<h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
     a.attr
@@ -620,7 +620,7 @@ AttributeError: 'A' object has no attribute 'attr'
 </div>
 </section>
 <section id="generic-instance">
-<h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this headline">¶</a></h3>
+<h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
     a.x
@@ -647,7 +647,7 @@ AttributeError: 'A' object has no attribute 'x'
 </div>
 </section>
 <section id="module-attribute-typo">
-<h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this headline">¶</a></h3>
+<h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
     math.cost
@@ -679,7 +679,7 @@ the following names which are attributes of module `math`:
 </div>
 </section>
 <section id="nonetype">
-<h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this headline">¶</a></h3>
+<h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
     a.b
@@ -705,7 +705,7 @@ AttributeError: 'NoneType' object has no attribute 'b'
 </div>
 </section>
 <section id="object-attribute-typo">
-<h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this headline">¶</a></h3>
+<h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
     a.appendh(4)
@@ -735,7 +735,7 @@ AttributeError: 'list' object has no attribute 'appendh'
 </div>
 </section>
 <section id="perhaps-comma">
-<h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this headline">¶</a></h3>
+<h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
     a = [abcd
@@ -770,7 +770,7 @@ AttributeError: 'str' object has no attribute 'defg'
 </div>
 </section>
 <section id="read-only">
-<h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this headline">¶</a></h3>
+<h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
     f.b = 1
@@ -801,7 +801,7 @@ The only attribute of `f` whose value can be changed is`a`.
 </div>
 </section>
 <section id="shadow-stdlib-module">
-<h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this headline">¶</a></h3>
+<h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
     turtle.Pen
@@ -832,7 +832,7 @@ Perhaps you need to rename your module.
 </div>
 </section>
 <section id="tuple-by-accident">
-<h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this headline">¶</a></h3>
+<h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
     something.upper()
@@ -863,7 +863,7 @@ AttributeError: 'tuple' object has no attribute 'upper'
 </div>
 </section>
 <section id="use-builtin">
-<h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this headline">¶</a></h3>
+<h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
     a.length()
@@ -893,7 +893,7 @@ AttributeError: 'list' object has no attribute 'length'
 </div>
 </section>
 <section id="use-join-with-str">
-<h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this headline">¶</a></h3>
+<h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
     a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
@@ -919,7 +919,7 @@ AttributeError: 'list' object has no attribute 'join'
 </div>
 </section>
 <section id="use-synonym">
-<h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this headline">¶</a></h3>
+<h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
     a.add(4)
@@ -950,7 +950,7 @@ AttributeError: 'list' object has no attribute 'add'
 </div>
 </section>
 <section id="using-slots">
-<h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this headline">¶</a></h3>
+<h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
     f.b = 1
@@ -982,9 +982,9 @@ AttributeError: 'F' object has no attribute 'b'
 </section>
 </section>
 <section id="filenotfounderror">
-<h2>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this headline">¶</a></h2>
+<h2>FileNotFoundError<a class="headerlink" href="#filenotfounderror" title="Permalink to this heading">¶</a></h2>
 <section id="directory-not-found">
-<h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this headline">¶</a></h3>
+<h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
     open("does_not_exist/file.txt")
@@ -1012,7 +1012,7 @@ is not a valid directory.
 </div>
 </section>
 <section id="filename-not-found">
-<h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this headline">¶</a></h3>
+<h3>Filename not found<a class="headerlink" href="#filename-not-found" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 7, in test_Filename_not_found
     open("does_not_exist")
@@ -1041,7 +1041,7 @@ It was expected to be found in the
 </div>
 </section>
 <section id="filename-not-found-2">
-<h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this headline">¶</a></h3>
+<h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
     open("setupp.py")
@@ -1074,7 +1074,7 @@ It was expected to be found in the
 </div>
 </section>
 <section id="filename-not-found-3">
-<h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this headline">¶</a></h3>
+<h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
     open("setup.pyg")
@@ -1108,9 +1108,9 @@ It was expected to be found in the
 </section>
 </section>
 <section id="importerror">
-<h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this headline">¶</a></h2>
+<h2>ImportError<a class="headerlink" href="#importerror" title="Permalink to this heading">¶</a></h2>
 <section id="simple-import-error">
-<h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this headline">¶</a></h3>
+<h3>Simple import error<a class="headerlink" href="#simple-import-error" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_import_error.py", line 56, in test_Simple_import_error
     from math import Pi
@@ -1137,9 +1137,9 @@ ImportError: cannot import name 'Pi' from 'math' (unknown location)
 </section>
 </section>
 <section id="indexerror">
-<h2>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this headline">¶</a></h2>
+<h2>IndexError<a class="headerlink" href="#indexerror" title="Permalink to this heading">¶</a></h2>
 <section id="assignment">
-<h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h3>
+<h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
     a[13] = 1
@@ -1170,7 +1170,7 @@ You have tried to assign a value to index `13` of `a`,
 </div>
 </section>
 <section id="empty">
-<h3>Empty<a class="headerlink" href="#empty" title="Permalink to this headline">¶</a></h3>
+<h3>Empty<a class="headerlink" href="#empty" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 46, in test_Empty
     c = a[1]
@@ -1200,7 +1200,7 @@ IndexError: list index out of range
 </div>
 </section>
 <section id="long-list">
-<h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this headline">¶</a></h3>
+<h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 29, in test_Long_list
     print(a[60], b[0])
@@ -1231,7 +1231,7 @@ IndexError: list index out of range
 </div>
 </section>
 <section id="short-tuple">
-<h3>Short tuple<a class="headerlink" href="#short-tuple" title="Permalink to this headline">¶</a></h3>
+<h3>Short tuple<a class="headerlink" href="#short-tuple" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_index_error.py", line 10, in test_Short_tuple
     print(a[3], b[2])
@@ -1264,9 +1264,9 @@ IndexError: tuple index out of range
 </section>
 </section>
 <section id="keyerror">
-<h2>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this headline">¶</a></h2>
+<h2>KeyError<a class="headerlink" href="#keyerror" title="Permalink to this heading">¶</a></h2>
 <section id="chainmap">
-<h3>ChainMap<a class="headerlink" href="#chainmap" title="Permalink to this headline">¶</a></h3>
+<h3>ChainMap<a class="headerlink" href="#chainmap" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\collections\__init__.py", line 1008, in pop
     return self.maps[0].pop(key, *args)
@@ -1299,7 +1299,7 @@ KeyError: 'Key not found in the first mapping: 42'
 </div>
 </section>
 <section id="forgot-to-convert-to-string">
-<h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this headline">¶</a></h3>
+<h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
     print(squares[2])
@@ -1328,7 +1328,7 @@ KeyError: 2
 </div>
 </section>
 <section id="generic-key-error">
-<h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this headline">¶</a></h3>
+<h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
     d["c"]
@@ -1353,7 +1353,7 @@ KeyError: 'c'
 </div>
 </section>
 <section id="popitem-empty-chainmap">
-<h3>Popitem empty ChainMap<a class="headerlink" href="#popitem-empty-chainmap" title="Permalink to this headline">¶</a></h3>
+<h3>Popitem empty ChainMap<a class="headerlink" href="#popitem-empty-chainmap" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\collections\__init__.py", line 1001, in popitem
     return self.maps[0].popitem()
@@ -1388,7 +1388,7 @@ KeyError: 'No keys found in the first mapping.'
 </div>
 </section>
 <section id="popitem-empty-dict">
-<h3>Popitem empty dict<a class="headerlink" href="#popitem-empty-dict" title="Permalink to this headline">¶</a></h3>
+<h3>Popitem empty dict<a class="headerlink" href="#popitem-empty-dict" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 8, in test_Popitem_empty_dict
     d.popitem()
@@ -1416,7 +1416,7 @@ KeyError: 'popitem(): dictionary is empty'
 </div>
 </section>
 <section id="similar-names">
-<h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this headline">¶</a></h3>
+<h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
     a = second["alpha"]
@@ -1446,7 +1446,7 @@ KeyError: 'alpha'
 </div>
 </section>
 <section id="string-by-mistake">
-<h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this headline">¶</a></h3>
+<h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
     d["(0, 0)"]
@@ -1478,9 +1478,9 @@ KeyError: '(0, 0)'
 </section>
 </section>
 <section id="lookuperror">
-<h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this headline">¶</a></h2>
+<h2>LookupError<a class="headerlink" href="#lookuperror" title="Permalink to this heading">¶</a></h2>
 <section id="id3">
-<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_lookup_error.py", line 10, in test_Generic
     raise LookupError("Fake message")
@@ -1507,9 +1507,9 @@ LookupError: Fake message
 </section>
 </section>
 <section id="modulenotfounderror">
-<h2>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this headline">¶</a></h2>
+<h2>ModuleNotFoundError<a class="headerlink" href="#modulenotfounderror" title="Permalink to this heading">¶</a></h2>
 <section id="need-to-install-module">
-<h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this headline">¶</a></h3>
+<h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
     import alphabet
@@ -1533,7 +1533,7 @@ ModuleNotFoundError: No module named 'alphabet'
 </div>
 </section>
 <section id="not-a-package">
-<h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this headline">¶</a></h3>
+<h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
     import os.xxx
@@ -1557,7 +1557,7 @@ ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
 </div>
 </section>
 <section id="not-a-package-similar-name">
-<h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this headline">¶</a></h3>
+<h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
     import os.pathh
@@ -1584,7 +1584,7 @@ ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
 </div>
 </section>
 <section id="object-not-module">
-<h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this headline">¶</a></h3>
+<h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
     import os.open
@@ -1611,7 +1611,7 @@ ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
 </div>
 </section>
 <section id="similar-object-not-module">
-<h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this headline">¶</a></h3>
+<h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
     import os.opend
@@ -1641,7 +1641,7 @@ ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
 </div>
 </section>
 <section id="standard-library-module">
-<h3>Standard library module<a class="headerlink" href="#standard-library-module" title="Permalink to this headline">¶</a></h3>
+<h3>Standard library module<a class="headerlink" href="#standard-library-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 7, in test_Standard_library_module
     import Tkinter
@@ -1668,7 +1668,7 @@ ModuleNotFoundError: No module named 'Tkinter'
 </div>
 </section>
 <section id="no-curses">
-<h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this headline">¶</a></h3>
+<h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
     import curses
@@ -1695,9 +1695,9 @@ ModuleNotFoundError: No module named '_curses'
 </section>
 </section>
 <section id="nameerror">
-<h2>NameError<a class="headerlink" href="#nameerror" title="Permalink to this headline">¶</a></h2>
+<h2>NameError<a class="headerlink" href="#nameerror" title="Permalink to this heading">¶</a></h2>
 <section id="annotated-variable">
-<h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this headline">¶</a></h3>
+<h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 30, in test_Annotated_variable
     y = x
@@ -1732,7 +1732,7 @@ NameError: name 'x' is not defined
 </div>
 </section>
 <section id="custom-name">
-<h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this headline">¶</a></h3>
+<h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 198, in test_Custom_name
     python
@@ -1757,7 +1757,7 @@ NameError: name 'python' is not defined
 </div>
 </section>
 <section id="free-variable-referenced">
-<h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this headline">¶</a></h3>
+<h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 182, in test_Free_variable_referenced
     outer()
@@ -1799,7 +1799,7 @@ NameError: free variable 'var' referenced before assignment in enclosing scope
 </div>
 </section>
 <section id="id4">
-<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 15, in test_Generic
     this = something
@@ -1825,7 +1825,7 @@ NameError: name 'something' is not defined
 </div>
 </section>
 <section id="missing-import">
-<h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this headline">¶</a></h3>
+<h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 135, in test_Missing_import
     unicodedata.something
@@ -1862,7 +1862,7 @@ Perhaps you forgot to write
 </div>
 </section>
 <section id="missing-module-name">
-<h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this headline">¶</a></h3>
+<h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 281, in test_Missing_module_name
     frame = Frame()
@@ -1899,7 +1899,7 @@ Perhaps you forgot to import `Frame` from one of these modules.
 </div>
 </section>
 <section id="missing-self-1">
-<h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this headline">¶</a></h3>
+<h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 233, in test_Missing_self_1
     str(a)
@@ -1948,7 +1948,7 @@ instead of `add_toy(self, ...`.
 </div>
 </section>
 <section id="missing-self-2">
-<h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this headline">¶</a></h3>
+<h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 267, in test_Missing_self_2
     str(a)
@@ -1996,7 +1996,7 @@ instead of `add_toy`.
 </div>
 </section>
 <section id="synonym">
-<h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this headline">¶</a></h3>
+<h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
     cost  # wrote from math import * above
@@ -2027,7 +2027,7 @@ NameError: name 'cost' is not defined
 </div>
 </section>
 <section id="missing-import2">
-<h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this headline">¶</a></h3>
+<h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 149, in test_missing_import2
     ABCMeta
@@ -2055,7 +2055,7 @@ Perhaps you forgot to import `ABCMeta` from one of these modules.
 </div>
 </section>
 <section id="missing-import3">
-<h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this headline">¶</a></h3>
+<h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 163, in test_missing_import3
     AF_APPLETALK
@@ -2084,7 +2084,7 @@ Perhaps you forgot to write
 </div>
 </section>
 <section id="special-keyword">
-<h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this headline">¶</a></h3>
+<h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_name_error.py", line 312, in test_special_keyword
     brek
@@ -2113,9 +2113,9 @@ I suspect you meant to write the keyword `break` and made a typo.
 </section>
 </section>
 <section id="oserror">
-<h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this headline">¶</a></h2>
+<h2>OsError<a class="headerlink" href="#oserror" title="Permalink to this heading">¶</a></h2>
 <section id="urllib-error">
-<h3>Urllib error<a class="headerlink" href="#urllib-error" title="Permalink to this headline">¶</a></h3>
+<h3>Urllib error<a class="headerlink" href="#urllib-error" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
        ... שורות נוספות לא מוצגות. ...
@@ -2159,7 +2159,7 @@ URLError: &lt;urlopen error [Errno 11001] getaddrinfo failed&gt;
 </div>
 </section>
 <section id="invalid-argument">
-<h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this headline">¶</a></h3>
+<h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
     open("c:\test.txt")
@@ -2194,7 +2194,7 @@ characters, `\`, by double ones: `\\`.
 </div>
 </section>
 <section id="no-information">
-<h3>no information<a class="headerlink" href="#no-information" title="Permalink to this headline">¶</a></h3>
+<h3>no information<a class="headerlink" href="#no-information" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
     raise OSError("Some unknown message")
@@ -2228,9 +2228,9 @@ If you are using a REPL, use `www('bug')` to do so.
 </section>
 </section>
 <section id="overflowerror">
-<h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this headline">¶</a></h2>
+<h2>OverflowError<a class="headerlink" href="#overflowerror" title="Permalink to this heading">¶</a></h2>
 <section id="id5">
-<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_overflow_error.py", line 6, in test_Generic
     2.0 ** 1600
@@ -2250,7 +2250,7 @@ OverflowError: (34, 'Result too large')
 </div>
 </section>
 <section id="huge-lenght">
-<h3>Huge lenght<a class="headerlink" href="#huge-lenght" title="Permalink to this headline">¶</a></h3>
+<h3>Huge lenght<a class="headerlink" href="#huge-lenght" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_overflow_error.py", line 24, in test_Huge_lenght
     len(huge)
@@ -2277,9 +2277,9 @@ OverflowError: Python int too large to convert to C ssize_t
 </section>
 </section>
 <section id="recursionerror">
-<h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this headline">¶</a></h2>
+<h2>RecursionError<a class="headerlink" href="#recursionerror" title="Permalink to this heading">¶</a></h2>
 <section id="id6">
-<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_recursion_error.py", line 8, in test_Generic
     a()
@@ -2318,9 +2318,9 @@ RecursionError: maximum recursion depth exceeded
 </section>
 </section>
 <section id="typeerror">
-<h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this headline">¶</a></h2>
+<h2>TypeError<a class="headerlink" href="#typeerror" title="Permalink to this heading">¶</a></h2>
 <section id="argument-of-object-is-not-iterable">
-<h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
     a in b
@@ -2350,7 +2350,7 @@ Python containers (`list, tuple, dict`, etc.) are iterables.
 </div>
 </section>
 <section id="bad-type-for-unary-operator">
-<h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this headline">¶</a></h3>
+<h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 398, in test_Bad_type_for_unary_operator
     a =+ "def"
@@ -2382,7 +2382,7 @@ TypeError: bad operand type for unary +: 'str'
 </div>
 </section>
 <section id="builtin-has-no-len">
-<h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this headline">¶</a></h3>
+<h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
     len("Hello world".split)
@@ -2413,7 +2413,7 @@ TypeError: object of type 'builtin_function_or_method' has no len()
 </div>
 </section>
 <section id="can-only-concatenate">
-<h3>Can only concatenate<a class="headerlink" href="#can-only-concatenate" title="Permalink to this headline">¶</a></h3>
+<h3>Can only concatenate<a class="headerlink" href="#can-only-concatenate" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 39, in test_Can_only_concatenate
     result = a_tuple + a_list
@@ -2442,7 +2442,7 @@ TypeError: can only concatenate tuple (not "list") to tuple
 </div>
 </section>
 <section id="cannot-convert-dictionary-update-sequence">
-<h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this headline">¶</a></h3>
+<h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
     dd.update([1, 2, 3])
@@ -2475,7 +2475,7 @@ TypeError: cannot convert dictionary update sequence element #0 to a sequence
 </div>
 </section>
 <section id="cannot-multiply-by-non-int">
-<h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this headline">¶</a></h3>
+<h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 614, in test_Cannot_multiply_by_non_int
     "a" * "2"
@@ -2505,7 +2505,7 @@ TypeError: can't multiply sequence by non-int of type 'str'
 </div>
 </section>
 <section id="cannot-unpack-non-iterable-object">
-<h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this headline">¶</a></h3>
+<h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
     a, b = 42.0
@@ -2532,7 +2532,7 @@ TypeError: cannot unpack non-iterable float object
 </div>
 </section>
 <section id="comparison-not-supported">
-<h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this headline">¶</a></h3>
+<h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
     b &gt;= a
@@ -2565,7 +2565,7 @@ TypeError: '&gt;=' not supported between instances of 'int' and 'str'
 </div>
 </section>
 <section id="derive-from-baseexception">
-<h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this headline">¶</a></h3>
+<h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 557, in test_Derive_from_BaseException
     raise "exception"  # noqa
@@ -2588,7 +2588,7 @@ TypeError: exceptions must derive from BaseException
 </div>
 </section>
 <section id="generator-has-no-len">
-<h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this headline">¶</a></h3>
+<h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
     nb = len(letter
@@ -2622,7 +2622,7 @@ len([letter for letter in "word"])?
 </div>
 </section>
 <section id="indices-must-be-integers-or-slices">
-<h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this headline">¶</a></h3>
+<h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 696, in test_Indices_must_be_integers_or_slices
     [1, 2, 3]["2"]
@@ -2656,7 +2656,7 @@ TypeError: list indices must be integers or slices, not str
 </div>
 </section>
 <section id="not-an-integer">
-<h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this headline">¶</a></h3>
+<h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 659, in test_Not_an_integer
     range(c, d)
@@ -2688,7 +2688,7 @@ Perhaps you forgot to convert `c, d` into integers.
 </div>
 </section>
 <section id="not-callable">
-<h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this headline">¶</a></h3>
+<h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 541, in test_Not_callable
     _ = [1, 2](a + b)
@@ -2726,7 +2726,7 @@ TypeError: 'list' object is not callable
 </div>
 </section>
 <section id="object-is-not-iterable">
-<h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this headline">¶</a></h3>
+<h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
     list(42)
@@ -2754,7 +2754,7 @@ TypeError: 'int' object is not iterable
 </div>
 </section>
 <section id="object-is-not-subscriptable">
-<h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this headline">¶</a></h3>
+<h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
     a = f[1]
@@ -2788,7 +2788,7 @@ TypeError: 'function' object is not subscriptable
 </div>
 </section>
 <section id="slice-indices-must-be-integers-or-none">
-<h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this headline">¶</a></h3>
+<h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 710, in test_Slice_indices_must_be_integers_or_None
     [1, 2, 3][1.0:2.0]
@@ -2816,7 +2816,7 @@ TypeError: slice indices must be integers or None or have an __index__ method
 </div>
 </section>
 <section id="too-few-positional-argument">
-<h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this headline">¶</a></h3>
+<h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 471, in test_Too_few_positional_argument
     fn(1)
@@ -2846,7 +2846,7 @@ TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
 </div>
 </section>
 <section id="too-many-positional-argument">
-<h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this headline">¶</a></h3>
+<h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 452, in test_Too_many_positional_argument
     A().f(1)
@@ -2880,7 +2880,7 @@ TypeError: f() takes 1 positional argument but 2 were given
 </div>
 </section>
 <section id="tuple-no-item-assignment">
-<h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this headline">¶</a></h3>
+<h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 419, in test_Tuple_no_item_assignment
     a[0] = 0
@@ -2914,7 +2914,7 @@ TypeError: 'tuple' object does not support item assignment
 </div>
 </section>
 <section id="unhachable-type">
-<h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this headline">¶</a></h3>
+<h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 727, in test_Unhachable_type
     {[1, 2]: 1}
@@ -2940,7 +2940,7 @@ TypeError: unhashable type: 'list'
 </div>
 </section>
 <section id="unsupported-operand-types">
-<h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this headline">¶</a></h3>
+<h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 310, in test_Unsupported_operand_types
     a @= b
@@ -2971,7 +2971,7 @@ TypeError: unsupported operand type(s) for @=: 'str' and 'int'
 </div>
 </section>
 <section id="divmod">
-<h3>divmod<a class="headerlink" href="#divmod" title="Permalink to this headline">¶</a></h3>
+<h3>divmod<a class="headerlink" href="#divmod" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
     result = divmod(a, b)
@@ -3001,7 +3001,7 @@ At least one of the arguments was a complex number.
 </div>
 </section>
 <section id="function-got-multiple-argument">
-<h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
     fn2(0, a=1)
@@ -3033,7 +3033,7 @@ This function has the following arguments:
 </div>
 </section>
 <section id="function-has-no-len">
-<h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this headline">¶</a></h3>
+<h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
     len(bad)
@@ -3066,7 +3066,7 @@ TypeError: object of type 'function' has no len()
 </div>
 </section>
 <section id="getattr-attribute-name-must-be-string">
-<h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this headline">¶</a></h3>
+<h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
     getattr("__repr__", 1)  # as reported in issue #77
@@ -3097,7 +3097,7 @@ The second argument of the function `getattr()` must be a string.
 </div>
 </section>
 <section id="method-got-multiple-argument">
-<h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this headline">¶</a></h3>
+<h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
     t.some_method(0, a=1)
@@ -3131,7 +3131,7 @@ This function has only one argument: `a`
 </div>
 </section>
 <section id="vars-arg-must-have-dict">
-<h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this headline">¶</a></h3>
+<h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
     vars(f)
@@ -3164,9 +3164,9 @@ Object `f` uses `__slots__` instead of `__dict__`.
 </section>
 </section>
 <section id="unboundlocalerror">
-<h2>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this headline">¶</a></h2>
+<h2>UnboundLocalError<a class="headerlink" href="#unboundlocalerror" title="Permalink to this heading">¶</a></h2>
 <section id="missing-both">
-<h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this headline">¶</a></h3>
+<h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
     outer_missing_both()
@@ -3223,7 +3223,7 @@ in the local scope of a function before having assigned it a value.
 </div>
 </section>
 <section id="missing-global">
-<h3>Missing global<a class="headerlink" href="#missing-global" title="Permalink to this headline">¶</a></h3>
+<h3>Missing global<a class="headerlink" href="#missing-global" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 27, in test_Missing_global
     outer_missing_global()
@@ -3274,7 +3274,7 @@ should have been included as the first line inside your function.
 </div>
 </section>
 <section id="missing-nonlocal">
-<h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this headline">¶</a></h3>
+<h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
     outer_missing_nonlocal()
@@ -3323,7 +3323,7 @@ should have been included as the first line inside your function.
 </div>
 </section>
 <section id="typo-in-local">
-<h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this headline">¶</a></h3>
+<h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
     test2()
@@ -3367,7 +3367,7 @@ UnboundLocalError: local variable 'alpha3' referenced before assignment
 </div>
 </section>
 <section id="using-name-of-builtin">
-<h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this headline">¶</a></h3>
+<h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
     dist([])
@@ -3415,9 +3415,9 @@ the same name as a Python builtin function (like `max`).
 </section>
 </section>
 <section id="unknownerror">
-<h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this headline">¶</a></h2>
+<h2>UnknownError<a class="headerlink" href="#unknownerror" title="Permalink to this heading">¶</a></h2>
 <section id="id7">
-<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>Generic<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
     raise UnknownException("Some informative message about an unknown exception.")
@@ -3445,9 +3445,9 @@ If you are using a REPL, use `www('bug')` to do so.
 </section>
 </section>
 <section id="valueerror">
-<h2>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this headline">¶</a></h2>
+<h2>ValueError<a class="headerlink" href="#valueerror" title="Permalink to this heading">¶</a></h2>
 <section id="convert-to-int">
-<h3>Convert to int<a class="headerlink" href="#convert-to-int" title="Permalink to this headline">¶</a></h3>
+<h3>Convert to int<a class="headerlink" href="#convert-to-int" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 187, in test_Convert_to_int
     int('13a')
@@ -3476,7 +3476,7 @@ The following characters are not allowed: `a`.
 </div>
 </section>
 <section id="could-not-convert-to-float">
-<h3>Could not convert to float<a class="headerlink" href="#could-not-convert-to-float" title="Permalink to this headline">¶</a></h3>
+<h3>Could not convert to float<a class="headerlink" href="#could-not-convert-to-float" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
     float("42b")
@@ -3500,7 +3500,7 @@ The string `42b` cannot be converted to a `float`.
 </div>
 </section>
 <section id="date-invalid-month">
-<h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this headline">¶</a></h3>
+<h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
     d = date(2021, 13, 1)
@@ -3528,7 +3528,7 @@ ValueError: month must be in 1..12
 </div>
 </section>
 <section id="not-enough-values-to-unpack">
-<h3>Not enough values to unpack<a class="headerlink" href="#not-enough-values-to-unpack" title="Permalink to this headline">¶</a></h3>
+<h3>Not enough values to unpack<a class="headerlink" href="#not-enough-values-to-unpack" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 28, in test_Not_enough_values_to_unpack
     a, b, c = d
@@ -3556,7 +3556,7 @@ ValueError: not enough values to unpack (expected 3, got 2)
 </div>
 </section>
 <section id="pow-third-arg-cannot-be-zero">
-<h3>Pow third arg cannot be zero<a class="headerlink" href="#pow-third-arg-cannot-be-zero" title="Permalink to this headline">¶</a></h3>
+<h3>Pow third arg cannot be zero<a class="headerlink" href="#pow-third-arg-cannot-be-zero" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
     pow(2, 4, a)
@@ -3582,7 +3582,7 @@ The third argument of the function `pow()` cannot be zero.
 </div>
 </section>
 <section id="slots-conflicts-with-class-variable">
-<h3>Slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this headline">¶</a></h3>
+<h3>Slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
     class F:
@@ -3605,7 +3605,7 @@ this is not allowed.
 </div>
 </section>
 <section id="too-many-values-to-unpack">
-<h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this headline">¶</a></h3>
+<h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
     a, b = c
@@ -3632,7 +3632,7 @@ ValueError: too many values to unpack (expected 2)
 </div>
 </section>
 <section id="int-base-not-in-range">
-<h3>int base not in range<a class="headerlink" href="#int-base-not-in-range" title="Permalink to this headline">¶</a></h3>
+<h3>int base not in range<a class="headerlink" href="#int-base-not-in-range" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 201, in test_int_base_not_in_range
     int('18', base=37)
@@ -3658,7 +3658,7 @@ You wrote 37 which is not allowed.
 </div>
 </section>
 <section id="time-strptime-incorrect-format">
-<h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this headline">¶</a></h3>
+<h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
     time.strptime("2020-01-01", "%d %m %Y")
@@ -3692,9 +3692,9 @@ The following site might also be useful: https://www.strfti.me/
 </section>
 </section>
 <section id="zerodivisionerror">
-<h2>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this headline">¶</a></h2>
+<h2>ZeroDivisionError<a class="headerlink" href="#zerodivisionerror" title="Permalink to this heading">¶</a></h2>
 <section id="complex-division">
-<h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this headline">¶</a></h3>
+<h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
     1 / zero
@@ -3723,7 +3723,7 @@ ZeroDivisionError: complex division by zero
 </div>
 </section>
 <section id="division-by-zero-literal">
-<h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this headline">¶</a></h3>
+<h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
     1.0 / 0
@@ -3747,7 +3747,7 @@ ZeroDivisionError: float division by zero
 </div>
 </section>
 <section id="division-operator">
-<h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this headline">¶</a></h3>
+<h3>Division operator<a class="headerlink" href="#division-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 20, in test_Division_operator
     1 / zero
@@ -3780,7 +3780,7 @@ ZeroDivisionError: division by zero
 </div>
 </section>
 <section id="id8">
-<h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
     divmod(1, zero)
@@ -3806,7 +3806,7 @@ ZeroDivisionError: integer division or modulo by zero
 </div>
 </section>
 <section id="float-division">
-<h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this headline">¶</a></h3>
+<h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
     1 / zero
@@ -3835,7 +3835,7 @@ ZeroDivisionError: float division by zero
 </div>
 </section>
 <section id="float-divmod">
-<h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this headline">¶</a></h3>
+<h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
     divmod(1, zero)
@@ -3861,7 +3861,7 @@ ZeroDivisionError: float divmod()
 </div>
 </section>
 <section id="float-modulo">
-<h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this headline">¶</a></h3>
+<h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
     1 % zero
@@ -3894,7 +3894,7 @@ ZeroDivisionError: float modulo
 </div>
 </section>
 <section id="integer-division-operator">
-<h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this headline">¶</a></h3>
+<h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
     1 // zero
@@ -3927,7 +3927,7 @@ ZeroDivisionError: integer division or modulo by zero
 </div>
 </section>
 <section id="mixed-operations">
-<h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this headline">¶</a></h3>
+<h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
     a = divmod(8, 1 // 2)
@@ -3954,7 +3954,7 @@ ZeroDivisionError: integer division or modulo by zero
 </div>
 </section>
 <section id="modulo-operator">
-<h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this headline">¶</a></h3>
+<h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
     1 % zero
@@ -3987,7 +3987,7 @@ ZeroDivisionError: integer division or modulo by zero
 </div>
 </section>
 <section id="raise-zero-negative-power">
-<h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this headline">¶</a></h3>
+<h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
     zero**-1
@@ -4251,7 +4251,9 @@ ZeroDivisionError: 0.0 cannot be raised to a negative power
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/clipboard.min.js"></script>
