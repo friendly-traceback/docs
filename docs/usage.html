@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Other details for advanced users" href="usage_adv.html" /><link rel="prev" title="Getting Friendly" href="install.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>Basic usage - friendly-traceback 0.7.45</title>
+        <title>Basic usage - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -320,59 +316,44 @@ it completed before version 0.8 is available.</p>
 </div>
 <section id="basic-usage">
 <h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h1>
-<p>There are various ways of using <strong>Friendly</strong>.
+<p>There are various ways of using <strong>friendly</strong>.
 I only list here the basic scenarios available from a
 terminal or from within a Python interpreter.
 More options are possible, including running from an editor/IDE
 as described later in this documentation.</p>
 <p>For those that know how to run programs <strong>from a terminal</strong>,
-I recommend using <strong>one of the first four</strong> following options.</p>
+I recommend using <strong>one of the first five</strong> following options.</p>
 <ol class="arabic simple">
 <li><p>Execute a Python program, as I have already shown at the beginning:</p></li>
 </ol>
-<div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly_traceback</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback example.py
-</pre></div>
-</div>
-</div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>You can also start a friendly console:</p></li>
 </ol>
-<div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">friendly</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span>
 </pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">friendly_traceback</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback
-</pre></div>
-</div>
-</div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Combining the two options above by using Python’s <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag
-to start friendly’s console after executing
+<li><p>Combining the two options above by adding <code class="docutils literal notranslate"><span class="pre">-i</span></code>
+to <strong>always</strong> start friendly’s console after executing
 a program:</p></li>
 </ol>
-<div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">friendly</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -im friendly example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span>
+<span class="c1"># or</span>
+<span class="n">friendly</span> <span class="o">-</span><span class="n">i</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-</div>
-<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">friendly_traceback</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -im friendly_traceback example.py
+<ol class="arabic simple" start="4">
+<li><p>As an altertive, add <code class="docutils literal notranslate"><span class="pre">-x</span></code>
+to  start friendly’s console after executing
+a program <strong>only if an exception has been raised</strong>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">x</span>
+<span class="c1"># or</span>
+<span class="n">friendly</span> <span class="o">-</span><span class="n">x</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
-</div>
-</div>
 </div>
 <aside class="sidebar">
 <p class="sidebar-title">Suggestion</p>
@@ -381,8 +362,8 @@ a program:</p></li>
 that you can get from the Windows Store; this is
 what I have used for various screen captures.</p>
 </aside>
-<ol class="arabic" start="4">
-<li><p>(New) If you run a program that raises an error and leaves you at an
+<ol class="arabic" start="5">
+<li><p>If you run a program that raises an error and leaves you at an
 interactive prompt, you can import friendly “after the fact”.
 Consider the following content of a file named <code class="docutils literal notranslate"><span class="pre">ignore.py</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
@@ -426,29 +407,20 @@ Type 'Friendly' for help on special functions/methods.
 notebooks where the Friendly console does not have to be explicitly
 called to have access to the information from Friendly.</p>
 </div>
-<p>You can also start a friendly console from any Python interactive interpreter,
-which is what was done above.</p>
-<div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--1">friendly</label><div class="tab-content docutils container">
+<ol class="arabic simple" start="6">
+<li><p>You can also start a friendly console from any Python interactive interpreter,
+which is what was done above.</p></li>
+</ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">friendly</span><span class="o">.</span><span class="n">start_console</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--2">friendly_traceback</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">start_console</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>While <strong>friendly_traceback</strong> does not print in colour, <strong>friendly</strong> does.
-For <strong>friendly</strong>, all of the above assume that you are using
+<p>For <strong>friendly</strong>, all of the above assume that you are using
 a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
 add <code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">light</span></code>, which can be abbreviated as <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">light</span></code>,
 as a command line option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --format light
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="o">--</span><span class="nb">format</span> <span class="n">light</span>
 </pre></div>
 </div>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">start_console()</span></code> function
@@ -487,12 +459,12 @@ Par exemple, si on désire démarrer <strong>Friendly</strong> à partir d’un 
 tel que décrit ci-dessus, il suffit de rajouter l’argument
 <code class="docutils literal notranslate"><span class="pre">lang</span> <span class="pre">fr</span></code> de la façon suivante:</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--1">friendly</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"/><label class="tab-label" for="tab-set--4-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly_traceback</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback --lang fr
 </pre></div>
 </div>
@@ -502,13 +474,13 @@ tel que décrit ci-dessus, il suffit de rajouter l’argument
 Python, on utilise le paramètre
 <code class="docutils literal notranslate"><span class="pre">lang</span></code> de la façon suivante:</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"/><label class="tab-label" for="tab-set--5-input--1">friendly</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">friendly</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">friendly</span><span class="o">.</span><span class="n">start_console</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"/><label class="tab-label" for="tab-set--5-input--2">friendly_traceback</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">friendly_traceback</label><div class="tab-content docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">friendly_traceback</span><span class="o">.</span><span class="n">start_console</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
 </pre></div>
@@ -518,10 +490,8 @@ Python, on utilise le paramètre
 </section>
 <section id="other-languages">
 <h2>Other languages<a class="headerlink" href="#other-languages" title="Permalink to this heading">¶</a></h2>
-<p>In principle, <strong>Friendly</strong> could support languages other than English
-and French. Contributions from native speakers of other languages
-are welcome.  Note that this is not a small task as
-there is a lot of text that needs to be translated.</p>
+<p>As mentioned previously, in addition to English and French,
+<strong>Friendly</strong> is available in other languages.</p>
 </section>
 </section>
 

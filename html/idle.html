@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="IDLE’s shell" href="idle_repl.html" /><link rel="prev" title="Why import *?" href="import_all.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>About IDLE - friendly-traceback 0.7.45</title>
+        <title>About IDLE - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -306,7 +302,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -320,14 +316,6 @@ it completed before version 0.8 is available.</p>
 </div>
 <section id="about-idle">
 <h1>About IDLE<a class="headerlink" href="#about-idle" title="Permalink to this heading">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This documentation is out of date.
-Using pip, please install <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>
-which you can start from a terminal simply using <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.
-friendly_idle automatically makes use of friendly-tracaback and
-works even when dealing with syntax errors.</p>
-</div>
 <p>IDLE is often the first program that is used by beginners
 learning Python since it is installed with Python.
 It includes its own REPL (known as its “shell”) and enable
@@ -339,6 +327,17 @@ a user. Since then, it is possible to have IDLE use a custom
 exception hook <strong>except</strong> when dealing with syntax errors.
 Furthermore, the changes that made this possible have been
 ported to Python 3.9.5 and 3.8.10.</p>
+<section id="a-better-alternative">
+<h2>A better alternative<a class="headerlink" href="#a-better-alternative" title="Permalink to this heading">¶</a></h2>
+<p>Instead of using IDLE as described in the following pages,
+provided that you have a version of IDLE that support
+exception hooks already installed on your computer,
+simply install <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code> and start it from a
+terminal using either <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code> or <code class="docutils literal notranslate"><span class="pre">friendly-idle</span></code>:
+you will automatically have a version of IDLE that will
+incorporate all the features of <strong>friendly</strong> without having
+to import it.</p>
+</section>
 </section>
 
         </article>
@@ -380,8 +379,27 @@ ported to Python 3.9.5 and 3.8.10.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">About IDLE</a><ul>
+<li><a class="reference internal" href="#a-better-alternative">A better alternative</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

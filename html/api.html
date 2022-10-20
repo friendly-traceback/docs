@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Custom formatter" href="formatter.html" /><link rel="prev" title="Google’s colab" href="colab.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>Public API - friendly-traceback 0.7.45</title>
+        <title>Public API - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -380,12 +376,72 @@ which should not be shown to a user of friendly_traceback.</p>
 </dl>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.add_other_attribute_names">
+<span class="sig-name descname"><span class="pre">add_other_attribute_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attributes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_other_attribute_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_other_attribute_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intended for extension to friendly_traceback that provide support for
+some other modules. An example is friendly_pandas.  These names can be
+used as suggestion in case of a NameError, suggesting that a given
+module (name) should perhaps be imported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attributes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>) – <p>A dict with attribute names used as keys and a sequence of
+modules containing such attributes. An example from the
+standard library might be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cos"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"cmath"</span><span class="p">,</span> <span class="s2">"math"</span><span class="p">],</span>
+              <span class="s2">"sin"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"cmath"</span><span class="p">,</span> <span class="s2">"math"</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.add_other_module_names">
+<span class="sig-name descname"><span class="pre">add_other_module_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_other_module_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_other_module_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intended for extension to friendly_traceback that provide support for
+some other modules. An example is friendly_pandas.  These names can be
+used as suggestion in case of a NameError, suggesting that a given
+module (name) should perhaps be imported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>names</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>) – a sequence of module names. For example:
+<code class="docutils literal notranslate"><span class="pre">names</span> <span class="pre">=</span> <span class="pre">['pandas',</span> <span class="pre">'numpy',</span> <span class="pre">'matplotlib']</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="friendly_traceback.add_other_module_names_synonyms">
+<span class="sig-name descname"><span class="pre">add_other_module_names_synonyms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synonyms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_other_module_names_synonyms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_other_module_names_synonyms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intended for extension to friendly_traceback that provide support for
+some other modules. An example is friendly_pandas.  These names can be
+used as suggestion in case of a NameError, suggesting that a given
+module (name) should perhaps be imported. For example, given
+<code class="docutils literal notranslate"><span class="pre">names</span> <span class="pre">=</span> <span class="pre">{"np":</span> <span class="pre">"numpy"}</span></code>, if <code class="docutils literal notranslate"><span class="pre">np</span></code> is an unknown name, the suggestion
+would include <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>synonyms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>) – a dict containing synonyms often used for module names imported.
+For example:
+<code class="docutils literal notranslate"><span class="pre">synonyms</span> <span class="pre">=</span> <span class="pre">{"np":</span> <span class="pre">"numpy"}</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.add_other_set_lang">
 <span class="sig-name descname"><span class="pre">add_other_set_lang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#add_other_set_lang"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.add_other_set_lang" title="Permalink to this definition">¶</a></dt>
 <dd><p>Intended for extension to friendly_traceback that can also do translations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – a callable that should be invoked when <code class="docutils literal notranslate"><span class="pre">set_lang</span></code> is called to
+<dd class="field-odd"><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – a callable that should be invoked when <code class="docutils literal notranslate"><span class="pre">set_lang</span></code> is called to
 also set the language of the extension.</p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -498,7 +554,7 @@ written anywhere desired.</p>
 <dd><p>Intended to prevent values of certain variables to be shown.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>patterns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>]) – a list of regular expression patterns.</p>
+<dd class="field-odd"><p><strong>patterns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – a list of regular expression patterns.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
@@ -541,7 +597,7 @@ features.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipython_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'repl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipython_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/friendly_traceback.html#run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#friendly_traceback.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a filename (relative or absolute path) ending with the “.py”
 extension, this function executes the code in the file.</p>
 <p>If console is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">run()</span></code> returns an empty dict
@@ -553,7 +609,7 @@ dict being used as the <code class="docutils literal notranslate"><span class="p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lang</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – language used; currently ‘en’ (default), ‘fr’, ‘es’, ‘ta’,
+<li><p><strong>lang</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – language used; currently ‘en’ (default), ‘fr’, ‘es’, ‘ta’,
 ‘ru’, ‘it’, ‘he’ are available.</p></li>
 <li><p><strong>include</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘message’, ‘hint’, ‘what’, ‘why’, ‘where’, ‘friendly_tb’, ‘python_tb’, ‘debug_tb’, ‘explain’, ‘no_tb’]]) – specifies what information is to be included if an
 exception is raised; the default is “friendly_tb” if console
@@ -642,6 +698,11 @@ If no argument is given, the default stream (<code class="docutils literal notra
 <dd><p>Given a variable name that exists in the local scope where this function is invoked
 returns the value that will be shown if the variable value needs to be
 shown in a traceback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="friendly_traceback.uninstall">
@@ -818,6 +879,9 @@ can be imported using <code class="docutils literal notranslate"><span class="pr
 <li><a class="reference internal" href="#friendly_traceback.enable_warnings"><code class="docutils literal notranslate"><span class="pre">enable_warnings()</span></code></a></li>
 <li><a class="reference internal" href="#friendly_traceback.friendly_exec"><code class="docutils literal notranslate"><span class="pre">friendly_exec()</span></code></a></li>
 <li><a class="reference internal" href="#friendly_traceback.add_ignored_warnings"><code class="docutils literal notranslate"><span class="pre">add_ignored_warnings()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.add_other_attribute_names"><code class="docutils literal notranslate"><span class="pre">add_other_attribute_names()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.add_other_module_names"><code class="docutils literal notranslate"><span class="pre">add_other_module_names()</span></code></a></li>
+<li><a class="reference internal" href="#friendly_traceback.add_other_module_names_synonyms"><code class="docutils literal notranslate"><span class="pre">add_other_module_names_synonyms()</span></code></a></li>
 <li><a class="reference internal" href="#friendly_traceback.add_other_set_lang"><code class="docutils literal notranslate"><span class="pre">add_other_set_lang()</span></code></a></li>
 <li><a class="reference internal" href="#friendly_traceback.exclude_directory_from_traceback"><code class="docutils literal notranslate"><span class="pre">exclude_directory_from_traceback()</span></code></a></li>
 <li><a class="reference internal" href="#friendly_traceback.exclude_file_from_traceback"><code class="docutils literal notranslate"><span class="pre">exclude_file_from_traceback()</span></code></a></li>

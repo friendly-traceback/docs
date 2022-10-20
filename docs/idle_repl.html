@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="IDLE: using the editor" href="idle_run.html" /><link rel="prev" title="About IDLE" href="idle.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>IDLE’s shell - friendly-traceback 0.7.45</title>
+        <title>IDLE’s shell - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -320,10 +316,24 @@ it completed before version 0.8 is available.</p>
 </div>
 <section id="idle-s-shell">
 <h1>IDLE’s shell<a class="headerlink" href="#idle-s-shell" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Simply install <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code> and start it from a terminal
+as mentioned previously. If you do so, you <strong>never</strong> have to
+write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.idle</span> <span class="kn">import</span> <span class="n">start_console</span>
+<span class="n">start_console</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>to get the benefit of using <strong>friendly</strong> with IDLE</p>
+</div>
+<section id="a-quick-tour">
+<h2>A quick tour<a class="headerlink" href="#a-quick-tour" title="Permalink to this heading">¶</a></h2>
 <div class="admonition-summary admonition">
 <p class="admonition-title">Summary</p>
 <p>friendly has a special mode for IDLE.
-It is strongly recommended to use the friendly console by
+If you are not using <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>,
+it is strongly recommended to use the friendly console by
 using the following two instructions when beginning a session:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.idle</span> <span class="kn">import</span> <span class="n">start_console</span>
 <span class="n">start_console</span><span class="p">()</span>
@@ -353,8 +363,13 @@ to a traceback, and blue for everything else. It also adopts
 IDLE’s feature of highlighting the location of an error using
 a red background; however, unlike IDLE’s itself, it does not do
 so in the code entered previously, but only in its own output.</p>
+</section>
 <section id="latest-idle-version">
 <h2>Latest IDLE version<a class="headerlink" href="#latest-idle-version" title="Permalink to this heading">¶</a></h2>
+<aside class="sidebar">
+<p><code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code> modifies IDLE so that explanations
+can be provided for syntax errors.</p>
+</aside>
 <p>Starting with Python version 3.10.0a5, IDLE’s shell allow the
 use of customs <code class="docutils literal notranslate"><span class="pre">sys.excepthook()</span></code> to process runtime
 errors (but not syntax errors). So, <strong>instead of</strong> starting
@@ -372,10 +387,9 @@ such as <code class="docutils literal notranslate"><span class="pre">why()</span
 <p>Note how the prompt is not blue as we are not using
 friendly’s own console.</p>
 <p>Unfortunately, since syntax errors cannot (yet) be processed by friendly
-in this mode, I do not recommend to use it in this way.</p>
-<p>IDLE’s developers are aware of this current limitation and might
-provide in a future version a way for friendly to “hook” into IDLE’s
-mechanism for dealing with syntax errors.</p>
+in this mode, I do not recommend to use it in this way.
+Instead, as I already mentioned, and will keep mentioning,
+just install <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code>.</p>
 </section>
 </section>
 
@@ -431,6 +445,7 @@ mechanism for dealing with syntax errors.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">IDLE’s shell</a><ul>
+<li><a class="reference internal" href="#a-quick-tour">A quick tour</a></li>
 <li><a class="reference internal" href="#latest-idle-version">Latest IDLE version</a></li>
 </ul>
 </li>

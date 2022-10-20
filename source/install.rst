@@ -11,19 +11,10 @@ Getting Friendly
 
 You can get **Friendly** from `PyPI <https://pypi.org/>`_ in the usual way:
 
+.. code-block:: none
 
-.. tab:: friendly
+    python -m pip install friendly
 
-    .. code-block::
-
-        $ python -m pip install friendly
-
-
-.. tab:: friendly_traceback
-
-    .. code-block::
-
-        $ python -m pip install friendly_traceback
 
 
 This needs to be done from a terminal.

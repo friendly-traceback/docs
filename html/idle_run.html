@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="About Mu" href="mu_about.html" /><link rel="prev" title="IDLE’s shell" href="idle_repl.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>IDLE: using the editor - friendly-traceback 0.7.45</title>
+        <title>IDLE: using the editor - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -306,7 +302,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -320,6 +316,26 @@ it completed before version 0.8 is available.</p>
 </div>
 <section id="idle-using-the-editor">
 <h1>IDLE: using the editor<a class="headerlink" href="#idle-using-the-editor" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As mentioned before, simply install <code class="docutils literal notranslate"><span class="pre">friendly_idle</span></code> and start it from a terminal
+as mentioned previously. If you do so, you <strong>never</strong> have to
+write something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.idle</span> <span class="kn">import</span> <span class="n">run</span>
+<span class="n">run</span><span class="p">(</span><span class="s2">"hello.py"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to get the benefit of using <strong>friendly</strong> with IDLE.</p>
+<p>There is however one limitation: if a SyntaxError is raised,
+the information is shown “all at once” and
+is nothing is saved in the recorded <code class="docutils literal notranslate"><span class="pre">history()</span></code>, so you cannot
+query it further.</p>
+<p>If you change the language used, say from English to French
+by doing <code class="docutils literal notranslate"><span class="pre">set_lang('fr')</span></code>, <strong>friendly</strong> and <strong>friendly_idle</strong>
+will remember your choice in the future.</p>
+</div>
+<section id="the-indirect-way">
+<h2>The indirect way …<a class="headerlink" href="#the-indirect-way" title="Permalink to this heading">¶</a></h2>
 <p>Since IDLE is part of the standard library, it is often the first
 editor that is used by beginners learning Python.
 Let’s have a look at what happens if we run
@@ -333,7 +349,8 @@ completed, I entered more code, making a syntax error.</p>
 <a class="reference internal image-reference" href="_images/friendly_idle.png"><img alt="Screen capture of IDLE using friendly to launch a program" src="_images/friendly_idle.png" style="width: 719.5px; height: 440.5px;"/></a>
 <div class="admonition-summary admonition">
 <p class="admonition-title">Summary</p>
-<p>To run a program named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>, create a second Python
+<p>To run a program named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> with only <strong>friendly</strong> and not
+<strong>friendly_idle</strong>, create a second Python
 program saved in the same directory
 and containing the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">friendly.idle</span> <span class="kn">import</span> <span class="n">run</span>
@@ -364,6 +381,7 @@ following:</p>
 </div>
 <p>If an exception is raised and you want friendly to tell you “why”,
 you will then have to use <code class="docutils literal notranslate"><span class="pre">Friendly.why()</span></code>.</p>
+</section>
 </section>
 
         </article>
@@ -405,8 +423,27 @@ you will then have to use <code class="docutils literal notranslate"><span class
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">IDLE: using the editor</a><ul>
+<li><a class="reference internal" href="#the-indirect-way">The indirect way …</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

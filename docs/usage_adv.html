@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Logging and keeping confidential information secret" href="confidential.html" /><link rel="prev" title="Basic usage" href="usage.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>Other details for advanced users - friendly-traceback 0.7.45</title>
+        <title>Other details for advanced users - friendly-traceback 0.7.48</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.45</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.45</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -225,10 +225,6 @@
 <li class="toctree-l1"><a class="reference internal" href="design.html">Some thoughts on the design of friendly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="themes.html">Themes, Styles, and Colours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multiple_tracebacks.html">Multiple tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="friendly_tb.html">friendly tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipython_tb.html">IPython tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter_tb.html">Jupyter tracebacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numbered_prompt.html">Numbered prompt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idle_colours.html">IDLE’s colours</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">All the tracebacks!</span></p>
@@ -325,12 +321,12 @@ it completed before version 0.8 is available.</p>
 <p>Some additional information might be available from the command line:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly -h
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly_traceback</label><div class="tab-content docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback -h
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">friendly_traceback</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
 </div>
 </div>
@@ -371,19 +367,19 @@ What if the separate script has its own command line arguments?</p>
 </pre></div>
 </div>
 <p>Using Python, we would normally run this program as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python demos/adder.py 1 2 3
-The sum is 6
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">adder</span><span class="o">.</span><span class="n">py</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">The</span> <span class="nb">sum</span> <span class="ow">is</span> <span class="mi">6</span>
 </pre></div>
 </div>
 <p>We can do the same using <strong>friendly</strong> (or <strong>friendly_traceback</strong>).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly demos/adder.py 1 2 3
-The sum is 6.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="n">adder</span><span class="o">.</span><span class="n">py</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">The</span> <span class="nb">sum</span> <span class="ow">is</span> <span class="mf">6.0</span>
 </pre></div>
 </div>
 <p>Note that this works even if you specify command line arguments
 that are specific to friendly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr demos/adder.py 1 2 3
-The sum is 6.0
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="o">--</span><span class="n">lang</span> <span class="n">fr</span> <span class="n">adder</span><span class="o">.</span><span class="n">py</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">The</span> <span class="nb">sum</span> <span class="ow">is</span> <span class="mf">6.0</span>
 </pre></div>
 </div>
 <p>However, what if one wants to run a script that uses optional named arguments
@@ -391,47 +387,41 @@ similarly to how friendly can use <code class="docutils literal notranslate"><sp
 arguments? In this case, use <code class="docutils literal notranslate"><span class="pre">--</span></code> to separate the list of arguments
 to be used by the script from those written previously and
 intended to be used by friendly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly --lang fr demos/adder.py -- --to_int 1 2 3
-The sum is 6
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">friendly</span> <span class="o">--</span><span class="n">lang</span> <span class="n">fr</span> <span class="n">adder</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span> <span class="o">--</span><span class="n">to_int</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="n">The</span> <span class="nb">sum</span> <span class="ow">is</span> <span class="mi">6</span>
 </pre></div>
 </div>
 <p>Finally, let’s generate a traceback to see <strong>Friendly</strong> in action, this time
-using <strong>friendly_traceback</strong> so that no special formatting is applied.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
+using <strong>friendly_traceback</strong> so that no special formatting is applied,
+and using the program found in the <code class="docutils literal notranslate"><span class="pre">demos</span></code> directory.
+Note that we need to have the required dependencies already installed.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
 
 Traceback (most recent call last):
-  File "demos\adder.py", line 13, in &lt;module&gt;
+  File "HOME:\github\friendly-traceback\demos\adder.py", line 13, in &lt;module&gt;
     total += float(number)
 ValueError: could not convert string to float: 'a'
 
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
 
-    I do not recognize this error message.
-    I am guessing that the problem is with the function `float`.
-    Its docstring is:
+    The string `a` cannot be converted to a `float`
+    as it does not represent a number.
 
-    `'''Convert a string or number to a floating point number, if possible.'''`
+    Exception raised on line `13` of file 'HOME:\github\friendly-traceback\demos\adder.py'.
 
-    Exception raised on line 13 of file demos\adder.py.
-
-        9: total = 0
-       10: args = parser.parse_args()
-       12: for number in args.numbers:
-    --&gt;13:     total += float(number)
+        9| total = 0
+       10| args = parser.parse_args()
+       11|
+       12| for number in args.numbers:
+    --&gt;13|     total += float(number)
                         ^^^^^^^^^^^^^
-       15: if int(total) == total and args.to_int:
+       14|
+       15| if int(total) == total and args.to_int:
 
             number:  'a'
             float:  &lt;class float&gt;
 </pre></div>
-</div>
-<p>All possible <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> cases are not yet explained by <strong>Friendly</strong>
-as we can see above.</p>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Provide an explanation for the error message
-<code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">convert</span> <span class="pre">string</span> <span class="pre">to</span> <span class="pre">float:</span> <span class="pre">'a'</span></code>.</p>
 </div>
 </section>
 <section id="where-the-output-is-written">
@@ -563,76 +553,7 @@ it can be done as in the following example:</p>
 <section id="logging">
 <h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
 <p>You can use friendly_traceback with the logging module.
-Here’s an example, together with the corresponding
-output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly_traceback</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="c1"># Configure as desired before running the code</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"ignore.log"</span><span class="p">)</span>
-<span class="n">friendly_traceback</span><span class="o">.</span><span class="n">set_lang</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)</span>  <span class="c1"># Just as an example :-)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">ignore2</span>
-<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-    <span class="n">friendly_traceback</span><span class="o">.</span><span class="n">explain_traceback</span><span class="p">(</span><span class="n">redirect</span><span class="o">=</span><span class="s2">"capture"</span><span class="p">)</span>
-    <span class="c1"># Note: friendly often remove some details from tracebacks</span>
-    <span class="c1"># to make them more readable. This can be helpful</span>
-    <span class="c1"># but sometimes we might also need to see the full</span>
-    <span class="c1"># traceback in log files.</span>
-    <span class="c1"># For example, compare the path of ignore2.py shown</span>
-    <span class="c1"># in both tracebacks.</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="p">(</span><span class="s2">" Friendly traceback</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span>
-              <span class="n">friendly</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span> <span class="o">+</span>
-              <span class="s2">"</span><span class="se">\n</span><span class="s2">----Original traceback-----</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-    <span class="c1"># exc_info=True below will append the original traceback</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>And here’s the output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "ignore.py", line 9, in &lt;module&gt;
-    import ignore2
-  File "CWD:\ignore2.py", line 3, in &lt;module&gt;
-    c = a / b
-ZeroDivisionError: division by zero
-
-    Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
-    par zéro soit directement ou en utilisant une autre opération mathématique.
-
-    Vous divisez par le terme suivant
-
-         b
-
-    qui est égal à zéro.
-
-    L'exécution s'est arrêtée à la ligne 9 du fichier ignore.py
-
-        7:
-        8: try:
-    --&gt; 9:     import ignore2
-       10: except Exception:
-
-    Exception levée à la ligne 3 du fichier CWD:\ignore2.py.
-
-       1: a = 1
-       2: b = 0
-    --&gt;3: c = a / b
-              ^^^^^
-
-            a:  1
-            b:  0
-
-
-----Original traceback-----
-Traceback (most recent call last):
-  File "ignore.py", line 9, in &lt;module&gt;
-    import ignore2
-  File "C:\Users\andre\github\friendly\ignore2.py", line 3, in &lt;module&gt;
-    c = a / b
-ZeroDivisionError: division by zero
-</pre></div>
-</div>
+How to do so is explained on the next page.</p>
 </section>
 </section>
 

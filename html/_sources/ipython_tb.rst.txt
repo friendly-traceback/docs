@@ -1,4 +1,0 @@
-IPython tracebacks
-====================
-
-Add explanation.

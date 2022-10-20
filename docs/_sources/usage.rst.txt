@@ -1,66 +1,54 @@
 Basic usage
 ============
 
-There are various ways of using **Friendly**.
+There are various ways of using **friendly**.
 I only list here the basic scenarios available from a
 terminal or from within a Python interpreter.
 More options are possible, including running from an editor/IDE
 as described later in this documentation.
 
 For those that know how to run programs **from a terminal**,
-I recommend using **one of the first four** following options.
+I recommend using **one of the first five** following options.
 
 
 1. Execute a Python program, as I have already shown at the beginning:
 
 
-.. tab:: friendly
+.. code-block::
 
-    .. code-block::
-
-        $ python -m friendly example.py
-
-
-.. tab:: friendly_traceback
-
-    .. code-block::
-
-        $ python -m friendly_traceback example.py
-
+    friendly example.py
 
 2. You can also start a friendly console:
 
-.. tab:: friendly
+.. code-block::
 
-    .. code-block::
-
-        $ python -m friendly
+    friendly
 
 
-.. tab:: friendly_traceback
 
-    .. code-block::
-
-        $ python -m friendly_traceback
-
-
-3. Combining the two options above by using Python's ``-i`` flag
-   to start friendly's console after executing
+3. Combining the two options above by adding ``-i``
+   to **always** start friendly's console after executing
    a program:
 
 
-.. tab:: friendly
+.. code-block::
 
-    .. code-block::
+    friendly example.py -i
+    # or
+    friendly -i example.py
 
-        $ python -im friendly example.py
+
+4. As an altertive, add ``-x``
+   to  start friendly's console after executing
+   a program **only if an exception has been raised**:
 
 
-.. tab:: friendly_traceback
+.. code-block::
 
-    .. code-block::
+    friendly example.py -x
+    # or
+    friendly -x example.py
 
-        $ python -im friendly_traceback example.py
 
 
 .. sidebar:: Suggestion
@@ -71,7 +59,7 @@ I recommend using **one of the first four** following options.
     what I have used for various screen captures.
 
 
-4. (New) If you run a program that raises an error and leaves you at an
+5. If you run a program that raises an error and leaves you at an
    interactive prompt, you can import friendly "after the fact".
    Consider the following content of a file named ``ignore.py``::
 
@@ -120,34 +108,23 @@ Here's a sample session:
 
 
 
-You can also start a friendly console from any Python interactive interpreter,
-which is what was done above.
+6. You can also start a friendly console from any Python interactive interpreter,
+   which is what was done above.
 
 
-.. tab:: friendly
+.. code-block::
 
-    .. code-block::
-
-        >>> import friendly
-        >>> friendly.start_console()
+    >>> import friendly
+    >>> friendly.start_console()
 
 
-.. tab:: friendly_traceback
-
-    .. code-block::
-
-        >>> import friendly_traceback
-        >>> friendly_traceback.start_console()
-
-
-While **friendly_traceback** does not print in colour, **friendly** does.
 For **friendly**, all of the above assume that you are using
 a terminal with a dark background.
 If you are using a terminal with a light background, you might want to
 add ``--format light``, which can be abbreviated as ``-f light``,
 as a command line option::
 
-    $ python -m friendly --format light
+    friendly --format light
 
 
 Similarly, the ``start_console()`` function
@@ -228,7 +205,5 @@ Python, on utilise le paramètre
 Other languages
 ---------------
 
-In principle, **Friendly** could support languages other than English
-and French. Contributions from native speakers of other languages
-are welcome.  Note that this is not a small task as
-there is a lot of text that needs to be translated.
+As mentioned previously, in addition to English and French,
+**Friendly** is available in other languages.

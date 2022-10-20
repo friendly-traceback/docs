@@ -1,10 +1,26 @@
 IDLE's shell
 ============
 
+.. tip::
+
+    Simply install ``friendly_idle`` and start it from a terminal
+    as mentioned previously. If you do so, you **never** have to 
+    write::
+
+        from friendly.idle import start_console
+        start_console()
+    
+    to get the benefit of using **friendly** with IDLE
+
+
+A quick tour
+-------------
+
 .. admonition:: Summary
 
     friendly has a special mode for IDLE.
-    It is strongly recommended to use the friendly console by
+    If you are not using ``friendly_idle``,
+    it is strongly recommended to use the friendly console by
     using the following two instructions when beginning a session::
 
         from friendly.idle import start_console
@@ -49,6 +65,11 @@ so in the code entered previously, but only in its own output.
 Latest IDLE version
 -------------------
 
+.. sidebar::
+
+     ``friendly_idle`` modifies IDLE so that explanations
+     can be provided for syntax errors.
+
 Starting with Python version 3.10.0a5, IDLE's shell allow the
 use of customs ``sys.excepthook()`` to process runtime
 errors (but not syntax errors). So, **instead of** starting
@@ -74,7 +95,5 @@ friendly's own console.
 
 Unfortunately, since syntax errors cannot (yet) be processed by friendly
 in this mode, I do not recommend to use it in this way.
-
-IDLE's developers are aware of this current limitation and might
-provide in a future version a way for friendly to "hook" into IDLE's
-mechanism for dealing with syntax errors.
+Instead, as I already mentioned, and will keep mentioning,
+just install ``friendly_idle``. 

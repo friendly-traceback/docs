@@ -9,13 +9,13 @@ Other details for advanced users
 
         .. code-block::
 
-            $ python -m friendly -h
+            friendly -h
 
     .. tab:: friendly_traceback
 
         .. code-block::
 
-            $ python -m friendly_traceback -h
+            python -m friendly_traceback -h
 
 
 Running another script
@@ -60,20 +60,20 @@ Using Python, we would normally run this program as follows.
 
 .. code-block::
 
-    $ python demos/adder.py 1 2 3
+    python adder.py 1 2 3
     The sum is 6
 
 We can do the same using **friendly** (or **friendly_traceback**).
 
 .. code-block::
 
-    $ python -m friendly demos/adder.py 1 2 3
+    friendly adder.py 1 2 3
     The sum is 6.0
 
 Note that this works even if you specify command line arguments
 that are specific to friendly::
 
-    $ python -m friendly --lang fr demos/adder.py 1 2 3
+    friendly --lang fr adder.py 1 2 3
     The sum is 6.0
 
 However, what if one wants to run a script that uses optional named arguments
@@ -84,51 +84,42 @@ intended to be used by friendly:
 
 .. code-block::
 
-    $ python -m friendly --lang fr demos/adder.py -- --to_int 1 2 3
+    friendly --lang fr adder.py -- --to_int 1 2 3
     The sum is 6
 
 Finally, let's generate a traceback to see **Friendly** in action, this time
-using **friendly_traceback** so that no special formatting is applied.
+using **friendly_traceback** so that no special formatting is applied,
+and using the program found in the ``demos`` directory.
+Note that we need to have the required dependencies already installed.
 
-.. code-block::
+.. code-block:: none
 
-    $ python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
+    python -m friendly_traceback demos/adder.py -- --to_int 1 2 3 a
 
     Traceback (most recent call last):
-      File "demos\adder.py", line 13, in <module>
+      File "HOME:\github\friendly-traceback\demos\adder.py", line 13, in <module>
         total += float(number)
     ValueError: could not convert string to float: 'a'
 
         A `ValueError` indicates that a function or an operation
         received an argument of the right type, but an inappropriate value.
 
-        I do not recognize this error message.
-        I am guessing that the problem is with the function `float`.
-        Its docstring is:
+        The string `a` cannot be converted to a `float`
+        as it does not represent a number.
 
-        `'''Convert a string or number to a floating point number, if possible.'''`
+        Exception raised on line `13` of file 'HOME:\github\friendly-traceback\demos\adder.py'.
 
-        Exception raised on line 13 of file demos\adder.py.
-
-            9: total = 0
-           10: args = parser.parse_args()
-           12: for number in args.numbers:
-        -->13:     total += float(number)
+            9| total = 0
+           10| args = parser.parse_args()
+           11|
+           12| for number in args.numbers:
+        -->13|     total += float(number)
                             ^^^^^^^^^^^^^
-           15: if int(total) == total and args.to_int:
+           14|
+           15| if int(total) == total and args.to_int:
 
                 number:  'a'
                 float:  <class float>
-
-
-All possible ``ValueError`` cases are not yet explained by **Friendly**
-as we can see above.
-
-.. todo::
-
-    Provide an explanation for the error message
-    ``ValueError: could not convert string to float: 'a'``.
-
 
 
 Where the output is written?
@@ -267,81 +258,8 @@ it can be done as in the following example::
         friendly.set_lang(lang)
 
 
-
-
 Logging
 --------
 
 You can use friendly_traceback with the logging module.
-Here's an example, together with the corresponding
-output::
-
-    import friendly_traceback
-    import logging
-
-    # Configure as desired before running the code
-    logging.basicConfig(filename="ignore.log")
-    friendly_traceback.set_lang('fr')  # Just as an example :-)
-
-    try:
-        import ignore2
-    except Exception:
-        friendly_traceback.explain_traceback(redirect="capture")
-        # Note: friendly often remove some details from tracebacks
-        # to make them more readable. This can be helpful
-        # but sometimes we might also need to see the full
-        # traceback in log files.
-        # For example, compare the path of ignore2.py shown
-        # in both tracebacks.
-        log = (" Friendly traceback\n" +
-                  friendly.get_output() +
-                  "\n----Original traceback-----\n")
-        # exc_info=True below will append the original traceback
-        logging.error(log, exc_info=True)
-
-
-And here's the output:
-
-.. code-block:: none
-
-    Traceback (most recent call last):
-      File "ignore.py", line 9, in <module>
-        import ignore2
-      File "CWD:\ignore2.py", line 3, in <module>
-        c = a / b
-    ZeroDivisionError: division by zero
-
-        Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
-        par zéro soit directement ou en utilisant une autre opération mathématique.
-
-        Vous divisez par le terme suivant
-
-             b
-
-        qui est égal à zéro.
-
-        L'exécution s'est arrêtée à la ligne 9 du fichier ignore.py
-
-            7:
-            8: try:
-        --> 9:     import ignore2
-           10: except Exception:
-
-        Exception levée à la ligne 3 du fichier CWD:\ignore2.py.
-
-           1: a = 1
-           2: b = 0
-        -->3: c = a / b
-                  ^^^^^
-
-                a:  1
-                b:  0
-
-
-    ----Original traceback-----
-    Traceback (most recent call last):
-      File "ignore.py", line 9, in <module>
-        import ignore2
-      File "C:\Users\andre\github\friendly\ignore2.py", line 3, in <module>
-        c = a / b
-    ZeroDivisionError: division by zero
+How to do so is explained on the next page.
