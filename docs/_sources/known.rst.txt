@@ -27,7 +27,7 @@ intercepted by Friendly-traceback. Furthermore, exceptions such as
 ``BaseException``, ``Exception``, and ``ArithmeticError`` are base classes which
 are also not normally seen: some derived classes are normally used instead.
 
-Information compiled using Friendly version: 0.6.0,
+Information compiled using Friendly version: 0.7.49,
 Python version: 3.6.8
 
 
@@ -43,8 +43,6 @@ ArithmeticError
 
     `ArithmeticError` is the base class for those built-in exceptions
     that are raised for various arithmetic errors.
-    It is unusual that you are seeing this exception;
-    normally, a more specific exception should have been raised.
 
 AssertionError
 ~~~~~~~~~~~~~~
@@ -70,12 +68,8 @@ BaseException
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    `BaseException` is the base class for all built-in exceptions.
+    It is not meant to be directly inherited by user-defined classes.
 
 BlockingIOError
 ~~~~~~~~~~~~~~~
@@ -83,6 +77,7 @@ BlockingIOError
 .. code-block:: none
 
     An exception of type `BlockingIOError` is a subclass of `OSError`.
+    Nothing more specific is known about `BlockingIOError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -93,6 +88,9 @@ BrokenPipeError
 .. code-block:: none
 
     An exception of type `BrokenPipeError` is a subclass of `OSError`.
+    Nothing more specific is known about `BrokenPipeError`.
+    The inheritance is as follows:
+        BrokenPipeError -> ConnectionError -> OSError
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -102,12 +100,10 @@ BufferError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `BufferError` is a subclass of `Exception`.
+    Nothing more specific is known about `BufferError`.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
 
 ChildProcessError
 ~~~~~~~~~~~~~~~~~
@@ -115,6 +111,7 @@ ChildProcessError
 .. code-block:: none
 
     An exception of type `ChildProcessError` is a subclass of `OSError`.
+    Nothing more specific is known about `ChildProcessError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -125,6 +122,9 @@ ConnectionAbortedError
 .. code-block:: none
 
     An exception of type `ConnectionAbortedError` is a subclass of `OSError`.
+    Nothing more specific is known about `ConnectionAbortedError`.
+    The inheritance is as follows:
+        ConnectionAbortedError -> ConnectionError -> OSError
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -135,6 +135,7 @@ ConnectionError
 .. code-block:: none
 
     An exception of type `ConnectionError` is a subclass of `OSError`.
+    Nothing more specific is known about `ConnectionError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -145,6 +146,9 @@ ConnectionRefusedError
 .. code-block:: none
 
     An exception of type `ConnectionRefusedError` is a subclass of `OSError`.
+    Nothing more specific is known about `ConnectionRefusedError`.
+    The inheritance is as follows:
+        ConnectionRefusedError -> ConnectionError -> OSError
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -155,6 +159,9 @@ ConnectionResetError
 .. code-block:: none
 
     An exception of type `ConnectionResetError` is a subclass of `OSError`.
+    Nothing more specific is known about `ConnectionResetError`.
+    The inheritance is as follows:
+        ConnectionResetError -> ConnectionError -> OSError
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -181,12 +188,8 @@ Exception
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
 
 FileExistsError
 ~~~~~~~~~~~~~~~
@@ -194,6 +197,7 @@ FileExistsError
 .. code-block:: none
 
     An exception of type `FileExistsError` is a subclass of `OSError`.
+    Nothing more specific is known about `FileExistsError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -213,22 +217,19 @@ FloatingPointError
 .. code-block:: none
 
     An exception of type `FloatingPointError` is a subclass of `ArithmeticError`.
+    Nothing more specific is known about `FloatingPointError`.
     `ArithmeticError` is the base class for those built-in exceptions
     that are raised for various arithmetic errors.
-    It is unusual that you are seeing this exception;
-    normally, a more specific exception should have been raised.
 
 GeneratorExit
 ~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `GeneratorExit` is a subclass of `BaseException`.
+    Nothing more specific is known about `GeneratorExit`.
+    `BaseException` is the base class for all built-in exceptions.
+    It is not meant to be directly inherited by user-defined classes.
 
 IOError
 ~~~~~~~
@@ -272,6 +273,7 @@ InterruptedError
 .. code-block:: none
 
     An exception of type `InterruptedError` is a subclass of `OSError`.
+    Nothing more specific is known about `InterruptedError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -282,6 +284,7 @@ IsADirectoryError
 .. code-block:: none
 
     An exception of type `IsADirectoryError` is a subclass of `OSError`.
+    Nothing more specific is known about `IsADirectoryError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -299,12 +302,10 @@ KeyboardInterrupt
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `KeyboardInterrupt` is a subclass of `BaseException`.
+    Nothing more specific is known about `KeyboardInterrupt`.
+    `BaseException` is the base class for all built-in exceptions.
+    It is not meant to be directly inherited by user-defined classes.
 
 LookupError
 ~~~~~~~~~~~
@@ -351,6 +352,7 @@ NotADirectoryError
 .. code-block:: none
 
     An exception of type `NotADirectoryError` is a subclass of `OSError`.
+    Nothing more specific is known about `NotADirectoryError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -361,6 +363,7 @@ NotImplementedError
 .. code-block:: none
 
     An exception of type `NotImplementedError` is a subclass of `RuntimeError`.
+    Nothing more specific is known about `NotImplementedError`.
     A `RuntimeError` is raised when an error is detected that doesn't fall in any
     of the more specific exception types defined by Python.
 
@@ -387,6 +390,7 @@ PermissionError
 .. code-block:: none
 
     An exception of type `PermissionError` is a subclass of `OSError`.
+    Nothing more specific is known about `PermissionError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -397,6 +401,7 @@ ProcessLookupError
 .. code-block:: none
 
     An exception of type `ProcessLookupError` is a subclass of `OSError`.
+    Nothing more specific is known about `ProcessLookupError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -416,12 +421,10 @@ ReferenceError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `ReferenceError` is a subclass of `Exception`.
+    Nothing more specific is known about `ReferenceError`.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
 
 RuntimeError
 ~~~~~~~~~~~~
@@ -436,12 +439,10 @@ StopAsyncIteration
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `StopAsyncIteration` is a subclass of `Exception`.
+    Nothing more specific is known about `StopAsyncIteration`.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
 
 StopIteration
 ~~~~~~~~~~~~~
@@ -464,24 +465,20 @@ SystemError
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `SystemError` is a subclass of `Exception`.
+    Nothing more specific is known about `SystemError`.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
 
 SystemExit
 ~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    An exception of type `SystemExit` is a subclass of `BaseException`.
+    Nothing more specific is known about `SystemExit`.
+    `BaseException` is the base class for all built-in exceptions.
+    It is not meant to be directly inherited by user-defined classes.
 
 TabError
 ~~~~~~~~
@@ -501,6 +498,7 @@ TimeoutError
 .. code-block:: none
 
     An exception of type `TimeoutError` is a subclass of `OSError`.
+    Nothing more specific is known about `TimeoutError`.
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -535,6 +533,9 @@ UnicodeDecodeError
 .. code-block:: none
 
     An exception of type `UnicodeDecodeError` is a subclass of `ValueError`.
+    Nothing more specific is known about `UnicodeDecodeError`.
+    The inheritance is as follows:
+        UnicodeDecodeError -> UnicodeError -> ValueError
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
 
@@ -544,6 +545,9 @@ UnicodeEncodeError
 .. code-block:: none
 
     An exception of type `UnicodeEncodeError` is a subclass of `ValueError`.
+    Nothing more specific is known about `UnicodeEncodeError`.
+    The inheritance is as follows:
+        UnicodeEncodeError -> UnicodeError -> ValueError
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
 
@@ -553,6 +557,7 @@ UnicodeError
 .. code-block:: none
 
     An exception of type `UnicodeError` is a subclass of `ValueError`.
+    Nothing more specific is known about `UnicodeError`.
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
 
@@ -562,6 +567,9 @@ UnicodeTranslateError
 .. code-block:: none
 
     An exception of type `UnicodeTranslateError` is a subclass of `ValueError`.
+    Nothing more specific is known about `UnicodeTranslateError`.
+    The inheritance is as follows:
+        UnicodeTranslateError -> UnicodeError -> ValueError
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
 
@@ -599,74 +607,81 @@ BytesWarning
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `BytesWarning` is the base category for warnings related to bytes and bytearray.
 
 DeprecationWarning
 ~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `DeprecationWarning` indicates that some feature will not be available in a future version.
 
 FutureWarning
 ~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `FutureWarning` is the base category for features that will likely be deprecated
+    in future Python versions.
 
 ImportWarning
 ~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    A warning of type `ImportWarning` is a subclass of `Warning`.
+    Nothing more specific is known about `ImportWarning`.
+    `Warning` is the base class of all warning category classes.
 
 PendingDeprecationWarning
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    A warning of type `PendingDeprecationWarning` is a subclass of `Warning`.
+    Nothing more specific is known about `PendingDeprecationWarning`.
+    `Warning` is the base class of all warning category classes.
 
 ResourceWarning
 ~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    A warning of type `ResourceWarning` is a subclass of `Warning`.
+    Nothing more specific is known about `ResourceWarning`.
+    `Warning` is the base class of all warning category classes.
 
 RuntimeWarning
 ~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `RuntimeWarning` often indicates some not recommended runtime features.
 
 SyntaxWarning
 ~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `SyntaxWarning` often indicates that your code will likely not give the result you expect.
 
 UnicodeWarning
 ~~~~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `UnicodeWarning` is the base category for warnings related to unicode.
 
 UserWarning
 ~~~~~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `UserWarning` is the default class for `warnings.warn()`.
 
 Warning
 ~~~~~~~
 
 .. code-block:: none
 
-    No information is available about this warning.
+    `Warning` is the base class of all warning category classes.

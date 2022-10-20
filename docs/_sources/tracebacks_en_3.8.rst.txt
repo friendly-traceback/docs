@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.7.27
+Friendly-traceback version: 0.7.49
 Python version: 3.8.10
 
 
@@ -37,8 +37,6 @@ Generic
     
     `ArithmeticError` is the base class for those built-in exceptions
     that are raised for various arithmetic errors.
-    It is unusual that you are seeing this exception;
-    normally, a more specific exception should have been raised.
     
     Exception raised on line `9` of file 'TESTS:\runtime\test_arithmetic_error.py'.
     
@@ -219,7 +217,7 @@ Circular import
     Execution stopped on line `355` of file 'TESTS:\runtime\test_attribute_error.py'.
     
        352| from friendly_traceback.runtime_errors import stdlib_modules
-       353| stdlib_modules.names.append("my_turtle1")
+       353| stdlib_modules.names.add("my_turtle1")
        354| try:
     -->355|    import my_turtle1
        356| except AttributeError as e:
@@ -1609,7 +1607,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 198, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 239, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1621,13 +1619,13 @@ Custom name
     before being defined or given a value.
     
     You are already using Python!
-    Exception raised on line `198` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `239` of file 'TESTS:\runtime\test_name_error.py'.
     
-       196| def test_Custom_name():
-       197|     try:
-    -->198|         python
+       237| def test_Custom_name():
+       238|     try:
+    -->239|         python
                     ^^^^^^
-       199|     except NameError as e:
+       240|     except NameError as e:
 
 
 Free variable referenced
@@ -1637,11 +1635,11 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 182, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 223, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 178, in outer
+      File "TESTS:\runtime\test_name_error.py", line 219, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 177, in inner
+      File "TESTS:\runtime\test_name_error.py", line 218, in inner
         return var
     NameError: free variable 'var' referenced before assignment in enclosing scope
     
@@ -1655,23 +1653,23 @@ Free variable referenced
     that exists in an enclosing scope,
     but has not yet been assigned a value.
     
-    Execution stopped on line `182` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `223` of file 'TESTS:\runtime\test_name_error.py'.
     
-       178|     inner()
-       179|     var = 4
-       180| 
-       181| try:
-    -->182|     outer()
+       219|     inner()
+       220|     var = 4
+       221| 
+       222| try:
+    -->223|     outer()
                 ^^^^^^^
-       183| except NameError as e:
+       224| except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Exception raised on line `177` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `218` of file 'TESTS:\runtime\test_name_error.py'.
     
-       176| def inner():
-    -->177|     return var
+       217| def inner():
+    -->218|     return var
                        ^^^
 
 
@@ -1728,10 +1726,6 @@ Missing import
     Perhaps you forgot to import `unicodedata` which is found
     in Python's standard library.
     
-    `unicodedata` is a name found in module `stringprep`.
-    Perhaps you forgot to write
-    
-        from stringprep import unicodedata
     
     Exception raised on line `135` of file 'TESTS:\runtime\test_name_error.py'.
     
@@ -1751,7 +1745,7 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 281, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 322, in test_Missing_module_name
         frame = Frame()
     NameError: name 'Frame' is not defined
     
@@ -1770,18 +1764,18 @@ Missing module name
     Perhaps you should have written `tkinter.Frame`
     instead of `Frame`.
     
-    `Frame` is a name found in the following modules from the standard library:
+    `Frame` is a name found in the following modules:
     tkinter, tracemalloc.
     Perhaps you forgot to import `Frame` from one of these modules.
     
-    Exception raised on line `281` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `322` of file 'TESTS:\runtime\test_name_error.py'.
     
-       278| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-       279| def test_Missing_module_name():
-       280|     try:
-    -->281|         frame = Frame()
+       319| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+       320| def test_Missing_module_name():
+       321|     try:
+    -->322|         frame = Frame()
                             ^^^^^
-       282|     except NameError as e:
+       323|     except NameError as e:
 
 
 Missing self 1
@@ -1791,9 +1785,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 233, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 274, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 265, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1812,28 +1806,28 @@ Missing self 1
     Perhaps you should have written `self.add_toy(...`
     instead of `add_toy(self, ...`.
     
-    Execution stopped on line `233` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `274` of file 'TESTS:\runtime\test_name_error.py'.
     
-       229|             return "{} has no toys".format(self.name)
-       230| 
-       231| a = Pet('Fido')
-       232| try:
-    -->233|     str(a)
+       270|             return "{} has no toys".format(self.name)
+       271| 
+       272| a = Pet('Fido')
+       273| try:
+    -->274|     str(a)
                 ^^^^^^
-       234| except NameError as e:
+       275| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception raised on line `224` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `265` of file 'TESTS:\runtime\test_name_error.py'.
     
-       222| def __str__(self):
-       223|     # self at the wrong place
-    -->224|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+       263| def __str__(self):
+       264|     # self at the wrong place
+    -->265|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                             ^^^^^^^
-       225|                         self, 'something')
-       226|     if self.toys:
+       266|                         self, 'something')
+       267|     if self.toys:
 
 
 Missing self 2
@@ -1843,9 +1837,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 267, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 308, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 259, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 300, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1864,27 +1858,27 @@ Missing self 2
     Perhaps you should have written `self.add_toy`
     instead of `add_toy`.
     
-    Execution stopped on line `267` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `308` of file 'TESTS:\runtime\test_name_error.py'.
     
-       263|             return "{} has no toys".format(self.name)
-       264| 
-       265| a = Pet('Fido')
-       266| try:
-    -->267|     str(a)
+       304|             return "{} has no toys".format(self.name)
+       305| 
+       306| a = Pet('Fido')
+       307| try:
+    -->308|     str(a)
                 ^^^^^^
-       268| except NameError as e:
+       309| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception raised on line `259` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `300` of file 'TESTS:\runtime\test_name_error.py'.
     
-       257| def __str__(self):
-       258|     # Missing self.
-    -->259|     toys_list = add_toy('something')
+       298| def __str__(self):
+       299|     # Missing self.
+    -->300|     toys_list = add_toy('something')
                             ^^^^^^^
-       260|     if self.toys:
+       301|     if self.toys:
 
 
 Synonym
@@ -1939,8 +1933,8 @@ missing import2
     before being defined or given a value.
     
     In your program, no object with the name `ABCMeta` exists.
-    `ABCMeta` is a name found in the following modules from the standard library:
-    abc, numbers, selectors, typing.
+    `ABCMeta` is a name found in the following modules:
+    selectors, typing, abc, numbers.
     Perhaps you forgot to import `ABCMeta` from one of these modules.
     
     Exception raised on line `149` of file 'TESTS:\runtime\test_name_error.py'.
@@ -1984,6 +1978,108 @@ missing import3
        164|     except NameError as e:
 
 
+missing import from other 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 177, in test_missing_import_from_other_1
+        fake_module_name.something()
+    NameError: name 'fake_module_name' is not defined
+    
+        Did you forget to import `fake_module_name`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    
+    The name `fake_module_name` is not defined in your program.
+    Perhaps you forgot to import `fake_module_name` which is a known library.
+    
+    
+    Exception raised on line `177` of file 'TESTS:\runtime\test_name_error.py'.
+    
+       174| def test_missing_import_from_other_1():
+       175|     friendly_traceback.add_other_module_names(["fake_module_name"])
+       176|     try:
+    -->177|         fake_module_name.something()
+                    ^^^^^^^^^^^^^^^^
+       178|     except NameError as e:
+
+
+missing import from other 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 191, in test_missing_import_from_other_2
+        plt.something
+    NameError: name 'plt' is not defined
+    
+        Did you forget to import `matplotlib.pyplot`?
+        
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    
+    The name `plt` is not defined in your program.
+    Perhaps you forgot to write
+    
+       import matplotlib.pyplot as plt
+    
+    
+    Exception raised on line `191` of file 'TESTS:\runtime\test_name_error.py'.
+    
+       188| def test_missing_import_from_other_2():
+       189|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+       190|     try:
+    -->191|         plt.something
+                    ^^^
+       192|     except NameError as e:
+
+
+missing import from other 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 204, in test_missing_import_from_other_3
+        show()
+    NameError: name 'show' is not defined
+    
+    A `NameError` exception indicates that a variable or
+    function name is not known to Python.
+    Most often, this is because there is a spelling mistake.
+    However, sometimes it is because the name is used
+    before being defined or given a value.
+    
+    In your program, no object with the name `show` exists.
+    `show` is a name found in the following modules:
+    mailcap, matplotlib.pyplot, funny.
+    Perhaps you forgot to import `show` from one of these modules.
+    
+    Exception raised on line `204` of file 'TESTS:\runtime\test_name_error.py'.
+    
+       201| def test_missing_import_from_other_3():
+       202|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+       203|     try:
+    -->204|         show()
+                    ^^^^
+       205|     except NameError as e:
+
+
 special keyword
 ~~~~~~~~~~~~~~~
 
@@ -1991,7 +2087,7 @@ special keyword
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 312, in test_special_keyword
+      File "TESTS:\runtime\test_name_error.py", line 353, in test_special_keyword
         brek
     NameError: name 'brek' is not defined
     
@@ -2005,14 +2101,14 @@ special keyword
     
     I suspect you meant to write the keyword `break` and made a typo.
     
-    Exception raised on line `312` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `353` of file 'TESTS:\runtime\test_name_error.py'.
     
-       309| if friendly_traceback.get_lang() == "en":
-       310|     assert "Did you mean `continue`" in result
-       311| try:
-    -->312|     brek
+       350| if friendly_traceback.get_lang() == "en":
+       351|     assert "Did you mean `continue`" in result
+       352| try:
+    -->353|     brek
                 ^^^^
-       313| except NameError as e:
+       354| except NameError as e:
 
 
 OsError
@@ -2042,6 +2138,8 @@ Urllib error
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     An exception of type `URLError` is a subclass of `OSError`.
+    Nothing more specific is known about `URLError`.
+    
     An `OSError` exception is usually raised by the Operating System
     to indicate that an operation is not allowed or that
     a resource is not available.
@@ -2249,30 +2347,6 @@ Generic
 TypeError
 ---------
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Argument of object is not iterable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2281,7 +2355,7 @@ Argument of object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 782, in test_Argument_of_object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 794, in test_Argument_of_object_is_not_iterable
         a in b
     TypeError: argument of type 'object' is not iterable
     
@@ -2294,115 +2368,19 @@ Argument of object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     'b' is not a container. A container is required here.
     
-    Exception raised on line `782` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `794` of file 'TESTS:\runtime\test_type_error.py'.
     
-       779| a = object()
-       780| b = object()
-       781| try:
-    -->782|     a in b
+       791| a = object()
+       792| b = object()
+       793| try:
+    -->794|     a in b
                 ^^^^^^
-       783| except TypeError as e:
+       795| except TypeError as e:
 
             a:  <object object>
             b:  <object object>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Bad type for unary operator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2411,7 +2389,7 @@ Bad type for unary operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 398, in test_Bad_type_for_unary_operator
+      File "TESTS:\runtime\test_type_error.py", line 410, in test_Bad_type_for_unary_operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
@@ -2427,41 +2405,17 @@ Bad type for unary operator
     
     Perhaps you meant to write `+=` instead of `=+`
     
-    Exception raised on line `398` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `410` of file 'TESTS:\runtime\test_type_error.py'.
     
-       393|     assert "You tried to use the unary operator '~'" in result
-       394| 
-       395| try:
-       396|     # fmt: off
-       397|     a = "abc"
-    -->398|     a =+ "def"
+       405|     assert "You tried to use the unary operator '~'" in result
+       406| 
+       407| try:
+       408|     # fmt: off
+       409|     a = "abc"
+    -->410|     a =+ "def"
                    ^^^^^^^
-       399|     # fmt: on
+       411|     # fmt: on
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Builtin has no len
 ~~~~~~~~~~~~~~~~~~
@@ -2470,7 +2424,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 837, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 849, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2485,90 +2439,18 @@ Builtin has no len
     You might have meant to write:
     `len("Hello world".split())`
     
-    Exception raised on line `837` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `849` of file 'TESTS:\runtime\test_type_error.py'.
     
-       835| def test_Builtin_has_no_len():
-       836|     try:
-    -->837|         len("Hello world".split)
+       847| def test_Builtin_has_no_len():
+       848|     try:
+    -->849|         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       838|     except TypeError as e:
+       850|     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Can only concatenate
 ~~~~~~~~~~~~~~~~~~~~
@@ -2602,54 +2484,6 @@ Can only concatenate
             a_tuple:  (1, 2, 3)
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Cannot convert dictionary update sequence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2658,7 +2492,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 823, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 835, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2673,128 +2507,20 @@ Cannot convert dictionary update sequence
     Instead of writing `dd.update([1, 2, 3])`
     perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Exception raised on line `823` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `835` of file 'TESTS:\runtime\test_type_error.py'.
     
-       819|     assert "you should use the `dict.fromkeys()`" in result
-       820| 
-       821| dd = {"a": "a"}
-       822| try:
-    -->823|     dd.update([1, 2, 3])
+       831|     assert "you should use the `dict.fromkeys()`" in result
+       832| 
+       833| dd = {"a": "a"}
+       834| try:
+    -->835|     dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-       824| except TypeError as e:
+       836| except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Cannot multiply by non int
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2803,7 +2529,7 @@ Cannot multiply by non int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 598, in test_Cannot_multiply_by_non_int
+      File "TESTS:\runtime\test_type_error.py", line 610, in test_Cannot_multiply_by_non_int
         "a" * "2"
     TypeError: can't multiply sequence by non-int of type 'str'
     
@@ -2818,15 +2544,15 @@ Cannot multiply by non int
      strings, etc., by integers.
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Exception raised on line `598` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `610` of file 'TESTS:\runtime\test_type_error.py'.
     
-       594| if friendly_traceback.get_lang() == "en":
-       595|     assert "Did you forget to convert `c` into an integer?" in result
-       596| 
-       597| try:
-    -->598|     "a" * "2"
+       606| if friendly_traceback.get_lang() == "en":
+       607|     assert "Did you forget to convert `c` into an integer?" in result
+       608| 
+       609| try:
+    -->610|     "a" * "2"
                 ^^^^^^^^^
-       599| except TypeError as e:
+       611| except TypeError as e:
 
 
 Cannot unpack non iterable object
@@ -2836,7 +2562,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 795, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 807, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2851,85 +2577,13 @@ Cannot unpack non iterable object
     Python containers (`list, tuple, dict`, etc.) are iterables,
     but not objects of type `float`.
     
-    Exception raised on line `795` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `807` of file 'TESTS:\runtime\test_type_error.py'.
     
-       793| def test_Cannot_unpack_non_iterable_object():
-       794|     try:
-    -->795|         a, b = 42.0
-       796|     except TypeError as e:
+       805| def test_Cannot_unpack_non_iterable_object():
+       806|     try:
+    -->807|         a, b = 42.0
+       808|     except TypeError as e:
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Comparison not supported
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2938,7 +2592,7 @@ Comparison not supported
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
+      File "TESTS:\runtime\test_type_error.py", line 359, in test_Comparison_not_supported
         b >= a
     TypeError: '>=' not supported between instances of 'int' and 'str'
     
@@ -2954,14 +2608,14 @@ Comparison not supported
     an integer (`int`) and a string (`str`).
     Perhaps you forgot to convert the string `a` into an integer (`int`).
     
-    Exception raised on line `347` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `359` of file 'TESTS:\runtime\test_type_error.py'.
     
-       344| try:
-       345|     a = "2"
-       346|     b = 42
-    -->347|     b >= a
+       356| try:
+       357|     a = "2"
+       358|     b = 42
+    -->359|     b >= a
                 ^^^^^^
-       348| except TypeError as e:
+       360| except TypeError as e:
 
             a:  '2'
             b:  42
@@ -2975,7 +2629,7 @@ Derive from BaseException
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 541, in test_Derive_from_BaseException
+      File "TESTS:\runtime\test_type_error.py", line 553, in test_Derive_from_BaseException
         raise "exception"  # noqa
     TypeError: exceptions must derive from BaseException
     
@@ -2986,37 +2640,13 @@ Derive from BaseException
     
     In Python 3, exceptions must be derived from BaseException.
     
-    Exception raised on line `541` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `553` of file 'TESTS:\runtime\test_type_error.py'.
     
-       539| def test_Derive_from_BaseException():
-       540|     try:
-    -->541|         raise "exception"  # noqa
-       542|     except TypeError as e:
+       551| def test_Derive_from_BaseException():
+       552|     try:
+    -->553|         raise "exception"  # noqa
+       554|     except TypeError as e:
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Generator has no len
 ~~~~~~~~~~~~~~~~~~~~
@@ -3025,7 +2655,7 @@ Generator has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 992, in test_Generator_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 1004, in test_Generator_has_no_len
         nb = len(letter
     TypeError: object of type 'generator' has no len()
     
@@ -3042,91 +2672,19 @@ Generator has no len
     
         len([letter                 for letter in "word"])
     
-    Exception raised on line `992` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `1004` of file 'TESTS:\runtime\test_type_error.py'.
     
-       990| def test_Generator_has_no_len():
-       991|     try:
-    -->992|         nb = len(letter
-                         ^^^^^^^^^^
-       993|                  for letter in "word")
-                             ^^^^^^^^^^^^^^^^^^^^^
-       994|     except TypeError as e:
+       1002| def test_Generator_has_no_len():
+       1003|     try:
+    -->1004|         nb = len(letter
+                          ^^^^^^^^^^
+       1005|                  for letter in "word")
+                              ^^^^^^^^^^^^^^^^^^^^^
+       1006|     except TypeError as e:
 
             len:  <builtin function len>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Indices must be integers or slices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3135,7 +2693,7 @@ Indices must be integers or slices
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 680, in test_Indices_must_be_integers_or_slices
+      File "TESTS:\runtime\test_type_error.py", line 692, in test_Indices_must_be_integers_or_slices
         [1, 2, 3]["2"]
     TypeError: list indices must be integers or slices, not str
     
@@ -3154,112 +2712,16 @@ Indices must be integers or slices
     
     Perhaps you forgot to convert `"2"` into an integer.
     
-    Exception raised on line `680` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `692` of file 'TESTS:\runtime\test_type_error.py'.
     
-       676| if friendly_traceback.get_lang() == "en":
-       677|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-       678| 
-       679| try:
-    -->680|     [1, 2, 3]["2"]
+       688| if friendly_traceback.get_lang() == "en":
+       689|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       690| 
+       691| try:
+    -->692|     [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
-       681| except TypeError as e:
+       693| except TypeError as e:
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Not an integer
 ~~~~~~~~~~~~~~
@@ -3268,7 +2730,7 @@ Not an integer
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 643, in test_Not_an_integer
+      File "TESTS:\runtime\test_type_error.py", line 655, in test_Not_an_integer
         range(c, d)
     TypeError: 'str' object cannot be interpreted as an integer
     
@@ -3281,141 +2743,21 @@ Not an integer
     
     You wrote an object of type `str` where an integer was expected.
     Perhaps you forgot to convert `c, d` into integers.
-    Exception raised on line `643` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `655` of file 'TESTS:\runtime\test_type_error.py'.
     
-       639|     assert "Perhaps you forgot to convert `1.0" in result
-       640| 
-       641| c, d = "2", "3"
-       642| try:
-    -->643|     range(c, d)
+       651|     assert "Perhaps you forgot to convert `1.0" in result
+       652| 
+       653| c, d = "2", "3"
+       654| try:
+    -->655|     range(c, d)
                 ^^^^^^^^^^^
-       644| except TypeError as e:
+       656| except TypeError as e:
 
             c:  '2'
             d:  '3'
             range:  <class range>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Not callable
 ~~~~~~~~~~~~
@@ -3424,7 +2766,7 @@ Not callable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 528, in test_Not_callable
+      File "TESTS:\runtime\test_type_error.py", line 540, in test_Not_callable
         _ = [1, 2](a + b)
     TypeError: 'list' object is not callable
     
@@ -3444,45 +2786,21 @@ Not callable
     Perhaps you meant to use `[]` instead of `()` and write
     `[1, 2][a + b]`
     
-    Exception raised on line `528` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `540` of file 'TESTS:\runtime\test_type_error.py'.
     
-       524|     assert "b.a_list[3]" in result
-       525| 
-       526| try:
-       527|     a, b = 3, 7
-    -->528|     _ = [1, 2](a + b)
+       536|     assert "b.a_list[3]" in result
+       537| 
+       538| try:
+       539|     a, b = 3, 7
+    -->540|     _ = [1, 2](a + b)
                     ^^^^^^^^^^^^^
-       529| except TypeError as e:
+       541| except TypeError as e:
 
             a:  3
             b:  7
             a + b:  10
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Object is not iterable
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -3491,7 +2809,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 766, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 778, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -3504,89 +2822,17 @@ Object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     An iterable is required here.
     
-    Exception raised on line `766` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `778` of file 'TESTS:\runtime\test_type_error.py'.
     
-       764| def test_Object_is_not_iterable():
-       765|     try:
-    -->766|         list(42)
+       776| def test_Object_is_not_iterable():
+       777|     try:
+    -->778|         list(42)
                     ^^^^^^^^
-       767|     except TypeError as e:
+       779|     except TypeError as e:
 
             list:  <class list>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Object is not subscriptable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3595,7 +2841,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 752, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 764, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -3611,44 +2857,20 @@ Object is not subscriptable
     
     Perhaps you meant to write `f(1)`.
     
-    Exception raised on line `752` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `764` of file 'TESTS:\runtime\test_type_error.py'.
     
-       748| def f():
-       749|     pass
-       750| 
-       751| try:
-    -->752|     a = f[1]
+       760| def f():
+       761|     pass
+       762| 
+       763| try:
+    -->764|     a = f[1]
                     ^^^^
-       753| except TypeError as e:
+       765| except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Slice indices must be integers or None
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3657,7 +2879,7 @@ Slice indices must be integers or None
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 694, in test_Slice_indices_must_be_integers_or_None
+      File "TESTS:\runtime\test_type_error.py", line 706, in test_Slice_indices_must_be_integers_or_None
         [1, 2, 3][1.0:2.0]
     TypeError: slice indices must be integers or None or have an __index__ method
     
@@ -3672,38 +2894,14 @@ Slice indices must be integers or None
     each of `start`, `stop`, `step` must be either an integer, `None`,
     or possibly some other object having an `__index__` method.
     
-    Exception raised on line `694` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `706` of file 'TESTS:\runtime\test_type_error.py'.
     
-       692| def test_Slice_indices_must_be_integers_or_None():
-       693|     try:
-    -->694|         [1, 2, 3][1.0:2.0]
+       704| def test_Slice_indices_must_be_integers_or_None():
+       705|     try:
+    -->706|         [1, 2, 3][1.0:2.0]
                     ^^^^^^^^^^^^^^^^^^
-       695|     except TypeError as e:
+       707|     except TypeError as e:
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Too few positional argument
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3712,7 +2910,7 @@ Too few positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 468, in test_Too_few_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_few_positional_argument
         fn(1)
     TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
     
@@ -3724,80 +2922,20 @@ Too few positional argument
     You apparently have called the function 'fn()' with
     fewer positional arguments than it requires (2 missing).
     
-    Exception raised on line `468` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `480` of file 'TESTS:\runtime\test_type_error.py'.
     
-       464| def fn(a, b, c):
-       465|     pass
-       466| 
-       467| try:
-    -->468|     fn(1)
+       476| def fn(a, b, c):
+       477|     pass
+       478| 
+       479| try:
+    -->480|     fn(1)
                 ^^^^^
-       469| except TypeError as e:
+       481| except TypeError as e:
 
             fn:  <function fn>
                 defined in <function test_Too_few_positional_argument>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Too many positional argument
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3806,7 +2944,7 @@ Too many positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 449, in test_Too_many_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 461, in test_Too_many_positional_argument
         A().f(1)
     TypeError: f() takes 1 positional argument but 2 were given
     
@@ -3822,15 +2960,15 @@ Too many positional argument
     such positional argument(s).
     Perhaps you forgot `self` when defining `f`.
     
-    Exception raised on line `449` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `461` of file 'TESTS:\runtime\test_type_error.py'.
     
-       445|     def f(x):
-       446|         pass
-       447| 
-       448| try:
-    -->449|     A().f(1)
+       457|     def f(x):
+       458|         pass
+       459| 
+       460| try:
+    -->461|     A().f(1)
                 ^^^^^^^^
-       450| except TypeError as e:
+       462| except TypeError as e:
 
             A:  <class A>
                 defined in <function test_type_error.test_Too_many_positional_argument>
@@ -3844,7 +2982,7 @@ Tuple no item assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 416, in test_Tuple_no_item_assignment
+      File "TESTS:\runtime\test_type_error.py", line 428, in test_Tuple_no_item_assignment
         a[0] = 0
     TypeError: 'tuple' object does not support item assignment
     
@@ -3861,14 +2999,14 @@ Tuple no item assignment
     most likely by using an indexing operation.
     Perhaps you meant to use a list instead.
     
-    Exception raised on line `416` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `428` of file 'TESTS:\runtime\test_type_error.py'.
     
-       413| def test_Tuple_no_item_assignment():
-       414|     a = (1, 2, 3)
-       415|     try:
-    -->416|         a[0] = 0
+       425| def test_Tuple_no_item_assignment():
+       426|     a = (1, 2, 3)
+       427|     try:
+    -->428|         a[0] = 0
                     ^^^^
-       417|     except TypeError as e:
+       429|     except TypeError as e:
 
             a:  (1, 2, 3)
             a[0]:  1
@@ -3882,7 +3020,7 @@ Unhachable type
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 711, in test_Unhachable_type
+      File "TESTS:\runtime\test_type_error.py", line 723, in test_Unhachable_type
         {[1, 2]: 1}
     TypeError: unhashable type: 'list'
     
@@ -3896,253 +3034,13 @@ Unhachable type
     Hashable objects are objects that do not change value
     once they have been created.Instead of using a `list`, consider using a `tuple`.
     
-    Exception raised on line `711` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `723` of file 'TESTS:\runtime\test_type_error.py'.
     
-       709| def test_Unhachable_type():
-       710|     try:
-    -->711|         {[1, 2]: 1}
-       712|     except TypeError as e:
+       721| def test_Unhachable_type():
+       722|     try:
+    -->723|         {[1, 2]: 1}
+       724|     except TypeError as e:
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 Unsupported operand types
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4178,30 +3076,6 @@ Unsupported operand types
             b:  2
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 divmod
 ~~~~~~
@@ -4236,54 +3110,6 @@ divmod
             divmod:  <builtin function divmod>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 function got multiple argument
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4292,7 +3118,7 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 929, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 941, in test_function_got_multiple_argument
         fn2(0, a=1)
     TypeError: fn2() got multiple values for argument 'a'
     
@@ -4306,44 +3132,20 @@ function got multiple argument
     This function has the following arguments:
     `a, b=1`
     
-    Exception raised on line `929` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `941` of file 'TESTS:\runtime\test_type_error.py'.
     
-       925| def fn2(a, b=1):
-       926|     pass
-       927| 
-       928| try:
-    -->929|     fn2(0, a=1)
+       937| def fn2(a, b=1):
+       938|     pass
+       939| 
+       940| try:
+    -->941|     fn2(0, a=1)
                 ^^^^^^^^^^^
-       930| except TypeError as e:
+       942| except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 function has no len
 ~~~~~~~~~~~~~~~~~~~
@@ -4352,7 +3154,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 854, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 866, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -4367,68 +3169,20 @@ function has no len
     You might have meant to write:
     `len(bad())`
     
-    Exception raised on line `854` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `866` of file 'TESTS:\runtime\test_type_error.py'.
     
-       850| def bad():
-       851|     pass
-       852| 
-       853| try:
-    -->854|     len(bad)
+       862| def bad():
+       863|     pass
+       864| 
+       865| try:
+    -->866|     len(bad)
                 ^^^^^^^^
-       855| except TypeError as e:
+       867| except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 getattr attribute name must be string
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4437,7 +3191,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 975, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 987, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -4448,46 +3202,22 @@ getattr attribute name must be string
     
     The second argument of the function `getattr()` must be a string.
     
-    Exception raised on line `975` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `987` of file 'TESTS:\runtime\test_type_error.py'.
     
-       968| if friendly_traceback.get_lang() == "en":
-       969|     assert (
-       970|         "The second argument of the function `hasattr()` must be a string."
-       971|         in result
-       972|     )
-       973| 
-       974| try:
-    -->975|     getattr("__repr__", 1)  # as reported in issue #77
+       980| if friendly_traceback.get_lang() == "en":
+       981|     assert (
+       982|         "The second argument of the function `hasattr()` must be a string."
+       983|         in result
+       984|     )
+       985| 
+       986| try:
+    -->987|     getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
-       976| except TypeError as e:
+       988| except TypeError as e:
 
             getattr:  <builtin function getattr>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 method got multiple argument
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -4496,7 +3226,7 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 948, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 960, in test_method_got_multiple_argument
         t.some_method(0, a=1)
     TypeError: some_method() got multiple values for argument 'a'
     
@@ -4509,15 +3239,15 @@ method got multiple argument
     when calling the function named `t.some_method`.
     This function has only one argument: `a`
     
-    Exception raised on line `948` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `960` of file 'TESTS:\runtime\test_type_error.py'.
     
-       944|         pass
-       945| 
-       946| t = T()
-       947| try:
-    -->948|     t.some_method(0, a=1)
+       956|         pass
+       957| 
+       958| t = T()
+       959| try:
+    -->960|     t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-       949| except TypeError as e:
+       961| except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -4526,78 +3256,6 @@ method got multiple argument
                 defined in <function test_type_error.test_method_got_multiple_argument>
         
 
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:483: SyntaxWarning: 'tuple' object is not callable; perhaps you missed a comma?
-  _ = (1, 2)(3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:493: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
-  _ = 3(4 + 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:503: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](3, 4)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:528: SyntaxWarning: 'list' object is not callable; perhaps you missed a comma?
-  _ = [1, 2](a + b)
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:680: SyntaxWarning: list indices must be integers or slices, not str; perhaps you missed a comma?
-  [1, 2, 3]["2"]
-C:\Users\Andre\github\friendly-traceback\tests\runtime\test_type_error.py:739: SyntaxWarning: 'int' object is not subscriptable; perhaps you missed a comma?
-  a = 2[1]
 
 vars arg must have dict
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -4606,7 +3264,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 898, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 910, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -4619,15 +3277,15 @@ vars arg must have dict
     `__dict__` attribute of an object.
     Object `f` uses `__slots__` instead of `__dict__`.
     
-    Exception raised on line `898` of file 'TESTS:\runtime\test_type_error.py'.
+    Exception raised on line `910` of file 'TESTS:\runtime\test_type_error.py'.
     
-       894|     assert no_slots not in result
-       895|     assert use_slots not in result
-       896| 
-       897| try:
-    -->898|     vars(f)
+       906|     assert no_slots not in result
+       907|     assert use_slots not in result
+       908| 
+       909| try:
+    -->910|     vars(f)
                 ^^^^^^^
-       899| except TypeError as e:
+       911| except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -4916,25 +3574,24 @@ Generic
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
+      File "TESTS:\runtime\test_unknown_error.py", line 24, in test_Generic
         raise UnknownException("Some informative message about an unknown exception.")
     UnknownException: Some informative message about an unknown exception.
     
-    No information is known about this exception.
-    Please report this example to
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    If you are using a REPL, use `www('bug')` to do so.
+    An exception of type `UnknownException` is a subclass of `Exception`.
+    Nothing more specific is known about `UnknownException`.
     
-    If you are using the Friendly console, use `www()` to
-    do an Internet search for this particular case.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
     
-    Exception raised on line `12` of file 'TESTS:\runtime\test_unknown_error.py'.
+    Exception raised on line `24` of file 'TESTS:\runtime\test_unknown_error.py'.
     
-        9| old_debug = friendly_traceback.debug_helper.DEBUG
-       10| friendly_traceback.debug_helper.DEBUG = False
-       11| try:
-    -->12|     raise UnknownException("Some informative message about an unknown exception.")
-       13| except Exception as e:
+       20| result = friendly_traceback.get_output()
+       21| assert "UnknownException -> Exception" in result
+       22| 
+       23| try:
+    -->24|     raise UnknownException("Some informative message about an unknown exception.")
+       25| except Exception as e:
 
             global UnknownException:  <class test_unknown_error.UnknownException>
         
@@ -4991,7 +3648,8 @@ Could not convert to float
     A `ValueError` indicates that a function or an operation
     received an argument of the right type, but an inappropriate value.
     
-    The string `42b` cannot be converted to a `float`.
+    The string `42b` cannot be converted to a `float`
+    as it does not represent a number.
     
     Exception raised on line `88` of file 'TESTS:\runtime\test_value_error.py'.
     
@@ -5183,6 +3841,38 @@ int base not in range
        202|     except ValueError as e:
 
             int:  <class int>
+        
+
+
+remove item not in list
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 227, in test_remove_item_not_in_list
+        a_list.remove(b)
+    ValueError: list.remove(x): x not in list
+    
+    A `ValueError` indicates that a function or an operation
+    received an argument of the right type, but an inappropriate value.
+    
+    You have attempted to remove `b` from the list `a_list`.
+    However, `a_list` does not contain `b`.
+    
+    Exception raised on line `227` of file 'TESTS:\runtime\test_value_error.py'.
+    
+       224| a_list = [1, 2, 3]
+       225| b = 4
+       226| try:
+    -->227|     a_list.remove(b)
+                ^^^^^^^^^^^^^^^^
+       228| except ValueError as e:
+
+            a_list:  [1, 2, 3]
+            b:  4
+            a_list.remove:  <builtin method remove of list object>
         
 
 

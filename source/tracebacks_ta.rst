@@ -16,8 +16,8 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.6.0
-Python version: 3.9.10
+Friendly-traceback version: 0.7.49
+Python version: 3.10.6
 
 
 
@@ -36,12 +36,10 @@ Generic
         raise ArithmeticError('error')
     ArithmeticError: error
     
-    எண்கணிதப்பிழை `ArithmeticError` என்பது உள்ளமைக்கப்பட்ட விதிவிலக்குகளுக்கான அடிப்படை வகுப்பாகும்
-    பல்வேறு எண்கணிதப் பிழைகளுக்காக எழுப்பப்பட்டவை.
-    இந்த விதிவிலக்கை நீங்கள் பார்ப்பது அசாதாரணமானது;
-    பொதுவாக, ஒரு குறிப்பிட்ட விதிவிலக்கு எழுப்பப்பட்டிருக்க வேண்டும்.
+    `ArithmeticError` is the base class for those built-in exceptions
+    that are raised for various arithmetic errors.
     
-    TESTS:\runtime\test_arithmetic_error.py கோப்பின் 9 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_arithmetic_error.py' கோப்பின் `9` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
         4| def test_Generic():
         5|     try:
@@ -76,7 +74,7 @@ Generic
     
     நிபந்தனை `condition` என்பது தவறு `False` அல்லது அதற்கு சமமானதாக இருந்தால், உறுதிப்படுத்தல்பிழை `AssertionError` எழுப்பப்படும்.
     
-    TESTS:\runtime\test_assertion_error.py கோப்பின் 8 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_assertion_error.py' கோப்பின் `8` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        4| def test_Generic():
        5|     try:
@@ -113,7 +111,7 @@ Attribute from other module
     பின்வரும் தொகுதிகளில் ஒன்றின் பண்பு `pi`:
     `math, cmath`.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 325 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `325` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        321|     assert "Did you mean `math`?" in result
        322| 
@@ -147,7 +145,7 @@ Builtin function
     `len` என்பது ஒரு செயல்பாடு. ஒருவேளை நீங்கள் 
     `len(text)` என்று எழுத நினைத்திருக்கலாம்
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 223 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `223` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        220| def test_Builtin_function():
        221|     text = 'Hello world!'
@@ -179,7 +177,7 @@ Builtin module with no file
     `foo` என்ற பெயரில் எந்தப் பொருளும் `sys` தொகுதியில்
     காணப்படவில்லை என்று பைதான் நமக்குச் சொல்கிறது.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 240 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `240` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        236| """Issue 116"""
        237| import sys
@@ -200,7 +198,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 355, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -217,15 +215,15 @@ Circular import
     இறக்குமதி செய்ய விரும்புவதாகவும் சந்தேகிக்கிறேன்.
     அப்படியானால், உங்கள் நிரலுக்கு வேறு பெயரைப் பயன்படுத்த வேண்டும்.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 359 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `355` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
-       356| from friendly_traceback.runtime_errors import stdlib_modules
-       357| stdlib_modules.names.append("my_turtle1")
-       358| try:
-    -->359|    import my_turtle1
-       360| except AttributeError as e:
+       352| from friendly_traceback.runtime_errors import stdlib_modules
+       353| stdlib_modules.names.add("my_turtle1")
+       354| try:
+    -->355|    import my_turtle1
+       356| except AttributeError as e:
 
-    TESTS:\my_turtle1.py கோப்பின் 4 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\my_turtle1.py' கோப்பின் `4` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        1| """To test attribute error of partially initialized module."""
        2| import my_turtle1
@@ -244,7 +242,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 372, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -260,14 +258,14 @@ Circular import b
     தொகுதி `circular_c` இல் குறியீட்டை செயல்படுத்தும் போது, 
     அதே தொகுதியை மீண்டும் இறக்குமதி செய்ய முயற்சித்தால் இது நிகழலாம்.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 376 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `372` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
-       374| def test_Circular_import_b():
-       375|     try:
-    -->376|         import circular_c
-       377|     except AttributeError as e:
+       370| def test_Circular_import_b():
+       371|     try:
+    -->372|         import circular_c
+       373|     except AttributeError as e:
 
-    TESTS:\circular_c.py கோப்பின் 4 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\circular_c.py' கோப்பின் `4` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        1| # Attribute error for partially initialize module
        2| import circular_c
@@ -296,7 +294,7 @@ Generic
     
     `A` பொருளில் `x` என்ற பண்புக்கூறு இல்லை.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 26 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `26` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        22| class A:
        23|     pass
@@ -319,7 +317,7 @@ Generic different frame
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
         a.attr
-    AttributeError: 'A' object has no attribute 'attr'
+    AttributeError: 'A' object has no attribute 'attr'. Did you mean: 'attr2'?
     
         `attr2` எனக் குறிப்பிடுகிறீர்களா?
         
@@ -330,7 +328,7 @@ Generic different frame
     `a` என்ற பொருளுக்கு `attr` என்ற பண்புக்கூறு இல்லை.
     நீங்கள் `a.attr` என்பதற்குப் பதிலாக `a.attr2` என்று எழுத நினைத்திருக்கலாம்
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 49 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `49` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        45|     return A()
        46| 
@@ -362,7 +360,7 @@ Generic instance
     
     `a` பொருளில் `x` என்ற பண்புக்கூறு இல்லை.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 67 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `67` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        64|     pass
        65| a = A()
@@ -385,7 +383,7 @@ Module attribute typo
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
         math.cost
-    AttributeError: module 'math' has no attribute 'cost'
+    AttributeError: module 'math' has no attribute 'cost'. Did you mean: 'cos'?
     
         `cos` எனக் குறிப்பிடுகிறீர்களா?
         
@@ -397,7 +395,7 @@ Module attribute typo
     பின்வரும் பெயர்கள் தொகுதியின் பண்புக்கூறுகள் `math`:
     `cos, cosh`
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 144 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `144` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        139|     assert "Did you mean `ascii_lowercase`" in result
        140| 
@@ -429,7 +427,7 @@ Nonetype
     
     நீங்கள் `b` என்ற பண்புக்கூறை அணுக முயற்சிக்கிறீர்கள், 
     அதன் மதிப்பு `None`.
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 183 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `183` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        180| def test_Nonetype():
        181|     a = None
@@ -451,7 +449,7 @@ Object attribute typo
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
         a.appendh(4)
-    AttributeError: 'list' object has no attribute 'appendh'
+    AttributeError: 'list' object has no attribute 'appendh'. Did you mean: 'append'?
     
         `append` எனக் குறிப்பிடுகிறீர்களா?
         
@@ -462,7 +460,7 @@ Object attribute typo
     `a` என்ற பொருளுக்கு `appendh` என்ற பண்புக்கூறு இல்லை.
     நீங்கள் `a.appendh` என்பதற்குப் பதிலாக `a.append` என்று எழுத நினைத்திருக்கலாம்
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 83 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `83` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        79| def test_Object_attribute_typo():
        80|     #
@@ -481,39 +479,7 @@ Perhaps comma
 
 .. code-block:: none
 
-
-    Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
-        a = [abcd
-    AttributeError: 'str' object has no attribute 'defg'
-    
-        பொருளின் பெயர்களை காற்புள்ளியால் பிரிக்க வேண்டுமா?
-        
-    பின்வரும் குறியீடு போல ஏதாவது இருந்தால் பண்புப்பிழை `AttributeError` ஏற்படுகிறது
-        `object.x`
-    மேலும் `x` என்பது `object`க்கு சொந்தமான ஒரு முறை அல்லது பண்புக்கூறு (மாறி) அல்ல.
-    
-    `defg` என்பது `abcd` இன் பண்புக்கூறு அல்ல.
-    இருப்பினும், `abcd` மற்றும் `defg` இரண்டும் அறியப்பட்ட பொருள்கள்.
-    காற்புள்ளியைப் பயன்படுத்துவதற்குப் பதிலாக, இந்த இரண்டு பொருட்களையும் 
-    பிரிக்க நீங்கள் ஒரு நிறுத்தற்குறியை எழுதியிருக்கலாம்.
-    
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 203 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
-    
-       199| defg = "world"
-       200| 
-       201| # fmt: off
-       202| try:
-    -->203|     a = [abcd
-                     ^^^^
-       204|     .defg]
-                ^^^^^
-       205| # fmt: on
-
-            abcd:  'hello'
-            defg:  'world'
-        
-
+            Skipped test
 
 Read only
 ~~~~~~~~~
@@ -534,7 +500,7 @@ Read only
     பண்புக்கூறின் மதிப்பை `f.b` மாற்ற முடியாது.
     The only attribute of `f` whose value can be changed is`a`.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 280 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `280` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        276|     b = 2
        277| 
@@ -571,7 +537,7 @@ Shadow stdlib module
     பைத்தானின் நிலையான நூலகத்தில் `turtle` என்ற பெயருடைய ஒரு தொகுதியும் உள்ளது.
     ஒருவேளை நீங்கள் உங்கள் தொகுதிக்கு மறுபெயரிட வேண்டும்.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 165 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `165` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        161| def test_Shadow_stdlib_module():
        162|     import turtle
@@ -607,7 +573,7 @@ Tuple by accident
     நீங்கள் `something` வரையறுத்த வரியின் முடிவில் தவறுதலாக 
     பின்னிணைந்த காற்புள்ளியைச் சேர்த்திருக்கலாம்.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 295 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `295` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        292| def test_Tuple_by_accident():
        293|     something = "abc",  # note trailing comma
@@ -640,7 +606,7 @@ Use builtin
     `a` என்ற பொருளுக்கு `length` என்ற பண்புக்கூறு இல்லை.
     அதற்குப் பதிலாக `len` என்ற பைதான் உள்ளமைக்கப்பட்ட செயல்பாட்டைப் பயன்படுத்தலாம்:
     `len(a)`.
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 99 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `99` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
         95| def test_Use_builtin():
         96|     #
@@ -674,7 +640,7 @@ Use join with str
     `['a', '2']` பொருளில் `join` என்ற பண்புக்கூறு இல்லை.
     `'abc'.join(['a', '2'])` போன்ற ஏதாவது ஒன்றை நீங்கள் விரும்பலாம்.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 339 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `339` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        337| def test_Use_join_with_str():
        338|     try:
@@ -704,7 +670,7 @@ Use synonym
     இருப்பினும், `a` பின்வரும் பண்புக்கூறுகளை ஒத்த பொருள்களைக் கொண்டுள்ளது:
     `append, extend, insert`.
     
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 115 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `115` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        111| def test_Use_synonym():
        112|     #
@@ -738,7 +704,7 @@ Using slots
     பண்புக்கூறுகளை உருவாக்குவதைத் தடுக்கிறது.
     அதன் அறியப்பட்ட சில பண்புக்கூறுகள் பின்வருமாறு:
     `a`.
-    TESTS:\runtime\test_attribute_error.py கோப்பின் 260 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_attribute_error.py' கோப்பின் `260` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        256|     __slots__ = ["a"]
        257| 
@@ -777,7 +743,7 @@ Directory not found
     does_not_exist
     செல்லுபடியாகும் கோப்பகம் அல்ல.
     
-    TESTS:\runtime\test_file_not_found_error.py கோப்பின் 70 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_file_not_found_error.py' கோப்பின் `70` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        68| def test_Directory_not_found():
        69|     try:
@@ -810,7 +776,7 @@ Filename not found
     என்று எதிர்பார்க்கப்பட்டது.
     உங்களுக்கான கூடுதல் தகவல் எதுவும் என்னிடம் இல்லை.
     
-    TESTS:\runtime\test_file_not_found_error.py கோப்பின் 7 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_file_not_found_error.py' கோப்பின் `7` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        5| def test_Filename_not_found():
        6|     try:
@@ -845,7 +811,7 @@ Filename not found 2
     என்று எதிர்பார்க்கப்பட்டது.
     கோப்பு `setup.py` இதே பெயரைக் கொண்டுள்ளது.
     
-    TESTS:\runtime\test_file_not_found_error.py கோப்பின் 30 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_file_not_found_error.py' கோப்பின் `30` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        26| if chdir:
        27|     os.chdir("..")
@@ -883,7 +849,7 @@ Filename not found 3
     இதே பெயர்களைக் கொண்ட பின்வரும் கோப்புகளில் ஒன்றை நீங்கள் குறிப்பிடலாம்:
     `setup.py`, `setup.cfg`
     
-    TESTS:\runtime\test_file_not_found_error.py கோப்பின் 52 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_file_not_found_error.py' கோப்பின் `52` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        49| if chdir:
        50|     os.chdir("..")
@@ -919,7 +885,7 @@ Simple import error
     
     ஒருவேளை நீங்கள் `Pi` என்பதற்குப் பதிலாக `pi` (from `math`) இறக்குமதி செய்ய நினைத்திருக்கலாம்
     
-    TESTS:\runtime\test_import_error.py கோப்பின் 56 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_import_error.py' கோப்பின் `56` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        52| multiple_import_on_same_line()
        53| wrong_case()
@@ -940,7 +906,7 @@ Assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
+      File "TESTS:\runtime\test_index_error.py", line 84, in test_Assignment
         a[13] = 1
     IndexError: list assignment index out of range
     
@@ -954,15 +920,15 @@ Assignment
     `a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-10` முதல் `9` 
     வரையிலான முழு எண்களாகும்.
     
-    TESTS:\runtime\test_index_error.py கோப்பின் 93 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_index_error.py' கோப்பின் `84` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       89|     assert "You have tried to assign a value to index `1` of `b`," in result
-       90|     assert "a `list` which contains no item." in result
-       91| 
-       92| try:
-    -->93|     a[13] = 1
+       80|     assert "You have tried to assign a value to index `1` of `b`," in result
+       81|     assert "a `list` which contains no item." in result
+       82| 
+       83| try:
+    -->84|     a[13] = 1
                ^^^^^
-       94| except IndexError as e:
+       85| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -975,7 +941,7 @@ Empty
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 46, in test_Empty
+      File "TESTS:\runtime\test_index_error.py", line 40, in test_Empty
         c = a[1]
     IndexError: list index out of range
     
@@ -989,14 +955,14 @@ Empty
     `a` இன் குறியீட்டு `1` உடன் உருப்படியைப் பெற முயற்சித்தீர்கள்,
     ஒரு `பட்டியல்` இதில் உருப்படி இல்லை.
     
-    TESTS:\runtime\test_index_error.py கோப்பின் 46 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_index_error.py' கோப்பின் `40` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       43| def test_Empty():
-       44|     a = []
-       45|     try:
-    -->46|         c = a[1]
+       37| def test_Empty():
+       38|     a = []
+       39|     try:
+    -->40|         c = a[1]
                        ^^^^
-       47|     except IndexError as e:
+       41|     except IndexError as e:
 
             a:  []
         
@@ -1009,7 +975,7 @@ Long list
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 29, in test_Long_list
+      File "TESTS:\runtime\test_index_error.py", line 26, in test_Long_list
         print(a[60], b[0])
     IndexError: list index out of range
     
@@ -1023,14 +989,14 @@ Long list
     `a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-40` முதல் `39` 
     வரையிலான முழு எண்களாகும்.
     
-    TESTS:\runtime\test_index_error.py கோப்பின் 29 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_index_error.py' கோப்பின் `26` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       26| a = list(range(40))
-       27| b = tuple(range(50))
-       28| try:
-    -->29|     print(a[60], b[0])
+       23| a = list(range(40))
+       24| b = tuple(range(50))
+       25| try:
+    -->26|     print(a[60], b[0])
                      ^^^^^
-       30| except IndexError as e:
+       27| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
                 len(a): 40
@@ -1061,7 +1027,7 @@ Short tuple
     `a` இன் செல்லுபடியாகும் குறியீட்டு மதிப்புகள் `-3` முதல் `2` 
     வரையிலான முழு எண்களாகும்.
     
-    TESTS:\runtime\test_index_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_index_error.py' கோப்பின் `10` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
         7| a = (1, 2, 3)
         8| b = [1, 2, 3]
@@ -1085,7 +1051,7 @@ ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1008, in pop
+      File "PYTHON_LIB:\collections\__init__.py", line 1056, in pop
         return self.maps[0].pop(key, *args)
     KeyError: 42
     
@@ -1101,7 +1067,7 @@ ChainMap
     
     `ChainMap` வகைப் பொருளான `d` இல் `42` திறவுகோலைக் காண முடியவில்லை.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 62 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `62` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        59| from collections import ChainMap
        60| d = ChainMap({}, {})
@@ -1135,7 +1101,7 @@ Forgot to convert to string
     `squares` இல் `str(2)` க்கு ஒத்த சரம் விசை உள்ளது.
     ஒருவேளை நீங்கள் திறவுகோலை சரமாக மாற்ற மறந்துவிட்டீர்கள்.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 115 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `115` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        112| def test_Forgot_to_convert_to_string():
        113|     squares = {"1": 1, "2": 4, "3": 9}
@@ -1164,7 +1130,7 @@ Generic key error
     
     `'c'` திறவுகோலை `d` இல் காண முடியாது.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 44 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `44` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        41| def test_Generic_key_error():
        42|     d = {"a": 1, "b": 2}
@@ -1184,7 +1150,7 @@ Popitem empty ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1001, in popitem
+      File "PYTHON_LIB:\collections\__init__.py", line 1049, in popitem
         return self.maps[0].popitem()
     KeyError: 'popitem(): dictionary is empty'
     
@@ -1202,7 +1168,7 @@ Popitem empty ChainMap
     
     `alpha` இலிருந்து ஒரு உருப்படியை மீட்டெடுக்க முயற்சித்தீர்கள், அது காலியான `ChainMap` ஆகும்.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 26 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `26` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        23| from collections import ChainMap
        24| alpha = ChainMap({}, {})
@@ -1234,7 +1200,7 @@ Popitem empty dict
     
     `d` இலிருந்து ஒரு உருப்படியை மீட்டெடுக்க முயற்சித்தீர்கள், அது வெற்று `dict` ஆகும்.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 8 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `8` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        5| def test_Popitem_empty_dict():
        6|     d = {}
@@ -1268,7 +1234,7 @@ Similar names
     `second` என்பது `'alpha'` போன்ற சில திறவுகோலைகளைக் கொண்டுள்ளது: 
     `'alpha0', 'alpha11', 'alpha12'`.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 145 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `145` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        141|     assert ok, diff
        142| 
@@ -1303,7 +1269,7 @@ String by mistake
     `d` இன் திறவுகோல் உள்ளது, அதன் சரம் பிரதிநிதித்துவம் 
     `'(0, 0)'` ஐ ஒத்ததாக இருக்கும்.
     
-    TESTS:\runtime\test_key_error.py கோப்பின் 98 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_key_error.py' கோப்பின் `98` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        94| chain_map_string_by_mistake()  # do not show in docs
        95| 
@@ -1336,7 +1302,7 @@ Generic
     எழுப்பப்படும் விதிவிலக்குகளுக்கான அடிப்படை வகுப்பாகும்.
     இது codecs.lookup() மூலமாகவும் நேரடியாக எழுப்பப்படலாம்.
     
-    TESTS:\runtime\test_lookup_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_lookup_error.py' கோப்பின் `10` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
         4| def test_Generic():
         5|     try:
@@ -1374,7 +1340,7 @@ Need to install module
     `alphabet` என்ற பெயருடைய எந்தத் தொகுதியையும் இறக்குமதி செய்ய முடியாது. 
     ஒருவேளை நீங்கள் அதை நிறுவ வேண்டும்.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 76 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `76` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        74| def test_Need_to_install_module():
        75|     try:
@@ -1400,7 +1366,7 @@ Not a package
     
     `xxx` ஐ `os` இலிருந்து இறக்குமதி செய்ய முடியாது.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 22 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `22` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        19| def test_Not_a_package():
        20| 
@@ -1431,7 +1397,7 @@ Not a package similar name
     `path` என்பது `pathh` என்பதற்கு ஒத்த பெயராகும், மேலும் இது `os` 
     இலிருந்து இறக்குமதி செய்யக்கூடிய ஒரு தொகுதியாகும்.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 36 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `36` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        34| def test_Not_a_package_similar_name():
        35|     try:
@@ -1459,7 +1425,7 @@ Object not module
     
     `open` என்பது ஒரு தனி தொகுதி அல்ல, ஆனால் `os` இன் ஒரு பகுதியாகும்.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 49 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `49` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        47| def test_Object_not_module():
        48|     try:
@@ -1494,7 +1460,7 @@ Similar object not module
     `os` இன் பகுதியாக உள்ள ஒத்த பெயர்களைக் கொண்ட பிற பொருள்களில் 
     `popen` அடங்கும்.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 62 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `62` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        60| def test_Similar_object_not_module():
        61|     try:
@@ -1522,9 +1488,10 @@ Standard library module
     
     `Tkinter` என்ற பெயருடைய எந்தத் தொகுதியையும் இறக்குமதி செய்ய முடியாது. 
     ஒருவேளை நீங்கள் அதை நிறுவ வேண்டும்.
-    `tkinter` என்பது ஒரே மாதிரியான பெயரைக் கொண்ட ஏற்கனவே உள்ள தொகுதி.
+    பின்வரும் தொகுதிகள் நீங்கள் இறக்குமதி செய்ய முயற்சித்த தொகுதிக்கு ஒத்த 
+    பெயர்களைக் கொண்டுள்ளன: `tkinter, _tkinter`
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 7 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `7` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        5| def test_Standard_library_module():
        6|     try:
@@ -1553,7 +1520,7 @@ no curses
     நீங்கள் curses தொகுதியை இறக்குமதி செய்ய முயற்சித்தீர்கள்.
     Windows இல் பைத்தானுடன் curses தொகுதி அரிதாகவே நிறுவப்பட்டுள்ளது.
     
-    TESTS:\runtime\test_module_not_found_error.py கோப்பின் 92 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_module_not_found_error.py' கோப்பின் `92` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        90| def test_no_curses():
        91|     try:
@@ -1594,7 +1561,7 @@ Annotated variable
     
          x = 3
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 30 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `30` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        28| def test_Annotated_variable():
        29|     try:
@@ -1610,7 +1577,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 198, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 239, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1622,13 +1589,13 @@ Custom name
     மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
     
     நீங்கள் ஏற்கனவே பைத்தானைப் பயன்படுத்துகிறீர்கள்!
-    TESTS:\runtime\test_name_error.py கோப்பின் 198 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `239` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       196| def test_Custom_name():
-       197|     try:
-    -->198|         python
+       237| def test_Custom_name():
+       238|     try:
+    -->239|         python
                     ^^^^^^
-       199|     except NameError as e:
+       240|     except NameError as e:
 
 
 Free variable referenced
@@ -1638,13 +1605,13 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 182, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 223, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 178, in outer
+      File "TESTS:\runtime\test_name_error.py", line 219, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 177, in inner
+      File "TESTS:\runtime\test_name_error.py", line 218, in inner
         return var
-    NameError: free variable 'var' referenced before assignment in enclosing scope
+    NameError: free variable 'var' referenced before assignment in enclosing scope. Did you mean: 'vars'?
     
     ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது 
     செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
@@ -1656,23 +1623,23 @@ Free variable referenced
     இது ஒரு மூடிய நோக்கத்தில் உள்ளது, 
     ஆனால் இன்னும் மதிப்பு ஒதுக்கப்படவில்லை.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 182 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `223` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
-       178|     inner()
-       179|     var = 4
-       180| 
-       181| try:
-    -->182|     outer()
+       219|     inner()
+       220|     var = 4
+       221| 
+       222| try:
+    -->223|     outer()
                 ^^^^^^^
-       183| except NameError as e:
+       224| except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    TESTS:\runtime\test_name_error.py கோப்பின் 177 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `218` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       176| def inner():
-    -->177|     return var
+       217| def inner():
+    -->218|     return var
                        ^^^
 
 
@@ -1696,7 +1663,7 @@ Generic
     உங்கள் திட்டத்தில், `something` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
     உங்களுக்கான கூடுதல் தகவல் எதுவும் என்னிடம் இல்லை.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 15 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `15` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        13| def test_Generic():
        14|     try:
@@ -1729,12 +1696,8 @@ Missing import
     பைத்தானின் நிலையான நூலகத்தில் காணப்படும் `unicodedata` ஐ இறக்குமதி 
     செய்ய மறந்துவிட்டீர்கள்.
     
-    `unicodedata` என்பது தொகுதி `stringprep` இல் காணப்படும் பெயர்.
-    ஒருவேளை நீங்கள் எழுத மறந்துவிட்டீர்கள்
     
-        from stringprep import unicodedata
-    
-    TESTS:\runtime\test_name_error.py கோப்பின் 135 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `135` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        131| if friendly_traceback.get_lang() == "en":
        132|     assert "I have no additional information for you." in result
@@ -1752,9 +1715,9 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 281, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 322, in test_Missing_module_name
         frame = Frame()
-    NameError: name 'Frame' is not defined
+    NameError: name 'Frame' is not defined. Did you mean: 'frame'?
     
         `tkinter.` சேர்க்க மறந்துவிட்டீர்களா?
         
@@ -1771,18 +1734,18 @@ Missing module name
     ஒருவேளை நீங்கள் `Frame` என்பதற்குப் பதிலாக 
     `tkinter.Frame` என்று எழுதியிருக்க வேண்டும்.
     
-    `Frame` என்பது நிலையான நூலகத்திலிருந்து பின்வரும் தொகுதிகளில் காணப்படும் பெயர்:
+    `Frame` is a name found in the following modules:
     tkinter, tracemalloc.
-    இந்த தொகுதிகளில் ஒன்றிலிருந்து `Frame` ஐ இறக்குமதி செய்ய மறந்துவிட்டீர்கள்.
+    Perhaps you forgot to import `Frame` from one of these modules.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 281 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `322` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       278| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-       279| def test_Missing_module_name():
-       280|     try:
-    -->281|         frame = Frame()
+       319| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+       320| def test_Missing_module_name():
+       321|     try:
+    -->322|         frame = Frame()
                             ^^^^^
-       282|     except NameError as e:
+       323|     except NameError as e:
 
 
 Missing self 1
@@ -1792,9 +1755,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 233, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 274, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 265, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1813,28 +1776,28 @@ Missing self 1
     நீங்கள் `add_toy(self, ...` என்பதற்குப் பதிலாக `self.add_toy(...` 
     என்று எழுதியிருக்கலாம்.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 233 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `274` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
-       229|             return "{} has no toys".format(self.name)
-       230| 
-       231| a = Pet('Fido')
-       232| try:
-    -->233|     str(a)
+       270|             return "{} has no toys".format(self.name)
+       271| 
+       272| a = Pet('Fido')
+       273| try:
+    -->274|     str(a)
                 ^^^^^^
-       234| except NameError as e:
+       275| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    TESTS:\runtime\test_name_error.py கோப்பின் 224 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `265` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       222| def __str__(self):
-       223|     # self at the wrong place
-    -->224|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+       263| def __str__(self):
+       264|     # self at the wrong place
+    -->265|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                             ^^^^^^^
-       225|                         self, 'something')
-       226|     if self.toys:
+       266|                         self, 'something')
+       267|     if self.toys:
 
 
 Missing self 2
@@ -1844,9 +1807,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 267, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 308, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 259, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 300, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1865,27 +1828,27 @@ Missing self 2
     ஒருவேளை நீங்கள் `add_toy` என்பதற்குப் பதிலாக 
     `self.add_toy` என்று எழுதியிருக்க வேண்டும்.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 267 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `308` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
-       263|             return "{} has no toys".format(self.name)
-       264| 
-       265| a = Pet('Fido')
-       266| try:
-    -->267|     str(a)
+       304|             return "{} has no toys".format(self.name)
+       305| 
+       306| a = Pet('Fido')
+       307| try:
+    -->308|     str(a)
                 ^^^^^^
-       268| except NameError as e:
+       309| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    TESTS:\runtime\test_name_error.py கோப்பின் 259 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `300` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       257| def __str__(self):
-       258|     # Missing self.
-    -->259|     toys_list = add_toy('something')
+       298| def __str__(self):
+       299|     # Missing self.
+    -->300|     toys_list = add_toy('something')
                             ^^^^^^^
-       260|     if self.toys:
+       301|     if self.toys:
 
 
 Synonym
@@ -1897,7 +1860,7 @@ Synonym
     Traceback (most recent call last):
       File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
         cost  # wrote from math import * above
-    NameError: name 'cost' is not defined
+    NameError: name 'cost' is not defined. Did you mean: 'cos'?
     
         `cos` எனக் குறிப்பிடுகிறீர்களா?
         
@@ -1911,7 +1874,7 @@ Synonym
     `cost` என்று எழுதுவதற்குப் பதிலாக, நீங்கள் பின்வருவனவற்றில் ஒன்றைக் குறிப்பிட்டிருக்கலாம்:
     *   உலகளாவிய நோக்கம்: `cos`, `cosh`
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 95 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `95` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        91| if friendly_traceback.get_lang() == "en":
        92|     assert "The Python builtin `chr` has a similar name." in result
@@ -1940,11 +1903,11 @@ missing import2
     மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
     
     உங்கள் திட்டத்தில், `ABCMeta` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
-    `ABCMeta` என்பது நிலையான நூலகத்திலிருந்து பின்வரும் தொகுதிகளில் காணப்படும் பெயர்:
-    abc, numbers, selectors, typing.
-    இந்த தொகுதிகளில் ஒன்றிலிருந்து `ABCMeta` ஐ இறக்குமதி செய்ய மறந்துவிட்டீர்கள்.
+    `ABCMeta` is a name found in the following modules:
+    selectors, typing, abc, numbers.
+    Perhaps you forgot to import `ABCMeta` from one of these modules.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 149 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `149` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        147| def test_missing_import2():
        148|     try:
@@ -1976,13 +1939,115 @@ missing import3
     
         from socket import AF_APPLETALK
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 163 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `163` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        161| def test_missing_import3():
        162|     try:
     -->163|         AF_APPLETALK
                     ^^^^^^^^^^^^
        164|     except NameError as e:
+
+
+missing import from other 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 177, in test_missing_import_from_other_1
+        fake_module_name.something()
+    NameError: name 'fake_module_name' is not defined
+    
+        `fake_module_name` இறக்குமதி செய்ய மறந்துவிட்டீர்களா?
+        
+    ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது 
+    செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+    பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+    இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+    மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+    
+    
+    The name `fake_module_name` is not defined in your program.
+    Perhaps you forgot to import `fake_module_name` which is a known library.
+    
+    
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `177` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    
+       174| def test_missing_import_from_other_1():
+       175|     friendly_traceback.add_other_module_names(["fake_module_name"])
+       176|     try:
+    -->177|         fake_module_name.something()
+                    ^^^^^^^^^^^^^^^^
+       178|     except NameError as e:
+
+
+missing import from other 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 191, in test_missing_import_from_other_2
+        plt.something
+    NameError: name 'plt' is not defined
+    
+        Did you forget to import `matplotlib.pyplot`?
+        
+    ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது 
+    செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+    பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+    இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+    மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+    
+    
+    The name `plt` is not defined in your program.
+    Perhaps you forgot to write
+    
+       import matplotlib.pyplot as plt
+    
+    
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `191` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    
+       188| def test_missing_import_from_other_2():
+       189|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+       190|     try:
+    -->191|         plt.something
+                    ^^^
+       192|     except NameError as e:
+
+
+missing import from other 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 204, in test_missing_import_from_other_3
+        show()
+    NameError: name 'show' is not defined
+    
+    ஒரு பெயர்ப்பிழை `NameError` விதிவிலக்கு என்பது ஒரு மாறி அல்லது 
+    செயல்பாட்டுப் பெயர் பைத்தானுக்குத் தெரியாது என்பதைக் குறிக்கிறது.
+    பெரும்பாலும், எழுத்துப் பிழை இருப்பதே இதற்குக் காரணம்.
+    இருப்பினும், சில நேரங்களில் பெயர் வரையறுக்கப்படுவதற்கு முன்பு அல்லது
+    மதிப்பைக் கொடுப்பதற்கு முன்பு பயன்படுத்தப்படுவதால் வருகிறது.
+    
+    உங்கள் திட்டத்தில், `show` என்ற பெயரில் எந்தப் பொருளும் இல்லை.
+    `show` is a name found in the following modules:
+    mailcap, matplotlib.pyplot, funny.
+    Perhaps you forgot to import `show` from one of these modules.
+    
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `204` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    
+       201| def test_missing_import_from_other_3():
+       202|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+       203|     try:
+    -->204|         show()
+                    ^^^^
+       205|     except NameError as e:
 
 
 special keyword
@@ -1992,7 +2057,7 @@ special keyword
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 312, in test_special_keyword
+      File "TESTS:\runtime\test_name_error.py", line 353, in test_special_keyword
         brek
     NameError: name 'brek' is not defined
     
@@ -2006,14 +2071,14 @@ special keyword
     
     இருப்பினும், `break` என்ற முக்கிய சொல்லை நீங்கள் தவறுதலாக எழுதிவிட்டீர்கள் என்று சந்தேகிக்கிறேன்.
     
-    TESTS:\runtime\test_name_error.py கோப்பின் 312 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_name_error.py' கோப்பின் `353` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       309| if friendly_traceback.get_lang() == "en":
-       310|     assert "Did you mean `continue`" in result
-       311| try:
-    -->312|     brek
+       350| if friendly_traceback.get_lang() == "en":
+       351|     assert "Did you mean `continue`" in result
+       352| try:
+    -->353|     brek
                 ^^^^
-       313| except NameError as e:
+       354| except NameError as e:
 
 
 OsError
@@ -2027,11 +2092,11 @@ Urllib error
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
+      File "PYTHON_LIB:\urllib\request.py", line 1348, in do_open
            ... மேலும் வரிகள் காட்டப்படவில்லை. ...
-      File "PYTHON_LIB:\socket.py", line 823, in create_connection
+      File "PYTHON_LIB:\socket.py", line 824, in create_connection
         for res in getaddrinfo(host, port, 0, SOCK_STREAM):
-      File "PYTHON_LIB:\socket.py", line 954, in getaddrinfo
+      File "PYTHON_LIB:\socket.py", line 955, in getaddrinfo
         for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
     socket.gaierror: [Errno 11001] getaddrinfo failed
     
@@ -2043,6 +2108,8 @@ Urllib error
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     `URLError` வகை விதிவிலக்கு என்பது `OSError` இன் துணைப்பிரிவாகும்.
+    Nothing more specific is known about `URLError`.
+    
     ஒரு முறைமைபிழை `OSError` விதிவிலக்கு பொதுவாக ஒரு செயல்பாடு 
     அனுமதிக்கப்படவில்லை அல்லது ஆதாரம் இல்லை என்பதைக் குறிக்க இயக்க 
     முறைமையால் எழுப்பப்படுகிறது.
@@ -2053,7 +2120,7 @@ Urllib error
     அப்படியானால், URL இல் எழுத்துப் பிழைகளைச் சரிபார்த்து, 
     உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும்.
     
-    TESTS:\runtime\test_os_error.py கோப்பின் 10 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_os_error.py' கோப்பின் `10` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
         6| @pytest.mark.skipif(random.randint(0, 50) < 59, reason="very long test")
         7| def test_Urllib_error():
@@ -2094,7 +2161,7 @@ invalid argument
     அல்லது அனைத்து ஒற்றை பின்சாய்வு எழுத்துகளான `\`, இரட்டை எழுத்துக்களால் 
     மாற்றவும்: `\\`.
     
-    TESTS:\runtime\test_os_error.py கோப்பின் 48 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_os_error.py' கோப்பின் `48` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        45| if os.name != "nt":
        46|     return "Windows test only", "No result"
@@ -2132,7 +2199,7 @@ no information
     நீங்கள் நட்பு பணியகத்தை பயன்படுத்துகிறீர்கள் என்றால், அதற்கு `www()` ஐப் 
     பயன்படுத்தி இந்த குறிப்பிட்ட வழக்கை இணையத்தில் தேடுங்கள்.
     
-    TESTS:\runtime\test_os_error.py கோப்பின் 29 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_os_error.py' கோப்பின் `29` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        26| old_debug = friendly_traceback.debug_helper.DEBUG
        27| friendly_traceback.debug_helper.DEBUG = False
@@ -2162,7 +2229,7 @@ Generic
     ஒரு எண்கணிதச் செயல்பாட்டின் விளைவு கணினியின் செயலியால் கையாள 
     முடியாத அளவுக்குப் பெரிதாக இருக்கும்போது வழிதல்பிழை `OverflowError` எழுப்பப்படுகிறது.
     
-    TESTS:\runtime\test_overflow_error.py கோப்பின் 6 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_overflow_error.py' கோப்பின் `6` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        4| def test_Generic():
        5|     try:
@@ -2185,7 +2252,7 @@ Huge lenght
     ஒரு எண்கணிதச் செயல்பாட்டின் விளைவு கணினியின் செயலியால் கையாள 
     முடியாத அளவுக்குப் பெரிதாக இருக்கும்போது வழிதல்பிழை `OverflowError` எழுப்பப்படுகிறது.
     
-    TESTS:\runtime\test_overflow_error.py கோப்பின் 24 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_overflow_error.py' கோப்பின் `24` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        21| def test_Huge_lenght():
        22|     huge = range(1<<10000)
@@ -2226,7 +2293,7 @@ Generic
     உங்கள் குறியீட்டில் நீங்கள் பிழை செய்துள்ளீர்கள் என்பதையும் உங்கள் நிரல்
     ஒருபோதும் நிறுத்தப்படாது என்பதையும் இது எப்போதும் குறிக்கிறது.
     
-    TESTS:\runtime\test_recursion_error.py கோப்பின் 8 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_recursion_error.py' கோப்பின் `8` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
        5| def a():
        6|     return a()
@@ -2237,7 +2304,7 @@ Generic
 
             a:  <function a> defined in <function test_Generic>
         
-    TESTS:\runtime\test_recursion_error.py கோப்பின் 6 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_recursion_error.py' கோப்பின் `6` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        5| def a():
     -->6|     return a()
@@ -2258,7 +2325,7 @@ Argument of object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 794, in test_Argument_of_object_is_not_iterable
         a in b
     TypeError: argument of type 'object' is not iterable
     
@@ -2271,14 +2338,14 @@ Argument of object is not iterable
     Python containers (`list, tuple, dict`, etc.) are iterables.
     'b' is not a container. A container is required here.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 804 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `794` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       801| a = object()
-       802| b = object()
-       803| try:
-    -->804|     a in b
+       791| a = object()
+       792| b = object()
+       793| try:
+    -->794|     a in b
                 ^^^^^^
-       805| except TypeError as e:
+       795| except TypeError as e:
 
             a:  <object object>
             b:  <object object>
@@ -2292,7 +2359,7 @@ Bad type for unary operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 398, in test_Bad_type_for_unary_operator
+      File "TESTS:\runtime\test_type_error.py", line 410, in test_Bad_type_for_unary_operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
@@ -2308,16 +2375,16 @@ Bad type for unary operator
     
     ஒருவேளை நீங்கள் `=+` என்பதற்குப் பதிலாக `+=` என்று எழுத நினைத்திருக்கலாம்
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 398 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `410` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       393|     assert "You tried to use the unary operator '~'" in result
-       394| 
-       395| try:
-       396|     # fmt: off
-       397|     a = "abc"
-    -->398|     a =+ "def"
+       405|     assert "You tried to use the unary operator '~'" in result
+       406| 
+       407| try:
+       408|     # fmt: off
+       409|     a = "abc"
+    -->410|     a =+ "def"
                    ^^^^^^^
-       399|     # fmt: on
+       411|     # fmt: on
 
 
 Builtin has no len
@@ -2327,7 +2394,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 849, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2342,13 +2409,13 @@ Builtin has no len
     நீங்கள் இவ்வாறு எழுத நினைத்திருக்கலாம்: 
     `len("Hello world".split())`
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 859 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `849` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       857| def test_Builtin_has_no_len():
-       858|     try:
-    -->859|         len("Hello world".split)
+       847| def test_Builtin_has_no_len():
+       848|     try:
+    -->849|         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       860|     except TypeError as e:
+       850|     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -2374,7 +2441,7 @@ Can only concatenate
     நீங்கள் இரண்டு வெவ்வேறு வகையான பொருட்களை இணைக்க (சேர்க்க) முயற்சித்தீர்கள்: 
     ஒரு `மடங்கு` மற்றும் ஒரு `பட்டியல்`.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 39 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `39` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        36| try:
        37|     a_tuple = (1, 2, 3)
@@ -2395,7 +2462,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 835, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2410,15 +2477,15 @@ Cannot convert dictionary update sequence
     `dd.update([1, 2, 3])` என்று எழுதுவதற்குப் 
     பதிலாக நீங்கள் `dict.fromkeys()` முறையைப் பயன்படுத்த வேண்டும்: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 845 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `835` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       841|     assert "you should use the `dict.fromkeys()`" in result
-       842| 
-       843| dd = {"a": "a"}
-       844| try:
-    -->845|     dd.update([1, 2, 3])
+       831|     assert "you should use the `dict.fromkeys()`" in result
+       832| 
+       833| dd = {"a": "a"}
+       834| try:
+    -->835|     dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-       846| except TypeError as e:
+       836| except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
@@ -2432,7 +2499,7 @@ Cannot multiply by non int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 614, in test_Cannot_multiply_by_non_int
+      File "TESTS:\runtime\test_type_error.py", line 610, in test_Cannot_multiply_by_non_int
         "a" * "2"
     TypeError: can't multiply sequence by non-int of type 'str'
     
@@ -2447,15 +2514,15 @@ Cannot multiply by non int
     முழு எண்களால் பெருக்க முடியும்.
     ஒருவேளை நீங்கள் `"2"` ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்கள்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 614 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `610` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       610| if friendly_traceback.get_lang() == "en":
-       611|     assert "Did you forget to convert `c` into an integer?" in result
-       612| 
-       613| try:
-    -->614|     "a" * "2"
+       606| if friendly_traceback.get_lang() == "en":
+       607|     assert "Did you forget to convert `c` into an integer?" in result
+       608| 
+       609| try:
+    -->610|     "a" * "2"
                 ^^^^^^^^^
-       615| except TypeError as e:
+       611| except TypeError as e:
 
 
 Cannot unpack non iterable object
@@ -2465,7 +2532,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 807, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2480,12 +2547,12 @@ Cannot unpack non iterable object
     பைதான் கொள்கலன்கள் (`பட்டியல், மடங்கு, அகராதி`, முதலியன.) மறுசெய்யக்கூடியவை, 
     ஆனால் `float` வகைப் பொருள்கள் அல்ல.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 817 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `807` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       815| def test_Cannot_unpack_non_iterable_object():
-       816|     try:
-    -->817|         a, b = 42.0
-       818|     except TypeError as e:
+       805| def test_Cannot_unpack_non_iterable_object():
+       806|     try:
+    -->807|         a, b = 42.0
+       808|     except TypeError as e:
 
 
 Comparison not supported
@@ -2495,7 +2562,7 @@ Comparison not supported
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
+      File "TESTS:\runtime\test_type_error.py", line 359, in test_Comparison_not_supported
         b >= a
     TypeError: '>=' not supported between instances of 'int' and 'str'
     
@@ -2511,14 +2578,14 @@ Comparison not supported
     ஒரு முழுஎண் (`int`) மற்றும் ஒரு சரம் (`str`).
     ஒருவேளை நீங்கள் `a` சரத்தை ஒரு முழுஎண் (`int`) ஆக மாற்ற மறந்துவிட்டீர்கள்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 347 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `359` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       344| try:
-       345|     a = "2"
-       346|     b = 42
-    -->347|     b >= a
+       356| try:
+       357|     a = "2"
+       358|     b = 42
+    -->359|     b >= a
                 ^^^^^^
-       348| except TypeError as e:
+       360| except TypeError as e:
 
             a:  '2'
             b:  42
@@ -2532,7 +2599,7 @@ Derive from BaseException
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 557, in test_Derive_from_BaseException
+      File "TESTS:\runtime\test_type_error.py", line 553, in test_Derive_from_BaseException
         raise "exception"  # noqa
     TypeError: exceptions must derive from BaseException
     
@@ -2543,12 +2610,12 @@ Derive from BaseException
     
     பைதான் 3 இல், விதிவிலக்குகள் BaseException இலிருந்து பெறப்பட வேண்டும்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 557 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `553` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       555| def test_Derive_from_BaseException():
-       556|     try:
-    -->557|         raise "exception"  # noqa
-       558|     except TypeError as e:
+       551| def test_Derive_from_BaseException():
+       552|     try:
+    -->553|         raise "exception"  # noqa
+       554|     except TypeError as e:
 
 
 Generator has no len
@@ -2558,7 +2625,7 @@ Generator has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 1004, in test_Generator_has_no_len
         nb = len(letter
     TypeError: object of type 'generator' has no len()
     
@@ -2573,17 +2640,17 @@ Generator has no len
     produced by a generator expression. You first need to capture them
     in a list:
     
-        `len([letter for letter in "word"])`
+        `len([letter                 for letter in "word"])`
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 1014 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `1004` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       1012| def test_Generator_has_no_len():
-       1013|     try:
-    -->1014|         nb = len(letter
+       1002| def test_Generator_has_no_len():
+       1003|     try:
+    -->1004|         nb = len(letter
                           ^^^^^^^^^^
-       1015|                  for letter in "word")
+       1005|                  for letter in "word")
                               ^^^^^^^^^^^^^^^^^^^^^
-       1016|     except TypeError as e:
+       1006|     except TypeError as e:
 
             len:  <builtin function len>
         
@@ -2596,7 +2663,7 @@ Indices must be integers or slices
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 696, in test_Indices_must_be_integers_or_slices
+      File "TESTS:\runtime\test_type_error.py", line 692, in test_Indices_must_be_integers_or_slices
         [1, 2, 3]["2"]
     TypeError: list indices must be integers or slices, not str
     
@@ -2615,15 +2682,15 @@ Indices must be integers or slices
     
     ஒருவேளை நீங்கள் `"2"` ஐ முழு எண்ணாக மாற்ற மறந்துவிட்டீர்கள்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 696 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `692` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       692| if friendly_traceback.get_lang() == "en":
-       693|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-       694| 
-       695| try:
-    -->696|     [1, 2, 3]["2"]
+       688| if friendly_traceback.get_lang() == "en":
+       689|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       690| 
+       691| try:
+    -->692|     [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
-       697| except TypeError as e:
+       693| except TypeError as e:
 
 
 Not an integer
@@ -2633,7 +2700,7 @@ Not an integer
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 659, in test_Not_an_integer
+      File "TESTS:\runtime\test_type_error.py", line 655, in test_Not_an_integer
         range(c, d)
     TypeError: 'str' object cannot be interpreted as an integer
     
@@ -2646,15 +2713,15 @@ Not an integer
     
     முழு எண் எதிர்பார்க்கப்படும் `str` வகைப் பொருளை நீங்கள் எழுதியுள்ளீர்கள்.
     ஒருவேளை நீங்கள் `c, d` ஐ முழு எண்களாக மாற்ற மறந்துவிட்டீர்கள்.
-    TESTS:\runtime\test_type_error.py கோப்பின் 659 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `655` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       655|     assert "Perhaps you forgot to convert `1.0" in result
-       656| 
-       657| c, d = "2", "3"
-       658| try:
-    -->659|     range(c, d)
+       651|     assert "Perhaps you forgot to convert `1.0" in result
+       652| 
+       653| c, d = "2", "3"
+       654| try:
+    -->655|     range(c, d)
                 ^^^^^^^^^^^
-       660| except TypeError as e:
+       656| except TypeError as e:
 
             c:  '2'
             d:  '3'
@@ -2669,7 +2736,7 @@ Not callable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 541, in test_Not_callable
+      File "TESTS:\runtime\test_type_error.py", line 540, in test_Not_callable
         _ = [1, 2](a + b)
     TypeError: 'list' object is not callable
     
@@ -2689,15 +2756,15 @@ Not callable
     ஒருவேளை நீங்கள் `()` என்பதற்குப் பதிலாக `[]` ஐப் பயன்படுத்தி 
     `[1, 2][a + b]` என்று எழுதலாம்
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 541 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `540` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       537|     assert "b.a_list[3]" in result
-       538| 
-       539| try:
-       540|     a, b = 3, 7
-    -->541|     _ = [1, 2](a + b)
+       536|     assert "b.a_list[3]" in result
+       537| 
+       538| try:
+       539|     a, b = 3, 7
+    -->540|     _ = [1, 2](a + b)
                     ^^^^^^^^^^^^^
-       542| except TypeError as e:
+       541| except TypeError as e:
 
             a:  3
             b:  7
@@ -2712,7 +2779,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 778, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -2725,13 +2792,13 @@ Object is not iterable
     பைதான் கொள்கலன்கள் (`பட்டியல், மடங்கு, அகராதி`, முதலியன.) மறுசெய்யக்கூடியவை. 
     இங்கே ஒரு மறுசெய்யக்கூடியவை தேவைப்படுகிறது.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 788 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `778` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       786| def test_Object_is_not_iterable():
-       787|     try:
-    -->788|         list(42)
+       776| def test_Object_is_not_iterable():
+       777|     try:
+    -->778|         list(42)
                     ^^^^^^^^
-       789|     except TypeError as e:
+       779|     except TypeError as e:
 
             list:  <class list>
         
@@ -2744,7 +2811,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 764, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -2760,15 +2827,15 @@ Object is not subscriptable
     
     ஒருவேளை நீங்கள் `f(1)` என்று எழுத நினைத்திருக்கலாம்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 771 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `764` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       767| def f():
-       768|     pass
-       769| 
-       770| try:
-    -->771|     a = f[1]
+       760| def f():
+       761|     pass
+       762| 
+       763| try:
+    -->764|     a = f[1]
                     ^^^^
-       772| except TypeError as e:
+       765| except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
@@ -2782,7 +2849,7 @@ Slice indices must be integers or None
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 710, in test_Slice_indices_must_be_integers_or_None
+      File "TESTS:\runtime\test_type_error.py", line 706, in test_Slice_indices_must_be_integers_or_None
         [1, 2, 3][1.0:2.0]
     TypeError: slice indices must be integers or None or have an __index__ method
     
@@ -2797,13 +2864,13 @@ Slice indices must be integers or None
     ஒரு முழு எண்ணாக இருக்க வேண்டும், `None` அல்லது `__index__` முறையைக் 
     கொண்ட வேறு ஏதேனும் பொருள் இருக்கலாம்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 710 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `706` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       708| def test_Slice_indices_must_be_integers_or_None():
-       709|     try:
-    -->710|         [1, 2, 3][1.0:2.0]
+       704| def test_Slice_indices_must_be_integers_or_None():
+       705|     try:
+    -->706|         [1, 2, 3][1.0:2.0]
                     ^^^^^^^^^^^^^^^^^^
-       711|     except TypeError as e:
+       707|     except TypeError as e:
 
 
 Too few positional argument
@@ -2813,27 +2880,27 @@ Too few positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 471, in test_Too_few_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_few_positional_argument
         fn(1)
-    TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
+    TypeError: test_Too_few_positional_argument.<locals>.fn() missing 2 required positional arguments: 'b' and 'c'
     
     ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
     வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
     தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
     வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
     
-    'fn()' செயல்பாட்டிற்குத் தேவையானதை விட குறைவான நிலை 
+    'test_Too_few_positional_argument.<locals>.fn()' செயல்பாட்டிற்குத் தேவையானதை விட குறைவான நிலை 
     வாதங்களுடன் (2 இல்லை) என்று நீங்கள் அழைத்திருக்கிறீர்கள்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 471 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `480` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       467| def fn(a, b, c):
-       468|     pass
-       469| 
-       470| try:
-    -->471|     fn(1)
+       476| def fn(a, b, c):
+       477|     pass
+       478| 
+       479| try:
+    -->480|     fn(1)
                 ^^^^^
-       472| except TypeError as e:
+       481| except TypeError as e:
 
             fn:  <function fn>
                 defined in <function test_Too_few_positional_argument>
@@ -2847,31 +2914,31 @@ Too many positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 452, in test_Too_many_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 461, in test_Too_many_positional_argument
         A().f(1)
-    TypeError: f() takes 1 positional argument but 2 were given
+    TypeError: test_Too_many_positional_argument.<locals>.A.f() takes 1 positional argument but 2 were given
     
-        `f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
+        `A.f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
         
     ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
     வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
     தவறான வகைப் பொருளுடன் அழைப்பதாலோ அல்லது கொடுக்கப்பட்ட
     வகைப் பொருளில் அனுமதிக்கப்படாத செயலைச் செய்ய முயற்சிப்பதாலோ ஏற்படுகிறது.
     
-    நீங்கள் 2 நிலை வாதம்(கள்) உடன் `f` 
+    நீங்கள் 2 நிலை வாதம்(கள்) உடன் `A.f` 
     செயல்பாட்டை அழைத்திருக்கிறீர்கள் 
     அதற்கு 1 போன்ற நிலை வாதம்(கள்) தேவைப்படும்.
-    `f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
+    `A.f` என்பதை வரையறுக்கும்போது `self` என்பதை மறந்துவிட்டீர்கள்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 452 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `461` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       448|     def f(x):
-       449|         pass
-       450| 
-       451| try:
-    -->452|     A().f(1)
+       457|     def f(x):
+       458|         pass
+       459| 
+       460| try:
+    -->461|     A().f(1)
                 ^^^^^^^^
-       453| except TypeError as e:
+       462| except TypeError as e:
 
             A:  <class A>
                 defined in <function test_type_error.test_Too_many_positional_argument>
@@ -2885,7 +2952,7 @@ Tuple no item assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 419, in test_Tuple_no_item_assignment
+      File "TESTS:\runtime\test_type_error.py", line 428, in test_Tuple_no_item_assignment
         a[0] = 0
     TypeError: 'tuple' object does not support item assignment
     
@@ -2902,14 +2969,14 @@ Tuple no item assignment
     பெரும்பாலும் அட்டவணைப்படுத்தல் செயல்பாட்டைப் பயன்படுத்தி.
     அதற்குப் பதிலாகப் பட்டியலைப் பயன்படுத்த நினைத்திருக்கலாம்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 419 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `428` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       416| def test_Tuple_no_item_assignment():
-       417|     a = (1, 2, 3)
-       418|     try:
-    -->419|         a[0] = 0
+       425| def test_Tuple_no_item_assignment():
+       426|     a = (1, 2, 3)
+       427|     try:
+    -->428|         a[0] = 0
                     ^^^^
-       420|     except TypeError as e:
+       429|     except TypeError as e:
 
             a:  (1, 2, 3)
             a[0]:  1
@@ -2923,7 +2990,7 @@ Unhachable type
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 727, in test_Unhachable_type
+      File "TESTS:\runtime\test_type_error.py", line 723, in test_Unhachable_type
         {[1, 2]: 1}
     TypeError: unhashable type: 'list'
     
@@ -2937,12 +3004,12 @@ Unhachable type
     புலபடகூடிய பொருள்கள், அவை உருவாக்கப்பட்டவுடன் 
     மதிப்பை மாற்றாத பொருள்கள்.ஒரு `பட்டியல்` ஐப் பயன்படுத்துவதற்குப் பதிலாக, ஒரு `மடங்கு` ஐப் பயன்படுத்தவும்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 727 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `723` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       725| def test_Unhachable_type():
-       726|     try:
-    -->727|         {[1, 2]: 1}
-       728|     except TypeError as e:
+       721| def test_Unhachable_type():
+       722|     try:
+    -->723|         {[1, 2]: 1}
+       724|     except TypeError as e:
 
 
 Unsupported operand types
@@ -2967,7 +3034,7 @@ Unsupported operand types
     இந்த இயக்கி பொதுவாக அணிகளை பெருக்க மட்டுமே 
     பயன்படுத்தப்படுகிறது.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 310 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `310` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        307| try:
        308|     a = "a"
@@ -2989,7 +3056,7 @@ divmod
     Traceback (most recent call last):
       File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
         result = divmod(a, b)
-    TypeError: can't take floor or mod of complex number.
+    TypeError: unsupported operand type(s) for divmod(): 'int' and 'complex'
     
     ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
     வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
@@ -2999,7 +3066,7 @@ divmod
     The arguments of `divmod` must be integers (`int`) or real (`float`) numbers.
     At least one of the arguments was a complex number.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 55 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `55` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        52| a = 2
        53| b = 3 + 2j
@@ -3021,9 +3088,9 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 941, in test_function_got_multiple_argument
         fn2(0, a=1)
-    TypeError: fn2() got multiple values for argument 'a'
+    TypeError: test_function_got_multiple_argument.<locals>.fn2() got multiple values for argument 'a'
     
     ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
     வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
@@ -3035,15 +3102,15 @@ function got multiple argument
     இந்தச் செயல்பாட்டு பின்வரும் வாதங்களைக் கொண்டுள்ளது: 
     `a, b=1`
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 951 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `941` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       947| def fn2(a, b=1):
-       948|     pass
-       949| 
-       950| try:
-    -->951|     fn2(0, a=1)
+       937| def fn2(a, b=1):
+       938|     pass
+       939| 
+       940| try:
+    -->941|     fn2(0, a=1)
                 ^^^^^^^^^^^
-       952| except TypeError as e:
+       942| except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -3057,7 +3124,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 866, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -3072,15 +3139,15 @@ function has no len
     நீங்கள் இவ்வாறு எழுத நினைத்திருக்கலாம்: 
     `len(bad())`
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 876 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `866` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       872| def bad():
-       873|     pass
-       874| 
-       875| try:
-    -->876|     len(bad)
+       862| def bad():
+       863|     pass
+       864| 
+       865| try:
+    -->866|     len(bad)
                 ^^^^^^^^
-       877| except TypeError as e:
+       867| except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
@@ -3094,7 +3161,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 987, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -3105,18 +3172,18 @@ getattr attribute name must be string
     
     `getattr()` செயல்பாட்டின் இரண்டாவது வாதம் ஒரு சரமாக இருக்க வேண்டும்.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 997 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `987` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       990| if friendly_traceback.get_lang() == "en":
-       991|     assert (
-       992|         "The second argument of the function `hasattr()` must be a string."
-       993|         in result
-       994|     )
-       995| 
-       996| try:
-    -->997|     getattr("__repr__", 1)  # as reported in issue #77
+       980| if friendly_traceback.get_lang() == "en":
+       981|     assert (
+       982|         "The second argument of the function `hasattr()` must be a string."
+       983|         in result
+       984|     )
+       985| 
+       986| try:
+    -->987|     getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
-       998| except TypeError as e:
+       988| except TypeError as e:
 
             getattr:  <builtin function getattr>
         
@@ -3129,9 +3196,9 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 960, in test_method_got_multiple_argument
         t.some_method(0, a=1)
-    TypeError: some_method() got multiple values for argument 'a'
+    TypeError: test_method_got_multiple_argument.<locals>.T.some_method() got multiple values for argument 'a'
     
     ஒரு வகைப்பிழை `TypeError` என்பது பொதுவாக பொருந்தாத இரண்டு
     வகையான பொருள்களை இணைக்க முயற்சிப்பதாலோ, ஒரு செயல்பாட்டை
@@ -3142,15 +3209,15 @@ method got multiple argument
     வாதத்தின் மதிப்பை `a` ஒன்றுக்கு மேற்பட்ட முறை குறிப்பிட்டுள்ளீர்கள்.
     இந்தச் செயல்பாட்டிற்கு ஒரே ஒரு வாதம் உள்ளது: `a`
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 970 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `960` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       966|         pass
-       967| 
-       968| t = T()
-       969| try:
-    -->970|     t.some_method(0, a=1)
+       956|         pass
+       957| 
+       958| t = T()
+       959| try:
+    -->960|     t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-       971| except TypeError as e:
+       961| except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -3167,7 +3234,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 910, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -3180,15 +3247,15 @@ vars arg must have dict
     `vars` செயல்பாடு பயன்படுத்தப்படுகிறது.
     பொருள் `f` `__dict__` என்பதற்குப் பதிலாக `__slots__` ஐப் பயன்படுத்துகிறது.
     
-    TESTS:\runtime\test_type_error.py கோப்பின் 920 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_type_error.py' கோப்பின் `910` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-       916|     assert no_slots not in result
-       917|     assert use_slots not in result
-       918| 
-       919| try:
-    -->920|     vars(f)
+       906|     assert no_slots not in result
+       907|     assert use_slots not in result
+       908| 
+       909| try:
+    -->910|     vars(f)
                 ^^^^^^^
-       921| except TypeError as e:
+       911| except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3242,7 +3309,7 @@ Missing both
     
     ஐச் சேர்க்க வேண்டும்.
     
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 63 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `63` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
        61| def test_Missing_both():
        62|     try:
@@ -3252,7 +3319,7 @@ Missing both
 
             global outer_missing_both:  <function outer_missing_both>
         
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 21 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `21` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        20| def inner():
     -->21|     spam_missing_both += 1
@@ -3297,7 +3364,7 @@ Missing global
     
     என்ற கூற்று உங்கள் செயல்பாட்டிற்குள் முதல் வரியாக சேர்க்கப்பட்டிருக்க வேண்டும்.
     
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 27 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `27` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
        25| def test_Missing_global():
        26|     try:
@@ -3307,7 +3374,7 @@ Missing global
 
             global outer_missing_global:  <function outer_missing_global>
         
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 9 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `9` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        8| def inner():
     -->9|     spam_missing_global += 1
@@ -3352,7 +3419,7 @@ Missing nonlocal
     
     என்ற கூற்று உங்கள் செயல்பாட்டிற்குள் முதல் வரியாக சேர்க்கப்பட்டிருக்க வேண்டும்.
     
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 45 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `45` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
        43| def test_Missing_nonlocal():
        44|     try:
@@ -3362,7 +3429,7 @@ Missing nonlocal
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 15 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `15` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        14| def inner():
     -->15|     spam_missing_nonlocal += 1
@@ -3395,7 +3462,7 @@ Typo in local
     `alpha3` என்று எழுதுவதற்குப் பதிலாக, நீங்கள் பின்வருவனவற்றில் ஒன்றைக் குறிப்பிட்டிருக்கலாம்:
     *   உள்ளூர் நோக்கம்: `alpha1`, `alpha2`
     
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 101 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `101` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
         97|     alpha2 = 1
         98|     alpha3 += 1
@@ -3407,7 +3474,7 @@ Typo in local
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 98 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `98` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        95| def test2():
        96|     alpha1 = 1
@@ -3444,7 +3511,7 @@ Using name of builtin
     பைதான் உள்ளமைக்கப்பட்ட செயல்பாட்டின் அதே பெயரை உள்ளூர் மாறிக்கு 
     வழங்குவது பொதுவாக நல்ல யோசனையல்ல என்பதை நினைவில் கொள்க (`max` போன்றவை).
     
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 121 ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `121` ஆம் வரியில் செயல்படுத்தல் நிறுத்தப்பட்டது.
     
        118|     min = min(points)
        119|     return max - min
@@ -3455,7 +3522,7 @@ Using name of builtin
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
         
-    TESTS:\runtime\test_unbound_local_error.py கோப்பின் 117 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unbound_local_error.py' கோப்பின் `117` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        116| def dist(points):
     -->117|     max = max(points)
@@ -3477,25 +3544,24 @@ Generic
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
+      File "TESTS:\runtime\test_unknown_error.py", line 24, in test_Generic
         raise UnknownException("Some informative message about an unknown exception.")
     UnknownException: Some informative message about an unknown exception.
     
-    இந்த விதிவிலக்கு பற்றி எந்த தகவலும் தெரியவில்லை.
-    தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+    `UnknownException` வகை விதிவிலக்கு என்பது `Exception` இன் துணைப்பிரிவாகும்.
+    Nothing more specific is known about `UnknownException`.
     
-    நீங்கள் நட்பு பணியகத்தை பயன்படுத்துகிறீர்கள் என்றால், அதற்கு `www()` ஐப் 
-    பயன்படுத்தி இந்த குறிப்பிட்ட வழக்கை இணையத்தில் தேடுங்கள்.
+    All built-in exceptions defined by Python are derived from `Exception`.
+    All user-defined exceptions should also be derived from this class.
     
-    TESTS:\runtime\test_unknown_error.py கோப்பின் 12 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_unknown_error.py' கோப்பின் `24` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
-        9| old_debug = friendly_traceback.debug_helper.DEBUG
-       10| friendly_traceback.debug_helper.DEBUG = False
-       11| try:
-    -->12|     raise UnknownException("Some informative message about an unknown exception.")
-       13| except Exception as e:
+       20| result = friendly_traceback.get_output()
+       21| assert "UnknownException -> Exception" in result
+       22| 
+       23| try:
+    -->24|     raise UnknownException("Some informative message about an unknown exception.")
+       25| except Exception as e:
 
             global UnknownException:  <class test_unknown_error.UnknownException>
         
@@ -3524,7 +3590,7 @@ Convert to int
     கொண்ட சரத்தை முழு எண்ணாக மாற்றப் பயன்படுத்தப்படுகிறது.
     பின்வரும் எழுத்துகள் அனுமதிக்கப்படாது: `a`.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 187 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `187` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        183| if english:
        184|     assert "needs to be first converted using `float()`" in result
@@ -3552,9 +3618,10 @@ Could not convert to float
     ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
     சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
     
-    `42b` சரத்தை `float` ஆக மாற்ற முடியாது.
+    The string `42b` cannot be converted to a `float`
+    as it does not represent a number.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 88 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `88` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        86| def test_Could_not_convert_to_float():
        87|     try:
@@ -3585,7 +3652,7 @@ Date invalid month
     `தேதி` பொருளில் ஒரு மாதத்திற்கான தவறான மதிப்பை நீங்கள் குறிப்பிடுகிறீர்கள் என்று நினைக்கிறேன். 
     சரியான மதிப்புகள் 1 முதல் 12 வரையிலான முழு எண்களாகும்.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 58 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `58` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        55| def test_Date_invalid_month():
        56|     from datetime import date
@@ -3617,7 +3684,7 @@ Not enough values to unpack
     இந்த நிகழ்வில், மறுசெய்யக்கூடிய நீளத்தை விட (3) 
     அதிக பெயர்கள் உள்ளன, ஒரு சரம் (`str`) நீளம் 2.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 28 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `28` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        24| assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
        25| 
@@ -3646,7 +3713,7 @@ Pow third arg cannot be zero
     
     `pow()` செயல்பாட்டின் மூன்றாவது வாதம் சுழியமாக இருக்க முடியாது.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 103 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `103` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        100| def test_Pow_third_arg_cannot_be_zero():
        101|     a = 0
@@ -3678,7 +3745,7 @@ Slots conflicts with class variable
     உருப்படியாகவும் பயன்படுத்தப்படுகிறது; 
     இது அனுமதிக்கப்படவில்லை.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 72 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `72` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        70| def test_Slots_conflicts_with_class_variable():
        71|     try:
@@ -3705,7 +3772,7 @@ Too many values to unpack
     இந்த நிகழ்வில், மறுசெய்யக்கூடிய நீளத்தை விட (2) 
     குறைவான பெயர்கள் உள்ளன, ஒரு `பட்டியல்` நீளம் 3.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 43 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `43` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        40| def test_Too_many_values_to_unpack():
        41|     c = [1, 2, 3]
@@ -3735,7 +3802,7 @@ int base not in range
     2 முதல் 36 வரையிலான முழு எண்ணாகவோ இருக்க வேண்டும்.
     அனுமதிக்கப்படாத 37 என்று எழுதியுள்ளீர்கள்.
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 201 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `201` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        199| def test_int_base_not_in_range():
        200|     try:
@@ -3744,6 +3811,38 @@ int base not in range
        202|     except ValueError as e:
 
             int:  <class int>
+        
+
+
+remove item not in list
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 227, in test_remove_item_not_in_list
+        a_list.remove(b)
+    ValueError: list.remove(x): x not in list
+    
+    ஒரு மதிப்புப்பிழை `ValueError` என்பது ஒரு செயல்பாடு அல்லது செயல்பாடு
+    சரியான வகையின் வாதத்தைப் பெற்றது, ஆனால் ஒரு பொருத்தமற்ற மதிப்பைக் குறிக்கிறது.
+    
+    You have attempted to remove `b` from the list `a_list`.
+    However, `a_list` does not contain `b`.
+    
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `227` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    
+       224| a_list = [1, 2, 3]
+       225| b = 4
+       226| try:
+    -->227|     a_list.remove(b)
+                ^^^^^^^^^^^^^^^^
+       228| except ValueError as e:
+
+            a_list:  [1, 2, 3]
+            b:  4
+            a_list.remove:  <builtin method remove of list object>
         
 
 
@@ -3769,7 +3868,7 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     பின்வரும் தளமும் பயனுள்ளதாக இருக்கும்: https://www.strfti.me/
     
-    TESTS:\runtime\test_value_error.py கோப்பின் 127 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_value_error.py' கோப்பின் `127` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        123|     return
        124| 
@@ -3808,7 +3907,7 @@ Complex division
     
     மூலம் நீங்கள் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 173 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `173` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        170| def test_Complex_division():
        171|     zero = 0j
@@ -3837,7 +3936,7 @@ Division by zero literal
     
     நீங்கள் சுழியத்தால் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 220 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `220` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        216| if friendly_traceback.get_lang() == "en":
        217|     assert "Using the modulo operator, you are dividing by zero" in result
@@ -3868,7 +3967,7 @@ Division operator
     
     மூலம் நீங்கள் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 20 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `20` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        13| if friendly_traceback.get_lang() == "en":
        14|     assert (
@@ -3901,7 +4000,7 @@ Divmod
     
     `divmod()` செயல்பாட்டின் இரண்டாவது வாதம் சுழியமாகும்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 97 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `97` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        94| def test_Divmod():
        95|     zero = 0
@@ -3935,7 +4034,7 @@ Float division
     
     மூலம் நீங்கள் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 143 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `143` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        140| def test_Float_division():
        141|     zero = 0.0
@@ -3964,7 +4063,7 @@ Float divmod
     
     `divmod()` செயல்பாட்டின் இரண்டாவது வாதம் சுழியத்திற்குச் சமம்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 158 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `158` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        155| def test_Float_divmod():
        156|     zero = 0.0
@@ -3998,7 +4097,7 @@ Float modulo
     
     மூலம் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 128 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `128` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        121|     assert (
        122|         "The following mathematical expression includes a division by zero"
@@ -4035,7 +4134,7 @@ Integer division operator
     
     மூலம் நீங்கள் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 48 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `48` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        41| if friendly_traceback.get_lang() == "en":
        42|     assert (
@@ -4070,7 +4169,7 @@ Mixed operations
     
        divmod(8, 1 // 2)
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 233 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `233` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        231| def test_Mixed_operations():
        232|     try:
@@ -4103,7 +4202,7 @@ Modulo operator
     
     மூலம் வகுக்கிறீர்கள்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 79 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `79` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        72| if friendly_traceback.get_lang() == "en":
        73|     assert (
@@ -4137,7 +4236,7 @@ Raise zero negative power
     நீங்கள் எண் 0 ஐ எதிர்மறை சக்தியாக உயர்த்த முயற்சிக்கிறீர்கள், 
     இது சுழியத்தால் வகுக்கும் சமமானதாகும்.
     
-    TESTS:\runtime\test_zero_division_error.py கோப்பின் 188 ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
+    'TESTS:\runtime\test_zero_division_error.py' கோப்பின் `188` ஆம் வரியில் விதிவிலக்கு எழுப்பப்பட்டது.
     
        185| def test_Raise_zero_negative_power():
        186|     zero = 0

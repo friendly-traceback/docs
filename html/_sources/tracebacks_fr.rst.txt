@@ -13,8 +13,8 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly-traceback version: 0.6.0
-Python version: 3.9.10
+Friendly-traceback version: 0.7.49
+Python version: 3.10.6
 
 
 
@@ -35,10 +35,8 @@ Generic
     
     `ArithmeticError` est la classe de base pour les exceptions
     qui sont soulevées pour diverses erreurs arithmétiques.
-    Il est inhabituel que vous voyiez cette exception;
-    normalement, une exception plus spécifique aurait dû être soulevée.
     
-    Exception levée à la ligne 9 du fichier TESTS:\runtime\test_arithmetic_error.py.
+    Exception levée à la ligne `9` du fichier 'TESTS:\runtime\test_arithmetic_error.py'.
     
         4| def test_Generic():
         5|     try:
@@ -73,7 +71,7 @@ Generic
     
     Si `condition` est `False` ou son équivalent, une exception de type `AssertionError` est levée.
     
-    Exception levée à la ligne 8 du fichier TESTS:\runtime\test_assertion_error.py.
+    Exception levée à la ligne `8` du fichier 'TESTS:\runtime\test_assertion_error.py'.
     
        4| def test_Generic():
        5|     try:
@@ -110,7 +108,7 @@ Attribute from other module
     l'un des modules suivants:
     `math, cmath` .
     
-    Exception levée à la ligne 325 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `325` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        321|     assert "Did you mean `math`?" in result
        322| 
@@ -144,7 +142,7 @@ Builtin function
     `len` est une fonction. Peut-être que vous vouliez écrire
     `len(text)`
     
-    Exception levée à la ligne 223 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `223` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        220| def test_Builtin_function():
        221|     text = 'Hello world!'
@@ -176,7 +174,7 @@ Builtin module with no file
     Python nous dit qu’aucun objet avec le nom `foo` n’est
     dans le module `sys`.
     
-    Exception levée à la ligne 240 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `240` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        236| """Issue 116"""
        237| import sys
@@ -197,7 +195,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 359, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 355, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -214,15 +212,15 @@ Circular import
     de la bibliothèque standard de Python.
     Si c’est le cas, vous devriez utiliser un nom différent pour votre programme.
     
-    L'exécution s'est arrêtée à la ligne 359 du fichier TESTS:\runtime\test_attribute_error.py
+    L'exécution s'est arrêtée à la ligne `355` du fichier 'TESTS:\runtime\test_attribute_error.py'
     
-       356| from friendly_traceback.runtime_errors import stdlib_modules
-       357| stdlib_modules.names.append("my_turtle1")
-       358| try:
-    -->359|    import my_turtle1
-       360| except AttributeError as e:
+       352| from friendly_traceback.runtime_errors import stdlib_modules
+       353| stdlib_modules.names.add("my_turtle1")
+       354| try:
+    -->355|    import my_turtle1
+       356| except AttributeError as e:
 
-    Exception levée à la ligne 4 du fichier TESTS:\my_turtle1.py.
+    Exception levée à la ligne `4` du fichier 'TESTS:\my_turtle1.py'.
     
        1| """To test attribute error of partially initialized module."""
        2| import my_turtle1
@@ -241,7 +239,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 376, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 372, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -257,14 +255,14 @@ Circular import b
     Cela peut se produire si, pendant l'exécution du code du module `circular_c`
     une tentative est faite d'importer à nouveau le même module.
     
-    L'exécution s'est arrêtée à la ligne 376 du fichier TESTS:\runtime\test_attribute_error.py
+    L'exécution s'est arrêtée à la ligne `372` du fichier 'TESTS:\runtime\test_attribute_error.py'
     
-       374| def test_Circular_import_b():
-       375|     try:
-    -->376|         import circular_c
-       377|     except AttributeError as e:
+       370| def test_Circular_import_b():
+       371|     try:
+    -->372|         import circular_c
+       373|     except AttributeError as e:
 
-    Exception levée à la ligne 4 du fichier TESTS:\circular_c.py.
+    Exception levée à la ligne `4` du fichier 'TESTS:\circular_c.py'.
     
        1| # Attribute error for partially initialize module
        2| import circular_c
@@ -293,7 +291,7 @@ Generic
     
     L’objet `A` n’a pas d’attribut nommé `x`.
     
-    Exception levée à la ligne 26 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `26` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        22| class A:
        23|     pass
@@ -316,7 +314,7 @@ Generic different frame
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
         a.attr
-    AttributeError: 'A' object has no attribute 'attr'
+    AttributeError: 'A' object has no attribute 'attr'. Did you mean: 'attr2'?
     
         Vouliez-vous dire `attr2` ?
         
@@ -327,7 +325,7 @@ Generic different frame
     L’objet `a` n’a pas d’attribut nommé `attr`.
     Peut-être que vous vouliez plutôt écrire : `a.attr2` au lieu de `a.attr`.
     
-    Exception levée à la ligne 49 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `49` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        45|     return A()
        46| 
@@ -359,7 +357,7 @@ Generic instance
     
     L’objet `a` n’a pas d’attribut nommé `x`.
     
-    Exception levée à la ligne 67 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `67` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        64|     pass
        65| a = A()
@@ -382,7 +380,7 @@ Module attribute typo
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
         math.cost
-    AttributeError: module 'math' has no attribute 'cost'
+    AttributeError: module 'math' has no attribute 'cost'. Did you mean: 'cos'?
     
         Vouliez-vous dire `cos` ?
         
@@ -394,7 +392,7 @@ Module attribute typo
     l'un des attributs suivants du module `math` :
     cos, cosh
     
-    Exception levée à la ligne 144 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `144` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        139|     assert "Did you mean `ascii_lowercase`" in result
        140| 
@@ -426,7 +424,7 @@ Nonetype
     
     Vous tentez d’accéder à l’attribut `b`
     pour une variable dont la valeur est `None`.
-    Exception levée à la ligne 183 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `183` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        180| def test_Nonetype():
        181|     a = None
@@ -448,7 +446,7 @@ Object attribute typo
     Traceback (most recent call last):
       File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
         a.appendh(4)
-    AttributeError: 'list' object has no attribute 'appendh'
+    AttributeError: 'list' object has no attribute 'appendh'. Did you mean: 'append'?
     
         Vouliez-vous dire `append` ?
         
@@ -459,7 +457,7 @@ Object attribute typo
     L’objet `a` n’a pas d’attribut nommé `appendh`.
     Peut-être que vous vouliez plutôt écrire : `a.append` au lieu de `a.appendh`.
     
-    Exception levée à la ligne 83 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `83` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        79| def test_Object_attribute_typo():
        80|     #
@@ -478,39 +476,7 @@ Perhaps comma
 
 .. code-block:: none
 
-
-    Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
-        a = [abcd
-    AttributeError: 'str' object has no attribute 'defg'
-    
-        Vouliez-vous séparer les noms d’objets par une virgule ?
-        
-    Une exception `AttributeError` se produit lorsque le code contient quelque chose comme
-        `object.x`
-    et `x` n’est pas une méthode ou un attribut (variable) appartenant à `objet`.
-    
-    `defg` n’est pas un attribut de `abcd`.
-    Cependant, les objets `abcd` et `defg` sont des objets connus.
-    Peut-être avez-vous écrit une période pour séparer ces deux objets, 
-    au lieu d’utiliser une virgule.
-    
-    Exception levée à la ligne 203 du fichier TESTS:\runtime\test_attribute_error.py.
-    
-       199| defg = "world"
-       200| 
-       201| # fmt: off
-       202| try:
-    -->203|     a = [abcd
-                     ^^^^
-       204|     .defg]
-                ^^^^^
-       205| # fmt: on
-
-            abcd:  'hello'
-            defg:  'world'
-        
-
+            Skipped test
 
 Read only
 ~~~~~~~~~
@@ -531,7 +497,7 @@ Read only
     être modifiés. La valeur de l'attribut `f.b` ne peut pas être modifiée.
     The only attribute of `f` whose value can be changed is`a`.
     
-    Exception levée à la ligne 280 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `280` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        276|     b = 2
        277| 
@@ -568,7 +534,7 @@ Shadow stdlib module
     Il y a aussi un module nommé `turtle` dans la bibliothèque standard de Python.
     Peut-être avez-vous besoin de renommer votre module.
     
-    Exception levée à la ligne 165 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `165` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        161| def test_Shadow_stdlib_module():
        162|     import turtle
@@ -604,7 +570,7 @@ Tuple by accident
     Peut-être avez-vous ajouté une virgule par erreur à la fin de la ligne
     lorsque vous avez défini `something`.
     
-    Exception levée à la ligne 295 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `295` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        292| def test_Tuple_by_accident():
        293|     something = "abc",  # note trailing comma
@@ -637,7 +603,7 @@ Use builtin
     L’objet `a` n’a pas d’attribut nommé `length`.
     Peut-être pouvez-vous utiliser la fonction Python builtin `len` à la place:
     `len(a)`.
-    Exception levée à la ligne 99 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `99` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
         95| def test_Use_builtin():
         96|     #
@@ -671,7 +637,7 @@ Use join with str
     L’objet `['a', '2']` n’a pas d’attribut nommé `join`.
     Vous vouliez peut-être plutôt écrire quelque chose comme `'...'.join(['a', '2'])`.
     
-    Exception levée à la ligne 339 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `339` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        337| def test_Use_join_with_str():
        338|     try:
@@ -701,7 +667,7 @@ Use synonym
     Toutefois, `a` a les attributs suivants avec des sens similaires:
     'append, extend, insert'.
     
-    Exception levée à la ligne 115 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `115` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        111| def test_Use_synonym():
        112|     #
@@ -735,7 +701,7 @@ Using slots
     la création de nouveaux attributs.
     Voici quelques-uns de ses attributs connus :
     `a`.
-    Exception levée à la ligne 260 du fichier TESTS:\runtime\test_attribute_error.py.
+    Exception levée à la ligne `260` du fichier 'TESTS:\runtime\test_attribute_error.py'.
     
        256|     __slots__ = ["a"]
        257| 
@@ -774,7 +740,7 @@ Directory not found
     does_not_exist
     n'est pas un répertoire valide.
     
-    Exception levée à la ligne 70 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    Exception levée à la ligne `70` du fichier 'TESTS:\runtime\test_file_not_found_error.py'.
     
        68| def test_Directory_not_found():
        69|     try:
@@ -807,7 +773,7 @@ Filename not found
     `C:\Users\Andre\github\friendly-traceback\tests`.
     Je n’ai pas d’informations supplémentaires pour vous.
     
-    Exception levée à la ligne 7 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    Exception levée à la ligne `7` du fichier 'TESTS:\runtime\test_file_not_found_error.py'.
     
        5| def test_Filename_not_found():
        6|     try:
@@ -842,7 +808,7 @@ Filename not found 2
     `C:\Users\Andre\github\friendly-traceback`.
     Le fichier `setup.py` a un nom semblable.
     
-    Exception levée à la ligne 30 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    Exception levée à la ligne `30` du fichier 'TESTS:\runtime\test_file_not_found_error.py'.
     
        26| if chdir:
        27|     os.chdir("..")
@@ -880,7 +846,7 @@ Filename not found 3
     Vous vouliez peut-être un des fichiers suivants ayant des noms semblables :
     `setup.py`, `setup.cfg`
     
-    Exception levée à la ligne 52 du fichier TESTS:\runtime\test_file_not_found_error.py.
+    Exception levée à la ligne `52` du fichier 'TESTS:\runtime\test_file_not_found_error.py'.
     
        49| if chdir:
        50|     os.chdir("..")
@@ -916,7 +882,7 @@ Simple import error
     
     Peut-être que vous vouliez importer `pi` (de `math`) au lieu de `Pi`.
     
-    Exception levée à la ligne 56 du fichier TESTS:\runtime\test_import_error.py.
+    Exception levée à la ligne `56` du fichier 'TESTS:\runtime\test_import_error.py'.
     
        52| multiple_import_on_same_line()
        53| wrong_case()
@@ -937,7 +903,7 @@ Assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 93, in test_Assignment
+      File "TESTS:\runtime\test_index_error.py", line 84, in test_Assignment
         a[13] = 1
     IndexError: list assignment index out of range
     
@@ -950,15 +916,15 @@ Assignment
     une liste (`list`) de longueur `10`.
     Les indices valides de `a` sont les entiers allant de `-10` à `9`.
     
-    Exception levée à la ligne 93 du fichier TESTS:\runtime\test_index_error.py.
+    Exception levée à la ligne `84` du fichier 'TESTS:\runtime\test_index_error.py'.
     
-       89|     assert "You have tried to assign a value to index `1` of `b`," in result
-       90|     assert "a `list` which contains no item." in result
-       91| 
-       92| try:
-    -->93|     a[13] = 1
+       80|     assert "You have tried to assign a value to index `1` of `b`," in result
+       81|     assert "a `list` which contains no item." in result
+       82| 
+       83| try:
+    -->84|     a[13] = 1
                ^^^^^
-       94| except IndexError as e:
+       85| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -971,7 +937,7 @@ Empty
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 46, in test_Empty
+      File "TESTS:\runtime\test_index_error.py", line 40, in test_Empty
         c = a[1]
     IndexError: list index out of range
     
@@ -985,14 +951,14 @@ Empty
     Vous avez essayé d’obtenir l’élément avec l’indice `1` de `a`,
     une liste (`list`) qui ne contient aucun élément.
     
-    Exception levée à la ligne 46 du fichier TESTS:\runtime\test_index_error.py.
+    Exception levée à la ligne `40` du fichier 'TESTS:\runtime\test_index_error.py'.
     
-       43| def test_Empty():
-       44|     a = []
-       45|     try:
-    -->46|         c = a[1]
+       37| def test_Empty():
+       38|     a = []
+       39|     try:
+    -->40|         c = a[1]
                        ^^^^
-       47|     except IndexError as e:
+       41|     except IndexError as e:
 
             a:  []
         
@@ -1005,7 +971,7 @@ Long list
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 29, in test_Long_list
+      File "TESTS:\runtime\test_index_error.py", line 26, in test_Long_list
         print(a[60], b[0])
     IndexError: list index out of range
     
@@ -1018,14 +984,14 @@ Long list
     une liste (`list`) de longueur `40`.
     Les indices valides de `a` sont les entiers allant de `-40` à `39`.
     
-    Exception levée à la ligne 29 du fichier TESTS:\runtime\test_index_error.py.
+    Exception levée à la ligne `26` du fichier 'TESTS:\runtime\test_index_error.py'.
     
-       26| a = list(range(40))
-       27| b = tuple(range(50))
-       28| try:
-    -->29|     print(a[60], b[0])
+       23| a = list(range(40))
+       24| b = tuple(range(50))
+       25| try:
+    -->26|     print(a[60], b[0])
                      ^^^^^
-       30| except IndexError as e:
+       27| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
                 len(a): 40
@@ -1056,7 +1022,7 @@ Short tuple
     un `tuple` de longueur `3`.
     Les indices valides de `a` sont les entiers allant de `-3` à `2`.
     
-    Exception levée à la ligne 10 du fichier TESTS:\runtime\test_index_error.py.
+    Exception levée à la ligne `10` du fichier 'TESTS:\runtime\test_index_error.py'.
     
         7| a = (1, 2, 3)
         8| b = [1, 2, 3]
@@ -1080,7 +1046,7 @@ ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1008, in pop
+      File "PYTHON_LIB:\collections\__init__.py", line 1056, in pop
         return self.maps[0].pop(key, *args)
     KeyError: 42
     
@@ -1096,7 +1062,7 @@ ChainMap
     
     La clé `42` est introuvable dans `d`, un objet de type `ChainMap`.
     
-    Exception levée à la ligne 62 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `62` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        59| from collections import ChainMap
        60| d = ChainMap({}, {})
@@ -1130,7 +1096,7 @@ Forgot to convert to string
     `squares` contient une clé identique à `str(2)`.
     Peut-être avez-vous oublié de convertir la clé en une chaîne.
     
-    Exception levée à la ligne 115 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `115` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        112| def test_Forgot_to_convert_to_string():
        113|     squares = {"1": 1, "2": 4, "3": 9}
@@ -1159,7 +1125,7 @@ Generic key error
     
     La clé `'c'` est introuvable dans le dict `d`.
     
-    Exception levée à la ligne 44 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `44` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        41| def test_Generic_key_error():
        42|     d = {"a": 1, "b": 2}
@@ -1179,7 +1145,7 @@ Popitem empty ChainMap
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\collections\__init__.py", line 1001, in popitem
+      File "PYTHON_LIB:\collections\__init__.py", line 1049, in popitem
         return self.maps[0].popitem()
     KeyError: 'popitem(): dictionary is empty'
     
@@ -1197,7 +1163,7 @@ Popitem empty ChainMap
     
     Vous avez essayé de récupérer un élément de `alpha` qui est une `ChainMap` vide.
     
-    Exception levée à la ligne 26 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `26` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        23| from collections import ChainMap
        24| alpha = ChainMap({}, {})
@@ -1229,7 +1195,7 @@ Popitem empty dict
     
     Vous avez essayé de récupérer un élément de `d` qui est un `dict` vide.
     
-    Exception levée à la ligne 8 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `8` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        5| def test_Popitem_empty_dict():
        6|     d = {}
@@ -1263,7 +1229,7 @@ Similar names
     `second` a quelques clés similaires à `'alpha'` dont :
     `'alpha0', 'alpha11', 'alpha12'`.
     
-    Exception levée à la ligne 145 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `145` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        141|     assert ok, diff
        142| 
@@ -1298,7 +1264,7 @@ String by mistake
     Il y a une clé de `d` dont la représentation en une chaîne
     est identique à `'(0, 0)'`.
     
-    Exception levée à la ligne 98 du fichier TESTS:\runtime\test_key_error.py.
+    Exception levée à la ligne `98` du fichier 'TESTS:\runtime\test_key_error.py'.
     
        94| chain_map_string_by_mistake()  # do not show in docs
        95| 
@@ -1331,7 +1297,7 @@ Generic
     lorsqu’une clé ou un indice utilisé sur un tableau de correspondance ou une séquence est invalide.
     Elle peut également être levée directement par codecs.lookup().
     
-    Exception levée à la ligne 10 du fichier TESTS:\runtime\test_lookup_error.py.
+    Exception levée à la ligne `10` du fichier 'TESTS:\runtime\test_lookup_error.py'.
     
         4| def test_Generic():
         5|     try:
@@ -1369,7 +1335,7 @@ Need to install module
     Aucun module nommé `alphabet` ne peut être importé.
     Vous devez peut-être l'installer.
     
-    Exception levée à la ligne 76 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `76` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        74| def test_Need_to_install_module():
        75|     try:
@@ -1396,7 +1362,7 @@ Not a package
     `xxx` ne peut pas être importé de `os`.
     
     
-    Exception levée à la ligne 22 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `22` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        19| def test_Not_a_package():
        20| 
@@ -1427,7 +1393,7 @@ Not a package similar name
     `path` est un nom semblable à `pathh` et est un module qui
     peut être importé de `os`.
     
-    Exception levée à la ligne 36 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `36` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        34| def test_Not_a_package_similar_name():
        35|     try:
@@ -1455,7 +1421,7 @@ Object not module
     
     `open` n’est pas un module distinct, mais un objet qui fait partie de `os`.
     
-    Exception levée à la ligne 49 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `49` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        47| def test_Object_not_module():
        48|     try:
@@ -1490,7 +1456,7 @@ Similar object not module
     D’autres objets avec des noms similaires qui font partie de
     `os` comprennent `popen`.
     
-    Exception levée à la ligne 62 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `62` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        60| def test_Similar_object_not_module():
        61|     try:
@@ -1518,9 +1484,10 @@ Standard library module
     
     Aucun module nommé `Tkinter` ne peut être importé.
     Vous devez peut-être l'installer.
-    `tkinter` est un module existant qui a un nom similaire.
+    Les modules existants suivants ont des noms similaires 
+    au module que vous avez essayé d’importer : `tkinter, _tkinter`
     
-    Exception levée à la ligne 7 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `7` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        5| def test_Standard_library_module():
        6|     try:
@@ -1549,7 +1516,7 @@ no curses
     Vous avez essayé d’importer le module curses.
     Le module curses est rarement installé avec Python sur Windows.
     
-    Exception levée à la ligne 92 du fichier TESTS:\runtime\test_module_not_found_error.py.
+    Exception levée à la ligne `92` du fichier 'TESTS:\runtime\test_module_not_found_error.py'.
     
        90| def test_no_curses():
        91|     try:
@@ -1590,7 +1557,7 @@ Annotated variable
     
         x = 3
     
-    Exception levée à la ligne 30 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `30` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        28| def test_Annotated_variable():
        29|     try:
@@ -1606,7 +1573,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 198, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 239, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1618,13 +1585,13 @@ Custom name
     utilisé avant qu'on ne lui ait associé une valeur.
     
     Vous utilisez déjà Python!
-    Exception levée à la ligne 198 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `239` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       196| def test_Custom_name():
-       197|     try:
-    -->198|         python
+       237| def test_Custom_name():
+       238|     try:
+    -->239|         python
                     ^^^^^^
-       199|     except NameError as e:
+       240|     except NameError as e:
 
 
 Free variable referenced
@@ -1634,13 +1601,13 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 182, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 223, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 178, in outer
+      File "TESTS:\runtime\test_name_error.py", line 219, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 177, in inner
+      File "TESTS:\runtime\test_name_error.py", line 218, in inner
         return var
-    NameError: free variable 'var' referenced before assignment in enclosing scope
+    NameError: free variable 'var' referenced before assignment in enclosing scope. Did you mean: 'vars'?
     
     Une exception `NameError` indique que le nom d'une variable
     ou d'une fonction n'est pas connue par Python.
@@ -1652,23 +1619,23 @@ Free variable referenced
     qui existe dans une portée englobante,
     mais qui n'a pas encore reçu de valeur.
     
-    L'exécution s'est arrêtée à la ligne 182 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne `223` du fichier 'TESTS:\runtime\test_name_error.py'
     
-       178|     inner()
-       179|     var = 4
-       180| 
-       181| try:
-    -->182|     outer()
+       219|     inner()
+       220|     var = 4
+       221| 
+       222| try:
+    -->223|     outer()
                 ^^^^^^^
-       183| except NameError as e:
+       224| except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Exception levée à la ligne 177 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `218` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       176| def inner():
-    -->177|     return var
+       217| def inner():
+    -->218|     return var
                        ^^^
 
 
@@ -1692,7 +1659,7 @@ Generic
     Dans votre programme, aucun objet portant le nom `something` n'existe.
     Je n’ai pas d’informations supplémentaires pour vous.
     
-    Exception levée à la ligne 15 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `15` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        13| def test_Generic():
        14|     try:
@@ -1725,12 +1692,8 @@ Missing import
     Peut-être avez-vous oublié d’importer `unicodedata` qui se trouve
     dans la bibliothèque standard de Python.
     
-    `unicodedata` est un nom trouvé dans le module `stringprep`.
-    Vous avez peut-être oublié d'écrire
     
-        from stringprep import unicodedata
-    
-    Exception levée à la ligne 135 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `135` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        131| if friendly_traceback.get_lang() == "en":
        132|     assert "I have no additional information for you." in result
@@ -1748,9 +1711,9 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 281, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 322, in test_Missing_module_name
         frame = Frame()
-    NameError: name 'Frame' is not defined
+    NameError: name 'Frame' is not defined. Did you mean: 'frame'?
     
         Avez-vous oublié d’ajouter `tkinter.` ?
         
@@ -1767,18 +1730,18 @@ Missing module name
     Peut-être que vous auriez dû écrire `tkinter.Frame`
     au lieu de `Frame`.
     
-    `Frame` est un nom trouvé dans les modules suivants de la bibliothèque standard :
+    `Frame` est un nom trouvé dans les modules suivants :
     tkinter, tracemalloc.
     Vous avez peut-être oublié d'importer `Frame` de l'un de ces modules.
     
-    Exception levée à la ligne 281 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `322` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       278| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-       279| def test_Missing_module_name():
-       280|     try:
-    -->281|         frame = Frame()
+       319| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+       320| def test_Missing_module_name():
+       321|     try:
+    -->322|         frame = Frame()
                             ^^^^^
-       282|     except NameError as e:
+       323|     except NameError as e:
 
 
 Missing self 1
@@ -1788,9 +1751,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 233, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 274, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 224, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 265, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1808,28 +1771,28 @@ Missing self 1
     Peut-être que vous auriez dû écrire `self.add_toy(...`
     au lieu de `add_toy(self, ...`.
     
-    L'exécution s'est arrêtée à la ligne 233 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne `274` du fichier 'TESTS:\runtime\test_name_error.py'
     
-       229|             return "{} has no toys".format(self.name)
-       230| 
-       231| a = Pet('Fido')
-       232| try:
-    -->233|     str(a)
+       270|             return "{} has no toys".format(self.name)
+       271| 
+       272| a = Pet('Fido')
+       273| try:
+    -->274|     str(a)
                 ^^^^^^
-       234| except NameError as e:
+       275| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception levée à la ligne 224 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `265` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       222| def __str__(self):
-       223|     # self at the wrong place
-    -->224|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+       263| def __str__(self):
+       264|     # self at the wrong place
+    -->265|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                             ^^^^^^^
-       225|                         self, 'something')
-       226|     if self.toys:
+       266|                         self, 'something')
+       267|     if self.toys:
 
 
 Missing self 2
@@ -1839,9 +1802,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 267, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 308, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 259, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 300, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1860,27 +1823,27 @@ Missing self 2
     Peut-être que vous auriez dû écrire `self.add_toy`
     au lieu de `add_toy`.
     
-    L'exécution s'est arrêtée à la ligne 267 du fichier TESTS:\runtime\test_name_error.py
+    L'exécution s'est arrêtée à la ligne `308` du fichier 'TESTS:\runtime\test_name_error.py'
     
-       263|             return "{} has no toys".format(self.name)
-       264| 
-       265| a = Pet('Fido')
-       266| try:
-    -->267|     str(a)
+       304|             return "{} has no toys".format(self.name)
+       305| 
+       306| a = Pet('Fido')
+       307| try:
+    -->308|     str(a)
                 ^^^^^^
-       268| except NameError as e:
+       309| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception levée à la ligne 259 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `300` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       257| def __str__(self):
-       258|     # Missing self.
-    -->259|     toys_list = add_toy('something')
+       298| def __str__(self):
+       299|     # Missing self.
+    -->300|     toys_list = add_toy('something')
                             ^^^^^^^
-       260|     if self.toys:
+       301|     if self.toys:
 
 
 Synonym
@@ -1892,7 +1855,7 @@ Synonym
     Traceback (most recent call last):
       File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
         cost  # wrote from math import * above
-    NameError: name 'cost' is not defined
+    NameError: name 'cost' is not defined. Did you mean: 'cos'?
     
         Vouliez-vous dire `cos` ?
         
@@ -1906,7 +1869,7 @@ Synonym
     Au lieu d’écrire `cost`, peut-être que vous vouliez écrire l'un des noms suivants :
     *    Portée globale : `cos`, `cosh`
     
-    Exception levée à la ligne 95 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `95` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        91| if friendly_traceback.get_lang() == "en":
        92|     assert "The Python builtin `chr` has a similar name." in result
@@ -1935,11 +1898,11 @@ missing import2
     utilisé avant qu'on ne lui ait associé une valeur.
     
     Dans votre programme, aucun objet portant le nom `ABCMeta` n'existe.
-    `ABCMeta` est un nom trouvé dans les modules suivants de la bibliothèque standard :
-    abc, numbers, selectors, typing.
+    `ABCMeta` est un nom trouvé dans les modules suivants :
+    selectors, typing, abc, numbers.
     Vous avez peut-être oublié d'importer `ABCMeta` de l'un de ces modules.
     
-    Exception levée à la ligne 149 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `149` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        147| def test_missing_import2():
        148|     try:
@@ -1971,13 +1934,115 @@ missing import3
     
         from socket import AF_APPLETALK
     
-    Exception levée à la ligne 163 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `163` du fichier 'TESTS:\runtime\test_name_error.py'.
     
        161| def test_missing_import3():
        162|     try:
     -->163|         AF_APPLETALK
                     ^^^^^^^^^^^^
        164|     except NameError as e:
+
+
+missing import from other 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 177, in test_missing_import_from_other_1
+        fake_module_name.something()
+    NameError: name 'fake_module_name' is not defined
+    
+        Avez-vous oublié d’importer `fake_module_name` ?
+        
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    
+    Le nom `fake_module_name` n'est pas défini dans votre programme.
+    Vous avez peut-être oublié d'importer `fake_module_name` qui est une bibliothèque connue.
+    
+    
+    Exception levée à la ligne `177` du fichier 'TESTS:\runtime\test_name_error.py'.
+    
+       174| def test_missing_import_from_other_1():
+       175|     friendly_traceback.add_other_module_names(["fake_module_name"])
+       176|     try:
+    -->177|         fake_module_name.something()
+                    ^^^^^^^^^^^^^^^^
+       178|     except NameError as e:
+
+
+missing import from other 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 191, in test_missing_import_from_other_2
+        plt.something
+    NameError: name 'plt' is not defined
+    
+        Avez-vous oublié d'importer `matplotlib.pyplot` ?
+        
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    
+    Le nom `plt` n'est pas défini dans votre programme.
+    Vous avez peut-être oublié d'écrire
+    
+       import matplotlib.pyplot as plt
+    
+    
+    Exception levée à la ligne `191` du fichier 'TESTS:\runtime\test_name_error.py'.
+    
+       188| def test_missing_import_from_other_2():
+       189|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+       190|     try:
+    -->191|         plt.something
+                    ^^^
+       192|     except NameError as e:
+
+
+missing import from other 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_name_error.py", line 204, in test_missing_import_from_other_3
+        show()
+    NameError: name 'show' is not defined
+    
+    Une exception `NameError` indique que le nom d'une variable
+    ou d'une fonction n'est pas connue par Python.
+    Habituellement, ceci indique une simple faute d'orthographe.
+    Cependant, cela peut également indiquer que le nom a été
+    utilisé avant qu'on ne lui ait associé une valeur.
+    
+    Dans votre programme, aucun objet portant le nom `show` n'existe.
+    `show` est un nom trouvé dans les modules suivants :
+    mailcap, matplotlib.pyplot, funny.
+    Vous avez peut-être oublié d'importer `show` de l'un de ces modules.
+    
+    Exception levée à la ligne `204` du fichier 'TESTS:\runtime\test_name_error.py'.
+    
+       201| def test_missing_import_from_other_3():
+       202|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+       203|     try:
+    -->204|         show()
+                    ^^^^
+       205|     except NameError as e:
 
 
 special keyword
@@ -1987,7 +2052,7 @@ special keyword
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 312, in test_special_keyword
+      File "TESTS:\runtime\test_name_error.py", line 353, in test_special_keyword
         brek
     NameError: name 'brek' is not defined
     
@@ -2001,14 +2066,14 @@ special keyword
     
     Cependant, je soupçonne que vous avez écrit le mot-clé `break` par erreur.
     
-    Exception levée à la ligne 312 du fichier TESTS:\runtime\test_name_error.py.
+    Exception levée à la ligne `353` du fichier 'TESTS:\runtime\test_name_error.py'.
     
-       309| if friendly_traceback.get_lang() == "en":
-       310|     assert "Did you mean `continue`" in result
-       311| try:
-    -->312|     brek
+       350| if friendly_traceback.get_lang() == "en":
+       351|     assert "Did you mean `continue`" in result
+       352| try:
+    -->353|     brek
                 ^^^^
-       313| except NameError as e:
+       354| except NameError as e:
 
 
 OsError
@@ -2022,11 +2087,11 @@ Urllib error
 
 
     Traceback (most recent call last):
-      File "PYTHON_LIB:\urllib\request.py", line 1346, in do_open
+      File "PYTHON_LIB:\urllib\request.py", line 1348, in do_open
            ... Plus de lignes non affichées. ...
-      File "PYTHON_LIB:\socket.py", line 823, in create_connection
+      File "PYTHON_LIB:\socket.py", line 824, in create_connection
         for res in getaddrinfo(host, port, 0, SOCK_STREAM):
-      File "PYTHON_LIB:\socket.py", line 954, in getaddrinfo
+      File "PYTHON_LIB:\socket.py", line 955, in getaddrinfo
         for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
     socket.gaierror: [Errno 11001] getaddrinfo failed
     
@@ -2038,6 +2103,8 @@ Urllib error
     URLError: <urlopen error [Errno 11001] getaddrinfo failed>
     
     Une exception de type `URLError` est une sous-classe de `OSError`.
+    Rien de plus précis n'est connu au sujet de `URLError`.
+    
     Une exception `OSError` est généralement levée par le système d’exploitation
     pour indiquer qu’une opération n’est pas autorisée ou
     qu'une ressource n’est pas disponible.
@@ -2048,7 +2115,7 @@ Urllib error
     Si c’est le cas, vérifiez les fautes de frappe dans l’URL
     et vérifiez votre connectivité Internet.
     
-    Exception levée à la ligne 10 du fichier TESTS:\runtime\test_os_error.py.
+    Exception levée à la ligne `10` du fichier 'TESTS:\runtime\test_os_error.py'.
     
         6| @pytest.mark.skipif(random.randint(0, 50) < 59, reason="very long test")
         7| def test_Urllib_error():
@@ -2089,7 +2156,7 @@ invalid argument
     fichier ou du chemin d'accès, ou remplacer tous les caractères
     simples, `\`, par des caractères doubles : `\\`.
     
-    Exception levée à la ligne 48 du fichier TESTS:\runtime\test_os_error.py.
+    Exception levée à la ligne `48` du fichier 'TESTS:\runtime\test_os_error.py'.
     
        45| if os.name != "nt":
        46|     return "Windows test only", "No result"
@@ -2127,7 +2194,7 @@ no information
     Si vous utilisez la console Friendly, utilisez `www()` pour
     faire une recherche sur Internet pour ce cas particulier.
     
-    Exception levée à la ligne 29 du fichier TESTS:\runtime\test_os_error.py.
+    Exception levée à la ligne `29` du fichier 'TESTS:\runtime\test_os_error.py'.
     
        26| old_debug = friendly_traceback.debug_helper.DEBUG
        27| friendly_traceback.debug_helper.DEBUG = False
@@ -2157,7 +2224,7 @@ Generic
     Une exception de type `OverflowError` est levée lorsque le résultat d’une opération arithmétique
     est trop grand pour être manipulé par le processeur de l’ordinateur.
     
-    Exception levée à la ligne 6 du fichier TESTS:\runtime\test_overflow_error.py.
+    Exception levée à la ligne `6` du fichier 'TESTS:\runtime\test_overflow_error.py'.
     
        4| def test_Generic():
        5|     try:
@@ -2180,7 +2247,7 @@ Huge lenght
     Une exception de type `OverflowError` est levée lorsque le résultat d’une opération arithmétique
     est trop grand pour être manipulé par le processeur de l’ordinateur.
     
-    Exception levée à la ligne 24 du fichier TESTS:\runtime\test_overflow_error.py.
+    Exception levée à la ligne `24` du fichier 'TESTS:\runtime\test_overflow_error.py'.
     
        21| def test_Huge_lenght():
        22|     huge = range(1<<10000)
@@ -2221,7 +2288,7 @@ Generic
     Cette exception indique presque toujours que vous avez fait une erreur dans votre code
     et que votre programme ne terminerait jamais.
     
-    L'exécution s'est arrêtée à la ligne 8 du fichier TESTS:\runtime\test_recursion_error.py
+    L'exécution s'est arrêtée à la ligne `8` du fichier 'TESTS:\runtime\test_recursion_error.py'
     
        5| def a():
        6|     return a()
@@ -2232,7 +2299,7 @@ Generic
 
             a:  <function a> defined in <function test_Generic>
         
-    Exception levée à la ligne 6 du fichier TESTS:\runtime\test_recursion_error.py.
+    Exception levée à la ligne `6` du fichier 'TESTS:\runtime\test_recursion_error.py'.
     
        5| def a():
     -->6|     return a()
@@ -2253,7 +2320,7 @@ Argument of object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 804, in test_Argument_of_object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 794, in test_Argument_of_object_is_not_iterable
         a in b
     TypeError: argument of type 'object' is not iterable
     
@@ -2266,14 +2333,14 @@ Argument of object is not iterable
     Les conteneurs Python (`list, tuple, dict`, etc.) sont des itérables.
     b' n'est pas un conteneur. Un conteneur est nécessaire ici.
     
-    Exception levée à la ligne 804 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `794` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       801| a = object()
-       802| b = object()
-       803| try:
-    -->804|     a in b
+       791| a = object()
+       792| b = object()
+       793| try:
+    -->794|     a in b
                 ^^^^^^
-       805| except TypeError as e:
+       795| except TypeError as e:
 
             a:  <object object>
             b:  <object object>
@@ -2287,7 +2354,7 @@ Bad type for unary operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 398, in test_Bad_type_for_unary_operator
+      File "TESTS:\runtime\test_type_error.py", line 410, in test_Bad_type_for_unary_operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
@@ -2303,16 +2370,16 @@ Bad type for unary operator
     
     Peut-être que vous vouliez plutôt écrire `+=` au lieu de `=+`
     
-    Exception levée à la ligne 398 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `410` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       393|     assert "You tried to use the unary operator '~'" in result
-       394| 
-       395| try:
-       396|     # fmt: off
-       397|     a = "abc"
-    -->398|     a =+ "def"
+       405|     assert "You tried to use the unary operator '~'" in result
+       406| 
+       407| try:
+       408|     # fmt: off
+       409|     a = "abc"
+    -->410|     a =+ "def"
                    ^^^^^^^
-       399|     # fmt: on
+       411|     # fmt: on
 
 
 Builtin has no len
@@ -2322,7 +2389,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 859, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 849, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2337,13 +2404,13 @@ Builtin has no len
     Vous avez peut-être voulu écrire :
     `len("Hello world".split())`
     
-    Exception levée à la ligne 859 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `849` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       857| def test_Builtin_has_no_len():
-       858|     try:
-    -->859|         len("Hello world".split)
+       847| def test_Builtin_has_no_len():
+       848|     try:
+    -->849|         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       860|     except TypeError as e:
+       850|     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -2369,7 +2436,7 @@ Can only concatenate
     Vous avez essayé de concaténer (additionner) deux types d’objets différents:
     un `tuple` et une liste (`list`).
     
-    Exception levée à la ligne 39 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `39` du fichier 'TESTS:\runtime\test_type_error.py'.
     
        36| try:
        37|     a_tuple = (1, 2, 3)
@@ -2390,7 +2457,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 845, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 835, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2405,15 +2472,15 @@ Cannot convert dictionary update sequence
     Au lieu d’écrire `dd.update([1, 2, 3])`
     peut-être devriez-vous utiliser la méthode `dict.fromkeys()` : `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Exception levée à la ligne 845 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `835` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       841|     assert "you should use the `dict.fromkeys()`" in result
-       842| 
-       843| dd = {"a": "a"}
-       844| try:
-    -->845|     dd.update([1, 2, 3])
+       831|     assert "you should use the `dict.fromkeys()`" in result
+       832| 
+       833| dd = {"a": "a"}
+       834| try:
+    -->835|     dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-       846| except TypeError as e:
+       836| except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
@@ -2427,7 +2494,7 @@ Cannot multiply by non int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 614, in test_Cannot_multiply_by_non_int
+      File "TESTS:\runtime\test_type_error.py", line 610, in test_Cannot_multiply_by_non_int
         "a" * "2"
     TypeError: can't multiply sequence by non-int of type 'str'
     
@@ -2442,15 +2509,15 @@ Cannot multiply by non int
     les listes, les tuples, les chaînes, etc., que par des entiers.
     Peut-être avez-vous oublié de convertir `"2"` en un entier.
     
-    Exception levée à la ligne 614 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `610` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       610| if friendly_traceback.get_lang() == "en":
-       611|     assert "Did you forget to convert `c` into an integer?" in result
-       612| 
-       613| try:
-    -->614|     "a" * "2"
+       606| if friendly_traceback.get_lang() == "en":
+       607|     assert "Did you forget to convert `c` into an integer?" in result
+       608| 
+       609| try:
+    -->610|     "a" * "2"
                 ^^^^^^^^^
-       615| except TypeError as e:
+       611| except TypeError as e:
 
 
 Cannot unpack non iterable object
@@ -2460,7 +2527,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 817, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 807, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2475,12 +2542,12 @@ Cannot unpack non iterable object
     Les contenants python (`list, tuple, dict`, etc.) sont itérables,
     mais pas les objets de type `float`.
     
-    Exception levée à la ligne 817 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `807` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       815| def test_Cannot_unpack_non_iterable_object():
-       816|     try:
-    -->817|         a, b = 42.0
-       818|     except TypeError as e:
+       805| def test_Cannot_unpack_non_iterable_object():
+       806|     try:
+    -->807|         a, b = 42.0
+       808|     except TypeError as e:
 
 
 Comparison not supported
@@ -2490,7 +2557,7 @@ Comparison not supported
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 347, in test_Comparison_not_supported
+      File "TESTS:\runtime\test_type_error.py", line 359, in test_Comparison_not_supported
         b >= a
     TypeError: '>=' not supported between instances of 'int' and 'str'
     
@@ -2506,14 +2573,14 @@ Comparison not supported
     un entier (`int`) et une chaîne de caractères (`str`).
     Peut-être avez-vous oublié de convertir `a` en un entier (`int`).
     
-    Exception levée à la ligne 347 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `359` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       344| try:
-       345|     a = "2"
-       346|     b = 42
-    -->347|     b >= a
+       356| try:
+       357|     a = "2"
+       358|     b = 42
+    -->359|     b >= a
                 ^^^^^^
-       348| except TypeError as e:
+       360| except TypeError as e:
 
             a:  '2'
             b:  42
@@ -2527,7 +2594,7 @@ Derive from BaseException
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 557, in test_Derive_from_BaseException
+      File "TESTS:\runtime\test_type_error.py", line 553, in test_Derive_from_BaseException
         raise "exception"  # noqa
     TypeError: exceptions must derive from BaseException
     
@@ -2538,12 +2605,12 @@ Derive from BaseException
     
     Dans Python 3, les exceptions doivent être dérivées de BaseException.
     
-    Exception levée à la ligne 557 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `553` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       555| def test_Derive_from_BaseException():
-       556|     try:
-    -->557|         raise "exception"  # noqa
-       558|     except TypeError as e:
+       551| def test_Derive_from_BaseException():
+       552|     try:
+    -->553|         raise "exception"  # noqa
+       554|     except TypeError as e:
 
 
 Generator has no len
@@ -2553,7 +2620,7 @@ Generator has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 1014, in test_Generator_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 1004, in test_Generator_has_no_len
         nb = len(letter
     TypeError: object of type 'generator' has no len()
     
@@ -2568,17 +2635,17 @@ Generator has no len
     produits par une expression de générateur. Vous devez d'abord les capturer
     dans une liste :
     
-        len([letter for letter in "word"])
+        len([letter                 for letter in "word"])
     
-    Exception levée à la ligne 1014 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `1004` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       1012| def test_Generator_has_no_len():
-       1013|     try:
-    -->1014|         nb = len(letter
+       1002| def test_Generator_has_no_len():
+       1003|     try:
+    -->1004|         nb = len(letter
                           ^^^^^^^^^^
-       1015|                  for letter in "word")
+       1005|                  for letter in "word")
                               ^^^^^^^^^^^^^^^^^^^^^
-       1016|     except TypeError as e:
+       1006|     except TypeError as e:
 
             len:  <builtin function len>
         
@@ -2591,7 +2658,7 @@ Indices must be integers or slices
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 696, in test_Indices_must_be_integers_or_slices
+      File "TESTS:\runtime\test_type_error.py", line 692, in test_Indices_must_be_integers_or_slices
         [1, 2, 3]["2"]
     TypeError: list indices must be integers or slices, not str
     
@@ -2610,15 +2677,15 @@ Indices must be integers or slices
     
     Peut-être avez-vous oublié de convertir `"2"` en un entier.
     
-    Exception levée à la ligne 696 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `692` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       692| if friendly_traceback.get_lang() == "en":
-       693|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-       694| 
-       695| try:
-    -->696|     [1, 2, 3]["2"]
+       688| if friendly_traceback.get_lang() == "en":
+       689|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       690| 
+       691| try:
+    -->692|     [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
-       697| except TypeError as e:
+       693| except TypeError as e:
 
 
 Not an integer
@@ -2628,7 +2695,7 @@ Not an integer
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 659, in test_Not_an_integer
+      File "TESTS:\runtime\test_type_error.py", line 655, in test_Not_an_integer
         range(c, d)
     TypeError: 'str' object cannot be interpreted as an integer
     
@@ -2641,15 +2708,15 @@ Not an integer
     
     Vous avez écrit un objet de type `str` là où un entier était attendu.
     Peut-être avez-vous oublié de convertir `c, d` en entiers.
-    Exception levée à la ligne 659 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `655` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       655|     assert "Perhaps you forgot to convert `1.0" in result
-       656| 
-       657| c, d = "2", "3"
-       658| try:
-    -->659|     range(c, d)
+       651|     assert "Perhaps you forgot to convert `1.0" in result
+       652| 
+       653| c, d = "2", "3"
+       654| try:
+    -->655|     range(c, d)
                 ^^^^^^^^^^^
-       660| except TypeError as e:
+       656| except TypeError as e:
 
             c:  '2'
             d:  '3'
@@ -2664,7 +2731,7 @@ Not callable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 541, in test_Not_callable
+      File "TESTS:\runtime\test_type_error.py", line 540, in test_Not_callable
         _ = [1, 2](a + b)
     TypeError: 'list' object is not callable
     
@@ -2684,15 +2751,15 @@ Not callable
     Peut-être que vous vouliez utiliser `[]` au lieu de `()` et écrire
     `[1, 2][a + b]`
     
-    Exception levée à la ligne 541 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `540` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       537|     assert "b.a_list[3]" in result
-       538| 
-       539| try:
-       540|     a, b = 3, 7
-    -->541|     _ = [1, 2](a + b)
+       536|     assert "b.a_list[3]" in result
+       537| 
+       538| try:
+       539|     a, b = 3, 7
+    -->540|     _ = [1, 2](a + b)
                     ^^^^^^^^^^^^^
-       542| except TypeError as e:
+       541| except TypeError as e:
 
             a:  3
             b:  7
@@ -2707,7 +2774,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 788, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 778, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -2720,13 +2787,13 @@ Object is not iterable
     Les contenants python (`list, tuple, dict`, etc.) sont itérables.
     Une itérable est requis ici.
     
-    Exception levée à la ligne 788 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `778` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       786| def test_Object_is_not_iterable():
-       787|     try:
-    -->788|         list(42)
+       776| def test_Object_is_not_iterable():
+       777|     try:
+    -->778|         list(42)
                     ^^^^^^^^
-       789|     except TypeError as e:
+       779|     except TypeError as e:
 
             list:  <class list>
         
@@ -2739,7 +2806,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 771, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 764, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -2755,15 +2822,15 @@ Object is not subscriptable
     
     Peut-être que vous vouliez plutôt écrire `f(1)`.
     
-    Exception levée à la ligne 771 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `764` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       767| def f():
-       768|     pass
-       769| 
-       770| try:
-    -->771|     a = f[1]
+       760| def f():
+       761|     pass
+       762| 
+       763| try:
+    -->764|     a = f[1]
                     ^^^^
-       772| except TypeError as e:
+       765| except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
@@ -2777,7 +2844,7 @@ Slice indices must be integers or None
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 710, in test_Slice_indices_must_be_integers_or_None
+      File "TESTS:\runtime\test_type_error.py", line 706, in test_Slice_indices_must_be_integers_or_None
         [1, 2, 3][1.0:2.0]
     TypeError: slice indices must be integers or None or have an __index__ method
     
@@ -2792,13 +2859,13 @@ Slice indices must be integers or None
     chacune des variables `start`, `stop`, et `step` doit être soit un entier, soit `None`,
     ou possiblement un autre objet ayant une méthode `__index__`.
     
-    Exception levée à la ligne 710 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `706` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       708| def test_Slice_indices_must_be_integers_or_None():
-       709|     try:
-    -->710|         [1, 2, 3][1.0:2.0]
+       704| def test_Slice_indices_must_be_integers_or_None():
+       705|     try:
+    -->706|         [1, 2, 3][1.0:2.0]
                     ^^^^^^^^^^^^^^^^^^
-       711|     except TypeError as e:
+       707|     except TypeError as e:
 
 
 Too few positional argument
@@ -2808,27 +2875,27 @@ Too few positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 471, in test_Too_few_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_few_positional_argument
         fn(1)
-    TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
+    TypeError: test_Too_few_positional_argument.<locals>.fn() missing 2 required positional arguments: 'b' and 'c'
     
     Une exception `TypeError` est généralement causée par une tentative
     de combiner deux types d’objets incompatibles,
     en invoquant une fonction avec le mauvais type d’objet,
     ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
     
-    Vous avez apparemment invoqué la fonction 'fn()' avec
+    Vous avez apparemment invoqué la fonction 'test_Too_few_positional_argument.<locals>.fn()' avec
     moins d'arguments positionnels qu'il n'en faut (2 manquent).
     
-    Exception levée à la ligne 471 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `480` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       467| def fn(a, b, c):
-       468|     pass
-       469| 
-       470| try:
-    -->471|     fn(1)
+       476| def fn(a, b, c):
+       477|     pass
+       478| 
+       479| try:
+    -->480|     fn(1)
                 ^^^^^
-       472| except TypeError as e:
+       481| except TypeError as e:
 
             fn:  <function fn>
                 defined in <function test_Too_few_positional_argument>
@@ -2842,30 +2909,30 @@ Too many positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 452, in test_Too_many_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 461, in test_Too_many_positional_argument
         A().f(1)
-    TypeError: f() takes 1 positional argument but 2 were given
+    TypeError: test_Too_many_positional_argument.<locals>.A.f() takes 1 positional argument but 2 were given
     
-        Peut-être avez-vous oublié `self` lors de la définition de `f`.
+        Peut-être avez-vous oublié `self` lors de la définition de `A.f`.
         
     Une exception `TypeError` est généralement causée par une tentative
     de combiner deux types d’objets incompatibles,
     en invoquant une fonction avec le mauvais type d’objet,
     ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
     
-    Vous avez apparemment invoqué la fonction `f` avec
+    Vous avez apparemment invoqué la fonction `A.f` avec
     2 arguments positionnels alors qu'elle en requiert 1.
-    Peut-être avez-vous oublié `self` lors de la définition de `f`.
+    Peut-être avez-vous oublié `self` lors de la définition de `A.f`.
     
-    Exception levée à la ligne 452 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `461` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       448|     def f(x):
-       449|         pass
-       450| 
-       451| try:
-    -->452|     A().f(1)
+       457|     def f(x):
+       458|         pass
+       459| 
+       460| try:
+    -->461|     A().f(1)
                 ^^^^^^^^
-       453| except TypeError as e:
+       462| except TypeError as e:
 
             A:  <class A>
                 defined in <function test_type_error.test_Too_many_positional_argument>
@@ -2879,7 +2946,7 @@ Tuple no item assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 419, in test_Tuple_no_item_assignment
+      File "TESTS:\runtime\test_type_error.py", line 428, in test_Tuple_no_item_assignment
         a[0] = 0
     TypeError: 'tuple' object does not support item assignment
     
@@ -2896,14 +2963,14 @@ Tuple no item assignment
     probablement en utilisant une opération d’indexation.
     Peut-être que vous vouliez plutôt utiliser une liste.
     
-    Exception levée à la ligne 419 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `428` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       416| def test_Tuple_no_item_assignment():
-       417|     a = (1, 2, 3)
-       418|     try:
-    -->419|         a[0] = 0
+       425| def test_Tuple_no_item_assignment():
+       426|     a = (1, 2, 3)
+       427|     try:
+    -->428|         a[0] = 0
                     ^^^^
-       420|     except TypeError as e:
+       429|     except TypeError as e:
 
             a:  (1, 2, 3)
             a[0]:  1
@@ -2917,7 +2984,7 @@ Unhachable type
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 727, in test_Unhachable_type
+      File "TESTS:\runtime\test_type_error.py", line 723, in test_Unhachable_type
         {[1, 2]: 1}
     TypeError: unhashable type: 'list'
     
@@ -2931,12 +2998,12 @@ Unhachable type
     Les objets hachables sont des objets qui ne changent pas de valeur
     une fois qu’ils ont été créés.Au lieu d’utiliser une liste (`list`), envisagez d’utiliser un `tuple`.
     
-    Exception levée à la ligne 727 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `723` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       725| def test_Unhachable_type():
-       726|     try:
-    -->727|         {[1, 2]: 1}
-       728|     except TypeError as e:
+       721| def test_Unhachable_type():
+       722|     try:
+    -->723|         {[1, 2]: 1}
+       724|     except TypeError as e:
 
 
 Unsupported operand types
@@ -2961,7 +3028,7 @@ Unsupported operand types
     Cet opérateur est normalement utilisé uniquement
     pour la multiplication des matrices.
     
-    Exception levée à la ligne 310 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `310` du fichier 'TESTS:\runtime\test_type_error.py'.
     
        307| try:
        308|     a = "a"
@@ -2983,7 +3050,7 @@ divmod
     Traceback (most recent call last):
       File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
         result = divmod(a, b)
-    TypeError: can't take floor or mod of complex number.
+    TypeError: unsupported operand type(s) for divmod(): 'int' and 'complex'
     
     Une exception `TypeError` est généralement causée par une tentative
     de combiner deux types d’objets incompatibles,
@@ -2993,7 +3060,7 @@ divmod
     Les arguments de `divmod` doivent être des nombres entiers (`int`) ou réels (`float`).
     Au moins un des arguments était un nombre complexe.
     
-    Exception levée à la ligne 55 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `55` du fichier 'TESTS:\runtime\test_type_error.py'.
     
        52| a = 2
        53| b = 3 + 2j
@@ -3015,9 +3082,9 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 951, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 941, in test_function_got_multiple_argument
         fn2(0, a=1)
-    TypeError: fn2() got multiple values for argument 'a'
+    TypeError: test_function_got_multiple_argument.<locals>.fn2() got multiple values for argument 'a'
     
     Une exception `TypeError` est généralement causée par une tentative
     de combiner deux types d’objets incompatibles,
@@ -3029,15 +3096,15 @@ function got multiple argument
     Cette fonction a les arguments suivants :
     `a, b=1`
     
-    Exception levée à la ligne 951 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `941` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       947| def fn2(a, b=1):
-       948|     pass
-       949| 
-       950| try:
-    -->951|     fn2(0, a=1)
+       937| def fn2(a, b=1):
+       938|     pass
+       939| 
+       940| try:
+    -->941|     fn2(0, a=1)
                 ^^^^^^^^^^^
-       952| except TypeError as e:
+       942| except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -3051,7 +3118,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 876, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 866, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -3066,15 +3133,15 @@ function has no len
     Vous avez peut-être voulu écrire :
     `len(bad())`
     
-    Exception levée à la ligne 876 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `866` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       872| def bad():
-       873|     pass
-       874| 
-       875| try:
-    -->876|     len(bad)
+       862| def bad():
+       863|     pass
+       864| 
+       865| try:
+    -->866|     len(bad)
                 ^^^^^^^^
-       877| except TypeError as e:
+       867| except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
@@ -3088,7 +3155,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 997, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 987, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -3099,18 +3166,18 @@ getattr attribute name must be string
     
     Le deuxième argument de la fonction `getattr()` doit être une chaîne de caractères.
     
-    Exception levée à la ligne 997 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `987` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       990| if friendly_traceback.get_lang() == "en":
-       991|     assert (
-       992|         "The second argument of the function `hasattr()` must be a string."
-       993|         in result
-       994|     )
-       995| 
-       996| try:
-    -->997|     getattr("__repr__", 1)  # as reported in issue #77
+       980| if friendly_traceback.get_lang() == "en":
+       981|     assert (
+       982|         "The second argument of the function `hasattr()` must be a string."
+       983|         in result
+       984|     )
+       985| 
+       986| try:
+    -->987|     getattr("__repr__", 1)  # as reported in issue #77
                 ^^^^^^^^^^^^^^^^^^^^^^
-       998| except TypeError as e:
+       988| except TypeError as e:
 
             getattr:  <builtin function getattr>
         
@@ -3123,9 +3190,9 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 970, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 960, in test_method_got_multiple_argument
         t.some_method(0, a=1)
-    TypeError: some_method() got multiple values for argument 'a'
+    TypeError: test_method_got_multiple_argument.<locals>.T.some_method() got multiple values for argument 'a'
     
     Une exception `TypeError` est généralement causée par une tentative
     de combiner deux types d’objets incompatibles,
@@ -3136,15 +3203,15 @@ method got multiple argument
     lors de l'appel de la fonction nommée `t.some_method`.
     Cette fonction n'a qu'un seul argument : `a`
     
-    Exception levée à la ligne 970 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `960` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       966|         pass
-       967| 
-       968| t = T()
-       969| try:
-    -->970|     t.some_method(0, a=1)
+       956|         pass
+       957| 
+       958| t = T()
+       959| try:
+    -->960|     t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-       971| except TypeError as e:
+       961| except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -3161,7 +3228,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 920, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 910, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -3174,15 +3241,15 @@ vars arg must have dict
     de l'attribut `__dict__` d'un objet.
     L'objet `f` utilise `__slots__` au lieu de `__dict__`.
     
-    Exception levée à la ligne 920 du fichier TESTS:\runtime\test_type_error.py.
+    Exception levée à la ligne `910` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       916|     assert no_slots not in result
-       917|     assert use_slots not in result
-       918| 
-       919| try:
-    -->920|     vars(f)
+       906|     assert no_slots not in result
+       907|     assert use_slots not in result
+       908| 
+       909| try:
+    -->910|     vars(f)
                 ^^^^^^^
-       921| except TypeError as e:
+       911| except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3237,7 +3304,7 @@ Missing both
     
     comme la première ligne à l’intérieur de votre fonction.
     
-    L'exécution s'est arrêtée à la ligne 63 du fichier TESTS:\runtime\test_unbound_local_error.py
+    L'exécution s'est arrêtée à la ligne `63` du fichier 'TESTS:\runtime\test_unbound_local_error.py'
     
        61| def test_Missing_both():
        62|     try:
@@ -3247,7 +3314,7 @@ Missing both
 
             global outer_missing_both:  <function outer_missing_both>
         
-    Exception levée à la ligne 21 du fichier TESTS:\runtime\test_unbound_local_error.py.
+    Exception levée à la ligne `21` du fichier 'TESTS:\runtime\test_unbound_local_error.py'.
     
        20| def inner():
     -->21|     spam_missing_both += 1
@@ -3293,7 +3360,7 @@ Missing global
     
     aurait dû être incluse comme première ligne à l’intérieur de votre fonction.
     
-    L'exécution s'est arrêtée à la ligne 27 du fichier TESTS:\runtime\test_unbound_local_error.py
+    L'exécution s'est arrêtée à la ligne `27` du fichier 'TESTS:\runtime\test_unbound_local_error.py'
     
        25| def test_Missing_global():
        26|     try:
@@ -3303,7 +3370,7 @@ Missing global
 
             global outer_missing_global:  <function outer_missing_global>
         
-    Exception levée à la ligne 9 du fichier TESTS:\runtime\test_unbound_local_error.py.
+    Exception levée à la ligne `9` du fichier 'TESTS:\runtime\test_unbound_local_error.py'.
     
        8| def inner():
     -->9|     spam_missing_global += 1
@@ -3349,7 +3416,7 @@ Missing nonlocal
     
     aurait dû être incluse comme première ligne à l’intérieur de votre fonction.
     
-    L'exécution s'est arrêtée à la ligne 45 du fichier TESTS:\runtime\test_unbound_local_error.py
+    L'exécution s'est arrêtée à la ligne `45` du fichier 'TESTS:\runtime\test_unbound_local_error.py'
     
        43| def test_Missing_nonlocal():
        44|     try:
@@ -3359,7 +3426,7 @@ Missing nonlocal
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
-    Exception levée à la ligne 15 du fichier TESTS:\runtime\test_unbound_local_error.py.
+    Exception levée à la ligne `15` du fichier 'TESTS:\runtime\test_unbound_local_error.py'.
     
        14| def inner():
     -->15|     spam_missing_nonlocal += 1
@@ -3393,7 +3460,7 @@ Typo in local
     Au lieu d’écrire `alpha3`, peut-être que vous vouliez écrire l'un des noms suivants :
     *    Portée locale : `alpha1`, `alpha2`
     
-    L'exécution s'est arrêtée à la ligne 101 du fichier TESTS:\runtime\test_unbound_local_error.py
+    L'exécution s'est arrêtée à la ligne `101` du fichier 'TESTS:\runtime\test_unbound_local_error.py'
     
         97|     alpha2 = 1
         98|     alpha3 += 1
@@ -3405,7 +3472,7 @@ Typo in local
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    Exception levée à la ligne 98 du fichier TESTS:\runtime\test_unbound_local_error.py.
+    Exception levée à la ligne `98` du fichier 'TESTS:\runtime\test_unbound_local_error.py'.
     
        95| def test2():
        96|     alpha1 = 1
@@ -3443,7 +3510,7 @@ Using name of builtin
     Notez que ce n'est généralement pas une bonne idée de donner à une variable locale
     le même nom qu'une fonction Python de type 'builtin' (comme `max`).
     
-    L'exécution s'est arrêtée à la ligne 121 du fichier TESTS:\runtime\test_unbound_local_error.py
+    L'exécution s'est arrêtée à la ligne `121` du fichier 'TESTS:\runtime\test_unbound_local_error.py'
     
        118|     min = min(points)
        119|     return max - min
@@ -3454,7 +3521,7 @@ Using name of builtin
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
         
-    Exception levée à la ligne 117 du fichier TESTS:\runtime\test_unbound_local_error.py.
+    Exception levée à la ligne `117` du fichier 'TESTS:\runtime\test_unbound_local_error.py'.
     
        116| def dist(points):
     -->117|     max = max(points)
@@ -3476,25 +3543,24 @@ Generic
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unknown_error.py", line 12, in test_Generic
+      File "TESTS:\runtime\test_unknown_error.py", line 24, in test_Generic
         raise UnknownException("Some informative message about an unknown exception.")
     UnknownException: Some informative message about an unknown exception.
     
-    Aucune information n’est disponible au sujet de cette exception.
-    Veuillez signaler cet exemple à
-    https://github.com/friendly-traceback/friendly-traceback/issues/new
-    Si vous utilisez un REPL, utilisez `www('bug')` pour le faire.
+    Une exception de type `UnknownException` est une sous-classe de `Exception`.
+    Rien de plus précis n'est connu au sujet de `UnknownException`.
     
-    Si vous utilisez la console Friendly, utilisez `www()` pour
-    faire une recherche sur Internet pour ce cas particulier.
+    Toutes les exceptions intégrées définies par Python sont dérivées de `Exception`.
+    Toutes les exceptions définies par l'utilisateur doivent également être dérivées de cette classe.
     
-    Exception levée à la ligne 12 du fichier TESTS:\runtime\test_unknown_error.py.
+    Exception levée à la ligne `24` du fichier 'TESTS:\runtime\test_unknown_error.py'.
     
-        9| old_debug = friendly_traceback.debug_helper.DEBUG
-       10| friendly_traceback.debug_helper.DEBUG = False
-       11| try:
-    -->12|     raise UnknownException("Some informative message about an unknown exception.")
-       13| except Exception as e:
+       20| result = friendly_traceback.get_output()
+       21| assert "UnknownException -> Exception" in result
+       22| 
+       23| try:
+    -->24|     raise UnknownException("Some informative message about an unknown exception.")
+       25| except Exception as e:
 
             global UnknownException:  <class test_unknown_error.UnknownException>
         
@@ -3523,7 +3589,7 @@ Convert to int
     contenant les chiffres `0` à `9` en un nombre entier.
     Les caractères suivants ne sont pas permis : `a`.
     
-    Exception levée à la ligne 187 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `187` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        183| if english:
        184|     assert "needs to be first converted using `float()`" in result
@@ -3551,9 +3617,10 @@ Could not convert to float
     Une exception `ValueError` indique qu'une fonction ou une opération
     a reçu un argument du bon type, mais une valeur inappropriée.
     
-    La chaîne `42b` ne peut pas être convertie en un nombre décimal (`float`).
+    La chaîne de caractères `42b` ne peut pas être convertie en `float`
+    car elle ne représente pas un nombre.
     
-    Exception levée à la ligne 88 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `88` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        86| def test_Could_not_convert_to_float():
        87|     try:
@@ -3584,7 +3651,7 @@ Date invalid month
     Je crois que vous avez indiqué une valeur non valide pour le mois
     dans un objet de type `date`. Les valeurs valides sont les entiers de 1 à 12.
     
-    Exception levée à la ligne 58 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `58` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        55| def test_Date_invalid_month():
        56|     from datetime import date
@@ -3616,7 +3683,7 @@ Not enough values to unpack
     Dans ce cas-ci, il y a plus de noms (3)
     que la longueur de l’itérable, une chaîne de caractères (`str`) de longueur 2.
     
-    Exception levée à la ligne 28 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `28` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        24| assert "ValueError: not enough values to unpack (expected 3, got 2)" in result
        25| 
@@ -3645,7 +3712,7 @@ Pow third arg cannot be zero
     
     Le troisième argument de la fonction `pow()` ne peut pas être zéro.
     
-    Exception levée à la ligne 103 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `103` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        100| def test_Pow_third_arg_cannot_be_zero():
        101|     a = 0
@@ -3677,7 +3744,7 @@ Slots conflicts with class variable
     et comme élément de chaîne de caractères dans l'attribut `__slots__` d'une classe ;
     ceci n'est pas autorisé.
     
-    Exception levée à la ligne 72 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `72` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        70| def test_Slots_conflicts_with_class_variable():
        71|     try:
@@ -3704,7 +3771,7 @@ Too many values to unpack
     Dans ce cas-ci, il y a moins de noms (2)
     que la longueur de l’itérable, une liste (`list`) de longueur 3.
     
-    Exception levée à la ligne 43 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `43` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        40| def test_Too_many_values_to_unpack():
        41|     c = [1, 2, 3]
@@ -3734,7 +3801,7 @@ int base not in range
     ou un nombre entier de 2 à 36.
     Vous avez écrit 37, ce qui n'est pas valide.
     
-    Exception levée à la ligne 201 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `201` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        199| def test_int_base_not_in_range():
        200|     try:
@@ -3743,6 +3810,38 @@ int base not in range
        202|     except ValueError as e:
 
             int:  <class int>
+        
+
+
+remove item not in list
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_value_error.py", line 227, in test_remove_item_not_in_list
+        a_list.remove(b)
+    ValueError: list.remove(x): x not in list
+    
+    Une exception `ValueError` indique qu'une fonction ou une opération
+    a reçu un argument du bon type, mais une valeur inappropriée.
+    
+    Vous avez tenté de supprimer `b` de la liste `a_list`.
+    Cependant, `a_list` ne contient pas `b`.
+    
+    Exception levée à la ligne `227` du fichier 'TESTS:\runtime\test_value_error.py'.
+    
+       224| a_list = [1, 2, 3]
+       225| b = 4
+       226| try:
+    -->227|     a_list.remove(b)
+                ^^^^^^^^^^^^^^^^
+       228| except ValueError as e:
+
+            a_list:  [1, 2, 3]
+            b:  4
+            a_list.remove:  <builtin method remove of list object>
         
 
 
@@ -3768,7 +3867,7 @@ time strptime incorrect format
     https://docs.python.org/fr/3/library/time.html#time.strftime
     Le site suivant peut également être utile : https://www.strfti.me/ (anglais seulement).
     
-    Exception levée à la ligne 127 du fichier TESTS:\runtime\test_value_error.py.
+    Exception levée à la ligne `127` du fichier 'TESTS:\runtime\test_value_error.py'.
     
        123|     return
        124| 
@@ -3807,7 +3906,7 @@ Complex division
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 173 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `173` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        170| def test_Complex_division():
        171|     zero = 0j
@@ -3836,7 +3935,7 @@ Division by zero literal
     
     Vous divisez par zéro.
     
-    Exception levée à la ligne 220 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `220` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        216| if friendly_traceback.get_lang() == "en":
        217|     assert "Using the modulo operator, you are dividing by zero" in result
@@ -3867,7 +3966,7 @@ Division operator
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 20 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `20` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        13| if friendly_traceback.get_lang() == "en":
        14|     assert (
@@ -3900,7 +3999,7 @@ Divmod
     
     Le deuxième argument de la fonction `divmod()` est égal à zéro.
     
-    Exception levée à la ligne 97 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `97` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        94| def test_Divmod():
        95|     zero = 0
@@ -3934,7 +4033,7 @@ Float division
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 143 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `143` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        140| def test_Float_division():
        141|     zero = 0.0
@@ -3963,7 +4062,7 @@ Float divmod
     
     Le deuxième argument de la fonction `divmod()` est égal à zéro.
     
-    Exception levée à la ligne 158 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `158` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        155| def test_Float_divmod():
        156|     zero = 0.0
@@ -3997,7 +4096,7 @@ Float modulo
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 128 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `128` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        121|     assert (
        122|         "The following mathematical expression includes a division by zero"
@@ -4034,7 +4133,7 @@ Integer division operator
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 48 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `48` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        41| if friendly_traceback.get_lang() == "en":
        42|     assert (
@@ -4069,7 +4168,7 @@ Mixed operations
     
         divmod(8, 1 // 2)
     
-    Exception levée à la ligne 233 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `233` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        231| def test_Mixed_operations():
        232|     try:
@@ -4102,7 +4201,7 @@ Modulo operator
     
     qui est égal à zéro.
     
-    Exception levée à la ligne 79 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `79` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        72| if friendly_traceback.get_lang() == "en":
        73|     assert (
@@ -4136,7 +4235,7 @@ Raise zero negative power
     Vous essayez d'élever le nombre 0 à une puissance négative
     ce qui équivaut à diviser par zéro.
     
-    Exception levée à la ligne 188 du fichier TESTS:\runtime\test_zero_division_error.py.
+    Exception levée à la ligne `188` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        185| def test_Raise_zero_negative_power():
        186|     zero = 0

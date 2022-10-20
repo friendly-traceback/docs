@@ -20,8 +20,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.6.0
-Python version: 3.9.10
+Friendly-traceback version: 0.7.49
+Python version: 3.10.6
 
 
 
@@ -32,11 +32,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\and_in_import_statement.py", line 1
         from math import sin and cos
-                             ^
+                             ^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -61,11 +61,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\and_in_import_statement_2.py", line 1
         from math import sin, tan, and cos
-                                   ^
+                                   ^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -90,11 +90,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\annotated_name_global.py", line 4
         var:int = 1
-        ^
+        ^^^^^^^^^^^
     SyntaxError: annotated name 'var' can't be global
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -117,11 +117,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\as_instead_of_comma_in_import.py", line 2
         from math import (sin, cos) as funcs
-                                    ^
+                                    ^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -151,12 +151,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_instead_of_equal.py", line 1
         a = (b = 2)  # issue #65
-               ^
-    SyntaxError: invalid syntax
+             ^^^^^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
     
         Tal vez necesitabas `==` o `:=` en lugar de `=`.
         
@@ -167,7 +167,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a = (b = 2)  # issue #65
-                 ^
+               ^^^^^
 
     Has utilizado un operador de asignación `=`; quizás querías utilizar 
     un operador de igualdad, `==`, o el operador de asignación aumentado `:=`.
@@ -180,11 +180,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_1.py", line 7
         global aa, bb, cc, dd
-        ^
+        ^^^^^^^^^^^^^^^^^^^^^
     SyntaxError: name 'cc' is assigned to before global declaration
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -207,11 +207,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_2.py", line 7
         global var
-        ^
+        ^^^^^^^^^^
     SyntaxError: name 'var' is used prior to global declaration
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -234,11 +234,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
         nonlocal pp, qq
-        ^
+        ^^^^^^^^^^^^^^^
     SyntaxError: name 'qq' is used prior to nonlocal declaration
     
         ¿Olvidó escribir primero `nonlocal`?
@@ -263,11 +263,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_2.py", line 9
         nonlocal s
-        ^
+        ^^^^^^^^^^
     SyntaxError: name 's' is assigned to before nonlocal declaration
     
         ¿Olvidó añadir `nonlocal`?
@@ -292,11 +292,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_conditional.py", line 3
         a if 1 else b = 1
-        ^
+        ^^^^^^^^^^^^^
     SyntaxError: cannot assign to conditional expression
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
@@ -324,11 +324,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_debug.py", line 4
         __debug__ = 1
-        ^
+        ^^^^^^^^^
     SyntaxError: cannot assign to __debug__
     
         No se puede asignar un valor a `__debug__`.
@@ -352,11 +352,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_debug2.py", line 4
         a.__debug__ = 1
-        ^
+        ^^^^^^^^^^^
     SyntaxError: cannot assign to __debug__
     
         No se puede asignar un valor a `__debug__`.
@@ -380,12 +380,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_ellipsis.py", line 4
         ... = 1
-        ^
-    SyntaxError: cannot assign to Ellipsis
+        ^^^
+    SyntaxError: cannot assign to ellipsis here. Maybe you meant '==' instead of '='?
     
         No se puede asignar un valor al símbolo de elipsis [`...`].
         
@@ -408,12 +408,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_f_string.py", line 6
         f'{x}' = 42
-        ^
-    SyntaxError: cannot assign to f-string expression
+        ^^^^^^
+    SyntaxError: cannot assign to f-string expression here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -439,12 +439,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_function_call_1.py", line 6
         len('a') = 3
-        ^
-    SyntaxError: cannot assign to function call
+        ^^^^^^^^
+    SyntaxError: cannot assign to function call here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -474,12 +474,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_function_call_2.py", line 6
         func(a, b=3) = 4
-        ^
-    SyntaxError: cannot assign to function call
+        ^^^^^^^^^^^^
+    SyntaxError: cannot assign to function call here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -509,11 +509,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_function_call_3.py", line 6
         a = f(1, 2,  # this is a comment
-            ^
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
     SyntaxError: cannot assign to function call
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
@@ -545,11 +545,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_generator.py", line 3
         (x for x in x) = 1
-        ^
+        ^^^^^^^^^^^^^^
     SyntaxError: cannot assign to generator expression
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
@@ -575,12 +575,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_dict.py", line 7
         {1 : 2, 2 : 4} = 5
-        ^
-    SyntaxError: cannot assign to dict display
+        ^^^^^^^^^^^^^^
+    SyntaxError: cannot assign to dict literal here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -610,12 +610,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int.py", line 3
         1 = a
         ^
-    SyntaxError: cannot assign to literal
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
     
         Tal vez querías escribir `a = 1`
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -646,12 +646,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
         1 = 2
         ^
-    SyntaxError: cannot assign to literal
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -681,7 +681,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
         1 = a = b
@@ -716,12 +716,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_literal_set.py", line 7
         {1, 2, 3} = 4
-        ^
-    SyntaxError: cannot assign to set display
+        ^^^^^^^^^
+    SyntaxError: cannot assign to set display here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -751,7 +751,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_keyword_def.py", line 3
         def = 2
@@ -781,11 +781,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_keyword_else.py", line 3
         else = 1
-        ^
+        ^^^^
     SyntaxError: invalid syntax
     
         Las palabras clave de Python no pueden utilizarse como identificadores (nombres de variables).
@@ -811,11 +811,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_keyword_none.py", line 4
         None = 1
-        ^
+        ^^^^
     SyntaxError: cannot assign to None
     
         No se puede asignar un valor a `None`.
@@ -839,12 +839,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_operation.py", line 4
         a + 1 = 2
-        ^
-    SyntaxError: cannot assign to operator
+        ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
     
         Tal vez necesitabas `==` en lugar de `=`.
         
@@ -855,7 +855,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| a + 1 = 2
-          ^
+          ^^^^^
 
     Has escrito una expresión que incluye algunas operaciones matemáticas
     en el lado izquierdo del signo igual que debería ser
@@ -869,12 +869,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_yield_expression.py", line 1
         (yield i) = 3
-         ^
-    SyntaxError: cannot assign to yield expression
+         ^^^^^^^
+    SyntaxError: cannot assign to yield expression here. Maybe you meant '==' instead of '='?
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
         
@@ -901,11 +901,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assignment_expression_cannot_rebind.py", line 1
         a = [(i := 1) for i in [1]]
-             ^
+              ^
     SyntaxError: assignment expression cannot rebind comprehension iteration variable 'i'
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -915,7 +915,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a = [(i := 1) for i in [1]]
-               ^
+                ^
 
     Está utilizando el operador de asignación aumentada `:=` dentro de
     una comprensión para asignar un valor a la variable de iteración `i`.
@@ -932,11 +932,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
         [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-        ^
+                                               ^
     SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -946,7 +946,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
-          ^
+                                                 ^
 
     Está utilizando el operador de asignación aumentada `:=` dentro de
     una comprensión para asignar un valor a la variable de iteración `j`.
@@ -963,7 +963,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\async_def_missing_parens.py", line 1
         async def name:
@@ -994,11 +994,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\augmented_assignment_to_literal.py", line 1
         if "word" := True:
-           ^
+           ^^^^^^
     SyntaxError: cannot use assignment expressions with literal
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
@@ -1024,11 +1024,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\augmented_assigment_with_true.py", line 4
         (True := 1)
-         ^
+         ^^^^
     SyntaxError: cannot use assignment expressions with True
     
         No se puede asignar un valor a `True`.
@@ -1052,7 +1052,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
         a = 3 \ 4.0
@@ -1082,14 +1082,14 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\bracket_instead_of_paren.py", line 1
         print(sum[i for i in [1, 2, 3] if i%2==0])
-                    ^
-    SyntaxError: invalid syntax
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
-        Has utilizado corchetes, `[...]` en lugar de paréntesis.
+        ¿Olvidaste algo entre `sum` y `[`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1098,8 +1098,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| print(sum[i for i in [1, 2, 3] if i%2==0])
-                      ^^^
+                ^^^^
 
+    Python indica que el error es causado por `[` escrito inmediatamente después de `sum`.
+    Es posible que haya olvidado una coma entre los elementos de una tupla, 
+    o entre los argumentos de una función, 
+    en la posición indicada por ^.
+    Tal vez usted quería insertar un operador como `+, -, *`
+    entre `sum` y `[`.
+    Las siguientes líneas de código no causarían ningún `SyntaxError`:
+    
+        print(sum, [i for i in [1, 2, 3] if i%2==0])
+        print(sum + [i for i in [1, 2, 3] if i%2==0])
+        print(sum - [i for i in [1, 2, 3] if i%2==0])
+        print(sum * [i for i in [1, 2, 3] if i%2==0])
+    Nota: estas son sólo algunas de las opciones posibles y que
+    algunas de ellas pueden generar otros tipos de excepciones.
+    
+    Hay una posibilidad adicional.
     Has utilizado corchetes, `[...]` en lugar de paréntesis.
     Escriba lo siguiente en su lugar:
     
@@ -1112,11 +1128,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\break_outside_loop.py", line 4
         break
-        ^
+        ^^^^^
     SyntaxError: 'break' outside loop
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -1138,12 +1154,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\cannot_assign_to_attribute_here.py", line 1
         if x.a = 1:
-               ^
-    SyntaxError: invalid syntax
+           ^^^
+    SyntaxError: cannot assign to attribute here. Maybe you meant '==' instead of '='?
     
         Tal vez necesitabas `==` en lugar de `=`.
         
@@ -1154,12 +1170,13 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| if x.a = 1:
-                 ^
+             ^^^
 
     Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
     La siguiente sentencia no contendría un error de sintaxis:
     
         if x.a == 1:
+    
 
 (38) Cannot guess the cause
 ---------------------------
@@ -1168,11 +1185,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
         SyntaxErrors can be annoying!
-                     ^
+                     ^^^
     SyntaxError: invalid syntax
     
         Friendly-traceback no conoce la causa de este error.
@@ -1205,11 +1222,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\cannot_use_star.py", line 3
         *a
-        ^
+        ^^
     SyntaxError: can't use starred expression here
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -1219,7 +1236,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| *a
-          ^
+          ^^
 
     El operador estrella `*` se interpreta como que
     el desempaquetado de un iterable debe ser usado para asignar un nombre
@@ -1233,12 +1250,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\cannot_use_double_star.py", line 4
         (**k)
-         ^
-    SyntaxError: f-string: invalid syntax
+         ^^
+    SyntaxError: f-string: cannot use double starred expression here
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -1246,8 +1263,8 @@ Python version: 3.9.10
     'TESTS:\syntax\cannot_use_double_star.py'
     en la ubicación indicada.
     
-       1| (**k)
-           ^^
+       4|     print(f"{**k}")
+                            ^
 
     El operador de doble estrella `**` probablemente se interpreta como que
     que se va a utilizar el desempaquetado del dictado, lo cual no está permitido o no tiene sentido en este caso.
@@ -1260,7 +1277,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\class_missing_name.py", line 1
         class:
@@ -1292,12 +1309,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\comprehension_missing_tuple_paren.py", line 1
         x = [i, i**2 for i in range(10)]
-                     ^
-    SyntaxError: invalid syntax
+             ^^^^^^^
+    SyntaxError: did you forget parentheses around the comprehension target?
     
         ¿Has olvidado los paréntesis?
         
@@ -1308,7 +1325,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| x = [i, i**2 for i in range(10)]
-                       ^^^
+               ^^^^^^^
 
     Supongo que estabas escribiendo una expresión de comprensión o un generador
     y olvidaste incluir paréntesis alrededor de las tuplas.
@@ -1329,13 +1346,15 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\comprehension_with_condition_no_else.py", line 1
         a = [f(x) if condition for x in sequence]
-                               ^
-    SyntaxError: invalid syntax
+             ^^^^^^^^^^^^^^^^^
+    SyntaxError: expected 'else' after 'if' expression
     
+        ¿Olvidaste añadir `else`?
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
@@ -1343,20 +1362,9 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a = [f(x) if condition for x in sequence]
-                                 ^^^
+               ^^^^^^^^^^^^^^^^^
 
-    Supongo que estabas escribiendo una comprensión o una expresión generadora
-    y utilizas el orden incorrecto para una condición.
-    El orden correcto depende de si hay una cláusula `else` o no.
-    Por ejemplo, el orden correcto para una comprensión de lista con
-    condición puede ser
-    
-        [f(x) if condición else otro for x in secuencia]  # 'if' antes de 'for'
-    
-    o, si no hay ningún `else`
-    
-        [f(x) for x in secuencia if condición]  # 'if' despues de 'for'
-    
+    Se esperaba una cláusula `else algún_valor` después de la expresión `if`.
     
 
 (44) Comprehension with condition (with else)
@@ -1366,11 +1374,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\comprehension_with_condition_with_else.py", line 1
         a = [f(x) for x in sequence if condition else other]
-                                                 ^
+                                                 ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -1403,11 +1411,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\continue_outside_loop.py", line 4
         continue
-        ^
+        ^^^^^^^^
     SyntaxError: 'continue' not properly in loop
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -1429,11 +1437,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\copy_pasted_code.py", line 2
         >>> print("Hello World!")
-        ^
+        ^^
     SyntaxError: invalid syntax
     
         ¿Usaste copiar y pegar?
@@ -1458,11 +1466,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\copy_pasted_code_2.py", line 2
         ... print("Hello World!")
-            ^
+            ^^^^^
     SyntaxError: invalid syntax
     
         ¿Usaste copiar y pegar?
@@ -1487,7 +1495,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
         def test(a, **kwargs, b):
@@ -1517,11 +1525,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_bare_star_arg.py", line 4
         def f(*):
-               ^
+              ^
     SyntaxError: named arguments must follow bare *
     
         ¿Olvidaste algo después de `*`?
@@ -1533,7 +1541,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| def f(*):
-                 ^
+                ^
 
     Asumiendo que estabas definiendo una función, necesitas
     sustituir `*` por `*argumentos` o
@@ -1547,7 +1555,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_code_block.py", line 3
         def :
@@ -1578,7 +1586,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_code_block_2.py", line 2
         def :
@@ -1609,7 +1617,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_dotted_argument.py", line 3
         def test(x.y):
@@ -1638,7 +1646,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_dotted_argument_2.py", line 2
         def test(x., y):
@@ -1666,7 +1674,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_dotted_function_name.py", line 3
         def test.x():
@@ -1694,7 +1702,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_dict_as_arg.py", line 1
         def test({'a': 1}, y):  # dict as first argument
@@ -1723,11 +1731,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_duplicate_arg.py", line 4
         def f(aa=1, aa=2):
-        ^
+                    ^^
     SyntaxError: duplicate argument 'aa' in function definition
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -1752,7 +1760,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_extra_semi_colon.py", line 1
         def test():;
@@ -1782,7 +1790,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_extra_comma.py", line 1
         def test(a,,b):
@@ -1812,7 +1820,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_forward_slash_1.py", line 1
         def test(a, **kwargs, /):
@@ -1843,7 +1851,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_forward_slash_2.py", line 1
         def test(a, *, b, /):
@@ -1875,7 +1883,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_forward_slash_3.py", line 1
         def test(a, *arg, /):
@@ -1905,7 +1913,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_forward_slash_4.py", line 1
         def test(a, /, b, /):
@@ -1933,12 +1941,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_function_name_invalid.py", line 3
         def 2be():
             ^
-    SyntaxError: invalid syntax
+    SyntaxError: invalid decimal literal
     
         Has escrito un nombre de función no válido.
         
@@ -1949,8 +1957,11 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| def 2be():
-              ^
+              ^^
 
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     El nombre de una función debe ser un identificador válido de Python,
     es decir, un nombre que comience con una letra o un carácter de subrayado, `_`,
     y que contenga sólo letras, dígitos o el carácter de subrayado.
@@ -1963,11 +1974,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_function_name_string.py", line 3
         def "function"():
-            ^
+            ^^^^^^^^^^
     SyntaxError: invalid syntax
     
         El nombre de una función debe ser un identificador válido de Python,
@@ -1997,11 +2008,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_keyword_as_arg_1.py", line 5
         def f(None=1):
-              ^
+              ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2025,11 +2036,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_keyword_as_arg_2.py", line 5
         def f(x, True):
-                 ^
+                 ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2053,11 +2064,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_keyword_as_arg_3.py", line 5
         def f(*None):
-               ^
+               ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2081,11 +2092,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_keyword_as_arg_4.py", line 5
         def f(**None):
-                ^
+                ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2109,11 +2120,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_keyword_as_name.py", line 3
         def pass():
-            ^
+            ^^^^
     SyntaxError: invalid syntax
     
         No se puede utilizar una palabra clave de Python como nombre de función.
@@ -2139,7 +2150,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_list_as_arg_1.py", line 1
         def test([x], y):  # list as first argument
@@ -2168,7 +2179,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_list_as_arg_2.py", line 1
         def test(x, [y]):  # list as second argument, after comma
@@ -2197,14 +2208,14 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_missing_colon.py", line 1
         def test()
                   ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected ':'
     
-        ¿Olvidaste escribir dos puntos?
+        ¿Olvidaste los dos puntos `:`?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2215,7 +2226,9 @@ Python version: 3.9.10
        1| def test()
                     ^
 
-    Una declaración de definición de función debe terminar con dos puntos.
+    Ha escrito una sentencia que empieza por
+    def` pero se olvidó de añadir los dos puntos `:` al final.
+    
     
 
 (73) def: missing comma between function args
@@ -2225,7 +2238,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_missing_comma.py", line 4
         def a(b, c d):
@@ -2244,9 +2257,9 @@ Python version: 3.9.10
                    ^^^
 
     Python indica que el error es causado por `d` escrito inmediatamente después de `c`.
-    It is possible that you forgot a comma between items in a tuple, 
-    or between function arguments, 
-    at the position indicated by ^.
+    Es posible que haya olvidado una coma entre los elementos de una tupla, 
+    o entre los argumentos de una función, 
+    en la posición indicada por ^.
     Tal vez quiso decir
     
         def a(b, c, d):
@@ -2261,7 +2274,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_missing_parens.py", line 3
         def name:
@@ -2292,7 +2305,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_missing_parens_2.py", line 2
         def name a, b:
@@ -2323,7 +2336,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_missing_name.py", line 3
         def ( arg )  :
@@ -2352,11 +2365,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
         global x
-        ^
+        ^^^^^^^^
     SyntaxError: name 'x' is parameter and global
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2366,7 +2379,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        6|     global x
-              ^^^^^^
+              ^^^^^^^^
 
     Usted está incluyendo la declaración
     
@@ -2386,11 +2399,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_non_default_after_default.py", line 5
         def test(a=1, b):
-                       ^
+                      ^
     SyntaxError: non-default argument follows default argument
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2400,7 +2413,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5| def test(a=1, b):
-                         ^
+                        ^
 
     En Python, puedes definir funciones con sólo argumentos posicionales
     
@@ -2425,7 +2438,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_number_as_arg.py", line 1
         def f(1):
@@ -2454,7 +2467,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_operator_after_2star.py", line 1
         def test(**):
@@ -2480,7 +2493,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_operator_instead_of_comma.py", line 1
         def test(a + b):
@@ -2511,7 +2524,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_operator_instead_of_equal.py", line 1
         def test(a, b=3, c+None):
@@ -2542,7 +2555,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_operator_instead_of_name.py", line 1
         def test(a, +, b):
@@ -2572,7 +2585,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_positional_after_keyword_arg.py", line 5
         test(a=1, b)
@@ -2611,14 +2624,14 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_semi_colon_instead_of_colon.py", line 1
         def test();
                   ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected ':'
     
-        ¿Olvidaste escribir dos puntos?
+        ¿Olvidaste los dos puntos?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2629,7 +2642,7 @@ Python version: 3.9.10
        1| def test();
                     ^
 
-    Una declaración de definición de función debe terminar con dos puntos.
+    Python esperaba dos puntos en la posición indicada.
     Has escrito `;` en lugar de dos puntos.
     
 
@@ -2640,7 +2653,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_set_as_arg.py", line 1
         def test(y, {'a', 'b'}):  # set as second argument, after comma
@@ -2669,7 +2682,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
         def test(a, *arg, /):
@@ -2699,7 +2712,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_used_only_once.py", line 1
         def test(a, *arg, *, b=1):
@@ -2729,7 +2742,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_used_only_once_1.py", line 1
         def test(a, *, *):
@@ -2757,7 +2770,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
         def test(a, *arg, *other):
@@ -2786,7 +2799,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_after_2star.py", line 1
         def test(**kw, *arg):
@@ -2814,7 +2827,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_star_after_2star_2.py", line 1
         def test(**kw, *):
@@ -2842,11 +2855,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_string_as_arg.py", line 1
         def f("1"):
-              ^
+              ^^^
     SyntaxError: invalid syntax
     
         No se pueden utilizar cadenas como argumentos de funciones.
@@ -2871,7 +2884,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
         def test((a, b), c):
@@ -2902,7 +2915,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
         def test(a, (b, c)):
@@ -2933,12 +2946,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\del_paren_star_1.py", line 1
         del (*x)
-             ^
-    SyntaxError: can't use starred expression here
+             ^^
+    SyntaxError: cannot use starred expression here
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -2947,7 +2960,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| del (*x)
-               ^
+               ^^
 
     El operador estrella `*` se interpreta como que
     el desempaquetado de un iterable debe ser usado para asignar un nombre
@@ -2963,11 +2976,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\del_paren_star_2.py", line 1
         del (*x,)
-             ^
+             ^^
     SyntaxError: cannot delete starred
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -2977,7 +2990,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| del (*x,)
-               ^
+               ^^
 
     El operador estrella `*` se interpreta como que
     el desempaquetado de un iterable debe ser usado para asignar un nombre
@@ -2993,11 +3006,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_constant_keyword.py", line 1
         del True
-            ^
+            ^^^^
     SyntaxError: cannot delete True
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3021,12 +3034,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_expression.py", line 1
         del a.b.c[0] + 2
-            ^
-    SyntaxError: cannot delete operator
+            ^^^^^^^^^^^^
+    SyntaxError: cannot delete expression
     
         Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
         como `list`, `set` o `dict`.
@@ -3038,7 +3051,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| del a.b.c[0] + 2
-              ^
+              ^^^^^^^^^^^^
 
     No se puede eliminar la expresión `a.b.c[0] + 2`.
     Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
@@ -3052,11 +3065,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_function_call.py", line 5
         del f(a)
-            ^
+            ^^^^
     SyntaxError: cannot delete function call
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3066,7 +3079,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5| del f(a)
-              ^
+              ^^^^
 
     Has intentado borrar una llamada a una función
     
@@ -3083,11 +3096,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_named_expression.py", line 1
         del (a := 5)
-             ^
+             ^^^^^^
     SyntaxError: cannot delete named expression
     
         Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
@@ -3100,7 +3113,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| del (a := 5)
-               ^
+               ^^^^^^
 
     No se puede eliminar la expresión con nombre `(a := 5)`.
     Sólo se pueden borrar nombres de objetos, o elementos en contenedores mutables
@@ -3114,11 +3127,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_names_or_items.py", line 1
         del a += b
-              ^
+              ^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3141,11 +3154,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\delete_string_literal.py", line 1
         del "Hello world!"
-            ^
+            ^^^^^^^^^^^^^^
     SyntaxError: cannot delete literal
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3169,12 +3182,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_1.py", line 1
         a = {1:2, 3}
-                   ^
-    SyntaxError: invalid syntax
+                  ^
+    SyntaxError: ':' expected after dictionary key
     
         ¿Olvidaste escribir el valor del dict?
         
@@ -3185,10 +3198,10 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a = {1:2, 3}
-                     ^
+                    ^
 
-    Parece que el error se ha producido al escribir un `dict` de Python.
-    Tal vez escribió una clave de `dict` sin escribir el valor correspondiente.
+    Parece que el error se produjo mientras escribías un dict de Python.
+    Quizás escribiste una clave de dict sin escribir el valor correspondiente.
     
 
 (105) Value missing in dict - 2
@@ -3198,12 +3211,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_2.py", line 2
         a = {1:2, 3:}
-                    ^
-    SyntaxError: invalid syntax
+                   ^
+    SyntaxError: expression expected after dictionary key and ':'
     
         ¿Olvidaste escribir el valor del dict?
         
@@ -3214,7 +3227,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        2| a = {1:2, 3:}
-                      ^
+                     ^
 
     Parece que el error se produjo mientras escribías un dict de Python.
     Tal vez se olvidó de escribir un valor después de dos puntos.
@@ -3227,12 +3240,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_3.py", line 3
         a = {1:2, 3, 4:5}
-                   ^
-    SyntaxError: invalid syntax
+                  ^
+    SyntaxError: ':' expected after dictionary key
     
         ¿Olvidaste escribir el valor del dict?
         
@@ -3243,10 +3256,10 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| a = {1:2, 3, 4:5}
-                     ^
+                    ^
 
-    Parece que el error se ha producido al escribir un `dict` de Python.
-    Tal vez escribió una clave de `dict` sin escribir el valor correspondiente.
+    Parece que el error se produjo mientras escribías un dict de Python.
+    Quizás escribiste una clave de dict sin escribir el valor correspondiente.
     
 
 (107) Value missing in dict - 4
@@ -3256,12 +3269,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\dict_value_missing_4.py", line 4
         a = {1:2, 3:, 4:5}
-                    ^
-    SyntaxError: invalid syntax
+                   ^
+    SyntaxError: expression expected after dictionary key and ':'
     
         ¿Olvidaste escribir el valor del dict?
         
@@ -3272,7 +3285,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| a = {1:2, 3:, 4:5}
-                      ^
+                     ^
 
     Parece que el error se produjo mientras escribías un dict de Python.
     Tal vez se olvidó de escribir un valor después de dos puntos.
@@ -3285,7 +3298,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\different_operators_in_a_row.py", line 1
         3 */ 4
@@ -3313,7 +3326,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\dot_before_paren.py", line 3
         print(len.('hello'))
@@ -3340,7 +3353,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\duplicate_token.py", line 1
         print(1 , , 2)
@@ -3369,11 +3382,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\elif_not_matching_if.py", line 3
         elif True:
-        ^
+        ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3396,7 +3409,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\ellipsis_extra_dot.py", line 2
         ....
@@ -3424,11 +3437,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\else_no_matching_statement.py", line 3
         else:
-        ^
+        ^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3451,12 +3464,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\else_if_instead_of_elif.py", line 5
         else if True:
-             ^
-    SyntaxError: invalid syntax
+             ^^
+    SyntaxError: expected ':'
     
         Tal vez querías escribir `elif`.
         
@@ -3469,6 +3482,9 @@ Python version: 3.9.10
        5| else if True:
           ^^^^^^^
 
+    Python nos dijo que esperaba dos puntos en la posición indicada.
+    Sin embargo, añadir dos puntos o sustituir algo por dos puntos
+    no solucionaría el problema.
     Probablemente querías usar la palabra clave `elif` de Python
     pero en su lugar escribiste `else if`.
     
@@ -3481,11 +3497,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
         elseif True:
-               ^
+               ^^^^
     SyntaxError: invalid syntax
     
         Tal vez querías escribir `elif`.
@@ -3511,12 +3527,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\eol_string_literal.py", line 3
         alphabet = 'abc
-                       ^
-    SyntaxError: EOL while scanning string literal
+                   ^
+    SyntaxError: unterminated string literal (detected at line 3)
     
         ¿Olvidaste la comilla de cierre?
         
@@ -3540,13 +3556,15 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
         ages = {'Alice'=22, 'Bob'=24}
-                       ^
-    SyntaxError: invalid syntax
+                ^^^^^^^
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
     
+        Sólo se pueden asignar objetos a identificadores (nombres de variables).
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
@@ -3554,11 +3572,19 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| ages = {'Alice'=22, 'Bob'=24}
-                         ^
+                  ^^^^^^^
 
+    Has escrito una expresión como
+    
+        'Alice' = nombre_de_variable
+    donde `'Alice'`, a la izquierda del signo de igualdad
+    es o incluye un objeto real de tipo `str`
+    y no es simplemente el nombre de una variable.
+    
+    Sólo se pueden asignar objetos a identificadores (nombres de variables).
+    
     Es posible que haya utilizado un signo igual `=` en lugar de dos puntos `:`
-    para asignar valores a las claves de un dict
-    antes o en la posición indicada por ^.
+    para asignar valores a las claves de un dict.
     
 
 (118) Parens around multiple exceptions
@@ -3568,12 +3594,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\except_multiple_exceptions.py", line 3
         except NameError, ValueError as err:
-                        ^
-    SyntaxError: invalid syntax
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: multiple exception types must be parenthesized
     
         ¿Has olvidado los paréntesis?
         
@@ -3584,11 +3610,12 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| except NameError, ValueError as err:
-                          ^
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Supongo que querías usar una sentencia `except`
     con múltiples tipos de excepción. Si ese es el caso, debes
     rodearlas con paréntesis.
+    
     
 
 (119) Extra token
@@ -3598,7 +3625,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\extra_token.py", line 1
         print(1 / 2) ==
@@ -3627,11 +3654,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\f_string_binary.py", line 1
         greet = bf"Hello {name}"
-                  ^
+                  ^^^^^^^^^^^^^^
     SyntaxError: invalid syntax
     
         `bf` es un prefijo de cadena no valido.
@@ -3656,7 +3683,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\f_string_curly_not_allowed.py", line 1
         f"ab}"
@@ -3684,7 +3711,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\f_string_expected_curly.py", line 1
         f"{ab"
@@ -3712,7 +3739,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\f_string_unterminated.py", line 4
         print(f"Bob is {age['Bob]} years old.")
@@ -3742,7 +3769,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\f_string_with_backslash.py", line 2
         print(f"{'\n'.join(names)}")
@@ -3778,7 +3805,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\for_missing_terms.py", line 1
         for:
@@ -3810,7 +3837,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\future_braces.py", line 1
         from __future__ import braces
@@ -3840,7 +3867,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\future_import_star.py", line 1
         from __future__ import *
@@ -3878,11 +3905,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\future_must_be_first.py", line 3
         from __future__ import generators
-        ^
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     SyntaxError: from __future__ imports must occur at the beginning of the file
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3892,7 +3919,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3|     from __future__ import generators
-              ^^^^
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Una sentencia `from __future__ import` cambia la forma en que Python
     interpreta el código de un archivo.
@@ -3905,7 +3932,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\future_typo.py", line 1
         from __future__ import divisio
@@ -3933,7 +3960,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\future_unknown.py", line 1
         from __future__ import something
@@ -3970,11 +3997,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\generator_expression_parens.py", line 6
         f(x for x in L, 1)
-          ^
+          ^^^^^^^^^^^^
     SyntaxError: Generator expression must be parenthesized
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -3984,7 +4011,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        6| f(x for x in L, 1)
-            ^
+            ^^^^^^^^^^^^
 
     Estás usando una expresión generadora, algo de la forma
     
@@ -4000,12 +4027,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
         a-b = 2
-        ^
-    SyntaxError: cannot assign to operator
+        ^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
     
         ¿Quieres decir `a_b`?
         
@@ -4016,7 +4043,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| a-b = 2
-          ^
+          ^^^
 
     Has escrito una expresión que incluye algunas operaciones matemáticas
     en el lado izquierdo del signo igual que debería ser
@@ -4031,7 +4058,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\if_missing_condition.py", line 1
         if:
@@ -4063,12 +4090,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\imaginary_i.py", line 3
         a = 3.0i
-               ^
-    SyntaxError: invalid syntax
+              ^
+    SyntaxError: invalid decimal literal
     
         ¿Quieres decir `3.0j`?
         
@@ -4079,8 +4106,11 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| a = 3.0i
-                 ^
+              ^^^^
 
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     Tal vez pensó que `i` podría ser utilizado para representar
     la raíz cuadrada de `-1`. En Python, el símbolo utilizado para esto es `j`
     y la parte compleja se escribe como `algún_número` inmediatamente
@@ -4095,11 +4125,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\import_from.py", line 3
         import pen from turtle
-                   ^
+                   ^^^^
     SyntaxError: invalid syntax
     
         ¿Quieres decir `from turtle import pen`?
@@ -4130,12 +4160,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\indentation_error_1.py", line 4
         pass
-        ^
-    IndentationError: expected an indented block
+        ^^^^
+    IndentationError: expected an indented block after 'if' statement on line 3
     
     Un `IndentationError` ocurre cuando una línea de código dada no está
     con la indentación (alineada verticalmente con otras líneas) que se espera.
@@ -4157,7 +4187,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\indentation_error_2.py", line 4
         pass
@@ -4184,7 +4214,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\indentation_error_3.py", line 5
         pass
@@ -4211,7 +4241,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\indentation_error_4.py", line 6
         "c"
@@ -4244,11 +4274,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\integer_with_leading_zero_1.py", line 1
         x = 01
-             ^
+            ^
     SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
     
         ¿Querías decir `0o1`?
@@ -4260,7 +4290,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| x = 01
-               ^
+              ^
 
     Tal vez querías escribir el número octal `0o1`
     y se olvidó de la letra 'o', o tal vez quería escribir
@@ -4274,11 +4304,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\integer_with_leading_zero_2.py", line 1
         x = 000_123_456
-                      ^
+            ^^^^
     SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
     
         ¿Querías decir `123_456`?
@@ -4290,7 +4320,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| x = 000_123_456
-                 ^^^^^^^^
+              ^^^
 
     Tal vez usted quiso escribir el número entero `123_456`
     y no sabía que no podía empezar con ceros.
@@ -4303,7 +4333,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_character_in_identifier.py", line 6
         🤖 = 'Reeborg'
@@ -4330,14 +4360,14 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_decimal_literal1.py", line 1
-        a = 1e
-             ^
-    SyntaxError: invalid syntax
+        a = 1f
+            ^
+    SyntaxError: invalid decimal literal
     
-        Tal vez olvidó un operador de multiplicación, `1 * e`.
+        Tal vez olvidó un operador de multiplicación, `1 * f`.
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -4345,11 +4375,14 @@ Python version: 3.9.10
     'TESTS:\syntax\invalid_decimal_literal1.py'
     en la ubicación indicada.
     
-       1| a = 1e
-               ^
+       1| a = 1f
+              ^^
 
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     Los nombres válidos no pueden empezar por un número.
-    Tal vez olvidó un operador de multiplicación, `1 * e`.
+    Tal vez olvidó un operador de multiplicación, `1 * f`.
     
     
 
@@ -4360,7 +4393,7 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_encoding.py", line 2, in <module>
         compile(source, filename="example.py", mode="exec")
@@ -4383,12 +4416,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_hexadecimal.py", line 3
         a = 0x123g4
-                 ^
-    SyntaxError: invalid syntax
+                ^
+    SyntaxError: invalid hexadecimal literal
     
         ¿Te has equivocado al escribir un entero hexadecimal?
         
@@ -4399,7 +4432,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| a = 0x123g4
-                   ^^
+              ^^^^^^^
 
     Parece que has utilizado un carácter no válido (`g`) en un número hexadecimal.
     
@@ -4417,12 +4450,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_identifier.py", line 3
         36abc = 3
-          ^
-    SyntaxError: invalid syntax
+         ^
+    SyntaxError: invalid decimal literal
     
         Los nombres válidos no pueden empezar por un número.
         
@@ -4433,8 +4466,11 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| 36abc = 3
-            ^^^
+          ^^^
 
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     Los nombres válidos no pueden empezar por un número.
     
 
@@ -4445,12 +4481,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_identifier_2.py", line 3
         tau = 2pi
-               ^
-    SyntaxError: invalid syntax
+              ^
+    SyntaxError: invalid decimal literal
     
         Tal vez olvidó un operador de multiplicación, `2 * pi`.
         
@@ -4461,8 +4497,11 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| tau = 2pi
-                 ^^
+                ^^^
 
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     Los nombres válidos no pueden empezar por un número.
     Tal vez olvidó un operador de multiplicación, `2 * pi`.
     
@@ -4475,12 +4514,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_identifier_3.py", line 1
         3job  # could be entered in a repl
-          ^
-    SyntaxError: invalid syntax
+         ^
+    SyntaxError: invalid imaginary literal
     
         Tal vez olvidó un operador de multiplicación, `3 * job`.
         
@@ -4491,7 +4530,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| 3job  # could be entered in a repl
-            ^^
+          ^^^^
 
     Los nombres válidos no pueden empezar por un número.
     Tal vez olvidó un operador de multiplicación, `3 * job`.
@@ -4507,12 +4546,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_identifier_4.py", line 1
         3job = 1
-          ^
-    SyntaxError: invalid syntax
+         ^
+    SyntaxError: invalid imaginary literal
     
         Los nombres válidos no pueden empezar por un número.
         
@@ -4523,7 +4562,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| 3job = 1
-            ^^
+          ^^^
 
     Los nombres válidos no pueden empezar por un número.
     
@@ -4535,12 +4574,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_identifier_5.py", line 1
         print(42java)
-                 ^
-    SyntaxError: invalid syntax
+                ^
+    SyntaxError: invalid imaginary literal
     
         Tal vez olvidó un operador de multiplicación, `42 * java`.
         
@@ -4551,7 +4590,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| print(42java)
-                   ^^^
+                ^^^^
 
     Los nombres válidos no pueden empezar por un número.
     Tal vez olvidó un operador de multiplicación, `42 * java`.
@@ -4567,11 +4606,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_keyword_argument.py", line 7
         a = dict('key'=1)
-                 ^
+                 ^^^^^^
     SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -4581,7 +4620,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        7| a = dict('key'=1)
-                   ^^^^^
+                   ^^^^^^
 
     Es probable que hayas llamado a una función con un argumento con nombre:
     
@@ -4599,12 +4638,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
         a = dict(True=1)
-                 ^
-    SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+                 ^^^^^
+    SyntaxError: cannot assign to True
     
         No se puede asignar un valor a `True`.
         
@@ -4615,25 +4654,47 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        7| a = dict(True=1)
-                   ^^^^
+                   ^^^^^
 
-    Es probable que hayas llamado a una función utilizando la palabra clave de Python `True` como argumento:
-    
-        una_function(True=algo) 
-    
-    que Python interpretó como un intento de asignar un valor a una palabra clave de Python.
-    
-    No se puede asignar un valor a `True`.
+    True` es una constante en Python; no puedes asignarle un valor diferente.
     
 
-(153) Invalid octal number
+(153) Invalid non printable character
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_non_printable_char.py", line 2, in <module>
+        eval(s)
+      File "<string>", line 1
+        print("Hello")
+             ^
+    SyntaxError: invalid syntax
+    
+    Un `SyntaxError` ocurre cuando Python no puede entender tu código.
+    
+    Python no pudo entender el código en el archivo
+    '<string>'
+    en la ubicación indicada.
+    
+       1| print("Hello")
+               ^
+
+    Your code contains the invalid non-printable character '\x17'.
+    
+
+(154) Invalid octal number
 --------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\invalid_octal.py", line 3
         b = 0O1876
@@ -4660,14 +4721,14 @@ Python version: 3.9.10
     seguido de los caracteres utilizados para representar el valor de ese número entero.
     
 
-(154) Inverted operators 1
+(155) Inverted operators 1
 --------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\inverted_operators.py", line 1
         a =< 3
@@ -4689,14 +4750,14 @@ Python version: 3.9.10
     en el orden equivocado: `=<` en lugar de `<=`.
     
 
-(155) Inverted operators 2
+(156) Inverted operators 2
 --------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\inverted_operators_2.py", line 1
         a =<* 3
@@ -4721,18 +4782,18 @@ Python version: 3.9.10
     todos los errores de sintaxis en el código que escribiste.
     
 
-(156) Iteration variable unpacking in comprehension
+(157) Iteration variable unpacking in comprehension
 ---------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\iteration_unpacking_in_comprehension.py", line 1
         [*x for x in xs]
-         ^
+         ^^
     SyntaxError: iterable unpacking cannot be used in comprehension
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -4742,7 +4803,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| [*x for x in xs]
-           ^
+           ^^
 
     No se puede utilizar el operador `*` para descomponer la variable de iteración
     en una comprensión.
@@ -4752,18 +4813,18 @@ Python version: 3.9.10
         [x for x in xs]
     
 
-(157) Keyword arg only once in function call
+(158) Keyword arg only once in function call
 --------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\keyword_arg_repeated.py", line 4
         f(ad=1, ad=2)
-                ^
+                ^^^^
     SyntaxError: keyword argument repeated: ad
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -4773,24 +4834,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| f(ad=1, ad=2)
-                  ^^
+                  ^^^^
 
     Ha llamado a una función repitiendo el mismo argumento de palabra clave (`ad`).
     Cada argumento de palabra clave debe aparecer sólo una vez en una llamada a una función.
     
 
-(158) Keyword as attribute
+(159) Keyword as attribute
 --------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\keyword_as_attribute.py", line 12
         a.pass = 2
-          ^
+          ^^^^
     SyntaxError: invalid syntax
     
         `pass` no puede utilizarse como atributo.
@@ -4808,14 +4869,14 @@ Python version: 3.9.10
     
     
 
-(159) lambda with parentheses around arguments
+(160) lambda with parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\lambda_with_parens.py", line 2
         x = lambda (a, b): a + b
@@ -4835,14 +4896,14 @@ Python version: 3.9.10
     Esto estaba permitido en Python 2 pero no en Python 3.
     
 
-(160) lambda with tuple as argument
+(161) lambda with tuple as argument
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
         x = lambda a, (b, c): a + b + b
@@ -4863,18 +4924,18 @@ Python version: 3.9.10
     dentro del cuerpo de la función.
     
 
-(161) Assign to literal in for loop
+(162) Assign to literal in for loop
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\literal_in_for_loop.py", line 1
         for "char" in "word":
-            ^
+            ^^^^^^
     SyntaxError: cannot assign to literal
     
         Sólo se pueden asignar objetos a identificadores (nombres de variables).
@@ -4896,17 +4957,17 @@ Python version: 3.9.10
     y no literales como `"char"`.
     
 
-(162) IndentationError/SyntaxError depending on version
+(163) IndentationError/SyntaxError depending on version
 -------------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_code_block.py", line 4
-    IndentationError: expected an indented block
+    IndentationError: expected an indented block after 'for' statement on line 3
     
     Un `IndentationError` ocurre cuando una línea de código dada no está
     con la indentación (alineada verticalmente con otras líneas) que se espera.
@@ -4922,17 +4983,17 @@ Python version: 3.9.10
     Se esperaba que la línea `4` identificada anteriormente comenzara un nuevo bloque indentado.
     
 
-(163) IndentationError/SyntaxError depending on version - 2
+(164) IndentationError/SyntaxError depending on version - 2
 -----------------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_code_block_2.py", line 6
-    IndentationError: expected an indented block
+    IndentationError: expected an indented block after 'for' statement on line 3
     
     Un `IndentationError` ocurre cuando una línea de código dada no está
     con la indentación (alineada verticalmente con otras líneas) que se espera.
@@ -4947,19 +5008,19 @@ Python version: 3.9.10
     Se esperaba que la línea `6` identificada anteriormente comenzara un nuevo bloque indentado.
     
 
-(164) Missing colon - if
+(165) Missing colon - if
 ------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_colon_if.py", line 3
         if True
                ^
-    SyntaxError: invalid syntax
+    SyntaxError: expected ':'
     
         ¿Olvidaste los dos puntos `:`?
         
@@ -4977,19 +5038,19 @@ Python version: 3.9.10
     
     
 
-(165) Missing colon - while
+(166) Missing colon - while
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_colon_while.py", line 3
         while True  # a comment
-                    ^
-    SyntaxError: invalid syntax
+                    ^^^^^^^^^^^
+    SyntaxError: expected ':'
     
         ¿Olvidaste los dos puntos `:`?
         
@@ -5007,19 +5068,19 @@ Python version: 3.9.10
     
     
 
-(166) Missing comma in a dict
+(167) Missing comma in a dict
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\missing_comma_in_dict.py", line 5
-        'c': 3,
-        ^
-    SyntaxError: invalid syntax
+      File "TESTS:\syntax\missing_comma_in_dict.py", line 4
+        'b': 2
+             ^-->
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         ¿Te has olvidado de una coma?
         
@@ -5037,8 +5098,8 @@ Python version: 3.9.10
        6| }
 
     Python indica que el error es causado por `'c'` escrito inmediatamente después de `2`.
-    It is possible that you forgot a comma between items in a set or dict
-    at the position indicated by ^.
+    Es posible que haya olvidado una coma entre los elementos de un set o dict
+    en la posición indicada por ^.
     Tal vez quiso decir
     
         a = {'a': 1,
@@ -5049,14 +5110,14 @@ Python version: 3.9.10
     
     .
 
-(167) Missing comma between strings in a dict
+(168) Missing comma between strings in a dict
 ---------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_comma_in_dict_2.py", line 4
         'c': '3',
@@ -5088,19 +5149,19 @@ Python version: 3.9.10
     }
     ```
 
-(168) Missing comma in a list
+(169) Missing comma in a list
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_comma_in_list.py", line 3
         a = [1, 2  3]
-                   ^
-    SyntaxError: invalid syntax
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         ¿Olvidaste algo entre `2` y `3`?
         
@@ -5114,8 +5175,8 @@ Python version: 3.9.10
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    It is possible that you forgot a comma between items in a list
-    at the position indicated by ^.
+    Es posible que haya olvidado una coma entre los elementos de una lista
+    en la posición indicada por ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:
@@ -5128,19 +5189,19 @@ Python version: 3.9.10
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(169) Missing comma in a set
+(170) Missing comma in a set
 ----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_comma_in_set.py", line 3
         a = {1, 2  3}
-                   ^
-    SyntaxError: invalid syntax
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         ¿Olvidaste algo entre `2` y `3`?
         
@@ -5154,8 +5215,8 @@ Python version: 3.9.10
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    It is possible that you forgot a comma between items in a set or dict
-    at the position indicated by ^.
+    Es posible que haya olvidado una coma entre los elementos de un set o dict
+    en la posición indicada por ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:
@@ -5168,19 +5229,19 @@ Python version: 3.9.10
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(170) Missing comma in a tuple
+(171) Missing comma in a tuple
 ------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_comma_in_tuple.py", line 3
         a = (1, 2  3)
-                   ^
-    SyntaxError: invalid syntax
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         ¿Olvidaste algo entre `2` y `3`?
         
@@ -5194,9 +5255,9 @@ Python version: 3.9.10
                   ^^^^
 
     Python indica que el error es causado por `3` escrito inmediatamente después de `2`.
-    It is possible that you forgot a comma between items in a tuple, 
-    or between function arguments, 
-    at the position indicated by ^.
+    Es posible que haya olvidado una coma entre los elementos de una tupla, 
+    o entre los argumentos de una función, 
+    en la posición indicada por ^.
     Tal vez usted quería insertar un operador como `+, -, *`
     entre `2` y `3`.
     Las siguientes líneas de código no causarían ningún `SyntaxError`:
@@ -5209,14 +5270,14 @@ Python version: 3.9.10
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(171) Missing parenthesis for range
+(172) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\missing_parens_for_range.py", line 1
         for i in range 3:
@@ -5241,18 +5302,18 @@ Python version: 3.9.10
     
     
 
-(172) Misspelled Python keyword
+(173) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\misspelled_keyword.py", line 2
         is i in range(3):
-        ^
+        ^^
     SyntaxError: invalid syntax
     
         ¿Quieres decir `if i in range(3):`?
@@ -5270,18 +5331,18 @@ Python version: 3.9.10
     La línea correcta podría ser `if i in range(3):`
     
 
-(173) Name is global and nonlocal
+(174) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\name_is_global_and_nonlocal.py", line 7
         global xy
-        ^
+        ^^^^^^^^^
     SyntaxError: name 'xy' is nonlocal and global
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5291,24 +5352,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        7|     global xy
-              ^^^^^^
+              ^^^^^^^^^
 
     Has declarado que xy` es una variable global y no local.
     Una variable puede ser global o no local, pero no ambas cosas a la vez.
     
 
-(174) Name is parameter and nonlocal
+(175) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\name_is_param_and_nonlocal.py", line 5
         nonlocal x
-        ^
+        ^^^^^^^^^^
     SyntaxError: name 'x' is parameter and nonlocal
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5318,25 +5379,25 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5|     nonlocal x
-              ^^^^^^^^
+              ^^^^^^^^^^
 
     Ha utilizado `x` como parámetro de una función
     antes de declararla también como variable no local:
     x` no puede ser ambas cosas a la vez.
     
 
-(175) nonlocal variable not found
+(176) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\no_binding_for_nonlocal.py", line 5
         nonlocal ab
-        ^
+        ^^^^^^^^^^^
     SyntaxError: no binding for nonlocal 'ab' found
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5346,24 +5407,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5|     nonlocal ab
-              ^^^^^^^^
+              ^^^^^^^^^^^
 
     Ha declarado la variable `ab` como una variable
     variable no local, pero no se puede encontrar.
     
 
-(176) nonlocal variable not found at module level
+(177) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\nonlocal_at_module.py", line 4
         nonlocal cd
-        ^
+        ^^^^^^^^^^^
     SyntaxError: nonlocal declaration not allowed at module level
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5373,24 +5434,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| nonlocal cd
-          ^^^^^^^^
+          ^^^^^^^^^^^
 
     Ha utilizado la palabra clave nonlocal a nivel de módulo.
     La palabra clave nonlocal se refiere a una variable dentro de una función
     con un valor fuera de esa función.
 
-(177) Same operator twice in a row
+(178) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\operator_twice_in_a_row.py", line 1
         4****5
-           ^
+           ^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5407,18 +5468,18 @@ Python version: 3.9.10
     o se olvidó de escribir algo entre ellos.
     
 
-(178) Using pip from interpreter
+(179) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\pip_install_1.py", line 2
         pip install friendly
-            ^
+            ^^^^^^^
     SyntaxError: invalid syntax
     
         Pip no puede ser utilizado en un intérprete de Python.
@@ -5437,18 +5498,18 @@ Python version: 3.9.10
     no desde un intérprete de Python.
     
 
-(179) Using pip from interpreter 2
+(180) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\pip_install_2.py", line 2
         python -m pip install friendly
-                  ^
+                  ^^^
     SyntaxError: invalid syntax
     
         Pip no puede ser utilizado en un intérprete de Python.
@@ -5467,19 +5528,19 @@ Python version: 3.9.10
     no desde un intérprete de Python.
     
 
-(180) print is a function
+(181) print is a function
 -------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_is_a_function.py", line 2
         print 'hello'
-              ^
-    SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello')?
+        ^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print('hello')`?
         
@@ -5490,7 +5551,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        2| print 'hello'
-                ^^^^^^^
+          ^^^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5500,19 +5561,19 @@ Python version: 3.9.10
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(181) print is a function 2
+(182) print is a function 2
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_is_a_function_2.py", line 2
         print len('hello')
-              ^
-    SyntaxError: invalid syntax
+        ^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(len('hello'))`?
         
@@ -5523,7 +5584,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        2| print len('hello')
-                ^^^
+          ^^^^^^^^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5533,19 +5594,19 @@ Python version: 3.9.10
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(182) print is a function 3
+(183) print is a function 3
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_is_a_function_3.py", line 1
         print """This is a very long string which results in a very long error message."""
-              ^
-    SyntaxError: Missing parentheses in call to 'print'. Did you mean print("""This is a very long string which results in a very long error message.""")?
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(...)`?
         
@@ -5556,7 +5617,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| print """This is a very long string which results in a very long error message."""
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5566,19 +5627,19 @@ Python version: 3.9.10
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(183) print is a function 4
+(184) print is a function 4
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_is_a_function_4.py", line 2
         print len("""This is a long string
-              ^
-    SyntaxError: invalid syntax
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(...)`?
         
@@ -5589,7 +5650,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
     -->2| print len("""This is a long string
-                ^^^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        3|           that spans multiple lines.""")
 
     Tal vez tenga que escribir
@@ -5600,19 +5661,19 @@ Python version: 3.9.10
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(184) print is a function 5
+(185) print is a function 5
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_is_a_function_5.py", line 2
         print len('This is a long string that fits on a single line.')
-              ^
-    SyntaxError: invalid syntax
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(...)`?
         
@@ -5623,7 +5684,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        2| print len('This is a long string that fits on a single line.')
-                ^^^
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5633,19 +5694,19 @@ Python version: 3.9.10
     Ahora, `print` es una función por lo que es necesario usar paréntesis para llamarla.
     
 
-(185) print is a function 6
+(186) print is a function 6
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
         print hello world!
-              ^
-    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(hello world!)?
+        ^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(...)`?
         
@@ -5656,7 +5717,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| print hello world!
-                ^^^^^
+          ^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5667,19 +5728,19 @@ Python version: 3.9.10
     Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
     
 
-(186) print is a function 7
+(187) print is a function 7
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
         print len("hello") hello
-              ^
-    SyntaxError: invalid syntax
+        ^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
     
         ¿Quieres decir `print(...)`?
         
@@ -5690,7 +5751,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| print len("hello") hello
-                ^^^
+          ^^^^^^^^^^^^^^^^^^
 
     Tal vez tenga que escribir
     
@@ -5701,18 +5762,18 @@ Python version: 3.9.10
     Tenga en cuenta que los argumentos de `print` deben estar separados por comas.
     
 
-(187) Calling python from interpreter
+(188) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\python_interpreter.py", line 1
         python -i friendly
-                  ^
+                  ^^^^^^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5728,14 +5789,14 @@ Python version: 3.9.10
     Debe hacerlo desde un terminal y no desde un intérprete de Python.
     
 
-(188) problem with assigning a variable to Python
+(189) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\python_not_interpreter.py", line 1
         python = a b
@@ -5766,19 +5827,19 @@ Python version: 3.9.10
     algunas de ellas pueden generar otros tipos de excepciones.
     
 
-(189) Quote inside a string
+(190) Quote inside a string
 ---------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\quote_inside_string.py", line 3
         message = 'I don't mind.'
-                         ^
-    SyntaxError: invalid syntax
+                                ^
+    SyntaxError: unterminated string literal (detected at line 3)
     
         Perhaps you forgot to escape a quote character.
         
@@ -5789,7 +5850,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3| message = 'I don't mind.'
-                           ^
+                                  ^
 
     I suspect that you were trying to use a quote character inside a string
     that was enclosed in quotes of the same kind.
@@ -5799,14 +5860,14 @@ Python version: 3.9.10
                         ^^
     
 
-(190) Raising multiple exceptions
+(191) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\raise_multiple_exceptions.py", line 2
         raise X, Y
@@ -5825,18 +5886,18 @@ Python version: 3.9.10
     Parece que estás intentando lanzar una excepción utilizando la sintaxis de Python 2.
     
 
-(191) Cannot use return outside function
+(192) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\return_outside_function.py", line 3
         return
-        ^
+        ^^^^^^
     SyntaxError: 'return' outside function
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5851,14 +5912,47 @@ Python version: 3.9.10
     Sólo se puede utilizar una sentencia `return` dentro de una función o método.
     
 
-(192) Semicolon instead of colon
+(193) Missing exponent for scientific notation
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\scientific_notation_missing_exponent.py", line 1
+        a = 1.5e
+              ^
+    SyntaxError: invalid decimal literal
+    
+        Did you mean `1.5e0`?
+        
+    Un `SyntaxError` ocurre cuando Python no puede entender tu código.
+    
+    Python no pudo entender el código en el archivo
+    'TESTS:\syntax\scientific_notation_missing_exponent.py'
+    en la ubicación indicada.
+    
+       1| a = 1.5e
+              ^^^^
+
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
+    Did you mean `1.5e0`?
+    Perhaps you meant to write `1.5e0` in scientific notation
+    and forgot the numerical value for the exponent.
+    
+
+(194) Semicolon instead of colon
 --------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\semi_colon_instead_of_colon.py", line 1
         if True;  # A comment
@@ -5879,14 +5973,14 @@ Python version: 3.9.10
     Has escrito un punto y coma, `;`, donde se esperaba dos puntos.
     
 
-(193) Semicolon instead of comma - 1
+(195) Semicolon instead of comma - 1
 ------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\semi_colon_instead_of_comma_1.py", line 1
         a = [1, 2; 3]
@@ -5907,14 +6001,14 @@ Python version: 3.9.10
     Has escrito un punto y coma, `;`, donde se esperaba una coma.
     
 
-(194) Semicolon instead of commas - 2
+(196) Semicolon instead of commas - 2
 -------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\semi_colon_instead_of_comma_2.py", line 1
         a = [1; 2; 3]
@@ -5935,14 +6029,14 @@ Python version: 3.9.10
     Has escrito punto y coma, `;`, donde se esperaban comas.
     
 
-(195) Semicolon instead of commas - 3
+(197) Semicolon instead of commas - 3
 -------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\semi_colon_instead_of_comma_3.py", line 1
         a = [1; 2; 3];
@@ -5963,18 +6057,18 @@ Python version: 3.9.10
     Has escrito punto y coma, `;`, donde se esperaban comas.
     
 
-(196) Code block inside comprehension
+(198) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\should_be_comprehension.py", line 2
         for i in 1, 2, 3:
-        ^
+        ^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -5996,19 +6090,19 @@ Python version: 3.9.10
     Si esta explicación es incorrecta, por favor informe de este caso.
     
 
-(197) Single = instead of double == with if
+(199) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\single_equal_with_if.py", line 3
         if i % 2 = 0:
-                 ^
-    SyntaxError: invalid syntax
+           ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
     
         Tal vez necesitabas `==` en lugar de `=`.
         
@@ -6019,26 +6113,26 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        3|     if i % 2 = 0:
-                       ^
+                 ^^^^^
 
-    Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
-    La siguiente sentencia no contendría un error de sintaxis:
+    Has escrito una expresión que incluye algunas operaciones matemáticas
+    en el lado izquierdo del signo igual que debería ser
+    sólo utilizarse para asignar un valor a una variable.
     
-        if i % 2 == 0:
 
-(198) Single = instead of double == with elif
+(200) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\single_equal_with_elif.py", line 5
         elif i % 2 = 0:
-                   ^
-    SyntaxError: invalid syntax
+             ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
     
         Tal vez necesitabas `==` en lugar de `=`.
         
@@ -6049,26 +6143,26 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        5|     elif i % 2 = 0:
-                         ^
+                   ^^^^^
 
-    Es probable que hayas utilizado un operador de asignación `=` en lugar de un operador de igualdad `==`.
-    La siguiente sentencia no contendría un error de sintaxis:
+    Has escrito una expresión que incluye algunas operaciones matemáticas
+    en el lado izquierdo del signo igual que debería ser
+    sólo utilizarse para asignar un valor a una variable.
     
-        elif i % 2 == 0:
 
-(199) Single = instead of double == with while
+(201) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\single_equal_with_while.py", line 4
         while a = 1:
-                ^
-    SyntaxError: invalid syntax
+              ^^^^^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
     
         Tal vez necesitabas `==` o `:=` en lugar de `=`.
         
@@ -6079,20 +6173,20 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        4| while a = 1:
-                  ^
+                ^^^^^
 
     Has utilizado un operador de asignación `=`; quizás querías utilizar 
     un operador de igualdad, `==`, o el operador de asignación aumentado `:=`.
     
 
-(200) Space between operators 1
+(202) Space between operators 1
 -------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\space_between_operators_1.py", line 1
         a = 2 * * 5
@@ -6115,14 +6209,14 @@ Python version: 3.9.10
     y quiso escribir `**` como un solo operador.
     
 
-(201) Space between operators 2
+(203) Space between operators 2
 -------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\space_between_operators_2.py", line 1
         a / = b
@@ -6145,18 +6239,18 @@ Python version: 3.9.10
     y quiso escribir `/=` como un solo operador.
     
 
-(202) Space in variable name
+(204) Space in variable name
 ----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\space_in_variable_name.py", line 1
         my name = André
-           ^
+           ^^^^
     SyntaxError: invalid syntax
     
         ¿Quieres decir `my_name`?
@@ -6174,18 +6268,18 @@ Python version: 3.9.10
     ¿Quizás se refería a `my_name`?
     
 
-(203) Wrong target for star assignment
+(205) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\star_assignment_target.py", line 1
         *a = 1
-        ^
+        ^^
     SyntaxError: starred assignment target must be in a list or tuple
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -6195,7 +6289,7 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| *a = 1
-          ^
+          ^^
 
     Una asignación estrella debe ser de la forma:
     
@@ -6203,18 +6297,18 @@ Python version: 3.9.10
     
     
 
-(204) Too many nested blocks
+(206) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\too_many_nested_blocks.py", line 22
         while 22:
-        ^
+        ^-->
     SyntaxError: too many statically nested blocks
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -6231,14 +6325,14 @@ Python version: 3.9.10
     contenidos dentro de otros bloques de código.
     
 
-(205) Too many nested parentheses.
+(207) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\too_many_parentheses.py", line 4
         ((((((((((((((((((((((((((((((((((
@@ -6265,14 +6359,14 @@ Python version: 3.9.10
     contenidos dentro de otros paréntesis.
     
 
-(206) Trailing comma in import statement
+(208) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\trailing_comma_in_import.py", line 2
         from math import sin, cos,
@@ -6298,14 +6392,14 @@ Python version: 3.9.10
     `from math import sin, cos`
     
 
-(207) Triple-equal sign
+(209) Triple-equal sign
 -----------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\triple_equal.py", line 3
         x = y === z
@@ -6329,30 +6423,32 @@ Python version: 3.9.10
     exactamente el mismo objeto, utiliza el operador `is`.
     
 
-(208) Unclosed bracket
+(210) Unclosed bracket
 ----------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\unclosed_bracket.py", line 7
-        print(foo())
-        ^
-    SyntaxError: invalid syntax
+      File "TESTS:\syntax\unclosed_bracket.py", line 5
+        return [1, 2, 3
+               ^
+    SyntaxError: '[' was never closed
     
+        El corchete `[` nunca fue cerrado.
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\unclosed_bracket.py'
     en la ubicación indicada.
     
-       5|     return [1, 2, 3
+    -->5|     return [1, 2, 3
+                     ^
        6| 
-    -->7| print(foo())
-          ^^^^^
+       7| print(foo())
        8| 
 
     El corchete `[` de apertura en la línea 5 no está cerrado.
@@ -6361,29 +6457,31 @@ Python version: 3.9.10
                       ^
     
 
-(209) Unclosed parenthesis - 1
+(211) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\unclosed_paren_1.py", line 3
-        if x == 1:
-                 ^
-    SyntaxError: invalid syntax
+      File "TESTS:\syntax\unclosed_paren_1.py", line 2
+        x = int('1'
+               ^
+    SyntaxError: '(' was never closed
     
+        El paréntesis `(` nunca fue cerrado.
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\unclosed_paren_1.py'
     en la ubicación indicada.
     
-       2| x = int('1'
-    -->3| if x == 1:
-                   ^
+    -->2| x = int('1'
+                 ^
+       3| if x == 1:
        4|     print('yes')
        5| 
 
@@ -6393,29 +6491,31 @@ Python version: 3.9.10
                   ^
     
 
-(210) Unclosed parenthesis - 2
+(212) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\unclosed_paren_2.py", line 3
-        d = a*a
-        ^
-    SyntaxError: invalid syntax
+      File "TESTS:\syntax\unclosed_paren_2.py", line 2
+        a = (b+c
+            ^
+    SyntaxError: '(' was never closed
     
+        El paréntesis `(` nunca fue cerrado.
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\unclosed_paren_2.py'
     en la ubicación indicada.
     
-       2| a = (b+c
-    -->3| d = a*a
-          ^
+    -->2| a = (b+c
+              ^
+       3| d = a*a
        4| 
 
     El paréntesis `(` de apertura en la línea 2 no está cerrado.
@@ -6424,14 +6524,14 @@ Python version: 3.9.10
                ^
     
 
-(211) Unclosed parenthesis - 3
+(213) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unclosed_paren_3.py", line 7
         if 2:
@@ -6458,18 +6558,18 @@ Python version: 3.9.10
     Si esto es incorrecto, por favor reporte este caso.
     
 
-(212) Unclosed parenthesis - 4
+(214) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unclosed_paren_4.py", line 4
         def test():
-        ^
+        ^^^
     SyntaxError: invalid syntax
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
@@ -6489,14 +6589,14 @@ Python version: 3.9.10
                 ^
     
 
-(213) Content passed continuation line character
+(215) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
         print(\t)
@@ -6517,49 +6617,48 @@ Python version: 3.9.10
     Supongo que has olvidado encerrar algún contenido en una cadena.
     
 
-(214) Unexpected EOF while parsing
+(216) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\unexpected_eof.py", line 8
-    SyntaxError: unexpected EOF while parsing
+      File "TESTS:\syntax\unexpected_eof.py", line 5
+        return [1, 2, 3,
+               ^
+    SyntaxError: '[' was never closed
     
+        El corchete `[` nunca fue cerrado.
+        
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
     Python no pudo entender el código en el archivo
     'TESTS:\syntax\unexpected_eof.py'
     en la ubicación indicada.
     
-       5|     return [1, 2, 3,
+    -->5|     return [1, 2, 3,
+                     ^
        6| 
        7| print(foo())
-    -->8| 
-                     ^
+       8| 
 
-    Python nos dice que llegó al final del archivo
-    y que esperaba más contenido.
-    
-    Intentaré dar un poco más de información.
-    
     El corchete `[` de apertura en la línea 5 no está cerrado.
     
         5:     return [1, 2, 3,
                       ^
     
 
-(215) Invalid character (unicode fraction 3/4)
+(217) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_fraction.py", line 1
         a = ¾  # 3/4
@@ -6585,19 +6684,19 @@ Python version: 3.9.10
     Sospecho que querías escribir la fracción `3/4` en su lugar.
     
 
-(216) Invalid character (unicode fraction 1/2)
+(218) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_fraction2.py", line 1
         a = 1½  # 1 1/2
-             ^
-    SyntaxError: invalid character '½' (U+00BD)
+            ^
+    SyntaxError: invalid decimal literal
     
         ¿Quieres decir `1/2`?
         
@@ -6608,24 +6707,24 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a = 1½  # 1 1/2
-               ^
+              ^^
 
-    ¿Usaste copiar y pegar?
-    Python indica que has utilizado el carácter unicode `½`
-    que no está permitido.
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
     Has utilizado el carácter unicode ½ que se conoce como
     VULGAR FRACTION ONE HALF
     Sospecho que querías escribir la fracción `1/2` en su lugar.
     
 
-(217) Invalid character (unicode fraction slash)
+(219) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_fraction3.py", line 1
         a = 22 ⁄ 7
@@ -6651,14 +6750,14 @@ Python version: 3.9.10
     pero es diferente del operador de división `/`.
     
 
-(218) Invalid character (unicode quote)
+(220) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_quote.py", line 3
         a = « hello »
@@ -6684,14 +6783,14 @@ Python version: 3.9.10
     en lugar de una comilla simple o doble normal para una cadena.
     
 
-(219) Invalid character (unicode quote2)
+(221) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_quote2.py", line 2
         a = ‹ hello ›
@@ -6717,14 +6816,14 @@ Python version: 3.9.10
     en lugar de una comilla simple o doble normal para una cadena.
     
 
-(220) Invalid character (mistaken <)
+(222) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_quote3.py", line 2
         if a ‹ hello:
@@ -6751,14 +6850,14 @@ Python version: 3.9.10
     O tal vez, quisiste escribir un signo menos que, `<`.
     
 
-(221) Invalid character (mistaken >)
+(223) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_quote4.py", line 2
         if a › hello:
@@ -6785,21 +6884,21 @@ Python version: 3.9.10
     O tal vez, quisiste escribir un signo mayor que, `>`.
     
 
-(222) Invalid character (mistaken comma)
+(224) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_quote5.py", line 2
         a = (1‚ 2)
-              ^
-    SyntaxError: invalid character '‚' (U+201A)
+             ^
+    SyntaxError: invalid decimal literal
     
-        ¿Quería utilizar un carácter de comillas normal, `'` o `"`?
+        ¿Querías escribir una coma?
         
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6808,25 +6907,25 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        2| a = (1‚ 2)
-                ^
+               ^^
 
-    ¿Usaste copiar y pegar?
-    Python indica que has utilizado el carácter unicode `‚`
-    que no está permitido.
-    Sospecho que has utilizado una comilla unicode de fantasía
-    cuyo nombre es SINGLE LOW-9 QUOTATION MARK
-    en lugar de una comilla simple o doble normal para una cadena.
-    O tal vez, quisiste escribir una coma.
+    Python nos dice que has escrito un número no válido.
+    Sin embargo, creo que el problema puede ser el siguiente.
+    
+    Sospecho que has utilizado una comilla elegante unicode
+    cuyo nombre es SINGLE LOW-9 QUOTATION MARK.
+    
+    Tal vez, quisiste escribir una coma.
     
 
-(223) Unmatched closing curly bracket
+(225) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unmatched_closing_curly.py", line 6
         3, 4,}}
@@ -6847,14 +6946,14 @@ Python version: 3.9.10
     El llave `}` de cierre de la línea 6 no coincide con nada.
     
 
-(224) Unmatched closing parenthesis
+(226) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unmatched_closing_paren.py", line 6
         3, 4,))
@@ -6875,14 +6974,14 @@ Python version: 3.9.10
     El paréntesis `)` de cierre de la línea 6 no coincide con nada.
     
 
-(225) Mismatched brackets - 1
+(227) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unmatched_closing_bracket_1.py", line 2
         x = (1, 2, 3]
@@ -6904,14 +7003,14 @@ Python version: 3.9.10
                ^       ^
     
 
-(226) Mismatched brackets - 2
+(228) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unmatched_closing_bracket_2.py", line 4
         3]
@@ -6938,14 +7037,14 @@ Python version: 3.9.10
                  ^
     
 
-(227) Unmatched brackets - 3
+(229) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unmatched_closing_bracket_3.py", line 3
         3]]
@@ -6966,19 +7065,19 @@ Python version: 3.9.10
     El corchete `]` de cierre de la línea 3 no coincide con nada.
     
 
-(228) Unpacking a dict value
+(230) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unpacking_dict_value.py", line 1
         {'a': *(1, 2, 3)}
-              ^
-    SyntaxError: invalid syntax
+              ^^^^^^^^^^
+    SyntaxError: cannot use a starred expression in a dictionary value
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -6987,11 +7086,9 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| {'a': *(1, 2, 3)}
-              ^ ^
+                ^^^^^^^^^^
 
-    No puedes tener estos dos operadores, `:` y `*`,
-    siguiéndose el uno al otro.
-    Parece que usted trató de usar una expresión estelar como un valor de dict;
+    Parece que has intentado utilizar una expresión con asteriscos como valor de dict;
     esto no está permitido.
     
     La siguiente declaración no tiene ningún error de sintaxis:
@@ -6999,21 +7096,19 @@ Python version: 3.9.10
         {'a': (1, 2, 3)}
     
 
-(229) Unterminated triple quoted string
+(231) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
-      File "TESTS:\syntax\unterminated_triple_quote_string.py", line 4
+      File "TESTS:\syntax\unterminated_triple_quote_string.py", line 1
         some_text = """In a land
-    populated by weird animals,
-    a ...
-                                                                   ^
-    SyntaxError: EOF while scanning triple-quoted string literal
+                    ^
+    SyntaxError: unterminated triple-quoted string literal (detected at line 4)
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.
     
@@ -7028,14 +7123,14 @@ Python version: 3.9.10
     las comillas triples necesarias para terminar la cadena.
     
 
-(230) TabError
+(232) TabError
 --------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\tab_error.py", line 7
         pass
@@ -7056,19 +7151,19 @@ Python version: 3.9.10
        7| 	pass
            ^^^^
 
-(231) EOL unescaped backslash
+(233) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unescaped_backslash.py", line 1
         a = "abc\"
-                  ^
-    SyntaxError: EOL while scanning string literal
+            ^
+    SyntaxError: unterminated string literal (detected at line 1)
     
         ¿Olvidaste escapar un carácter de barra invertida?
         
@@ -7088,14 +7183,14 @@ Python version: 3.9.10
     que necesitaba escapar escribiendo dos `\` seguidas.
     
 
-(232) Using the backquote character
+(234) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\use_backquote.py", line 3
         a = `1`
@@ -7117,14 +7212,14 @@ Python version: 3.9.10
     O bien has querido escribir una comilla simple, ', o has copiado el código de Python 2;
     en este último caso, utiliza la función `repr(x)`.
 
-(233) unicode error
+(235) unicode error
 -------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\unicode_error.py", line 1
         path = "c:\Users\andre"
@@ -7152,18 +7247,18 @@ Python version: 3.9.10
     delante de la cadena, o reemplazar `\U`, por `\\U`.
     
 
-(234) Walrus instead of equal
+(236) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\walrus_instead_of_equal.py", line 1
         a := 3
-              ^
+          ^^
     SyntaxError: invalid syntax
     
         ¿Querías usar `=`?
@@ -7175,20 +7270,20 @@ Python version: 3.9.10
     en la ubicación indicada.
     
        1| a := 3
-               ^
+            ^^
 
     Se utiliza el operador de asignación aumentado `:=` donde
     el operador de asignación normal `=` era necesario.
     
 
-(235) Missing condition in while statement
+(237) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\while_missing_condition.py", line 1
         while:
@@ -7213,18 +7308,18 @@ Python version: 3.9.10
     
     
 
-(236) Would-be variable declaration
+(238) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
         if var start := begin < end:
-               ^
+               ^^^^^
     SyntaxError: invalid syntax
     
         No es necesario declarar variables en Python.
@@ -7243,19 +7338,19 @@ Python version: 3.9.10
     Si eliminas `var`, tendrás una declaración válida de Python.
     
 
-(237) Would-be variable declaration - 2
+(239) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\would_be_type_declaration_2.py", line 5
         var start := begin < end
-            ^
-    SyntaxError: invalid syntax
+        ^^^^^^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
     
         No es necesario declarar variables en Python.
         
@@ -7267,26 +7362,26 @@ Python version: 3.9.10
     
        4| if (
     -->5|     var start := begin < end
-                  ^^^^^
+              ^^^^^^^^^
        6|    ):
 
-    Parece que estabas intentando declarar que `start` era
+    Parece que estabas intentando declarar que `var` era
     una variable utilizando la palabra `var`.
     Si eliminas `var`, tendrás una declaración válida de Python.
     
 
-(238) Cannot use yield outside function
+(240) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\yield_outside_function.py", line 1
         (yield i) == 3
-         ^
+         ^^^^^^^
     SyntaxError: 'yield' outside function
     
     Un `SyntaxError` ocurre cuando Python no puede entender tu código.

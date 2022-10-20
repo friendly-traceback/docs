@@ -19,8 +19,8 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.6.0
-Python version: 3.9.10
+Friendly-traceback version: 0.7.49
+Python version: 3.10.6
 
 
 
@@ -31,11 +31,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\and_in_import_statement.py", line 1
         from math import sin and cos
-                             ^
+                             ^^^
     SyntaxError: invalid syntax
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -60,11 +60,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\and_in_import_statement_2.py", line 1
         from math import sin, tan, and cos
-                                   ^
+                                   ^^^
     SyntaxError: invalid syntax
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -89,11 +89,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\annotated_name_global.py", line 4
         var:int = 1
-        ^
+        ^^^^^^^^^^^
     SyntaxError: annotated name 'var' can't be global
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -116,11 +116,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\as_instead_of_comma_in_import.py", line 2
         from math import (sin, cos) as funcs
-                                    ^
+                                    ^^
     SyntaxError: invalid syntax
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -150,12 +150,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_instead_of_equal.py", line 1
         a = (b = 2)  # issue #65
-               ^
-    SyntaxError: invalid syntax
+             ^^^^^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
     
         ஒருவேளை உங்களுக்கு `=` என்பதற்குப் பதிலாக `==` அல்லது `:=` தேவைப்படலாம்.
         
@@ -166,7 +166,7 @@ Python version: 3.9.10
     சுட்டிக்காட்டப்பட்ட இடத்தில்.
     
        1| a = (b = 2)  # issue #65
-                 ^
+               ^^^^^
 
     நீங்கள் ஒரு ஒதுக்கல் இயக்கியைப் பயன்படுத்தியுள்ளீர்கள் `=`; ஒருவேளை நீங்கள் 
     சமத்துவ இயக்கி, `==` அல்லது கடற்குதிரை இயக்கி `:=` ஐப் பயன்படுத்த நினைத்திருக்கலாம்.
@@ -179,11 +179,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_1.py", line 7
         global aa, bb, cc, dd
-        ^
+        ^^^^^^^^^^^^^^^^^^^^^
     SyntaxError: name 'cc' is assigned to before global declaration
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -206,11 +206,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_global_2.py", line 7
         global var
-        ^
+        ^^^^^^^^^^
     SyntaxError: name 'var' is used prior to global declaration
     
     பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
@@ -233,11 +233,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_1.py", line 11
         nonlocal pp, qq
-        ^
+        ^^^^^^^^^^^^^^^
     SyntaxError: name 'qq' is used prior to nonlocal declaration
     
         முதலில் `nonlocal` என்று எழுத மறந்துவிட்டீர்களா?
@@ -262,11 +262,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_name_before_nonlocal_2.py", line 9
         nonlocal s
-        ^
+        ^^^^^^^^^^
     SyntaxError: name 's' is assigned to before nonlocal declaration
     
         `nonlocal` சேர்க்க மறந்துவிட்டீர்களா?
@@ -291,11 +291,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_conditional.py", line 3
         a if 1 else b = 1
-        ^
+        ^^^^^^^^^^^^^
     SyntaxError: cannot assign to conditional expression
     
         அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
@@ -323,11 +323,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_debug.py", line 4
         __debug__ = 1
-        ^
+        ^^^^^^^^^
     SyntaxError: cannot assign to __debug__
     
         `__debug__`க்கு மதிப்பை ஒதுக்க முடியாது.
@@ -351,11 +351,11 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_debug2.py", line 4
         a.__debug__ = 1
-        ^
+        ^^^^^^^^^^^
     SyntaxError: cannot assign to __debug__
     
         `__debug__`க்கு மதிப்பை ஒதுக்க முடியாது.
@@ -379,12 +379,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_ellipsis.py", line 4
         ... = 1
-        ^
-    SyntaxError: cannot assign to Ellipsis
+        ^^^
+    SyntaxError: cannot assign to ellipsis here. Maybe you meant '==' instead of '='?
     
         நீள்வட்டச் சின்னத்திற்கு [`...`] மதிப்பை நீங்கள் ஒதுக்க முடியாது.
         
@@ -407,12 +407,12 @@ Python version: 3.9.10
 
 
     Traceback (most recent call last):
-      File "TESTS:\trb_syntax_common.py", line 49, in create_tracebacks
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
         __import__(name)
       File "TESTS:\syntax\assign_to_f_string.py", line 6
         f'{x}' = 42
-        ^
-    SyntaxError: cannot assign to f-string expression
+        ^^^^^^
+    SyntaxError: cannot assign to f-string expression here. Maybe you meant '==' instead of '='?
     
         அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
         
@@ -436,3 +436,6946 @@ Python version: 3.9.10
 
 .. code-block:: none
 
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_function_call_1.py", line 6
+        len('a') = 3
+        ^^^^^^^^
+    SyntaxError: cannot assign to function call here. Maybe you meant '==' instead of '='?
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_function_call_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6| len('a') = 3
+          ^^^^^^^^
+
+    நட்புக்கு உள் பிழை.
+    தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
+    நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+    
+    
+
+(16) Cannot assign to function call: two = signs
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_function_call_2.py", line 6
+        func(a, b=3) = 4
+        ^^^^^^^^^^^^
+    SyntaxError: cannot assign to function call here. Maybe you meant '==' instead of '='?
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_function_call_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6| func(a, b=3) = 4
+          ^^^^^^^^^^^^
+
+    நட்புக்கு உள் பிழை.
+    தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
+    நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+    
+    
+
+(17) Cannot assign to function call: continues on second line
+-------------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_function_call_3.py", line 6
+        a = f(1, 2,  # this is a comment
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+    SyntaxError: cannot assign to function call
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_function_call_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->6| a = f(1, 2,  # this is a comment
+              ^^^^^^^-->
+       7|       3, 4) = 5
+
+    நட்புக்கு உள் பிழை.
+    தயவுசெய்து இந்த உதாரணத்தைப் புகாரளிக்கவும்
+    https://github.com/friendly-traceback/friendly-traceback/issues/new
+    நீங்கள் REPL ஐப் பயன்படுத்தினால், அவ்வாறு செய்ய `www('bug')` ஐப் பயன்படுத்தவும்.
+    
+    
+
+(18) Assign to generator expression
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_generator.py", line 3
+        (x for x in x) = 1
+        ^^^^^^^^^^^^^^
+    SyntaxError: cannot assign to generator expression
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_generator.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| (x for x in x) = 1
+          ^^^^^^^^^^^^^^
+
+    சம அடையாளத்தின் இடது புறத்தில், மாறியின் பெயருக்குப் பதிலாக 
+    உருவாக்கி வெளிப்பாடு உள்ளது.
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(19) Cannot assign to literal - 4
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_dict.py", line 7
+        {1 : 2, 2 : 4} = 5
+        ^^^^^^^^^^^^^^
+    SyntaxError: cannot assign to dict literal here. Maybe you meant '==' instead of '='?
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_literal_dict.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7| {1 : 2, 2 : 4} = 5
+          ^^^^^^^^^^^^^^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       {1 : 2, 2 : 4} = 5 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `{1 : 2, 2 : 4}` என்பது ஒரு உண்மையான 
+    பொருள் `அகராதி` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(20) Cannot assign to literal int
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int.py", line 3
+        1 = a
+        ^
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+    
+        ஒருவேளை நீங்கள் `a = 1` என்று எழுத நினைத்திருக்கலாம்
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_literal_int.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| 1 = a
+          ^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       1 = a 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `1` என்பது ஒரு உண்மையான 
+    பொருள் `முழுஎண்` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    ஒருவேளை நீங்கள் எழுத நினைத்திருக்கலாம்:
+    
+       a = 1
+    
+    
+
+(21) Cannot assign to literal int - 2
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int_2.py", line 3
+        1 = 2
+        ^
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_literal_int_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| 1 = 2
+          ^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       1 = 2 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `1` என்பது ஒரு உண்மையான 
+    பொருள் `முழுஎண்` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(22) Cannot assign to literal - 5
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_int_3.py", line 4
+        1 = a = b
+        ^
+    SyntaxError: cannot assign to literal
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_literal_int_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| 1 = a = b
+          ^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       1 = மாறி_பெயர் 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `1` என்பது ஒரு உண்மையான 
+    பொருள் `முழுஎண்` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(23) Cannot assign to literal - 3
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_literal_set.py", line 7
+        {1, 2, 3} = 4
+        ^^^^^^^^^
+    SyntaxError: cannot assign to set display here. Maybe you meant '==' instead of '='?
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_literal_set.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7| {1, 2, 3} = 4
+          ^^^^^^^^^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       {1, 2, 3} = 4 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `{1, 2, 3}` என்பது ஒரு உண்மையான 
+    பொருள் `தொகுப்பு` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(24) Assign to keyword def
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_def.py", line 3
+        def = 2
+            ^
+    SyntaxError: invalid syntax
+    
+        பைதான் முக்கியச்சொற்களை அடையாளங்காட்டிகளாகப் பயன்படுத்த முடியாது (மாறி பெயர்கள்).
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_keyword_def.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def = 2
+          ^^^
+
+    பைதான் முக்கியச்சொல்லான `def` க்கு மதிப்பை ஒதுக்க முயற்சிக்கிறீர்கள். 
+    இதற்கு அனுமதி இல்லை.
+    
+    
+
+(25) Assign to keyword else
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_else.py", line 3
+        else = 1
+        ^^^^
+    SyntaxError: invalid syntax
+    
+        பைதான் முக்கியச்சொற்களை அடையாளங்காட்டிகளாகப் பயன்படுத்த முடியாது (மாறி பெயர்கள்).
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_keyword_else.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| else = 1
+          ^^^^
+
+    பைதான் முக்கியச்சொல்லான `else` க்கு மதிப்பை ஒதுக்க முயற்சிக்கிறீர்கள். 
+    இதற்கு அனுமதி இல்லை.
+    
+    
+
+(26) Assignment to keyword (None)
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_keyword_none.py", line 4
+        None = 1
+        ^^^^
+    SyntaxError: cannot assign to None
+    
+        `None`க்கு மதிப்பை ஒதுக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_keyword_none.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| None = 1
+          ^^^^
+
+    `None` என்பது பைத்தானில் ஒரு மாறிலி; நீங்கள் வேறு மதிப்பை ஒதுக்க முடியாது.
+    
+
+(27) Assign to math operation
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_operation.py", line 4
+        a + 1 = 2
+        ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+    
+        `=` என்பதற்குப் பதிலாக `==` தேவைப்படலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_operation.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| a + 1 = 2
+          ^^^^^
+
+    சம அடையாளத்தின் இடது புறத்தில் சில கணித செயல்பாடுகளை உள்ளடக்கிய ஒரு 
+    வெளிப்பாட்டை நீங்கள் எழுதியுள்ளீர்கள், இது மாறிக்கு மதிப்பை ஒதுக்க மட்டுமே 
+    பயன்படுத்தப்பட வேண்டும்.
+    
+
+(28) Assign to yield expression
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assign_to_yield_expression.py", line 1
+        (yield i) = 3
+         ^^^^^^^
+    SyntaxError: cannot assign to yield expression here. Maybe you meant '==' instead of '='?
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assign_to_yield_expression.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| (yield i) = 3
+           ^^^^^
+
+    சம அடையாளத்தின் இடது புறத்தில் `yield` முக்கிய சொல்லை உள்ளடக்கிய 
+    ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள். 
+    அத்தகைய வெளிப்பாட்டிற்கு நீங்கள் மதிப்பை ஒதுக்க முடியாது. 
+    முக்கியச்சொல்லான return`,
+    `yield` என்பது ஒரு செயல்பாட்டிற்குள் மட்டுமே பயன்படுத்தப்படும் என்பதை நினைவில் கொள்ளவும்.
+    
+
+(29) Augmented assignment inside comprehension
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assignment_expression_cannot_rebind.py", line 1
+        a = [(i := 1) for i in [1]]
+              ^
+    SyntaxError: assignment expression cannot rebind comprehension iteration variable 'i'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assignment_expression_cannot_rebind.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [(i := 1) for i in [1]]
+                ^
+
+    மறுசெய்கை மாறி `i`க்கு மதிப்பை ஒதுக்க, புரிந்துகொள்ளுதலுக்குள் `:=` 
+    பெரிதாக்கப்பட்ட ஒதுக்கும் இயக்கியைப் பயன்படுத்துகிறீர்கள். 
+    இந்த மாறியானது புரிதலின் உள்ளே மட்டுமே பயன்படுத்தப்பட வேண்டும். 
+    பெரிதாக்கப்பட்ட ஒதுக்கும் இயக்கி பொதுவாக ஒரு மாறிக்கு மதிப்பை 
+    ஒதுக்கப் பயன்படுகிறது, இதனால் மாறி பின்னர் மீண்டும் பயன்படுத்தப்படலாம். 
+    `i` மாறிக்கு இது சாத்தியமில்லை.
+    
+
+(30) Augmented assignment inside comprehension - inner loop
+-----------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\assignment_expression_cannot_rebind_2.py", line 1
+        [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+                                               ^
+    SyntaxError: comprehension inner loop cannot rebind assignment expression target 'j'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\assignment_expression_cannot_rebind_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| [i for i in range(5) if (j := 0) for k[j + 1] in range(5)]
+                                                 ^
+
+    மறுசெய்கை மாறி `j`க்கு மதிப்பை ஒதுக்க, புரிந்துகொள்ளுதலுக்குள் `:=` 
+    பெரிதாக்கப்பட்ட ஒதுக்கும் இயக்கியைப் பயன்படுத்துகிறீர்கள். 
+    இந்த மாறியானது புரிதலின் உள்ளே மட்டுமே பயன்படுத்தப்பட வேண்டும். 
+    பெரிதாக்கப்பட்ட ஒதுக்கும் இயக்கி பொதுவாக ஒரு மாறிக்கு மதிப்பை 
+    ஒதுக்கப் பயன்படுகிறது, இதனால் மாறி பின்னர் மீண்டும் பயன்படுத்தப்படலாம். 
+    `j` மாறிக்கு இது சாத்தியமில்லை.
+    
+
+(31) def: missing parentheses
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\async_def_missing_parens.py", line 1
+        async def name:
+                      ^
+    SyntaxError: invalid syntax
+    
+        அடைப்புக்குறிகளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\async_def_missing_parens.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| async def name:
+                        ^
+
+    ஒருவேளை நீங்கள் அடைப்புக்குறிக்குள் சேர்க்க மறந்துவிட்டீர்கள். 
+    நீங்கள் பின்வருமாறு எழுத நினைத்திருக்கலாம்
+    
+       async def name():
+    
+
+(32) Augmented assignment to literal
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\augmented_assignment_to_literal.py", line 1
+        if "word" := True:
+           ^^^^^^
+    SyntaxError: cannot use assignment expressions with literal
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\augmented_assignment_to_literal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| if "word" := True:
+             ^^^^^^
+
+    பெரிதாக்கப்பட்ட ஒதுக்கும் இயக்கியான `:=`, சில சமயங்களில் கடற்குதிரை 
+    இயக்கி என அழைக்கப்படும், `"word"` போன்ற எழுத்துக்களுடன் நீங்கள் பயன்படுத்த முடியாது. 
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+
+(33) Walrus/Named assignment depending on Python version
+--------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\augmented_assigment_with_true.py", line 4
+        (True := 1)
+         ^^^^
+    SyntaxError: cannot use assignment expressions with True
+    
+        `True`க்கு மதிப்பை ஒதுக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\augmented_assigment_with_true.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| (True := 1)
+           ^^^^
+
+    `True` என்பது பைத்தானில் ஒரு மாறிலி; நீங்கள் வேறு மதிப்பை ஒதுக்க முடியாது.
+    
+
+(34) Backslash instead of slash
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\backslash_instead_of_slash.py", line 1
+        a = 3 \ 4.0
+               ^
+    SyntaxError: unexpected character after line continuation character
+    
+        4.0 வகுக்க வேண்டுமா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\backslash_instead_of_slash.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 3 \ 4.0
+                  ^^^
+
+    நீங்கள் ஒரு சரத்திற்கு வெளியே `\` என்ற தொடர்ச்சி எழுத்தைப் 
+    பயன்படுத்துகிறீர்கள், அதைத் தொடர்ந்து வேறு சில எழுத்து(கள்) வருகின்றன.
+    நீங்கள் எண்ணை 4.0 ஆல் வகுக்க விரும்பி, / என்பதற்குப் பதிலாக \ 
+    என்று எழுதியிருக்கிறீர்கள் என்று நினைக்கிறேன்.
+
+(35) Brackets instead of parentheses
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\bracket_instead_of_paren.py", line 1
+        print(sum[i for i in [1, 2, 3] if i%2==0])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        `sum` மற்றும் `[` இடையே ஏதாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\bracket_instead_of_paren.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print(sum[i for i in [1, 2, 3] if i%2==0])
+                ^^^^
+
+    `sum` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `[` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a tuple, 
+    or between function arguments, 
+    at the position indicated by ^.
+    `sum` மற்றும் `[` இடையே `+, -, *` போன்ற இயக்கியைச் செருக 
+    நினைத்திருக்கலாம். பின்வரும் குறியீடு வரிகள் எந்த `தொடரியல்பிழை` யையும் 
+    ஏற்படுத்தாது:
+    
+        print(sum, [i for i in [1, 2, 3] if i%2==0])
+        print(sum + [i for i in [1, 2, 3] if i%2==0])
+        print(sum - [i for i in [1, 2, 3] if i%2==0])
+        print(sum * [i for i in [1, 2, 3] if i%2==0])
+    குறிப்பு: இவை சாத்தியமான சில தேர்வுகள் மற்றும் அவற்றில் சில வேறு வகையான 
+    விதிவிலக்குகளை எழுப்பலாம்.
+    
+    கூடுதல் வாய்ப்பு உள்ளது.
+    அடைப்புக்குறிகளுக்குப் பதிலாக சதுர அடைப்புக்குறிகளைப் பயன்படுத்தியுள்ளீர்கள், `[...]`.
+    அதற்கு பதிலாக பின்வருவனவற்றை எழுதவும்:
+    
+        print(sum(i for i in [1, 2, 3] if i%2==0))
+
+(36) break outside loop
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\break_outside_loop.py", line 4
+        break
+        ^^^^^
+    SyntaxError: 'break' outside loop
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\break_outside_loop.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4|     break
+              ^^^^^
+
+    பைதான் முக்கிய சொல்லான `break` என்பது `for` சுழலில் அல்லது `while` சுழலில் மட்டுமே பயன்படுத்தப்படும்.
+    
+
+(37) Cannot assign to attribute here.
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_assign_to_attribute_here.py", line 1
+        if x.a = 1:
+           ^^^
+    SyntaxError: cannot assign to attribute here. Maybe you meant '==' instead of '='?
+    
+        `=` என்பதற்குப் பதிலாக `==` தேவைப்படலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\cannot_assign_to_attribute_here.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| if x.a = 1:
+             ^^^
+
+    சமத்துவ இயக்கிக்குப் பதிலாக `=` ஒதுக்கீட்டு இயக்கிகளைப் பயன்படுத்தியிருக்கலாம்.
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இருக்காது:
+    
+         if x.a == 1:
+    
+
+(38) Cannot guess the cause
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_guess_the_cause.py", line 1
+        SyntaxErrors can be annoying!
+                     ^^^
+    SyntaxError: invalid syntax
+    
+        நட்பு-மீண்டும்கண்டுபிடிக்க Friendly-tracebackக்கு இந்த பிழைக்கான காரணம் தெரியவில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\cannot_guess_the_cause.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| SyntaxErrors can be annoying!
+                       ^^^
+
+    தற்போது, இந்த பிழைக்கான காரணத்தை என்னால் நினைக்க முடியவில்லை. 
+    (, ), [, ], :, போன்ற எழுத்துப்பிழைகள் அல்லது விடுபட்ட சின்னங்களை உங்களால் 
+    அடையாளம் காண முடியுமா என்பதைப் பார்க்க, சுட்டிக்காட்டப்பட்ட வரியையும் 
+    உடனடியாக மேலே உள்ள வரியையும் கவனமாக ஆராய முயற்சிக்கவும். 
+    
+    உங்கள் குறியீடு வகை சிறுகுறிப்புகளைப் பயன்படுத்தாவிட்டால், 
+    எங்கள் எல்லைக்கு அப்பாற்பட்டது, 
+    இது நட்புடன் கையாளப்பட வேண்டிய ஒன்று என்று நீங்கள் நினைத்தால், இந்த வழக்கை 
+    https://github.com/friendly-traceback/friendly-traceback/issues க்கு புகாரளிக்கவும்
+    
+    
+
+(39) Cannot use star operator
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_use_star.py", line 3
+        *a
+        ^^
+    SyntaxError: can't use starred expression here
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\cannot_use_star.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| *a
+          ^^
+
+    விண்மீன் இயக்கி `*` என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும் 
+    ஒரு பெயரை ஒதுக்குவதற்கு, மறுசெய்யக்கூடிய கட்டவிழ் பயன்படுத்தப்பட 
+    வேண்டும் என்று பொருள்படும், இது இங்கே பொருளற்றது.
+    
+
+(40) Cannot use double star operator
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\cannot_use_double_star.py", line 4
+        (**k)
+         ^^
+    SyntaxError: f-string: cannot use double starred expression here
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\cannot_use_double_star.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4|     print(f"{**k}")
+                            ^
+
+    இரட்டை விண்மீன் இயக்கி `**` என்பது அகராதி கட்டவிழ் பயன்படுத்தப்பட வேண்டும் 
+    என்று பொருள்படலாம், இது இங்கே அனுமதிக்கப்படாத அல்லது பொருளற்றது.
+    
+
+(41) Missing class name
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\class_missing_name.py", line 1
+        class:
+             ^
+    SyntaxError: invalid syntax
+    
+        ஒரு வகுப்பிற்கு ஒரு பெயர் தேவை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\class_missing_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| class:
+               ^
+
+    ஒரு `வகுப்பு` அறிக்கைக்கு ஒரு பெயர் தேவை: 
+    
+       class வகுப்புப்பெயர்:
+            ...
+    
+    
+
+(42) Missing () for tuples in comprehension
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_missing_tuple_paren.py", line 1
+        x = [i, i**2 for i in range(10)]
+             ^^^^^^^
+    SyntaxError: did you forget parentheses around the comprehension target?
+    
+        அடைப்புக்குறிகளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\comprehension_missing_tuple_paren.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| x = [i, i**2 for i in range(10)]
+               ^^^^^^^
+
+    நீங்கள் ஒரு புரிதல் அல்லது உருவாக்கி வெளிப்பாடு எழுதுகிறீர்கள் என்று நினைக்கிறேன், மேலும் மடங்குகளைச் சுற்றி அடைப்புக்குறிகளைச் சேர்க்க மறந்துவிட்டீர்கள். எடுத்துக்காட்டாக,
+    
+    [ஐ, ஐ**2 for ஐ in range(10)]
+    
+    எழுதுவதற்குப் பதிலாக, 
+    
+    [(ஐ, ஐ**2) for ஐ in range(10)]
+    
+    என்று எழுத வேண்டும்
+    
+    
+
+(43) Comprehension with condition (no else)
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_with_condition_no_else.py", line 1
+        a = [f(x) if condition for x in sequence]
+             ^^^^^^^^^^^^^^^^^
+    SyntaxError: expected 'else' after 'if' expression
+    
+        `else` சேர்க்க மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\comprehension_with_condition_no_else.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [f(x) if condition for x in sequence]
+               ^^^^^^^^^^^^^^^^^
+
+    `if` வெளிப்பாட்டிற்குப் பிறகு `else சில_மதிப்பு` பிரிவு எதிர்பார்க்கப்பட்டது.
+    
+
+(44) Comprehension with condition (with else)
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\comprehension_with_condition_with_else.py", line 1
+        a = [f(x) for x in sequence if condition else other]
+                                                 ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\comprehension_with_condition_with_else.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [f(x) for x in sequence if condition else other]
+                                                   ^^^^
+
+    நீங்கள் ஒரு புரிதல் அல்லது உருவாக்கி வெளிப்பாடு எழுதுகிறீர்கள் என்று நான் 
+    நினைக்கிறேன் மற்றும் ஒரு நிபந்தனைக்கு தவறான வரிசையைப் பயன்படுத்துகிறீர்கள். 
+    சரியான வரிசையானது `else` பிரிவு இருக்கிறதா இல்லையா என்பதைப் பொறுத்தது. 
+    எடுத்துக்காட்டாக, நிபந்தனையுடன் கூடிய பட்டியலைப் புரிந்துகொள்வதற்கான 
+    சரியான வரிசையானது 
+    
+        [f(x) if நிபந்தனை else மற்றது for ஐ in வரிசை]  # 'for'க்கு முன் 'if'
+    
+    அல்லது, `else` இல்லை என்றால்
+    
+        [f(x) for ஐ in வரிசை if நிபந்தனை]  # 'for'க்கு பிறகு 'if' 
+    
+    
+
+(45) continue outside loop
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\continue_outside_loop.py", line 4
+        continue
+        ^^^^^^^^
+    SyntaxError: 'continue' not properly in loop
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\continue_outside_loop.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4|     continue
+              ^^^^^^^^
+
+    பைதான் முக்கிய சொல்லான `continue` என்பது `for` சுழலில் அல்லது `while` சுழலில் மட்டுமே பயன்படுத்தப்படும்.
+    
+
+(46) Copy/paste from interpreter
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\copy_pasted_code.py", line 2
+        >>> print("Hello World!")
+        ^^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\copy_pasted_code.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| >>> print("Hello World!")
+          ^^^
+
+    ஊடாடும் மொழிபெயர்ப்பாளரிடமிருந்து நீங்கள் குறியீட்டை நகலெடுத்து ஒட்டியது போல் தெரிகிறது. 
+    பைதான் உடனுக்குடன், `>>>`, உங்கள் குறியீட்டில் சேர்க்கப்படக்கூடாது.
+    
+
+(47) Copy/paste from interpreter - 2
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\copy_pasted_code_2.py", line 2
+        ... print("Hello World!")
+            ^^^^^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\copy_pasted_code_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| ... print("Hello World!")
+          ^^^
+
+    ஊடாடும் மொழிபெயர்ப்பாளரிடமிருந்து நீங்கள் குறியீட்டை நகலெடுத்து ஒட்டியது போல் தெரிகிறது. 
+    பைதான் உடனுக்குடன், `...`, உங்கள் குறியீட்டில் சேர்க்கப்படக்கூடாது.
+    
+
+(48) def: positional arg after kwargs
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_arg_after_kwarg.py", line 1
+        def test(a, **kwargs, b):
+                              ^
+    SyntaxError: invalid syntax
+    
+        முக்கியச்சொல் வாதங்களுக்கு முன் நிலை வாதங்கள் வர வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_arg_after_kwarg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, **kwargs, b):
+                                ^
+
+    முக்கியச்சொல் வாதங்களுக்கு முன் நிலை வாதங்கள் வர வேண்டும்.
+    `b` என்பது உங்கள் செயல்பாட்டு வரையறையில் ஒன்று அல்லது அதற்கு 
+    மேற்பட்ட முக்கியச்சொல் வாதங்களுக்குப் பிறகு தோன்றும் நிலை வாதமாகும்.
+    
+
+(49) def: named arguments must follow bare *
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_bare_star_arg.py", line 4
+        def f(*):
+              ^
+    SyntaxError: named arguments must follow bare *
+    
+        `*` பிறகு எதையாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_bare_star_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| def f(*):
+                ^
+
+    நீங்கள் ஒரு செயல்பாட்டை வரையறுக்கிறீர்கள் என்று வைத்துக் கொண்டால், 
+    நீங்கள் `*` ஐ `*வாதங்கள்` அல்லது `*, name_argument=value` மூலம் மாற்ற 
+    வேண்டும்.
+    
+
+(50) def: misused as code block
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_code_block.py", line 3
+        def :
+            ^
+    SyntaxError: invalid syntax
+    
+        ஒரு செயல்பாட்டிற்கு ஒரு பெயர் தேவை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_code_block.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def :
+              ^
+
+    நீங்கள் ஒரு செயல்பாட்டை வரையறுக்க முயற்சித்தீர்கள் மற்றும் சரியான தொடரியல் பயன்படுத்தவில்லை.
+    சரியான தொடரியல்:
+    
+       def name (... ):
+    
+
+(51) def: misused as code block - 2
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_code_block_2.py", line 2
+        def :
+            ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாடுகள் மற்றும் முறைகளுக்கு ஒரு பெயர் தேவை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_code_block_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2|     def :
+                  ^
+
+    நீங்கள் ஒரு செயல்பாடு அல்லது முறையை வரையறுக்க முயற்சித்தீர்கள் மற்றும் சரியான தொடரியல் பயன்படுத்தவில்லை.
+    சரியான தொடரியல்:
+    
+       def name (... ):
+    
+
+(52) Dotted name as function argument
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_argument.py", line 3
+        def test(x.y):
+                  ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளியை எழுத நினைத்தீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_dotted_argument.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def test(x.y):
+                    ^
+
+    நீங்கள் புள்ளியிடப்பட்ட பெயர்களை செயல்பாட்டு வாதங்களாகப் பயன்படுத்த முடியாது.
+    ஒருவேளை நீங்கள் காற்புள்ளியை எழுத நினைத்திருக்கலாம்.
+    
+
+(53) Dotted name as function argument
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_argument_2.py", line 2
+        def test(x., y):
+                  ^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் புள்ளியிடப்பட்ட பெயர்களை செயல்பாட்டு வாதங்களாகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_dotted_argument_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| def test(x., y):
+                    ^
+
+    நீங்கள் புள்ளியிடப்பட்ட பெயர்களை செயல்பாட்டு வாதங்களாகப் பயன்படுத்த முடியாது.
+    
+
+(54) Dotted function name
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dotted_function_name.py", line 3
+        def test.x():
+                ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாடு பெயர்களில் புள்ளிகளைப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_dotted_function_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def test.x():
+                  ^
+
+    செயல்பாடு பெயர்களில் புள்ளிகளைப் பயன்படுத்த முடியாது.
+    
+
+(55) def: dict as argument
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_dict_as_arg.py", line 1
+        def test({'a': 1}, y):  # dict as first argument
+                 ^
+    SyntaxError: invalid syntax
+    
+        உங்களிடம் வெளிப்படையான அகராதி அல்லது தொகுப்பு செயல்பாட்டு வாதங்களாக ஏற்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_dict_as_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test({'a': 1}, y):  # dict as first argument
+                   ^
+
+    உங்களிடம் வெளிப்படையான அகராதி அல்லது தொகுப்பு செயல்பாட்டு வாதங்களாக ஏற்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(56) def: arguments must be unique in function definition
+---------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_duplicate_arg.py", line 4
+        def f(aa=1, aa=2):
+                    ^^
+    SyntaxError: duplicate argument 'aa' in function definition
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_duplicate_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| def f(aa=1, aa=2):
+                ^^    ^^
+
+    வாதத்தை மீண்டும் செய்யும் செயல்பாட்டை நீங்கள் வரையறுத்துள்ளீர்கள்
+    
+         aa
+    ஒவ்வொரு வாதமும் ஒரு செயல்பாடு வரையறையில் ஒரு முறை மட்டுமே தோன்ற வேண்டும்.
+    
+
+(57) def: semicolon after colon
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_extra_semi_colon.py", line 1
+        def test():;
+                   ^
+    SyntaxError: invalid syntax
+    
+        முக்காற்புள்ளிக்குப் பிறகு தவறுதலாக ஏதாவது எழுதிவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_extra_semi_colon.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test():;
+                     ^
+
+    ஒரு செயல்பாட்டு வரையறை அறிக்கை முக்காற்புள்ளியுடன் முடிவடைய வேண்டும்.
+    முக்காற்புள்ளியைக்குப் பிறகு ஒரு தொகுதி குறியீடு வர வேண்டும்.
+    `;` அகற்றினால், சிக்கலைச் சரிசெய்யலாம்.
+    
+
+(58) def: extra comma
+---------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_extra_comma.py", line 1
+        def test(a,,b):
+                   ^
+    SyntaxError: invalid syntax
+    
+        `,` என்று எழுத வேண்டுமா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_extra_comma.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a,,b):
+                     ^
+
+    நீங்கள் எழுத்துப்பிழை செய்து, தவறுதலாக `,` சேர்த்திருக்கிறீர்கள் என்று சந்தேகிக்கிறேன். 
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இல்லை: 
+    
+       def test(a,b):
+
+(59) def: unspecified keywords before /
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_1.py", line 1
+        def test(a, **kwargs, /):
+                              ^
+    SyntaxError: invalid syntax
+    
+        முக்கியச்சொல் வாதங்கள் `/` சின்னத்திற்குப் பிறகு தோன்ற வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_forward_slash_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, **kwargs, /):
+                                ^
+
+    `/` ஒரு செயல்பாட்டு வரையறையில் முந்தைய வாதங்கள் நிலை வாதங்கள் 
+    என்பதைக் குறிக்கிறது.
+    `/` சின்னத்திற்கு முன் தோன்றும் குறிப்பிடப்படாத முக்கியச்சொல் வாதங்கள் உங்களிடம் 
+    உள்ளன.
+    
+
+(60) def: / before star
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_2.py", line 1
+        def test(a, *, b, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        `*` ஒரு செயல்பாட்டு வரையறையில் `/` க்குப் பிறகு தோன்ற வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_forward_slash_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *, b, /):
+                            ^
+
+    `/` ஒரு செயல்பாட்டு வரையறையில் முந்தைய வாதங்கள் நிலை வாதங்கள் 
+    என்பதைக் குறிக்கிறது.
+    இருப்பினும், பின் வரும் வாதங்கள் முக்கியச்சொல் வாதங்களாக இருக்க வேண்டும் 
+    என்பதை `*` குறிக்கிறது. அவற்றை ஒன்றாகப் பயன்படுத்தும்போது, 
+    `*` க்கு முன் `/` தோன்ற வேண்டும்.
+    
+
+(61) def: / before star arg
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_3.py", line 1
+        def test(a, *arg, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        `*arg` ஒரு செயல்பாட்டு வரையறையில் `/` க்குப் பிறகு தோன்ற வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_forward_slash_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *arg, /):
+                            ^
+
+    `/` ஒரு செயல்பாட்டு வரையறையில் முந்தைய வாதங்கள் நிலை வாதங்கள் 
+    என்பதைக் குறிக்கிறது.
+    `*arg` ஒரு செயல்பாட்டு வரையறையில் `/` க்குப் பிறகு தோன்ற வேண்டும்.
+    
+
+(62) def: / used twice
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_forward_slash_4.py", line 1
+        def test(a, /, b, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `/` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_forward_slash_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, /, b, /):
+                            ^
+
+    செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `/` பயன்படுத்த முடியும்.
+    
+
+(63) def: non-identifier as a function name
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_function_name_invalid.py", line 3
+        def 2be():
+            ^
+    SyntaxError: invalid decimal literal
+    
+        நீங்கள் தவறான செயல்பாட்டு பெயரை எழுதியுள்ளீர்கள்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_function_name_invalid.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def 2be():
+              ^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    ஒரு செயல்பாட்டின் பெயர் செல்லுபடியாகும் பைதான் அடையாளங்காட்டியாக இருக்க வேண்டும், அது ஒரு எழுத்து அல்லது அடிக்கோடிட்ட எழுத்துடன் தொடங்கும் பெயர், 
+    `_`, 
+    மேலும் இதில் எழுத்துக்கள், இலக்கங்கள் அல்லது அடிக்கோடி எழுத்து மட்டுமே இருக்கும்.
+    
+
+(64) def: using a string as a function name
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_function_name_string.py", line 3
+        def "function"():
+            ^^^^^^^^^^
+    SyntaxError: invalid syntax
+    
+        ஒரு செயல்பாட்டின் பெயர் செல்லுபடியாகும் பைதான் அடையாளங்காட்டியாக இருக்க வேண்டும், அது ஒரு எழுத்து அல்லது அடிக்கோடிட்ட எழுத்துடன் தொடங்கும் பெயர், 
+        `_`, 
+        மேலும் இதில் எழுத்துக்கள், இலக்கங்கள் அல்லது அடிக்கோடி எழுத்து மட்டுமே இருக்கும்.
+        நீங்கள் ஒரு சரத்தை செயல்பாட்டுப் பெயராகப் பயன்படுத்த முயற்சித்தீர்கள்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_function_name_string.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def "function"():
+              ^^^^^^^^^^
+
+    ஒரு செயல்பாட்டின் பெயர் செல்லுபடியாகும் பைதான் அடையாளங்காட்டியாக இருக்க வேண்டும், அது ஒரு எழுத்து அல்லது அடிக்கோடிட்ட எழுத்துடன் தொடங்கும் பெயர், 
+    `_`, 
+    மேலும் இதில் எழுத்துக்கள், இலக்கங்கள் அல்லது அடிக்கோடி எழுத்து மட்டுமே இருக்கும்.
+    நீங்கள் ஒரு சரத்தை செயல்பாட்டுப் பெயராகப் பயன்படுத்த முயற்சித்தீர்கள்.
+    
+
+(65) def: keyword cannot be argument in def - 1
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_1.py", line 5
+        def f(None=1):
+              ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_keyword_as_arg_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| def f(None=1):
+                ^^^^
+
+    அடையாளங்காட்டி (மாறி பெயர்) எதிர்பார்க்கப்படும் செயல்பாட்டின் வரையறையில் 
+    பைதான் முக்கிய சொல்லான `None` ஐ வாதமாகப் பயன்படுத்த முயற்சித்தீர்கள் என்று 
+    நினைக்கிறேன்.
+    
+
+(66) def: keyword cannot be argument in def - 2
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_2.py", line 5
+        def f(x, True):
+                 ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_keyword_as_arg_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| def f(x, True):
+                   ^^^^
+
+    அடையாளங்காட்டி (மாறி பெயர்) எதிர்பார்க்கப்படும் செயல்பாட்டின் வரையறையில் 
+    பைதான் முக்கிய சொல்லான `True` ஐ வாதமாகப் பயன்படுத்த முயற்சித்தீர்கள் என்று 
+    நினைக்கிறேன்.
+    
+
+(67) def: keyword cannot be argument in def - 3
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_3.py", line 5
+        def f(*None):
+               ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_keyword_as_arg_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| def f(*None):
+                 ^^^^
+
+    அடையாளங்காட்டி (மாறி பெயர்) எதிர்பார்க்கப்படும் செயல்பாட்டின் வரையறையில் 
+    பைதான் முக்கிய சொல்லான `None` ஐ வாதமாகப் பயன்படுத்த முயற்சித்தீர்கள் என்று 
+    நினைக்கிறேன்.
+    
+
+(68) def: keyword cannot be argument in def - 4
+-----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_arg_4.py", line 5
+        def f(**None):
+                ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_keyword_as_arg_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| def f(**None):
+                  ^^^^
+
+    அடையாளங்காட்டி (மாறி பெயர்) எதிர்பார்க்கப்படும் செயல்பாட்டின் வரையறையில் 
+    பைதான் முக்கிய சொல்லான `None` ஐ வாதமாகப் பயன்படுத்த முயற்சித்தீர்கள் என்று 
+    நினைக்கிறேன்.
+    
+
+(69) def: Python keyword as function name
+-----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_keyword_as_name.py", line 3
+        def pass():
+            ^^^^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் பைதான் முக்கிய சொல்லை செயல்பாட்டு பெயராகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_keyword_as_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def pass():
+              ^^^^
+
+    நீங்கள் பைதான் முக்கிய சொல்லான `pass` ஐ செயல்பாட்டுப் பெயராகப் பயன்படுத்த முயற்சித்தீர்கள்.
+    
+    உங்கள் குறியீட்டில் பின்னர் அதிகமான தொடரியல் பிழைகள் உள்ளன.
+    
+
+(70) def: list as argument - 1
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_list_as_arg_1.py", line 1
+        def test([x], y):  # list as first argument
+                 ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வாதங்களாக வெளிப்படையான பட்டியல்களை நீங்கள் வைத்திருக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_list_as_arg_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test([x], y):  # list as first argument
+                   ^
+
+    செயல்பாட்டு வாதங்களாக வெளிப்படையான பட்டியல்களை நீங்கள் வைத்திருக்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(71) def: list as argument - 2
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_list_as_arg_2.py", line 1
+        def test(x, [y]):  # list as second argument, after comma
+                    ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வாதங்களாக வெளிப்படையான பட்டியல்களை நீங்கள் வைத்திருக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_list_as_arg_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(x, [y]):  # list as second argument, after comma
+                      ^
+
+    செயல்பாட்டு வாதங்களாக வெளிப்படையான பட்டியல்களை நீங்கள் வைத்திருக்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(72) def: missing colon
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_colon.py", line 1
+        def test()
+                  ^
+    SyntaxError: expected ':'
+    
+        `:` என்ற முக்காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_missing_colon.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test()
+                    ^
+
+    நீங்கள் `def` என்று தொடங்கும் அறிக்கையை எழுதியுள்ளீர்கள் ஆனால் இறுதியில் `:` 
+    என்ற முக்காற்புள்ளியைச் சேர்க்க மறந்துவிட்டீர்கள்.
+    
+    
+
+(73) def: missing comma between function args
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_comma.py", line 4
+        def a(b, c d):
+                   ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_missing_comma.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| def a(b, c d):
+                   ^^^
+
+    `c` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `d` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a tuple, 
+    or between function arguments, 
+    at the position indicated by ^.
+    ஒருவேளை நீங்கள் `
+    
+        def a(b, c, d):
+                  ^
+    
+    ` என்று சொன்னீர்களா.
+
+(74) def: missing parentheses
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_parens.py", line 3
+        def name:
+                ^
+    SyntaxError: invalid syntax
+    
+        அடைப்புக்குறிகளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_missing_parens.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def name:
+                  ^
+
+    ஒருவேளை நீங்கள் அடைப்புக்குறிக்குள் சேர்க்க மறந்துவிட்டீர்கள். 
+    நீங்கள் பின்வருமாறு எழுத நினைத்திருக்கலாம்
+    
+       def name():
+    
+
+(75) def: missing parentheses around arguments
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_parens_2.py", line 2
+        def name a, b:
+                 ^
+    SyntaxError: invalid syntax
+    
+        அடைப்புக்குறிகளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_missing_parens_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| def name a, b:
+                   ^
+
+    ஒருவேளை நீங்கள் அடைப்புக்குறிக்குள் சேர்க்க மறந்துவிட்டீர்கள். 
+    நீங்கள் பின்வருமாறு எழுத நினைத்திருக்கலாம்
+    
+       def name (a, b):
+    
+
+(76) def: missing function name
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_missing_name.py", line 3
+        def ( arg )  :
+            ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_missing_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| def ( arg )  :
+              ^
+
+    உங்கள் செயல்பாட்டிற்கு பெயரிட மறந்துவிட்டீர்கள்.
+    சரியான தொடரியல்:
+    
+       def name (... ):
+    
+
+(77) def: name is parameter and global
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_name_is_parameter_and_global.py", line 6
+        global x
+        ^^^^^^^^
+    SyntaxError: name 'x' is parameter and global
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_name_is_parameter_and_global.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6|     global x
+              ^^^^^^^^
+
+    `x` என்பது ஒரு செயல்பாட்டிற்கு வெளியே வரையறுக்கப்பட்ட மாறி என்பதைக் குறிக்கும் 
+    
+            global x
+     
+    
+    அறிக்கையைச் சேர்த்துள்ளீர்கள். 
+    அந்தச் செயல்பாட்டிற்கான வாதமாக அதே `x` ஐப் பயன்படுத்துகிறீர்கள், 
+    இதனால் அது அந்தச் செயல்பாட்டிற்குள் மட்டுமே அறியப்படும் மாறியாக இருக்க 
+    வேண்டும் என்பதைக் குறிக்கிறது, இது `global` என்பதற்கு முரணானது.
+    
+
+(78) def: non-default argument follows default argument
+-------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_non_default_after_default.py", line 5
+        def test(a=1, b):
+                      ^
+    SyntaxError: non-default argument follows default argument
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_non_default_after_default.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| def test(a=1, b):
+                        ^
+
+    பைத்தானில், நீங்கள் பின்வருமாறு செயல்பாடுகளை வரையறுக்க முடியும், நிலை வாதங்கள் மட்டுமே கொண்டது
+    
+       def test(a, b, c): ...
+    
+    அல்லது முக்கியச்சொல் வாதங்கள் மட்டும் கொண்டது 
+    
+       def test(a=1, b=2, c=3): ... 
+    
+    அல்லது இந்த இரண்டின் ஒரு கலவையுடன் கொண்டது
+    
+       def test(a, b, c=3): ... 
+    
+    ஆனால் அனைத்து நிலைவாதங்களுக்குப் பிறகு தோன்றும் முக்கியச்சொல் வாதங்களுடன். 
+    பைத்தானின் கூற்றுப்படி, நீங்கள் முக்கியச்சொல் வாதங்களுக்குப் பிறகு நிலை வாதங்களைப் பயன்படுத்துகிறீர்கள்.
+    
+
+(79) Single number used as arg in function def
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_number_as_arg.py", line 1
+        def f(1):
+              ^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் எண்களை செயல்பாட்டு வாதங்களாகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_number_as_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def f(1):
+                ^
+
+    ஒரு செயல்பாட்டை வரையறுக்கும்போது எண்ணை வாதமாகப் பயன்படுத்தியுள்ளீர்கள். 
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(80) Operator after ``**``
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_after_2star.py", line 1
+        def test(**):
+                   ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_operator_after_2star.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(**):
+                     ^
+
+    `**` ஆபரேட்டரை ஒரு அடையாளங்காட்டி (மாறி பெயர்) பின்பற்ற வேண்டும்.
+    
+
+(81) def: operator instead of comma
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_comma.py", line 1
+        def test(a + b):
+                   ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளியை எழுத நினைத்தீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_operator_instead_of_comma.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a + b):
+                     ^
+
+    நீங்கள் இயக்கிகளை செயல்பாட்டு வாதங்களாக வைத்திருக்க முடியாது.
+    நீங்கள் எழுத்துப்பிழை செய்து காற்புள்ளிக்கு பதிலாக `+` என்று எழுதியிருக்கிறீர்கள் என்று சந்தேகிக்கிறேன். 
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இல்லை: 
+    
+       def test(a , b):
+
+(82) def: operator instead of equal
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_equal.py", line 1
+        def test(a, b=3, c+None):
+                          ^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் சமமான அடையாளத்தை எழுத விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_operator_instead_of_equal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, b=3, c+None):
+                            ^
+
+    நீங்கள் இயக்கிகளை செயல்பாட்டு வாதங்களாக வைத்திருக்க முடியாது.
+    நீங்கள் எழுத்துப் பிழை செய்து, சம அடையாளத்திற்குப் பதிலாக `+` என்று எழுதியிருக்கிறீர்கள் என்று சந்தேகிக்கிறேன். 
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இல்லை:
+    
+       def test(a, b=3, c=None):
+
+(83) def: operator instead of name
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_operator_instead_of_name.py", line 1
+        def test(a, +, b):
+                    ^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் `+` வாதமாகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_operator_instead_of_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, +, b):
+                      ^
+
+    நீங்கள் எழுத்துப்பிழை செய்து, தவறுதலாக `+` என்று எழுதிவிட்டீர்கள் என்று சந்தேகிக்கிறேன். 
+    நீங்கள் அதை ஒரு தனித்துவமான மாறி பெயரால் மாற்றினால், முடிவில் தொடரியல் 
+    பிழை இருக்காது.
+    
+
+(84) def: positional argument follows keyword argument
+------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_positional_after_keyword_arg.py", line 5
+        test(a=1, b)
+                   ^
+    SyntaxError: positional argument follows keyword argument
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_positional_after_keyword_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| test(a=1, b)
+                     ^
+
+    பைத்தானில், நீங்கள் பின்வருமாறு செயல்பாடுகளை அழைக்க முடியும், நிலை வாதங்கள் மட்டுமே கொண்டது
+    
+        test(1, 2, 3)
+    
+    அல்லது முக்கியச்சொல் வாதங்கள் மட்டும் கொண்டது 
+    
+        test(a=1, b=2, c=3) 
+    
+    அல்லது இந்த இரண்டின் ஒரு கலவையுடன் கொண்டது 
+    
+        test(1, 2, c=3) 
+    
+    ஆனால் அனைத்து நிலைவாதங்களுக்குப் பிறகு தோன்றும் முக்கியச்சொல் வாதங்களுடன்.  
+    பைத்தானின் கூற்றுப்படி, நீங்கள் முக்கியச்சொல் வாதங்களுக்குப் பிறகு நிலை வாதங்களைப் பயன்படுத்துகிறீர்கள்.
+    
+
+(85) def: semicolon instead of colon
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_semi_colon_instead_of_colon.py", line 1
+        def test();
+                  ^
+    SyntaxError: expected ':'
+    
+        நீங்கள் ஒரு முக்காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_semi_colon_instead_of_colon.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test();
+                    ^
+
+    பைதான் சுட்டிக்காட்டப்பட்ட நிலையில் ஒரு முக்காற்புள்ளியை எதிர்பார்த்தது.
+    முக்காற்புள்ளிக்குப் பதிலாக `;` என்று எழுதியுள்ளீர்கள்.
+    
+
+(86) def: set as argument
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_set_as_arg.py", line 1
+        def test(y, {'a', 'b'}):  # set as second argument, after comma
+                    ^
+    SyntaxError: invalid syntax
+    
+        உங்களிடம் வெளிப்படையான அகராதி அல்லது தொகுப்பு செயல்பாட்டு வாதங்களாக ஏற்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_set_as_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(y, {'a', 'b'}):  # set as second argument, after comma
+                      ^
+
+    உங்களிடம் வெளிப்படையான அகராதி அல்லது தொகுப்பு செயல்பாட்டு வாதங்களாக ஏற்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(87) def: ``*arg`` before /
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_arg_before_slash.py", line 1
+        def test(a, *arg, /):
+                          ^
+    SyntaxError: invalid syntax
+    
+        `*arg` ஒரு செயல்பாட்டு வரையறையில் `/` க்குப் பிறகு தோன்ற வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_arg_before_slash.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *arg, /):
+                            ^
+
+    `/` ஒரு செயல்பாட்டு வரையறையில் முந்தைய வாதங்கள் நிலை வாதங்கள் 
+    என்பதைக் குறிக்கிறது.
+    `*arg` ஒரு செயல்பாட்டு வரையறையில் `/` க்குப் பிறகு தோன்ற வேண்டும்.
+    
+
+(88) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once.py", line 1
+        def test(a, *arg, *, b=1):
+                          ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_used_only_once.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *arg, *, b=1):
+                            ^
+
+    செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+    இது தானாகவே பயன்படுத்தப்பட வேண்டும், 
+    `*` அல்லது `*arg` வடிவத்தில், ஆனால் இரண்டும் அல்ல.
+    
+
+(89) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once_1.py", line 1
+        def test(a, *, *):
+                       ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_used_only_once_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *, *):
+                         ^
+
+    செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+    
+
+(90) def: ``*`` used twice
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_used_only_once_2.py", line 1
+        def test(a, *arg, *other):
+                          ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_used_only_once_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, *arg, *other):
+                            ^
+
+    செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+    `*arg` மற்றும் `*other` உடன் இருமுறை பயன்படுத்தியுள்ளீர்கள்.
+    
+
+(91) def: ``*`` after ``**``
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_after_2star.py", line 1
+        def test(**kw, *arg):
+                       ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_after_2star.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(**kw, *arg):
+                         ^
+
+    `**kw` க்கு முன் `*arg` தோன்ற வேண்டும்.
+    
+
+(92) def: ``*`` after ``**``
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_star_after_2star_2.py", line 1
+        def test(**kw, *):
+                       ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வரையறையில் நீங்கள் ஒரு முறை மட்டுமே `*` பயன்படுத்த முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_star_after_2star_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(**kw, *):
+                         ^
+
+    `** இயக்கிக்குப் பிறகு `**kw` தோன்ற வேண்டும்.
+    
+
+(93) Single string used as arg in function def
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_string_as_arg.py", line 1
+        def f("1"):
+              ^^^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் சரங்களை செயல்பாட்டு வாதங்களாகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_string_as_arg.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def f("1"):
+                ^^^
+
+    ஒரு செயல்பாட்டை வரையறுக்கும்போது ஒரு சரத்தை வாதமாகப் பயன்படுத்தியுள்ளீர்கள். 
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக மட்டுமே பயன்படுத்த முடியும்.
+    
+
+(94) def: tuple as function argument
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_tuple_as_arg_1.py", line 1
+        def test((a, b), c):
+                 ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வாதங்களாக வெளிப்படையான மடங்குகளை நீங்கள் கொண்டிருக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_tuple_as_arg_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test((a, b), c):
+                   ^
+
+    செயல்பாட்டு வாதங்களாக வெளிப்படையான மடங்குகளை நீங்கள் கொண்டிருக்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக 
+    மட்டுமே பயன்படுத்த முடியும். எந்த மடங்கையும் ஒரு அளவுருவுக்கு ஒதுக்கி, 
+    செயல்பாட்டின் உடலில் அதைத் திறக்கவும்.
+    
+
+(95) def: tuple as function argument - 2
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\def_tuple_as_arg_2.py", line 1
+        def test(a, (b, c)):
+                    ^
+    SyntaxError: invalid syntax
+    
+        செயல்பாட்டு வாதங்களாக வெளிப்படையான மடங்குகளை நீங்கள் கொண்டிருக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\def_tuple_as_arg_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| def test(a, (b, c)):
+                      ^
+
+    செயல்பாட்டு வாதங்களாக வெளிப்படையான மடங்குகளை நீங்கள் கொண்டிருக்க முடியாது.
+    நீங்கள் அடையாளங்காட்டிகளை (மாறி பெயர்கள்) செயல்பாட்டு வாதங்களாக 
+    மட்டுமே பயன்படுத்த முடியும். எந்த மடங்கையும் ஒரு அளவுருவுக்கு ஒதுக்கி, 
+    செயல்பாட்டின் உடலில் அதைத் திறக்கவும்.
+    
+
+(96) Deleting star expression - 1
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\del_paren_star_1.py", line 1
+        del (*x)
+             ^^
+    SyntaxError: cannot use starred expression here
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\del_paren_star_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del (*x)
+               ^^
+
+    விண்மீன் இயக்கி `*` என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும் 
+    ஒரு பெயரை ஒதுக்குவதற்கு, மறுசெய்யக்கூடிய கட்டவிழ் பயன்படுத்தப்பட 
+    வேண்டும் என்று பொருள்படும், இது இங்கே பொருளற்றது.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(97) Deleting star expression - 2
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\del_paren_star_2.py", line 1
+        del (*x,)
+             ^^
+    SyntaxError: cannot delete starred
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\del_paren_star_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del (*x,)
+               ^^
+
+    விண்மீன் இயக்கி `*` என்பது, மறுசெய்யக்கூடிய ஒவ்வொரு பொருளுக்கும் 
+    ஒரு பெயரை ஒதுக்குவதற்கு, மறுசெய்யக்கூடிய கட்டவிழ் பயன்படுத்தப்பட 
+    வேண்டும் என்று பொருள்படும், இது இங்கே பொருளற்றது.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(98) Cannot delete a constant
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_constant_keyword.py", line 1
+        del True
+            ^^^^
+    SyntaxError: cannot delete True
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_constant_keyword.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del True
+              ^^^^
+
+    நீங்கள் நிலையான `True` ஐ நீக்க முடியாது.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(99) Cannot delete expression
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_expression.py", line 1
+        del a.b.c[0] + 2
+            ^^^^^^^^^^^^
+    SyntaxError: cannot delete expression
+    
+        நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+        போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_expression.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del a.b.c[0] + 2
+              ^^^^^^^^^^^^
+
+    `a.b.c[0] + 2` என்ற வெளிப்பாட்டை நீங்கள் நீக்க முடியாது.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(100) Cannot delete function call
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_function_call.py", line 5
+        del f(a)
+            ^^^^
+    SyntaxError: cannot delete function call
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_function_call.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| del f(a)
+              ^^^^
+
+    செயல்பாட்டு அழைப்பை நீக்க முயற்சித்தீர்கள்
+    
+         del f(a)
+    செயல்பாட்டின் பெயரை நீக்குவதற்கு பதிலாக
+    
+         del f
+    
+
+(101) Cannot delete named expression
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_named_expression.py", line 1
+        del (a := 5)
+             ^^^^^^
+    SyntaxError: cannot delete named expression
+    
+        நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+        போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_named_expression.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del (a := 5)
+               ^^^^^^
+
+    பெயரிடப்பட்ட வெளிப்பாட்டை நீங்கள் நீக்க முடியாது `(a := 5)`.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(102) Delete only names or items
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_names_or_items.py", line 1
+        del a += b
+              ^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_names_or_items.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del a += b
+                ^^
+
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(103) Deleting string literal
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\delete_string_literal.py", line 1
+        del "Hello world!"
+            ^^^^^^^^^^^^^^
+    SyntaxError: cannot delete literal
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\delete_string_literal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| del "Hello world!"
+              ^^^^^^^^^^^^^^
+
+    நீங்கள் நேரடியான `"Hello world!"` ஐ நீக்க முடியாது.
+    நீங்கள் பொருள்களின் பெயர்கள் அல்லது `பட்டியல்`, `தொகுப்பு` அல்லது `அகராதி` 
+    போன்ற மாறக்கூடிய கொள்கலன்களில் உள்ள உருப்படிகளை மட்டுமே நீக்க முடியும்.
+    
+
+(104) Value missing in dict - 1
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_1.py", line 1
+        a = {1:2, 3}
+                  ^
+    SyntaxError: ':' expected after dictionary key
+    
+        அகராதி மதிப்பை எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\dict_value_missing_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = {1:2, 3}
+                    ^
+
+    நீங்கள் பைத்தான் அகராதி எழுதும் போது பிழை ஏற்பட்டது போல் தெரிகிறது. 
+    ஒருவேளை நீங்கள் தொடர்புடைய மதிப்பை எழுதாமல் அகராதி திரவுகோலை எழுதியிருக்கலாம்.
+    
+
+(105) Value missing in dict - 2
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_2.py", line 2
+        a = {1:2, 3:}
+                   ^
+    SyntaxError: expression expected after dictionary key and ':'
+    
+        அகராதி மதிப்பை எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\dict_value_missing_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| a = {1:2, 3:}
+                     ^
+
+    நீங்கள் பைத்தான் அகராதி எழுதும் போது பிழை ஏற்பட்டது போல் தெரிகிறது.
+    ஒரு முக்காற்புள்ளிக்குப் பிறகு ஒரு மதிப்பை எழுத மறந்துவிட்டீர்கள்.
+    
+
+(106) Value missing in dict - 3
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_3.py", line 3
+        a = {1:2, 3, 4:5}
+                  ^
+    SyntaxError: ':' expected after dictionary key
+    
+        அகராதி மதிப்பை எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\dict_value_missing_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = {1:2, 3, 4:5}
+                    ^
+
+    நீங்கள் பைத்தான் அகராதி எழுதும் போது பிழை ஏற்பட்டது போல் தெரிகிறது. 
+    ஒருவேளை நீங்கள் தொடர்புடைய மதிப்பை எழுதாமல் அகராதி திரவுகோலை எழுதியிருக்கலாம்.
+    
+
+(107) Value missing in dict - 4
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dict_value_missing_4.py", line 4
+        a = {1:2, 3:, 4:5}
+                   ^
+    SyntaxError: expression expected after dictionary key and ':'
+    
+        அகராதி மதிப்பை எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\dict_value_missing_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| a = {1:2, 3:, 4:5}
+                     ^
+
+    நீங்கள் பைத்தான் அகராதி எழுதும் போது பிழை ஏற்பட்டது போல் தெரிகிறது.
+    ஒரு முக்காற்புள்ளிக்குப் பிறகு ஒரு மதிப்பை எழுத மறந்துவிட்டீர்கள்.
+    
+
+(108) Different operators in a row
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\different_operators_in_a_row.py", line 1
+        3 */ 4
+           ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\different_operators_in_a_row.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| 3 */ 4
+            ^^
+
+    நீங்கள் இந்த இரண்டு இயக்கிகள், `*` மற்றும் `/`, ஒருவரையொருவர் 
+    பின்பற்ற முடியாது. ஒருவேளை நீங்கள் அவற்றில் ஒன்றை தவறுதலாக 
+    எழுதியிருக்கலாம் அல்லது அவற்றுக்கிடையே ஏதாவது எழுத மறந்துவிட்டீர்கள்.
+    
+
+(109) Dot followed by parenthesis
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\dot_before_paren.py", line 3
+        print(len.('hello'))
+                  ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\dot_before_paren.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| print(len.('hello'))
+                    ^
+
+    உங்களிடம் `.` புள்ளியை தொடர்ந்து `(` இருக்க முடியாது.
+    ஒருவேளை நீங்கள் புள்ளியை காற்புள்ளியால் மாற்ற வேண்டும்.
+    
+
+(110) Extra token
+-----------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\duplicate_token.py", line 1
+        print(1 , , 2)
+                  ^
+    SyntaxError: invalid syntax
+    
+        தவறுதலாக இரண்டு முறை `,` என்று எழுதிவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\duplicate_token.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print(1 , , 2)
+                    ^
+
+    நீங்கள் தவறுதலாக இரண்டு முறை `,` என்று எழுதிவிட்டீர்கள் என்று நினைக்கிறேன். 
+    அப்படியானால், நீங்கள் இரண்டாவதாக அகற்ற வேண்டும்.
+    
+
+(111) elif with no matching if
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\elif_not_matching_if.py", line 3
+        elif True:
+        ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\elif_not_matching_if.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3|    elif True:
+             ^^^^
+
+    `elif` முக்கிய சொல்லானது, `if` தொகுதியுடன் பொருந்தக்கூடிய குறியீடுத் 
+    தொகுதியைத் தொடங்கவில்லை, ஒருவேளை `elif` சரியாக உள்தள்ளப்படாததால் இருக்கலாம்.
+    
+
+(112) Ellipsis written with extra dot
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\ellipsis_extra_dot.py", line 2
+        ....
+            ^
+    SyntaxError: invalid syntax
+    
+        `...` என்று எழுத வேண்டுமா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\ellipsis_extra_dot.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2|     ....
+                 ^
+
+    It looks like you meant to write `...` but added an extra `.` by mistake.
+    
+
+(113) else with no matching statement
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\else_no_matching_statement.py", line 3
+        else:
+        ^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\else_no_matching_statement.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3|    else:
+             ^^^^
+
+    `else` முக்கிய சொல் சரியான குறியீடு தொகுதியுடன் பொருந்தக்கூடிய குறியீடு 
+    தொகுதியைத் தொடங்காது, ஒருவேளை `else` சரியாக உள்தள்ளப்படாததால் இருக்கலாம்.
+    
+
+(114) Write elif, not else if
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\else_if_instead_of_elif.py", line 5
+        else if True:
+             ^^
+    SyntaxError: expected ':'
+    
+        ஒருவேளை நீங்கள் 'elif' என்று எழுத நினைத்திருக்கலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\else_if_instead_of_elif.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| else if True:
+          ^^^^^^^
+
+    சுட்டிக்காட்டப்பட்ட நிலையில் ஒரு முக்காற்புள்ளியை எதிர்பார்ப்பதாக பைதான் எங்களிடம் கூறியது. 
+    இருப்பினும், ஒரு முக்காற்புள்ளியைச் சேர்ப்பது அல்லது முக்காற்புள்ளி மூலம் வேறு 
+    எதையாவது மாற்றுவது சிக்கலைச் சரிசெய்யாது.
+    நீங்கள் பைத்தானின் `elif` முக்கிய சொல்லைப் பயன்படுத்த நினைத்திருக்கலாம், 
+    ஆனால் அதற்குப் பதிலாக `else if` என்று எழுதியிருக்கலாம்.
+    
+    
+
+(115) Write elif, not elseif
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\elseif_instead_of_elif.py", line 5
+        elseif True:
+               ^^^^
+    SyntaxError: invalid syntax
+    
+        ஒருவேளை நீங்கள் 'elif' என்று எழுத நினைத்திருக்கலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\elseif_instead_of_elif.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| elseif True:
+          ^^^^^^
+
+    நீங்கள் பைத்தானின் `elif` முக்கிய சொல்லைப் பயன்படுத்த நினைத்திருக்கலாம், 
+    ஆனால் அதற்குப் பதிலாக `elseif` என்று எழுதியிருக்கலாம்.
+    
+    
+
+(116) EOL while scanning string literal
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\eol_string_literal.py", line 3
+        alphabet = 'abc
+                   ^
+    SyntaxError: unterminated string literal (detected at line 3)
+    
+        இறுதி மேற்கோளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\eol_string_literal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| alphabet = 'abc
+                     ^
+
+    நீங்கள் ஒற்றை அல்லது இரட்டை மேற்கோளுடன் ஒரு சரத்தை எழுதத் 
+    தொடங்கியுள்ளீர்கள், ஆனால் அந்த வரியில் மற்றொரு மேற்கோளுடன் சரத்தை முடிக்கவில்லை.
+    
+
+(117) Used equal sign instead of colon
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\equal_sign_instead_of_colon.py", line 4
+        ages = {'Alice'=22, 'Bob'=24}
+                ^^^^^^^
+    SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\equal_sign_instead_of_colon.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| ages = {'Alice'=22, 'Bob'=24}
+                  ^^^^^^^
+
+    நீங்கள் இது போன்ற ஒரு வெளிப்பாட்டை எழுதியுள்ளீர்கள், 
+    
+       'Alice' = மாறி_பெயர் 
+    இங்கு சம அடையாளத்தின் இடது புறத்தில் `'Alice'` என்பது ஒரு உண்மையான 
+    பொருள் `சரம்` வகை அல்லது உள்ளடக்கியது 
+    மற்றும் வெறுமனே ஒரு மாறியின் பெயர் அல்ல.
+    
+    அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+    
+    It is possible that you used an equal sign `=` instead of a colon `:`
+    to assign values to keys in a dict.
+    
+
+(118) Parens around multiple exceptions
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_multiple_exceptions.py", line 3
+        except NameError, ValueError as err:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: multiple exception types must be parenthesized
+    
+        அடைப்புக்குறிகளை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\except_multiple_exceptions.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| except NameError, ValueError as err:
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    நீங்கள் பல விதிவிலக்கு வகைகளைக் கொண்ட `except` அறிக்கையைப் 
+    பயன்படுத்த விரும்புகிறீர்கள் என்று நினைக்கிறேன். அப்படியானால், 
+    அடைப்புக்குறிக்குள் அவற்றைச் சுற்றி வர வேண்டும்.
+    
+    
+
+(119) Extra token
+-----------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\extra_token.py", line 1
+        print(1 / 2) ==
+                       ^
+    SyntaxError: invalid syntax
+    
+        தவறுதலாக `==` என்று எழுதிவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\extra_token.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print(1 / 2) ==
+                       ^^
+
+    நீங்கள் தவறுதலாக `==` எழுதிவிட்டீர்கள் என்று நினைக்கிறேன். 
+    அதை நீக்கிவிட்டு `print(1 / 2)` எழுதுவது பிழையை சரிசெய்வதாகத் தெரிகிறது.
+    
+
+(120) Binary f-string not allowed
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_binary.py", line 1
+        greet = bf"Hello {name}"
+                  ^^^^^^^^^^^^^^
+    SyntaxError: invalid syntax
+    
+        `bf` என்பது ஒரு சட்டவிரோத சரம் முன்னொட்டு.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\f_string_binary.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| greet = bf"Hello {name}"
+                    ^^^^^^^^^^^^^^
+
+    உங்களுக்கு ஒரு பைனரி f-சரம் வேண்டும் என்று நான் நினைக்கிறேன்; 
+    இது அனுமதிக்கப்படவில்லை.
+    
+
+(121) f-string: closing } not allowed
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_curly_not_allowed.py", line 1
+        f"ab}"
+              ^
+    SyntaxError: f-string: single '}' is not allowed
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\f_string_curly_not_allowed.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| f"ab}"
+          ^^^^^^
+
+    நீங்கள் ஒரு f-சரம் எழுதியுள்ளீர்கள், அதில் பொருந்தாத `}` உள்ளது.
+    நீங்கள் ஒற்றை `}` ஐ அச்சிட விரும்பினால், f-சரத்தில் `}}` எழுத வேண்டும்; 
+    இல்லையெனில், நீங்கள் திறக்கும் `{` ஐச் சேர்க்க வேண்டும்.
+    
+
+(122) f-string: missing closing }
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_expected_curly.py", line 1
+        f"{ab"
+              ^
+    SyntaxError: f-string: expecting '}'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\f_string_expected_curly.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| f"{ab"
+          ^^^^^^
+
+    நீங்கள் ஒரு f-சரம் எழுதியுள்ளீர்கள், அதில் பொருந்தாத `{` உள்ளது.
+    நீங்கள் ஒற்றை `{` ஐ அச்சிட விரும்பினால், f-சரத்தில் `{{` எழுத வேண்டும்; 
+    இல்லையெனில், நீங்கள் மூடும் `}` ஐச் சேர்க்க வேண்டும்.
+    
+
+(123) f-string: unterminated string
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_unterminated.py", line 4
+        print(f"Bob is {age['Bob]} years old.")
+                                              ^
+    SyntaxError: f-string: unterminated string
+    
+        ஒருவேளை நீங்கள் ஒரு இறுதி மேற்கோளை மறந்துவிட்டீர்கள்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\f_string_unterminated.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| print(f"Bob is {age['Bob]} years old.")
+                                                ^
+
+    f-சரம் `f"Bob is {age['Bob]} years old."` இன் உள்ளே, உங்களிடம் மற்றொரு சரம் உள்ளது, 
+    இது ஒரு மேற்கோளுடன் (') அல்லது இரட்டை மேற்கோளில் (") தொடங்கும்
+    ஒரு பொருத்தும் மூடுதல் இல்லாமல்.
+    
+
+(124) f-string with backslash
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\f_string_with_backslash.py", line 2
+        print(f"{'\n'.join(names)}")
+                                   ^
+    SyntaxError: f-string expression part cannot include a backslash
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\f_string_with_backslash.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| print(f"{'\n'.join(names)}")
+                                     ^
+
+    நீங்கள் ஒரு f-சரத்தை எழுதியுள்ளீர்கள், அதன் உள்ளடக்கம் `{...}` 
+    பின்சாய்வு கொண்டதாகும்; இது அனுமதிக்கப்படவில்லை. 
+    ஒருவேளை நீங்கள் பின்சாய்வு கொண்ட பகுதியை ஏதேனும் மாறி மூலம் மாற்றலாம். 
+    எடுத்துக்காட்டாக, உங்களிடம் இது போன்ற f-சரம் இருப்பதாக வைத்துக்கொள்வோம்:
+    
+     f"{... 'hello\n' ...}" 
+    
+    இதை பின்வருமாறு எழுதலாம்
+    
+    hello = 'hello\n'
+    f"{... hello ...}"
+    
+
+(125) Missing terms in for statement
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\for_missing_terms.py", line 1
+        for:
+           ^
+    SyntaxError: invalid syntax
+    
+        ஒரு `for` சுழலூக்கு குறைந்தது 3 விதிமுறைகள் தேவை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\for_missing_terms.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| for:
+             ^
+
+    ஒரு `for` சுழல் என்பது ஒரு வரிசையின் மீள் மறு செய்கை: 
+    
+        for உறுப்பு in வரிசை: 
+            ...
+    
+    
+
+(126) Not a chance!
+-------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_braces.py", line 1
+        from __future__ import braces
+        ^
+    SyntaxError: not a chance
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\future_braces.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| from __future__ import braces
+          ^^^^
+
+    வேறொருவரின் ஆலோசனையைப் பின்பற்றி நீங்கள் `from __future__ import braces` என்று எழுதியிருக்கிறீர்கள் என்று சந்தேகிக்கிறேன். இது ஒருபோதும் வேலை செய்யாது. 
+    
+    பிற நிரலாக்க மொழிகளைப் போலல்லாமல், பைத்தானின் குறியீட்டுத் தொகுதி 
+    அவற்றின் உள்தள்ளல் மட்டத்தால் வரையறுக்கப்படுகிறது, மேலும் `{...}` போன்ற சில 
+    சுருள் அடைப்புக்குறிகளைப் பயன்படுத்தி அல்ல.
+    
+
+(127) Do not import * from __future__
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_import_star.py", line 1
+        from __future__ import *
+        ^
+    SyntaxError: future feature * is not defined
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\future_import_star.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| from __future__ import *
+          ^^^^
+
+    `from __future__ import` அறிக்கையைப் பயன்படுத்தும் போது, குறிப்பிட்ட 
+    பெயரிடப்பட்ட அம்சங்களை நீங்கள் இறக்குமதி செய்ய வேண்டும்.
+    
+    கிடைக்கக்கூடிய அம்சங்கள் `nested_scopes,
+     generators,
+     division,
+     absolute_import,
+     with_statement,
+     print_function,
+     unicode_literals,
+     barry_as_FLUFL,
+     generator_stop,
+     annotations`.
+    
+
+(128) __future__ at beginning
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_must_be_first.py", line 3
+        from __future__ import generators
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: from __future__ imports must occur at the beginning of the file
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\future_must_be_first.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3|     from __future__ import generators
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    ஒரு கோப்பில் உள்ள குறியீட்டை பைதான் விளக்கும் விதத்தை 
+    `from __future__ import` அறிக்கை மாற்றுகிறது. 
+    இது கோப்பின் தொடக்கத்தில் தோன்ற வேண்டும்.
+
+(129) Typo in __future__
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_typo.py", line 1
+        from __future__ import divisio
+        ^
+    SyntaxError: future feature divisio is not defined
+    
+        `division` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\future_typo.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| from __future__ import divisio
+          ^^^^
+
+    `divisio` என்பதற்குப் பதிலாக, நீங்கள் `division` ஐ இறக்குமதி செய்ய நினைத்திருக்கலாம்.
+    
+
+(130) Unknown feature in __future__
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\future_unknown.py", line 1
+        from __future__ import something
+        ^
+    SyntaxError: future feature something is not defined
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\future_unknown.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| from __future__ import something
+          ^^^^
+
+    `something` என்பது `__future__` தொகுதியின் சரியான அம்சம் அல்ல.
+    
+    கிடைக்கக்கூடிய அம்சங்கள் `nested_scopes,
+     generators,
+     division,
+     absolute_import,
+     with_statement,
+     print_function,
+     unicode_literals,
+     barry_as_FLUFL,
+     generator_stop,
+     annotations`.
+    
+
+(131) Parenthesis around generator expression
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\generator_expression_parens.py", line 6
+        f(x for x in L, 1)
+          ^^^^^^^^^^^^
+    SyntaxError: Generator expression must be parenthesized
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\generator_expression_parens.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6| f(x for x in L, 1)
+            ^^^^^^^^^^^^
+
+    நீங்கள் உருவாக்கி வெளிப்பாட்டை, பின்வரும் வடிவத்தில் உள்ள ஏதாவது ஒன்றை பயன்படுத்துகிறீர்கள்
+    
+        ஐ for ஐ in பொருள்
+    
+    நீங்கள் அந்த வெளிப்பாட்டுடன் அடைப்புக்குறிக்குள் சேர்க்க வேண்டும்.
+    
+
+(132) Space between names
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\hyphen_instead_of_underscore.py", line 4
+        a-b = 2
+        ^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+    
+        `a_b` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\hyphen_instead_of_underscore.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| a-b = 2
+          ^^^
+
+    சம அடையாளத்தின் இடது புறத்தில் சில கணித செயல்பாடுகளை உள்ளடக்கிய ஒரு 
+    வெளிப்பாட்டை நீங்கள் எழுதியுள்ளீர்கள், இது மாறிக்கு மதிப்பை ஒதுக்க மட்டுமே 
+    பயன்படுத்தப்பட வேண்டும்.
+    ஒருவேளை நீங்கள் `a-b` என்பதற்குப் பதிலாக `a_b` என்று எழுத நினைத்திருக்கலாம்
+    
+
+(133) Missing condition in if statement
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\if_missing_condition.py", line 1
+        if:
+          ^
+    SyntaxError: invalid syntax
+    
+        நிபந்தனையைச் சேர்க்க மறந்துவிட்டீர்கள்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\if_missing_condition.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| if:
+            ^
+
+    `if` அறிக்கைக்கு ஒரு நிபந்தனை தேவை: 
+    
+       if நிபந்தனை:
+            ...
+    
+    
+
+(134) use j instead of i
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\imaginary_i.py", line 3
+        a = 3.0i
+              ^
+    SyntaxError: invalid decimal literal
+    
+        நீங்கள் `3.0j` என்று கூறுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\imaginary_i.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = 3.0i
+              ^^^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    `-1` இன் வர்க்க மூலத்தைக் குறிக்க `i` பயன்படுத்தப்படலாம் என்று நீங்கள் 
+    நினைத்திருக்கலாம். பைத்தானில், இதற்குப் பயன்படுத்தப்படும் குறியீடு `j` மற்றும் 
+    சிக்கலான பகுதி `சில_எண்` என எழுதப்பட்ட உடனே `j`, இடையில் 
+    இடைவெளிகள் இல்லாமல். 
+    ஒருவேளை நீங்கள் `3.0j` என்று எழுத நினைத்திருக்கலாம்.
+    
+
+(135) Import inversion: import X from Y
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\import_from.py", line 3
+        import pen from turtle
+                   ^^^^
+    SyntaxError: invalid syntax
+    
+        `from turtle import pen` என்று நீங்கள் சொன்னீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\import_from.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| import pen from turtle
+          ^^^^^^     ^^^^
+
+    You wrote something like
+    
+        import pen from turtle
+    
+    instead of
+    
+        from turtle import pen
+    
+    
+
+(136) IndentationError: expected an indented block
+--------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_1.py", line 4
+        pass
+        ^^^^
+    IndentationError: expected an indented block after 'if' statement on line 3
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\indentation_error_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| pass
+          ^^^^
+
+    மேலே அடையாளம் காணப்பட்ட வரி `4` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
+    
+
+(137) IndentationError: unexpected indent
+-----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_2.py", line 4
+        pass
+        ^
+    IndentationError: unexpected indent
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\indentation_error_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4|       pass
+                ^^^^
+
+    மேலே அடையாளம் காணப்பட்ட வரி `4` எதிர்பார்த்ததை விட அதிகமாக உள்தள்ளப்பட்டுள்ளது.
+    
+
+(138) IndentationError: unindent does not match ...
+---------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_3.py", line 5
+        pass
+            ^
+    IndentationError: unindent does not match any outer indentation level
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\indentation_error_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5|     pass
+              ^^^^
+
+    மேலே அடையாளம் காணப்பட்ட வரி `5` எதிர்பார்த்ததை விட குறைவாக உள்தள்ளப்பட்டுள்ளது.
+    
+
+(139) IndentationError: missing continuation line
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\indentation_error_4.py", line 6
+        "c"
+        ^
+    IndentationError: unexpected indent
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\indentation_error_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6|          "c"
+                   ^^^
+
+    மேலே அடையாளம் காணப்பட்ட வரி `6` எதிர்பார்த்ததை விட அதிகமாக உள்தள்ளப்பட்டுள்ளது.
+    
+    இருப்பினும், சிக்கல் இருப்பதாக அடையாளம் காணப்பட்ட வரி 6, 
+    முந்தைய 
+    வரியிலும் உள்ள ஒற்றை சரத்தைக் கொண்டுள்ளது. 
+    வரியின் 5 முடிவில், `\` என்ற தொடர்ச்சியை நீங்கள் சேர்க்க 
+    நினைத்திருக்கலாம்.
+    
+
+(140) Forgot 'o' for octal
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\integer_with_leading_zero_1.py", line 1
+        x = 01
+            ^
+    SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+    
+        `0o1` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\integer_with_leading_zero_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| x = 01
+              ^
+
+    ஒருவேளை நீங்கள் `0o1` என்ற எண்ம எண்ணை எழுத எண்ணி, 'o' என்ற 
+    எழுத்தை மறந்துவிட்டீர்கள், அல்லது ஒரு தசம முழு எண்ணை எழுத 
+    நினைத்திருக்கலாம், அது சுழியங்களுடன் தொடங்க முடியாது என்று தெரியவில்லை.
+    
+
+(141) Integer with leading zeros
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\integer_with_leading_zero_2.py", line 1
+        x = 000_123_456
+            ^^^^
+    SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+    
+        `123_456` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\integer_with_leading_zero_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| x = 000_123_456
+              ^^^
+
+    ஒருவேளை நீங்கள் முழு எண்ணை `123_456` எழுத நினைத்திருக்கலாம், மேலும் 
+    அது சுழியங்களுடன் தொடங்க முடியாது என்று தெரியவில்லை.
+    
+
+(142) Invalid character in identifier
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_character_in_identifier.py", line 6
+        🤖 = 'Reeborg'
+        ^
+    SyntaxError: invalid character '🤖' (U+1F916)
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_character_in_identifier.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       6| 🤖 = 'Reeborg'
+          ^
+
+    அனுமதியில்லாத `🤖` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    
+
+(143) Invalid decimal literal - 1
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_decimal_literal1.py", line 1
+        a = 1f
+            ^
+    SyntaxError: invalid decimal literal
+    
+        ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `1 * f`.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_decimal_literal1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 1f
+              ^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `1 * f`.
+    
+    
+
+(144) Invalid encoding
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_encoding.py", line 2, in <module>
+        compile(source, filename="example.py", mode="exec")
+      File "TESTS:\example.py", line 0
+    SyntaxError: encoding problem: utf8 with BOM
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\example.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    
+    
+    கோப்பின் குறியாக்கம் தவறானது.
+    
+
+(145) Invalid hexadecimal number
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_hexadecimal.py", line 3
+        a = 0x123g4
+                ^
+    SyntaxError: invalid hexadecimal literal
+    
+        பதின்ம முழு எண்ணை எழுதுவதில் தவறிழைத்தீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_hexadecimal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = 0x123g4
+              ^^^^^^^
+
+    நீங்கள் பதின்ம எண்ணில் தவறான எழுத்தை (`g`) பயன்படுத்தியிருப்பது போல் தெரிகிறது. 
+    
+    பதின்ம எண்கள் அடிப்படை 16 முழு எண்களாகும்,  0 முதல் 9 வரை மதிப்பை குறிக்க `0` முதல் `9` ,
+    மற்றும் 10 முதல் 15 வரை மதிப்புகளைக் குறிக்க `a` முதல் `f` (அல்லது `A` முதல் `F`) 
+    வரையிலான குறியீடுகளை பயன்படுத்துகின்றன. 
+    பைத்தானில், பதின்ம எண்கள் `0x` அல்லது `0X` உடன் தொடங்கும், அதைத் 
+    தொடர்ந்து வரும் எழுத்துக்கள் அந்த முழு எண்ணின் மதிப்பைக் குறிக்கப் பயன்படுத்தப்படும்.
+    
+
+(146) Valid names cannot begin with a number
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier.py", line 3
+        36abc = 3
+         ^
+    SyntaxError: invalid decimal literal
+    
+        சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_identifier.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| 36abc = 3
+          ^^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    
+
+(147) Valid names cannot begin with a number - 2
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_2.py", line 3
+        tau = 2pi
+              ^
+    SyntaxError: invalid decimal literal
+    
+        ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `2 * pi`.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_identifier_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| tau = 2pi
+                ^^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `2 * pi`.
+    
+    
+
+(148) Valid names cannot begin with a number - 3
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_3.py", line 1
+        3job  # could be entered in a repl
+         ^
+    SyntaxError: invalid imaginary literal
+    
+        ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `3 * job`.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_identifier_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| 3job  # could be entered in a repl
+          ^^^^
+
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `3 * job`.
+    
+    [குறிப்பு: `3j` ஒரு கலப்பு எண் என்பதால் `3j * ob` 
+    என்பதும் செல்லுபடியாகும்.]
+    
+
+(149) Valid names cannot begin with a number - 4
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_4.py", line 1
+        3job = 1
+         ^
+    SyntaxError: invalid imaginary literal
+    
+        சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_identifier_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| 3job = 1
+          ^^^
+
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    
+
+(150) Valid names cannot begin with a number - 5
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_identifier_5.py", line 1
+        print(42java)
+                ^
+    SyntaxError: invalid imaginary literal
+    
+        ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `42 * java`.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_identifier_5.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print(42java)
+                ^^^^
+
+    சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
+    ஒருவேளை நீங்கள் பெருக்கல் இயக்கியை மறந்துவிட்டீர்கள், `42 * java`.
+    
+    [குறிப்பு: `42j` ஒரு கலப்பு எண் என்பதால் `42j * ava` 
+    என்பதும் செல்லுபடியாகும்.]
+    
+
+(151) Keyword can't be an expression
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_keyword_argument.py", line 7
+        a = dict('key'=1)
+                 ^^^^^^
+    SyntaxError: expression cannot contain assignment, perhaps you meant "=="?
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_keyword_argument.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7| a = dict('key'=1)
+                   ^^^^^^
+
+    பெயரிடப்பட்ட வாதத்துடன் ஒரு செயல்பாட்டை நீங்கள் அழைக்கலாம்:
+    
+         ஒரு_செயல்பாடு(invalid=ஏதோ)
+    
+    இங்கு `invalid` என்பது பைத்தானில் செல்லுபடியாகும் மாறிப் பெயர் அல்ல
+    அது ஒரு எண்ணுடன் தொடங்குவதால், அல்லது ஒரு சரம்,
+    அல்லது ஒரு காலகட்டம் போன்றவை உள்ளன.
+    
+
+(152) Named argument can't be a Python keyword
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_keyword_argument_2.py", line 7
+        a = dict(True=1)
+                 ^^^^^
+    SyntaxError: cannot assign to True
+    
+        `True`க்கு மதிப்பை ஒதுக்க முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_keyword_argument_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7| a = dict(True=1)
+                   ^^^^^
+
+    `True` என்பது பைத்தானில் ஒரு மாறிலி; நீங்கள் வேறு மதிப்பை ஒதுக்க முடியாது.
+    
+
+(153) Invalid non printable character
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_non_printable_char.py", line 2, in <module>
+        eval(s)
+      File "<string>", line 1
+        print("Hello")
+             ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    '<string>' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print("Hello")
+               ^
+
+    Your code contains the invalid non-printable character '\x17'.
+    
+
+(154) Invalid octal number
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\invalid_octal.py", line 3
+        b = 0O1876
+               ^
+    SyntaxError: invalid digit '8' in octal literal
+    
+        எண் முழு எண்ணை எழுதுவதில் தவறு செய்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\invalid_octal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| b = 0O1876
+                 ^^^
+
+    It looks like you used an invalid character (`8`) in an octal number.
+    
+    Octal numbers are base 8 integers that only use the symbols `0` to `7`
+    to represent values.
+    In Python, octal numbers start with either `0o` or `0O`,
+    (the digit zero followed by the letter `o`)
+    followed by the characters used to represent the value of that integer.
+    
+
+(155) Inverted operators 1
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\inverted_operators.py", line 1
+        a =< 3
+           ^
+    SyntaxError: invalid syntax
+    
+        இயக்கிகளை தவறான வரிசையில் எழுதினீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\inverted_operators.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a =< 3
+            ^^
+
+    நீங்கள் இரண்டு இயக்கிகளை (`=` மற்றும் `<`) தவறான 
+    வரிசையில் எழுதியது போல் தெரிகிறது: `<=` என்பதற்குப் பதிலாக `=<`.
+    
+
+(156) Inverted operators 2
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\inverted_operators_2.py", line 1
+        a =<* 3
+           ^
+    SyntaxError: invalid syntax
+    
+        இயக்கிகளை தவறான வரிசையில் எழுதினீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\inverted_operators_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a =<* 3
+            ^^
+
+    நீங்கள் இரண்டு இயக்கிகளை (`=` மற்றும் `<`) தவறான 
+    வரிசையில் எழுதியது போல் தெரிகிறது: `<=` என்பதற்குப் பதிலாக `=<`.
+    
+    இருப்பினும், அப்படி மாற்றுவது நீங்கள் எழுதிய குறியீட்டில் உள்ள அனைத்து 
+    தொடரியல் பிழைகளையும் சரி செய்யாது.
+    
+
+(157) Iteration variable unpacking in comprehension
+---------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\iteration_unpacking_in_comprehension.py", line 1
+        [*x for x in xs]
+         ^^
+    SyntaxError: iterable unpacking cannot be used in comprehension
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\iteration_unpacking_in_comprehension.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| [*x for x in xs]
+           ^^
+
+    புரிந்துகொள்ளுதலில் மறு செய்கை மாறியைத் திறக்க நீங்கள் `*` 
+    இயக்கியைப் பயன்படுத்த முடியாது.
+    
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இல்லை:
+    
+         [x for x in xs]
+    
+
+(158) Keyword arg only once in function call
+--------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\keyword_arg_repeated.py", line 4
+        f(ad=1, ad=2)
+                ^^^^
+    SyntaxError: keyword argument repeated: ad
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\keyword_arg_repeated.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| f(ad=1, ad=2)
+                  ^^^^
+
+    அதே முக்கியச்சொல் வாதத்தை (`ad`) திரும்பத் திரும்பச் செய்யும் செயல்பாட்டை 
+    நீங்கள் அழைத்தீர்கள். ஒவ்வொரு முக்கியச்சொல் வாதமும் ஒரு செயல்பாட்டு அழைப்பில் ஒரு முறை மட்டுமே தோன்றும்.
+    
+
+(159) Keyword as attribute
+--------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\keyword_as_attribute.py", line 12
+        a.pass = 2
+          ^^^^
+    SyntaxError: invalid syntax
+    
+        `pass` ஐ பண்புக்கூறாகப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\keyword_as_attribute.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       12| a.pass = 2
+             ^^^^
+
+    நீங்கள் பைதான் முக்கிய சொல்லான `pass` ஐ பண்புக்கூறாகப் பயன்படுத்த முடியாது.
+    
+    
+
+(160) lambda with parentheses around arguments
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\lambda_with_parens.py", line 2
+        x = lambda (a, b): a + b
+                   ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\lambda_with_parens.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| x = lambda (a, b): a + b
+                     ^
+
+    `lambda` அதன் வாதங்களைச் சுற்றி அடைப்புக்குறிகளை அனுமதிக்காது. 
+    இது பைதான் 2 இல் அனுமதிக்கப்பட்டது ஆனால் பைதான் 3 இல் அனுமதிக்கப்படவில்லை.
+    
+
+(161) lambda with tuple as argument
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\lambda_with_tuple_argument.py", line 2
+        x = lambda a, (b, c): a + b + b
+                      ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\lambda_with_tuple_argument.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| x = lambda a, (b, c): a + b + b
+                        ^
+
+    நீங்கள் வெளிப்படையான மடங்குகளை வாதங்களாக வைத்திருக்க முடியாது. 
+    எந்த மடங்கையும் ஒரு அளவுருவுக்கு ஒதுக்கி, செயல்பாட்டின் உடலில் 
+    அதைத் திறக்கவும்.
+    
+
+(162) Assign to literal in for loop
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\literal_in_for_loop.py", line 1
+        for "char" in "word":
+            ^^^^^^
+    SyntaxError: cannot assign to literal
+    
+        அடையாளங்காட்டிகளுக்கு (மாறி பெயர்கள்) மட்டுமே நீங்கள் பொருட்களை ஒதுக்க முடியும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\literal_in_for_loop.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| for "char" in "word":
+              ^^^^^^
+
+    ஒரு சுழல் இந்த படிவத்தைக் கொண்டிருக்க வேண்டும்:
+    
+       for ... in sequence: 
+    
+    இங்கு `...` என்பதில் அடையாளங்காட்டிகள் மட்டுமே இருக்க வேண்டும் 
+    (மாறி பெயர்கள்) மற்றும் `"char"` போன்ற எழுத்துக்கள் இருக்கக்கூடாது.
+    
+
+(163) IndentationError/SyntaxError depending on version
+-------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_code_block.py", line 4
+    IndentationError: expected an indented block after 'for' statement on line 3
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_code_block.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| for i in range(10):
+    -->4| 
+                            ^
+
+    மேலே அடையாளம் காணப்பட்ட வரி `4` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
+    
+
+(164) IndentationError/SyntaxError depending on version - 2
+-----------------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_code_block_2.py", line 6
+    IndentationError: expected an indented block after 'for' statement on line 3
+    
+    கொடுக்கப்பட்ட குறியீட்டு வரி எதிர்பார்த்தபடி உள்தள்ளப்படாமல் 
+    (பிற வரிகளுடன் செங்குத்தாக சீரமைக்கப்பட்டது) இருக்கும்பொழுது உள்தள்ளல்பிழை `IndentationError`  ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_code_block_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    
+    
+       3| for i in "test":
+       4| 
+
+    மேலே அடையாளம் காணப்பட்ட வரி `6` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
+    
+
+(165) Missing colon - if
+------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_colon_if.py", line 3
+        if True
+               ^
+    SyntaxError: expected ':'
+    
+        `:` என்ற முக்காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_colon_if.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| if True
+                 ^
+
+    நீங்கள் `if` என்று தொடங்கும் அறிக்கையை எழுதியுள்ளீர்கள் ஆனால் இறுதியில் `:` 
+    என்ற முக்காற்புள்ளியைச் சேர்க்க மறந்துவிட்டீர்கள்.
+    
+    
+
+(166) Missing colon - while
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_colon_while.py", line 3
+        while True  # a comment
+                    ^^^^^^^^^^^
+    SyntaxError: expected ':'
+    
+        `:` என்ற முக்காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_colon_while.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| while True  # a comment
+                    ^
+
+    நீங்கள் `while` வளையத்தை எழுதினீர்கள் ஆனால் இறுதியில் `:` என்ற 
+    முக்காற்புள்ளியைச் சேர்க்க மறந்துவிட்டீர்கள்
+    
+    
+
+(167) Missing comma in a dict
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_dict.py", line 4
+        'b': 2
+             ^-->
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_comma_in_dict.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = {'a': 1,
+    -->4|      'b': 2
+                    ^-->
+    -->5|      'c': 3,
+               ^^^
+       6| }
+
+    `2` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `'c'` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a set or dict
+    at the position indicated by ^.
+    ஒருவேளை நீங்கள் `
+    
+        a = {'a': 1,
+             'b': 2, 
+                   ^
+             'c': 3,
+        }
+    
+    ` என்று சொன்னீர்களா.
+
+(168) Missing comma between strings in a dict
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_dict_2.py", line 4
+        'c': '3',
+           ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளியை மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_comma_in_dict_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| a = {'a': '1',
+       3|      'b': '2'
+    -->4|      'c': '3',
+                  ^
+       5| }
+
+    ஒரு அகராதியை வரையறுக்கும்போது இரண்டு சரங்களுக்கு இடையே உள்ள 
+    காற்புள்ளியை நீங்கள் மறந்துவிட்டீர்கள் என்று நினைக்கிறேன்.
+    
+    ```
+    a = {'a': '1',
+         'b': '2',
+                 ^
+         'c': '3',
+    }
+    ```
+
+(169) Missing comma in a list
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_list.py", line 3
+        a = [1, 2  3]
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        `2` மற்றும் `3` இடையே ஏதாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_comma_in_list.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = [1, 2  3]
+                  ^^^^
+
+    `2` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `3` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a list
+    at the position indicated by ^.
+    `2` மற்றும் `3` இடையே `+, -, *` போன்ற இயக்கியைச் செருக 
+    நினைத்திருக்கலாம். பின்வரும் குறியீடு வரிகள் எந்த `தொடரியல்பிழை` யையும் 
+    ஏற்படுத்தாது:
+    
+        a = [1, 2,   3]
+        a = [1, 2 +   3]
+        a = [1, 2 -   3]
+        a = [1, 2 *   3]
+    குறிப்பு: இவை சாத்தியமான சில தேர்வுகள் மற்றும் அவற்றில் சில வேறு வகையான 
+    விதிவிலக்குகளை எழுப்பலாம்.
+    
+
+(170) Missing comma in a set
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_set.py", line 3
+        a = {1, 2  3}
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        `2` மற்றும் `3` இடையே ஏதாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_comma_in_set.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = {1, 2  3}
+                  ^^^^
+
+    `2` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `3` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a set or dict
+    at the position indicated by ^.
+    `2` மற்றும் `3` இடையே `+, -, *` போன்ற இயக்கியைச் செருக 
+    நினைத்திருக்கலாம். பின்வரும் குறியீடு வரிகள் எந்த `தொடரியல்பிழை` யையும் 
+    ஏற்படுத்தாது:
+    
+        a = {1, 2,   3}
+        a = {1, 2 +   3}
+        a = {1, 2 -   3}
+        a = {1, 2 *   3}
+    குறிப்பு: இவை சாத்தியமான சில தேர்வுகள் மற்றும் அவற்றில் சில வேறு வகையான 
+    விதிவிலக்குகளை எழுப்பலாம்.
+    
+
+(171) Missing comma in a tuple
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_comma_in_tuple.py", line 3
+        a = (1, 2  3)
+                ^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        `2` மற்றும் `3` இடையே ஏதாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_comma_in_tuple.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = (1, 2  3)
+                  ^^^^
+
+    `2` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `3` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    It is possible that you forgot a comma between items in a tuple, 
+    or between function arguments, 
+    at the position indicated by ^.
+    `2` மற்றும் `3` இடையே `+, -, *` போன்ற இயக்கியைச் செருக 
+    நினைத்திருக்கலாம். பின்வரும் குறியீடு வரிகள் எந்த `தொடரியல்பிழை` யையும் 
+    ஏற்படுத்தாது:
+    
+        a = (1, 2,   3)
+        a = (1, 2 +   3)
+        a = (1, 2 -   3)
+        a = (1, 2 *   3)
+    குறிப்பு: இவை சாத்தியமான சில தேர்வுகள் மற்றும் அவற்றில் சில வேறு வகையான 
+    விதிவிலக்குகளை எழுப்பலாம்.
+    
+
+(172) Missing parenthesis for range
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_parens_for_range.py", line 1
+        for i in range 3:
+                       ^
+    SyntaxError: invalid syntax
+    
+        அடைப்புக்குறி எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_parens_for_range.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| for i in range 3:
+                         ^
+
+    `range` உடன் அடைப்புக்குறியைப் பயன்படுத்த மறந்துவிட்டது போல் தெரிகிறது. 
+    ஒருவேளை நீங்கள் இவ்வாறு குறிப்பிட்டிருக்கலாம்: 
+    
+       for i in range( 3):
+    
+    
+
+(173) Misspelled Python keyword
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\misspelled_keyword.py", line 2
+        is i in range(3):
+        ^^
+    SyntaxError: invalid syntax
+    
+        `if i in range(3):` என்று சொன்னீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\misspelled_keyword.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| is i in range(3):
+          ^^
+
+    ஒருவேளை நீங்கள் `if` என்று எழுத நினைத்திருக்கலாம் மற்றும் எழுத்துப் பிழை செய்திருக்கலாம். 
+    சரியான வரி `if i in range(3):` ஆக இருக்கலாம்
+    
+
+(174) Name is global and nonlocal
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\name_is_global_and_nonlocal.py", line 7
+        global xy
+        ^^^^^^^^^
+    SyntaxError: name 'xy' is nonlocal and global
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\name_is_global_and_nonlocal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7|     global xy
+              ^^^^^^^^^
+
+    நீங்கள் `xy` ஆனது உலகளாவிய மற்றும் உள்ளூர் அல்லாத மாறி என அறிவித்தீர்கள். 
+    ஒரு மாறி உலகளாவியதாகவோ அல்லது உள்ளூர் அல்லாததாகவோ இருக்கலாம், ஆனால் இரண்டும் ஒரே நேரத்தில் அல்ல.
+    
+
+(175) Name is parameter and nonlocal
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\name_is_param_and_nonlocal.py", line 5
+        nonlocal x
+        ^^^^^^^^^^
+    SyntaxError: name 'x' is parameter and nonlocal
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\name_is_param_and_nonlocal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5|     nonlocal x
+              ^^^^^^^^^^
+
+    ஒரு செயல்பாட்டிற்கான அளவுருவாக `x` ஐப் பயன்படுத்தியுள்ளீர்கள், அதை 
+    உள்ளூர்அல்லாத மாறியாகவும் அறிவிக்கும் முன்: 
+    `x` இரண்டும் ஒரே நேரத்தில் இருக்க முடியாது.
+    
+
+(176) nonlocal variable not found
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\no_binding_for_nonlocal.py", line 5
+        nonlocal ab
+        ^^^^^^^^^^^
+    SyntaxError: no binding for nonlocal 'ab' found
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\no_binding_for_nonlocal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5|     nonlocal ab
+              ^^^^^^^^^^^
+
+    நீங்கள் `ab` மாறியை உள்ளூர் அல்லாத மாறி என 
+    அறிவித்தீர்கள் ஆனால் அதைக் கண்டுபிடிக்க முடியவில்லை.
+    
+
+(177) nonlocal variable not found at module level
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\nonlocal_at_module.py", line 4
+        nonlocal cd
+        ^^^^^^^^^^^
+    SyntaxError: nonlocal declaration not allowed at module level
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\nonlocal_at_module.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| nonlocal cd
+          ^^^^^^^^^^^
+
+    நீங்கள் தொகுதி அளவில் nonlocal முக்கிய சொல்லைப் பயன்படுத்தியுள்ளீர்கள். 
+    nonlocal முக்கிய சொல் என்பது அந்தச் செயல்பாட்டிற்கு வெளியே ஒரு மதிப்பைக் 
+    கொடுக்கப்பட்ட ஒரு செயல்பாட்டிற்குள் இருக்கும் மாறியைக் குறிக்கிறது.
+
+(178) Same operator twice in a row
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\operator_twice_in_a_row.py", line 1
+        4****5
+           ^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\operator_twice_in_a_row.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| 4****5
+           ^^^^
+
+    நீங்கள் ஒரே இயக்கியை, `**`, ஒரு வரிசையில் இரண்டு முறை எழுத முடியாது. 
+    ஒருவேளை நீங்கள் அவற்றில் ஒன்றை தவறுதலாக எழுதியிருக்கலாம் 
+    அல்லது அவற்றுக்கிடையே ஏதாவது எழுத மறந்துவிட்டீர்கள்.
+    
+
+(179) Using pip from interpreter
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\pip_install_1.py", line 2
+        pip install friendly
+            ^^^^^^^
+    SyntaxError: invalid syntax
+    
+        பைதான் மொழிபெயர்ப்பாளரில் பிப்பைப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\pip_install_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| pip install friendly
+              ^^^^^^^
+
+    நீங்கள் ஒரு தொகுதியை நிறுவ பிப்பைப் பயன்படுத்த முயற்சிப்பது போல் தெரிகிறது. 
+    `pip` என்பது முனையத்தில் இயங்க வேண்டிய கட்டளை, 
+    பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
+    
+
+(180) Using pip from interpreter 2
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\pip_install_2.py", line 2
+        python -m pip install friendly
+                  ^^^
+    SyntaxError: invalid syntax
+    
+        பைதான் மொழிபெயர்ப்பாளரில் பிப்பைப் பயன்படுத்த முடியாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\pip_install_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| python -m pip install friendly
+                    ^^^
+
+    நீங்கள் ஒரு தொகுதியை நிறுவ பிப்பைப் பயன்படுத்த முயற்சிப்பது போல் தெரிகிறது. 
+    `pip` என்பது முனையத்தில் இயங்க வேண்டிய கட்டளை, 
+    பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
+    
+
+(181) print is a function
+-------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function.py", line 2
+        print 'hello'
+        ^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print('hello')` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_is_a_function.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| print 'hello'
+          ^^^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print('hello') 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    
+
+(182) print is a function 2
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_2.py", line 2
+        print len('hello')
+        ^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(len('hello'))` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_is_a_function_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| print len('hello')
+          ^^^^^^^^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(len('hello')) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    
+
+(183) print is a function 3
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_3.py", line 1
+        print """This is a very long string which results in a very long error message."""
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(...)` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_is_a_function_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print """This is a very long string which results in a very long error message."""
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(...) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    
+
+(184) print is a function 4
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_4.py", line 2
+        print len("""This is a long string
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(...)` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_is_a_function_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->2| print len("""This is a long string
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+       3|           that spans multiple lines.""")
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(...) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    
+
+(185) print is a function 5
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_is_a_function_5.py", line 2
+        print len('This is a long string that fits on a single line.')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(...)` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_is_a_function_5.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| print len('This is a long string that fits on a single line.')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(...) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    
+
+(186) print is a function 6
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_non_paren_non_string1.py", line 1
+        print hello world!
+        ^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(...)` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_non_paren_non_string1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print hello world!
+          ^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(...) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    `print` வாதங்கள் காற்புள்ளிகளால் பிரிக்கப்பட வேண்டும் என்பதை நினைவில் கொள்ளவும்.
+    
+
+(187) print is a function 7
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\print_non_paren_non_string2.py", line 1
+        print len("hello") hello
+        ^^^^^^^^^^^^^^^^^^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+    
+        நீங்கள் `print(...)` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\print_non_paren_non_string2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| print len("hello") hello
+          ^^^^^^^^^^^^^^^^^^
+
+    நீங்கள் பின்வருமாறு தட்டச்சு செய்ய வேண்டியிருக்கலாம்
+    
+    print(...) 
+    
+    பைத்தானின் பழைய பதிப்பில் `print` என்பது ஒரு முக்கிய சொல்லாகும். 
+    இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
+    `print` வாதங்கள் காற்புள்ளிகளால் பிரிக்கப்பட வேண்டும் என்பதை நினைவில் கொள்ளவும்.
+    
+
+(188) Calling python from interpreter
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\python_interpreter.py", line 1
+        python -i friendly
+                  ^^^^^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\python_interpreter.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| python -i friendly
+                    ^^^^^^^^
+
+    நீங்கள் ஒரு நிரலை இயக்க பைத்தானைப் பயன்படுத்த முயற்சிக்கிறீர்கள் என்று நினைக்கிறேன். 
+    நீங்கள் ஒரு முனையத்திலிருந்து அவ்வாறு செய்ய வேண்டும், பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
+    
+
+(189) problem with assigning a variable to Python
+-------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\python_not_interpreter.py", line 1
+        python = a b
+                   ^
+    SyntaxError: invalid syntax
+    
+        `a` மற்றும் `b` இடையே ஏதாவது மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\python_not_interpreter.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| python = a b
+                   ^^^
+
+    `a` க்குப் பிறகு உடனடியாக எழுதப்பட்ட `b` மூலம் பிழை ஏற்பட்டது என்பதை பைதான் குறிக்கிறது.
+    `a` மற்றும் `b` இடையே `+; -; *; ,` போன்ற இயக்கியைச் செருக 
+    நினைத்திருக்கலாம். பின்வரும் குறியீடு வரிகள் எந்த `தொடரியல்பிழை` யையும் 
+    ஏற்படுத்தாது:
+    
+        python = a +  b
+        python = a -  b
+        python = a *  b
+        python = a,  b
+    குறிப்பு: இவை சாத்தியமான சில தேர்வுகள் மற்றும் அவற்றில் சில வேறு வகையான 
+    விதிவிலக்குகளை எழுப்பலாம்.
+    
+
+(190) Quote inside a string
+---------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\quote_inside_string.py", line 3
+        message = 'I don't mind.'
+                                ^
+    SyntaxError: unterminated string literal (detected at line 3)
+    
+        Perhaps you forgot to escape a quote character.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\quote_inside_string.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| message = 'I don't mind.'
+                                  ^
+
+    I suspect that you were trying to use a quote character inside a string
+    that was enclosed in quotes of the same kind.
+    Perhaps you should have escaped the inner quote character:
+    
+        message = 'I don\'t mind.'
+                        ^^
+    
+
+(191) Raising multiple exceptions
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\raise_multiple_exceptions.py", line 2
+        raise X, Y
+               ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\raise_multiple_exceptions.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| raise X, Y
+                 ^
+
+    நீங்கள் Python 2 தொடரியல் பயன்படுத்தி விதிவிலக்கை உருவாக்க முயற்சிப்பது போல் தெரிகிறது.
+    
+
+(192) Cannot use return outside function
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\return_outside_function.py", line 3
+        return
+        ^^^^^^
+    SyntaxError: 'return' outside function
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\return_outside_function.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| return
+          ^^^^^^
+
+    ஒரு செயல்பாடு அல்லது முறைக்குள் மட்டுமே நீங்கள் `return` அறிக்கையைப் பயன்படுத்த முடியும்.
+    
+
+(193) Missing exponent for scientific notation
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\scientific_notation_missing_exponent.py", line 1
+        a = 1.5e
+              ^
+    SyntaxError: invalid decimal literal
+    
+        Did you mean `1.5e0`?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\scientific_notation_missing_exponent.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 1.5e
+              ^^^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    Did you mean `1.5e0`?
+    Perhaps you meant to write `1.5e0` in scientific notation
+    and forgot the numerical value for the exponent.
+    
+
+(194) Semicolon instead of colon
+--------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_colon.py", line 1
+        if True;  # A comment
+               ^
+    SyntaxError: invalid syntax
+    
+        Did you mean to write a colon?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\semi_colon_instead_of_colon.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| if True;  # A comment
+                 ^
+
+    You wrote a semicolon, `;`, where a colon was expected.
+    
+
+(195) Semicolon instead of comma - 1
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_1.py", line 1
+        a = [1, 2; 3]
+                 ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளியை எழுத நினைத்தீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\semi_colon_instead_of_comma_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [1, 2; 3]
+                   ^
+
+    You wrote a semicolon, `;`, where a comma was expected.
+    
+
+(196) Semicolon instead of commas - 2
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_2.py", line 1
+        a = [1; 2; 3]
+              ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளிகளை எழுத வேண்டும் என்று சொன்னீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\semi_colon_instead_of_comma_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [1; 2; 3]
+                ^
+
+    You wrote semicolons, `;`, where commas were expected.
+    
+
+(197) Semicolon instead of commas - 3
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\semi_colon_instead_of_comma_3.py", line 1
+        a = [1; 2; 3];
+              ^
+    SyntaxError: invalid syntax
+    
+        காற்புள்ளிகளை எழுத வேண்டும் என்று சொன்னீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\semi_colon_instead_of_comma_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [1; 2; 3];
+                ^
+
+    You wrote semicolons, `;`, where commas were expected.
+    
+
+(198) Code block inside comprehension
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\should_be_comprehension.py", line 2
+        for i in 1, 2, 3:
+        ^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\should_be_comprehension.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = [
+    -->2|     for i in 1, 2, 3:
+              ^^^
+       3|         i**2
+       4| ]
+
+    பட்டியல் புரிந்துகொள்ளுதலின் ஒரு பகுதியாக இருக்க வேண்டும் என்பதற்காக, 
+    குறியீடு தொகுதியைத் தொடங்கி அறிக்கையை நீங்கள் எழுதியிருக்கலாம்.
+    பட்டியல் புரிதல்களுக்குள் தனி குறியீடு தொகுதிகள் இருக்க முடியாது.
+    
+    இந்த விளக்கம் தவறாக இருந்தால், இந்த வழக்கைப் புகாரளிக்கவும்.
+    
+
+(199) Single = instead of double == with if
+-------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_if.py", line 3
+        if i % 2 = 0:
+           ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+    
+        `=` என்பதற்குப் பதிலாக `==` தேவைப்படலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\single_equal_with_if.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3|     if i % 2 = 0:
+                 ^^^^^
+
+    சம அடையாளத்தின் இடது புறத்தில் சில கணித செயல்பாடுகளை உள்ளடக்கிய ஒரு 
+    வெளிப்பாட்டை நீங்கள் எழுதியுள்ளீர்கள், இது மாறிக்கு மதிப்பை ஒதுக்க மட்டுமே 
+    பயன்படுத்தப்பட வேண்டும்.
+    
+
+(200) Single = instead of double == with elif
+---------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_elif.py", line 5
+        elif i % 2 = 0:
+             ^^^^^
+    SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+    
+        `=` என்பதற்குப் பதிலாக `==` தேவைப்படலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\single_equal_with_elif.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5|     elif i % 2 = 0:
+                   ^^^^^
+
+    சம அடையாளத்தின் இடது புறத்தில் சில கணித செயல்பாடுகளை உள்ளடக்கிய ஒரு 
+    வெளிப்பாட்டை நீங்கள் எழுதியுள்ளீர்கள், இது மாறிக்கு மதிப்பை ஒதுக்க மட்டுமே 
+    பயன்படுத்தப்பட வேண்டும்.
+    
+
+(201) Single = instead of double == with while
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\single_equal_with_while.py", line 4
+        while a = 1:
+              ^^^^^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
+    
+        ஒருவேளை உங்களுக்கு `=` என்பதற்குப் பதிலாக `==` அல்லது `:=` தேவைப்படலாம்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\single_equal_with_while.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| while a = 1:
+                ^^^^^
+
+    நீங்கள் ஒரு ஒதுக்கல் இயக்கியைப் பயன்படுத்தியுள்ளீர்கள் `=`; ஒருவேளை நீங்கள் 
+    சமத்துவ இயக்கி, `==` அல்லது கடற்குதிரை இயக்கி `:=` ஐப் பயன்படுத்த நினைத்திருக்கலாம்.
+    
+
+(202) Space between operators 1
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_between_operators_1.py", line 1
+        a = 2 * * 5
+                ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\space_between_operators_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 2 * * 5
+                ^ ^
+
+    நீங்கள் ஒரே இயக்கியை, `*`, ஒரு வரிசையில் இரண்டு முறை எழுத முடியாது. 
+    ஒருவேளை நீங்கள் அவற்றில் ஒன்றை தவறுதலாக எழுதியிருக்கலாம் 
+    அல்லது அவற்றுக்கிடையே ஏதாவது எழுத மறந்துவிட்டீர்கள்.
+    அல்லது இரண்டு இயக்கிகளுக்கு இடையே தவறுதலாக இடைவெளியைச் சேர்த்துவிட்டு, 
+    `**` என்பதை ஒற்றை ஆபரேட்டராக எழுத நினைத்திருக்கலாம்.
+    
+
+(203) Space between operators 2
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_between_operators_2.py", line 1
+        a / = b
+            ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\space_between_operators_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a / = b
+            ^ ^
+
+    நீங்கள் இந்த இரண்டு இயக்கிகள், `/` மற்றும் `=`, ஒருவரையொருவர் 
+    பின்பற்ற முடியாது. ஒருவேளை நீங்கள் அவற்றில் ஒன்றை தவறுதலாக 
+    எழுதியிருக்கலாம் அல்லது அவற்றுக்கிடையே ஏதாவது எழுத மறந்துவிட்டீர்கள்.
+    அல்லது இரண்டு இயக்கிகளுக்கு இடையே தவறுதலாக இடைவெளியைச் சேர்த்துவிட்டு, 
+    `/=` என்பதை ஒற்றை ஆபரேட்டராக எழுத நினைத்திருக்கலாம்.
+    
+
+(204) Space in variable name
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\space_in_variable_name.py", line 1
+        my name = André
+           ^^^^
+    SyntaxError: invalid syntax
+    
+        `my_name` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\space_in_variable_name.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| my name = André
+             ^^^^
+
+    அடையாளங்காட்டிகளில் (மாறி பெயர்கள்) இடைவெளிகளை வைத்திருக்க முடியாது.
+    ஒருவேளை நீங்கள் `my_name` எனக் குறிப்பிடுகிறீர்களா?
+    
+
+(205) Wrong target for star assignment
+--------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\star_assignment_target.py", line 1
+        *a = 1
+        ^^
+    SyntaxError: starred assignment target must be in a list or tuple
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\star_assignment_target.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| *a = 1
+          ^^
+
+    ஒரு விண்மீன் ஒதுக்கீடு இந்த வடிவத்தில் இருக்க வேண்டும்: 
+    
+       ... *பெயர் = பட்டியல்_அல்லது_மடங்கு
+    
+    
+
+(206) Too many nested blocks
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\too_many_nested_blocks.py", line 22
+        while 22:
+        ^-->
+    SyntaxError: too many statically nested blocks
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\too_many_nested_blocks.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       22|                      while 22:
+                                ^^^^^
+
+    உங்கள் குறியீடு பைத்தானுக்கு மிகவும் சிக்கலானது: 
+    பிற குறியீடு தொகுதிகளுக்குள் உள்ள உள்தள்ளப்பட்ட 
+    குறியீடு தொகுதிகளின் எண்ணிக்கையை நீங்கள் குறைக்க வேண்டும்.
+    
+
+(207) Too many nested parentheses.
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\too_many_parentheses.py", line 4
+        ((((((((((((((((((((((((((((((((((
+                                         ^
+    SyntaxError: too many nested parentheses
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\too_many_parentheses.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+       2|     ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+       3|         (((((((((((((((((((((((((((((((((((((((((((((((((((
+    -->4|             ((((((((((((((((((((((((((((((((((
+                                                       ^
+       5|                                              ))))))))))))))))))))))))))))))))))))))))))))))))))
+       6|         )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+       7|     ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+    உங்கள் குறியீடு பைத்தானுக்கு மிகவும் சிக்கலானது: 
+    பிற அடைப்புக்குறிக்குள் உள்ள அடைப்புக்குறிகளின் 
+    எண்ணிக்கையை நீங்கள் குறைக்க வேண்டும்.
+    
+
+(208) Trailing comma in import statement
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\trailing_comma_in_import.py", line 2
+        from math import sin, cos,
+                                  ^
+    SyntaxError: trailing comma not allowed without surrounding parentheses
+    
+        தவறுதலாக காற்புள்ளியை எழுதினீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\trailing_comma_in_import.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| from math import sin, cos,
+                                   ^
+
+    அடைப்புக்குறிக்குள் காற்புள்ளியுடன் முடிவடையும் வெளிப்பாட்டைச் சுற்றி வர 
+    வேண்டும் என்பதை பைதான் குறிக்கிறது.
+    இருப்பினும், கடைசி காற்புள்ளியை நீக்கினால், தொடரியல் பிழை இருக்காது.
+    ஒருவேளை நீங்கள் 
+    `from math import sin, cos` 
+    என்று எழுத நினைத்திருக்கலாம்
+    
+
+(209) Triple-equal sign
+-----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\triple_equal.py", line 3
+        x = y === z
+                ^
+    SyntaxError: invalid syntax
+    
+        `===` என்பதற்குப் பதிலாக `is` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\triple_equal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| x = y === z
+                ^^^
+
+    நீங்கள் ஒரு வரிசையில் மூன்று சமமான அடையாளங்களை எழுதியுள்ளீர்கள், 
+    இது சில நிரலாக்க மொழிகளில் அனுமதிக்கப்படுகிறது, ஆனால் பைத்தானில் 
+    இல்லை. இரண்டு பொருள்கள் சமமாக உள்ளதா என்பதைச் சரிபார்க்க, இரண்டு சம அடையாளங்களைப் பயன்படுத்தவும், `==`; இரண்டு பெயர்கள் ஒரே பொருளைக் 
+    குறிக்கின்றனவா என்பதைப் பார்க்க, `is` இயக்கியைப் பயன்படுத்தவும்.
+    
+
+(210) Unclosed bracket
+----------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_bracket.py", line 5
+        return [1, 2, 3
+               ^
+    SyntaxError: '[' was never closed
+    
+        சதுர அடைப்புக்குறி `[` ஒருபோதும் மூடப்படவில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unclosed_bracket.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->5|     return [1, 2, 3
+                     ^
+       6| 
+       7| print(foo())
+       8| 
+
+    வரி 5 இல் திறப்பு சதுர அடைப்புக்குறி `[` மூடப்படவில்லை.
+    
+        5:     return [1, 2, 3
+                      ^
+    
+
+(211) Unclosed parenthesis - 1
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_1.py", line 2
+        x = int('1'
+               ^
+    SyntaxError: '(' was never closed
+    
+        அடைப்புக்குறி `(` ஒருபோதும் மூடப்படவில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unclosed_paren_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->2| x = int('1'
+                 ^
+       3| if x == 1:
+       4|     print('yes')
+       5| 
+
+    வரி 2 இல் திறப்பு அடைப்புக்குறி `(` மூடப்படவில்லை.
+    
+        2: x = int('1'
+                  ^
+    
+
+(212) Unclosed parenthesis - 2
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_2.py", line 2
+        a = (b+c
+            ^
+    SyntaxError: '(' was never closed
+    
+        அடைப்புக்குறி `(` ஒருபோதும் மூடப்படவில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unclosed_paren_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->2| a = (b+c
+              ^
+       3| d = a*a
+       4| 
+
+    வரி 2 இல் திறப்பு அடைப்புக்குறி `(` மூடப்படவில்லை.
+    
+        2: a = (b+c
+               ^
+    
+
+(213) Unclosed parenthesis - 3
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_3.py", line 7
+        if 2:
+            ^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unclosed_paren_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5|         print(((123))
+       6| 
+    -->7| if 2:
+              ^
+       8|     print(123))
+
+    வரி 5 இல் திறப்பு அடைப்புக்குறி `(` மூடப்படவில்லை.
+    
+        5:         print(((123))
+                        ^
+    
+    இது தவறாக இருந்தால், இந்த வழக்கைப் புகாரளிக்கவும்.
+    
+
+(214) Unclosed parenthesis - 4
+------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unclosed_paren_4.py", line 4
+        def test():
+        ^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unclosed_paren_4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| print('hello'
+       3| 
+    -->4| def test():
+          ^^^
+
+    வரி 2 இல் திறப்பு அடைப்புக்குறி `(` மூடப்படவில்லை.
+    
+        2: print('hello'
+                ^
+    
+
+(215) Content passed continuation line character
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unexpected_after_continuation_character.py", line 5
+        print(\t)
+               ^
+    SyntaxError: unexpected character after line continuation character
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unexpected_after_continuation_character.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       5| print(\t)
+                 ^
+
+    நீங்கள் ஒரு சரத்திற்கு வெளியே `\` என்ற தொடர்ச்சி எழுத்தைப் 
+    பயன்படுத்துகிறீர்கள், அதைத் தொடர்ந்து வேறு சில எழுத்து(கள்) வருகின்றன.
+    ஒரு சரத்தில் சில உள்ளடக்கத்தை இணைக்க மறந்துவிட்டீர்கள் என்று நினைக்கிறேன்.
+    
+
+(216) Unexpected EOF while parsing
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unexpected_eof.py", line 5
+        return [1, 2, 3,
+               ^
+    SyntaxError: '[' was never closed
+    
+        சதுர அடைப்புக்குறி `[` ஒருபோதும் மூடப்படவில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unexpected_eof.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->5|     return [1, 2, 3,
+                     ^
+       6| 
+       7| print(foo())
+       8| 
+
+    வரி 5 இல் திறப்பு சதுர அடைப்புக்குறி `[` மூடப்படவில்லை.
+    
+        5:     return [1, 2, 3,
+                      ^
+    
+
+(217) Invalid character (unicode fraction 3/4)
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction.py", line 1
+        a = ¾  # 3/4
+            ^
+    SyntaxError: invalid character '¾' (U+00BE)
+    
+        `3/4` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_fraction.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = ¾  # 3/4
+              ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `¾` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    நீங்கள் ஒருங்குறி எழுத்தை ¾ பயன்படுத்தியுள்ளீர்கள்
+    VULGAR FRACTION THREE QUARTERS
+    அதற்குப் பதிலாக `3/4` என்ற பின்னத்தை எழுத நினைத்தீர்கள் என்று சந்தேகிக்கிறேன்.
+    
+
+(218) Invalid character (unicode fraction 1/2)
+----------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction2.py", line 1
+        a = 1½  # 1 1/2
+            ^
+    SyntaxError: invalid decimal literal
+    
+        `1/2` எனக் குறிப்பிடுகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_fraction2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 1½  # 1 1/2
+              ^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    நீங்கள் ஒருங்குறி எழுத்தை ½ பயன்படுத்தியுள்ளீர்கள்
+    VULGAR FRACTION ONE HALF
+    அதற்குப் பதிலாக `1/2` என்ற பின்னத்தை எழுத நினைத்தீர்கள் என்று சந்தேகிக்கிறேன்.
+    
+
+(219) Invalid character (unicode fraction slash)
+------------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_fraction3.py", line 1
+        a = 22 ⁄ 7
+               ^
+    SyntaxError: invalid character '⁄' (U+2044)
+    
+        Did you mean to use the division operator, `/`?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_fraction3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = 22 ⁄ 7
+                 ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `⁄` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    'FRACTION SLASH' எனப்படும் ஒருங்குறி எழுத்தை நீங்கள் பயன்படுத்தியுள்ளீர்கள் என்று 
+    சந்தேகிக்கிறேன், இது போல் தோற்றமளிக்கும் ஆனால் பிரிவு 
+    இயக்கி `/` இலிருந்து வேறுபட்டது.
+    
+
+(220) Invalid character (unicode quote)
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote.py", line 3
+        a = « hello »
+            ^
+    SyntaxError: invalid character '«' (U+00AB)
+    
+        சாதாரண மேற்கோள் எழுத்தான `'` அல்லது `"` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_quote.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = « hello »
+              ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `«` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    ஒரு சரத்திற்கான சாதாரண ஒற்றை அல்லது இரட்டை மேற்கோளுக்கு பதிலாக 
+    LEFT-POINTING DOUBLE ANGLE QUOTATION MARK 
+    என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
+    
+
+(221) Invalid character (unicode quote2)
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote2.py", line 2
+        a = ‹ hello ›
+            ^
+    SyntaxError: invalid character '‹' (U+2039)
+    
+        சாதாரண மேற்கோள் எழுத்தான `'` அல்லது `"` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_quote2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| a = ‹ hello ›
+              ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `‹` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    ஒரு சரத்திற்கான சாதாரண ஒற்றை அல்லது இரட்டை மேற்கோளுக்கு பதிலாக 
+    SINGLE LEFT-POINTING ANGLE QUOTATION MARK 
+    என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
+    
+
+(222) Invalid character (mistaken <)
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote3.py", line 2
+        if a ‹ hello:
+             ^
+    SyntaxError: invalid character '‹' (U+2039)
+    
+        சாதாரண மேற்கோள் எழுத்தான `'` அல்லது `"` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_quote3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| if a ‹ hello:
+               ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `‹` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    ஒரு சரத்திற்கான சாதாரண ஒற்றை அல்லது இரட்டை மேற்கோளுக்கு பதிலாக 
+    SINGLE LEFT-POINTING ANGLE QUOTATION MARK 
+    என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
+    அல்லது ஒருவேளை, `<` என்ற விட குறைவாக அடையாளத்தை எழுத வேண்டும் என்று நீங்கள் நினைத்திருக்கலாம்.
+    
+
+(223) Invalid character (mistaken >)
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote4.py", line 2
+        if a › hello:
+             ^
+    SyntaxError: invalid character '›' (U+203A)
+    
+        சாதாரண மேற்கோள் எழுத்தான `'` அல்லது `"` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_quote4.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| if a › hello:
+               ^
+
+    நீங்கள் நகல்-ஒட்டு பயன்படுத்தினீர்களா?
+    அனுமதியில்லாத `›` என்ற ஒருங்குறி எழுத்தைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
+    ஒரு சரத்திற்கான சாதாரண ஒற்றை அல்லது இரட்டை மேற்கோளுக்கு பதிலாக 
+    SINGLE RIGHT-POINTING ANGLE QUOTATION MARK 
+    என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
+    அல்லது ஒருவேளை, நீங்கள் பெரியது `>` அடையாளத்தை எழுத நினைத்திருக்கலாம்.
+    
+
+(224) Invalid character (mistaken comma)
+----------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_quote5.py", line 2
+        a = (1‚ 2)
+             ^
+    SyntaxError: invalid decimal literal
+    
+        காற்புள்ளியை எழுத நினைத்தீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_quote5.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| a = (1‚ 2)
+               ^^
+
+    நீங்கள் தவறான எண்ணை எழுதியுள்ளீர்கள் என்று பைதான் எங்களிடம் கூறுகிறது.
+    இருப்பினும், சிக்கல் பின்வருவனவாக இருக்கலாம் என்று நான் நினைக்கிறேன்.
+    
+    நீங்கள் SINGLE LOW-9 QUOTATION MARK என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறிகளைப் 
+    பயன்படுத்தியுள்ளீர்கள் என்று சந்தேகிக்கிறேன்.
+    
+    ஒருவேளை, நீங்கள் காற்புள்ளியை எழுத நினைத்திருக்கலாம்.
+    
+
+(225) Unmatched closing curly bracket
+-------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_curly.py", line 6
+        3, 4,}}
+              ^
+    SyntaxError: unmatched '}'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unmatched_closing_curly.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| a = {1,
+       5|     2,
+    -->6|     3, 4,}}
+                    ^
+
+    வரி 6 இல் மூடும் சுருள் அடைப்புக்குறி `}` எதனுடனும் பொருந்தவில்லை.
+    
+
+(226) Unmatched closing parenthesis
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_paren.py", line 6
+        3, 4,))
+              ^
+    SyntaxError: unmatched ')'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unmatched_closing_paren.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| a = (1,
+       5|     2,
+    -->6|     3, 4,))
+                    ^
+
+    வரி 6 இல் மூடும் அடைப்புக்குறி `)` எதனுடனும் பொருந்தவில்லை.
+    
+
+(227) Mismatched brackets - 1
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_1.py", line 2
+        x = (1, 2, 3]
+                    ^
+    SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unmatched_closing_bracket_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       2| x = (1, 2, 3]
+              ^       ^
+
+    2 வரியில் உள்ள மூடும் சதுர அடைப்புக்குறி `]`, 2 வரியில் திறக்கும் அடைப்புக்குறி `(` உடன் பொருந்தவில்லை.
+    
+        2: x = (1, 2, 3]
+               ^       ^
+    
+
+(228) Mismatched brackets - 2
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_2.py", line 4
+        3]
+         ^
+    SyntaxError: closing parenthesis ']' does not match opening parenthesis '(' on line 2
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unmatched_closing_bracket_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+    -->2| x = (1,
+              ^
+       3|      2,
+    -->4|      3]
+                ^
+
+    4 வரியில் உள்ள மூடும் சதுர அடைப்புக்குறி `]`, 2 வரியில் திறக்கும் அடைப்புக்குறி `(` உடன் பொருந்தவில்லை.
+    
+        2: x = (1,
+               ^
+        4:      3]
+                 ^
+    
+
+(229) Unmatched brackets - 3
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unmatched_closing_bracket_3.py", line 3
+        3]]
+          ^
+    SyntaxError: unmatched ']'
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unmatched_closing_bracket_3.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| x = [1,
+       2|      2,
+    -->3|      3]]
+                 ^
+
+    வரி 3 இல் மூடும் சதுர அடைப்புக்குறி `]` எதனுடனும் பொருந்தவில்லை.
+    
+
+(230) Unpacking a dict value
+----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unpacking_dict_value.py", line 1
+        {'a': *(1, 2, 3)}
+              ^^^^^^^^^^
+    SyntaxError: cannot use a starred expression in a dictionary value
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unpacking_dict_value.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| {'a': *(1, 2, 3)}
+                ^^^^^^^^^^
+
+    நட்சத்திரமிடப்பட்ட வெளிப்பாட்டை அகராதி மதிப்பாகப் பயன்படுத்த முயற்சித்தது போல் தெரிகிறது; 
+    இது அனுமதிக்கப்படவில்லை.
+    
+    பின்வரும் அறிக்கையில் தொடரியல் பிழை இல்லை:
+    
+         {'a': (1, 2, 3)}
+    
+
+(231) Unterminated triple quoted string
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unterminated_triple_quote_string.py", line 1
+        some_text = """In a land
+                    ^
+    SyntaxError: unterminated triple-quoted string literal (detected at line 4)
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unterminated_triple_quote_string.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| some_text = """In a land
+                      ^^^^^^^^^^^^
+
+    நீங்கள் மூன்று மேற்கோள் சரத்தை எழுதத் தொடங்கியுள்ளீர்கள் ஆனால் சரத்தை 
+    முடிக்க தேவையான மூன்று மேற்கோள்களை எழுதவில்லை.
+    
+
+(232) TabError
+--------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\tab_error.py", line 7
+        pass
+        ^
+    TabError: inconsistent use of tabs and spaces in indentation
+    
+    ஒரு தாவல்பிழை `TabError` என்பது உங்கள் குறியீட்டை உள்தள்ளுவதற்கு இடைவெளிகள் மற்றும் தாவல் எழுத்துகள் இரண்டையும்
+    பயன்படுத்தியுள்ளீர்கள் என்பதைக் குறிக்கிறது.
+    பைத்தானில் இதற்கு அனுமதி இல்லை.
+    உங்கள் குறியீட்டை உள்தள்ளுவது என்பது வரிகளின் தொடக்கத்தில்
+    இடைவெளிகள் அல்லது தாவல் எழுத்துக்களைச் செருகுவதன் மூலம் செங்குத்தாக சீரமைக்கப்பட்ட குறியீடுகளின் தொகுதியைக் கொண்டிருப்பதாகும்.
+    உங்கள் குறியீட்டை உள்தள்ள எப்போதும் இடைவெளிகளைப் பயன்படுத்த வேண்டும் என்பதே பைத்தானின் பரிந்துரை.
+    
+    'TESTS:\syntax\tab_error.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       7| 	pass
+           ^^^^
+
+(233) EOL unescaped backslash
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unescaped_backslash.py", line 1
+        a = "abc\"
+            ^
+    SyntaxError: unterminated string literal (detected at line 1)
+    
+        பின்சாய்வுக் எழுத்திலிருந்து தப்பிக்க மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unescaped_backslash.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a = "abc\"
+              ^
+
+    நீங்கள் ஒற்றை அல்லது இரட்டை மேற்கோளுடன் ஒரு சரத்தை எழுதத் 
+    தொடங்கியுள்ளீர்கள், ஆனால் அந்த வரியில் மற்றொரு மேற்கோளுடன் சரத்தை முடிக்கவில்லை.
+    ஒருவேளை நீங்கள் பின்சாய்வு எழுத்தை எழுத நினைத்திருக்கலாம், சரத்தின் கடைசி 
+    எழுத்தாக `\` மற்றும் ஒரு வரிசையில் இரண்டு `\` எழுதுவதன் மூலம் அதிலிருந்து 
+    தப்பிக்க வேண்டும் என்பதை மறந்துவிட்டீர்கள்.
+    
+
+(234) Using the backquote character
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\use_backquote.py", line 3
+        a = `1`
+            ^
+    SyntaxError: invalid syntax
+    
+        பின்மேற்கோள் எழுத்தை நீங்கள் பயன்படுத்தக்கூடாது.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\use_backquote.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| a = `1`
+              ^
+
+    நீங்கள் பின்மேற்கோள் எழுத்தைப் பயன்படுத்துகிறீர்கள். 
+    நீங்கள் ஒற்றை மேற்கோளை எழுத வேண்டும், ', அல்லது பைதான் 2 குறியீட்டை நகலெடுத்திருக்க வேண்டும்; 
+    இந்த பிந்தைய வழக்கில், `repr(x)` செயல்பாட்டைப் பயன்படுத்தவும்.
+
+(235) unicode error
+-------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\unicode_error.py", line 1
+        path = "c:\Users\andre"
+                               ^
+    SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+    
+        ஒருவேளை நீங்கள் பின்சாய்வு எழுத்துகளை இரட்டிப்பாக்க வேண்டும்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\unicode_error.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| path = "c:\Users\andre"
+                 ^^^^^^^^^^^^^^^^
+
+    ஒரு பின்சாய்வு எழுத்து, `\` அதைத் தொடர்ந்து பெரிய எழுத்து `U` மற்றும் இன்னும் 
+    சில எழுத்துகளைக் கொண்ட சரத்தை நீங்கள் எழுதியிருக்கிறீர்கள் என்று நான் 
+    சந்தேகிக்கிறேன். 
+    சிறப்பு ஒருங்குறி எழுத்துகளுக்கான விடுபடு தொடர் என அழைக்கப்படும் 
+    தொடக்கத்தை பைதான் இது குறிக்கிறது. 
+    சிக்கலைத் தீர்க்க, சரத்தின் முன் முன்னொட்டாக `r` என்ற எழுத்தைச் சேர்ப்பதன் 
+    மூலம் 'மூல சரம்' என்று அழைக்கப்படுவதை எழுதவும் அல்லது `\U` ஐ `\\U` ஆல் 
+    மாற்றவும்.
+    
+
+(236) Walrus instead of equal
+-----------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\walrus_instead_of_equal.py", line 1
+        a := 3
+          ^^
+    SyntaxError: invalid syntax
+    
+        `=` ஐப் பயன்படுத்த விரும்புகிறீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\walrus_instead_of_equal.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| a := 3
+            ^^
+
+    சாதாரண ஒதுக்கல் இயக்கி `=` தேவைப்படும் இடத்தில் `:=` அதிகரிக்கப்பட்ட 
+    ஒதுக்கல் இயக்கியைப் பயன்படுத்துகிறீர்கள்.
+    
+
+(237) Missing condition in while statement
+------------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\while_missing_condition.py", line 1
+        while:
+             ^
+    SyntaxError: invalid syntax
+    
+        நிபந்தனையைச் சேர்க்க மறந்துவிட்டீர்கள்.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\while_missing_condition.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| while:
+               ^
+
+    ஒரு `while` சுழலுக்கு ஒரு நிபந்தனை தேவை:
+    
+        while நிபந்தனை:
+            ...
+    
+    
+
+(238) Would-be variable declaration
+-----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\would_be_type_declaration_1.py", line 3
+        if var start := begin < end:
+               ^^^^^
+    SyntaxError: invalid syntax
+    
+        நீங்கள் பைத்தானில் மாறிகளை அறிவிக்க வேண்டியதில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\would_be_type_declaration_1.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| if var start := begin < end:
+                 ^^^^^
+
+    `start` என்பது `var` என்ற வார்த்தையைப் பயன்படுத்தி ஒரு மாறி என்று 
+    நீங்கள் அறிவிக்க முயற்சிப்பது போல் தெரிகிறது.
+    நீங்கள் `var` ஐ அகற்றினால், உங்களிடம் சரியான பைதான் அறிக்கை இருக்கும்.
+    
+
+(239) Would-be variable declaration - 2
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\would_be_type_declaration_2.py", line 5
+        var start := begin < end
+        ^^^^^^^^^
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    
+        நீங்கள் பைத்தானில் மாறிகளை அறிவிக்க வேண்டியதில்லை.
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\would_be_type_declaration_2.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       4| if (
+    -->5|     var start := begin < end
+              ^^^^^^^^^
+       6|    ):
+
+    `var` என்பது `var` என்ற வார்த்தையைப் பயன்படுத்தி ஒரு மாறி என்று 
+    நீங்கள் அறிவிக்க முயற்சிப்பது போல் தெரிகிறது.
+    நீங்கள் `var` ஐ அகற்றினால், உங்களிடம் சரியான பைதான் அறிக்கை இருக்கும்.
+    
+
+(240) Cannot use yield outside function
+---------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\yield_outside_function.py", line 1
+        (yield i) == 3
+         ^^^^^^^
+    SyntaxError: 'yield' outside function
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\yield_outside_function.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| (yield i) == 3
+           ^^^^^
+
+    ஒரு செயல்பாட்டிற்குள் மட்டுமே நீங்கள் `yield` அறிக்கையை பயன்படுத்த முடியும்.
+    

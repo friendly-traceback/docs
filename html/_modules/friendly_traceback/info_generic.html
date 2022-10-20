@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>friendly_traceback.info_generic - friendly-traceback 0.7.48</title>
+        <title>friendly_traceback.info_generic - friendly-traceback 0.7.49</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.48</div></a>
+      <a href="../../index.html"><div class="brand">friendly-traceback 0.7.49</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.48</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.49</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -337,25 +337,35 @@
     <span class="k">if</span> <span class="n">exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">exception_type</span><span class="p">]()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">known_exception_type</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">known_exception_type</span> <span class="o">==</span> <span class="ne">BaseException</span>
-                <span class="ow">or</span> <span class="n">known_exception_type</span> <span class="o">==</span> <span class="ne">Exception</span>
-                <span class="ow">or</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">known_exception_type</span><span class="p">)</span>
-            <span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span>
-                <span class="n">exception_type</span><span class="p">,</span> <span class="n">known_exception_type</span>
-            <span class="p">):</span>
-                <span class="k">if</span> <span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exception_type</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">no_information</span><span class="p">()</span>
+        <span class="n">parents</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">exception_type</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">parent</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parents</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
+                <span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">[:</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">GENERIC</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">parent</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">):</span>
                     <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
                         <span class="s2">"A warning of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">"</span>
-                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">explanation</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
                         <span class="s2">"An exception of type `</span><span class="si">{name}</span><span class="s2">` is a subclass of `</span><span class="si">{parent}</span><span class="s2">`.</span><span class="se">\n</span><span class="s2">"</span>
-                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">known_exception_type</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">known_exception_type</span><span class="p">]()</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="n">nothing_specific</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span>
+                    <span class="s2">"Nothing more specific is known about `</span><span class="si">{name}</span><span class="s2">`."</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">exception_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">nothing_specific</span> <span class="o">+=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">_</span><span class="p">(</span>
+                        <span class="s2">"The inheritance is as follows:</span><span class="se">\n\n</span><span class="s2">"</span> <span class="s2">"    </span><span class="si">{tree}</span><span class="se">\n</span><span class="s2">"</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="s2">" -&gt; "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">explanation</span> <span class="o">+</span> <span class="n">nothing_specific</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">GENERIC</span><span class="p">[</span><span class="n">parent</span><span class="p">]()</span>
+
         <span class="k">return</span> <span class="n">no_information</span><span class="p">()</span>
 
 
@@ -413,8 +423,6 @@
     <span class="k">return</span> <span class="n">_</span><span class="p">(</span>
         <span class="s2">"`ArithmeticError` is the base class for those built-in exceptions</span><span class="se">\n</span><span class="s2">"</span>
         <span class="s2">"that are raised for various arithmetic errors.</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="s2">"It is unusual that you are seeing this exception;</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="s2">"normally, a more specific exception should have been raised.</span><span class="se">\n</span><span class="s2">"</span>
     <span class="p">)</span>
 
 
