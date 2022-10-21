@@ -44,11 +44,15 @@ This will be relevant later.
 
 Furthermore, on line 15, we have two variable names beginning with ``secret``.
 
+How to use logging: an example
+-------------------------------
+
 Suppose we wish to run this code and log any exception that arise.
 Furthermore, we do not want to reveal what the value of any variable
 whose name begins by ``secret``, while having as much information as possible
 about the state of the program and values of variables when
 the exception was raised. Here's how we can do it.
+
 
 
 .. code-block:: python
@@ -110,6 +114,13 @@ the exception was raised. Here's how we can do it.
    This is sometimes useful in interactive mode, especially if warnings are emitted
    as they do not cause an interruption to the program. By calling ``history.clear()``
    on line 23, we remove this content, helping to reduce the risk of memory leaks.
+
+
+Analysing the output
+---------------------
+
+The example described previously yields the following result,
+to which we add comments afterwords.
 
 .. code-block:: none
     :linenos:
@@ -236,10 +247,39 @@ the exception was raised. Here's how we can do it.
     ZeroDivisionError: division by zero
 
 
+1. **friendly-traceback** uses Alex Hall's `executing <https://github.com/alexmojaki/executing>`_
+   to narrow down the parts of the code in a traceback to those that are involved in
+   generating an exception. For example, look at line 69 above where the part highlighted by
+   carets (``^``) does not include the variable name ``irrelevant``.
+   Lines 72 to 79 shows the value of various relevant objects in this highlighted
+   part.  **Please see the note at the bottom of this page** which includes
+   two questions.
+
+   While cPython 3.11 does include such highlighting of relevant code regions in traceback,
+   it only shows one line per frame. By contrast, **Friendly** will show relevant parts
+   of a statement even it if spans multiple lines. Furthermore, it does so for Python 
+   version 3.6 and greater.
+
+2. Lines 84 and 85 shows that two variables, ``secret_1`` and ``secret_2``, were involved
+   in the code included in the traceback. However, since their names are included by
+   the pattern we declared as being that of confidential variables, their values are
+   redacted.
+
+
+
 About keeping secrets
 ----------------------
 
-More information about keeping and testing secrets.
+**Friendly** gives you the possibility of testing your pattern deemed to be
+confidential before you deploy your code. To protect against the possibility
+of having some confidential information shown in the "value" of a given
+variable, for example, if you have a dict containing keys whose values
+should be confidential, **Friendly** will also see if the pattern
+appears in the "value" (technically, the ``repr``) of the variable
+and will redact it if it does. Furthermore, in order to reduce the length
+of the display, the "value" will be truncated if it exceeds a certain length.
+
+Here's a concrete example:
 
 
 .. code-block:: python
@@ -260,37 +300,49 @@ More information about keeping and testing secrets.
         ("long_list", long_list),
         ("fn", fn)
     ]:
-        print(f"{true_repr=}")
+        print(f"{name}: {true_repr=}")
         result = ft.test_secrets(name)
         print("display by friendly_traceback:\n", result, "\n")
 
 
 
-
-And here's the result.
+And here's the corresponding result:
 
 
 .. code-block:: none
 
-    true_repr='should be public'
+    not_secret: true_repr='should be public'
     display by friendly_traceback:
          not_secret:  'should be public'
 
-    true_repr='confidential because of the variable name.'
+    secret1: true_repr='confidential because of the variable name.'
     display by friendly_traceback:
          secret1:  '••••••'
 
-    true_repr='contains a secret.'
+    hidden: true_repr='contains a secret.'
     display by friendly_traceback:
          hidden:  '••••••'
 
-    true_repr=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+    long_list: true_repr=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
     display by friendly_traceback:
          long_list:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
                 len(long_list): 100
 
 
-    true_repr=<function fn at 0x0000023843D6F160>
+    fn: true_repr=<function fn at 0x0000026D56C5F160>
     display by friendly_traceback:
          fn:  <function fn>
 
+
+
+.. note::
+
+      1. For those that use logging, would it be useful to have the option to show the value **all** the
+         variables involved in a given frame, like what is done by ``rich.traceback`` and other
+         "traceback enhancers"?
+
+      2. As mentioned, the "value" (``repr``) shown is truncated if it exceeds a certain length.
+         Would it be useful for this length to be adjustable?
+
+      If you have any opinion on any or both of these two questions, please feel free to open
+      up an issue for discussion.

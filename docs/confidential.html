@@ -351,6 +351,8 @@ First, here’s the code that we wish to run</p>
 part of an expression between two terms that we named <code class="docutils literal notranslate"><span class="pre">irrelevant</span></code>.
 This will be relevant later.</p>
 <p>Furthermore, on line 15, we have two variable names beginning with <code class="docutils literal notranslate"><span class="pre">secret</span></code>.</p>
+<section id="how-to-use-logging-an-example">
+<h2>How to use logging: an example<a class="headerlink" href="#how-to-use-logging-an-example" title="Permalink to this heading">¶</a></h2>
 <p>Suppose we wish to run this code and log any exception that arise.
 Furthermore, we do not want to reveal what the value of any variable
 whose name begins by <code class="docutils literal notranslate"><span class="pre">secret</span></code>, while having as much information as possible
@@ -409,6 +411,11 @@ This is sometimes useful in interactive mode, especially if warnings are emitted
 as they do not cause an interruption to the program. By calling <code class="docutils literal notranslate"><span class="pre">history.clear()</span></code>
 on line 23, we remove this content, helping to reduce the risk of memory leaks.</p></li>
 </ol>
+</section>
+<section id="analysing-the-output">
+<h2>Analysing the output<a class="headerlink" href="#analysing-the-output" title="Permalink to this heading">¶</a></h2>
+<p>The example described previously yields the following result,
+to which we add comments afterwords.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>ERROR:root: Output from friendly_traceback
 <span class="linenos">  2</span>
 <span class="linenos">  3</span>Traceback (most recent call last):
@@ -531,9 +538,36 @@ on line 23, we remove this content, helping to reduce the risk of memory leaks.<
 <span class="linenos">120</span>ZeroDivisionError: division by zero
 </pre></div>
 </div>
+<ol class="arabic">
+<li><p><strong>friendly-traceback</strong> uses Alex Hall’s <a class="reference external" href="https://github.com/alexmojaki/executing">executing</a>
+to narrow down the parts of the code in a traceback to those that are involved in
+generating an exception. For example, look at line 69 above where the part highlighted by
+carets (<code class="docutils literal notranslate"><span class="pre">^</span></code>) does not include the variable name <code class="docutils literal notranslate"><span class="pre">irrelevant</span></code>.
+Lines 72 to 79 shows the value of various relevant objects in this highlighted
+part.  <strong>Please see the note at the bottom of this page</strong> which includes
+two questions.</p>
+<p>While cPython 3.11 does include such highlighting of relevant code regions in traceback,
+it only shows one line per frame. By contrast, <strong>Friendly</strong> will show relevant parts
+of a statement even it if spans multiple lines. Furthermore, it does so for Python
+version 3.6 and greater.</p>
+</li>
+<li><p>Lines 84 and 85 shows that two variables, <code class="docutils literal notranslate"><span class="pre">secret_1</span></code> and <code class="docutils literal notranslate"><span class="pre">secret_2</span></code>, were involved
+in the code included in the traceback. However, since their names are included by
+the pattern we declared as being that of confidential variables, their values are
+redacted.</p></li>
+</ol>
+</section>
 <section id="about-keeping-secrets">
 <h2>About keeping secrets<a class="headerlink" href="#about-keeping-secrets" title="Permalink to this heading">¶</a></h2>
-<p>More information about keeping and testing secrets.</p>
+<p><strong>Friendly</strong> gives you the possibility of testing your pattern deemed to be
+confidential before you deploy your code. To protect against the possibility
+of having some confidential information shown in the “value” of a given
+variable, for example, if you have a dict containing keys whose values
+should be confidential, <strong>Friendly</strong> will also see if the pattern
+appears in the “value” (technically, the <code class="docutils literal notranslate"><span class="pre">repr</span></code>) of the variable
+and will redact it if it does. Furthermore, in order to reduce the length
+of the display, the “value” will be truncated if it exceeds a certain length.</p>
+<p>Here’s a concrete example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">friendly_traceback</span> <span class="k">as</span> <span class="nn">ft</span>
 
 <span class="n">ft</span><span class="o">.</span><span class="n">hide_secrets</span><span class="p">([</span><span class="s2">"secret\w*"</span><span class="p">])</span>
@@ -550,34 +584,46 @@ on line 23, we remove this content, helping to reduce the risk of memory leaks.<
     <span class="p">(</span><span class="s2">"long_list"</span><span class="p">,</span> <span class="n">long_list</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">"fn"</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
 <span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">true_repr</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">true_repr</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">test_secrets</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"display by friendly_traceback:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And here’s the result.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>true_repr='should be public'
+<p>And here’s the corresponding result:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>not_secret: true_repr='should be public'
 display by friendly_traceback:
      not_secret:  'should be public'
 
-true_repr='confidential because of the variable name.'
+secret1: true_repr='confidential because of the variable name.'
 display by friendly_traceback:
      secret1:  '••••••'
 
-true_repr='contains a secret.'
+hidden: true_repr='contains a secret.'
 display by friendly_traceback:
      hidden:  '••••••'
 
-true_repr=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+long_list: true_repr=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
 display by friendly_traceback:
      long_list:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
             len(long_list): 100
 
 
-true_repr=&lt;function fn at 0x0000023843D6F160&gt;
+fn: true_repr=&lt;function fn at 0x0000026D56C5F160&gt;
 display by friendly_traceback:
      fn:  &lt;function fn&gt;
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>For those that use logging, would it be useful to have the option to show the value <strong>all</strong> the
+variables involved in a given frame, like what is done by <code class="docutils literal notranslate"><span class="pre">rich.traceback</span></code> and other
+“traceback enhancers”?</p></li>
+<li><p>As mentioned, the “value” (<code class="docutils literal notranslate"><span class="pre">repr</span></code>) shown is truncated if it exceeds a certain length.
+Would it be useful for this length to be adjustable?</p></li>
+</ol>
+<p>If you have any opinion on any or both of these two questions, please feel free to open
+up an issue for discussion.</p>
 </div>
 </section>
 </section>
@@ -634,6 +680,8 @@ display by friendly_traceback:
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Logging and keeping confidential information secret</a><ul>
+<li><a class="reference internal" href="#how-to-use-logging-an-example">How to use logging: an example</a></li>
+<li><a class="reference internal" href="#analysing-the-output">Analysing the output</a></li>
 <li><a class="reference internal" href="#about-keeping-secrets">About keeping secrets</a></li>
 </ul>
 </li>
