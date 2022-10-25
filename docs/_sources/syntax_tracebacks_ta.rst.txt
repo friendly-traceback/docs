@@ -19,7 +19,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.7.49
+Friendly-traceback version: 0.7.50
 Python version: 3.10.6
 
 
@@ -3602,7 +3602,66 @@ Python version: 3.10.6
     
     
 
-(119) Extra token
+(119) except with no matching try
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_no_try.py", line 1
+        except Exception:
+        ^^^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\except_no_try.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| except Exception:
+          ^^^^^^
+
+    The `except` keyword does not begin a code block that matches
+    a `try` block, possibly because `except` is not indented correctly.
+    
+
+(120) except or finally missing
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_or_finally.py", line 3
+        something:
+        ^^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\except_or_finally.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| something:
+          ^^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write either
+    
+        except:
+    
+    or
+    
+        finally:
+
+(121) Extra token
 -----------------
 
 .. code-block:: none
@@ -3631,7 +3690,7 @@ Python version: 3.10.6
     அதை நீக்கிவிட்டு `print(1 / 2)` எழுதுவது பிழையை சரிசெய்வதாகத் தெரிகிறது.
     
 
-(120) Binary f-string not allowed
+(122) Binary f-string not allowed
 ---------------------------------
 
 .. code-block:: none
@@ -3660,7 +3719,7 @@ Python version: 3.10.6
     இது அனுமதிக்கப்படவில்லை.
     
 
-(121) f-string: closing } not allowed
+(123) f-string: closing } not allowed
 -------------------------------------
 
 .. code-block:: none
@@ -3688,7 +3747,7 @@ Python version: 3.10.6
     இல்லையெனில், நீங்கள் திறக்கும் `{` ஐச் சேர்க்க வேண்டும்.
     
 
-(122) f-string: missing closing }
+(124) f-string: missing closing }
 ---------------------------------
 
 .. code-block:: none
@@ -3716,7 +3775,7 @@ Python version: 3.10.6
     இல்லையெனில், நீங்கள் மூடும் `}` ஐச் சேர்க்க வேண்டும்.
     
 
-(123) f-string: unterminated string
+(125) f-string: unterminated string
 -----------------------------------
 
 .. code-block:: none
@@ -3746,7 +3805,7 @@ Python version: 3.10.6
     ஒரு பொருத்தும் மூடுதல் இல்லாமல்.
     
 
-(124) f-string with backslash
+(126) f-string with backslash
 -----------------------------
 
 .. code-block:: none
@@ -3782,7 +3841,34 @@ Python version: 3.10.6
     f"{... hello ...}"
     
 
-(125) Missing terms in for statement
+(127) finally with no matching try
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\finally_no_try.py", line 1
+        finally:
+        ^^^^^^^
+    SyntaxError: invalid syntax
+    
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\finally_no_try.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| finally:
+          ^^^^^^^
+
+    The `finally` keyword does not begin a code block that matches
+    a `try` block, possibly because `finally` is not indented correctly.
+    
+
+(128) Missing terms in for statement
 ------------------------------------
 
 .. code-block:: none
@@ -3814,7 +3900,7 @@ Python version: 3.10.6
     
     
 
-(126) Not a chance!
+(129) Not a chance!
 -------------------
 
 .. code-block:: none
@@ -3844,7 +3930,7 @@ Python version: 3.10.6
     சுருள் அடைப்புக்குறிகளைப் பயன்படுத்தி அல்ல.
     
 
-(127) Do not import * from __future__
+(130) Do not import * from __future__
 -------------------------------------
 
 .. code-block:: none
@@ -3882,7 +3968,7 @@ Python version: 3.10.6
      annotations`.
     
 
-(128) __future__ at beginning
+(131) __future__ at beginning
 -----------------------------
 
 .. code-block:: none
@@ -3909,7 +3995,7 @@ Python version: 3.10.6
     `from __future__ import` அறிக்கை மாற்றுகிறது. 
     இது கோப்பின் தொடக்கத்தில் தோன்ற வேண்டும்.
 
-(129) Typo in __future__
+(132) Typo in __future__
 ------------------------
 
 .. code-block:: none
@@ -3937,7 +4023,7 @@ Python version: 3.10.6
     `divisio` என்பதற்குப் பதிலாக, நீங்கள் `division` ஐ இறக்குமதி செய்ய நினைத்திருக்கலாம்.
     
 
-(130) Unknown feature in __future__
+(133) Unknown feature in __future__
 -----------------------------------
 
 .. code-block:: none
@@ -3974,7 +4060,7 @@ Python version: 3.10.6
      annotations`.
     
 
-(131) Parenthesis around generator expression
+(134) Parenthesis around generator expression
 ---------------------------------------------
 
 .. code-block:: none
@@ -4004,7 +4090,7 @@ Python version: 3.10.6
     நீங்கள் அந்த வெளிப்பாட்டுடன் அடைப்புக்குறிக்குள் சேர்க்க வேண்டும்.
     
 
-(132) Space between names
+(135) Space between names
 -------------------------
 
 .. code-block:: none
@@ -4035,7 +4121,7 @@ Python version: 3.10.6
     ஒருவேளை நீங்கள் `a-b` என்பதற்குப் பதிலாக `a_b` என்று எழுத நினைத்திருக்கலாம்
     
 
-(133) Missing condition in if statement
+(136) Missing condition in if statement
 ---------------------------------------
 
 .. code-block:: none
@@ -4067,7 +4153,7 @@ Python version: 3.10.6
     
     
 
-(134) use j instead of i
+(137) use j instead of i
 ------------------------
 
 .. code-block:: none
@@ -4102,7 +4188,7 @@ Python version: 3.10.6
     ஒருவேளை நீங்கள் `3.0j` என்று எழுத நினைத்திருக்கலாம்.
     
 
-(135) Import inversion: import X from Y
+(138) Import inversion: import X from Y
 ---------------------------------------
 
 .. code-block:: none
@@ -4137,7 +4223,7 @@ Python version: 3.10.6
     
     
 
-(136) IndentationError: expected an indented block
+(139) IndentationError: expected an indented block
 --------------------------------------------------
 
 .. code-block:: none
@@ -4164,7 +4250,7 @@ Python version: 3.10.6
     மேலே அடையாளம் காணப்பட்ட வரி `4` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
     
 
-(137) IndentationError: unexpected indent
+(140) IndentationError: unexpected indent
 -----------------------------------------
 
 .. code-block:: none
@@ -4191,7 +4277,7 @@ Python version: 3.10.6
     மேலே அடையாளம் காணப்பட்ட வரி `4` எதிர்பார்த்ததை விட அதிகமாக உள்தள்ளப்பட்டுள்ளது.
     
 
-(138) IndentationError: unindent does not match ...
+(141) IndentationError: unindent does not match ...
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4218,7 +4304,7 @@ Python version: 3.10.6
     மேலே அடையாளம் காணப்பட்ட வரி `5` எதிர்பார்த்ததை விட குறைவாக உள்தள்ளப்பட்டுள்ளது.
     
 
-(139) IndentationError: missing continuation line
+(142) IndentationError: missing continuation line
 -------------------------------------------------
 
 .. code-block:: none
@@ -4251,7 +4337,7 @@ Python version: 3.10.6
     நினைத்திருக்கலாம்.
     
 
-(140) Forgot 'o' for octal
+(143) Forgot 'o' for octal
 --------------------------
 
 .. code-block:: none
@@ -4281,7 +4367,7 @@ Python version: 3.10.6
     நினைத்திருக்கலாம், அது சுழியங்களுடன் தொடங்க முடியாது என்று தெரியவில்லை.
     
 
-(141) Integer with leading zeros
+(144) Integer with leading zeros
 --------------------------------
 
 .. code-block:: none
@@ -4310,7 +4396,7 @@ Python version: 3.10.6
     அது சுழியங்களுடன் தொடங்க முடியாது என்று தெரியவில்லை.
     
 
-(142) Invalid character in identifier
+(145) Invalid character in identifier
 -------------------------------------
 
 .. code-block:: none
@@ -4337,7 +4423,7 @@ Python version: 3.10.6
     பயன்படுத்தியுள்ளீர்கள் என்பதை பைதான் குறிக்கிறது.
     
 
-(143) Invalid decimal literal - 1
+(146) Invalid decimal literal - 1
 ---------------------------------
 
 .. code-block:: none
@@ -4370,7 +4456,7 @@ Python version: 3.10.6
     
     
 
-(144) Invalid encoding
+(147) Invalid encoding
 ----------------------
 
 .. code-block:: none
@@ -4393,7 +4479,7 @@ Python version: 3.10.6
     கோப்பின் குறியாக்கம் தவறானது.
     
 
-(145) Invalid hexadecimal number
+(148) Invalid hexadecimal number
 --------------------------------
 
 .. code-block:: none
@@ -4427,7 +4513,7 @@ Python version: 3.10.6
     தொடர்ந்து வரும் எழுத்துக்கள் அந்த முழு எண்ணின் மதிப்பைக் குறிக்கப் பயன்படுத்தப்படும்.
     
 
-(146) Valid names cannot begin with a number
+(149) Valid names cannot begin with a number
 --------------------------------------------
 
 .. code-block:: none
@@ -4458,7 +4544,7 @@ Python version: 3.10.6
     சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
     
 
-(147) Valid names cannot begin with a number - 2
+(150) Valid names cannot begin with a number - 2
 ------------------------------------------------
 
 .. code-block:: none
@@ -4491,7 +4577,7 @@ Python version: 3.10.6
     
     
 
-(148) Valid names cannot begin with a number - 3
+(151) Valid names cannot begin with a number - 3
 ------------------------------------------------
 
 .. code-block:: none
@@ -4523,7 +4609,7 @@ Python version: 3.10.6
     என்பதும் செல்லுபடியாகும்.]
     
 
-(149) Valid names cannot begin with a number - 4
+(152) Valid names cannot begin with a number - 4
 ------------------------------------------------
 
 .. code-block:: none
@@ -4551,7 +4637,7 @@ Python version: 3.10.6
     சரியான பெயர்கள் எண்ணுடன் தொடங்க முடியாது.
     
 
-(150) Valid names cannot begin with a number - 5
+(153) Valid names cannot begin with a number - 5
 ------------------------------------------------
 
 .. code-block:: none
@@ -4583,7 +4669,7 @@ Python version: 3.10.6
     என்பதும் செல்லுபடியாகும்.]
     
 
-(151) Keyword can't be an expression
+(154) Keyword can't be an expression
 ------------------------------------
 
 .. code-block:: none
@@ -4615,7 +4701,7 @@ Python version: 3.10.6
     அல்லது ஒரு காலகட்டம் போன்றவை உள்ளன.
     
 
-(152) Named argument can't be a Python keyword
+(155) Named argument can't be a Python keyword
 ----------------------------------------------
 
 .. code-block:: none
@@ -4643,7 +4729,7 @@ Python version: 3.10.6
     `True` என்பது பைத்தானில் ஒரு மாறிலி; நீங்கள் வேறு மதிப்பை ஒதுக்க முடியாது.
     
 
-(153) Invalid non printable character
+(156) Invalid non printable character
 -------------------------------------
 
 .. code-block:: none
@@ -4671,7 +4757,7 @@ Python version: 3.10.6
     Your code contains the invalid non-printable character '\x17'.
     
 
-(154) Invalid octal number
+(157) Invalid octal number
 --------------------------
 
 .. code-block:: none
@@ -4705,7 +4791,7 @@ Python version: 3.10.6
     followed by the characters used to represent the value of that integer.
     
 
-(155) Inverted operators 1
+(158) Inverted operators 1
 --------------------------
 
 .. code-block:: none
@@ -4734,7 +4820,7 @@ Python version: 3.10.6
     வரிசையில் எழுதியது போல் தெரிகிறது: `<=` என்பதற்குப் பதிலாக `=<`.
     
 
-(156) Inverted operators 2
+(159) Inverted operators 2
 --------------------------
 
 .. code-block:: none
@@ -4766,7 +4852,7 @@ Python version: 3.10.6
     தொடரியல் பிழைகளையும் சரி செய்யாது.
     
 
-(157) Iteration variable unpacking in comprehension
+(160) Iteration variable unpacking in comprehension
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4797,7 +4883,7 @@ Python version: 3.10.6
          [x for x in xs]
     
 
-(158) Keyword arg only once in function call
+(161) Keyword arg only once in function call
 --------------------------------------------
 
 .. code-block:: none
@@ -4824,7 +4910,7 @@ Python version: 3.10.6
     நீங்கள் அழைத்தீர்கள். ஒவ்வொரு முக்கியச்சொல் வாதமும் ஒரு செயல்பாட்டு அழைப்பில் ஒரு முறை மட்டுமே தோன்றும்.
     
 
-(159) Keyword as attribute
+(162) Keyword as attribute
 --------------------------
 
 .. code-block:: none
@@ -4853,7 +4939,7 @@ Python version: 3.10.6
     
     
 
-(160) lambda with parentheses around arguments
+(163) lambda with parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
@@ -4880,7 +4966,7 @@ Python version: 3.10.6
     இது பைதான் 2 இல் அனுமதிக்கப்பட்டது ஆனால் பைதான் 3 இல் அனுமதிக்கப்படவில்லை.
     
 
-(161) lambda with tuple as argument
+(164) lambda with tuple as argument
 -----------------------------------
 
 .. code-block:: none
@@ -4908,7 +4994,7 @@ Python version: 3.10.6
     அதைத் திறக்கவும்.
     
 
-(162) Assign to literal in for loop
+(165) Assign to literal in for loop
 -----------------------------------
 
 .. code-block:: none
@@ -4941,7 +5027,7 @@ Python version: 3.10.6
     (மாறி பெயர்கள்) மற்றும் `"char"` போன்ற எழுத்துக்கள் இருக்கக்கூடாது.
     
 
-(163) IndentationError/SyntaxError depending on version
+(166) IndentationError/SyntaxError depending on version
 -------------------------------------------------------
 
 .. code-block:: none
@@ -4967,7 +5053,7 @@ Python version: 3.10.6
     மேலே அடையாளம் காணப்பட்ட வரி `4` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
     
 
-(164) IndentationError/SyntaxError depending on version - 2
+(167) IndentationError/SyntaxError depending on version - 2
 -----------------------------------------------------------
 
 .. code-block:: none
@@ -4992,7 +5078,7 @@ Python version: 3.10.6
     மேலே அடையாளம் காணப்பட்ட வரி `6` புதிய உள்தள்ளப்பட்ட தொகுதியைத் தொடங்கும் என எதிர்பார்க்கப்பட்டது.
     
 
-(165) Missing colon - if
+(168) Missing colon - if
 ------------------------
 
 .. code-block:: none
@@ -5022,7 +5108,7 @@ Python version: 3.10.6
     
     
 
-(166) Missing colon - while
+(169) Missing colon - while
 ---------------------------
 
 .. code-block:: none
@@ -5052,7 +5138,7 @@ Python version: 3.10.6
     
     
 
-(167) Missing comma in a dict
+(170) Missing comma in a dict
 -----------------------------
 
 .. code-block:: none
@@ -5094,7 +5180,7 @@ Python version: 3.10.6
     
     ` என்று சொன்னீர்களா.
 
-(168) Missing comma between strings in a dict
+(171) Missing comma between strings in a dict
 ---------------------------------------------
 
 .. code-block:: none
@@ -5133,7 +5219,7 @@ Python version: 3.10.6
     }
     ```
 
-(169) Missing comma in a list
+(172) Missing comma in a list
 -----------------------------
 
 .. code-block:: none
@@ -5173,7 +5259,7 @@ Python version: 3.10.6
     விதிவிலக்குகளை எழுப்பலாம்.
     
 
-(170) Missing comma in a set
+(173) Missing comma in a set
 ----------------------------
 
 .. code-block:: none
@@ -5213,7 +5299,7 @@ Python version: 3.10.6
     விதிவிலக்குகளை எழுப்பலாம்.
     
 
-(171) Missing comma in a tuple
+(174) Missing comma in a tuple
 ------------------------------
 
 .. code-block:: none
@@ -5254,7 +5340,39 @@ Python version: 3.10.6
     விதிவிலக்குகளை எழுப்பலாம்.
     
 
-(172) Missing parenthesis for range
+(175) For loop missing 'in' operator
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_in_with_for.py", line 1
+        for x range(4):
+              ^^^^^
+    SyntaxError: invalid syntax
+    
+        `in` எழுத மறந்துவிட்டீர்களா?
+        
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\missing_in_with_for.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       1| for x range(4):
+                ^^^^^
+
+    `for` அறிக்கையின் ஒரு பகுதியாக `in` என்ற முக்கிய சொல்லைப் பயன்படுத்த 
+    மறந்துவிட்டது போல் தெரிகிறது. ஒருவேளை நீங்கள் இவ்வாறு குறிப்பிட்டிருக்கலாம்:
+    
+       for x in range(4):
+    
+    
+
+(176) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
@@ -5286,7 +5404,7 @@ Python version: 3.10.6
     
     
 
-(173) Misspelled Python keyword
+(177) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
@@ -5315,7 +5433,7 @@ Python version: 3.10.6
     சரியான வரி `if i in range(3):` ஆக இருக்கலாம்
     
 
-(174) Name is global and nonlocal
+(178) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
@@ -5342,7 +5460,7 @@ Python version: 3.10.6
     ஒரு மாறி உலகளாவியதாகவோ அல்லது உள்ளூர் அல்லாததாகவோ இருக்கலாம், ஆனால் இரண்டும் ஒரே நேரத்தில் அல்ல.
     
 
-(175) Name is parameter and nonlocal
+(179) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
@@ -5370,7 +5488,7 @@ Python version: 3.10.6
     `x` இரண்டும் ஒரே நேரத்தில் இருக்க முடியாது.
     
 
-(176) nonlocal variable not found
+(180) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
@@ -5397,7 +5515,7 @@ Python version: 3.10.6
     அறிவித்தீர்கள் ஆனால் அதைக் கண்டுபிடிக்க முடியவில்லை.
     
 
-(177) nonlocal variable not found at module level
+(181) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
@@ -5424,7 +5542,7 @@ Python version: 3.10.6
     nonlocal முக்கிய சொல் என்பது அந்தச் செயல்பாட்டிற்கு வெளியே ஒரு மதிப்பைக் 
     கொடுக்கப்பட்ட ஒரு செயல்பாட்டிற்குள் இருக்கும் மாறியைக் குறிக்கிறது.
 
-(178) Same operator twice in a row
+(182) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
@@ -5452,7 +5570,7 @@ Python version: 3.10.6
     அல்லது அவற்றுக்கிடையே ஏதாவது எழுத மறந்துவிட்டீர்கள்.
     
 
-(179) Using pip from interpreter
+(183) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -5482,7 +5600,7 @@ Python version: 3.10.6
     பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
     
 
-(180) Using pip from interpreter 2
+(184) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
@@ -5512,7 +5630,7 @@ Python version: 3.10.6
     பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
     
 
-(181) print is a function
+(185) print is a function
 -------------------------
 
 .. code-block:: none
@@ -5545,7 +5663,7 @@ Python version: 3.10.6
     இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
     
 
-(182) print is a function 2
+(186) print is a function 2
 ---------------------------
 
 .. code-block:: none
@@ -5578,7 +5696,7 @@ Python version: 3.10.6
     இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
     
 
-(183) print is a function 3
+(187) print is a function 3
 ---------------------------
 
 .. code-block:: none
@@ -5611,7 +5729,7 @@ Python version: 3.10.6
     இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
     
 
-(184) print is a function 4
+(188) print is a function 4
 ---------------------------
 
 .. code-block:: none
@@ -5645,7 +5763,7 @@ Python version: 3.10.6
     இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
     
 
-(185) print is a function 5
+(189) print is a function 5
 ---------------------------
 
 .. code-block:: none
@@ -5678,7 +5796,7 @@ Python version: 3.10.6
     இப்போது, `print` என்பது ஒரு செயல்பாடு; அதை அழைக்க நீங்கள் அடைப்புக்குறிகளைப் பயன்படுத்த வேண்டும்.
     
 
-(186) print is a function 6
+(190) print is a function 6
 ---------------------------
 
 .. code-block:: none
@@ -5712,7 +5830,7 @@ Python version: 3.10.6
     `print` வாதங்கள் காற்புள்ளிகளால் பிரிக்கப்பட வேண்டும் என்பதை நினைவில் கொள்ளவும்.
     
 
-(187) print is a function 7
+(191) print is a function 7
 ---------------------------
 
 .. code-block:: none
@@ -5746,7 +5864,7 @@ Python version: 3.10.6
     `print` வாதங்கள் காற்புள்ளிகளால் பிரிக்கப்பட வேண்டும் என்பதை நினைவில் கொள்ளவும்.
     
 
-(188) Calling python from interpreter
+(192) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
@@ -5773,7 +5891,7 @@ Python version: 3.10.6
     நீங்கள் ஒரு முனையத்திலிருந்து அவ்வாறு செய்ய வேண்டும், பைதான் மொழிபெயர்ப்பாளரிடமிருந்து அல்ல.
     
 
-(189) problem with assigning a variable to Python
+(193) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
@@ -5811,7 +5929,7 @@ Python version: 3.10.6
     விதிவிலக்குகளை எழுப்பலாம்.
     
 
-(190) Quote inside a string
+(194) Quote inside a string
 ---------------------------
 
 .. code-block:: none
@@ -5844,7 +5962,7 @@ Python version: 3.10.6
                         ^^
     
 
-(191) Raising multiple exceptions
+(195) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
@@ -5870,7 +5988,7 @@ Python version: 3.10.6
     நீங்கள் Python 2 தொடரியல் பயன்படுத்தி விதிவிலக்கை உருவாக்க முயற்சிப்பது போல் தெரிகிறது.
     
 
-(192) Cannot use return outside function
+(196) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
@@ -5896,7 +6014,7 @@ Python version: 3.10.6
     ஒரு செயல்பாடு அல்லது முறைக்குள் மட்டுமே நீங்கள் `return` அறிக்கையைப் பயன்படுத்த முடியும்.
     
 
-(193) Missing exponent for scientific notation
+(197) Missing exponent for scientific notation
 ----------------------------------------------
 
 .. code-block:: none
@@ -5929,7 +6047,7 @@ Python version: 3.10.6
     and forgot the numerical value for the exponent.
     
 
-(194) Semicolon instead of colon
+(198) Semicolon instead of colon
 --------------------------------
 
 .. code-block:: none
@@ -5957,7 +6075,7 @@ Python version: 3.10.6
     You wrote a semicolon, `;`, where a colon was expected.
     
 
-(195) Semicolon instead of comma - 1
+(199) Semicolon instead of comma - 1
 ------------------------------------
 
 .. code-block:: none
@@ -5985,7 +6103,7 @@ Python version: 3.10.6
     You wrote a semicolon, `;`, where a comma was expected.
     
 
-(196) Semicolon instead of commas - 2
+(200) Semicolon instead of commas - 2
 -------------------------------------
 
 .. code-block:: none
@@ -6013,7 +6131,7 @@ Python version: 3.10.6
     You wrote semicolons, `;`, where commas were expected.
     
 
-(197) Semicolon instead of commas - 3
+(201) Semicolon instead of commas - 3
 -------------------------------------
 
 .. code-block:: none
@@ -6041,7 +6159,7 @@ Python version: 3.10.6
     You wrote semicolons, `;`, where commas were expected.
     
 
-(198) Code block inside comprehension
+(202) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -6074,7 +6192,7 @@ Python version: 3.10.6
     இந்த விளக்கம் தவறாக இருந்தால், இந்த வழக்கைப் புகாரளிக்கவும்.
     
 
-(199) Single = instead of double == with if
+(203) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6104,7 +6222,7 @@ Python version: 3.10.6
     பயன்படுத்தப்பட வேண்டும்.
     
 
-(200) Single = instead of double == with elif
+(204) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6134,7 +6252,7 @@ Python version: 3.10.6
     பயன்படுத்தப்பட வேண்டும்.
     
 
-(201) Single = instead of double == with while
+(205) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6163,7 +6281,7 @@ Python version: 3.10.6
     சமத்துவ இயக்கி, `==` அல்லது கடற்குதிரை இயக்கி `:=` ஐப் பயன்படுத்த நினைத்திருக்கலாம்.
     
 
-(202) Space between operators 1
+(206) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6193,7 +6311,7 @@ Python version: 3.10.6
     `**` என்பதை ஒற்றை ஆபரேட்டராக எழுத நினைத்திருக்கலாம்.
     
 
-(203) Space between operators 2
+(207) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6223,7 +6341,7 @@ Python version: 3.10.6
     `/=` என்பதை ஒற்றை ஆபரேட்டராக எழுத நினைத்திருக்கலாம்.
     
 
-(204) Space in variable name
+(208) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6252,7 +6370,7 @@ Python version: 3.10.6
     ஒருவேளை நீங்கள் `my_name` எனக் குறிப்பிடுகிறீர்களா?
     
 
-(205) Wrong target for star assignment
+(209) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6281,7 +6399,7 @@ Python version: 3.10.6
     
     
 
-(206) Too many nested blocks
+(210) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6309,7 +6427,7 @@ Python version: 3.10.6
     குறியீடு தொகுதிகளின் எண்ணிக்கையை நீங்கள் குறைக்க வேண்டும்.
     
 
-(207) Too many nested parentheses.
+(211) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
@@ -6343,7 +6461,7 @@ Python version: 3.10.6
     எண்ணிக்கையை நீங்கள் குறைக்க வேண்டும்.
     
 
-(208) Trailing comma in import statement
+(212) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6376,7 +6494,7 @@ Python version: 3.10.6
     என்று எழுத நினைத்திருக்கலாம்
     
 
-(209) Triple-equal sign
+(213) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6407,7 +6525,7 @@ Python version: 3.10.6
     குறிக்கின்றனவா என்பதைப் பார்க்க, `is` இயக்கியைப் பயன்படுத்தவும்.
     
 
-(210) Unclosed bracket
+(214) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6441,7 +6559,7 @@ Python version: 3.10.6
                       ^
     
 
-(211) Unclosed parenthesis - 1
+(215) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6475,7 +6593,7 @@ Python version: 3.10.6
                   ^
     
 
-(212) Unclosed parenthesis - 2
+(216) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6508,7 +6626,7 @@ Python version: 3.10.6
                ^
     
 
-(213) Unclosed parenthesis - 3
+(217) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6542,7 +6660,7 @@ Python version: 3.10.6
     இது தவறாக இருந்தால், இந்த வழக்கைப் புகாரளிக்கவும்.
     
 
-(214) Unclosed parenthesis - 4
+(218) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6573,7 +6691,7 @@ Python version: 3.10.6
                 ^
     
 
-(215) Content passed continuation line character
+(219) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6601,7 +6719,7 @@ Python version: 3.10.6
     ஒரு சரத்தில் சில உள்ளடக்கத்தை இணைக்க மறந்துவிட்டீர்கள் என்று நினைக்கிறேன்.
     
 
-(216) Unexpected EOF while parsing
+(220) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6635,7 +6753,7 @@ Python version: 3.10.6
                       ^
     
 
-(217) Invalid character (unicode fraction 3/4)
+(221) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6668,7 +6786,7 @@ Python version: 3.10.6
     அதற்குப் பதிலாக `3/4` என்ற பின்னத்தை எழுத நினைத்தீர்கள் என்று சந்தேகிக்கிறேன்.
     
 
-(218) Invalid character (unicode fraction 1/2)
+(222) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6701,7 +6819,7 @@ Python version: 3.10.6
     அதற்குப் பதிலாக `1/2` என்ற பின்னத்தை எழுத நினைத்தீர்கள் என்று சந்தேகிக்கிறேன்.
     
 
-(219) Invalid character (unicode fraction slash)
+(223) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6734,7 +6852,7 @@ Python version: 3.10.6
     இயக்கி `/` இலிருந்து வேறுபட்டது.
     
 
-(220) Invalid character (unicode quote)
+(224) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6767,7 +6885,7 @@ Python version: 3.10.6
     என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
     
 
-(221) Invalid character (unicode quote2)
+(225) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6800,7 +6918,7 @@ Python version: 3.10.6
     என்ற ஆடம்பரமான ஒருங்குறி மேற்கோள் குறியைப் பயன்படுத்தியுள்ளீர்கள் என்று நான் சந்தேகிக்கிறேன்.
     
 
-(222) Invalid character (mistaken <)
+(226) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6834,7 +6952,7 @@ Python version: 3.10.6
     அல்லது ஒருவேளை, `<` என்ற விட குறைவாக அடையாளத்தை எழுத வேண்டும் என்று நீங்கள் நினைத்திருக்கலாம்.
     
 
-(223) Invalid character (mistaken >)
+(227) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -6868,7 +6986,7 @@ Python version: 3.10.6
     அல்லது ஒருவேளை, நீங்கள் பெரியது `>` அடையாளத்தை எழுத நினைத்திருக்கலாம்.
     
 
-(224) Invalid character (mistaken comma)
+(228) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -6902,7 +7020,7 @@ Python version: 3.10.6
     ஒருவேளை, நீங்கள் காற்புள்ளியை எழுத நினைத்திருக்கலாம்.
     
 
-(225) Unmatched closing curly bracket
+(229) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -6930,7 +7048,7 @@ Python version: 3.10.6
     வரி 6 இல் மூடும் சுருள் அடைப்புக்குறி `}` எதனுடனும் பொருந்தவில்லை.
     
 
-(226) Unmatched closing parenthesis
+(230) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -6958,7 +7076,7 @@ Python version: 3.10.6
     வரி 6 இல் மூடும் அடைப்புக்குறி `)` எதனுடனும் பொருந்தவில்லை.
     
 
-(227) Mismatched brackets - 1
+(231) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -6987,7 +7105,7 @@ Python version: 3.10.6
                ^       ^
     
 
-(228) Mismatched brackets - 2
+(232) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -7021,7 +7139,7 @@ Python version: 3.10.6
                  ^
     
 
-(229) Unmatched brackets - 3
+(233) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -7049,7 +7167,7 @@ Python version: 3.10.6
     வரி 3 இல் மூடும் சதுர அடைப்புக்குறி `]` எதனுடனும் பொருந்தவில்லை.
     
 
-(230) Unpacking a dict value
+(234) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -7080,7 +7198,7 @@ Python version: 3.10.6
          {'a': (1, 2, 3)}
     
 
-(231) Unterminated triple quoted string
+(235) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -7107,7 +7225,7 @@ Python version: 3.10.6
     முடிக்க தேவையான மூன்று மேற்கோள்களை எழுதவில்லை.
     
 
-(232) TabError
+(236) TabError
 --------------
 
 .. code-block:: none
@@ -7135,7 +7253,65 @@ Python version: 3.10.6
        7| 	pass
            ^^^^
 
-(233) EOL unescaped backslash
+(237) Wrong word instead of expect
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\typo_in_except.py", line 3
+        something Exception:
+        ^^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+        Did you mean `except Exception:`?
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\typo_in_except.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| something Exception:
+          ^^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write
+    
+        except Exception:
+
+(238) Typo in finally
+---------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\typo_in_finally.py", line 3
+        finnally:
+        ^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+        Did you mean `finally:`?
+    பைத்தானால் உங்கள் குறியீட்டைப் புரிந்து கொள்ள முடியாதபோது தொடரியல்பிழை `SyntaxError` ஏற்படுகிறது.
+    
+    'TESTS:\syntax\typo_in_finally.py' 
+    கோப்பில் உள்ள குறியீட்டைப் பைத்தானால் புரிந்து கொள்ள முடியவில்லை
+    சுட்டிக்காட்டப்பட்ட இடத்தில்.
+    
+       3| finnally:
+          ^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write
+    
+        finally:
+
+(239) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7167,7 +7343,7 @@ Python version: 3.10.6
     தப்பிக்க வேண்டும் என்பதை மறந்துவிட்டீர்கள்.
     
 
-(234) Using the backquote character
+(240) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7196,7 +7372,7 @@ Python version: 3.10.6
     நீங்கள் ஒற்றை மேற்கோளை எழுத வேண்டும், ', அல்லது பைதான் 2 குறியீட்டை நகலெடுத்திருக்க வேண்டும்; 
     இந்த பிந்தைய வழக்கில், `repr(x)` செயல்பாட்டைப் பயன்படுத்தவும்.
 
-(235) unicode error
+(241) unicode error
 -------------------
 
 .. code-block:: none
@@ -7231,7 +7407,7 @@ Python version: 3.10.6
     மாற்றவும்.
     
 
-(236) Walrus instead of equal
+(242) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7260,7 +7436,7 @@ Python version: 3.10.6
     ஒதுக்கல் இயக்கியைப் பயன்படுத்துகிறீர்கள்.
     
 
-(237) Missing condition in while statement
+(243) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7292,7 +7468,7 @@ Python version: 3.10.6
     
     
 
-(238) Would-be variable declaration
+(244) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7322,7 +7498,7 @@ Python version: 3.10.6
     நீங்கள் `var` ஐ அகற்றினால், உங்களிடம் சரியான பைதான் அறிக்கை இருக்கும்.
     
 
-(239) Would-be variable declaration - 2
+(245) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7354,7 +7530,7 @@ Python version: 3.10.6
     நீங்கள் `var` ஐ அகற்றினால், உங்களிடம் சரியான பைதான் அறிக்கை இருக்கும்.
     
 
-(240) Cannot use yield outside function
+(246) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none

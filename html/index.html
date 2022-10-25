@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Useful information for beginners" href="beginner.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>friendly-traceback 0.7.49</title>
+        <title>friendly-traceback 0.7.50</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">friendly-traceback 0.7.49</div></a>
+      <a href="#"><div class="brand">friendly-traceback 0.7.50</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.49</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.50</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -325,24 +325,36 @@ on the Sun/Shaded Sun/Moon icon. —&gt;</p>
 <p><strong>Friendly</strong> helps users understand what caused a given
 exception in their Python program, and how to fix it.</p>
 <p>In this documentation, <strong>Friendly</strong>, with an uppercase <strong>F</strong>
-refers to two related packages: <strong>friendly_traceback</strong> and <strong>friendly</strong>.</p>
-<div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">friendly_traceback</label><div class="tab-content docutils container">
-<p><strong>friendly_traceback</strong> does all the work to figure out what caused
+refers to two related packages: <code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> and <code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p>
+<dl class="simple">
+<dt><strong>friendly_traceback</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> does all the work to figure out what caused
 a particular exception and does some minimal formatting of the
 information it obtains.  In this documentation, I will often use
-<strong>friendly_traceback</strong> to generate the text version
+friendly_traceback to generate the text version
 of the examples’ output.</p>
-</div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">friendly</label><div class="tab-content docutils container">
-<p><strong>friendly</strong> takes the information obtained by <strong>friendly_traceback</strong>
+</dd>
+<dt><strong>friendly</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code> takes the information obtained by friendly_traceback
 and applies some additional formatting (most often, adding colours)
 with the intention to make
 the information easier to understand.
 In this documentation, when I insert a screen capture, it will
-have been generated using <strong>friendly</strong>.</p>
-</div>
-</div>
+have been generated using <code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p>
+</dd>
+</dl>
+<p>In addition to these two main packages, the <strong>Friendly family</strong> includes
+the following:</p>
+<dl class="simple">
+<dt><strong>friendly_idle</strong></dt><dd><p>A small library that patches Python’s IDLE so that it can make full
+use of <strong>Friendly</strong></p>
+</dd>
+<dt><strong>friendly_styles</strong></dt><dd><p>This includes two themes (dark and light) compatible with pygments
+and Rich.</p>
+</dd>
+<dt><strong>friendly_pandas</strong></dt><dd><p>This is the newest addition. At this stage, it is more of a proof-of-concept/demonstration
+of how one can extend <strong>Friendly</strong> to include additional coverage of
+libraries outside of Python’s standard library.</p>
+</dd>
+</dl>
 <p><a class="reference external" href="https://github.com/friendly-traceback">Code on Github</a></p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
@@ -379,11 +391,11 @@ For now, I’ll just show one quick example.</p>
 <p>First, here is what happens when I use Python
 to run this program.</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">Screen capture</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Screen capture</label><div class="tab-content docutils container">
 <a class="only-dark reference internal image-reference" href="_images/python_indexerror.png"><img alt="Python IndexError example" class="only-dark" src="_images/python_indexerror.png" style="width: 724.8px; height: 130.2px;"/></a>
 <a class="only-light reference internal image-reference" href="_images/python_indexerror_light.png"><img alt="Python IndexError example" class="only-light" src="_images/python_indexerror_light.png" style="width: 720.6px; height: 129.6px;"/></a>
 </div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">Text version</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">Text version</label><div class="tab-content docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python example.py
 Traceback (most recent call last):
   File "C:\Users\andre\friendly-traceback\friendly-traceback\example.py", line 6, in &lt;module&gt;
@@ -400,11 +412,11 @@ IndexError: list index out of range
 making use of
 <a class="reference external" href="https://github.com/willmcgugan/rich">Rich</a> to produce a colourful output.</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">Screen capture</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">Screen capture</label><div class="tab-content docutils container">
 <a class="only-dark reference internal image-reference" href="_images/friendly_indexerror_en.png"><img alt="friendly IndexError example in English" class="only-dark" src="_images/friendly_indexerror_en.png" style="width: 540.0px; height: 601.0px;"/></a>
 <a class="only-light reference internal image-reference" href="_images/friendly_indexerror_en_light.png"><img alt="friendly IndexError example in English" class="only-light" src="_images/friendly_indexerror_en_light.png" style="width: 539.0px; height: 597.5px;"/></a>
 </div>
-<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">Text version</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">Text version</label><div class="tab-content docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python -m friendly_traceback example.py
 
 Traceback (most recent call last):
@@ -459,11 +471,11 @@ than 95% done, and Italian is about 10% done.</p>
 However, since Hebrew is a right-to-left language, I am not sure that
 the translation appears correctly.</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--1">Screen capture</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--1">Screen capture</label><div class="tab-content docutils container">
 <a class="only-dark reference internal image-reference" href="_images/friendly_indexerror_fr.png"><img alt="friendly IndexError in French" class="only-dark" src="_images/friendly_indexerror_fr.png" style="width: 620.0px; height: 600.0px;"/></a>
 <a class="only-light reference internal image-reference" href="_images/friendly_indexerror_fr_light.png"><img alt="friendly IndexError in French" class="only-light" src="_images/friendly_indexerror_fr_light.png" style="width: 541.0px; height: 629.0px;"/></a>
 </div>
-<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"/><label class="tab-label" for="tab-set--3-input--2">Text version</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"/><label class="tab-label" for="tab-set--2-input--2">Text version</label><div class="tab-content docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; python -m friendly_traceback example.py --lang fr
 
 Traceback (most recent call last):

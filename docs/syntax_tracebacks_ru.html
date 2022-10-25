@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly tracebacks - in தமிழ் மொழி" href="tracebacks_ta.html" /><link rel="prev" title="Friendly tracebacks - in Русский" href="tracebacks_ru.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>Friendly SyntaxError tracebacks - in Русский - friendly-traceback 0.7.49</title>
+        <title>Friendly SyntaxError tracebacks - in Русский - friendly-traceback 0.7.50</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.49</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.50</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.49</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.50</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -331,7 +331,7 @@ On Windows, if Sphinx is installed on your computer, it is suggested
 instead to run make_trb.bat in the root directory as it will create
 similar files for all languages <em>and</em> update the documentation.</p>
 </div>
-<p>Friendly-traceback version: 0.7.49
+<p>Friendly-traceback version: 0.7.50
 Python version: 3.10.6</p>
 <section id="using-and-in-import-statement">
 <h2>(1) Using ‘and’ in import statement<a class="headerlink" href="#using-and-in-import-statement" title="Permalink to this heading">¶</a></h2>
@@ -3554,8 +3554,62 @@ Python не смог понять код в файле 'TESTS:\syntax\except_mul
 </pre></div>
 </div>
 </section>
+<section id="except-with-no-matching-try">
+<h2>(119) except with no matching try<a class="headerlink" href="#except-with-no-matching-try" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\except_no_try.py", line 1
+    except Exception:
+    ^^^^^^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\except_no_try.py'
+в указанном ^ месте.
+
+
+   1| except Exception:
+      ^^^^^^
+
+The `except` keyword does not begin a code block that matches
+a `try` block, possibly because `except` is not indented correctly.
+</pre></div>
+</div>
+</section>
+<section id="except-or-finally-missing">
+<h2>(120) except or finally missing<a class="headerlink" href="#except-or-finally-missing" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\except_or_finally.py", line 3
+    something:
+    ^^^^^^^^^
+SyntaxError: expected 'except' or 'finally' block
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\except_or_finally.py'
+в указанном ^ месте.
+
+
+   3| something:
+      ^^^^^^^^^
+
+You wrote a `try` block which did not include an `except` nor a `finally` block.
+Perhaps you meant to write either
+
+    except:
+
+or
+
+    finally:
+</pre></div>
+</div>
+</section>
 <section id="id8">
-<h2>(119) Extra token<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<h2>(121) Extra token<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3581,7 +3635,7 @@ Python не смог понять код в файле 'TESTS:\syntax\extra_toke
 </div>
 </section>
 <section id="binary-f-string-not-allowed">
-<h2>(120) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this heading">¶</a></h2>
+<h2>(122) Binary f-string not allowed<a class="headerlink" href="#binary-f-string-not-allowed" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3606,7 +3660,7 @@ Python не смог понять код в файле 'TESTS:\syntax\f_string_b
 </div>
 </section>
 <section id="f-string-closing-not-allowed">
-<h2>(121) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this heading">¶</a></h2>
+<h2>(123) f-string: closing } not allowed<a class="headerlink" href="#f-string-closing-not-allowed" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3631,7 +3685,7 @@ Python не смог понять код в файле 'TESTS:\syntax\f_string_c
 </div>
 </section>
 <section id="f-string-missing-closing">
-<h2>(122) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this heading">¶</a></h2>
+<h2>(124) f-string: missing closing }<a class="headerlink" href="#f-string-missing-closing" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3656,7 +3710,7 @@ Python не смог понять код в файле 'TESTS:\syntax\f_string_e
 </div>
 </section>
 <section id="f-string-unterminated-string">
-<h2>(123) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this heading">¶</a></h2>
+<h2>(125) f-string: unterminated string<a class="headerlink" href="#f-string-unterminated-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3683,7 +3737,7 @@ Python не смог понять код в файле 'TESTS:\syntax\f_string_u
 </div>
 </section>
 <section id="f-string-with-backslash">
-<h2>(124) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this heading">¶</a></h2>
+<h2>(126) f-string with backslash<a class="headerlink" href="#f-string-with-backslash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3712,8 +3766,32 @@ Python не смог понять код в файле 'TESTS:\syntax\f_string_w
 </pre></div>
 </div>
 </section>
+<section id="finally-with-no-matching-try">
+<h2>(127) finally with no matching try<a class="headerlink" href="#finally-with-no-matching-try" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\finally_no_try.py", line 1
+    finally:
+    ^^^^^^^
+SyntaxError: invalid syntax
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\finally_no_try.py'
+в указанном ^ месте.
+
+
+   1| finally:
+      ^^^^^^^
+
+The `finally` keyword does not begin a code block that matches
+a `try` block, possibly because `finally` is not indented correctly.
+</pre></div>
+</div>
+</section>
 <section id="missing-terms-in-for-statement">
-<h2>(125) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this heading">¶</a></h2>
+<h2>(128) Missing terms in for statement<a class="headerlink" href="#missing-terms-in-for-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3741,7 +3819,7 @@ Python не смог понять код в файле 'TESTS:\syntax\for_missin
 </div>
 </section>
 <section id="not-a-chance">
-<h2>(126) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this heading">¶</a></h2>
+<h2>(129) Not a chance!<a class="headerlink" href="#not-a-chance" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3768,7 +3846,7 @@ Python не смог понять код в файле 'TESTS:\syntax\future_bra
 </div>
 </section>
 <section id="do-not-import-from-future">
-<h2>(127) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this heading">¶</a></h2>
+<h2>(130) Do not import * from __future__<a class="headerlink" href="#do-not-import-from-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3803,7 +3881,7 @@ Python не смог понять код в файле 'TESTS:\syntax\future_imp
 </div>
 </section>
 <section id="future-at-beginning">
-<h2>(128) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this heading">¶</a></h2>
+<h2>(131) __future__ at beginning<a class="headerlink" href="#future-at-beginning" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3827,7 +3905,7 @@ Python не смог понять код в файле 'TESTS:\syntax\future_mus
 </div>
 </section>
 <section id="typo-in-future">
-<h2>(129) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this heading">¶</a></h2>
+<h2>(132) Typo in __future__<a class="headerlink" href="#typo-in-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3852,7 +3930,7 @@ Python не смог понять код в файле 'TESTS:\syntax\future_typ
 </div>
 </section>
 <section id="unknown-feature-in-future">
-<h2>(130) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this heading">¶</a></h2>
+<h2>(133) Unknown feature in __future__<a class="headerlink" href="#unknown-feature-in-future" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3886,7 +3964,7 @@ Python не смог понять код в файле 'TESTS:\syntax\future_unk
 </div>
 </section>
 <section id="parenthesis-around-generator-expression">
-<h2>(131) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this heading">¶</a></h2>
+<h2>(134) Parenthesis around generator expression<a class="headerlink" href="#parenthesis-around-generator-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3913,7 +3991,7 @@ Python не смог понять код в файле 'TESTS:\syntax\generator_
 </div>
 </section>
 <section id="space-between-names">
-<h2>(132) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this heading">¶</a></h2>
+<h2>(135) Space between names<a class="headerlink" href="#space-between-names" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3941,7 +4019,7 @@ Python не смог понять код в файле 'TESTS:\syntax\hyphen_ins
 </div>
 </section>
 <section id="missing-condition-in-if-statement">
-<h2>(133) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this heading">¶</a></h2>
+<h2>(136) Missing condition in if statement<a class="headerlink" href="#missing-condition-in-if-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -3969,7 +4047,7 @@ Python не смог понять код в файле 'TESTS:\syntax\if_missing
 </div>
 </section>
 <section id="use-j-instead-of-i">
-<h2>(134) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this heading">¶</a></h2>
+<h2>(137) use j instead of i<a class="headerlink" href="#use-j-instead-of-i" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4001,7 +4079,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="import-inversion-import-x-from-y">
-<h2>(135) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this heading">¶</a></h2>
+<h2>(138) Import inversion: import X from Y<a class="headerlink" href="#import-inversion-import-x-from-y" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4031,7 +4109,7 @@ Python не смог понять код в файле 'TESTS:\syntax\import_fro
 </div>
 </section>
 <section id="indentationerror-expected-an-indented-block">
-<h2>(136) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this heading">¶</a></h2>
+<h2>(139) IndentationError: expected an indented block<a class="headerlink" href="#indentationerror-expected-an-indented-block" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4055,7 +4133,7 @@ Python не смог понять код в файле 'TESTS:\syntax\indentatio
 </div>
 </section>
 <section id="indentationerror-unexpected-indent">
-<h2>(137) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this heading">¶</a></h2>
+<h2>(140) IndentationError: unexpected indent<a class="headerlink" href="#indentationerror-unexpected-indent" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4079,7 +4157,7 @@ Python не смог понять код в файле 'TESTS:\syntax\indentatio
 </div>
 </section>
 <section id="indentationerror-unindent-does-not-match">
-<h2>(138) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this heading">¶</a></h2>
+<h2>(141) IndentationError: unindent does not match …<a class="headerlink" href="#indentationerror-unindent-does-not-match" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4103,7 +4181,7 @@ Python не смог понять код в файле 'TESTS:\syntax\indentatio
 </div>
 </section>
 <section id="indentationerror-missing-continuation-line">
-<h2>(139) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this heading">¶</a></h2>
+<h2>(142) IndentationError: missing continuation line<a class="headerlink" href="#indentationerror-missing-continuation-line" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4133,7 +4211,7 @@ Python не смог понять код в файле 'TESTS:\syntax\indentatio
 </div>
 </section>
 <section id="forgot-o-for-octal">
-<h2>(140) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this heading">¶</a></h2>
+<h2>(143) Forgot ‘o’ for octal<a class="headerlink" href="#forgot-o-for-octal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4160,7 +4238,7 @@ Python не смог понять код в файле 'TESTS:\syntax\integer_wi
 </div>
 </section>
 <section id="integer-with-leading-zeros">
-<h2>(141) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this heading">¶</a></h2>
+<h2>(144) Integer with leading zeros<a class="headerlink" href="#integer-with-leading-zeros" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4186,7 +4264,7 @@ Python не смог понять код в файле 'TESTS:\syntax\integer_wi
 </div>
 </section>
 <section id="invalid-character-in-identifier">
-<h2>(142) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this heading">¶</a></h2>
+<h2>(145) Invalid character in identifier<a class="headerlink" href="#invalid-character-in-identifier" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4209,7 +4287,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-decimal-literal-1">
-<h2>(143) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this heading">¶</a></h2>
+<h2>(146) Invalid decimal literal - 1<a class="headerlink" href="#invalid-decimal-literal-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4238,7 +4316,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="invalid-encoding">
-<h2>(144) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this heading">¶</a></h2>
+<h2>(147) Invalid encoding<a class="headerlink" href="#invalid-encoding" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4257,7 +4335,7 @@ Python не смог понять код в файле 'TESTS:\example.py'
 </div>
 </section>
 <section id="invalid-hexadecimal-number">
-<h2>(145) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this heading">¶</a></h2>
+<h2>(148) Invalid hexadecimal number<a class="headerlink" href="#invalid-hexadecimal-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4289,7 +4367,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_he
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number">
-<h2>(146) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this heading">¶</a></h2>
+<h2>(149) Valid names cannot begin with a number<a class="headerlink" href="#valid-names-cannot-begin-with-a-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4317,7 +4395,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-2">
-<h2>(147) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this heading">¶</a></h2>
+<h2>(150) Valid names cannot begin with a number - 2<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4346,7 +4424,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-3">
-<h2>(148) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this heading">¶</a></h2>
+<h2>(151) Valid names cannot begin with a number - 3<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4375,7 +4453,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_id
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-4">
-<h2>(149) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this heading">¶</a></h2>
+<h2>(152) Valid names cannot begin with a number - 4<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4400,7 +4478,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_id
 </div>
 </section>
 <section id="valid-names-cannot-begin-with-a-number-5">
-<h2>(150) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this heading">¶</a></h2>
+<h2>(153) Valid names cannot begin with a number - 5<a class="headerlink" href="#valid-names-cannot-begin-with-a-number-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4429,7 +4507,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_id
 </div>
 </section>
 <section id="keyword-can-t-be-an-expression">
-<h2>(151) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this heading">¶</a></h2>
+<h2>(154) Keyword can’t be an expression<a class="headerlink" href="#keyword-can-t-be-an-expression" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4458,7 +4536,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_ke
 </div>
 </section>
 <section id="named-argument-can-t-be-a-python-keyword">
-<h2>(152) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this heading">¶</a></h2>
+<h2>(155) Named argument can’t be a Python keyword<a class="headerlink" href="#named-argument-can-t-be-a-python-keyword" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4483,7 +4561,7 @@ Python не смог понять код в файле 'TESTS:\syntax\invalid_ke
 </div>
 </section>
 <section id="invalid-non-printable-character">
-<h2>(153) Invalid non printable character<a class="headerlink" href="#invalid-non-printable-character" title="Permalink to this heading">¶</a></h2>
+<h2>(156) Invalid non printable character<a class="headerlink" href="#invalid-non-printable-character" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4508,7 +4586,7 @@ Your code contains the invalid non-printable character '\x17'.
 </div>
 </section>
 <section id="invalid-octal-number">
-<h2>(154) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this heading">¶</a></h2>
+<h2>(157) Invalid octal number<a class="headerlink" href="#invalid-octal-number" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4539,7 +4617,7 @@ followed by the characters used to represent the value of that integer.
 </div>
 </section>
 <section id="inverted-operators-1">
-<h2>(155) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this heading">¶</a></h2>
+<h2>(158) Inverted operators 1<a class="headerlink" href="#inverted-operators-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4565,7 +4643,7 @@ Python не смог понять код в файле 'TESTS:\syntax\inverted_o
 </div>
 </section>
 <section id="inverted-operators-2">
-<h2>(156) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this heading">¶</a></h2>
+<h2>(159) Inverted operators 2<a class="headerlink" href="#inverted-operators-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4594,7 +4672,7 @@ Python не смог понять код в файле 'TESTS:\syntax\inverted_o
 </div>
 </section>
 <section id="iteration-variable-unpacking-in-comprehension">
-<h2>(157) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this heading">¶</a></h2>
+<h2>(160) Iteration variable unpacking in comprehension<a class="headerlink" href="#iteration-variable-unpacking-in-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4620,7 +4698,7 @@ https://github.com/friendly-traceback/friendly-traceback/issues/new
 </div>
 </section>
 <section id="keyword-arg-only-once-in-function-call">
-<h2>(158) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this heading">¶</a></h2>
+<h2>(161) Keyword arg only once in function call<a class="headerlink" href="#keyword-arg-only-once-in-function-call" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4644,7 +4722,7 @@ Python не смог понять код в файле 'TESTS:\syntax\keyword_ar
 </div>
 </section>
 <section id="keyword-as-attribute">
-<h2>(159) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this heading">¶</a></h2>
+<h2>(162) Keyword as attribute<a class="headerlink" href="#keyword-as-attribute" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4669,7 +4747,7 @@ Python не смог понять код в файле 'TESTS:\syntax\keyword_as
 </div>
 </section>
 <section id="lambda-with-parentheses-around-arguments">
-<h2>(160) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this heading">¶</a></h2>
+<h2>(163) lambda with parentheses around arguments<a class="headerlink" href="#lambda-with-parentheses-around-arguments" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4693,7 +4771,7 @@ Python не смог понять код в файле 'TESTS:\syntax\lambda_wit
 </div>
 </section>
 <section id="lambda-with-tuple-as-argument">
-<h2>(161) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this heading">¶</a></h2>
+<h2>(164) lambda with tuple as argument<a class="headerlink" href="#lambda-with-tuple-as-argument" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4717,7 +4795,7 @@ Python не смог понять код в файле 'TESTS:\syntax\lambda_wit
 </div>
 </section>
 <section id="assign-to-literal-in-for-loop">
-<h2>(162) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this heading">¶</a></h2>
+<h2>(165) Assign to literal in for loop<a class="headerlink" href="#assign-to-literal-in-for-loop" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4747,7 +4825,7 @@ Python не смог понять код в файле 'TESTS:\syntax\literal_in
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version">
-<h2>(163) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this heading">¶</a></h2>
+<h2>(166) IndentationError/SyntaxError depending on version<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4770,7 +4848,7 @@ Python не смог понять код в файле 'TESTS:\syntax\missing_co
 </div>
 </section>
 <section id="indentationerror-syntaxerror-depending-on-version-2">
-<h2>(164) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this heading">¶</a></h2>
+<h2>(167) IndentationError/SyntaxError depending on version - 2<a class="headerlink" href="#indentationerror-syntaxerror-depending-on-version-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4791,7 +4869,7 @@ Python не смог понять код в файле 'TESTS:\syntax\missing_co
 </div>
 </section>
 <section id="missing-colon-if">
-<h2>(165) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this heading">¶</a></h2>
+<h2>(168) Missing colon - if<a class="headerlink" href="#missing-colon-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4817,7 +4895,7 @@ Python не смог понять код в файле 'TESTS:\syntax\missing_co
 </div>
 </section>
 <section id="missing-colon-while">
-<h2>(166) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this heading">¶</a></h2>
+<h2>(169) Missing colon - while<a class="headerlink" href="#missing-colon-while" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4842,7 +4920,7 @@ Python не смог понять код в файле 'TESTS:\syntax\missing_co
 </div>
 </section>
 <section id="missing-comma-in-a-dict">
-<h2>(167) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this heading">¶</a></h2>
+<h2>(170) Missing comma in a dict<a class="headerlink" href="#missing-comma-in-a-dict" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4882,7 +4960,7 @@ Python указывает, что ошибка вызвана `'c'`, напис�
 </div>
 </section>
 <section id="missing-comma-between-strings-in-a-dict">
-<h2>(168) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this heading">¶</a></h2>
+<h2>(171) Missing comma between strings in a dict<a class="headerlink" href="#missing-comma-between-strings-in-a-dict" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4918,7 +4996,7 @@ a = {'a': '1',
 </div>
 </section>
 <section id="missing-comma-in-a-list">
-<h2>(169) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this heading">¶</a></h2>
+<h2>(172) Missing comma in a list<a class="headerlink" href="#missing-comma-in-a-list" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4954,7 +5032,7 @@ Python указывает, что ошибка вызвана `3`, написа�
 </div>
 </section>
 <section id="missing-comma-in-a-set">
-<h2>(170) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this heading">¶</a></h2>
+<h2>(173) Missing comma in a set<a class="headerlink" href="#missing-comma-in-a-set" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -4990,7 +5068,7 @@ Python указывает, что ошибка вызвана `3`, написа�
 </div>
 </section>
 <section id="missing-comma-in-a-tuple">
-<h2>(171) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this heading">¶</a></h2>
+<h2>(174) Missing comma in a tuple<a class="headerlink" href="#missing-comma-in-a-tuple" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5025,8 +5103,36 @@ Python указывает, что ошибка вызвана `3`, написа�
 </pre></div>
 </div>
 </section>
+<section id="for-loop-missing-in-operator">
+<h2>(175) For loop missing ‘in’ operator<a class="headerlink" href="#for-loop-missing-in-operator" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\missing_in_with_for.py", line 1
+    for x range(4):
+          ^^^^^
+SyntaxError: invalid syntax
+
+    Вы забыли про `in`?
+
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\missing_in_with_for.py'
+в указанном ^ месте.
+
+
+   1| for x range(4):
+            ^^^^^
+
+Похоже, что вы забыли использовать ключевое слово `in`
+как часть оператора `for`. Возможно, вы имели в виду:
+
+    for x in range(4):
+</pre></div>
+</div>
+</section>
 <section id="missing-parenthesis-for-range">
-<h2>(172) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this heading">¶</a></h2>
+<h2>(176) Missing parenthesis for range<a class="headerlink" href="#missing-parenthesis-for-range" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5054,7 +5160,7 @@ Python не смог понять код в файле 'TESTS:\syntax\missing_pa
 </div>
 </section>
 <section id="misspelled-python-keyword">
-<h2>(173) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this heading">¶</a></h2>
+<h2>(177) Misspelled Python keyword<a class="headerlink" href="#misspelled-python-keyword" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5080,7 +5186,7 @@ Python не смог понять код в файле 'TESTS:\syntax\misspelled
 </div>
 </section>
 <section id="name-is-global-and-nonlocal">
-<h2>(174) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this heading">¶</a></h2>
+<h2>(178) Name is global and nonlocal<a class="headerlink" href="#name-is-global-and-nonlocal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5104,7 +5210,7 @@ Python не смог понять код в файле 'TESTS:\syntax\name_is_gl
 </div>
 </section>
 <section id="name-is-parameter-and-nonlocal">
-<h2>(175) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this heading">¶</a></h2>
+<h2>(179) Name is parameter and nonlocal<a class="headerlink" href="#name-is-parameter-and-nonlocal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5129,7 +5235,7 @@ Python не смог понять код в файле 'TESTS:\syntax\name_is_pa
 </div>
 </section>
 <section id="nonlocal-variable-not-found">
-<h2>(176) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this heading">¶</a></h2>
+<h2>(180) nonlocal variable not found<a class="headerlink" href="#nonlocal-variable-not-found" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5153,7 +5259,7 @@ Python не смог понять код в файле 'TESTS:\syntax\no_binding
 </div>
 </section>
 <section id="nonlocal-variable-not-found-at-module-level">
-<h2>(177) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this heading">¶</a></h2>
+<h2>(181) nonlocal variable not found at module level<a class="headerlink" href="#nonlocal-variable-not-found-at-module-level" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5178,7 +5284,7 @@ Python не смог понять код в файле 'TESTS:\syntax\nonlocal_a
 </div>
 </section>
 <section id="same-operator-twice-in-a-row">
-<h2>(178) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this heading">¶</a></h2>
+<h2>(182) Same operator twice in a row<a class="headerlink" href="#same-operator-twice-in-a-row" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5202,7 +5308,7 @@ Python не смог понять код в файле 'TESTS:\syntax\operator_t
 </div>
 </section>
 <section id="using-pip-from-interpreter">
-<h2>(179) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this heading">¶</a></h2>
+<h2>(183) Using pip from interpreter<a class="headerlink" href="#using-pip-from-interpreter" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5229,7 +5335,7 @@ Python не смог понять код в файле 'TESTS:\syntax\pip_instal
 </div>
 </section>
 <section id="using-pip-from-interpreter-2">
-<h2>(180) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this heading">¶</a></h2>
+<h2>(184) Using pip from interpreter 2<a class="headerlink" href="#using-pip-from-interpreter-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5256,7 +5362,7 @@ Python не смог понять код в файле 'TESTS:\syntax\pip_instal
 </div>
 </section>
 <section id="print-is-a-function">
-<h2>(181) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this heading">¶</a></h2>
+<h2>(185) print is a function<a class="headerlink" href="#print-is-a-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5286,7 +5392,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_is_a
 </div>
 </section>
 <section id="print-is-a-function-2">
-<h2>(182) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this heading">¶</a></h2>
+<h2>(186) print is a function 2<a class="headerlink" href="#print-is-a-function-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5316,7 +5422,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_is_a
 </div>
 </section>
 <section id="print-is-a-function-3">
-<h2>(183) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this heading">¶</a></h2>
+<h2>(187) print is a function 3<a class="headerlink" href="#print-is-a-function-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5346,7 +5452,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_is_a
 </div>
 </section>
 <section id="print-is-a-function-4">
-<h2>(184) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this heading">¶</a></h2>
+<h2>(188) print is a function 4<a class="headerlink" href="#print-is-a-function-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5377,7 +5483,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_is_a
 </div>
 </section>
 <section id="print-is-a-function-5">
-<h2>(185) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this heading">¶</a></h2>
+<h2>(189) print is a function 5<a class="headerlink" href="#print-is-a-function-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5407,7 +5513,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_is_a
 </div>
 </section>
 <section id="print-is-a-function-6">
-<h2>(186) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this heading">¶</a></h2>
+<h2>(190) print is a function 6<a class="headerlink" href="#print-is-a-function-6" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5438,7 +5544,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_non_
 </div>
 </section>
 <section id="print-is-a-function-7">
-<h2>(187) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this heading">¶</a></h2>
+<h2>(191) print is a function 7<a class="headerlink" href="#print-is-a-function-7" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5469,7 +5575,7 @@ Python не смог понять код в файле 'TESTS:\syntax\print_non_
 </div>
 </section>
 <section id="calling-python-from-interpreter">
-<h2>(188) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this heading">¶</a></h2>
+<h2>(192) Calling python from interpreter<a class="headerlink" href="#calling-python-from-interpreter" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5493,7 +5599,7 @@ Python не смог понять код в файле 'TESTS:\syntax\python_int
 </div>
 </section>
 <section id="problem-with-assigning-a-variable-to-python">
-<h2>(189) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this heading">¶</a></h2>
+<h2>(193) problem with assigning a variable to Python<a class="headerlink" href="#problem-with-assigning-a-variable-to-python" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5527,7 +5633,7 @@ Python указывает, что ошибка вызвана `b`, написа�
 </div>
 </section>
 <section id="quote-inside-a-string">
-<h2>(190) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this heading">¶</a></h2>
+<h2>(194) Quote inside a string<a class="headerlink" href="#quote-inside-a-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5557,7 +5663,7 @@ Python не смог понять код в файле 'TESTS:\syntax\quote_insi
 </div>
 </section>
 <section id="raising-multiple-exceptions">
-<h2>(191) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this heading">¶</a></h2>
+<h2>(195) Raising multiple exceptions<a class="headerlink" href="#raising-multiple-exceptions" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5580,7 +5686,7 @@ Python не смог понять код в файле 'TESTS:\syntax\raise_mult
 </div>
 </section>
 <section id="cannot-use-return-outside-function">
-<h2>(192) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this heading">¶</a></h2>
+<h2>(196) Cannot use return outside function<a class="headerlink" href="#cannot-use-return-outside-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5603,7 +5709,7 @@ Python не смог понять код в файле 'TESTS:\syntax\return_out
 </div>
 </section>
 <section id="missing-exponent-for-scientific-notation">
-<h2>(193) Missing exponent for scientific notation<a class="headerlink" href="#missing-exponent-for-scientific-notation" title="Permalink to this heading">¶</a></h2>
+<h2>(197) Missing exponent for scientific notation<a class="headerlink" href="#missing-exponent-for-scientific-notation" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5633,7 +5739,7 @@ and forgot the numerical value for the exponent.
 </div>
 </section>
 <section id="semicolon-instead-of-colon">
-<h2>(194) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this heading">¶</a></h2>
+<h2>(198) Semicolon instead of colon<a class="headerlink" href="#semicolon-instead-of-colon" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5658,7 +5764,7 @@ Python не смог понять код в файле 'TESTS:\syntax\semi_colon
 </div>
 </section>
 <section id="semicolon-instead-of-comma-1">
-<h2>(195) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this heading">¶</a></h2>
+<h2>(199) Semicolon instead of comma - 1<a class="headerlink" href="#semicolon-instead-of-comma-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5683,7 +5789,7 @@ Python не смог понять код в файле 'TESTS:\syntax\semi_colon
 </div>
 </section>
 <section id="semicolon-instead-of-commas-2">
-<h2>(196) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this heading">¶</a></h2>
+<h2>(200) Semicolon instead of commas - 2<a class="headerlink" href="#semicolon-instead-of-commas-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5708,7 +5814,7 @@ Python не смог понять код в файле 'TESTS:\syntax\semi_colon
 </div>
 </section>
 <section id="semicolon-instead-of-commas-3">
-<h2>(197) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this heading">¶</a></h2>
+<h2>(201) Semicolon instead of commas - 3<a class="headerlink" href="#semicolon-instead-of-commas-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5733,7 +5839,7 @@ Python не смог понять код в файле 'TESTS:\syntax\semi_colon
 </div>
 </section>
 <section id="code-block-inside-comprehension">
-<h2>(198) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this heading">¶</a></h2>
+<h2>(202) Code block inside comprehension<a class="headerlink" href="#code-block-inside-comprehension" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5763,7 +5869,7 @@ Python не смог понять код в файле 'TESTS:\syntax\should_be_
 </div>
 </section>
 <section id="single-instead-of-double-with-if">
-<h2>(199) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this heading">¶</a></h2>
+<h2>(203) Single = instead of double == with if<a class="headerlink" href="#single-instead-of-double-with-if" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5790,7 +5896,7 @@ Python не смог понять код в файле 'TESTS:\syntax\single_equ
 </div>
 </section>
 <section id="single-instead-of-double-with-elif">
-<h2>(200) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this heading">¶</a></h2>
+<h2>(204) Single = instead of double == with elif<a class="headerlink" href="#single-instead-of-double-with-elif" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5817,7 +5923,7 @@ Python не смог понять код в файле 'TESTS:\syntax\single_equ
 </div>
 </section>
 <section id="single-instead-of-double-with-while">
-<h2>(201) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this heading">¶</a></h2>
+<h2>(205) Single = instead of double == with while<a class="headerlink" href="#single-instead-of-double-with-while" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5844,7 +5950,7 @@ Python не смог понять код в файле 'TESTS:\syntax\single_equ
 </div>
 </section>
 <section id="space-between-operators-1">
-<h2>(202) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this heading">¶</a></h2>
+<h2>(206) Space between operators 1<a class="headerlink" href="#space-between-operators-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5870,7 +5976,7 @@ Python не смог понять код в файле 'TESTS:\syntax\space_betw
 </div>
 </section>
 <section id="space-between-operators-2">
-<h2>(203) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this heading">¶</a></h2>
+<h2>(207) Space between operators 2<a class="headerlink" href="#space-between-operators-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5897,7 +6003,7 @@ Python не смог понять код в файле 'TESTS:\syntax\space_betw
 </div>
 </section>
 <section id="space-in-variable-name">
-<h2>(204) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this heading">¶</a></h2>
+<h2>(208) Space in variable name<a class="headerlink" href="#space-in-variable-name" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5923,7 +6029,7 @@ Python не смог понять код в файле 'TESTS:\syntax\space_in_v
 </div>
 </section>
 <section id="wrong-target-for-star-assignment">
-<h2>(205) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this heading">¶</a></h2>
+<h2>(209) Wrong target for star assignment<a class="headerlink" href="#wrong-target-for-star-assignment" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5948,7 +6054,7 @@ Python не смог понять код в файле 'TESTS:\syntax\star_assig
 </div>
 </section>
 <section id="too-many-nested-blocks">
-<h2>(206) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this heading">¶</a></h2>
+<h2>(210) Too many nested blocks<a class="headerlink" href="#too-many-nested-blocks" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -5973,7 +6079,7 @@ Python не смог понять код в файле 'TESTS:\syntax\too_many_n
 </div>
 </section>
 <section id="too-many-nested-parentheses">
-<h2>(207) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this heading">¶</a></h2>
+<h2>(211) Too many nested parentheses.<a class="headerlink" href="#too-many-nested-parentheses" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6004,7 +6110,7 @@ Python не смог понять код в файле 'TESTS:\syntax\too_many_p
 </div>
 </section>
 <section id="trailing-comma-in-import-statement">
-<h2>(208) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this heading">¶</a></h2>
+<h2>(212) Trailing comma in import statement<a class="headerlink" href="#trailing-comma-in-import-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6034,7 +6140,7 @@ Python указывает, что вам нужно окружить выраж�
 </div>
 </section>
 <section id="triple-equal-sign">
-<h2>(209) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this heading">¶</a></h2>
+<h2>(213) Triple-equal sign<a class="headerlink" href="#triple-equal-sign" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6063,7 +6169,7 @@ Python не смог понять код в файле 'TESTS:\syntax\triple_equ
 </div>
 </section>
 <section id="unclosed-bracket">
-<h2>(210) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this heading">¶</a></h2>
+<h2>(214) Unclosed bracket<a class="headerlink" href="#unclosed-bracket" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6094,7 +6200,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unclosed_b
 </div>
 </section>
 <section id="unclosed-parenthesis-1">
-<h2>(211) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this heading">¶</a></h2>
+<h2>(215) Unclosed parenthesis - 1<a class="headerlink" href="#unclosed-parenthesis-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6125,7 +6231,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unclosed_p
 </div>
 </section>
 <section id="unclosed-parenthesis-2">
-<h2>(212) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this heading">¶</a></h2>
+<h2>(216) Unclosed parenthesis - 2<a class="headerlink" href="#unclosed-parenthesis-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6155,7 +6261,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unclosed_p
 </div>
 </section>
 <section id="unclosed-parenthesis-3">
-<h2>(213) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this heading">¶</a></h2>
+<h2>(217) Unclosed parenthesis - 3<a class="headerlink" href="#unclosed-parenthesis-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6186,7 +6292,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unclosed_p
 </div>
 </section>
 <section id="unclosed-parenthesis-4">
-<h2>(214) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this heading">¶</a></h2>
+<h2>(218) Unclosed parenthesis - 4<a class="headerlink" href="#unclosed-parenthesis-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6214,7 +6320,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unclosed_p
 </div>
 </section>
 <section id="content-passed-continuation-line-character">
-<h2>(215) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this heading">¶</a></h2>
+<h2>(219) Content passed continuation line character<a class="headerlink" href="#content-passed-continuation-line-character" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6239,7 +6345,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unexpected
 </div>
 </section>
 <section id="unexpected-eof-while-parsing">
-<h2>(216) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this heading">¶</a></h2>
+<h2>(220) Unexpected EOF while parsing<a class="headerlink" href="#unexpected-eof-while-parsing" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6270,7 +6376,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unexpected
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-3-4">
-<h2>(217) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this heading">¶</a></h2>
+<h2>(221) Invalid character (unicode fraction 3/4)<a class="headerlink" href="#invalid-character-unicode-fraction-3-4" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6298,7 +6404,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-1-2">
-<h2>(218) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this heading">¶</a></h2>
+<h2>(222) Invalid character (unicode fraction 1/2)<a class="headerlink" href="#invalid-character-unicode-fraction-1-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6327,7 +6433,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="invalid-character-unicode-fraction-slash">
-<h2>(219) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this heading">¶</a></h2>
+<h2>(223) Invalid character (unicode fraction slash)<a class="headerlink" href="#invalid-character-unicode-fraction-slash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6356,7 +6462,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-character-unicode-quote">
-<h2>(220) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this heading">¶</a></h2>
+<h2>(224) Invalid character (unicode quote)<a class="headerlink" href="#invalid-character-unicode-quote" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6385,7 +6491,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-character-unicode-quote2">
-<h2>(221) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this heading">¶</a></h2>
+<h2>(225) Invalid character (unicode quote2)<a class="headerlink" href="#invalid-character-unicode-quote2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6414,7 +6520,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-character-mistaken">
-<h2>(222) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this heading">¶</a></h2>
+<h2>(226) Invalid character (mistaken &lt;)<a class="headerlink" href="#invalid-character-mistaken" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6444,7 +6550,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="id9">
-<h2>(223) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<h2>(227) Invalid character (mistaken &gt;)<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6474,7 +6580,7 @@ Python указывает, что вы использовали недопуст
 </div>
 </section>
 <section id="invalid-character-mistaken-comma">
-<h2>(224) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this heading">¶</a></h2>
+<h2>(228) Invalid character (mistaken comma)<a class="headerlink" href="#invalid-character-mistaken-comma" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6504,7 +6610,7 @@ Python сообщает, что вы записали недопустимое �
 </div>
 </section>
 <section id="unmatched-closing-curly-bracket">
-<h2>(225) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this heading">¶</a></h2>
+<h2>(229) Unmatched closing curly bracket<a class="headerlink" href="#unmatched-closing-curly-bracket" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6529,7 +6635,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unmatched_
 </div>
 </section>
 <section id="unmatched-closing-parenthesis">
-<h2>(226) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this heading">¶</a></h2>
+<h2>(230) Unmatched closing parenthesis<a class="headerlink" href="#unmatched-closing-parenthesis" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6554,7 +6660,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unmatched_
 </div>
 </section>
 <section id="mismatched-brackets-1">
-<h2>(227) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this heading">¶</a></h2>
+<h2>(231) Mismatched brackets - 1<a class="headerlink" href="#mismatched-brackets-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6580,7 +6686,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unmatched_
 </div>
 </section>
 <section id="mismatched-brackets-2">
-<h2>(228) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this heading">¶</a></h2>
+<h2>(232) Mismatched brackets - 2<a class="headerlink" href="#mismatched-brackets-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6611,7 +6717,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unmatched_
 </div>
 </section>
 <section id="unmatched-brackets-3">
-<h2>(229) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this heading">¶</a></h2>
+<h2>(233) Unmatched brackets - 3<a class="headerlink" href="#unmatched-brackets-3" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6636,7 +6742,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unmatched_
 </div>
 </section>
 <section id="unpacking-a-dict-value">
-<h2>(230) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this heading">¶</a></h2>
+<h2>(234) Unpacking a dict value<a class="headerlink" href="#unpacking-a-dict-value" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6662,7 +6768,7 @@ https://github.com/friendly-traceback/friendly-traceback/issues/new
 </div>
 </section>
 <section id="unterminated-triple-quoted-string">
-<h2>(231) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this heading">¶</a></h2>
+<h2>(235) Unterminated triple quoted string<a class="headerlink" href="#unterminated-triple-quoted-string" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6685,7 +6791,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unterminat
 </div>
 </section>
 <section id="taberror">
-<h2>(232) TabError<a class="headerlink" href="#taberror" title="Permalink to this heading">¶</a></h2>
+<h2>(236) TabError<a class="headerlink" href="#taberror" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6709,8 +6815,62 @@ Python не смог понять код в файле 'TESTS:\syntax\tab_error.
 </pre></div>
 </div>
 </section>
+<section id="wrong-word-instead-of-expect">
+<h2>(237) Wrong word instead of expect<a class="headerlink" href="#wrong-word-instead-of-expect" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\typo_in_except.py", line 3
+    something Exception:
+    ^^^^^^^^^
+SyntaxError: expected 'except' or 'finally' block
+
+    Did you mean `except Exception:`?
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\typo_in_except.py'
+в указанном ^ месте.
+
+
+   3| something Exception:
+      ^^^^^^^^^
+
+You wrote a `try` block which did not include an `except` nor a `finally` block.
+Perhaps you meant to write
+
+    except Exception:
+</pre></div>
+</div>
+</section>
+<section id="typo-in-finally">
+<h2>(238) Typo in finally<a class="headerlink" href="#typo-in-finally" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
+  File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+    __import__(name)
+  File "TESTS:\syntax\typo_in_finally.py", line 3
+    finnally:
+    ^^^^^^^^
+SyntaxError: expected 'except' or 'finally' block
+
+    Did you mean `finally:`?
+`SyntaxError` возникает, когда Python не может понять ваш код.
+
+Python не смог понять код в файле 'TESTS:\syntax\typo_in_finally.py'
+в указанном ^ месте.
+
+
+   3| finnally:
+      ^^^^^^^^
+
+You wrote a `try` block which did not include an `except` nor a `finally` block.
+Perhaps you meant to write
+
+    finally:
+</pre></div>
+</div>
+</section>
 <section id="eol-unescaped-backslash">
-<h2>(233) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this heading">¶</a></h2>
+<h2>(239) EOL unescaped backslash<a class="headerlink" href="#eol-unescaped-backslash" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6739,7 +6899,7 @@ Python не смог понять код в файле 'TESTS:\syntax\unescaped_
 </div>
 </section>
 <section id="using-the-backquote-character">
-<h2>(234) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this heading">¶</a></h2>
+<h2>(240) Using the backquote character<a class="headerlink" href="#using-the-backquote-character" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6766,7 +6926,7 @@ Python не смог понять код в файле 'TESTS:\syntax\use_backqu
 </div>
 </section>
 <section id="unicode-error">
-<h2>(235) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this heading">¶</a></h2>
+<h2>(241) unicode error<a class="headerlink" href="#unicode-error" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6797,7 +6957,7 @@ Python, скорее всего, интерпретировал это как н
 </div>
 </section>
 <section id="walrus-instead-of-equal">
-<h2>(236) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this heading">¶</a></h2>
+<h2>(242) Walrus instead of equal<a class="headerlink" href="#walrus-instead-of-equal" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6823,7 +6983,7 @@ Python не смог понять код в файле 'TESTS:\syntax\walrus_ins
 </div>
 </section>
 <section id="missing-condition-in-while-statement">
-<h2>(237) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this heading">¶</a></h2>
+<h2>(243) Missing condition in while statement<a class="headerlink" href="#missing-condition-in-while-statement" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6851,7 +7011,7 @@ Python не смог понять код в файле 'TESTS:\syntax\while_miss
 </div>
 </section>
 <section id="would-be-variable-declaration">
-<h2>(238) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this heading">¶</a></h2>
+<h2>(244) Would-be variable declaration<a class="headerlink" href="#would-be-variable-declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6878,7 +7038,7 @@ Python не смог понять код в файле 'TESTS:\syntax\would_be_t
 </div>
 </section>
 <section id="would-be-variable-declaration-2">
-<h2>(239) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this heading">¶</a></h2>
+<h2>(245) Would-be variable declaration - 2<a class="headerlink" href="#would-be-variable-declaration-2" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -6907,7 +7067,7 @@ Python не смог понять код в файле 'TESTS:\syntax\would_be_t
 </div>
 </section>
 <section id="cannot-use-yield-outside-function">
-<h2>(240) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this heading">¶</a></h2>
+<h2>(246) Cannot use yield outside function<a class="headerlink" href="#cannot-use-yield-outside-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
     __import__(name)
@@ -7101,128 +7261,134 @@ Python не смог понять код в файле 'TESTS:\syntax\yield_outs
 <li><a class="reference internal" href="#eol-while-scanning-string-literal">(116) EOL while scanning string literal</a></li>
 <li><a class="reference internal" href="#used-equal-sign-instead-of-colon">(117) Used equal sign instead of colon</a></li>
 <li><a class="reference internal" href="#parens-around-multiple-exceptions">(118) Parens around multiple exceptions</a></li>
-<li><a class="reference internal" href="#id8">(119) Extra token</a></li>
-<li><a class="reference internal" href="#binary-f-string-not-allowed">(120) Binary f-string not allowed</a></li>
-<li><a class="reference internal" href="#f-string-closing-not-allowed">(121) f-string: closing } not allowed</a></li>
-<li><a class="reference internal" href="#f-string-missing-closing">(122) f-string: missing closing }</a></li>
-<li><a class="reference internal" href="#f-string-unterminated-string">(123) f-string: unterminated string</a></li>
-<li><a class="reference internal" href="#f-string-with-backslash">(124) f-string with backslash</a></li>
-<li><a class="reference internal" href="#missing-terms-in-for-statement">(125) Missing terms in for statement</a></li>
-<li><a class="reference internal" href="#not-a-chance">(126) Not a chance!</a></li>
-<li><a class="reference internal" href="#do-not-import-from-future">(127) Do not import * from __future__</a></li>
-<li><a class="reference internal" href="#future-at-beginning">(128) __future__ at beginning</a></li>
-<li><a class="reference internal" href="#typo-in-future">(129) Typo in __future__</a></li>
-<li><a class="reference internal" href="#unknown-feature-in-future">(130) Unknown feature in __future__</a></li>
-<li><a class="reference internal" href="#parenthesis-around-generator-expression">(131) Parenthesis around generator expression</a></li>
-<li><a class="reference internal" href="#space-between-names">(132) Space between names</a></li>
-<li><a class="reference internal" href="#missing-condition-in-if-statement">(133) Missing condition in if statement</a></li>
-<li><a class="reference internal" href="#use-j-instead-of-i">(134) use j instead of i</a></li>
-<li><a class="reference internal" href="#import-inversion-import-x-from-y">(135) Import inversion: import X from Y</a></li>
-<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(136) IndentationError: expected an indented block</a></li>
-<li><a class="reference internal" href="#indentationerror-unexpected-indent">(137) IndentationError: unexpected indent</a></li>
-<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(138) IndentationError: unindent does not match …</a></li>
-<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(139) IndentationError: missing continuation line</a></li>
-<li><a class="reference internal" href="#forgot-o-for-octal">(140) Forgot ‘o’ for octal</a></li>
-<li><a class="reference internal" href="#integer-with-leading-zeros">(141) Integer with leading zeros</a></li>
-<li><a class="reference internal" href="#invalid-character-in-identifier">(142) Invalid character in identifier</a></li>
-<li><a class="reference internal" href="#invalid-decimal-literal-1">(143) Invalid decimal literal - 1</a></li>
-<li><a class="reference internal" href="#invalid-encoding">(144) Invalid encoding</a></li>
-<li><a class="reference internal" href="#invalid-hexadecimal-number">(145) Invalid hexadecimal number</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(146) Valid names cannot begin with a number</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(147) Valid names cannot begin with a number - 2</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(148) Valid names cannot begin with a number - 3</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(149) Valid names cannot begin with a number - 4</a></li>
-<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(150) Valid names cannot begin with a number - 5</a></li>
-<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(151) Keyword can’t be an expression</a></li>
-<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(152) Named argument can’t be a Python keyword</a></li>
-<li><a class="reference internal" href="#invalid-non-printable-character">(153) Invalid non printable character</a></li>
-<li><a class="reference internal" href="#invalid-octal-number">(154) Invalid octal number</a></li>
-<li><a class="reference internal" href="#inverted-operators-1">(155) Inverted operators 1</a></li>
-<li><a class="reference internal" href="#inverted-operators-2">(156) Inverted operators 2</a></li>
-<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(157) Iteration variable unpacking in comprehension</a></li>
-<li><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(158) Keyword arg only once in function call</a></li>
-<li><a class="reference internal" href="#keyword-as-attribute">(159) Keyword as attribute</a></li>
-<li><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(160) lambda with parentheses around arguments</a></li>
-<li><a class="reference internal" href="#lambda-with-tuple-as-argument">(161) lambda with tuple as argument</a></li>
-<li><a class="reference internal" href="#assign-to-literal-in-for-loop">(162) Assign to literal in for loop</a></li>
-<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(163) IndentationError/SyntaxError depending on version</a></li>
-<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version-2">(164) IndentationError/SyntaxError depending on version - 2</a></li>
-<li><a class="reference internal" href="#missing-colon-if">(165) Missing colon - if</a></li>
-<li><a class="reference internal" href="#missing-colon-while">(166) Missing colon - while</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-dict">(167) Missing comma in a dict</a></li>
-<li><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(168) Missing comma between strings in a dict</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-list">(169) Missing comma in a list</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-set">(170) Missing comma in a set</a></li>
-<li><a class="reference internal" href="#missing-comma-in-a-tuple">(171) Missing comma in a tuple</a></li>
-<li><a class="reference internal" href="#missing-parenthesis-for-range">(172) Missing parenthesis for range</a></li>
-<li><a class="reference internal" href="#misspelled-python-keyword">(173) Misspelled Python keyword</a></li>
-<li><a class="reference internal" href="#name-is-global-and-nonlocal">(174) Name is global and nonlocal</a></li>
-<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(175) Name is parameter and nonlocal</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found">(176) nonlocal variable not found</a></li>
-<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(177) nonlocal variable not found at module level</a></li>
-<li><a class="reference internal" href="#same-operator-twice-in-a-row">(178) Same operator twice in a row</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter">(179) Using pip from interpreter</a></li>
-<li><a class="reference internal" href="#using-pip-from-interpreter-2">(180) Using pip from interpreter 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function">(181) print is a function</a></li>
-<li><a class="reference internal" href="#print-is-a-function-2">(182) print is a function 2</a></li>
-<li><a class="reference internal" href="#print-is-a-function-3">(183) print is a function 3</a></li>
-<li><a class="reference internal" href="#print-is-a-function-4">(184) print is a function 4</a></li>
-<li><a class="reference internal" href="#print-is-a-function-5">(185) print is a function 5</a></li>
-<li><a class="reference internal" href="#print-is-a-function-6">(186) print is a function 6</a></li>
-<li><a class="reference internal" href="#print-is-a-function-7">(187) print is a function 7</a></li>
-<li><a class="reference internal" href="#calling-python-from-interpreter">(188) Calling python from interpreter</a></li>
-<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(189) problem with assigning a variable to Python</a></li>
-<li><a class="reference internal" href="#quote-inside-a-string">(190) Quote inside a string</a></li>
-<li><a class="reference internal" href="#raising-multiple-exceptions">(191) Raising multiple exceptions</a></li>
-<li><a class="reference internal" href="#cannot-use-return-outside-function">(192) Cannot use return outside function</a></li>
-<li><a class="reference internal" href="#missing-exponent-for-scientific-notation">(193) Missing exponent for scientific notation</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-colon">(194) Semicolon instead of colon</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-comma-1">(195) Semicolon instead of comma - 1</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-commas-2">(196) Semicolon instead of commas - 2</a></li>
-<li><a class="reference internal" href="#semicolon-instead-of-commas-3">(197) Semicolon instead of commas - 3</a></li>
-<li><a class="reference internal" href="#code-block-inside-comprehension">(198) Code block inside comprehension</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-if">(199) Single = instead of double == with if</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-elif">(200) Single = instead of double == with elif</a></li>
-<li><a class="reference internal" href="#single-instead-of-double-with-while">(201) Single = instead of double == with while</a></li>
-<li><a class="reference internal" href="#space-between-operators-1">(202) Space between operators 1</a></li>
-<li><a class="reference internal" href="#space-between-operators-2">(203) Space between operators 2</a></li>
-<li><a class="reference internal" href="#space-in-variable-name">(204) Space in variable name</a></li>
-<li><a class="reference internal" href="#wrong-target-for-star-assignment">(205) Wrong target for star assignment</a></li>
-<li><a class="reference internal" href="#too-many-nested-blocks">(206) Too many nested blocks</a></li>
-<li><a class="reference internal" href="#too-many-nested-parentheses">(207) Too many nested parentheses.</a></li>
-<li><a class="reference internal" href="#trailing-comma-in-import-statement">(208) Trailing comma in import statement</a></li>
-<li><a class="reference internal" href="#triple-equal-sign">(209) Triple-equal sign</a></li>
-<li><a class="reference internal" href="#unclosed-bracket">(210) Unclosed bracket</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-1">(211) Unclosed parenthesis - 1</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-2">(212) Unclosed parenthesis - 2</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-3">(213) Unclosed parenthesis - 3</a></li>
-<li><a class="reference internal" href="#unclosed-parenthesis-4">(214) Unclosed parenthesis - 4</a></li>
-<li><a class="reference internal" href="#content-passed-continuation-line-character">(215) Content passed continuation line character</a></li>
-<li><a class="reference internal" href="#unexpected-eof-while-parsing">(216) Unexpected EOF while parsing</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(217) Invalid character (unicode fraction 3/4)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(218) Invalid character (unicode fraction 1/2)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(219) Invalid character (unicode fraction slash)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote">(220) Invalid character (unicode quote)</a></li>
-<li><a class="reference internal" href="#invalid-character-unicode-quote2">(221) Invalid character (unicode quote2)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken">(222) Invalid character (mistaken &lt;)</a></li>
-<li><a class="reference internal" href="#id9">(223) Invalid character (mistaken &gt;)</a></li>
-<li><a class="reference internal" href="#invalid-character-mistaken-comma">(224) Invalid character (mistaken comma)</a></li>
-<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(225) Unmatched closing curly bracket</a></li>
-<li><a class="reference internal" href="#unmatched-closing-parenthesis">(226) Unmatched closing parenthesis</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-1">(227) Mismatched brackets - 1</a></li>
-<li><a class="reference internal" href="#mismatched-brackets-2">(228) Mismatched brackets - 2</a></li>
-<li><a class="reference internal" href="#unmatched-brackets-3">(229) Unmatched brackets - 3</a></li>
-<li><a class="reference internal" href="#unpacking-a-dict-value">(230) Unpacking a dict value</a></li>
-<li><a class="reference internal" href="#unterminated-triple-quoted-string">(231) Unterminated triple quoted string</a></li>
-<li><a class="reference internal" href="#taberror">(232) TabError</a></li>
-<li><a class="reference internal" href="#eol-unescaped-backslash">(233) EOL unescaped backslash</a></li>
-<li><a class="reference internal" href="#using-the-backquote-character">(234) Using the backquote character</a></li>
-<li><a class="reference internal" href="#unicode-error">(235) unicode error</a></li>
-<li><a class="reference internal" href="#walrus-instead-of-equal">(236) Walrus instead of equal</a></li>
-<li><a class="reference internal" href="#missing-condition-in-while-statement">(237) Missing condition in while statement</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration">(238) Would-be variable declaration</a></li>
-<li><a class="reference internal" href="#would-be-variable-declaration-2">(239) Would-be variable declaration - 2</a></li>
-<li><a class="reference internal" href="#cannot-use-yield-outside-function">(240) Cannot use yield outside function</a></li>
+<li><a class="reference internal" href="#except-with-no-matching-try">(119) except with no matching try</a></li>
+<li><a class="reference internal" href="#except-or-finally-missing">(120) except or finally missing</a></li>
+<li><a class="reference internal" href="#id8">(121) Extra token</a></li>
+<li><a class="reference internal" href="#binary-f-string-not-allowed">(122) Binary f-string not allowed</a></li>
+<li><a class="reference internal" href="#f-string-closing-not-allowed">(123) f-string: closing } not allowed</a></li>
+<li><a class="reference internal" href="#f-string-missing-closing">(124) f-string: missing closing }</a></li>
+<li><a class="reference internal" href="#f-string-unterminated-string">(125) f-string: unterminated string</a></li>
+<li><a class="reference internal" href="#f-string-with-backslash">(126) f-string with backslash</a></li>
+<li><a class="reference internal" href="#finally-with-no-matching-try">(127) finally with no matching try</a></li>
+<li><a class="reference internal" href="#missing-terms-in-for-statement">(128) Missing terms in for statement</a></li>
+<li><a class="reference internal" href="#not-a-chance">(129) Not a chance!</a></li>
+<li><a class="reference internal" href="#do-not-import-from-future">(130) Do not import * from __future__</a></li>
+<li><a class="reference internal" href="#future-at-beginning">(131) __future__ at beginning</a></li>
+<li><a class="reference internal" href="#typo-in-future">(132) Typo in __future__</a></li>
+<li><a class="reference internal" href="#unknown-feature-in-future">(133) Unknown feature in __future__</a></li>
+<li><a class="reference internal" href="#parenthesis-around-generator-expression">(134) Parenthesis around generator expression</a></li>
+<li><a class="reference internal" href="#space-between-names">(135) Space between names</a></li>
+<li><a class="reference internal" href="#missing-condition-in-if-statement">(136) Missing condition in if statement</a></li>
+<li><a class="reference internal" href="#use-j-instead-of-i">(137) use j instead of i</a></li>
+<li><a class="reference internal" href="#import-inversion-import-x-from-y">(138) Import inversion: import X from Y</a></li>
+<li><a class="reference internal" href="#indentationerror-expected-an-indented-block">(139) IndentationError: expected an indented block</a></li>
+<li><a class="reference internal" href="#indentationerror-unexpected-indent">(140) IndentationError: unexpected indent</a></li>
+<li><a class="reference internal" href="#indentationerror-unindent-does-not-match">(141) IndentationError: unindent does not match …</a></li>
+<li><a class="reference internal" href="#indentationerror-missing-continuation-line">(142) IndentationError: missing continuation line</a></li>
+<li><a class="reference internal" href="#forgot-o-for-octal">(143) Forgot ‘o’ for octal</a></li>
+<li><a class="reference internal" href="#integer-with-leading-zeros">(144) Integer with leading zeros</a></li>
+<li><a class="reference internal" href="#invalid-character-in-identifier">(145) Invalid character in identifier</a></li>
+<li><a class="reference internal" href="#invalid-decimal-literal-1">(146) Invalid decimal literal - 1</a></li>
+<li><a class="reference internal" href="#invalid-encoding">(147) Invalid encoding</a></li>
+<li><a class="reference internal" href="#invalid-hexadecimal-number">(148) Invalid hexadecimal number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number">(149) Valid names cannot begin with a number</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-2">(150) Valid names cannot begin with a number - 2</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-3">(151) Valid names cannot begin with a number - 3</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-4">(152) Valid names cannot begin with a number - 4</a></li>
+<li><a class="reference internal" href="#valid-names-cannot-begin-with-a-number-5">(153) Valid names cannot begin with a number - 5</a></li>
+<li><a class="reference internal" href="#keyword-can-t-be-an-expression">(154) Keyword can’t be an expression</a></li>
+<li><a class="reference internal" href="#named-argument-can-t-be-a-python-keyword">(155) Named argument can’t be a Python keyword</a></li>
+<li><a class="reference internal" href="#invalid-non-printable-character">(156) Invalid non printable character</a></li>
+<li><a class="reference internal" href="#invalid-octal-number">(157) Invalid octal number</a></li>
+<li><a class="reference internal" href="#inverted-operators-1">(158) Inverted operators 1</a></li>
+<li><a class="reference internal" href="#inverted-operators-2">(159) Inverted operators 2</a></li>
+<li><a class="reference internal" href="#iteration-variable-unpacking-in-comprehension">(160) Iteration variable unpacking in comprehension</a></li>
+<li><a class="reference internal" href="#keyword-arg-only-once-in-function-call">(161) Keyword arg only once in function call</a></li>
+<li><a class="reference internal" href="#keyword-as-attribute">(162) Keyword as attribute</a></li>
+<li><a class="reference internal" href="#lambda-with-parentheses-around-arguments">(163) lambda with parentheses around arguments</a></li>
+<li><a class="reference internal" href="#lambda-with-tuple-as-argument">(164) lambda with tuple as argument</a></li>
+<li><a class="reference internal" href="#assign-to-literal-in-for-loop">(165) Assign to literal in for loop</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version">(166) IndentationError/SyntaxError depending on version</a></li>
+<li><a class="reference internal" href="#indentationerror-syntaxerror-depending-on-version-2">(167) IndentationError/SyntaxError depending on version - 2</a></li>
+<li><a class="reference internal" href="#missing-colon-if">(168) Missing colon - if</a></li>
+<li><a class="reference internal" href="#missing-colon-while">(169) Missing colon - while</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-dict">(170) Missing comma in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-between-strings-in-a-dict">(171) Missing comma between strings in a dict</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-list">(172) Missing comma in a list</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-set">(173) Missing comma in a set</a></li>
+<li><a class="reference internal" href="#missing-comma-in-a-tuple">(174) Missing comma in a tuple</a></li>
+<li><a class="reference internal" href="#for-loop-missing-in-operator">(175) For loop missing ‘in’ operator</a></li>
+<li><a class="reference internal" href="#missing-parenthesis-for-range">(176) Missing parenthesis for range</a></li>
+<li><a class="reference internal" href="#misspelled-python-keyword">(177) Misspelled Python keyword</a></li>
+<li><a class="reference internal" href="#name-is-global-and-nonlocal">(178) Name is global and nonlocal</a></li>
+<li><a class="reference internal" href="#name-is-parameter-and-nonlocal">(179) Name is parameter and nonlocal</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found">(180) nonlocal variable not found</a></li>
+<li><a class="reference internal" href="#nonlocal-variable-not-found-at-module-level">(181) nonlocal variable not found at module level</a></li>
+<li><a class="reference internal" href="#same-operator-twice-in-a-row">(182) Same operator twice in a row</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter">(183) Using pip from interpreter</a></li>
+<li><a class="reference internal" href="#using-pip-from-interpreter-2">(184) Using pip from interpreter 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function">(185) print is a function</a></li>
+<li><a class="reference internal" href="#print-is-a-function-2">(186) print is a function 2</a></li>
+<li><a class="reference internal" href="#print-is-a-function-3">(187) print is a function 3</a></li>
+<li><a class="reference internal" href="#print-is-a-function-4">(188) print is a function 4</a></li>
+<li><a class="reference internal" href="#print-is-a-function-5">(189) print is a function 5</a></li>
+<li><a class="reference internal" href="#print-is-a-function-6">(190) print is a function 6</a></li>
+<li><a class="reference internal" href="#print-is-a-function-7">(191) print is a function 7</a></li>
+<li><a class="reference internal" href="#calling-python-from-interpreter">(192) Calling python from interpreter</a></li>
+<li><a class="reference internal" href="#problem-with-assigning-a-variable-to-python">(193) problem with assigning a variable to Python</a></li>
+<li><a class="reference internal" href="#quote-inside-a-string">(194) Quote inside a string</a></li>
+<li><a class="reference internal" href="#raising-multiple-exceptions">(195) Raising multiple exceptions</a></li>
+<li><a class="reference internal" href="#cannot-use-return-outside-function">(196) Cannot use return outside function</a></li>
+<li><a class="reference internal" href="#missing-exponent-for-scientific-notation">(197) Missing exponent for scientific notation</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-colon">(198) Semicolon instead of colon</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-comma-1">(199) Semicolon instead of comma - 1</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-2">(200) Semicolon instead of commas - 2</a></li>
+<li><a class="reference internal" href="#semicolon-instead-of-commas-3">(201) Semicolon instead of commas - 3</a></li>
+<li><a class="reference internal" href="#code-block-inside-comprehension">(202) Code block inside comprehension</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-if">(203) Single = instead of double == with if</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-elif">(204) Single = instead of double == with elif</a></li>
+<li><a class="reference internal" href="#single-instead-of-double-with-while">(205) Single = instead of double == with while</a></li>
+<li><a class="reference internal" href="#space-between-operators-1">(206) Space between operators 1</a></li>
+<li><a class="reference internal" href="#space-between-operators-2">(207) Space between operators 2</a></li>
+<li><a class="reference internal" href="#space-in-variable-name">(208) Space in variable name</a></li>
+<li><a class="reference internal" href="#wrong-target-for-star-assignment">(209) Wrong target for star assignment</a></li>
+<li><a class="reference internal" href="#too-many-nested-blocks">(210) Too many nested blocks</a></li>
+<li><a class="reference internal" href="#too-many-nested-parentheses">(211) Too many nested parentheses.</a></li>
+<li><a class="reference internal" href="#trailing-comma-in-import-statement">(212) Trailing comma in import statement</a></li>
+<li><a class="reference internal" href="#triple-equal-sign">(213) Triple-equal sign</a></li>
+<li><a class="reference internal" href="#unclosed-bracket">(214) Unclosed bracket</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-1">(215) Unclosed parenthesis - 1</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-2">(216) Unclosed parenthesis - 2</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-3">(217) Unclosed parenthesis - 3</a></li>
+<li><a class="reference internal" href="#unclosed-parenthesis-4">(218) Unclosed parenthesis - 4</a></li>
+<li><a class="reference internal" href="#content-passed-continuation-line-character">(219) Content passed continuation line character</a></li>
+<li><a class="reference internal" href="#unexpected-eof-while-parsing">(220) Unexpected EOF while parsing</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-3-4">(221) Invalid character (unicode fraction 3/4)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-1-2">(222) Invalid character (unicode fraction 1/2)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-fraction-slash">(223) Invalid character (unicode fraction slash)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote">(224) Invalid character (unicode quote)</a></li>
+<li><a class="reference internal" href="#invalid-character-unicode-quote2">(225) Invalid character (unicode quote2)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken">(226) Invalid character (mistaken &lt;)</a></li>
+<li><a class="reference internal" href="#id9">(227) Invalid character (mistaken &gt;)</a></li>
+<li><a class="reference internal" href="#invalid-character-mistaken-comma">(228) Invalid character (mistaken comma)</a></li>
+<li><a class="reference internal" href="#unmatched-closing-curly-bracket">(229) Unmatched closing curly bracket</a></li>
+<li><a class="reference internal" href="#unmatched-closing-parenthesis">(230) Unmatched closing parenthesis</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-1">(231) Mismatched brackets - 1</a></li>
+<li><a class="reference internal" href="#mismatched-brackets-2">(232) Mismatched brackets - 2</a></li>
+<li><a class="reference internal" href="#unmatched-brackets-3">(233) Unmatched brackets - 3</a></li>
+<li><a class="reference internal" href="#unpacking-a-dict-value">(234) Unpacking a dict value</a></li>
+<li><a class="reference internal" href="#unterminated-triple-quoted-string">(235) Unterminated triple quoted string</a></li>
+<li><a class="reference internal" href="#taberror">(236) TabError</a></li>
+<li><a class="reference internal" href="#wrong-word-instead-of-expect">(237) Wrong word instead of expect</a></li>
+<li><a class="reference internal" href="#typo-in-finally">(238) Typo in finally</a></li>
+<li><a class="reference internal" href="#eol-unescaped-backslash">(239) EOL unescaped backslash</a></li>
+<li><a class="reference internal" href="#using-the-backquote-character">(240) Using the backquote character</a></li>
+<li><a class="reference internal" href="#unicode-error">(241) unicode error</a></li>
+<li><a class="reference internal" href="#walrus-instead-of-equal">(242) Walrus instead of equal</a></li>
+<li><a class="reference internal" href="#missing-condition-in-while-statement">(243) Missing condition in while statement</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration">(244) Would-be variable declaration</a></li>
+<li><a class="reference internal" href="#would-be-variable-declaration-2">(245) Would-be variable declaration - 2</a></li>
+<li><a class="reference internal" href="#cannot-use-yield-outside-function">(246) Cannot use yield outside function</a></li>
 </ul>
 </li>
 </ul>

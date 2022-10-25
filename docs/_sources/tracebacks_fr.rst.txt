@@ -13,7 +13,7 @@ conviviales que les fameux **tracebacks** de Python lorsqu'une exception survien
      faire des corrections ou des ajouts, avant de faire la mise
      à jour du reste de la documentation avec Sphinx.
 
-Friendly-traceback version: 0.7.49
+Friendly-traceback version: 0.7.50
 Python version: 3.10.6
 
 
@@ -2320,7 +2320,7 @@ Argument of object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 794, in test_Argument_of_object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 825, in test_Argument_of_object_is_not_iterable
         a in b
     TypeError: argument of type 'object' is not iterable
     
@@ -2333,14 +2333,14 @@ Argument of object is not iterable
     Les conteneurs Python (`list, tuple, dict`, etc.) sont des itérables.
     b' n'est pas un conteneur. Un conteneur est nécessaire ici.
     
-    Exception levée à la ligne `794` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `825` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       791| a = object()
-       792| b = object()
-       793| try:
-    -->794|     a in b
+       822| a = object()
+       823| b = object()
+       824| try:
+    -->825|     a in b
                 ^^^^^^
-       795| except TypeError as e:
+       826| except TypeError as e:
 
             a:  <object object>
             b:  <object object>
@@ -2354,7 +2354,7 @@ Bad type for unary operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 410, in test_Bad_type_for_unary_operator
+      File "TESTS:\runtime\test_type_error.py", line 422, in test_Bad_type_for_unary_operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
@@ -2370,16 +2370,16 @@ Bad type for unary operator
     
     Peut-être que vous vouliez plutôt écrire `+=` au lieu de `=+`
     
-    Exception levée à la ligne `410` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `422` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       405|     assert "You tried to use the unary operator '~'" in result
-       406| 
-       407| try:
-       408|     # fmt: off
-       409|     a = "abc"
-    -->410|     a =+ "def"
+       417|     assert "You tried to use the unary operator '~'" in result
+       418| 
+       419| try:
+       420|     # fmt: off
+       421|     a = "abc"
+    -->422|     a =+ "def"
                    ^^^^^^^
-       411|     # fmt: on
+       423|     # fmt: on
 
 
 Builtin has no len
@@ -2389,7 +2389,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 849, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 880, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2404,13 +2404,13 @@ Builtin has no len
     Vous avez peut-être voulu écrire :
     `len("Hello world".split())`
     
-    Exception levée à la ligne `849` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `880` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       847| def test_Builtin_has_no_len():
-       848|     try:
-    -->849|         len("Hello world".split)
+       878| def test_Builtin_has_no_len():
+       879|     try:
+    -->880|         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       850|     except TypeError as e:
+       881|     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -2457,7 +2457,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 835, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 866, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2472,15 +2472,15 @@ Cannot convert dictionary update sequence
     Au lieu d’écrire `dd.update([1, 2, 3])`
     peut-être devriez-vous utiliser la méthode `dict.fromkeys()` : `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Exception levée à la ligne `835` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `866` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       831|     assert "you should use the `dict.fromkeys()`" in result
-       832| 
-       833| dd = {"a": "a"}
-       834| try:
-    -->835|     dd.update([1, 2, 3])
+       862|     assert "you should use the `dict.fromkeys()`" in result
+       863| 
+       864| dd = {"a": "a"}
+       865| try:
+    -->866|     dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-       836| except TypeError as e:
+       867| except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
@@ -2494,7 +2494,7 @@ Cannot multiply by non int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 610, in test_Cannot_multiply_by_non_int
+      File "TESTS:\runtime\test_type_error.py", line 641, in test_Cannot_multiply_by_non_int
         "a" * "2"
     TypeError: can't multiply sequence by non-int of type 'str'
     
@@ -2509,15 +2509,15 @@ Cannot multiply by non int
     les listes, les tuples, les chaînes, etc., que par des entiers.
     Peut-être avez-vous oublié de convertir `"2"` en un entier.
     
-    Exception levée à la ligne `610` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `641` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       606| if friendly_traceback.get_lang() == "en":
-       607|     assert "Did you forget to convert `c` into an integer?" in result
-       608| 
-       609| try:
-    -->610|     "a" * "2"
+       637| if friendly_traceback.get_lang() == "en":
+       638|     assert "Did you forget to convert `c` into an integer?" in result
+       639| 
+       640| try:
+    -->641|     "a" * "2"
                 ^^^^^^^^^
-       611| except TypeError as e:
+       642| except TypeError as e:
 
 
 Cannot unpack non iterable object
@@ -2527,7 +2527,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 807, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 838, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2542,12 +2542,39 @@ Cannot unpack non iterable object
     Les contenants python (`list, tuple, dict`, etc.) sont itérables,
     mais pas les objets de type `float`.
     
-    Exception levée à la ligne `807` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `838` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       805| def test_Cannot_unpack_non_iterable_object():
-       806|     try:
-    -->807|         a, b = 42.0
-       808|     except TypeError as e:
+       836| def test_Cannot_unpack_non_iterable_object():
+       837|     try:
+    -->838|         a, b = 42.0
+       839|     except TypeError as e:
+
+
+Cant mod complex numbers
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_type_error.py", line 53, in test_Cant_mod_complex_numbers
+        3 + 3j % 2
+    TypeError: unsupported operand type(s) for %: 'complex' and 'int'
+    
+    Une exception `TypeError` est généralement causée par une tentative
+    de combiner deux types d’objets incompatibles,
+    en invoquant une fonction avec le mauvais type d’objet,
+    ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
+    
+    Vous ne pouvez pas utiliser des nombres complexes avec l'opérateur modulo `%`.
+    
+    Exception levée à la ligne `53` du fichier 'TESTS:\runtime\test_type_error.py'.
+    
+       51| def test_Cant_mod_complex_numbers():
+       52|     try:
+    -->53|         3 + 3j % 2
+                       ^^^^^^
+       54|     except TypeError as e:
 
 
 Comparison not supported
@@ -2557,7 +2584,7 @@ Comparison not supported
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 359, in test_Comparison_not_supported
+      File "TESTS:\runtime\test_type_error.py", line 371, in test_Comparison_not_supported
         b >= a
     TypeError: '>=' not supported between instances of 'int' and 'str'
     
@@ -2573,14 +2600,14 @@ Comparison not supported
     un entier (`int`) et une chaîne de caractères (`str`).
     Peut-être avez-vous oublié de convertir `a` en un entier (`int`).
     
-    Exception levée à la ligne `359` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `371` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       356| try:
-       357|     a = "2"
-       358|     b = 42
-    -->359|     b >= a
+       368| try:
+       369|     a = "2"
+       370|     b = 42
+    -->371|     b >= a
                 ^^^^^^
-       360| except TypeError as e:
+       372| except TypeError as e:
 
             a:  '2'
             b:  42
@@ -2594,7 +2621,7 @@ Derive from BaseException
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 553, in test_Derive_from_BaseException
+      File "TESTS:\runtime\test_type_error.py", line 584, in test_Derive_from_BaseException
         raise "exception"  # noqa
     TypeError: exceptions must derive from BaseException
     
@@ -2603,14 +2630,18 @@ Derive from BaseException
     en invoquant une fonction avec le mauvais type d’objet,
     ou en tentant d'effectuer une opération non permise sur un type d'objet donné.
     
-    Dans Python 3, les exceptions doivent être dérivées de BaseException.
+    Les exceptions doivent être dérivées de `BaseException`.
+    Il est recommandé que les exceptions que vous définissez dérivent
+    d'`Exception`, une sous-classe de `BaseException`.
     
-    Exception levée à la ligne `553` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `584` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       551| def test_Derive_from_BaseException():
-       552|     try:
-    -->553|         raise "exception"  # noqa
-       554|     except TypeError as e:
+       580| if friendly_traceback.get_lang() == "en":
+       581|     assert "you must only have classes that derive from `BaseException`" in result
+       582| 
+       583| try:
+    -->584|     raise "exception"  # noqa
+       585| except TypeError as e:
 
 
 Generator has no len
@@ -2620,7 +2651,7 @@ Generator has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 1004, in test_Generator_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 1035, in test_Generator_has_no_len
         nb = len(letter
     TypeError: object of type 'generator' has no len()
     
@@ -2637,15 +2668,15 @@ Generator has no len
     
         len([letter                 for letter in "word"])
     
-    Exception levée à la ligne `1004` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `1035` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       1002| def test_Generator_has_no_len():
-       1003|     try:
-    -->1004|         nb = len(letter
+       1033| def test_Generator_has_no_len():
+       1034|     try:
+    -->1035|         nb = len(letter
                           ^^^^^^^^^^
-       1005|                  for letter in "word")
+       1036|                  for letter in "word")
                               ^^^^^^^^^^^^^^^^^^^^^
-       1006|     except TypeError as e:
+       1037|     except TypeError as e:
 
             len:  <builtin function len>
         
@@ -2658,7 +2689,7 @@ Indices must be integers or slices
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 692, in test_Indices_must_be_integers_or_slices
+      File "TESTS:\runtime\test_type_error.py", line 723, in test_Indices_must_be_integers_or_slices
         [1, 2, 3]["2"]
     TypeError: list indices must be integers or slices, not str
     
@@ -2677,15 +2708,15 @@ Indices must be integers or slices
     
     Peut-être avez-vous oublié de convertir `"2"` en un entier.
     
-    Exception levée à la ligne `692` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `723` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       688| if friendly_traceback.get_lang() == "en":
-       689|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-       690| 
-       691| try:
-    -->692|     [1, 2, 3]["2"]
+       719| if friendly_traceback.get_lang() == "en":
+       720|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       721| 
+       722| try:
+    -->723|     [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
-       693| except TypeError as e:
+       724| except TypeError as e:
 
 
 Not an integer
@@ -2695,7 +2726,7 @@ Not an integer
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 655, in test_Not_an_integer
+      File "TESTS:\runtime\test_type_error.py", line 686, in test_Not_an_integer
         range(c, d)
     TypeError: 'str' object cannot be interpreted as an integer
     
@@ -2708,15 +2739,15 @@ Not an integer
     
     Vous avez écrit un objet de type `str` là où un entier était attendu.
     Peut-être avez-vous oublié de convertir `c, d` en entiers.
-    Exception levée à la ligne `655` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `686` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       651|     assert "Perhaps you forgot to convert `1.0" in result
-       652| 
-       653| c, d = "2", "3"
-       654| try:
-    -->655|     range(c, d)
+       682|     assert "Perhaps you forgot to convert `1.0" in result
+       683| 
+       684| c, d = "2", "3"
+       685| try:
+    -->686|     range(c, d)
                 ^^^^^^^^^^^
-       656| except TypeError as e:
+       687| except TypeError as e:
 
             c:  '2'
             d:  '3'
@@ -2731,7 +2762,7 @@ Not callable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 540, in test_Not_callable
+      File "TESTS:\runtime\test_type_error.py", line 552, in test_Not_callable
         _ = [1, 2](a + b)
     TypeError: 'list' object is not callable
     
@@ -2751,15 +2782,15 @@ Not callable
     Peut-être que vous vouliez utiliser `[]` au lieu de `()` et écrire
     `[1, 2][a + b]`
     
-    Exception levée à la ligne `540` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `552` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       536|     assert "b.a_list[3]" in result
-       537| 
-       538| try:
-       539|     a, b = 3, 7
-    -->540|     _ = [1, 2](a + b)
+       548|     assert "b.a_list[3]" in result
+       549| 
+       550| try:
+       551|     a, b = 3, 7
+    -->552|     _ = [1, 2](a + b)
                     ^^^^^^^^^^^^^
-       541| except TypeError as e:
+       553| except TypeError as e:
 
             a:  3
             b:  7
@@ -2774,7 +2805,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 778, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 809, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -2787,13 +2818,13 @@ Object is not iterable
     Les contenants python (`list, tuple, dict`, etc.) sont itérables.
     Une itérable est requis ici.
     
-    Exception levée à la ligne `778` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `809` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       776| def test_Object_is_not_iterable():
-       777|     try:
-    -->778|         list(42)
+       807| def test_Object_is_not_iterable():
+       808|     try:
+    -->809|         list(42)
                     ^^^^^^^^
-       779|     except TypeError as e:
+       810|     except TypeError as e:
 
             list:  <class list>
         
@@ -2806,7 +2837,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 764, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 795, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -2822,15 +2853,15 @@ Object is not subscriptable
     
     Peut-être que vous vouliez plutôt écrire `f(1)`.
     
-    Exception levée à la ligne `764` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `795` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       760| def f():
-       761|     pass
-       762| 
-       763| try:
-    -->764|     a = f[1]
+       791| def f():
+       792|     pass
+       793| 
+       794| try:
+    -->795|     a = f[1]
                     ^^^^
-       765| except TypeError as e:
+       796| except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
@@ -2844,7 +2875,7 @@ Slice indices must be integers or None
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 706, in test_Slice_indices_must_be_integers_or_None
+      File "TESTS:\runtime\test_type_error.py", line 737, in test_Slice_indices_must_be_integers_or_None
         [1, 2, 3][1.0:2.0]
     TypeError: slice indices must be integers or None or have an __index__ method
     
@@ -2859,13 +2890,13 @@ Slice indices must be integers or None
     chacune des variables `start`, `stop`, et `step` doit être soit un entier, soit `None`,
     ou possiblement un autre objet ayant une méthode `__index__`.
     
-    Exception levée à la ligne `706` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `737` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       704| def test_Slice_indices_must_be_integers_or_None():
-       705|     try:
-    -->706|         [1, 2, 3][1.0:2.0]
+       735| def test_Slice_indices_must_be_integers_or_None():
+       736|     try:
+    -->737|         [1, 2, 3][1.0:2.0]
                     ^^^^^^^^^^^^^^^^^^
-       707|     except TypeError as e:
+       738|     except TypeError as e:
 
 
 Too few positional argument
@@ -2875,7 +2906,7 @@ Too few positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_few_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 492, in test_Too_few_positional_argument
         fn(1)
     TypeError: test_Too_few_positional_argument.<locals>.fn() missing 2 required positional arguments: 'b' and 'c'
     
@@ -2887,15 +2918,15 @@ Too few positional argument
     Vous avez apparemment invoqué la fonction 'test_Too_few_positional_argument.<locals>.fn()' avec
     moins d'arguments positionnels qu'il n'en faut (2 manquent).
     
-    Exception levée à la ligne `480` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `492` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       476| def fn(a, b, c):
-       477|     pass
-       478| 
-       479| try:
-    -->480|     fn(1)
+       488| def fn(a, b, c):
+       489|     pass
+       490| 
+       491| try:
+    -->492|     fn(1)
                 ^^^^^
-       481| except TypeError as e:
+       493| except TypeError as e:
 
             fn:  <function fn>
                 defined in <function test_Too_few_positional_argument>
@@ -2909,7 +2940,7 @@ Too many positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 461, in test_Too_many_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 473, in test_Too_many_positional_argument
         A().f(1)
     TypeError: test_Too_many_positional_argument.<locals>.A.f() takes 1 positional argument but 2 were given
     
@@ -2924,15 +2955,15 @@ Too many positional argument
     2 arguments positionnels alors qu'elle en requiert 1.
     Peut-être avez-vous oublié `self` lors de la définition de `A.f`.
     
-    Exception levée à la ligne `461` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `473` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       457|     def f(x):
-       458|         pass
-       459| 
-       460| try:
-    -->461|     A().f(1)
+       469|     def f(x):
+       470|         pass
+       471| 
+       472| try:
+    -->473|     A().f(1)
                 ^^^^^^^^
-       462| except TypeError as e:
+       474| except TypeError as e:
 
             A:  <class A>
                 defined in <function test_type_error.test_Too_many_positional_argument>
@@ -2946,7 +2977,7 @@ Tuple no item assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 428, in test_Tuple_no_item_assignment
+      File "TESTS:\runtime\test_type_error.py", line 440, in test_Tuple_no_item_assignment
         a[0] = 0
     TypeError: 'tuple' object does not support item assignment
     
@@ -2963,14 +2994,14 @@ Tuple no item assignment
     probablement en utilisant une opération d’indexation.
     Peut-être que vous vouliez plutôt utiliser une liste.
     
-    Exception levée à la ligne `428` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `440` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       425| def test_Tuple_no_item_assignment():
-       426|     a = (1, 2, 3)
-       427|     try:
-    -->428|         a[0] = 0
+       437| def test_Tuple_no_item_assignment():
+       438|     a = (1, 2, 3)
+       439|     try:
+    -->440|         a[0] = 0
                     ^^^^
-       429|     except TypeError as e:
+       441|     except TypeError as e:
 
             a:  (1, 2, 3)
             a[0]:  1
@@ -2984,7 +3015,7 @@ Unhachable type
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 723, in test_Unhachable_type
+      File "TESTS:\runtime\test_type_error.py", line 754, in test_Unhachable_type
         {[1, 2]: 1}
     TypeError: unhashable type: 'list'
     
@@ -2998,12 +3029,12 @@ Unhachable type
     Les objets hachables sont des objets qui ne changent pas de valeur
     une fois qu’ils ont été créés.Au lieu d’utiliser une liste (`list`), envisagez d’utiliser un `tuple`.
     
-    Exception levée à la ligne `723` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `754` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       721| def test_Unhachable_type():
-       722|     try:
-    -->723|         {[1, 2]: 1}
-       724|     except TypeError as e:
+       752| def test_Unhachable_type():
+       753|     try:
+    -->754|         {[1, 2]: 1}
+       755|     except TypeError as e:
 
 
 Unsupported operand types
@@ -3013,7 +3044,7 @@ Unsupported operand types
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 310, in test_Unsupported_operand_types
+      File "TESTS:\runtime\test_type_error.py", line 322, in test_Unsupported_operand_types
         a @= b
     TypeError: unsupported operand type(s) for @=: 'str' and 'int'
     
@@ -3028,13 +3059,13 @@ Unsupported operand types
     Cet opérateur est normalement utilisé uniquement
     pour la multiplication des matrices.
     
-    Exception levée à la ligne `310` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `322` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       307| try:
-       308|     a = "a"
-       309|     b = 2
-    -->310|     a @= b
-       311| except TypeError as e:
+       319| try:
+       320|     a = "a"
+       321|     b = 2
+    -->322|     a @= b
+       323| except TypeError as e:
 
             a:  'a'
             b:  2
@@ -3048,7 +3079,7 @@ divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 55, in test_divmod
+      File "TESTS:\runtime\test_type_error.py", line 67, in test_divmod
         result = divmod(a, b)
     TypeError: unsupported operand type(s) for divmod(): 'int' and 'complex'
     
@@ -3060,14 +3091,14 @@ divmod
     Les arguments de `divmod` doivent être des nombres entiers (`int`) ou réels (`float`).
     Au moins un des arguments était un nombre complexe.
     
-    Exception levée à la ligne `55` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `67` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       52| a = 2
-       53| b = 3 + 2j
-       54| try:
-    -->55|     result = divmod(a, b)
+       64| a = 2
+       65| b = 3 + 2j
+       66| try:
+    -->67|     result = divmod(a, b)
                         ^^^^^^^^^^^^
-       56| except TypeError as e:
+       68| except TypeError as e:
 
             a:  2
             b:  (3+2j)
@@ -3082,7 +3113,7 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 941, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 972, in test_function_got_multiple_argument
         fn2(0, a=1)
     TypeError: test_function_got_multiple_argument.<locals>.fn2() got multiple values for argument 'a'
     
@@ -3096,15 +3127,15 @@ function got multiple argument
     Cette fonction a les arguments suivants :
     `a, b=1`
     
-    Exception levée à la ligne `941` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `972` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       937| def fn2(a, b=1):
-       938|     pass
-       939| 
-       940| try:
-    -->941|     fn2(0, a=1)
+       968| def fn2(a, b=1):
+       969|     pass
+       970| 
+       971| try:
+    -->972|     fn2(0, a=1)
                 ^^^^^^^^^^^
-       942| except TypeError as e:
+       973| except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -3118,7 +3149,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 866, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 897, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -3133,15 +3164,15 @@ function has no len
     Vous avez peut-être voulu écrire :
     `len(bad())`
     
-    Exception levée à la ligne `866` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `897` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       862| def bad():
-       863|     pass
-       864| 
-       865| try:
-    -->866|     len(bad)
+       893| def bad():
+       894|     pass
+       895| 
+       896| try:
+    -->897|     len(bad)
                 ^^^^^^^^
-       867| except TypeError as e:
+       898| except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
@@ -3155,7 +3186,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 987, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 1018, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -3166,18 +3197,18 @@ getattr attribute name must be string
     
     Le deuxième argument de la fonction `getattr()` doit être une chaîne de caractères.
     
-    Exception levée à la ligne `987` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `1018` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       980| if friendly_traceback.get_lang() == "en":
-       981|     assert (
-       982|         "The second argument of the function `hasattr()` must be a string."
-       983|         in result
-       984|     )
-       985| 
-       986| try:
-    -->987|     getattr("__repr__", 1)  # as reported in issue #77
-                ^^^^^^^^^^^^^^^^^^^^^^
-       988| except TypeError as e:
+       1011| if friendly_traceback.get_lang() == "en":
+       1012|     assert (
+       1013|         "The second argument of the function `hasattr()` must be a string."
+       1014|         in result
+       1015|     )
+       1016| 
+       1017| try:
+    -->1018|     getattr("__repr__", 1)  # as reported in issue #77
+                 ^^^^^^^^^^^^^^^^^^^^^^
+       1019| except TypeError as e:
 
             getattr:  <builtin function getattr>
         
@@ -3190,7 +3221,7 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 960, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 991, in test_method_got_multiple_argument
         t.some_method(0, a=1)
     TypeError: test_method_got_multiple_argument.<locals>.T.some_method() got multiple values for argument 'a'
     
@@ -3203,15 +3234,15 @@ method got multiple argument
     lors de l'appel de la fonction nommée `t.some_method`.
     Cette fonction n'a qu'un seul argument : `a`
     
-    Exception levée à la ligne `960` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `991` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       956|         pass
-       957| 
-       958| t = T()
-       959| try:
-    -->960|     t.some_method(0, a=1)
+       987|         pass
+       988| 
+       989| t = T()
+       990| try:
+    -->991|     t.some_method(0, a=1)
                 ^^^^^^^^^^^^^^^^^^^^^
-       961| except TypeError as e:
+       992| except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -3228,7 +3259,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 910, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 941, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -3241,15 +3272,15 @@ vars arg must have dict
     de l'attribut `__dict__` d'un objet.
     L'objet `f` utilise `__slots__` au lieu de `__dict__`.
     
-    Exception levée à la ligne `910` du fichier 'TESTS:\runtime\test_type_error.py'.
+    Exception levée à la ligne `941` du fichier 'TESTS:\runtime\test_type_error.py'.
     
-       906|     assert no_slots not in result
-       907|     assert use_slots not in result
-       908| 
-       909| try:
-    -->910|     vars(f)
+       937|     assert no_slots not in result
+       938|     assert use_slots not in result
+       939| 
+       940| try:
+    -->941|     vars(f)
                 ^^^^^^^
-       911| except TypeError as e:
+       942| except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3938,7 +3969,7 @@ Division by zero literal
     Exception levée à la ligne `220` du fichier 'TESTS:\runtime\test_zero_division_error.py'.
     
        216| if friendly_traceback.get_lang() == "en":
-       217|     assert "Using the modulo operator, you are dividing by zero" in result
+       217|     assert "Using the modulo operator, `%`, you are dividing by zero" in result
        218| 
        219| try:
     -->220|     1.0 / 0
@@ -4090,7 +4121,7 @@ Float modulo
     Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
     par zéro soit directement ou en utilisant une autre opération mathématique.
     
-    En utilisant l’opérateur modulo, vous divisez par le terme suivant
+    En utilisant l'opérateur modulo, `%`, vous divisez par le terme suivant
     
          zero
     
@@ -4195,7 +4226,7 @@ Modulo operator
     Une exception de type `ZeroDivisionError` se produit lorsque vous essayez de diviser une valeur
     par zéro soit directement ou en utilisant une autre opération mathématique.
     
-    En utilisant l’opérateur modulo, vous divisez par le terme suivant
+    En utilisant l'opérateur modulo, `%`, vous divisez par le terme suivant
     
          zero
     

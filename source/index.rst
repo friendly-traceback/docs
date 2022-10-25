@@ -16,25 +16,40 @@ Welcome வரவேற்பு ¡Bienvenido! - Bienvenue Добро пожал
 exception in their Python program, and how to fix it.
 
 In this documentation, **Friendly**, with an uppercase **F**
-refers to two related packages: **friendly_traceback** and **friendly**.
+refers to two related packages: ``friendly_traceback`` and ``friendly``.
 
-.. tab:: friendly_traceback
-
-    **friendly_traceback** does all the work to figure out what caused
+**friendly_traceback**
+    ``friendly_traceback`` does all the work to figure out what caused
     a particular exception and does some minimal formatting of the
     information it obtains.  In this documentation, I will often use
-    **friendly_traceback** to generate the text version
+    friendly_traceback to generate the text version
     of the examples' output.
 
 
-.. tab:: friendly
-
-    **friendly** takes the information obtained by **friendly_traceback**
+**friendly**
+    ``friendly`` takes the information obtained by friendly_traceback
     and applies some additional formatting (most often, adding colours)
     with the intention to make
     the information easier to understand.
     In this documentation, when I insert a screen capture, it will
-    have been generated using **friendly**.
+    have been generated using ``friendly``.
+
+
+In addition to these two main packages, the **Friendly family** includes
+the following:
+
+**friendly_idle**
+    A small library that patches Python's IDLE so that it can make full
+    use of **Friendly**
+
+**friendly_styles**
+    This includes two themes (dark and light) compatible with pygments
+    and Rich.
+
+**friendly_pandas**
+    This is the newest addition. At this stage, it is more of a proof-of-concept/demonstration
+    of how one can extend **Friendly** to include additional coverage of
+    libraries outside of Python's standard library.
 
 
 `Code on Github <https://github.com/friendly-traceback>`_

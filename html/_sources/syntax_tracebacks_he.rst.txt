@@ -20,7 +20,7 @@ but they are may be included to ensure more complete test coverage.
      instead to run make_trb.bat in the root directory as it will create
      similar files for all languages *and* update the documentation.
 
-Friendly-traceback version: 0.7.49
+Friendly-traceback version: 0.7.50
 Python version: 3.10.6
 
 
@@ -3598,7 +3598,66 @@ Python version: 3.10.6
     
     
 
-(119) Extra token
+(119) except with no matching try
+---------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_no_try.py", line 1
+        except Exception:
+        ^^^^^^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\except_no_try.py'
+    במקום המצוין.
+    
+       1| except Exception:
+          ^^^^^^
+
+    The `except` keyword does not begin a code block that matches
+    a `try` block, possibly because `except` is not indented correctly.
+    
+
+(120) except or finally missing
+-------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\except_or_finally.py", line 3
+        something:
+        ^^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\except_or_finally.py'
+    במקום המצוין.
+    
+       3| something:
+          ^^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write either
+    
+        except:
+    
+    or
+    
+        finally:
+
+(121) Extra token
 -----------------
 
 .. code-block:: none
@@ -3627,7 +3686,7 @@ Python version: 3.10.6
     נראה כי הסרתו וכתיבת 'print(1 / 2)' פותרים את השגיאה.
     
 
-(120) Binary f-string not allowed
+(122) Binary f-string not allowed
 ---------------------------------
 
 .. code-block:: none
@@ -3656,7 +3715,7 @@ Python version: 3.10.6
     זה אסור.
     
 
-(121) f-string: closing } not allowed
+(123) f-string: closing } not allowed
 -------------------------------------
 
 .. code-block:: none
@@ -3684,7 +3743,7 @@ Python version: 3.10.6
     otherwise, you need to add an opening `{`.
     
 
-(122) f-string: missing closing }
+(124) f-string: missing closing }
 ---------------------------------
 
 .. code-block:: none
@@ -3712,7 +3771,7 @@ Python version: 3.10.6
     otherwise, you need to add a closing `}`.
     
 
-(123) f-string: unterminated string
+(125) f-string: unterminated string
 -----------------------------------
 
 .. code-block:: none
@@ -3742,7 +3801,7 @@ Python version: 3.10.6
     גרש (') או גרשיים ("), ללא סיום תואם.
     
 
-(124) f-string with backslash
+(126) f-string with backslash
 -----------------------------
 
 .. code-block:: none
@@ -3778,7 +3837,34 @@ Python version: 3.10.6
         f"{... שלום ...}"
     
 
-(125) Missing terms in for statement
+(127) finally with no matching try
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\finally_no_try.py", line 1
+        finally:
+        ^^^^^^^
+    SyntaxError: invalid syntax
+    
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\finally_no_try.py'
+    במקום המצוין.
+    
+       1| finally:
+          ^^^^^^^
+
+    The `finally` keyword does not begin a code block that matches
+    a `try` block, possibly because `finally` is not indented correctly.
+    
+
+(128) Missing terms in for statement
 ------------------------------------
 
 .. code-block:: none
@@ -3810,7 +3896,7 @@ Python version: 3.10.6
     
     
 
-(126) Not a chance!
+(129) Not a chance!
 -------------------
 
 .. code-block:: none
@@ -3840,7 +3926,7 @@ Python version: 3.10.6
     רמת ההזחה שלהם, ולא על ידי שימוש בסוגריים מסולסלים, כמו `{...}`.
     
 
-(127) Do not import * from __future__
+(130) Do not import * from __future__
 -------------------------------------
 
 .. code-block:: none
@@ -3878,7 +3964,7 @@ Python version: 3.10.6
      annotations'.
     
 
-(128) __future__ at beginning
+(131) __future__ at beginning
 -----------------------------
 
 .. code-block:: none
@@ -3905,7 +3991,7 @@ Python version: 3.10.6
     מפרש את הקוד בקובץ.
     זה חייב להופיע בתחילת הקובץ.
 
-(129) Typo in __future__
+(132) Typo in __future__
 ------------------------
 
 .. code-block:: none
@@ -3933,7 +4019,7 @@ Python version: 3.10.6
     במקום 'divisio', אולי התכוונת לייבא 'division'.
     
 
-(130) Unknown feature in __future__
+(133) Unknown feature in __future__
 -----------------------------------
 
 .. code-block:: none
@@ -3970,7 +4056,7 @@ Python version: 3.10.6
      annotations'.
     
 
-(131) Parenthesis around generator expression
+(134) Parenthesis around generator expression
 ---------------------------------------------
 
 .. code-block:: none
@@ -4000,7 +4086,7 @@ Python version: 3.10.6
     עליך להוסיף סוגריים המקיפים את הביטוי הזה.
     
 
-(132) Space between names
+(135) Space between names
 -------------------------
 
 .. code-block:: none
@@ -4031,7 +4117,7 @@ Python version: 3.10.6
     אולי התכוונת לכתוב 'a_b' במקום 'a-b'
     
 
-(133) Missing condition in if statement
+(136) Missing condition in if statement
 ---------------------------------------
 
 .. code-block:: none
@@ -4062,7 +4148,7 @@ Python version: 3.10.6
              ...
     
 
-(134) use j instead of i
+(137) use j instead of i
 ------------------------
 
 .. code-block:: none
@@ -4097,7 +4183,7 @@ Python version: 3.10.6
     אולי התכוונת לכתוב `3.0j`.
     
 
-(135) Import inversion: import X from Y
+(138) Import inversion: import X from Y
 ---------------------------------------
 
 .. code-block:: none
@@ -4132,7 +4218,7 @@ Python version: 3.10.6
     
     
 
-(136) IndentationError: expected an indented block
+(139) IndentationError: expected an indented block
 --------------------------------------------------
 
 .. code-block:: none
@@ -4159,7 +4245,7 @@ Python version: 3.10.6
     Line `4` identified above was expected to begin a new indented block.
     
 
-(137) IndentationError: unexpected indent
+(140) IndentationError: unexpected indent
 -----------------------------------------
 
 .. code-block:: none
@@ -4186,7 +4272,7 @@ Python version: 3.10.6
     Line `4` identified above is more indented than expected.
     
 
-(138) IndentationError: unindent does not match ...
+(141) IndentationError: unindent does not match ...
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4213,7 +4299,7 @@ Python version: 3.10.6
     Line `5` identified above is less indented than expected.
     
 
-(139) IndentationError: missing continuation line
+(142) IndentationError: missing continuation line
 -------------------------------------------------
 
 .. code-block:: none
@@ -4246,7 +4332,7 @@ Python version: 3.10.6
     בסוף השורה 5.
     
 
-(140) Forgot 'o' for octal
+(143) Forgot 'o' for octal
 --------------------------
 
 .. code-block:: none
@@ -4276,7 +4362,7 @@ Python version: 3.10.6
     מספר שלם עשרוני ולא ידעת שהוא לא יכול להתחיל באפס.
     
 
-(141) Integer with leading zeros
+(144) Integer with leading zeros
 --------------------------------
 
 .. code-block:: none
@@ -4305,7 +4391,7 @@ Python version: 3.10.6
     ולא ידעת שזה לא יכול להתחיל באפס.
     
 
-(142) Invalid character in identifier
+(145) Invalid character in identifier
 -------------------------------------
 
 .. code-block:: none
@@ -4332,7 +4418,7 @@ Python version: 3.10.6
     מה שאסור.
     
 
-(143) Invalid decimal literal - 1
+(146) Invalid decimal literal - 1
 ---------------------------------
 
 .. code-block:: none
@@ -4367,7 +4453,7 @@ Python version: 3.10.6
     
     
 
-(144) Invalid encoding
+(147) Invalid encoding
 ----------------------
 
 .. code-block:: none
@@ -4390,7 +4476,7 @@ Python version: 3.10.6
     קידוד הקובץ לא היה חוקי.
     
 
-(145) Invalid hexadecimal number
+(148) Invalid hexadecimal number
 --------------------------------
 
 .. code-block:: none
@@ -4424,7 +4510,7 @@ Python version: 3.10.6
     ואחריו התווים המשמשים לייצג את הערך של אותו מספר שלם.
     
 
-(146) Valid names cannot begin with a number
+(149) Valid names cannot begin with a number
 --------------------------------------------
 
 .. code-block:: none
@@ -4455,7 +4541,7 @@ Python version: 3.10.6
     שמות חוקיים אינם יכולים להתחיל במספר.
     
 
-(147) Valid names cannot begin with a number - 2
+(150) Valid names cannot begin with a number - 2
 ------------------------------------------------
 
 .. code-block:: none
@@ -4490,7 +4576,7 @@ Python version: 3.10.6
     
     
 
-(148) Valid names cannot begin with a number - 3
+(151) Valid names cannot begin with a number - 3
 ------------------------------------------------
 
 .. code-block:: none
@@ -4524,7 +4610,7 @@ Python version: 3.10.6
     מכיוון ש-'3j' הוא מספר מרוכב.]
     
 
-(149) Valid names cannot begin with a number - 4
+(152) Valid names cannot begin with a number - 4
 ------------------------------------------------
 
 .. code-block:: none
@@ -4552,7 +4638,7 @@ Python version: 3.10.6
     שמות חוקיים אינם יכולים להתחיל במספר.
     
 
-(150) Valid names cannot begin with a number - 5
+(153) Valid names cannot begin with a number - 5
 ------------------------------------------------
 
 .. code-block:: none
@@ -4586,7 +4672,7 @@ Python version: 3.10.6
     מכיוון ש-'42j' הוא מספר מרוכב.]
     
 
-(151) Keyword can't be an expression
+(154) Keyword can't be an expression
 ------------------------------------
 
 .. code-block:: none
@@ -4618,7 +4704,7 @@ Python version: 3.10.6
     or contains a period, etc.
     
 
-(152) Named argument can't be a Python keyword
+(155) Named argument can't be a Python keyword
 ----------------------------------------------
 
 .. code-block:: none
@@ -4646,7 +4732,7 @@ Python version: 3.10.6
     `True` הוא קבוע בפיתון; אינך יכול להקצות לו ערך אחר.
     
 
-(153) Invalid non printable character
+(156) Invalid non printable character
 -------------------------------------
 
 .. code-block:: none
@@ -4674,7 +4760,7 @@ Python version: 3.10.6
     Your code contains the invalid non-printable character '\x17'.
     
 
-(154) Invalid octal number
+(157) Invalid octal number
 --------------------------
 
 .. code-block:: none
@@ -4708,7 +4794,7 @@ Python version: 3.10.6
     followed by the characters used to represent the value of that integer.
     
 
-(155) Inverted operators 1
+(158) Inverted operators 1
 --------------------------
 
 .. code-block:: none
@@ -4737,7 +4823,7 @@ Python version: 3.10.6
     בסדר הלא נכון: '=<' במקום '<='.
     
 
-(156) Inverted operators 2
+(159) Inverted operators 2
 --------------------------
 
 .. code-block:: none
@@ -4769,7 +4855,7 @@ Python version: 3.10.6
     כל שגיאות התחביר בקוד שכתבת.
     
 
-(157) Iteration variable unpacking in comprehension
+(160) Iteration variable unpacking in comprehension
 ---------------------------------------------------
 
 .. code-block:: none
@@ -4800,7 +4886,7 @@ Python version: 3.10.6
         [x for x in xs]
     
 
-(158) Keyword arg only once in function call
+(161) Keyword arg only once in function call
 --------------------------------------------
 
 .. code-block:: none
@@ -4827,7 +4913,7 @@ Python version: 3.10.6
     כל ארגומנט של מילת מפתח צריך להופיע רק פעם אחת בשיחת פונקציה.
     
 
-(159) Keyword as attribute
+(162) Keyword as attribute
 --------------------------
 
 .. code-block:: none
@@ -4855,7 +4941,7 @@ Python version: 3.10.6
     אינך יכול להשתמש במילת המפתח של פייתון 'pass' כתכונה.
     
 
-(160) lambda with parentheses around arguments
+(163) lambda with parentheses around arguments
 ----------------------------------------------
 
 .. code-block:: none
@@ -4882,7 +4968,7 @@ Python version: 3.10.6
     זה מותר ב- Python 2 אך זה לא מותר ב- Python 3.
     
 
-(161) lambda with tuple as argument
+(164) lambda with tuple as argument
 -----------------------------------
 
 .. code-block:: none
@@ -4910,7 +4996,7 @@ Python version: 3.10.6
     בתוך גוף הפונקציה.
     
 
-(162) Assign to literal in for loop
+(165) Assign to literal in for loop
 -----------------------------------
 
 .. code-block:: none
@@ -4943,7 +5029,7 @@ Python version: 3.10.6
     ולא מילוליות כמו '"char"'.
     
 
-(163) IndentationError/SyntaxError depending on version
+(166) IndentationError/SyntaxError depending on version
 -------------------------------------------------------
 
 .. code-block:: none
@@ -4969,7 +5055,7 @@ Python version: 3.10.6
     Line `4` identified above was expected to begin a new indented block.
     
 
-(164) IndentationError/SyntaxError depending on version - 2
+(167) IndentationError/SyntaxError depending on version - 2
 -----------------------------------------------------------
 
 .. code-block:: none
@@ -4994,7 +5080,7 @@ Python version: 3.10.6
     Line `6` identified above was expected to begin a new indented block.
     
 
-(165) Missing colon - if
+(168) Missing colon - if
 ------------------------
 
 .. code-block:: none
@@ -5023,7 +5109,7 @@ Python version: 3.10.6
     `if` אבל שכחת להוסיף נקודתיים `:` בסוף.
     
 
-(166) Missing colon - while
+(169) Missing colon - while
 ---------------------------
 
 .. code-block:: none
@@ -5052,7 +5138,7 @@ Python version: 3.10.6
     שכחת להוסיף נקודתיים `:` בסוף
     
 
-(167) Missing comma in a dict
+(170) Missing comma in a dict
 -----------------------------
 
 .. code-block:: none
@@ -5094,7 +5180,7 @@ Python version: 3.10.6
     
     
 
-(168) Missing comma between strings in a dict
+(171) Missing comma between strings in a dict
 ---------------------------------------------
 
 .. code-block:: none
@@ -5132,7 +5218,7 @@ Python version: 3.10.6
     }
     ```
 
-(169) Missing comma in a list
+(172) Missing comma in a list
 -----------------------------
 
 .. code-block:: none
@@ -5171,7 +5257,7 @@ Python version: 3.10.6
     חלקם עשויים להעלות סוגים אחרים של חריגים.
     
 
-(170) Missing comma in a set
+(173) Missing comma in a set
 ----------------------------
 
 .. code-block:: none
@@ -5210,7 +5296,7 @@ Python version: 3.10.6
     חלקם עשויים להעלות סוגים אחרים של חריגים.
     
 
-(171) Missing comma in a tuple
+(174) Missing comma in a tuple
 ------------------------------
 
 .. code-block:: none
@@ -5250,7 +5336,39 @@ Python version: 3.10.6
     חלקם עשויים להעלות סוגים אחרים של חריגים.
     
 
-(172) Missing parenthesis for range
+(175) For loop missing 'in' operator
+------------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\missing_in_with_for.py", line 1
+        for x range(4):
+              ^^^^^
+    SyntaxError: invalid syntax
+    
+        שכחת לכתוב 'in'(בתוך)?
+        
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\missing_in_with_for.py'
+    במקום המצוין.
+    
+       1| for x range(4):
+                ^^^^^
+
+    נראה ששכחת להשתמש במילת המפתח 'in'
+     (בתוך)
+    כחלק מהצהרת `for ' (פור). אולי התכוונת ל:
+    
+         for x in range(4):
+    
+
+(176) Missing parenthesis for range
 -----------------------------------
 
 .. code-block:: none
@@ -5281,7 +5399,7 @@ Python version: 3.10.6
     
     
 
-(173) Misspelled Python keyword
+(177) Misspelled Python keyword
 -------------------------------
 
 .. code-block:: none
@@ -5310,7 +5428,7 @@ Python version: 3.10.6
     השורה הנכונה עשויה להיות 'if i in range(3):'
     
 
-(174) Name is global and nonlocal
+(178) Name is global and nonlocal
 ---------------------------------
 
 .. code-block:: none
@@ -5337,7 +5455,7 @@ Python version: 3.10.6
     משתנה יכול להיות גלובלי או לא מקומי, אך לא שניהם בו זמנית.
     
 
-(175) Name is parameter and nonlocal
+(179) Name is parameter and nonlocal
 ------------------------------------
 
 .. code-block:: none
@@ -5365,7 +5483,7 @@ Python version: 3.10.6
     'x' לא יכול להיות שניהם בו זמנית.
     
 
-(176) nonlocal variable not found
+(180) nonlocal variable not found
 ---------------------------------
 
 .. code-block:: none
@@ -5392,7 +5510,7 @@ Python version: 3.10.6
     משתנה לא-מקומי (nonlocal) אך לא ניתן למצוא אותו.
     
 
-(177) nonlocal variable not found at module level
+(181) nonlocal variable not found at module level
 -------------------------------------------------
 
 .. code-block:: none
@@ -5419,7 +5537,7 @@ Python version: 3.10.6
     מילת המפתח הלא-מקומית (nonlocal) מתייחסת למשתנה בתוך פונקציה
     ונותנת ערך מחוץ לפונקציה זו.
 
-(178) Same operator twice in a row
+(182) Same operator twice in a row
 ----------------------------------
 
 .. code-block:: none
@@ -5447,7 +5565,7 @@ Python version: 3.10.6
     או ששכחת לכתוב משהו ביניהם.
     
 
-(179) Using pip from interpreter
+(183) Using pip from interpreter
 --------------------------------
 
 .. code-block:: none
@@ -5477,7 +5595,7 @@ Python version: 3.10.6
     לא מהמתורגמן של פייתון.
     
 
-(180) Using pip from interpreter 2
+(184) Using pip from interpreter 2
 ----------------------------------
 
 .. code-block:: none
@@ -5507,7 +5625,7 @@ Python version: 3.10.6
     לא מהמתורגמן של פייתון.
     
 
-(181) print is a function
+(185) print is a function
 -------------------------
 
 .. code-block:: none
@@ -5540,7 +5658,7 @@ Python version: 3.10.6
     כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
     
 
-(182) print is a function 2
+(186) print is a function 2
 ---------------------------
 
 .. code-block:: none
@@ -5573,7 +5691,7 @@ Python version: 3.10.6
     כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
     
 
-(183) print is a function 3
+(187) print is a function 3
 ---------------------------
 
 .. code-block:: none
@@ -5606,7 +5724,7 @@ Python version: 3.10.6
     כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
     
 
-(184) print is a function 4
+(188) print is a function 4
 ---------------------------
 
 .. code-block:: none
@@ -5640,7 +5758,7 @@ Python version: 3.10.6
     כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
     
 
-(185) print is a function 5
+(189) print is a function 5
 ---------------------------
 
 .. code-block:: none
@@ -5673,7 +5791,7 @@ Python version: 3.10.6
     כעת, 'print' היא פונקציה; אתה צריך להשתמש בסוגריים כדי לקרוא לזה.
     
 
-(186) print is a function 6
+(190) print is a function 6
 ---------------------------
 
 .. code-block:: none
@@ -5707,7 +5825,7 @@ Python version: 3.10.6
     Note that arguments of `print` must be separated by commas.
     
 
-(187) print is a function 7
+(191) print is a function 7
 ---------------------------
 
 .. code-block:: none
@@ -5741,7 +5859,7 @@ Python version: 3.10.6
     Note that arguments of `print` must be separated by commas.
     
 
-(188) Calling python from interpreter
+(192) Calling python from interpreter
 -------------------------------------
 
 .. code-block:: none
@@ -5768,7 +5886,7 @@ Python version: 3.10.6
     עליך לעשות זאת ממסוף ולא של מתורגמן פייתון.
     
 
-(189) problem with assigning a variable to Python
+(193) problem with assigning a variable to Python
 -------------------------------------------------
 
 .. code-block:: none
@@ -5805,7 +5923,7 @@ Python version: 3.10.6
     חלקם עשויים להעלות סוגים אחרים של חריגים.
     
 
-(190) Quote inside a string
+(194) Quote inside a string
 ---------------------------
 
 .. code-block:: none
@@ -5838,7 +5956,7 @@ Python version: 3.10.6
                         ^^
     
 
-(191) Raising multiple exceptions
+(195) Raising multiple exceptions
 ---------------------------------
 
 .. code-block:: none
@@ -5864,7 +5982,7 @@ Python version: 3.10.6
     נראה שאת\ה מנסה להעלות חריג באמצעות תחביר python 2.
     
 
-(192) Cannot use return outside function
+(196) Cannot use return outside function
 ----------------------------------------
 
 .. code-block:: none
@@ -5890,7 +6008,7 @@ Python version: 3.10.6
     אתה יכול להשתמש רק בהצהרת return(החזר) בתוך פונקציה או שיטה.
     
 
-(193) Missing exponent for scientific notation
+(197) Missing exponent for scientific notation
 ----------------------------------------------
 
 .. code-block:: none
@@ -5923,7 +6041,7 @@ Python version: 3.10.6
     and forgot the numerical value for the exponent.
     
 
-(194) Semicolon instead of colon
+(198) Semicolon instead of colon
 --------------------------------
 
 .. code-block:: none
@@ -5951,7 +6069,7 @@ Python version: 3.10.6
     כתבת נקודה-פסיק, `;`, שם היה צפוי נקודתיים.
     
 
-(195) Semicolon instead of comma - 1
+(199) Semicolon instead of comma - 1
 ------------------------------------
 
 .. code-block:: none
@@ -5979,7 +6097,7 @@ Python version: 3.10.6
     כתבת נקודה-פסיק, `;`, שם היה צפוי פסיק.
     
 
-(196) Semicolon instead of commas - 2
+(200) Semicolon instead of commas - 2
 -------------------------------------
 
 .. code-block:: none
@@ -6007,7 +6125,7 @@ Python version: 3.10.6
     כתבת נקודה-פסיק, `;`, היכן שציפו לפסיקים.
     
 
-(197) Semicolon instead of commas - 3
+(201) Semicolon instead of commas - 3
 -------------------------------------
 
 .. code-block:: none
@@ -6035,7 +6153,7 @@ Python version: 3.10.6
     כתבת נקודה-פסיק, `;`, היכן שציפו לפסיקים.
     
 
-(198) Code block inside comprehension
+(202) Code block inside comprehension
 -------------------------------------
 
 .. code-block:: none
@@ -6068,7 +6186,7 @@ Python version: 3.10.6
     If this explanation is incorrect, please report this case.
     
 
-(199) Single = instead of double == with if
+(203) Single = instead of double == with if
 -------------------------------------------
 
 .. code-block:: none
@@ -6098,7 +6216,7 @@ Python version: 3.10.6
     משמש רק להקצאת ערך למשתנה.
     
 
-(200) Single = instead of double == with elif
+(204) Single = instead of double == with elif
 ---------------------------------------------
 
 .. code-block:: none
@@ -6128,7 +6246,7 @@ Python version: 3.10.6
     משמש רק להקצאת ערך למשתנה.
     
 
-(201) Single = instead of double == with while
+(205) Single = instead of double == with while
 ----------------------------------------------
 
 .. code-block:: none
@@ -6157,7 +6275,7 @@ Python version: 3.10.6
     במפעיל שוויון, `==`, או במפעיל ישיר `: =`.
     
 
-(202) Space between operators 1
+(206) Space between operators 1
 -------------------------------
 
 .. code-block:: none
@@ -6187,7 +6305,7 @@ Python version: 3.10.6
     ונועד לכתוב '**' כמפעיל יחיד.
     
 
-(203) Space between operators 2
+(207) Space between operators 2
 -------------------------------
 
 .. code-block:: none
@@ -6217,7 +6335,7 @@ Python version: 3.10.6
     ונועד לכתוב '/=' כמפעיל יחיד.
     
 
-(204) Space in variable name
+(208) Space in variable name
 ----------------------------
 
 .. code-block:: none
@@ -6246,7 +6364,7 @@ Python version: 3.10.6
     אולי התכוונת ל`my_name`?
     
 
-(205) Wrong target for star assignment
+(209) Wrong target for star assignment
 --------------------------------------
 
 .. code-block:: none
@@ -6275,7 +6393,7 @@ Python version: 3.10.6
     
     
 
-(206) Too many nested blocks
+(210) Too many nested blocks
 ----------------------------
 
 .. code-block:: none
@@ -6303,7 +6421,7 @@ Python version: 3.10.6
     contained inside other code blocks.
     
 
-(207) Too many nested parentheses.
+(211) Too many nested parentheses.
 ----------------------------------
 
 .. code-block:: none
@@ -6337,7 +6455,7 @@ Python version: 3.10.6
     contained inside other parentheses.
     
 
-(208) Trailing comma in import statement
+(212) Trailing comma in import statement
 ----------------------------------------
 
 .. code-block:: none
@@ -6370,7 +6488,7 @@ Python version: 3.10.6
     `from math import sin, cos`
     
 
-(209) Triple-equal sign
+(213) Triple-equal sign
 -----------------------
 
 .. code-block:: none
@@ -6401,7 +6519,7 @@ Python version: 3.10.6
     אותו אובייקט בדיוק, השתמש באופרטור `is`.
     
 
-(210) Unclosed bracket
+(214) Unclosed bracket
 ----------------------
 
 .. code-block:: none
@@ -6435,7 +6553,7 @@ Python version: 3.10.6
                       ^
     
 
-(211) Unclosed parenthesis - 1
+(215) Unclosed parenthesis - 1
 ------------------------------
 
 .. code-block:: none
@@ -6469,7 +6587,7 @@ Python version: 3.10.6
                   ^
     
 
-(212) Unclosed parenthesis - 2
+(216) Unclosed parenthesis - 2
 ------------------------------
 
 .. code-block:: none
@@ -6502,7 +6620,7 @@ Python version: 3.10.6
                ^
     
 
-(213) Unclosed parenthesis - 3
+(217) Unclosed parenthesis - 3
 ------------------------------
 
 .. code-block:: none
@@ -6536,7 +6654,7 @@ Python version: 3.10.6
     אם זה לא נכון, אנא דווח על מקרה זה.
     
 
-(214) Unclosed parenthesis - 4
+(218) Unclosed parenthesis - 4
 ------------------------------
 
 .. code-block:: none
@@ -6567,7 +6685,7 @@ Python version: 3.10.6
                 ^
     
 
-(215) Content passed continuation line character
+(219) Content passed continuation line character
 ------------------------------------------------
 
 .. code-block:: none
@@ -6595,7 +6713,7 @@ Python version: 3.10.6
     אני מנחש ששכחת לסגור תוכן כלשהו במחרוזת.
     
 
-(216) Unexpected EOF while parsing
+(220) Unexpected EOF while parsing
 ----------------------------------
 
 .. code-block:: none
@@ -6629,7 +6747,7 @@ Python version: 3.10.6
                       ^
     
 
-(217) Invalid character (unicode fraction 3/4)
+(221) Invalid character (unicode fraction 3/4)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6662,7 +6780,7 @@ Python version: 3.10.6
     I suspect that you meant to write the fraction `3/4` instead.
     
 
-(218) Invalid character (unicode fraction 1/2)
+(222) Invalid character (unicode fraction 1/2)
 ----------------------------------------------
 
 .. code-block:: none
@@ -6695,7 +6813,7 @@ Python version: 3.10.6
     I suspect that you meant to write the fraction `1/2` instead.
     
 
-(219) Invalid character (unicode fraction slash)
+(223) Invalid character (unicode fraction slash)
 ------------------------------------------------
 
 .. code-block:: none
@@ -6728,7 +6846,7 @@ Python version: 3.10.6
     but is different from the division operator `/`.
     
 
-(220) Invalid character (unicode quote)
+(224) Invalid character (unicode quote)
 ---------------------------------------
 
 .. code-block:: none
@@ -6761,7 +6879,7 @@ Python version: 3.10.6
     instead of a normal single or double quote for a string.
     
 
-(221) Invalid character (unicode quote2)
+(225) Invalid character (unicode quote2)
 ----------------------------------------
 
 .. code-block:: none
@@ -6794,7 +6912,7 @@ Python version: 3.10.6
     instead of a normal single or double quote for a string.
     
 
-(222) Invalid character (mistaken <)
+(226) Invalid character (mistaken <)
 ------------------------------------
 
 .. code-block:: none
@@ -6828,7 +6946,7 @@ Python version: 3.10.6
     Or perhaps, you meant to write a less than sign, `<`.
     
 
-(223) Invalid character (mistaken >)
+(227) Invalid character (mistaken >)
 ------------------------------------
 
 .. code-block:: none
@@ -6862,7 +6980,7 @@ Python version: 3.10.6
     Or perhaps, you meant to write a greater than sign, `>`.
     
 
-(224) Invalid character (mistaken comma)
+(228) Invalid character (mistaken comma)
 ----------------------------------------
 
 .. code-block:: none
@@ -6896,7 +7014,7 @@ Python version: 3.10.6
     Perhaps, you meant to write a comma.
     
 
-(225) Unmatched closing curly bracket
+(229) Unmatched closing curly bracket
 -------------------------------------
 
 .. code-block:: none
@@ -6924,7 +7042,7 @@ Python version: 3.10.6
     הסגירה סוגר מתולתל `}` בשורה 6 אינה תואמת דבר.
     
 
-(226) Unmatched closing parenthesis
+(230) Unmatched closing parenthesis
 -----------------------------------
 
 .. code-block:: none
@@ -6952,7 +7070,7 @@ Python version: 3.10.6
     הסגירה סוגריים `)` בשורה 6 אינה תואמת דבר.
     
 
-(227) Mismatched brackets - 1
+(231) Mismatched brackets - 1
 -----------------------------
 
 .. code-block:: none
@@ -6981,7 +7099,7 @@ Python version: 3.10.6
                ^       ^
     
 
-(228) Mismatched brackets - 2
+(232) Mismatched brackets - 2
 -----------------------------
 
 .. code-block:: none
@@ -7015,7 +7133,7 @@ Python version: 3.10.6
                  ^
     
 
-(229) Unmatched brackets - 3
+(233) Unmatched brackets - 3
 ----------------------------
 
 .. code-block:: none
@@ -7043,7 +7161,7 @@ Python version: 3.10.6
     הסגירה סוגר מרובע `]` בשורה 3 אינה תואמת דבר.
     
 
-(230) Unpacking a dict value
+(234) Unpacking a dict value
 ----------------------------
 
 .. code-block:: none
@@ -7074,7 +7192,7 @@ Python version: 3.10.6
         {'a': (1, 2, 3)}
     
 
-(231) Unterminated triple quoted string
+(235) Unterminated triple quoted string
 ---------------------------------------
 
 .. code-block:: none
@@ -7101,7 +7219,7 @@ Python version: 3.10.6
     את שלושת הגרשיים המסיימים הדרושים כדי לסיים את המחרוזת.
     
 
-(232) TabError
+(236) TabError
 --------------
 
 .. code-block:: none
@@ -7129,7 +7247,65 @@ Python version: 3.10.6
        7| 	pass
            ^^^^
 
-(233) EOL unescaped backslash
+(237) Wrong word instead of expect
+----------------------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\typo_in_except.py", line 3
+        something Exception:
+        ^^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+        Did you mean `except Exception:`?
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\typo_in_except.py'
+    במקום המצוין.
+    
+       3| something Exception:
+          ^^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write
+    
+        except Exception:
+
+(238) Typo in finally
+---------------------
+
+.. code-block:: none
+
+
+    Traceback (most recent call last):
+      File "TESTS:\trb_syntax_common.py", line 52, in create_tracebacks
+        __import__(name)
+      File "TESTS:\syntax\typo_in_finally.py", line 3
+        finnally:
+        ^^^^^^^^
+    SyntaxError: expected 'except' or 'finally' block
+    
+        Did you mean `finally:`?
+    'SyntaxError' נזרק כאשר פייתון אינו מצליח להבין את הקוד שלך.
+    
+    פייתון לא הצליח להבין את הקוד בקובץ
+     'TESTS:\syntax\typo_in_finally.py'
+    במקום המצוין.
+    
+       3| finnally:
+          ^^^^^^^^
+
+    You wrote a `try` block which did not include an `except` nor a `finally` block.
+    Perhaps you meant to write
+    
+        finally:
+
+(239) EOL unescaped backslash
 -----------------------------
 
 .. code-block:: none
@@ -7161,7 +7337,7 @@ Python version: 3.10.6
     צריך לתקן זאת על ידי כתיבת שני '\' ברציפות.
     
 
-(234) Using the backquote character
+(240) Using the backquote character
 -----------------------------------
 
 .. code-block:: none
@@ -7190,7 +7366,7 @@ Python version: 3.10.6
     או שהתכוונת לכתוב ציטוט בודד, ', או שהעתקת את קוד Python 2;
     במקרה האחרון הזה, השתמש בפונקציה `repr(x)`.
 
-(235) unicode error
+(241) unicode error
 -------------------
 
 .. code-block:: none
@@ -7225,7 +7401,7 @@ Python version: 3.10.6
     front of the string, or replace `\U`, by `\\U`.
     
 
-(236) Walrus instead of equal
+(242) Walrus instead of equal
 -----------------------------
 
 .. code-block:: none
@@ -7254,7 +7430,7 @@ Python version: 3.10.6
     שמפעיל ההקצאה הרגיל `=` נדרש.
     
 
-(237) Missing condition in while statement
+(243) Missing condition in while statement
 ------------------------------------------
 
 .. code-block:: none
@@ -7285,7 +7461,7 @@ Python version: 3.10.6
              ...
     
 
-(238) Would-be variable declaration
+(244) Would-be variable declaration
 -----------------------------------
 
 .. code-block:: none
@@ -7315,7 +7491,7 @@ Python version: 3.10.6
     אם תסיר את 'var', תהיה לך הצהרת Python חוקית.
     
 
-(239) Would-be variable declaration - 2
+(245) Would-be variable declaration - 2
 ---------------------------------------
 
 .. code-block:: none
@@ -7347,7 +7523,7 @@ Python version: 3.10.6
     אם תסיר את 'var', תהיה לך הצהרת Python חוקית.
     
 
-(240) Cannot use yield outside function
+(246) Cannot use yield outside function
 ---------------------------------------
 
 .. code-block:: none
