@@ -316,7 +316,83 @@ it completed before version 0.8 is available.</p>
 </div>
 <section id="friendlier-exec">
 <h1>Friendlier exec<a class="headerlink" href="#friendlier-exec" title="Permalink to this heading">¶</a></h1>
-<p>To be written.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">exec(code)</span></code> with the standard Python interpreter, the
+code is not retrieved when a traceback occurs. This creates problems
+for many users, including those interested in projects like <strong>Friendly</strong>
+which seek to add improvements to the standard Python tracebacks.
+Alex Hall has compiled a good list of such projects and discussed
+this
+<a class="reference external" href="https://mail.python.org/archives/list/python-ideas@python.org/message/CMM5ZV7GJPAR7KLEECETZP3SNFLCIKHQ/">issue on Python-ideas</a>;
+unfortunately, no one (other than me) seemed to be interested
+in this topic and the discussion died down.</p>
+<p><strong>Friendly</strong> has a modified version of <code class="docutils literal notranslate"><span class="pre">exec</span></code> which makes it possible
+to retrieve the content of the code that was executed. Below is
+an example, illustrating some differences between the standard <code class="docutils literal notranslate"><span class="pre">exec</span></code>
+and the alternative provided by <strong>Friendly</strong>. This example uses
+<code class="docutils literal notranslate"><span class="pre">friendly_traceback</span></code> but could just as well have used <code class="docutils literal notranslate"><span class="pre">friendly</span></code>.</p>
+<ul class="simple">
+<li><p>Notice on line 17 how no content is shown from the file <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> when using <code class="docutils literal notranslate"><span class="pre">exec</span></code>.</p></li>
+<li><p>On line 18, Python (3.10) does offer a suggestion for a fix but <code class="docutils literal notranslate"><span class="pre">``friendly_traceback</span></code> cannot do the same as the code is not available.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">friendly_exec</span></code> on line 23 solves this problem.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>     &gt; python -m friendly_traceback
+<span class="linenos"> 2</span>     Friendly-traceback version 0.7.50
+<span class="linenos"> 3</span>     Python version: 3.10.6
+<span class="linenos"> 4</span>     Use exit() or Ctrl-Z plus Return to exit.
+<span class="linenos"> 5</span>     Type 'Friendly' for help on special functions/methods.
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>     [1]: from math import pi
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>     [2]: code = "a = 2 * Pi"
+<span class="linenos">10</span>
+<span class="linenos">11</span>     [3]: exec(code)
+<span class="linenos">12</span>
+<span class="linenos">13</span>     Traceback (most recent call last):
+<span class="linenos">14</span>       Code block [3], line 1
+<span class="linenos">15</span>         exec(code)
+<span class="linenos">16</span>       File "&lt;string&gt;", line 1, in &lt;module&gt;
+<span class="linenos">17</span>
+<span class="linenos">18</span>     NameError: name 'Pi' is not defined. Did you mean: 'pi'?
+<span class="linenos">19</span>
+<span class="linenos">20</span>     [4]: why()
+<span class="linenos">21</span>     I have no suggestion to offer.
+<span class="linenos">22</span>
+<span class="linenos">23</span>     [5]: friendly_exec(code)
+<span class="linenos">24</span>
+<span class="linenos">25</span>     Traceback (most recent call last):
+<span class="linenos">26</span>       Code block [5], line 1
+<span class="linenos">27</span>         friendly_exec(code)
+<span class="linenos">28</span>       File "FRIENDLY:\source_cache.py", line 127, in friendly_exec
+<span class="linenos">29</span>         return exec(code, globals_, locals_)
+<span class="linenos">30</span>       File "&lt;friendly-exec-0&gt;", line 1, in &lt;module&gt;
+<span class="linenos">31</span>         a = 2 * Pi
+<span class="linenos">32</span>     NameError: name 'Pi' is not defined. Did you mean: 'pi'?
+<span class="linenos">33</span>
+<span class="linenos">34</span>             Did you mean `pi`?
+<span class="linenos">35</span>
+<span class="linenos">36</span>
+<span class="linenos">37</span>     [6]: why()
+<span class="linenos">38</span>
+<span class="linenos">39</span>         In your program, no object with the name `Pi` exists.
+<span class="linenos">40</span>         The similar name `pi` was found in the local scope.
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span>     [7]: where()
+<span class="linenos">44</span>
+<span class="linenos">45</span>         Execution stopped on line `1` of code block [5].
+<span class="linenos">46</span>
+<span class="linenos">47</span>         --&gt;1| friendly_exec(code)
+<span class="linenos">48</span>               ^^^^^^^^^^^^^^^^^^^
+<span class="linenos">49</span>
+<span class="linenos">50</span>                 code:  'a = 2 * Pi'
+<span class="linenos">51</span>                 friendly_exec:  &lt;function friendly_exec&gt;
+<span class="linenos">52</span>
+<span class="linenos">53</span>         Exception raised on line `1` of file '&lt;friendly-exec-0&gt;'.
+<span class="linenos">54</span>
+<span class="linenos">55</span>         --&gt;1| a = 2 * Pi
+<span class="linenos">56</span>                       ^^
+</pre></div>
+</div>
 </section>
 
         </article>
