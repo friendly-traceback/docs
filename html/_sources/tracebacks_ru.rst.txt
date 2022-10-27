@@ -16,7 +16,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.7.50
+Friendly-traceback version: 0.7.53
 Python version: 3.10.6
 
 
@@ -98,7 +98,7 @@ Attribute from other module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 325, in test_Attribute_from_other_module
+      File "TESTS:\runtime\test_attribute_error.py", line 336, in test_Attribute_from_other_module
         keyword.pi
     AttributeError: module 'keyword' has no attribute 'pi'
     
@@ -111,15 +111,15 @@ Attribute from other module
     атрибут `pi` одного из следующих модулей:
     `math, cmath`.
     
-    Исключение возникло в строке `325` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `336` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       321|     assert "Did you mean `math`?" in result
-       322| 
-       323| import cmath
-       324| try:
-    -->325|     keyword.pi
+       332|     assert "Did you mean `math`?" in result
+       333| 
+       334| import cmath
+       335| try:
+    -->336|     keyword.pi
                 ^^^^^^^^^^
-       326| except AttributeError as e:
+       337| except AttributeError as e:
 
             keyword:  <module keyword> from PYTHON_LIB:\keyword.py
         
@@ -132,7 +132,7 @@ Builtin function
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
+      File "TESTS:\runtime\test_attribute_error.py", line 229, in test_Builtin_function
         len.text
     AttributeError: 'builtin_function_or_method' object has no attribute 'text'
     
@@ -145,14 +145,14 @@ Builtin function
     `len` является функцией. Возможно, вы хотели написать
     `len(text)`.
     
-    Исключение возникло в строке `223` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `229` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       220| def test_Builtin_function():
-       221|     text = 'Hello world!'
-       222|     try:
-    -->223|         len.text
+       226| def test_Builtin_function():
+       227|     text = 'Hello world!'
+       228|     try:
+    -->229|         len.text
                     ^^^^^^^^
-       224|     except AttributeError as e:
+       230|     except AttributeError as e:
 
             text:  'Hello world!'
             len:  <builtin function len>
@@ -166,7 +166,7 @@ Builtin module with no file
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
+      File "TESTS:\runtime\test_attribute_error.py", line 247, in test_Builtin_module_with_no_file
         sys.foo
     AttributeError: module 'sys' has no attribute 'foo'
     
@@ -177,15 +177,15 @@ Builtin module with no file
     Python сообщает, что ни один объект с именем `foo`
     не найден в модуле `sys`.
     
-    Исключение возникло в строке `240` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `247` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       236| """Issue 116"""
-       237| import sys
-       238| 
-       239| try:
-    -->240|     sys.foo
+       243| """Issue 116"""
+       244| import sys
+       245| 
+       246| try:
+    -->247|     sys.foo
                 ^^^^^^^
-       241| except AttributeError as e:
+       248| except AttributeError as e:
 
             sys:  <module sys (builtin)>
         
@@ -198,7 +198,7 @@ Circular import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 355, in test_Circular_import
+      File "TESTS:\runtime\test_attribute_error.py", line 368, in test_Circular_import
         import my_turtle1
       File "TESTS:\my_turtle1.py", line 4, in <module>
         a = my_turtle1.something
@@ -215,13 +215,13 @@ Circular import
     из стандартной библиотеки Python.
     Если это так, то вы должны использовать другое имя для своей программы.
     
-    Выполнение остановлено на строке `355` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Выполнение остановлено на строке `368` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       352| from friendly_traceback.runtime_errors import stdlib_modules
-       353| stdlib_modules.names.add("my_turtle1")
-       354| try:
-    -->355|    import my_turtle1
-       356| except AttributeError as e:
+       365| from friendly_traceback.runtime_errors import stdlib_modules
+       366| stdlib_modules.names.add("my_turtle1")
+       367| try:
+    -->368|    import my_turtle1
+       369| except AttributeError as e:
 
     Исключение возникло в строке `4` файла 'TESTS:\my_turtle1.py'.
     
@@ -242,7 +242,7 @@ Circular import b
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 372, in test_Circular_import_b
+      File "TESTS:\runtime\test_attribute_error.py", line 386, in test_Circular_import_b
         import circular_c
       File "TESTS:\circular_c.py", line 4, in <module>
         a = circular_c.something
@@ -258,12 +258,12 @@ Circular import b
     Это может произойти, если во время выполнения кода в модуле `circular_c`
     будет сделана попытка импортировать тот же модуль еще раз.
     
-    Выполнение остановлено на строке `372` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Выполнение остановлено на строке `386` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       370| def test_Circular_import_b():
-       371|     try:
-    -->372|         import circular_c
-       373|     except AttributeError as e:
+       384| def test_Circular_import_b():
+       385|     try:
+    -->386|         import circular_c
+       387|     except AttributeError as e:
 
     Исключение возникло в строке `4` файла 'TESTS:\circular_c.py'.
     
@@ -315,7 +315,7 @@ Generic different frame
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
+      File "TESTS:\runtime\test_attribute_error.py", line 50, in test_Generic_different_frame
         a.attr
     AttributeError: 'A' object has no attribute 'attr'. Did you mean: 'attr2'?
     
@@ -328,15 +328,15 @@ Generic different frame
     У объекта `a` нет атрибута с именем `attr`.
     Возможно, вы хотели написать `a.attr2` вместо `a.attr`.
     
-    Исключение возникло в строке `49` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `50` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       45|     return A()
-       46| 
-       47| a = f()
-       48| try:
-    -->49|     a.attr
+       46|     return A()
+       47| 
+       48| a = f()
+       49| try:
+    -->50|     a.attr
                ^^^^^^
-       50| except AttributeError as e:
+       51| except AttributeError as e:
 
             a:  <A object>
                 defined in <function test_attribute_error.test_Generic_different_frame.<locals>.f>
@@ -350,7 +350,7 @@ Generic instance
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
+      File "TESTS:\runtime\test_attribute_error.py", line 69, in test_Generic_instance
         a.x
     AttributeError: 'A' object has no attribute 'x'
     
@@ -360,14 +360,14 @@ Generic instance
     
     У объекта `a` нет атрибута с именем `x`.
     
-    Исключение возникло в строке `67` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `69` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       64|     pass
-       65| a = A()
-       66| try:
-    -->67|     a.x
+       66|     pass
+       67| a = A()
+       68| try:
+    -->69|     a.x
                ^^^
-       68| except AttributeError as e:
+       70| except AttributeError as e:
 
             a:  <A object>
                 defined in <function test_attribute_error.test_Generic_instance>
@@ -381,7 +381,7 @@ Module attribute typo
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
+      File "TESTS:\runtime\test_attribute_error.py", line 150, in test_Module_attribute_typo
         math.cost
     AttributeError: module 'math' has no attribute 'cost'. Did you mean: 'cos'?
     
@@ -395,16 +395,16 @@ Module attribute typo
      одно из следующих имен, которые являются атрибутами модуля `math`:
     `cos, cosh`
     
-    Исключение возникло в строке `144` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `150` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       139|     assert "Did you mean `ascii_lowercase`" in result
-       140| 
-       141| import math
-       142| 
-       143| try:
-    -->144|     math.cost
+       145|     assert "Did you mean `ascii_lowercase`" in result
+       146| 
+       147| import math
+       148| 
+       149| try:
+    -->150|     math.cost
                 ^^^^^^^^^
-       145| except AttributeError as e:
+       151| except AttributeError as e:
 
             math:  <module math (builtin)>
         
@@ -417,7 +417,7 @@ Nonetype
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
+      File "TESTS:\runtime\test_attribute_error.py", line 191, in test_Nonetype
         a.b
     AttributeError: 'NoneType' object has no attribute 'b'
     
@@ -427,14 +427,14 @@ Nonetype
     
     Вы пытаетесь получить доступ к атрибуту `b`
     для переменной, значение которой `None`.
-    Исключение возникло в строке `183` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `191` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       180| def test_Nonetype():
-       181|     a = None
-       182|     try:
-    -->183|         a.b
+       188| def test_Nonetype():
+       189|     a = None
+       190|     try:
+    -->191|         a.b
                     ^^^
-       184|     except AttributeError as e:
+       192|     except AttributeError as e:
 
             a:  None
         
@@ -447,7 +447,7 @@ Object attribute typo
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
+      File "TESTS:\runtime\test_attribute_error.py", line 86, in test_Object_attribute_typo
         a.appendh(4)
     AttributeError: 'list' object has no attribute 'appendh'. Did you mean: 'append'?
     
@@ -460,15 +460,15 @@ Object attribute typo
     У объекта `a` нет атрибута с именем `appendh`.
     Возможно, вы хотели написать `a.append` вместо `a.appendh`.
     
-    Исключение возникло в строке `83` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `86` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       79| def test_Object_attribute_typo():
-       80|     #
-       81|     try:
-       82|         a = [1, 2, 3]
-    -->83|         a.appendh(4)
+       82| def test_Object_attribute_typo():
+       83|     #
+       84|     try:
+       85|         a = [1, 2, 3]
+    -->86|         a.appendh(4)
                    ^^^^^^^^^
-       84|     except AttributeError as e:
+       87|     except AttributeError as e:
 
             a:  [1, 2, 3]
         
@@ -479,7 +479,39 @@ Perhaps comma
 
 .. code-block:: none
 
-            Skipped test
+
+    Traceback (most recent call last):
+      File "TESTS:\runtime\test_attribute_error.py", line 213, in test_Perhaps_comma
+        .defg]
+    AttributeError: 'str' object has no attribute 'defg'
+    
+        Вы хотели разделить имена объектов запятой?
+        
+    `AttributeError` возникает, когда код содержит что-то вроде
+        `object.x`
+    где `x` не является методом или атрибутом (переменной), принадлежащим `object`.
+    
+    `defg` не является атрибутом `abcd`.
+    Однако и `abcd`, и `defg` являются известными объектами.
+    Возможно, вы написали точку, чтобы разделить эти два объекта, 
+    вместо запятой.
+    
+    Исключение возникло в строке `213` файла 'TESTS:\runtime\test_attribute_error.py'.
+    
+       208| defg = "world"
+       209| 
+       210| # fmt: off
+       211| try:
+       212|     a = [abcd
+                     ^^^^
+    -->213|     .defg]
+                ^^^^^
+       214| # fmt: on
+
+            abcd:  'hello'
+            defg:  'world'
+        
+
 
 Read only
 ~~~~~~~~~
@@ -488,7 +520,7 @@ Read only
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
+      File "TESTS:\runtime\test_attribute_error.py", line 289, in test_Read_only
         f.b = 1
     AttributeError: 'F' object attribute 'b' is read-only
     
@@ -501,15 +533,15 @@ Read only
     не может быть изменено.
     The only attribute of `f` whose value can be changed is`a`.
     
-    Исключение возникло в строке `280` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `289` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       276|     b = 2
-       277| 
-       278| f = F()
-       279| try:
-    -->280|     f.b = 1
+       285|     b = 2
+       286| 
+       287| f = F()
+       288| try:
+    -->289|     f.b = 1
                 ^^^
-       281| except AttributeError as e:
+       290| except AttributeError as e:
 
             f:  <F object>
                 defined in <function test_attribute_error.test_Read_only>
@@ -524,7 +556,7 @@ Shadow stdlib module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
+      File "TESTS:\runtime\test_attribute_error.py", line 172, in test_Shadow_stdlib_module
         turtle.Pen
     AttributeError: module 'turtle' has no attribute 'Pen'
     
@@ -538,15 +570,15 @@ Shadow stdlib module
     В стандартной библиотеке Python также есть модуль с именем `turtle`.
     Возможно, вам нужно переименовать ваш модуль.
     
-    Исключение возникло в строке `165` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `172` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       161| def test_Shadow_stdlib_module():
-       162|     import turtle
-       163| 
-       164|     try:
-    -->165|         turtle.Pen
+       168| def test_Shadow_stdlib_module():
+       169|     import turtle
+       170| 
+       171|     try:
+    -->172|         turtle.Pen
                     ^^^^^^^^^^
-       166|     except AttributeError as e:
+       173|     except AttributeError as e:
 
             turtle:  <module turtle> from TESTS:\turtle.py
         
@@ -559,7 +591,7 @@ Tuple by accident
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
+      File "TESTS:\runtime\test_attribute_error.py", line 305, in test_Tuple_by_accident
         something.upper()
     AttributeError: 'tuple' object has no attribute 'upper'
     
@@ -574,14 +606,14 @@ Tuple by accident
     Возможно, вы по ошибке добавили запятую в конце строки
     в которой вы определили `something`.
     
-    Исключение возникло в строке `295` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `305` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       292| def test_Tuple_by_accident():
-       293|     something = "abc",  # note trailing comma
-       294|     try:
-    -->295|         something.upper()
+       302| def test_Tuple_by_accident():
+       303|     something = "abc",  # note trailing comma
+       304|     try:
+    -->305|         something.upper()
                     ^^^^^^^^^^^^^^^
-       296|     except AttributeError as e:
+       306|     except AttributeError as e:
 
             something:  ('abc',)
         
@@ -594,7 +626,7 @@ Use builtin
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
+      File "TESTS:\runtime\test_attribute_error.py", line 103, in test_Use_builtin
         a.length()
     AttributeError: 'list' object has no attribute 'length'
     
@@ -607,15 +639,15 @@ Use builtin
     У объекта `a` нет атрибута с именем `length`.
     Возможно, вместо этого следует использовать встроенную функцию Python `len`:
     `len(a)`.
-    Исключение возникло в строке `99` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `103` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-        95| def test_Use_builtin():
-        96|     #
-        97|     try:
-        98|         a = [1, 2, 3]
-    --> 99|         a.length()
+        99| def test_Use_builtin():
+       100|     #
+       101|     try:
+       102|         a = [1, 2, 3]
+    -->103|         a.length()
                     ^^^^^^^^
-       100|     except AttributeError as e:
+       104|     except AttributeError as e:
 
             a:  [1, 2, 3]
         
@@ -628,7 +660,7 @@ Use join with str
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
+      File "TESTS:\runtime\test_attribute_error.py", line 351, in test_Use_join_with_str
         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
     AttributeError: 'list' object has no attribute 'join'
     
@@ -641,13 +673,13 @@ Use join with str
     У объекта `['a', '2']` нет атрибута с именем `join`.
     Возможно, вы хотели получить что-то вроде `'abc'.join(['a', '2'])`.
     
-    Исключение возникло в строке `339` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `351` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       337| def test_Use_join_with_str():
-       338|     try:
-    -->339|         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+       349| def test_Use_join_with_str():
+       350|     try:
+    -->351|         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                         ^^^^^^^^^^^^^^^
-       340|     except AttributeError as e:
+       352|     except AttributeError as e:
 
 
 Use synonym
@@ -657,7 +689,7 @@ Use synonym
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
+      File "TESTS:\runtime\test_attribute_error.py", line 120, in test_Use_synonym
         a.add(4)
     AttributeError: 'list' object has no attribute 'add'
     
@@ -671,15 +703,15 @@ Use synonym
     Однако `a` имеет следующие атрибуты с аналогичными значениями:
     `append, extend, insert`.
     
-    Исключение возникло в строке `115` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `120` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       111| def test_Use_synonym():
-       112|     #
-       113|     try:
-       114|         a = [1, 2, 3]
-    -->115|         a.add(4)
+       116| def test_Use_synonym():
+       117|     #
+       118|     try:
+       119|         a = [1, 2, 3]
+    -->120|         a.add(4)
                     ^^^^^
-       116|     except AttributeError as e:
+       121|     except AttributeError as e:
 
             a:  [1, 2, 3]
         
@@ -692,7 +724,7 @@ Using slots
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
+      File "TESTS:\runtime\test_attribute_error.py", line 268, in test_Using_slots
         f.b = 1
     AttributeError: 'F' object has no attribute 'b'
     
@@ -705,15 +737,15 @@ Using slots
     что предотвращает создание новых атрибутов.
     Ниже перечислены некоторые из его известных атрибутов:
     `a`.
-    Исключение возникло в строке `260` файла 'TESTS:\runtime\test_attribute_error.py'.
+    Исключение возникло в строке `268` файла 'TESTS:\runtime\test_attribute_error.py'.
     
-       256|     __slots__ = ["a"]
-       257| 
-       258| f = F()
-       259| try:
-    -->260|     f.b = 1
+       264|     __slots__ = ["a"]
+       265| 
+       266| f = F()
+       267| try:
+    -->268|     f.b = 1
                 ^^^
-       261| except AttributeError as e:
+       269| except AttributeError as e:
 
             f:  <F object>
                 defined in <function test_attribute_error.test_Using_slots>
@@ -731,7 +763,7 @@ Directory not found
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+      File "TESTS:\runtime\test_file_not_found_error.py", line 73, in test_Directory_not_found
         open("does_not_exist/file.txt")
     FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
     
@@ -743,13 +775,13 @@ Directory not found
     который не может быть найден, будет `file.txt`.
     does_not_exist не является допустимой.
     
-    Исключение возникло в строке `70` файла 'TESTS:\runtime\test_file_not_found_error.py'.
+    Исключение возникло в строке `73` файла 'TESTS:\runtime\test_file_not_found_error.py'.
     
-       68| def test_Directory_not_found():
-       69|     try:
-    -->70|         open("does_not_exist/file.txt")
+       71| def test_Directory_not_found():
+       72|     try:
+    -->73|         open("does_not_exist/file.txt")
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       71|     except FileNotFoundError as e:
+       74|     except FileNotFoundError as e:
 
             open:  <builtin function open>
         
@@ -795,7 +827,7 @@ Filename not found 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+      File "TESTS:\runtime\test_file_not_found_error.py", line 31, in test_Filename_not_found_2
         open("setupp.py")
     FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
     
@@ -811,15 +843,15 @@ Filename not found 2
     директории `C:\Users\Andre\github\friendly-traceback`.
     Файл `setup.py` имеет похожее имя.
     
-    Исключение возникло в строке `30` файла 'TESTS:\runtime\test_file_not_found_error.py'.
+    Исключение возникло в строке `31` файла 'TESTS:\runtime\test_file_not_found_error.py'.
     
-       26| if chdir:
-       27|     os.chdir("..")
-       28| 
-       29| try:
-    -->30|     open("setupp.py")
+       27| if chdir:
+       28|     os.chdir("..")
+       29| 
+       30| try:
+    -->31|     open("setupp.py")
                ^^^^^^^^^^^^^^^^^
-       31| except FileNotFoundError as e:
+       32| except FileNotFoundError as e:
 
             open:  <builtin function open>
         
@@ -832,7 +864,7 @@ Filename not found 3
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+      File "TESTS:\runtime\test_file_not_found_error.py", line 54, in test_Filename_not_found_3
         open("setup.pyg")
     FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
     
@@ -849,14 +881,14 @@ Filename not found 3
     Возможно, вы имели в виду один из следующих файлов с похожими именами:
     `setup.py`, `setup.cfg`
     
-    Исключение возникло в строке `52` файла 'TESTS:\runtime\test_file_not_found_error.py'.
+    Исключение возникло в строке `54` файла 'TESTS:\runtime\test_file_not_found_error.py'.
     
-       49| if chdir:
-       50|     os.chdir("..")
-       51| try:
-    -->52|     open("setup.pyg")
+       51| if chdir:
+       52|     os.chdir("..")
+       53| try:
+    -->54|     open("setup.pyg")
                ^^^^^^^^^^^^^^^^^
-       53| except FileNotFoundError as e:
+       55| except FileNotFoundError as e:
 
             open:  <builtin function open>
         
@@ -906,7 +938,7 @@ Assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 84, in test_Assignment
+      File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
         a[13] = 1
     IndexError: list assignment index out of range
     
@@ -920,15 +952,15 @@ Assignment
     Допустимыми значениями индекса `a` являются целые числа в диапазоне
     от `-10` до `9`.
     
-    Исключение возникло в строке `84` файла 'TESTS:\runtime\test_index_error.py'.
+    Исключение возникло в строке `87` файла 'TESTS:\runtime\test_index_error.py'.
     
-       80|     assert "You have tried to assign a value to index `1` of `b`," in result
-       81|     assert "a `list` which contains no item." in result
-       82| 
-       83| try:
-    -->84|     a[13] = 1
+       83|     assert "You have tried to assign a value to index `1` of `b`," in result
+       84|     assert "a `list` which contains no item." in result
+       85| 
+       86| try:
+    -->87|     a[13] = 1
                ^^^^^
-       85| except IndexError as e:
+       88| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         
@@ -941,7 +973,7 @@ Empty
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 40, in test_Empty
+      File "TESTS:\runtime\test_index_error.py", line 42, in test_Empty
         c = a[1]
     IndexError: list index out of range
     
@@ -955,14 +987,14 @@ Empty
     Вы пытались получить элемент с индексом `1` из `a`,
     список `list`, который не содержит ни одного элемента.
     
-    Исключение возникло в строке `40` файла 'TESTS:\runtime\test_index_error.py'.
+    Исключение возникло в строке `42` файла 'TESTS:\runtime\test_index_error.py'.
     
-       37| def test_Empty():
-       38|     a = []
-       39|     try:
-    -->40|         c = a[1]
+       39| def test_Empty():
+       40|     a = []
+       41|     try:
+    -->42|         c = a[1]
                        ^^^^
-       41|     except IndexError as e:
+       43|     except IndexError as e:
 
             a:  []
         
@@ -975,7 +1007,7 @@ Long list
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_index_error.py", line 26, in test_Long_list
+      File "TESTS:\runtime\test_index_error.py", line 27, in test_Long_list
         print(a[60], b[0])
     IndexError: list index out of range
     
@@ -989,14 +1021,14 @@ Long list
     Допустимыми значениями индекса `a` являются целые числа в диапазоне
     от `-40` до `39`.
     
-    Исключение возникло в строке `26` файла 'TESTS:\runtime\test_index_error.py'.
+    Исключение возникло в строке `27` файла 'TESTS:\runtime\test_index_error.py'.
     
-       23| a = list(range(40))
-       24| b = tuple(range(50))
-       25| try:
-    -->26|     print(a[60], b[0])
+       24| a = list(range(40))
+       25| b = tuple(range(50))
+       26| try:
+    -->27|     print(a[60], b[0])
                      ^^^^^
-       27| except IndexError as e:
+       28| except IndexError as e:
 
             a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
                 len(a): 40
@@ -1058,7 +1090,7 @@ ChainMap
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
+      File "TESTS:\runtime\test_key_error.py", line 65, in test_ChainMap
         d.pop(42)
     KeyError: 'Key not found in the first mapping: 42'
     
@@ -1067,14 +1099,14 @@ ChainMap
     
     Ключ `42` не найден в `d`, объекте типа `ChainMap`.
     
-    Исключение возникло в строке `62` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `65` файла 'TESTS:\runtime\test_key_error.py'.
     
-       59| from collections import ChainMap
-       60| d = ChainMap({}, {})
-       61| try:
-    -->62|     d.pop(42)
+       62| from collections import ChainMap
+       63| d = ChainMap({}, {})
+       64| try:
+    -->65|     d.pop(42)
                ^^^^^^^^^
-       63| except KeyError as e:
+       66| except KeyError as e:
 
             d:  ChainMap({}, {})
             d.pop:  <bound method ChainMap.pop> of ChainMap({}, {})
@@ -1088,7 +1120,7 @@ Forgot to convert to string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
+      File "TESTS:\runtime\test_key_error.py", line 120, in test_Forgot_to_convert_to_string
         print(squares[2])
     KeyError: 2
     
@@ -1101,14 +1133,14 @@ Forgot to convert to string
     `squares` содержит строковый ключ, который идентичен `str(2)`.
     Возможно, вы забыли преобразовать ключ в строку.
     
-    Исключение возникло в строке `115` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `120` файла 'TESTS:\runtime\test_key_error.py'.
     
-       112| def test_Forgot_to_convert_to_string():
-       113|     squares = {"1": 1, "2": 4, "3": 9}
-       114|     try:
-    -->115|         print(squares[2])
+       117| def test_Forgot_to_convert_to_string():
+       118|     squares = {"1": 1, "2": 4, "3": 9}
+       119|     try:
+    -->120|         print(squares[2])
                           ^^^^^^^^^^
-       116|     except KeyError as e:
+       121|     except KeyError as e:
 
             squares:  {'1': 1, '2': 4, '3': 9}
         
@@ -1121,7 +1153,7 @@ Generic key error
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
+      File "TESTS:\runtime\test_key_error.py", line 46, in test_Generic_key_error
         d["c"]
     KeyError: 'c'
     
@@ -1130,14 +1162,14 @@ Generic key error
     
     В словаре `d` не найден ключ `'c'`.
     
-    Исключение возникло в строке `44` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `46` файла 'TESTS:\runtime\test_key_error.py'.
     
-       41| def test_Generic_key_error():
-       42|     d = {"a": 1, "b": 2}
-       43|     try:
-    -->44|         d["c"]
+       43| def test_Generic_key_error():
+       44|     d = {"a": 1, "b": 2}
+       45|     try:
+    -->46|         d["c"]
                    ^^^^^^
-       45|     except KeyError as e:
+       47|     except KeyError as e:
 
             d:  {'a': 1, 'b': 2}
         
@@ -1157,7 +1189,7 @@ Popitem empty ChainMap
         During handling of the above exception, another exception occurred:
     
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
+      File "TESTS:\runtime\test_key_error.py", line 27, in test_Popitem_empty_ChainMap
         alpha.popitem()
     KeyError: 'No keys found in the first mapping.'
     
@@ -1168,14 +1200,14 @@ Popitem empty ChainMap
     
     Вы попытались получить элемент из `alpha`, который является пустым `ChainMap`.
     
-    Исключение возникло в строке `26` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `27` файла 'TESTS:\runtime\test_key_error.py'.
     
-       23| from collections import ChainMap
-       24| alpha = ChainMap({}, {})
-       25| try:
-    -->26|     alpha.popitem()
+       24| from collections import ChainMap
+       25| alpha = ChainMap({}, {})
+       26| try:
+    -->27|     alpha.popitem()
                ^^^^^^^^^^^^^^^
-       27| except KeyError as e:
+       28| except KeyError as e:
 
             alpha:  ChainMap({}, {})
             alpha.popitem:  <bound method ChainMap.popitem> of ChainMap({}, {})
@@ -1221,7 +1253,7 @@ Similar names
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
+      File "TESTS:\runtime\test_key_error.py", line 151, in test_Similar_names
         a = second["alpha"]
     KeyError: 'alpha'
     
@@ -1234,15 +1266,15 @@ Similar names
     `second` имеет несколько ключей, похожих на `'alpha'`, включая:
     `'alpha0', 'alpha11', 'alpha12'`.
     
-    Исключение возникло в строке `145` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `151` файла 'TESTS:\runtime\test_key_error.py'.
     
-       141|     assert ok, diff
-       142| 
-       143| second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
-       144| try:
-    -->145|     a = second["alpha"]
+       147|     assert ok, diff
+       148| 
+       149| second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
+       150| try:
+    -->151|     a = second["alpha"]
                     ^^^^^^^^^^^^^^^
-       146| except KeyError as e:
+       152| except KeyError as e:
 
             second:  {'alpha0': 1, 'alpha11': 2, 'alpha12': 3}
         
@@ -1255,7 +1287,7 @@ String by mistake
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
+      File "TESTS:\runtime\test_key_error.py", line 102, in test_String_by_mistake
         d["(0, 0)"]
     KeyError: '(0, 0)'
     
@@ -1269,15 +1301,15 @@ String by mistake
     Существует ключ `d`, строковое представление которого
     идентично `'(0, 0)'`.
     
-    Исключение возникло в строке `98` файла 'TESTS:\runtime\test_key_error.py'.
+    Исключение возникло в строке `102` файла 'TESTS:\runtime\test_key_error.py'.
     
-       94| chain_map_string_by_mistake()  # do not show in docs
-       95| 
-       96| d = {(0, 0): "origin"}
-       97| try:
-    -->98|     d["(0, 0)"]
-               ^^^^^^^^^^^
-       99| except KeyError as e:
+        98| chain_map_string_by_mistake()  # do not show in docs
+        99| 
+       100| d = {(0, 0): "origin"}
+       101| try:
+    -->102|     d["(0, 0)"]
+                ^^^^^^^^^^^
+       103| except KeyError as e:
 
             d:  {(0, 0): 'origin'}
         
@@ -1329,7 +1361,7 @@ Need to install module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
+      File "TESTS:\runtime\test_module_not_found_error.py", line 80, in test_Need_to_install_module
         import alphabet
     ModuleNotFoundError: No module named 'alphabet'
     
@@ -1341,12 +1373,12 @@ Need to install module
     Модуль с именем `alphabet` не может быть импортирован.
     Возможно, вам необходимо установить его.
     
-    Исключение возникло в строке `76` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `80` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       74| def test_Need_to_install_module():
-       75|     try:
-    -->76|         import alphabet
-       77|     except ModuleNotFoundError as e:
+       78| def test_Need_to_install_module():
+       79|     try:
+    -->80|         import alphabet
+       81|     except ModuleNotFoundError as e:
 
 
 Not a package
@@ -1356,7 +1388,7 @@ Not a package
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
+      File "TESTS:\runtime\test_module_not_found_error.py", line 23, in test_Not_a_package
         import os.xxx
     ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
     
@@ -1367,13 +1399,13 @@ Not a package
     
     `xxx` не может быть импортирован из `os`.
     
-    Исключение возникло в строке `22` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `23` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       19| def test_Not_a_package():
-       20| 
-       21|     try:
-    -->22|         import os.xxx
-       23|     except ModuleNotFoundError as e:
+       20| def test_Not_a_package():
+       21| 
+       22|     try:
+    -->23|         import os.xxx
+       24|     except ModuleNotFoundError as e:
 
 
 Not a package similar name
@@ -1383,7 +1415,7 @@ Not a package similar name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
+      File "TESTS:\runtime\test_module_not_found_error.py", line 37, in test_Not_a_package_similar_name
         import os.pathh
     ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
     
@@ -1398,12 +1430,12 @@ Not a package similar name
     `path` -- это имя, похожее на `pathh`, и это модуль, который
     может быть импортирован из `os`.
     
-    Исключение возникло в строке `36` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `37` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       34| def test_Not_a_package_similar_name():
-       35|     try:
-    -->36|         import os.pathh
-       37|     except ModuleNotFoundError as e:
+       35| def test_Not_a_package_similar_name():
+       36|     try:
+    -->37|         import os.pathh
+       38|     except ModuleNotFoundError as e:
 
 
 Object not module
@@ -1413,7 +1445,7 @@ Object not module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
+      File "TESTS:\runtime\test_module_not_found_error.py", line 51, in test_Object_not_module
         import os.open
     ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
     
@@ -1427,12 +1459,12 @@ Object not module
     `open` -- это не отдельный модуль, а объект, который является частью `os`.
     
     
-    Исключение возникло в строке `49` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `51` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       47| def test_Object_not_module():
-       48|     try:
-    -->49|         import os.open
-       50|     except ModuleNotFoundError as e:
+       49| def test_Object_not_module():
+       50|     try:
+    -->51|         import os.open
+       52|     except ModuleNotFoundError as e:
 
             open:  <builtin function open>
         
@@ -1445,7 +1477,7 @@ Similar object not module
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
+      File "TESTS:\runtime\test_module_not_found_error.py", line 65, in test_Similar_object_not_module
         import os.opend
     ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
     
@@ -1462,12 +1494,12 @@ Similar object not module
     Другие объекты с похожими именами, которые являются частью
      `os`, включают `popen`.
     
-    Исключение возникло в строке `62` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `65` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       60| def test_Similar_object_not_module():
-       61|     try:
-    -->62|         import os.opend
-       63|     except ModuleNotFoundError as e:
+       63| def test_Similar_object_not_module():
+       64|     try:
+    -->65|         import os.opend
+       66|     except ModuleNotFoundError as e:
 
 
 Standard library module
@@ -1509,7 +1541,7 @@ no curses
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
+      File "TESTS:\runtime\test_module_not_found_error.py", line 97, in test_no_curses
         import curses
     ModuleNotFoundError: No module named '_curses'
     
@@ -1523,12 +1555,12 @@ no curses
     Вы попытались импортировать модуль curses.
     Модуль curses редко устанавливается вместе с Python в Windows.
     
-    Исключение возникло в строке `92` файла 'TESTS:\runtime\test_module_not_found_error.py'.
+    Исключение возникло в строке `97` файла 'TESTS:\runtime\test_module_not_found_error.py'.
     
-       90| def test_no_curses():
-       91|     try:
-    -->92|         import curses
-       93|     except ModuleNotFoundError as e:
+       95| def test_no_curses():
+       96|     try:
+    -->97|         import curses
+       98|     except ModuleNotFoundError as e:
 
 
 NameError
@@ -1542,7 +1574,7 @@ Annotated variable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 30, in test_Annotated_variable
+      File "TESTS:\runtime\test_name_error.py", line 31, in test_Annotated_variable
         y = x
     NameError: name 'x' is not defined
     
@@ -1564,13 +1596,13 @@ Annotated variable
     
         x = 3
     
-    Исключение возникло в строке `30` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `31` файла 'TESTS:\runtime\test_name_error.py'.
     
-       28| def test_Annotated_variable():
-       29|     try:
-    -->30|         y = x
+       29| def test_Annotated_variable():
+       30|     try:
+    -->31|         y = x
                        ^
-       31|     except NameError as e:
+       32|     except NameError as e:
 
 
 Custom name
@@ -1580,7 +1612,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 239, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 234, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1592,13 +1624,13 @@ Custom name
     до того, как оно было обьявлено или инициализировано.
     
     Вы уже используете Python!
-    Исключение возникло в строке `239` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `234` файла 'TESTS:\runtime\test_name_error.py'.
     
-       237| def test_Custom_name():
-       238|     try:
-    -->239|         python
+       232| def test_Custom_name():
+       233|     try:
+    -->234|         python
                     ^^^^^^
-       240|     except NameError as e:
+       235|     except NameError as e:
 
 
 Free variable referenced
@@ -1608,11 +1640,11 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 223, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 217, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 219, in outer
+      File "TESTS:\runtime\test_name_error.py", line 213, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 218, in inner
+      File "TESTS:\runtime\test_name_error.py", line 212, in inner
         return var
     NameError: free variable 'var' referenced before assignment in enclosing scope. Did you mean: 'vars'?
     
@@ -1625,23 +1657,23 @@ Free variable referenced
     В вашей программе `var` -- это неизвестное имя,
     которому еще не присвоено значение.
     
-    Выполнение остановлено на строке `223` файла 'TESTS:\runtime\test_name_error.py'.
+    Выполнение остановлено на строке `217` файла 'TESTS:\runtime\test_name_error.py'.
     
-       219|     inner()
-       220|     var = 4
-       221| 
-       222| try:
-    -->223|     outer()
+       213|     inner()
+       214|     var = 4
+       215| 
+       216| try:
+    -->217|     outer()
                 ^^^^^^^
-       224| except NameError as e:
+       218| except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Исключение возникло в строке `218` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `212` файла 'TESTS:\runtime\test_name_error.py'.
     
-       217| def inner():
-    -->218|     return var
+       211| def inner():
+    -->212|     return var
                        ^^^
 
 
@@ -1681,7 +1713,7 @@ Missing import
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 135, in test_Missing_import
+      File "TESTS:\runtime\test_name_error.py", line 138, in test_Missing_import
         unicodedata.something
     NameError: name 'unicodedata' is not defined
     
@@ -1699,15 +1731,15 @@ Missing import
     в стандартной библиотеке Python.
     
     
-    Исключение возникло в строке `135` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `138` файла 'TESTS:\runtime\test_name_error.py'.
     
-       131| if friendly_traceback.get_lang() == "en":
-       132|     assert "I have no additional information for you." in result
-       133| 
-       134| try:
-    -->135|     unicodedata.something
+       134| if friendly_traceback.get_lang() == "en":
+       135|     assert "I have no additional information for you." in result
+       136| 
+       137| try:
+    -->138|     unicodedata.something
                 ^^^^^^^^^^^
-       136| except NameError as e:
+       139| except NameError as e:
 
 
 Missing module name
@@ -1717,7 +1749,7 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 322, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 320, in test_Missing_module_name
         frame = Frame()
     NameError: name 'Frame' is not defined. Did you mean: 'frame'?
     
@@ -1740,14 +1772,14 @@ Missing module name
     tkinter, tracemalloc.
     Perhaps you forgot to import `Frame` from one of these modules.
     
-    Исключение возникло в строке `322` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `320` файла 'TESTS:\runtime\test_name_error.py'.
     
-       319| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-       320| def test_Missing_module_name():
-       321|     try:
-    -->322|         frame = Frame()
+       317| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+       318| def test_Missing_module_name():
+       319|     try:
+    -->320|         frame = Frame()
                             ^^^^^
-       323|     except NameError as e:
+       321|     except NameError as e:
 
 
 Missing self 1
@@ -1757,9 +1789,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 274, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 270, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 265, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 261, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1778,28 +1810,28 @@ Missing self 1
     Возможно, вам следовало написать `self.add_toy(...`
     вместо `add_toy(self, ...`.
     
-    Выполнение остановлено на строке `274` файла 'TESTS:\runtime\test_name_error.py'.
+    Выполнение остановлено на строке `270` файла 'TESTS:\runtime\test_name_error.py'.
     
-       270|             return "{} has no toys".format(self.name)
-       271| 
-       272| a = Pet('Fido')
-       273| try:
-    -->274|     str(a)
+       266|             return "{} has no toys".format(self.name)
+       267| 
+       268| a = Pet('Fido')
+       269| try:
+    -->270|     str(a)
                 ^^^^^^
-       275| except NameError as e:
+       271| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Исключение возникло в строке `265` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `261` файла 'TESTS:\runtime\test_name_error.py'.
     
-       263| def __str__(self):
-       264|     # self at the wrong place
-    -->265|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+       259| def __str__(self):
+       260|     # self at the wrong place
+    -->261|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                             ^^^^^^^
-       266|                         self, 'something')
-       267|     if self.toys:
+       262|                         self, 'something')
+       263|     if self.toys:
 
 
 Missing self 2
@@ -1809,9 +1841,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 308, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 305, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 300, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 297, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1830,27 +1862,27 @@ Missing self 2
     Возможно, вам следовало написать `self.add_toy`
     вместо `add_toy`.
     
-    Выполнение остановлено на строке `308` файла 'TESTS:\runtime\test_name_error.py'.
+    Выполнение остановлено на строке `305` файла 'TESTS:\runtime\test_name_error.py'.
     
-       304|             return "{} has no toys".format(self.name)
-       305| 
-       306| a = Pet('Fido')
-       307| try:
-    -->308|     str(a)
+       301|             return "{} has no toys".format(self.name)
+       302| 
+       303| a = Pet('Fido')
+       304| try:
+    -->305|     str(a)
                 ^^^^^^
-       309| except NameError as e:
+       306| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Исключение возникло в строке `300` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `297` файла 'TESTS:\runtime\test_name_error.py'.
     
-       298| def __str__(self):
-       299|     # Missing self.
-    -->300|     toys_list = add_toy('something')
+       295| def __str__(self):
+       296|     # Missing self.
+    -->297|     toys_list = add_toy('something')
                             ^^^^^^^
-       301|     if self.toys:
+       298|     if self.toys:
 
 
 Synonym
@@ -1860,7 +1892,7 @@ Synonym
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
+      File "TESTS:\runtime\test_name_error.py", line 97, in test_Synonym
         cost  # wrote from math import * above
     NameError: name 'cost' is not defined. Did you mean: 'cos'?
     
@@ -1876,15 +1908,15 @@ Synonym
     Вместо того, чтобы написать `cost`, возможно, вы имели в виду следующее:
     *  Глобальная область видимости: `cos`, `cosh`
     
-    Исключение возникло в строке `95` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `97` файла 'TESTS:\runtime\test_name_error.py'.
     
-       91| if friendly_traceback.get_lang() == "en":
-       92|     assert "The Python builtin `chr` has a similar name." in result
-       93| 
-       94| try:
-    -->95|     cost  # wrote from math import * above
+       93| if friendly_traceback.get_lang() == "en":
+       94|     assert "The Python builtin `chr` has a similar name." in result
+       95| 
+       96| try:
+    -->97|     cost  # wrote from math import * above
                ^^^^
-       96| except NameError as e:
+       98| except NameError as e:
 
 
 missing import2
@@ -1894,7 +1926,7 @@ missing import2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 149, in test_missing_import2
+      File "TESTS:\runtime\test_name_error.py", line 153, in test_missing_import2
         ABCMeta
     NameError: name 'ABCMeta' is not defined
     
@@ -1909,13 +1941,13 @@ missing import2
     selectors, typing, abc, numbers.
     Perhaps you forgot to import `ABCMeta` from one of these modules.
     
-    Исключение возникло в строке `149` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `153` файла 'TESTS:\runtime\test_name_error.py'.
     
-       147| def test_missing_import2():
-       148|     try:
-    -->149|         ABCMeta
+       151| def test_missing_import2():
+       152|     try:
+    -->153|         ABCMeta
                     ^^^^^^^
-       150|     except NameError as e:
+       154|     except NameError as e:
 
 
 missing import3
@@ -1925,7 +1957,7 @@ missing import3
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 163, in test_missing_import3
+      File "TESTS:\runtime\test_name_error.py", line 168, in test_missing_import3
         AF_APPLETALK
     NameError: name 'AF_APPLETALK' is not defined
     
@@ -1941,13 +1973,13 @@ missing import3
     
         from socket import AF_APPLETALK
     
-    Исключение возникло в строке `163` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `168` файла 'TESTS:\runtime\test_name_error.py'.
     
-       161| def test_missing_import3():
-       162|     try:
-    -->163|         AF_APPLETALK
+       166| def test_missing_import3():
+       167|     try:
+    -->168|         AF_APPLETALK
                     ^^^^^^^^^^^^
-       164|     except NameError as e:
+       169|     except NameError as e:
 
 
 missing import from other 1
@@ -1957,41 +1989,7 @@ missing import from other 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 177, in test_missing_import_from_other_1
-        fake_module_name.something()
-    NameError: name 'fake_module_name' is not defined
-    
-        Вы забыли импортировать `fake_module_name`?
-        
-    `NameError` указывает на то, что переменная или
-    имя переменной либо функции неизвестно Python.
-    Чаще всего это происходит из-за орфографической ошибки.
-    Однако иногда это происходит потому, что имя используется
-    до того, как оно было обьявлено или инициализировано.
-    
-    
-    The name `fake_module_name` is not defined in your program.
-    Perhaps you forgot to import `fake_module_name` which is a known library.
-    
-    
-    Исключение возникло в строке `177` файла 'TESTS:\runtime\test_name_error.py'.
-    
-       174| def test_missing_import_from_other_1():
-       175|     friendly_traceback.add_other_module_names(["fake_module_name"])
-       176|     try:
-    -->177|         fake_module_name.something()
-                    ^^^^^^^^^^^^^^^^
-       178|     except NameError as e:
-
-
-missing import from other 2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: none
-
-
-    Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 191, in test_missing_import_from_other_2
+      File "TESTS:\runtime\test_name_error.py", line 183, in test_missing_import_from_other_1
         plt.something
     NameError: name 'plt' is not defined
     
@@ -2007,27 +2005,27 @@ missing import from other 2
     The name `plt` is not defined in your program.
     Perhaps you forgot to write
     
-       import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
     
     
-    Исключение возникло в строке `191` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `183` файла 'TESTS:\runtime\test_name_error.py'.
     
-       188| def test_missing_import_from_other_2():
-       189|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
-       190|     try:
-    -->191|         plt.something
+       180| def test_missing_import_from_other_1():
+       181|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+       182|     try:
+    -->183|         plt.something
                     ^^^
-       192|     except NameError as e:
+       184|     except NameError as e:
 
 
-missing import from other 3
+missing import from other 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 204, in test_missing_import_from_other_3
+      File "TESTS:\runtime\test_name_error.py", line 197, in test_missing_import_from_other_2
         show()
     NameError: name 'show' is not defined
     
@@ -2042,14 +2040,14 @@ missing import from other 3
     mailcap, matplotlib.pyplot, funny.
     Perhaps you forgot to import `show` from one of these modules.
     
-    Исключение возникло в строке `204` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `197` файла 'TESTS:\runtime\test_name_error.py'.
     
-       201| def test_missing_import_from_other_3():
-       202|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
-       203|     try:
-    -->204|         show()
+       194| def test_missing_import_from_other_2():
+       195|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+       196|     try:
+    -->197|         show()
                     ^^^^
-       205|     except NameError as e:
+       198|     except NameError as e:
 
 
 special keyword
@@ -2059,7 +2057,7 @@ special keyword
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 353, in test_special_keyword
+      File "TESTS:\runtime\test_name_error.py", line 352, in test_special_keyword
         brek
     NameError: name 'brek' is not defined
     
@@ -2073,14 +2071,14 @@ special keyword
     
     Подозреваю, что ключевое слово `break` вы написали по ошибке.
     
-    Исключение возникло в строке `353` файла 'TESTS:\runtime\test_name_error.py'.
+    Исключение возникло в строке `352` файла 'TESTS:\runtime\test_name_error.py'.
     
-       350| if friendly_traceback.get_lang() == "en":
-       351|     assert "Did you mean `continue`" in result
-       352| try:
-    -->353|     brek
+       349| if friendly_traceback.get_lang() == "en":
+       350|     assert "Did you mean `continue`" in result
+       351| try:
+    -->352|     brek
                 ^^^^
-       354| except NameError as e:
+       353| except NameError as e:
 
 
 OsError
@@ -2143,7 +2141,7 @@ invalid argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
+      File "TESTS:\runtime\test_os_error.py", line 50, in test_invalid_argument
         open("c:\test.txt")
     OSError: [Errno 22] Invalid argument: 'c:\test.txt'
     
@@ -2159,14 +2157,14 @@ invalid argument
     Чтобы решить эту проблему, либо напишите так называемую 'необработанную строку', добавив букву `r` в качестве префикса перед
     именем файла или путем, либо замените все одинарные символы обратной косой черты `\` на двойные: `\\`.
     
-    Исключение возникло в строке `48` файла 'TESTS:\runtime\test_os_error.py'.
+    Исключение возникло в строке `50` файла 'TESTS:\runtime\test_os_error.py'.
     
-       45| if os.name != "nt":
-       46|     return "Windows test only", "No result"
-       47| try:
-    -->48|     open("c:\test.txt")
+       47| if os.name != "nt":
+       48|     return "Windows test only", "No result"
+       49| try:
+    -->50|     open("c:\test.txt")
                ^^^^^^^^^^^^^^^^^^^
-       49| except OSError as e:
+       51| except OSError as e:
 
             open:  <builtin function open>
         
@@ -2179,7 +2177,7 @@ no information
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
+      File "TESTS:\runtime\test_os_error.py", line 30, in test_no_information
         raise OSError("Some unknown message")
     OSError: Some unknown message
     
@@ -2197,13 +2195,13 @@ no information
     Если вы используете консоль Friendly, используйте `www()`, чтобы
     выполнить поиск в Интернете для этого конкретного случая.
     
-    Исключение возникло в строке `29` файла 'TESTS:\runtime\test_os_error.py'.
+    Исключение возникло в строке `30` файла 'TESTS:\runtime\test_os_error.py'.
     
-       26| old_debug = friendly_traceback.debug_helper.DEBUG
-       27| friendly_traceback.debug_helper.DEBUG = False
-       28| try:
-    -->29|     raise OSError("Some unknown message")
-       30| except OSError as e:
+       27| old_debug = friendly_traceback.debug_helper.DEBUG
+       28| friendly_traceback.debug_helper.DEBUG = False
+       29| try:
+    -->30|     raise OSError("Some unknown message")
+       31| except OSError as e:
 
             OSError:  <class OSError>
         
@@ -2243,21 +2241,21 @@ Huge lenght
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_overflow_error.py", line 24, in test_Huge_lenght
+      File "TESTS:\runtime\test_overflow_error.py", line 25, in test_Huge_lenght
         len(huge)
     OverflowError: Python int too large to convert to C ssize_t
     
     `OverflowError` возникает, когда результат арифметической операции слишком велик
     для того, чтобы его мог обработать процессор компьютера.
     
-    Исключение возникло в строке `24` файла 'TESTS:\runtime\test_overflow_error.py'.
+    Исключение возникло в строке `25` файла 'TESTS:\runtime\test_overflow_error.py'.
     
-       21| def test_Huge_lenght():
-       22|     huge = range(1<<10000)
-       23|     try:
-    -->24|         len(huge)
+       22| def test_Huge_lenght():
+       23|     huge = range(1<<10000)
+       24|     try:
+    -->25|         len(huge)
                    ^^^^^^^^^
-       25|     except OverflowError as e:
+       26|     except OverflowError as e:
 
             huge:  range(0, ...)
                    len(huge): Объект слишком велик для обработки Python.
@@ -2323,7 +2321,7 @@ Argument of object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 825, in test_Argument_of_object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 843, in test_Argument_of_object_is_not_iterable
         a in b
     TypeError: argument of type 'object' is not iterable
     
@@ -2336,14 +2334,14 @@ Argument of object is not iterable
     Контейнеры Python (`list, tuple, dict` и т.д.) являются итерабельными.
     'b' не является контейнером. Здесь требуется контейнер.
     
-    Исключение возникло в строке `825` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `843` файла 'TESTS:\runtime\test_type_error.py'.
     
-       822| a = object()
-       823| b = object()
-       824| try:
-    -->825|     a in b
+       840| a = object()
+       841| b = object()
+       842| try:
+    -->843|     a in b
                 ^^^^^^
-       826| except TypeError as e:
+       844| except TypeError as e:
 
             a:  <object object>
             b:  <object object>
@@ -2357,7 +2355,7 @@ Bad type for unary operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 422, in test_Bad_type_for_unary_operator
+      File "TESTS:\runtime\test_type_error.py", line 427, in test_Bad_type_for_unary_operator
         a =+ "def"
     TypeError: bad operand type for unary +: 'str'
     
@@ -2373,16 +2371,16 @@ Bad type for unary operator
     
     Возможно, вы хотели написать `+=` вместо `=+`
     
-    Исключение возникло в строке `422` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `427` файла 'TESTS:\runtime\test_type_error.py'.
     
-       417|     assert "You tried to use the unary operator '~'" in result
-       418| 
-       419| try:
-       420|     # fmt: off
-       421|     a = "abc"
-    -->422|     a =+ "def"
+       422|     assert "You tried to use the unary operator '~'" in result
+       423| 
+       424| try:
+       425|     # fmt: off
+       426|     a = "abc"
+    -->427|     a =+ "def"
                    ^^^^^^^
-       423|     # fmt: on
+       428|     # fmt: on
 
 
 Builtin has no len
@@ -2392,7 +2390,7 @@ Builtin has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 880, in test_Builtin_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 901, in test_Builtin_has_no_len
         len("Hello world".split)
     TypeError: object of type 'builtin_function_or_method' has no len()
     
@@ -2407,13 +2405,13 @@ Builtin has no len
     Возможно, вы хотели написать:
     `len("Hello world".split())`.
     
-    Исключение возникло в строке `880` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `901` файла 'TESTS:\runtime\test_type_error.py'.
     
-       878| def test_Builtin_has_no_len():
-       879|     try:
-    -->880|         len("Hello world".split)
+       899| def test_Builtin_has_no_len():
+       900|     try:
+    -->901|         len("Hello world".split)
                     ^^^^^^^^^^^^^^^^^^^^^^^^
-       881|     except TypeError as e:
+       902|     except TypeError as e:
 
             len:  <builtin function len>
             "Hello world".split:  <builtin method split of str object>
@@ -2460,7 +2458,7 @@ Cannot convert dictionary update sequence
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 866, in test_Cannot_convert_dictionary_update_sequence
+      File "TESTS:\runtime\test_type_error.py", line 886, in test_Cannot_convert_dictionary_update_sequence
         dd.update([1, 2, 3])
     TypeError: cannot convert dictionary update sequence element #0 to a sequence
     
@@ -2475,15 +2473,15 @@ Cannot convert dictionary update sequence
     Вместо того, чтобы писать `dd.update([1, 2, 3])`
     возможно, следует использовать метод `dict.fromkeys()`: `dd.update( dict.fromkeys([1, 2, 3]) )`.
     
-    Исключение возникло в строке `866` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `886` файла 'TESTS:\runtime\test_type_error.py'.
     
-       862|     assert "you should use the `dict.fromkeys()`" in result
-       863| 
-       864| dd = {"a": "a"}
-       865| try:
-    -->866|     dd.update([1, 2, 3])
+       882|     assert "you should use the `dict.fromkeys()`" in result
+       883| 
+       884| dd = {"a": "a"}
+       885| try:
+    -->886|     dd.update([1, 2, 3])
                 ^^^^^^^^^^^^^^^^^^^^
-       867| except TypeError as e:
+       887| except TypeError as e:
 
             dd:  {'a': 'a'}
             dd.update:  <builtin method update of dict object>
@@ -2497,7 +2495,7 @@ Cannot multiply by non int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 641, in test_Cannot_multiply_by_non_int
+      File "TESTS:\runtime\test_type_error.py", line 652, in test_Cannot_multiply_by_non_int
         "a" * "2"
     TypeError: can't multiply sequence by non-int of type 'str'
     
@@ -2512,15 +2510,15 @@ Cannot multiply by non int
     строки и т.д., на целые числа.
     Возможно, вы забыли преобразовать `"2"` в целое число.
     
-    Исключение возникло в строке `641` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `652` файла 'TESTS:\runtime\test_type_error.py'.
     
-       637| if friendly_traceback.get_lang() == "en":
-       638|     assert "Did you forget to convert `c` into an integer?" in result
-       639| 
-       640| try:
-    -->641|     "a" * "2"
+       648| if friendly_traceback.get_lang() == "en":
+       649|     assert "Did you forget to convert `c` into an integer?" in result
+       650| 
+       651| try:
+    -->652|     "a" * "2"
                 ^^^^^^^^^
-       642| except TypeError as e:
+       653| except TypeError as e:
 
 
 Cannot unpack non iterable object
@@ -2530,7 +2528,7 @@ Cannot unpack non iterable object
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 838, in test_Cannot_unpack_non_iterable_object
+      File "TESTS:\runtime\test_type_error.py", line 857, in test_Cannot_unpack_non_iterable_object
         a, b = 42.0
     TypeError: cannot unpack non-iterable float object
     
@@ -2545,12 +2543,12 @@ Cannot unpack non iterable object
     Контейнеры Python (`list, tuple, dict` и т.д.) являются итерабельными,
     но не объекты типа `float`.
     
-    Исключение возникло в строке `838` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `857` файла 'TESTS:\runtime\test_type_error.py'.
     
-       836| def test_Cannot_unpack_non_iterable_object():
-       837|     try:
-    -->838|         a, b = 42.0
-       839|     except TypeError as e:
+       855| def test_Cannot_unpack_non_iterable_object():
+       856|     try:
+    -->857|         a, b = 42.0
+       858|     except TypeError as e:
 
 
 Cant mod complex numbers
@@ -2560,7 +2558,7 @@ Cant mod complex numbers
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 53, in test_Cant_mod_complex_numbers
+      File "TESTS:\runtime\test_type_error.py", line 54, in test_Cant_mod_complex_numbers
         3 + 3j % 2
     TypeError: unsupported operand type(s) for %: 'complex' and 'int'
     
@@ -2571,13 +2569,13 @@ Cant mod complex numbers
     
     You cannot use complex numbers with the modulo operator `%`.
     
-    Исключение возникло в строке `53` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `54` файла 'TESTS:\runtime\test_type_error.py'.
     
-       51| def test_Cant_mod_complex_numbers():
-       52|     try:
-    -->53|         3 + 3j % 2
+       52| def test_Cant_mod_complex_numbers():
+       53|     try:
+    -->54|         3 + 3j % 2
                        ^^^^^^
-       54|     except TypeError as e:
+       55|     except TypeError as e:
 
 
 Comparison not supported
@@ -2587,7 +2585,7 @@ Comparison not supported
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 371, in test_Comparison_not_supported
+      File "TESTS:\runtime\test_type_error.py", line 375, in test_Comparison_not_supported
         b >= a
     TypeError: '>=' not supported between instances of 'int' and 'str'
     
@@ -2603,14 +2601,14 @@ Comparison not supported
     целое число (`int`) и строка (`str`).
     Возможно, вы забыли преобразовать строку `a` в целое число (`int`).
     
-    Исключение возникло в строке `371` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `375` файла 'TESTS:\runtime\test_type_error.py'.
     
-       368| try:
-       369|     a = "2"
-       370|     b = 42
-    -->371|     b >= a
+       372| try:
+       373|     a = "2"
+       374|     b = 42
+    -->375|     b >= a
                 ^^^^^^
-       372| except TypeError as e:
+       376| except TypeError as e:
 
             a:  '2'
             b:  42
@@ -2624,7 +2622,7 @@ Derive from BaseException
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 584, in test_Derive_from_BaseException
+      File "TESTS:\runtime\test_type_error.py", line 594, in test_Derive_from_BaseException
         raise "exception"  # noqa
     TypeError: exceptions must derive from BaseException
     
@@ -2637,14 +2635,14 @@ Derive from BaseException
     It is recommended that user-defined exceptions derive from
     `Exception`, a subclass of `BaseException`.
     
-    Исключение возникло в строке `584` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `594` файла 'TESTS:\runtime\test_type_error.py'.
     
-       580| if friendly_traceback.get_lang() == "en":
-       581|     assert "you must only have classes that derive from `BaseException`" in result
-       582| 
-       583| try:
-    -->584|     raise "exception"  # noqa
-       585| except TypeError as e:
+       590| if friendly_traceback.get_lang() == "en":
+       591|     assert "you must only have classes that derive from `BaseException`" in result
+       592| 
+       593| try:
+    -->594|     raise "exception"  # noqa
+       595| except TypeError as e:
 
 
 Generator has no len
@@ -2654,7 +2652,7 @@ Generator has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 1035, in test_Generator_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 1062, in test_Generator_has_no_len
         nb = len(letter
     TypeError: object of type 'generator' has no len()
     
@@ -2671,15 +2669,15 @@ Generator has no len
     
         len([letter                 for letter in "word"])
     
-    Исключение возникло в строке `1035` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `1062` файла 'TESTS:\runtime\test_type_error.py'.
     
-       1033| def test_Generator_has_no_len():
-       1034|     try:
-    -->1035|         nb = len(letter
+       1060| def test_Generator_has_no_len():
+       1061|     try:
+    -->1062|         nb = len(letter
                           ^^^^^^^^^^
-       1036|                  for letter in "word")
+       1063|                  for letter in "word")
                               ^^^^^^^^^^^^^^^^^^^^^
-       1037|     except TypeError as e:
+       1064|     except TypeError as e:
 
             len:  <builtin function len>
         
@@ -2692,7 +2690,7 @@ Indices must be integers or slices
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 723, in test_Indices_must_be_integers_or_slices
+      File "TESTS:\runtime\test_type_error.py", line 736, in test_Indices_must_be_integers_or_slices
         [1, 2, 3]["2"]
     TypeError: list indices must be integers or slices, not str
     
@@ -2711,15 +2709,15 @@ Indices must be integers or slices
     
     Возможно, вы забыли преобразовать `"2"` в целое число.
     
-    Исключение возникло в строке `723` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `736` файла 'TESTS:\runtime\test_type_error.py'.
     
-       719| if friendly_traceback.get_lang() == "en":
-       720|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-       721| 
-       722| try:
-    -->723|     [1, 2, 3]["2"]
+       732| if friendly_traceback.get_lang() == "en":
+       733|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+       734| 
+       735| try:
+    -->736|     [1, 2, 3]["2"]
                 ^^^^^^^^^^^^^^
-       724| except TypeError as e:
+       737| except TypeError as e:
 
 
 Not an integer
@@ -2729,7 +2727,7 @@ Not an integer
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 686, in test_Not_an_integer
+      File "TESTS:\runtime\test_type_error.py", line 698, in test_Not_an_integer
         range(c, d)
     TypeError: 'str' object cannot be interpreted as an integer
     
@@ -2742,15 +2740,15 @@ Not an integer
     
     Вы записали объект типа `str`, где ожидалось целочисленное значение.
     Возможно, вы забыли преобразовать `c, d` в целые числа.
-    Исключение возникло в строке `686` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `698` файла 'TESTS:\runtime\test_type_error.py'.
     
-       682|     assert "Perhaps you forgot to convert `1.0" in result
-       683| 
-       684| c, d = "2", "3"
-       685| try:
-    -->686|     range(c, d)
+       694|     assert "Perhaps you forgot to convert `1.0" in result
+       695| 
+       696| c, d = "2", "3"
+       697| try:
+    -->698|     range(c, d)
                 ^^^^^^^^^^^
-       687| except TypeError as e:
+       699| except TypeError as e:
 
             c:  '2'
             d:  '3'
@@ -2765,7 +2763,7 @@ Not callable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 552, in test_Not_callable
+      File "TESTS:\runtime\test_type_error.py", line 561, in test_Not_callable
         _ = [1, 2](a + b)
     TypeError: 'list' object is not callable
     
@@ -2785,15 +2783,15 @@ Not callable
     Возможно, вы хотели использовать `[]` вместо `()` и написать
     `[1, 2][a + b]`
     
-    Исключение возникло в строке `552` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `561` файла 'TESTS:\runtime\test_type_error.py'.
     
-       548|     assert "b.a_list[3]" in result
-       549| 
-       550| try:
-       551|     a, b = 3, 7
-    -->552|     _ = [1, 2](a + b)
+       557|     assert "b.a_list[3]" in result
+       558| 
+       559| try:
+       560|     a, b = 3, 7
+    -->561|     _ = [1, 2](a + b)
                     ^^^^^^^^^^^^^
-       553| except TypeError as e:
+       562| except TypeError as e:
 
             a:  3
             b:  7
@@ -2808,7 +2806,7 @@ Object is not iterable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 809, in test_Object_is_not_iterable
+      File "TESTS:\runtime\test_type_error.py", line 826, in test_Object_is_not_iterable
         list(42)
     TypeError: 'int' object is not iterable
     
@@ -2820,13 +2818,13 @@ Object is not iterable
     Итерабельным является обьект, способный возвращать свои элементы по одному за раз.
     Контейнеры Python (`list, tuple, dict` и т.д.) являются итерабельными.
     
-    Исключение возникло в строке `809` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `826` файла 'TESTS:\runtime\test_type_error.py'.
     
-       807| def test_Object_is_not_iterable():
-       808|     try:
-    -->809|         list(42)
+       824| def test_Object_is_not_iterable():
+       825|     try:
+    -->826|         list(42)
                     ^^^^^^^^
-       810|     except TypeError as e:
+       827|     except TypeError as e:
 
             list:  <class list>
         
@@ -2839,7 +2837,7 @@ Object is not subscriptable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 795, in test_Object_is_not_subscriptable
+      File "TESTS:\runtime\test_type_error.py", line 811, in test_Object_is_not_subscriptable
         a = f[1]
     TypeError: 'function' object is not subscriptable
     
@@ -2855,15 +2853,15 @@ Object is not subscriptable
     
     Возможно, вы хотели написать `f(1)`.
     
-    Исключение возникло в строке `795` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `811` файла 'TESTS:\runtime\test_type_error.py'.
     
-       791| def f():
-       792|     pass
-       793| 
-       794| try:
-    -->795|     a = f[1]
+       807| def f():
+       808|     pass
+       809| 
+       810| try:
+    -->811|     a = f[1]
                     ^^^^
-       796| except TypeError as e:
+       812| except TypeError as e:
 
             f:  <function f>
                 defined in <function test_Object_is_not_subscriptable>
@@ -2877,7 +2875,7 @@ Slice indices must be integers or None
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 737, in test_Slice_indices_must_be_integers_or_None
+      File "TESTS:\runtime\test_type_error.py", line 751, in test_Slice_indices_must_be_integers_or_None
         [1, 2, 3][1.0:2.0]
     TypeError: slice indices must be integers or None or have an __index__ method
     
@@ -2892,13 +2890,13 @@ Slice indices must be integers or None
     каждый из `start`, `stop`, `step` должен быть либо целым числом, либо `None`,
     либо каким-то другим объектом, имеющим метод `__index__`.
     
-    Исключение возникло в строке `737` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `751` файла 'TESTS:\runtime\test_type_error.py'.
     
-       735| def test_Slice_indices_must_be_integers_or_None():
-       736|     try:
-    -->737|         [1, 2, 3][1.0:2.0]
+       749| def test_Slice_indices_must_be_integers_or_None():
+       750|     try:
+    -->751|         [1, 2, 3][1.0:2.0]
                     ^^^^^^^^^^^^^^^^^^
-       738|     except TypeError as e:
+       752|     except TypeError as e:
 
 
 Too few positional argument
@@ -2908,7 +2906,7 @@ Too few positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 492, in test_Too_few_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 500, in test_Too_few_positional_argument
         fn(1)
     TypeError: test_Too_few_positional_argument.<locals>.fn() missing 2 required positional arguments: 'b' and 'c'
     
@@ -2920,15 +2918,15 @@ Too few positional argument
     Видимо, вы вызвали функцию 'test_Too_few_positional_argument.<locals>.fn()' с
     меньшим количеством позиционных аргументов, чем требуется (2 missing).
     
-    Исключение возникло в строке `492` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `500` файла 'TESTS:\runtime\test_type_error.py'.
     
-       488| def fn(a, b, c):
-       489|     pass
-       490| 
-       491| try:
-    -->492|     fn(1)
+       496| def fn(a, b, c):
+       497|     pass
+       498| 
+       499| try:
+    -->500|     fn(1)
                 ^^^^^
-       493| except TypeError as e:
+       501| except TypeError as e:
 
             fn:  <function fn>
                 defined in <function test_Too_few_positional_argument>
@@ -2942,7 +2940,7 @@ Too many positional argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 473, in test_Too_many_positional_argument
+      File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_many_positional_argument
         A().f(1)
     TypeError: test_Too_many_positional_argument.<locals>.A.f() takes 1 positional argument but 2 were given
     
@@ -2958,15 +2956,15 @@ Too many positional argument
     позиционный(е) аргумент(ы) 1
     Возможно, вы забыли `self` при обьявлении `A.f`.
     
-    Исключение возникло в строке `473` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `480` файла 'TESTS:\runtime\test_type_error.py'.
     
-       469|     def f(x):
-       470|         pass
-       471| 
-       472| try:
-    -->473|     A().f(1)
+       476|     def f(x):
+       477|         pass
+       478| 
+       479| try:
+    -->480|     A().f(1)
                 ^^^^^^^^
-       474| except TypeError as e:
+       481| except TypeError as e:
 
             A:  <class A>
                 defined in <function test_type_error.test_Too_many_positional_argument>
@@ -2980,7 +2978,7 @@ Tuple no item assignment
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 440, in test_Tuple_no_item_assignment
+      File "TESTS:\runtime\test_type_error.py", line 446, in test_Tuple_no_item_assignment
         a[0] = 0
     TypeError: 'tuple' object does not support item assignment
     
@@ -2997,14 +2995,14 @@ Tuple no item assignment
     скорее всего, с помощью операции индексирования
     Возможно, вы хотели использовать список.
     
-    Исключение возникло в строке `440` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `446` файла 'TESTS:\runtime\test_type_error.py'.
     
-       437| def test_Tuple_no_item_assignment():
-       438|     a = (1, 2, 3)
-       439|     try:
-    -->440|         a[0] = 0
+       443| def test_Tuple_no_item_assignment():
+       444|     a = (1, 2, 3)
+       445|     try:
+    -->446|         a[0] = 0
                     ^^^^
-       441|     except TypeError as e:
+       447|     except TypeError as e:
 
             a:  (1, 2, 3)
             a[0]:  1
@@ -3018,7 +3016,7 @@ Unhachable type
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 754, in test_Unhachable_type
+      File "TESTS:\runtime\test_type_error.py", line 769, in test_Unhachable_type
         {[1, 2]: 1}
     TypeError: unhashable type: 'list'
     
@@ -3031,12 +3029,12 @@ Unhachable type
     в качестве элементов `set` или ключей `dict`.
     Хешируемые объекты - это объекты, которые не меняют своего значения после их создания.Вместо список `list` используйте кортеж `tuple`.
     
-    Исключение возникло в строке `754` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `769` файла 'TESTS:\runtime\test_type_error.py'.
     
-       752| def test_Unhachable_type():
-       753|     try:
-    -->754|         {[1, 2]: 1}
-       755|     except TypeError as e:
+       767| def test_Unhachable_type():
+       768|     try:
+    -->769|         {[1, 2]: 1}
+       770|     except TypeError as e:
 
 
 Unsupported operand types
@@ -3046,7 +3044,7 @@ Unsupported operand types
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 322, in test_Unsupported_operand_types
+      File "TESTS:\runtime\test_type_error.py", line 325, in test_Unsupported_operand_types
         a @= b
     TypeError: unsupported operand type(s) for @=: 'str' and 'int'
     
@@ -3061,13 +3059,13 @@ Unsupported operand types
     Этот оператор обычно используется только
     для умножения матриц.
     
-    Исключение возникло в строке `322` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `325` файла 'TESTS:\runtime\test_type_error.py'.
     
-       319| try:
-       320|     a = "a"
-       321|     b = 2
-    -->322|     a @= b
-       323| except TypeError as e:
+       322| try:
+       323|     a = "a"
+       324|     b = 2
+    -->325|     a @= b
+       326| except TypeError as e:
 
             a:  'a'
             b:  2
@@ -3081,7 +3079,7 @@ divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 67, in test_divmod
+      File "TESTS:\runtime\test_type_error.py", line 69, in test_divmod
         result = divmod(a, b)
     TypeError: unsupported operand type(s) for divmod(): 'int' and 'complex'
     
@@ -3093,14 +3091,14 @@ divmod
     Аргументы `divmod` должны быть целыми (`int`) или вещественными (`float`) числами.
     По крайней мере один из аргументов был комплексным числом.
     
-    Исключение возникло в строке `67` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `69` файла 'TESTS:\runtime\test_type_error.py'.
     
-       64| a = 2
-       65| b = 3 + 2j
-       66| try:
-    -->67|     result = divmod(a, b)
+       66| a = 2
+       67| b = 3 + 2j
+       68| try:
+    -->69|     result = divmod(a, b)
                         ^^^^^^^^^^^^
-       68| except TypeError as e:
+       70| except TypeError as e:
 
             a:  2
             b:  (3+2j)
@@ -3115,7 +3113,7 @@ function got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 972, in test_function_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 996, in test_function_got_multiple_argument
         fn2(0, a=1)
     TypeError: test_function_got_multiple_argument.<locals>.fn2() got multiple values for argument 'a'
     
@@ -3129,15 +3127,15 @@ function got multiple argument
     Эта функция принимает следующие аргументы:
     `a, b=1`
     
-    Исключение возникло в строке `972` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `996` файла 'TESTS:\runtime\test_type_error.py'.
     
-       968| def fn2(a, b=1):
-       969|     pass
-       970| 
-       971| try:
-    -->972|     fn2(0, a=1)
+       992| def fn2(a, b=1):
+       993|     pass
+       994| 
+       995| try:
+    -->996|     fn2(0, a=1)
                 ^^^^^^^^^^^
-       973| except TypeError as e:
+       997| except TypeError as e:
 
             fn2:  <function fn2>
                 defined in <function test_function_got_multiple_argument>
@@ -3151,7 +3149,7 @@ function has no len
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 897, in test_function_has_no_len
+      File "TESTS:\runtime\test_type_error.py", line 919, in test_function_has_no_len
         len(bad)
     TypeError: object of type 'function' has no len()
     
@@ -3166,15 +3164,15 @@ function has no len
     Возможно, вы хотели написать:
     `len(bad())`.
     
-    Исключение возникло в строке `897` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `919` файла 'TESTS:\runtime\test_type_error.py'.
     
-       893| def bad():
-       894|     pass
-       895| 
-       896| try:
-    -->897|     len(bad)
+       915| def bad():
+       916|     pass
+       917| 
+       918| try:
+    -->919|     len(bad)
                 ^^^^^^^^
-       898| except TypeError as e:
+       920| except TypeError as e:
 
             bad:  <function bad> defined in <function test_function_has_no_len>
             len:  <builtin function len>
@@ -3188,7 +3186,7 @@ getattr attribute name must be string
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 1018, in test_getattr_attribute_name_must_be_string
+      File "TESTS:\runtime\test_type_error.py", line 1044, in test_getattr_attribute_name_must_be_string
         getattr("__repr__", 1)  # as reported in issue #77
     TypeError: getattr(): attribute name must be string
     
@@ -3199,18 +3197,18 @@ getattr attribute name must be string
     
     Второй аргумент функции `getattr()` должен быть строкой.
     
-    Исключение возникло в строке `1018` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `1044` файла 'TESTS:\runtime\test_type_error.py'.
     
-       1011| if friendly_traceback.get_lang() == "en":
-       1012|     assert (
-       1013|         "The second argument of the function `hasattr()` must be a string."
-       1014|         in result
-       1015|     )
-       1016| 
-       1017| try:
-    -->1018|     getattr("__repr__", 1)  # as reported in issue #77
+       1037| if friendly_traceback.get_lang() == "en":
+       1038|     assert (
+       1039|         "The second argument of the function `hasattr()` must be a string."
+       1040|         in result
+       1041|     )
+       1042| 
+       1043| try:
+    -->1044|     getattr("__repr__", 1)  # as reported in issue #77
                  ^^^^^^^^^^^^^^^^^^^^^^
-       1019| except TypeError as e:
+       1045| except TypeError as e:
 
             getattr:  <builtin function getattr>
         
@@ -3223,7 +3221,7 @@ method got multiple argument
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 991, in test_method_got_multiple_argument
+      File "TESTS:\runtime\test_type_error.py", line 1016, in test_method_got_multiple_argument
         t.some_method(0, a=1)
     TypeError: test_method_got_multiple_argument.<locals>.T.some_method() got multiple values for argument 'a'
     
@@ -3236,15 +3234,15 @@ method got multiple argument
     при вызове функции с именем `t.some_method`.
     Эта функция принимает только один аргумент: `a`.
     
-    Исключение возникло в строке `991` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `1016` файла 'TESTS:\runtime\test_type_error.py'.
     
-       987|         pass
-       988| 
-       989| t = T()
-       990| try:
-    -->991|     t.some_method(0, a=1)
-                ^^^^^^^^^^^^^^^^^^^^^
-       992| except TypeError as e:
+       1012|         pass
+       1013| 
+       1014| t = T()
+       1015| try:
+    -->1016|     t.some_method(0, a=1)
+                 ^^^^^^^^^^^^^^^^^^^^^
+       1017| except TypeError as e:
 
             t:  <T object>
                 defined in <function test_type_error.test_method_got_multiple_argument>
@@ -3261,7 +3259,7 @@ vars arg must have dict
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_type_error.py", line 941, in test_vars_arg_must_have_dict
+      File "TESTS:\runtime\test_type_error.py", line 964, in test_vars_arg_must_have_dict
         vars(f)
     TypeError: vars() argument must have __dict__ attribute
     
@@ -3274,15 +3272,15 @@ vars arg must have dict
     `__dict__` объекта.
     Объект `f` использует `__slots__` вместо `__dict__`.
     
-    Исключение возникло в строке `941` файла 'TESTS:\runtime\test_type_error.py'.
+    Исключение возникло в строке `964` файла 'TESTS:\runtime\test_type_error.py'.
     
-       937|     assert no_slots not in result
-       938|     assert use_slots not in result
-       939| 
-       940| try:
-    -->941|     vars(f)
+       960|     assert no_slots not in result
+       961|     assert use_slots not in result
+       962| 
+       963| try:
+    -->964|     vars(f)
                 ^^^^^^^
-       942| except TypeError as e:
+       965| except TypeError as e:
 
             f:  <F object>
                 defined in <function test_type_error.test_vars_arg_must_have_dict>
@@ -3301,7 +3299,7 @@ Missing both
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
+      File "TESTS:\runtime\test_unbound_local_error.py", line 65, in test_Missing_both
         outer_missing_both()
       File "TESTS:\runtime\test_unbound_local_error.py", line 22, in outer_missing_both
         inner()
@@ -3333,13 +3331,13 @@ Missing both
         nonlocal spam_missing_both
     в качестве первой строки внутри вашей функции.
     
-    Выполнение остановлено на строке `63` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Выполнение остановлено на строке `65` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-       61| def test_Missing_both():
-       62|     try:
-    -->63|         outer_missing_both()
+       63| def test_Missing_both():
+       64|     try:
+    -->65|         outer_missing_both()
                    ^^^^^^^^^^^^^^^^^^^^
-       64|     except UnboundLocalError as e:
+       66|     except UnboundLocalError as e:
 
             global outer_missing_both:  <function outer_missing_both>
         
@@ -3414,7 +3412,7 @@ Missing nonlocal
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
+      File "TESTS:\runtime\test_unbound_local_error.py", line 46, in test_Missing_nonlocal
         outer_missing_nonlocal()
       File "TESTS:\runtime\test_unbound_local_error.py", line 16, in outer_missing_nonlocal
         inner()
@@ -3443,13 +3441,13 @@ Missing nonlocal
     
     должно быть включено в качестве первой строки внутри вашей функции.
     
-    Выполнение остановлено на строке `45` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Выполнение остановлено на строке `46` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-       43| def test_Missing_nonlocal():
-       44|     try:
-    -->45|         outer_missing_nonlocal()
+       44| def test_Missing_nonlocal():
+       45|     try:
+    -->46|         outer_missing_nonlocal()
                    ^^^^^^^^^^^^^^^^^^^^^^^^
-       46|     except UnboundLocalError as e:
+       47|     except UnboundLocalError as e:
 
             global outer_missing_nonlocal:  <function outer_missing_nonlocal>
         
@@ -3466,9 +3464,9 @@ Typo in local
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
+      File "TESTS:\runtime\test_unbound_local_error.py", line 104, in test_Typo_in_local
         test2()
-      File "TESTS:\runtime\test_unbound_local_error.py", line 98, in test2
+      File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test2
         alpha3 += 1
     UnboundLocalError: local variable 'alpha3' referenced before assignment
     
@@ -3486,24 +3484,24 @@ Typo in local
     Вместо того, чтобы написать `alpha3`, возможно, вы имели в виду следующее:
     *  Локальная область видимости: `alpha1`, `alpha2`
     
-    Выполнение остановлено на строке `101` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Выполнение остановлено на строке `104` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-        97|     alpha2 = 1
-        98|     alpha3 += 1
-        99| 
-       100| try:
-    -->101|     test2()
+       100|     alpha2 = 1
+       101|     alpha3 += 1
+       102| 
+       103| try:
+    -->104|     test2()
                 ^^^^^^^
-       102| except UnboundLocalError as e:
+       105| except UnboundLocalError as e:
 
             test2:  <function test2> defined in <function test_Typo_in_local>
         
-    Исключение возникло в строке `98` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Исключение возникло в строке `101` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-       95| def test2():
-       96|     alpha1 = 1
-       97|     alpha2 = 1
-    -->98|     alpha3 += 1
+        98| def test2():
+        99|     alpha1 = 1
+       100|     alpha2 = 1
+    -->101|     alpha3 += 1
 
 
 Using name of builtin
@@ -3513,9 +3511,9 @@ Using name of builtin
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
+      File "TESTS:\runtime\test_unbound_local_error.py", line 125, in test_Using_name_of_builtin
         dist([])
-      File "TESTS:\runtime\test_unbound_local_error.py", line 117, in dist
+      File "TESTS:\runtime\test_unbound_local_error.py", line 121, in dist
         max = max(points)
     UnboundLocalError: local variable 'max' referenced before assignment
     
@@ -3535,23 +3533,23 @@ Using name of builtin
     Обратите внимание, что обычно не стоит давать локальной переменной
     то же имя, что и встроенной функции Python (например, `max`).
     
-    Выполнение остановлено на строке `121` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Выполнение остановлено на строке `125` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-       118|     min = min(points)
-       119|     return max - min
-       120| try:
-    -->121|     dist([])
+       122|     min = min(points)
+       123|     return max - min
+       124| try:
+    -->125|     dist([])
                 ^^^^^^^^
-       122| except UnboundLocalError as e:
+       126| except UnboundLocalError as e:
 
             dist:  <function dist> defined in <function test_Using_name_of_builtin>
         
-    Исключение возникло в строке `117` файла 'TESTS:\runtime\test_unbound_local_error.py'.
+    Исключение возникло в строке `121` файла 'TESTS:\runtime\test_unbound_local_error.py'.
     
-       116| def dist(points):
-    -->117|     max = max(points)
+       120| def dist(points):
+    -->121|     max = max(points)
                       ^^^
-       118|     min = min(points)
+       122|     min = min(points)
 
             max:  <builtin function max>
         
@@ -3603,7 +3601,7 @@ Convert to int
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 187, in test_Convert_to_int
+      File "TESTS:\runtime\test_value_error.py", line 194, in test_Convert_to_int
         int('13a')
     ValueError: invalid literal for int() with base 10: '13a'
     
@@ -3615,15 +3613,15 @@ Convert to int
     содержащей цифры от `0` до `9` в целое число.
     Недопустимы следующие символы: `a`.
     
-    Исключение возникло в строке `187` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `194` файла 'TESTS:\runtime\test_value_error.py'.
     
-       183| if english:
-       184|     assert "needs to be first converted using `float()`" in result
-       185| 
-       186| try:
-    -->187|     int('13a')
+       190| if english:
+       191|     assert "needs to be first converted using `float()`" in result
+       192| 
+       193| try:
+    -->194|     int('13a')
                 ^^^^^^^^^^
-       188| except ValueError as e:
+       195| except ValueError as e:
 
             int:  <class int>
         
@@ -3636,7 +3634,7 @@ Could not convert to float
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+      File "TESTS:\runtime\test_value_error.py", line 92, in test_Could_not_convert_to_float
         float("42b")
     ValueError: could not convert string to float: '42b'
     
@@ -3646,13 +3644,13 @@ Could not convert to float
     The string `42b` cannot be converted to a `float`
     as it does not represent a number.
     
-    Исключение возникло в строке `88` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `92` файла 'TESTS:\runtime\test_value_error.py'.
     
-       86| def test_Could_not_convert_to_float():
-       87|     try:
-    -->88|         float("42b")
+       90| def test_Could_not_convert_to_float():
+       91|     try:
+    -->92|         float("42b")
                    ^^^^^^^^^^^^
-       89|     except ValueError as e:
+       93|     except ValueError as e:
 
             float:  <class float>
         
@@ -3665,7 +3663,7 @@ Date invalid month
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
+      File "TESTS:\runtime\test_value_error.py", line 60, in test_Date_invalid_month
         d = date(2021, 13, 1)
     ValueError: month must be in 1..12
     
@@ -3677,14 +3675,14 @@ Date invalid month
     Предполагаю, что вы указали недопустимое значение для месяца
     в объекте `date`. Допустимыми значениями являются целые числа от 1 до 12.
     
-    Исключение возникло в строке `58` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `60` файла 'TESTS:\runtime\test_value_error.py'.
     
-       55| def test_Date_invalid_month():
-       56|     from datetime import date
-       57|     try:
-    -->58|         d = date(2021, 13, 1)
+       57| def test_Date_invalid_month():
+       58|     from datetime import date
+       59|     try:
+    -->60|         d = date(2021, 13, 1)
                        ^^^^^^^^^^^^^^^^^
-       59|     except ValueError as e:
+       61|     except ValueError as e:
 
             date:  <class datetime.date>
         
@@ -3729,7 +3727,7 @@ Pow third arg cannot be zero
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+      File "TESTS:\runtime\test_value_error.py", line 108, in test_Pow_third_arg_cannot_be_zero
         pow(2, 4, a)
     ValueError: pow() 3rd argument cannot be 0
     
@@ -3738,14 +3736,14 @@ Pow third arg cannot be zero
     
     Третий аргумент функции `pow()` не может быть нулём.
     
-    Исключение возникло в строке `103` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `108` файла 'TESTS:\runtime\test_value_error.py'.
     
-       100| def test_Pow_third_arg_cannot_be_zero():
-       101|     a = 0
-       102|     try:
-    -->103|         pow(2, 4, a)
+       105| def test_Pow_third_arg_cannot_be_zero():
+       106|     a = 0
+       107|     try:
+    -->108|         pow(2, 4, a)
                     ^^^^^^^^^^^^
-       104|     except ValueError as e:
+       109|     except ValueError as e:
 
             a:  0
             pow:  <builtin function pow>
@@ -3759,7 +3757,7 @@ Slots conflicts with class variable
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+      File "TESTS:\runtime\test_value_error.py", line 75, in test_Slots_conflicts_with_class_variable
         class F:
     ValueError: 'a' in __slots__ conflicts with class variable
     
@@ -3769,12 +3767,12 @@ Slots conflicts with class variable
     Имя `a` используется и как имя переменной класса,
     и как строковый элемент в классе `__slots__`. Это недопустимо.
     
-    Исключение возникло в строке `72` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `75` файла 'TESTS:\runtime\test_value_error.py'.
     
-       70| def test_Slots_conflicts_with_class_variable():
-       71|     try:
-    -->72|         class F:
-       73|             __slots__ = ["a", "b"]
+       73| def test_Slots_conflicts_with_class_variable():
+       74|     try:
+    -->75|         class F:
+       76|             __slots__ = ["a", "b"]
 
 
 Too many values to unpack
@@ -3784,7 +3782,7 @@ Too many values to unpack
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
+      File "TESTS:\runtime\test_value_error.py", line 44, in test_Too_many_values_to_unpack
         a, b = c
     ValueError: too many values to unpack (expected 2)
     
@@ -3796,13 +3794,13 @@ Too many values to unpack
     В данном случае имен (2) меньше,
     чем длина итерируемого объекта, список `list` длиной 3.
     
-    Исключение возникло в строке `43` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `44` файла 'TESTS:\runtime\test_value_error.py'.
     
-       40| def test_Too_many_values_to_unpack():
-       41|     c = [1, 2, 3]
-       42|     try:
-    -->43|         a, b = c
-       44|     except ValueError as e:
+       41| def test_Too_many_values_to_unpack():
+       42|     c = [1, 2, 3]
+       43|     try:
+    -->44|         a, b = c
+       45|     except ValueError as e:
 
             c:  [1, 2, 3]
         
@@ -3815,7 +3813,7 @@ int base not in range
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 201, in test_int_base_not_in_range
+      File "TESTS:\runtime\test_value_error.py", line 209, in test_int_base_not_in_range
         int('18', base=37)
     ValueError: int() base must be >= 2 and <= 36, or 0
     
@@ -3826,13 +3824,13 @@ int base not in range
     или любым целым числом от 2 до 36.
     Вы написали 37, что недопустимо.
     
-    Исключение возникло в строке `201` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `209` файла 'TESTS:\runtime\test_value_error.py'.
     
-       199| def test_int_base_not_in_range():
-       200|     try:
-    -->201|         int('18', base=37)
+       207| def test_int_base_not_in_range():
+       208|     try:
+    -->209|         int('18', base=37)
                     ^^^^^^^^^^^^^^^^^^
-       202|     except ValueError as e:
+       210|     except ValueError as e:
 
             int:  <class int>
         
@@ -3845,7 +3843,7 @@ remove item not in list
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 227, in test_remove_item_not_in_list
+      File "TESTS:\runtime\test_value_error.py", line 236, in test_remove_item_not_in_list
         a_list.remove(b)
     ValueError: list.remove(x): x not in list
     
@@ -3855,14 +3853,14 @@ remove item not in list
     You have attempted to remove `b` from the list `a_list`.
     However, `a_list` does not contain `b`.
     
-    Исключение возникло в строке `227` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `236` файла 'TESTS:\runtime\test_value_error.py'.
     
-       224| a_list = [1, 2, 3]
-       225| b = 4
-       226| try:
-    -->227|     a_list.remove(b)
+       233| a_list = [1, 2, 3]
+       234| b = 4
+       235| try:
+    -->236|     a_list.remove(b)
                 ^^^^^^^^^^^^^^^^
-       228| except ValueError as e:
+       237| except ValueError as e:
 
             a_list:  [1, 2, 3]
             b:  4
@@ -3877,7 +3875,7 @@ time strptime incorrect format
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
+      File "TESTS:\runtime\test_value_error.py", line 133, in test_time_strptime_incorrect_format
         time.strptime("2020-01-01", "%d %m %Y")
     ValueError: time data '2020-01-01' does not match format '%d %m %Y'
     
@@ -3892,15 +3890,15 @@ time strptime incorrect format
     https://docs.python.org/3/library/time.html#time.strftime
     Следующий сайт также может быть полезен: https://www.strfti.me/
     
-    Исключение возникло в строке `127` файла 'TESTS:\runtime\test_value_error.py'.
+    Исключение возникло в строке `133` файла 'TESTS:\runtime\test_value_error.py'.
     
-       123|     return
-       124| 
-       125| import time
-       126| try:
-    -->127|     time.strptime("2020-01-01", "%d %m %Y")
+       129|     return
+       130| 
+       131| import time
+       132| try:
+    -->133|     time.strptime("2020-01-01", "%d %m %Y")
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-       128| except ValueError as e:
+       134| except ValueError as e:
 
             time:  <module time (builtin)>
             time.strptime:  <builtin function strptime>
@@ -3918,7 +3916,7 @@ Complex division
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
+      File "TESTS:\runtime\test_zero_division_error.py", line 180, in test_Complex_division
         1 / zero
     ZeroDivisionError: complex division by zero
     
@@ -3931,14 +3929,14 @@ Complex division
     
     которое равно нулю.
     
-    Исключение возникло в строке `173` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `180` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       170| def test_Complex_division():
-       171|     zero = 0j
-       172|     try:
-    -->173|         1 / zero
+       177| def test_Complex_division():
+       178|     zero = 0j
+       179|     try:
+    -->180|         1 / zero
                     ^^^^^^^^
-       174|     except ZeroDivisionError as e:
+       181|     except ZeroDivisionError as e:
 
             zero:  0j
         
@@ -3951,7 +3949,7 @@ Division by zero literal
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+      File "TESTS:\runtime\test_zero_division_error.py", line 229, in test_Division_by_zero_literal
         1.0 / 0
     ZeroDivisionError: float division by zero
     
@@ -3960,15 +3958,15 @@ Division by zero literal
     
     Вы делите на ноль.
     
-    Исключение возникло в строке `220` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `229` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       216| if friendly_traceback.get_lang() == "en":
-       217|     assert "Using the modulo operator, `%`, you are dividing by zero" in result
-       218| 
-       219| try:
-    -->220|     1.0 / 0
+       225| if friendly_traceback.get_lang() == "en":
+       226|     assert "Using the modulo operator, `%`, you are dividing by zero" in result
+       227| 
+       228| try:
+    -->229|     1.0 / 0
                 ^^^^^^^
-       221| except ZeroDivisionError as e:
+       230| except ZeroDivisionError as e:
 
 
 Division operator
@@ -4015,7 +4013,7 @@ Divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
+      File "TESTS:\runtime\test_zero_division_error.py", line 100, in test_Divmod
         divmod(1, zero)
     ZeroDivisionError: integer division or modulo by zero
     
@@ -4024,14 +4022,14 @@ Divmod
     
     Второй аргумент функции `divmod()` равен нулю.
     
-    Исключение возникло в строке `97` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `100` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       94| def test_Divmod():
-       95|     zero = 0
-       96|     try:
-    -->97|         divmod(1, zero)
-                   ^^^^^^^^^^^^^^^
-       98|     except ZeroDivisionError as e:
+        97| def test_Divmod():
+        98|     zero = 0
+        99|     try:
+    -->100|         divmod(1, zero)
+                    ^^^^^^^^^^^^^^^
+       101|     except ZeroDivisionError as e:
 
             zero:  0
             divmod:  <builtin function divmod>
@@ -4045,7 +4043,7 @@ Float division
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
+      File "TESTS:\runtime\test_zero_division_error.py", line 148, in test_Float_division
         1 / zero
     ZeroDivisionError: float division by zero
     
@@ -4058,14 +4056,14 @@ Float division
     
     которое равно нулю.
     
-    Исключение возникло в строке `143` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `148` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       140| def test_Float_division():
-       141|     zero = 0.0
-       142|     try:
-    -->143|         1 / zero
+       145| def test_Float_division():
+       146|     zero = 0.0
+       147|     try:
+    -->148|         1 / zero
                     ^^^^^^^^
-       144|     except ZeroDivisionError as e:
+       149|     except ZeroDivisionError as e:
 
             zero:  0.0
         
@@ -4078,7 +4076,7 @@ Float divmod
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
+      File "TESTS:\runtime\test_zero_division_error.py", line 164, in test_Float_divmod
         divmod(1, zero)
     ZeroDivisionError: float divmod()
     
@@ -4087,14 +4085,14 @@ Float divmod
     
     Второй аргумент функции `divmod()` равен нулю.
     
-    Исключение возникло в строке `158` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `164` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       155| def test_Float_divmod():
-       156|     zero = 0.0
-       157|     try:
-    -->158|         divmod(1, zero)
+       161| def test_Float_divmod():
+       162|     zero = 0.0
+       163|     try:
+    -->164|         divmod(1, zero)
                     ^^^^^^^^^^^^^^^
-       159|     except ZeroDivisionError as e:
+       165|     except ZeroDivisionError as e:
 
             zero:  0.0
             divmod:  <builtin function divmod>
@@ -4108,7 +4106,7 @@ Float modulo
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
+      File "TESTS:\runtime\test_zero_division_error.py", line 132, in test_Float_modulo
         1 % zero
     ZeroDivisionError: float modulo
     
@@ -4121,18 +4119,18 @@ Float modulo
     
     which is equal to zero.
     
-    Исключение возникло в строке `128` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `132` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       121|     assert (
-       122|         "The following mathematical expression includes a division by zero"
-       123|         in result
-       124|     )
-       125|     assert "done using the modulo operator" in result
-       126| 
-       127| try:
-    -->128|     1 % zero
+       125|     assert (
+       126|         "The following mathematical expression includes a division by zero"
+       127|         in result
+       128|     )
+       129|     assert "done using the modulo operator" in result
+       130| 
+       131| try:
+    -->132|     1 % zero
                 ^^^^^^^^
-       129| except ZeroDivisionError as e:
+       133| except ZeroDivisionError as e:
 
             zero:  0.0
         
@@ -4145,7 +4143,7 @@ Integer division operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
+      File "TESTS:\runtime\test_zero_division_error.py", line 49, in test_Integer_division_operator
         1 // zero
     ZeroDivisionError: integer division or modulo by zero
     
@@ -4158,18 +4156,18 @@ Integer division operator
     
     которое равно нулю.
     
-    Исключение возникло в строке `48` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `49` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       41| if friendly_traceback.get_lang() == "en":
-       42|     assert (
-       43|         "The following mathematical expression includes a division by zero"
-       44|         in result
-       45|     )
-       46| 
-       47| try:
-    -->48|     1 // zero
+       42| if friendly_traceback.get_lang() == "en":
+       43|     assert (
+       44|         "The following mathematical expression includes a division by zero"
+       45|         in result
+       46|     )
+       47| 
+       48| try:
+    -->49|     1 // zero
                ^^^^^^^^^
-       49| except ZeroDivisionError as e:
+       50| except ZeroDivisionError as e:
 
             zero:  0
         
@@ -4182,7 +4180,7 @@ Mixed operations
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
+      File "TESTS:\runtime\test_zero_division_error.py", line 243, in test_Mixed_operations
         a = divmod(8, 1 // 2)
     ZeroDivisionError: integer division or modulo by zero
     
@@ -4193,13 +4191,13 @@ Mixed operations
     
         divmod(8, 1 // 2)
     
-    Исключение возникло в строке `233` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `243` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       231| def test_Mixed_operations():
-       232|     try:
-    -->233|         a = divmod(8, 1 // 2)
+       241| def test_Mixed_operations():
+       242|     try:
+    -->243|         a = divmod(8, 1 // 2)
                         ^^^^^^^^^^^^^^^^^
-       234|     except ZeroDivisionError as e:
+       244|     except ZeroDivisionError as e:
 
             divmod:  <builtin function divmod>
             1 // 2:  0
@@ -4213,7 +4211,7 @@ Modulo operator
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
+      File "TESTS:\runtime\test_zero_division_error.py", line 81, in test_Modulo_operator
         1 % zero
     ZeroDivisionError: integer division or modulo by zero
     
@@ -4226,18 +4224,18 @@ Modulo operator
     
     which is equal to zero.
     
-    Исключение возникло в строке `79` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `81` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       72| if friendly_traceback.get_lang() == "en":
-       73|     assert (
-       74|         "The following mathematical expression includes a division by zero"
-       75|         in result
-       76|     )
-       77| 
-       78| try:
-    -->79|     1 % zero
+       74| if friendly_traceback.get_lang() == "en":
+       75|     assert (
+       76|         "The following mathematical expression includes a division by zero"
+       77|         in result
+       78|     )
+       79| 
+       80| try:
+    -->81|     1 % zero
                ^^^^^^^^
-       80| except ZeroDivisionError as e:
+       82| except ZeroDivisionError as e:
 
             zero:  0
         
@@ -4250,7 +4248,7 @@ Raise zero negative power
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+      File "TESTS:\runtime\test_zero_division_error.py", line 196, in test_Raise_zero_negative_power
         zero**-1
     ZeroDivisionError: 0.0 cannot be raised to a negative power
     
@@ -4260,14 +4258,14 @@ Raise zero negative power
     Вы пытаетесь возвести число 0 в отрицательную степень.
     что эквивалентно делению на ноль.
     
-    Исключение возникло в строке `188` файла 'TESTS:\runtime\test_zero_division_error.py'.
+    Исключение возникло в строке `196` файла 'TESTS:\runtime\test_zero_division_error.py'.
     
-       185| def test_Raise_zero_negative_power():
-       186|     zero = 0
-       187|     try:
-    -->188|         zero**-1
+       193| def test_Raise_zero_negative_power():
+       194|     zero = 0
+       195|     try:
+    -->196|         zero**-1
                     ^^^^^^^^
-       189|     except ZeroDivisionError as e:
+       197|     except ZeroDivisionError as e:
 
             zero:  0
         

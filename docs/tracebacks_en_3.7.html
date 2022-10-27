@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.7.html" /><link rel="prev" title="Friendly SyntaxError tracebacks - in English" href="syntax_tracebacks_en_3.6.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>Friendly tracebacks - in English - friendly-traceback 0.7.50</title>
+        <title>Friendly tracebacks - in English - friendly-traceback 0.7.53</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">friendly-traceback 0.7.50</div></a>
+      <a href="index.html"><div class="brand">friendly-traceback 0.7.53</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -152,7 +152,7 @@
     <img class="sidebar-logo" src="_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.50</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.53</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -168,7 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="confidential.html">Logging and keeping confidential information secret</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interactive usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="repl.html">Interactive mode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">history()</a></li>
@@ -328,7 +328,7 @@ Not all cases handled by friendly are included here.</p>
 This needs to be done explicitly, independently of updating the
 documentation using Sphinx.</p>
 </div>
-<p>Friendly-traceback version: 0.7.50
+<p>Friendly-traceback version: 0.7.53
 Python version: 3.7.9</p>
 <section id="arithmeticerror">
 <h2>ArithmeticError<a class="headerlink" href="#arithmeticerror" title="Permalink to this heading">¶</a></h2>
@@ -391,7 +391,7 @@ Exception raised on line `8` of file 'TESTS:\runtime\test_assertion_error.py'.
 <section id="attribute-from-other-module">
 <h3>Attribute from other module<a class="headerlink" href="#attribute-from-other-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 325, in test_Attribute_from_other_module
+  File "TESTS:\runtime\test_attribute_error.py", line 336, in test_Attribute_from_other_module
     keyword.pi
 AttributeError: module 'keyword' has no attribute 'pi'
 
@@ -404,15 +404,15 @@ Instead of the module `keyword`, perhaps you wanted to use
 the attribute `pi` of one of the following modules:
 `math, cmath`.
 
-Exception raised on line `325` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `336` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   321|     assert "Did you mean `math`?" in result
-   322|
-   323| import cmath
-   324| try:
---&gt;325|     keyword.pi
+   332|     assert "Did you mean `math`?" in result
+   333|
+   334| import cmath
+   335| try:
+--&gt;336|     keyword.pi
             ^^^^^^^^^^
-   326| except AttributeError as e:
+   337| except AttributeError as e:
 
         keyword:  &lt;module keyword&gt; from PYTHON_LIB:\keyword.py
 </pre></div>
@@ -421,7 +421,7 @@ Exception raised on line `325` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="builtin-function">
 <h3>Builtin function<a class="headerlink" href="#builtin-function" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 223, in test_Builtin_function
+  File "TESTS:\runtime\test_attribute_error.py", line 229, in test_Builtin_function
     len.text
 AttributeError: 'builtin_function_or_method' object has no attribute 'text'
 
@@ -434,14 +434,14 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 `len` is a function. Perhaps you meant to write
 `len(text)`
 
-Exception raised on line `223` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `229` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   220| def test_Builtin_function():
-   221|     text = 'Hello world!'
-   222|     try:
---&gt;223|         len.text
+   226| def test_Builtin_function():
+   227|     text = 'Hello world!'
+   228|     try:
+--&gt;229|         len.text
                 ^^^^^^^^
-   224|     except AttributeError as e:
+   230|     except AttributeError as e:
 
         text:  'Hello world!'
         len:  &lt;builtin function len&gt;
@@ -451,7 +451,7 @@ Exception raised on line `223` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="builtin-module-with-no-file">
 <h3>Builtin module with no file<a class="headerlink" href="#builtin-module-with-no-file" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 240, in test_Builtin_module_with_no_file
+  File "TESTS:\runtime\test_attribute_error.py", line 247, in test_Builtin_module_with_no_file
     sys.foo
 AttributeError: module 'sys' has no attribute 'foo'
 
@@ -462,15 +462,15 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 Python tells us that no object with name `foo` is
 found in module `sys`.
 
-Exception raised on line `240` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `247` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   236| """Issue 116"""
-   237| import sys
-   238|
-   239| try:
---&gt;240|     sys.foo
+   243| """Issue 116"""
+   244| import sys
+   245|
+   246| try:
+--&gt;247|     sys.foo
             ^^^^^^^
-   241| except AttributeError as e:
+   248| except AttributeError as e:
 
         sys:  &lt;module sys (builtin)&gt;
 </pre></div>
@@ -479,7 +479,7 @@ Exception raised on line `240` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="circular-import">
 <h3>Circular import<a class="headerlink" href="#circular-import" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 355, in test_Circular_import
+  File "TESTS:\runtime\test_attribute_error.py", line 368, in test_Circular_import
     import my_turtle1
   File "TESTS:\my_turtle1.py", line 4, in &lt;module&gt;
     a = my_turtle1.something
@@ -499,13 +499,13 @@ and that you also wanted to import a module with the same name
 from Python's standard library.
 If so, you should use a different name for your program.
 
-Execution stopped on line `355` of file 'TESTS:\runtime\test_attribute_error.py'.
+Execution stopped on line `368` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   352| from friendly_traceback.runtime_errors import stdlib_modules
-   353| stdlib_modules.names.add("my_turtle1")
-   354| try:
---&gt;355|    import my_turtle1
-   356| except AttributeError as e:
+   365| from friendly_traceback.runtime_errors import stdlib_modules
+   366| stdlib_modules.names.add("my_turtle1")
+   367| try:
+--&gt;368|    import my_turtle1
+   369| except AttributeError as e:
 
 Exception raised on line `4` of file 'TESTS:\my_turtle1.py'.
 
@@ -522,7 +522,7 @@ Exception raised on line `4` of file 'TESTS:\my_turtle1.py'.
 <section id="circular-import-b">
 <h3>Circular import b<a class="headerlink" href="#circular-import-b" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 372, in test_Circular_import_b
+  File "TESTS:\runtime\test_attribute_error.py", line 386, in test_Circular_import_b
     import circular_c
   File "TESTS:\circular_c.py", line 4, in &lt;module&gt;
     a = circular_c.something
@@ -538,12 +538,12 @@ You likely have a circular import.
 This can occur if, during the execution of the code in module `circular_c`
 an attempt is made to import the same module again.
 
-Execution stopped on line `372` of file 'TESTS:\runtime\test_attribute_error.py'.
+Execution stopped on line `386` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   370| def test_Circular_import_b():
-   371|     try:
---&gt;372|         import circular_c
-   373|     except AttributeError as e:
+   384| def test_Circular_import_b():
+   385|     try:
+--&gt;386|         import circular_c
+   387|     except AttributeError as e:
 
 Exception raised on line `4` of file 'TESTS:\circular_c.py'.
 
@@ -587,7 +587,7 @@ Exception raised on line `26` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="generic-different-frame">
 <h3>Generic different frame<a class="headerlink" href="#generic-different-frame" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 49, in test_Generic_different_frame
+  File "TESTS:\runtime\test_attribute_error.py", line 50, in test_Generic_different_frame
     a.attr
 AttributeError: 'A' object has no attribute 'attr'
 
@@ -600,15 +600,15 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 The object `a` has no attribute named `attr`.
 Perhaps you meant to write `a.attr2` instead of `a.attr`
 
-Exception raised on line `49` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `50` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   45|     return A()
-   46|
-   47| a = f()
-   48| try:
---&gt;49|     a.attr
+   46|     return A()
+   47|
+   48| a = f()
+   49| try:
+--&gt;50|     a.attr
            ^^^^^^
-   50| except AttributeError as e:
+   51| except AttributeError as e:
 
         a:  &lt;A object&gt;
             defined in &lt;function test_attribute_error.test_Generic_different_frame.&lt;locals&gt;.f&gt;
@@ -618,7 +618,7 @@ Exception raised on line `49` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="generic-instance">
 <h3>Generic instance<a class="headerlink" href="#generic-instance" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 67, in test_Generic_instance
+  File "TESTS:\runtime\test_attribute_error.py", line 69, in test_Generic_instance
     a.x
 AttributeError: 'A' object has no attribute 'x'
 
@@ -628,14 +628,14 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 
 The object `a` has no attribute named `x`.
 
-Exception raised on line `67` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `69` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   64|     pass
-   65| a = A()
-   66| try:
---&gt;67|     a.x
+   66|     pass
+   67| a = A()
+   68| try:
+--&gt;69|     a.x
            ^^^
-   68| except AttributeError as e:
+   70| except AttributeError as e:
 
         a:  &lt;A object&gt;
             defined in &lt;function test_attribute_error.test_Generic_instance&gt;
@@ -645,7 +645,7 @@ Exception raised on line `67` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="module-attribute-typo">
 <h3>Module attribute typo<a class="headerlink" href="#module-attribute-typo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 144, in test_Module_attribute_typo
+  File "TESTS:\runtime\test_attribute_error.py", line 150, in test_Module_attribute_typo
     math.cost
 AttributeError: module 'math' has no attribute 'cost'
 
@@ -659,16 +659,16 @@ Instead of writing `math.cost`, perhaps you meant to write one of
 the following names which are attributes of module `math`:
 `cos, cosh`
 
-Exception raised on line `144` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `150` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   139|     assert "Did you mean `ascii_lowercase`" in result
-   140|
-   141| import math
-   142|
-   143| try:
---&gt;144|     math.cost
+   145|     assert "Did you mean `ascii_lowercase`" in result
+   146|
+   147| import math
+   148|
+   149| try:
+--&gt;150|     math.cost
             ^^^^^^^^^
-   145| except AttributeError as e:
+   151| except AttributeError as e:
 
         math:  &lt;module math (builtin)&gt;
 </pre></div>
@@ -677,7 +677,7 @@ Exception raised on line `144` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="nonetype">
 <h3>Nonetype<a class="headerlink" href="#nonetype" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 183, in test_Nonetype
+  File "TESTS:\runtime\test_attribute_error.py", line 191, in test_Nonetype
     a.b
 AttributeError: 'NoneType' object has no attribute 'b'
 
@@ -687,14 +687,14 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 
 You are attempting to access the attribute `b`
 for a variable whose value is `None`.
-Exception raised on line `183` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `191` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   180| def test_Nonetype():
-   181|     a = None
-   182|     try:
---&gt;183|         a.b
+   188| def test_Nonetype():
+   189|     a = None
+   190|     try:
+--&gt;191|         a.b
                 ^^^
-   184|     except AttributeError as e:
+   192|     except AttributeError as e:
 
         a:  None
 </pre></div>
@@ -703,7 +703,7 @@ Exception raised on line `183` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="object-attribute-typo">
 <h3>Object attribute typo<a class="headerlink" href="#object-attribute-typo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 83, in test_Object_attribute_typo
+  File "TESTS:\runtime\test_attribute_error.py", line 86, in test_Object_attribute_typo
     a.appendh(4)
 AttributeError: 'list' object has no attribute 'appendh'
 
@@ -716,15 +716,15 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 The object `a` has no attribute named `appendh`.
 Perhaps you meant to write `a.append` instead of `a.appendh`
 
-Exception raised on line `83` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `86` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   79| def test_Object_attribute_typo():
-   80|     #
-   81|     try:
-   82|         a = [1, 2, 3]
---&gt;83|         a.appendh(4)
+   82| def test_Object_attribute_typo():
+   83|     #
+   84|     try:
+   85|         a = [1, 2, 3]
+--&gt;86|         a.appendh(4)
                ^^^^^^^^^
-   84|     except AttributeError as e:
+   87|     except AttributeError as e:
 
         a:  [1, 2, 3]
 </pre></div>
@@ -733,7 +733,7 @@ Exception raised on line `83` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="perhaps-comma">
 <h3>Perhaps comma<a class="headerlink" href="#perhaps-comma" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 203, in test_Perhaps_comma
+  File "TESTS:\runtime\test_attribute_error.py", line 212, in test_Perhaps_comma
     a = [abcd
 AttributeError: 'str' object has no attribute 'defg'
 
@@ -748,17 +748,17 @@ However, both `abcd` and `defg` are known objects.
 Perhaps you wrote a period to separate these two objects,
 instead of using a comma.
 
-Exception raised on line `203` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `212` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   199| defg = "world"
-   200|
-   201| # fmt: off
-   202| try:
---&gt;203|     a = [abcd
+   208| defg = "world"
+   209|
+   210| # fmt: off
+   211| try:
+--&gt;212|     a = [abcd
                  ^^^^
-   204|     .defg]
+   213|     .defg]
             ^^^^^
-   205| # fmt: on
+   214| # fmt: on
 
         abcd:  'hello'
         defg:  'world'
@@ -768,7 +768,7 @@ Exception raised on line `203` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="read-only">
 <h3>Read only<a class="headerlink" href="#read-only" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 280, in test_Read_only
+  File "TESTS:\runtime\test_attribute_error.py", line 289, in test_Read_only
     f.b = 1
 AttributeError: 'F' object attribute 'b' is read-only
 
@@ -780,15 +780,15 @@ Object `f` uses `__slots__` to specify which attributes can
 be changed. The value of attribute `f.b` cannot be changed.
 The only attribute of `f` whose value can be changed is`a`.
 
-Exception raised on line `280` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `289` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   276|     b = 2
-   277|
-   278| f = F()
-   279| try:
---&gt;280|     f.b = 1
+   285|     b = 2
+   286|
+   287| f = F()
+   288| try:
+--&gt;289|     f.b = 1
             ^^^
-   281| except AttributeError as e:
+   290| except AttributeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_attribute_error.test_Read_only&gt;
@@ -799,7 +799,7 @@ Exception raised on line `280` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="shadow-stdlib-module">
 <h3>Shadow stdlib module<a class="headerlink" href="#shadow-stdlib-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 165, in test_Shadow_stdlib_module
+  File "TESTS:\runtime\test_attribute_error.py", line 172, in test_Shadow_stdlib_module
     turtle.Pen
 AttributeError: module 'turtle' has no attribute 'Pen'
 
@@ -813,15 +813,15 @@ You imported a module named `turtle` from `TESTS:\turtle.py`.
 There is also a module named `turtle` in Python's standard library.
 Perhaps you need to rename your module.
 
-Exception raised on line `165` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `172` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   161| def test_Shadow_stdlib_module():
-   162|     import turtle
-   163|
-   164|     try:
---&gt;165|         turtle.Pen
+   168| def test_Shadow_stdlib_module():
+   169|     import turtle
+   170|
+   171|     try:
+--&gt;172|         turtle.Pen
                 ^^^^^^^^^^
-   166|     except AttributeError as e:
+   173|     except AttributeError as e:
 
         turtle:  &lt;module turtle&gt; from TESTS:\turtle.py
 </pre></div>
@@ -830,7 +830,7 @@ Exception raised on line `165` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="tuple-by-accident">
 <h3>Tuple by accident<a class="headerlink" href="#tuple-by-accident" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 295, in test_Tuple_by_accident
+  File "TESTS:\runtime\test_attribute_error.py", line 305, in test_Tuple_by_accident
     something.upper()
 AttributeError: 'tuple' object has no attribute 'upper'
 
@@ -845,14 +845,14 @@ which does have `'upper'` as an attribute.
 Perhaps you added a trailing comma by mistake at the end of the line
 where you defined `something`.
 
-Exception raised on line `295` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `305` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   292| def test_Tuple_by_accident():
-   293|     something = "abc",  # note trailing comma
-   294|     try:
---&gt;295|         something.upper()
+   302| def test_Tuple_by_accident():
+   303|     something = "abc",  # note trailing comma
+   304|     try:
+--&gt;305|         something.upper()
                 ^^^^^^^^^^^^^^^
-   296|     except AttributeError as e:
+   306|     except AttributeError as e:
 
         something:  ('abc',)
 </pre></div>
@@ -861,7 +861,7 @@ Exception raised on line `295` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="use-builtin">
 <h3>Use builtin<a class="headerlink" href="#use-builtin" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 99, in test_Use_builtin
+  File "TESTS:\runtime\test_attribute_error.py", line 103, in test_Use_builtin
     a.length()
 AttributeError: 'list' object has no attribute 'length'
 
@@ -874,15 +874,15 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 The object `a` has no attribute named `length`.
 Perhaps you can use the Python builtin function `len` instead:
 `len(a)`.
-Exception raised on line `99` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `103` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-    95| def test_Use_builtin():
-    96|     #
-    97|     try:
-    98|         a = [1, 2, 3]
---&gt; 99|         a.length()
+    99| def test_Use_builtin():
+   100|     #
+   101|     try:
+   102|         a = [1, 2, 3]
+--&gt;103|         a.length()
                 ^^^^^^^^
-   100|     except AttributeError as e:
+   104|     except AttributeError as e:
 
         a:  [1, 2, 3]
 </pre></div>
@@ -891,7 +891,7 @@ Exception raised on line `99` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="use-join-with-str">
 <h3>Use join with str<a class="headerlink" href="#use-join-with-str" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 339, in test_Use_join_with_str
+  File "TESTS:\runtime\test_attribute_error.py", line 351, in test_Use_join_with_str
     a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
 AttributeError: 'list' object has no attribute 'join'
 
@@ -904,20 +904,20 @@ and `x` is not a method or attribute (variable) belonging to `object`.
 The object `['a', '2']` has no attribute named `join`.
 Perhaps you wanted something like `'abc'.join(['a', '2'])`.
 
-Exception raised on line `339` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `351` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   337| def test_Use_join_with_str():
-   338|     try:
---&gt;339|         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
+   349| def test_Use_join_with_str():
+   350|     try:
+--&gt;351|         a = ['a', '2'].join('abc') + ['b', '3'].join('\n')
                     ^^^^^^^^^^^^^^^
-   340|     except AttributeError as e:
+   352|     except AttributeError as e:
 </pre></div>
 </div>
 </section>
 <section id="use-synonym">
 <h3>Use synonym<a class="headerlink" href="#use-synonym" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 115, in test_Use_synonym
+  File "TESTS:\runtime\test_attribute_error.py", line 120, in test_Use_synonym
     a.add(4)
 AttributeError: 'list' object has no attribute 'add'
 
@@ -931,15 +931,15 @@ The object `a` has no attribute named `add`.
 However, `a` has the following attributes with similar meanings:
 `append, extend, insert`.
 
-Exception raised on line `115` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `120` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   111| def test_Use_synonym():
-   112|     #
-   113|     try:
-   114|         a = [1, 2, 3]
---&gt;115|         a.add(4)
+   116| def test_Use_synonym():
+   117|     #
+   118|     try:
+   119|         a = [1, 2, 3]
+--&gt;120|         a.add(4)
                 ^^^^^
-   116|     except AttributeError as e:
+   121|     except AttributeError as e:
 
         a:  [1, 2, 3]
 </pre></div>
@@ -948,7 +948,7 @@ Exception raised on line `115` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="using-slots">
 <h3>Using slots<a class="headerlink" href="#using-slots" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_attribute_error.py", line 260, in test_Using_slots
+  File "TESTS:\runtime\test_attribute_error.py", line 268, in test_Using_slots
     f.b = 1
 AttributeError: 'F' object has no attribute 'b'
 
@@ -961,15 +961,15 @@ Note that object `f` uses `__slots__` which prevents
 the creation of new attributes.
 The following are some of its known attributes:
 `a`.
-Exception raised on line `260` of file 'TESTS:\runtime\test_attribute_error.py'.
+Exception raised on line `268` of file 'TESTS:\runtime\test_attribute_error.py'.
 
-   256|     __slots__ = ["a"]
-   257|
-   258| f = F()
-   259| try:
---&gt;260|     f.b = 1
+   264|     __slots__ = ["a"]
+   265|
+   266| f = F()
+   267| try:
+--&gt;268|     f.b = 1
             ^^^
-   261| except AttributeError as e:
+   269| except AttributeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_attribute_error.test_Using_slots&gt;
@@ -982,7 +982,7 @@ Exception raised on line `260` of file 'TESTS:\runtime\test_attribute_error.py'.
 <section id="directory-not-found">
 <h3>Directory not found<a class="headerlink" href="#directory-not-found" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_file_not_found_error.py", line 70, in test_Directory_not_found
+  File "TESTS:\runtime\test_file_not_found_error.py", line 73, in test_Directory_not_found
     open("does_not_exist/file.txt")
 FileNotFoundError: [Errno 2] No such file or directory: 'does_not_exist/file.txt'
 
@@ -995,13 +995,13 @@ file that cannot be found is `file.txt`.
 does_not_exist
 is not a valid directory.
 
-Exception raised on line `70` of file 'TESTS:\runtime\test_file_not_found_error.py'.
+Exception raised on line `73` of file 'TESTS:\runtime\test_file_not_found_error.py'.
 
-   68| def test_Directory_not_found():
-   69|     try:
---&gt;70|         open("does_not_exist/file.txt")
+   71| def test_Directory_not_found():
+   72|     try:
+--&gt;73|         open("does_not_exist/file.txt")
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   71|     except FileNotFoundError as e:
+   74|     except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -1039,7 +1039,7 @@ Exception raised on line `7` of file 'TESTS:\runtime\test_file_not_found_error.p
 <section id="filename-not-found-2">
 <h3>Filename not found 2<a class="headerlink" href="#filename-not-found-2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_file_not_found_error.py", line 30, in test_Filename_not_found_2
+  File "TESTS:\runtime\test_file_not_found_error.py", line 31, in test_Filename_not_found_2
     open("setupp.py")
 FileNotFoundError: [Errno 2] No such file or directory: 'setupp.py'
 
@@ -1055,15 +1055,15 @@ It was expected to be found in the
 `C:\Users\Andre\github\friendly-traceback` directory.
 The file `setup.py` has a similar name.
 
-Exception raised on line `30` of file 'TESTS:\runtime\test_file_not_found_error.py'.
+Exception raised on line `31` of file 'TESTS:\runtime\test_file_not_found_error.py'.
 
-   26| if chdir:
-   27|     os.chdir("..")
-   28|
-   29| try:
---&gt;30|     open("setupp.py")
+   27| if chdir:
+   28|     os.chdir("..")
+   29|
+   30| try:
+--&gt;31|     open("setupp.py")
            ^^^^^^^^^^^^^^^^^
-   31| except FileNotFoundError as e:
+   32| except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -1072,7 +1072,7 @@ Exception raised on line `30` of file 'TESTS:\runtime\test_file_not_found_error.
 <section id="filename-not-found-3">
 <h3>Filename not found 3<a class="headerlink" href="#filename-not-found-3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_file_not_found_error.py", line 52, in test_Filename_not_found_3
+  File "TESTS:\runtime\test_file_not_found_error.py", line 54, in test_Filename_not_found_3
     open("setup.pyg")
 FileNotFoundError: [Errno 2] No such file or directory: 'setup.pyg'
 
@@ -1089,14 +1089,14 @@ It was expected to be found in the
 Perhaps you meant one of the following files with similar names:
 `setup.py`, `setup.cfg`
 
-Exception raised on line `52` of file 'TESTS:\runtime\test_file_not_found_error.py'.
+Exception raised on line `54` of file 'TESTS:\runtime\test_file_not_found_error.py'.
 
-   49| if chdir:
-   50|     os.chdir("..")
-   51| try:
---&gt;52|     open("setup.pyg")
+   51| if chdir:
+   52|     os.chdir("..")
+   53| try:
+--&gt;54|     open("setup.pyg")
            ^^^^^^^^^^^^^^^^^
-   53| except FileNotFoundError as e:
+   55| except FileNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -1137,7 +1137,7 @@ Exception raised on line `56` of file 'TESTS:\runtime\test_import_error.py'.
 <section id="assignment">
 <h3>Assignment<a class="headerlink" href="#assignment" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_index_error.py", line 84, in test_Assignment
+  File "TESTS:\runtime\test_index_error.py", line 87, in test_Assignment
     a[13] = 1
 IndexError: list assignment index out of range
 
@@ -1151,15 +1151,15 @@ a `list` of length `10`.
 The valid index values of `a` are integers ranging from
 `-10` to `9`.
 
-Exception raised on line `84` of file 'TESTS:\runtime\test_index_error.py'.
+Exception raised on line `87` of file 'TESTS:\runtime\test_index_error.py'.
 
-   80|     assert "You have tried to assign a value to index `1` of `b`," in result
-   81|     assert "a `list` which contains no item." in result
-   82|
-   83| try:
---&gt;84|     a[13] = 1
+   83|     assert "You have tried to assign a value to index `1` of `b`," in result
+   84|     assert "a `list` which contains no item." in result
+   85|
+   86| try:
+--&gt;87|     a[13] = 1
            ^^^^^
-   85| except IndexError as e:
+   88| except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
@@ -1168,7 +1168,7 @@ Exception raised on line `84` of file 'TESTS:\runtime\test_index_error.py'.
 <section id="empty">
 <h3>Empty<a class="headerlink" href="#empty" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_index_error.py", line 40, in test_Empty
+  File "TESTS:\runtime\test_index_error.py", line 42, in test_Empty
     c = a[1]
 IndexError: list index out of range
 
@@ -1182,14 +1182,14 @@ is greater than the length of the sequence.
 You have tried to get the item with index `1` of `a`,
 a `list` which contains no item.
 
-Exception raised on line `40` of file 'TESTS:\runtime\test_index_error.py'.
+Exception raised on line `42` of file 'TESTS:\runtime\test_index_error.py'.
 
-   37| def test_Empty():
-   38|     a = []
-   39|     try:
---&gt;40|         c = a[1]
+   39| def test_Empty():
+   40|     a = []
+   41|     try:
+--&gt;42|         c = a[1]
                    ^^^^
-   41|     except IndexError as e:
+   43|     except IndexError as e:
 
         a:  []
 </pre></div>
@@ -1198,7 +1198,7 @@ Exception raised on line `40` of file 'TESTS:\runtime\test_index_error.py'.
 <section id="long-list">
 <h3>Long list<a class="headerlink" href="#long-list" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_index_error.py", line 26, in test_Long_list
+  File "TESTS:\runtime\test_index_error.py", line 27, in test_Long_list
     print(a[60], b[0])
 IndexError: list index out of range
 
@@ -1212,14 +1212,14 @@ a `list` of length `40`.
 The valid index values of `a` are integers ranging from
 `-40` to `39`.
 
-Exception raised on line `26` of file 'TESTS:\runtime\test_index_error.py'.
+Exception raised on line `27` of file 'TESTS:\runtime\test_index_error.py'.
 
-   23| a = list(range(40))
-   24| b = tuple(range(50))
-   25| try:
---&gt;26|     print(a[60], b[0])
+   24| a = list(range(40))
+   25| b = tuple(range(50))
+   26| try:
+--&gt;27|     print(a[60], b[0])
                  ^^^^^
-   27| except IndexError as e:
+   28| except IndexError as e:
 
         a:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ...]
             len(a): 40
@@ -1271,7 +1271,7 @@ KeyError: 42
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 62, in test_ChainMap
+  File "TESTS:\runtime\test_key_error.py", line 65, in test_ChainMap
     d.pop(42)
 KeyError: 'Key not found in the first mapping: 42'
 
@@ -1280,14 +1280,14 @@ key in a Python dict or in a similar object.
 
 The key `42` cannot be found in `d`, an object of type `ChainMap`.
 
-Exception raised on line `62` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `65` of file 'TESTS:\runtime\test_key_error.py'.
 
-   59| from collections import ChainMap
-   60| d = ChainMap({}, {})
-   61| try:
---&gt;62|     d.pop(42)
+   62| from collections import ChainMap
+   63| d = ChainMap({}, {})
+   64| try:
+--&gt;65|     d.pop(42)
            ^^^^^^^^^
-   63| except KeyError as e:
+   66| except KeyError as e:
 
         d:  ChainMap({}, {})
         d.pop:  &lt;bound method ChainMap.pop&gt; of ChainMap({}, {})
@@ -1297,7 +1297,7 @@ Exception raised on line `62` of file 'TESTS:\runtime\test_key_error.py'.
 <section id="forgot-to-convert-to-string">
 <h3>Forgot to convert to string<a class="headerlink" href="#forgot-to-convert-to-string" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 115, in test_Forgot_to_convert_to_string
+  File "TESTS:\runtime\test_key_error.py", line 120, in test_Forgot_to_convert_to_string
     print(squares[2])
 KeyError: 2
 
@@ -1310,14 +1310,14 @@ The key `2` cannot be found in the dict `squares`.
 `squares` contains a string key which is identical to `str(2)`.
 Perhaps you forgot to convert the key into a string.
 
-Exception raised on line `115` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `120` of file 'TESTS:\runtime\test_key_error.py'.
 
-   112| def test_Forgot_to_convert_to_string():
-   113|     squares = {"1": 1, "2": 4, "3": 9}
-   114|     try:
---&gt;115|         print(squares[2])
+   117| def test_Forgot_to_convert_to_string():
+   118|     squares = {"1": 1, "2": 4, "3": 9}
+   119|     try:
+--&gt;120|         print(squares[2])
                       ^^^^^^^^^^
-   116|     except KeyError as e:
+   121|     except KeyError as e:
 
         squares:  {'1': 1, '2': 4, '3': 9}
 </pre></div>
@@ -1326,7 +1326,7 @@ Exception raised on line `115` of file 'TESTS:\runtime\test_key_error.py'.
 <section id="generic-key-error">
 <h3>Generic key error<a class="headerlink" href="#generic-key-error" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 44, in test_Generic_key_error
+  File "TESTS:\runtime\test_key_error.py", line 46, in test_Generic_key_error
     d["c"]
 KeyError: 'c'
 
@@ -1335,14 +1335,14 @@ key in a Python dict or in a similar object.
 
 The key `'c'` cannot be found in the dict `d`.
 
-Exception raised on line `44` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `46` of file 'TESTS:\runtime\test_key_error.py'.
 
-   41| def test_Generic_key_error():
-   42|     d = {"a": 1, "b": 2}
-   43|     try:
---&gt;44|         d["c"]
+   43| def test_Generic_key_error():
+   44|     d = {"a": 1, "b": 2}
+   45|     try:
+--&gt;46|         d["c"]
                ^^^^^^
-   45|     except KeyError as e:
+   47|     except KeyError as e:
 
         d:  {'a': 1, 'b': 2}
 </pre></div>
@@ -1358,7 +1358,7 @@ KeyError: 'popitem(): dictionary is empty'
     During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 26, in test_Popitem_empty_ChainMap
+  File "TESTS:\runtime\test_key_error.py", line 27, in test_Popitem_empty_ChainMap
     alpha.popitem()
 KeyError: 'No keys found in the first mapping.'
 
@@ -1369,14 +1369,14 @@ key in a Python dict or in a similar object.
 
 You tried to retrieve an item from `alpha` which is an empty `ChainMap`.
 
-Exception raised on line `26` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `27` of file 'TESTS:\runtime\test_key_error.py'.
 
-   23| from collections import ChainMap
-   24| alpha = ChainMap({}, {})
-   25| try:
---&gt;26|     alpha.popitem()
+   24| from collections import ChainMap
+   25| alpha = ChainMap({}, {})
+   26| try:
+--&gt;27|     alpha.popitem()
            ^^^^^^^^^^^^^^^
-   27| except KeyError as e:
+   28| except KeyError as e:
 
         alpha:  ChainMap({}, {})
         alpha.popitem:  &lt;bound method ChainMap.popitem&gt; of ChainMap({}, {})
@@ -1414,7 +1414,7 @@ Exception raised on line `8` of file 'TESTS:\runtime\test_key_error.py'.
 <section id="similar-names">
 <h3>Similar names<a class="headerlink" href="#similar-names" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 145, in test_Similar_names
+  File "TESTS:\runtime\test_key_error.py", line 151, in test_Similar_names
     a = second["alpha"]
 KeyError: 'alpha'
 
@@ -1427,15 +1427,15 @@ The key `'alpha'` cannot be found in the dict `second`.
 `second` has some keys similar to `'alpha'` including:
 `'alpha0', 'alpha11', 'alpha12'`.
 
-Exception raised on line `145` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `151` of file 'TESTS:\runtime\test_key_error.py'.
 
-   141|     assert ok, diff
-   142|
-   143| second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
-   144| try:
---&gt;145|     a = second["alpha"]
+   147|     assert ok, diff
+   148|
+   149| second = {"alpha0": 1, "alpha11": 2, "alpha12": 3}
+   150| try:
+--&gt;151|     a = second["alpha"]
                 ^^^^^^^^^^^^^^^
-   146| except KeyError as e:
+   152| except KeyError as e:
 
         second:  {'alpha0': 1, 'alpha11': 2, 'alpha12': 3}
 </pre></div>
@@ -1444,7 +1444,7 @@ Exception raised on line `145` of file 'TESTS:\runtime\test_key_error.py'.
 <section id="string-by-mistake">
 <h3>String by mistake<a class="headerlink" href="#string-by-mistake" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_key_error.py", line 98, in test_String_by_mistake
+  File "TESTS:\runtime\test_key_error.py", line 102, in test_String_by_mistake
     d["(0, 0)"]
 KeyError: '(0, 0)'
 
@@ -1458,15 +1458,15 @@ The key `'(0, 0)'` cannot be found in the dict `d`.
 There is a key of `d` whose string representation
 is identical to `'(0, 0)'`.
 
-Exception raised on line `98` of file 'TESTS:\runtime\test_key_error.py'.
+Exception raised on line `102` of file 'TESTS:\runtime\test_key_error.py'.
 
-   94| chain_map_string_by_mistake()  # do not show in docs
-   95|
-   96| d = {(0, 0): "origin"}
-   97| try:
---&gt;98|     d["(0, 0)"]
-           ^^^^^^^^^^^
-   99| except KeyError as e:
+    98| chain_map_string_by_mistake()  # do not show in docs
+    99|
+   100| d = {(0, 0): "origin"}
+   101| try:
+--&gt;102|     d["(0, 0)"]
+            ^^^^^^^^^^^
+   103| except KeyError as e:
 
         d:  {(0, 0): 'origin'}
 </pre></div>
@@ -1507,7 +1507,7 @@ Exception raised on line `10` of file 'TESTS:\runtime\test_lookup_error.py'.
 <section id="need-to-install-module">
 <h3>Need to install module<a class="headerlink" href="#need-to-install-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 76, in test_Need_to_install_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 80, in test_Need_to_install_module
     import alphabet
 ModuleNotFoundError: No module named 'alphabet'
 
@@ -1519,19 +1519,19 @@ or because it is not installed on your computer.
 No module named `alphabet` can be imported.
 Perhaps you need to install it.
 
-Exception raised on line `76` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `80` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   74| def test_Need_to_install_module():
-   75|     try:
---&gt;76|         import alphabet
-   77|     except ModuleNotFoundError as e:
+   78| def test_Need_to_install_module():
+   79|     try:
+--&gt;80|         import alphabet
+   81|     except ModuleNotFoundError as e:
 </pre></div>
 </div>
 </section>
 <section id="not-a-package">
 <h3>Not a package<a class="headerlink" href="#not-a-package" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 22, in test_Not_a_package
+  File "TESTS:\runtime\test_module_not_found_error.py", line 23, in test_Not_a_package
     import os.xxx
 ModuleNotFoundError: No module named 'os.xxx'; 'os' is not a package
 
@@ -1542,20 +1542,20 @@ or because it is not installed on your computer.
 
 `xxx` cannot be imported from `os`.
 
-Exception raised on line `22` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `23` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   19| def test_Not_a_package():
-   20|
-   21|     try:
---&gt;22|         import os.xxx
-   23|     except ModuleNotFoundError as e:
+   20| def test_Not_a_package():
+   21|
+   22|     try:
+--&gt;23|         import os.xxx
+   24|     except ModuleNotFoundError as e:
 </pre></div>
 </div>
 </section>
 <section id="not-a-package-similar-name">
 <h3>Not a package similar name<a class="headerlink" href="#not-a-package-similar-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 36, in test_Not_a_package_similar_name
+  File "TESTS:\runtime\test_module_not_found_error.py", line 37, in test_Not_a_package_similar_name
     import os.pathh
 ModuleNotFoundError: No module named 'os.pathh'; 'os' is not a package
 
@@ -1570,19 +1570,19 @@ Perhaps you meant `import os.path`.
 `path` is a name similar to `pathh` and is a module that
 can be imported from `os`.
 
-Exception raised on line `36` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `37` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   34| def test_Not_a_package_similar_name():
-   35|     try:
---&gt;36|         import os.pathh
-   37|     except ModuleNotFoundError as e:
+   35| def test_Not_a_package_similar_name():
+   36|     try:
+--&gt;37|         import os.pathh
+   38|     except ModuleNotFoundError as e:
 </pre></div>
 </div>
 </section>
 <section id="object-not-module">
 <h3>Object not module<a class="headerlink" href="#object-not-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 49, in test_Object_not_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 51, in test_Object_not_module
     import os.open
 ModuleNotFoundError: No module named 'os.open'; 'os' is not a package
 
@@ -1595,12 +1595,12 @@ or because it is not installed on your computer.
 
 `open` is not a separate module but an object that is part of `os`.
 
-Exception raised on line `49` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `51` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   47| def test_Object_not_module():
-   48|     try:
---&gt;49|         import os.open
-   50|     except ModuleNotFoundError as e:
+   49| def test_Object_not_module():
+   50|     try:
+--&gt;51|         import os.open
+   52|     except ModuleNotFoundError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -1609,7 +1609,7 @@ Exception raised on line `49` of file 'TESTS:\runtime\test_module_not_found_erro
 <section id="similar-object-not-module">
 <h3>Similar object not module<a class="headerlink" href="#similar-object-not-module" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 62, in test_Similar_object_not_module
+  File "TESTS:\runtime\test_module_not_found_error.py", line 65, in test_Similar_object_not_module
     import os.opend
 ModuleNotFoundError: No module named 'os.opend'; 'os' is not a package
 
@@ -1626,12 +1626,12 @@ can be imported from `os`.
 Other objects with similar names that are part of
  `os` include `popen`.
 
-Exception raised on line `62` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `65` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   60| def test_Similar_object_not_module():
-   61|     try:
---&gt;62|         import os.opend
-   63|     except ModuleNotFoundError as e:
+   63| def test_Similar_object_not_module():
+   64|     try:
+--&gt;65|         import os.opend
+   66|     except ModuleNotFoundError as e:
 </pre></div>
 </div>
 </section>
@@ -1665,7 +1665,7 @@ Exception raised on line `7` of file 'TESTS:\runtime\test_module_not_found_error
 <section id="no-curses">
 <h3>no curses<a class="headerlink" href="#no-curses" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_module_not_found_error.py", line 92, in test_no_curses
+  File "TESTS:\runtime\test_module_not_found_error.py", line 97, in test_no_curses
     import curses
 ModuleNotFoundError: No module named '_curses'
 
@@ -1679,12 +1679,12 @@ or because it is not installed on your computer.
 You have tried to import the curses module.
 The curses module is rarely installed with Python on Windows.
 
-Exception raised on line `92` of file 'TESTS:\runtime\test_module_not_found_error.py'.
+Exception raised on line `97` of file 'TESTS:\runtime\test_module_not_found_error.py'.
 
-   90| def test_no_curses():
-   91|     try:
---&gt;92|         import curses
-   93|     except ModuleNotFoundError as e:
+   95| def test_no_curses():
+   96|     try:
+--&gt;97|         import curses
+   98|     except ModuleNotFoundError as e:
 </pre></div>
 </div>
 </section>
@@ -1694,7 +1694,7 @@ Exception raised on line `92` of file 'TESTS:\runtime\test_module_not_found_erro
 <section id="annotated-variable">
 <h3>Annotated variable<a class="headerlink" href="#annotated-variable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 30, in test_Annotated_variable
+  File "TESTS:\runtime\test_name_error.py", line 31, in test_Annotated_variable
     y = x
 NameError: name 'x' is not defined
 
@@ -1716,20 +1716,20 @@ instead of
 
     x = 3
 
-Exception raised on line `30` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `31` of file 'TESTS:\runtime\test_name_error.py'.
 
-   28| def test_Annotated_variable():
-   29|     try:
---&gt;30|         y = x
+   29| def test_Annotated_variable():
+   30|     try:
+--&gt;31|         y = x
                    ^
-   31|     except NameError as e:
+   32|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="custom-name">
 <h3>Custom name<a class="headerlink" href="#custom-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 239, in test_Custom_name
+  File "TESTS:\runtime\test_name_error.py", line 234, in test_Custom_name
     python
 NameError: name 'python' is not defined
 
@@ -1741,24 +1741,24 @@ However, sometimes it is because the name is used
 before being defined or given a value.
 
 You are already using Python!
-Exception raised on line `239` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `234` of file 'TESTS:\runtime\test_name_error.py'.
 
-   237| def test_Custom_name():
-   238|     try:
---&gt;239|         python
+   232| def test_Custom_name():
+   233|     try:
+--&gt;234|         python
                 ^^^^^^
-   240|     except NameError as e:
+   235|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="free-variable-referenced">
 <h3>Free variable referenced<a class="headerlink" href="#free-variable-referenced" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 223, in test_Free_variable_referenced
+  File "TESTS:\runtime\test_name_error.py", line 217, in test_Free_variable_referenced
     outer()
-  File "TESTS:\runtime\test_name_error.py", line 219, in outer
+  File "TESTS:\runtime\test_name_error.py", line 213, in outer
     inner()
-  File "TESTS:\runtime\test_name_error.py", line 218, in inner
+  File "TESTS:\runtime\test_name_error.py", line 212, in inner
     return var
 NameError: free variable 'var' referenced before assignment in enclosing scope
 
@@ -1772,23 +1772,23 @@ In your program, `var` is an unknown name
 that exists in an enclosing scope,
 but has not yet been assigned a value.
 
-Execution stopped on line `223` of file 'TESTS:\runtime\test_name_error.py'.
+Execution stopped on line `217` of file 'TESTS:\runtime\test_name_error.py'.
 
-   219|     inner()
-   220|     var = 4
-   221|
-   222| try:
---&gt;223|     outer()
+   213|     inner()
+   214|     var = 4
+   215|
+   216| try:
+--&gt;217|     outer()
             ^^^^^^^
-   224| except NameError as e:
+   218| except NameError as e:
 
         outer:  &lt;function outer&gt;
             defined in &lt;function test_Free_variable_referenced&gt;
 
-Exception raised on line `218` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `212` of file 'TESTS:\runtime\test_name_error.py'.
 
-   217| def inner():
---&gt;218|     return var
+   211| def inner():
+--&gt;212|     return var
                    ^^^
 </pre></div>
 </div>
@@ -1822,7 +1822,7 @@ Exception raised on line `15` of file 'TESTS:\runtime\test_name_error.py'.
 <section id="missing-import">
 <h3>Missing import<a class="headerlink" href="#missing-import" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 135, in test_Missing_import
+  File "TESTS:\runtime\test_name_error.py", line 138, in test_Missing_import
     unicodedata.something
 NameError: name 'unicodedata' is not defined
 
@@ -1840,22 +1840,22 @@ Perhaps you forgot to import `unicodedata` which is found
 in Python's standard library.
 
 
-Exception raised on line `135` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `138` of file 'TESTS:\runtime\test_name_error.py'.
 
-   131| if friendly_traceback.get_lang() == "en":
-   132|     assert "I have no additional information for you." in result
-   133|
-   134| try:
---&gt;135|     unicodedata.something
+   134| if friendly_traceback.get_lang() == "en":
+   135|     assert "I have no additional information for you." in result
+   136|
+   137| try:
+--&gt;138|     unicodedata.something
             ^^^^^^^^^^^
-   136| except NameError as e:
+   139| except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="missing-module-name">
 <h3>Missing module name<a class="headerlink" href="#missing-module-name" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 322, in test_Missing_module_name
+  File "TESTS:\runtime\test_name_error.py", line 320, in test_Missing_module_name
     frame = Frame()
 NameError: name 'Frame' is not defined
 
@@ -1878,23 +1878,23 @@ instead of `Frame`.
 tkinter, tracemalloc.
 Perhaps you forgot to import `Frame` from one of these modules.
 
-Exception raised on line `322` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `320` of file 'TESTS:\runtime\test_name_error.py'.
 
-   319| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-   320| def test_Missing_module_name():
-   321|     try:
---&gt;322|         frame = Frame()
+   317| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+   318| def test_Missing_module_name():
+   319|     try:
+--&gt;320|         frame = Frame()
                         ^^^^^
-   323|     except NameError as e:
+   321|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="missing-self-1">
 <h3>Missing self 1<a class="headerlink" href="#missing-self-1" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 274, in test_Missing_self_1
+  File "TESTS:\runtime\test_name_error.py", line 270, in test_Missing_self_1
     str(a)
-  File "TESTS:\runtime\test_name_error.py", line 265, in __str__
+  File "TESTS:\runtime\test_name_error.py", line 261, in __str__
     toys_list = add_toy(  # ensure that it can see 'self' on following line
 NameError: name 'add_toy' is not defined
 
@@ -1913,37 +1913,37 @@ has an attribute named `add_toy`.
 Perhaps you should have written `self.add_toy(...`
 instead of `add_toy(self, ...`.
 
-Execution stopped on line `274` of file 'TESTS:\runtime\test_name_error.py'.
+Execution stopped on line `270` of file 'TESTS:\runtime\test_name_error.py'.
 
-   270|             return "{} has no toys".format(self.name)
-   271|
-   272| a = Pet('Fido')
-   273| try:
---&gt;274|     str(a)
+   266|             return "{} has no toys".format(self.name)
+   267|
+   268| a = Pet('Fido')
+   269| try:
+--&gt;270|     str(a)
             ^^^^^^
-   275| except NameError as e:
+   271| except NameError as e:
 
         a:  &lt;Pet object&gt;
             defined in &lt;function test_name_error.test_Missing_self_1&gt;
         str:  &lt;class str&gt;
 
-Exception raised on line `265` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `261` of file 'TESTS:\runtime\test_name_error.py'.
 
-   263| def __str__(self):
-   264|     # self at the wrong place
---&gt;265|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+   259| def __str__(self):
+   260|     # self at the wrong place
+--&gt;261|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                         ^^^^^^^
-   266|                         self, 'something')
-   267|     if self.toys:
+   262|                         self, 'something')
+   263|     if self.toys:
 </pre></div>
 </div>
 </section>
 <section id="missing-self-2">
 <h3>Missing self 2<a class="headerlink" href="#missing-self-2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 308, in test_Missing_self_2
+  File "TESTS:\runtime\test_name_error.py", line 305, in test_Missing_self_2
     str(a)
-  File "TESTS:\runtime\test_name_error.py", line 300, in __str__
+  File "TESTS:\runtime\test_name_error.py", line 297, in __str__
     toys_list = add_toy('something')
 NameError: name 'add_toy' is not defined
 
@@ -1962,34 +1962,34 @@ has an attribute named `add_toy`.
 Perhaps you should have written `self.add_toy`
 instead of `add_toy`.
 
-Execution stopped on line `308` of file 'TESTS:\runtime\test_name_error.py'.
+Execution stopped on line `305` of file 'TESTS:\runtime\test_name_error.py'.
 
-   304|             return "{} has no toys".format(self.name)
-   305|
-   306| a = Pet('Fido')
-   307| try:
---&gt;308|     str(a)
+   301|             return "{} has no toys".format(self.name)
+   302|
+   303| a = Pet('Fido')
+   304| try:
+--&gt;305|     str(a)
             ^^^^^^
-   309| except NameError as e:
+   306| except NameError as e:
 
         a:  &lt;Pet object&gt;
             defined in &lt;function test_name_error.test_Missing_self_2&gt;
         str:  &lt;class str&gt;
 
-Exception raised on line `300` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `297` of file 'TESTS:\runtime\test_name_error.py'.
 
-   298| def __str__(self):
-   299|     # Missing self.
---&gt;300|     toys_list = add_toy('something')
+   295| def __str__(self):
+   296|     # Missing self.
+--&gt;297|     toys_list = add_toy('something')
                         ^^^^^^^
-   301|     if self.toys:
+   298|     if self.toys:
 </pre></div>
 </div>
 </section>
 <section id="synonym">
 <h3>Synonym<a class="headerlink" href="#synonym" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 95, in test_Synonym
+  File "TESTS:\runtime\test_name_error.py", line 97, in test_Synonym
     cost  # wrote from math import * above
 NameError: name 'cost' is not defined
 
@@ -2005,22 +2005,22 @@ In your program, no object with the name `cost` exists.
 Instead of writing `cost`, perhaps you meant one of the following:
 *   Global scope: `cos`, `cosh`
 
-Exception raised on line `95` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `97` of file 'TESTS:\runtime\test_name_error.py'.
 
-   91| if friendly_traceback.get_lang() == "en":
-   92|     assert "The Python builtin `chr` has a similar name." in result
-   93|
-   94| try:
---&gt;95|     cost  # wrote from math import * above
+   93| if friendly_traceback.get_lang() == "en":
+   94|     assert "The Python builtin `chr` has a similar name." in result
+   95|
+   96| try:
+--&gt;97|     cost  # wrote from math import * above
            ^^^^
-   96| except NameError as e:
+   98| except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="missing-import2">
 <h3>missing import2<a class="headerlink" href="#missing-import2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 149, in test_missing_import2
+  File "TESTS:\runtime\test_name_error.py", line 153, in test_missing_import2
     ABCMeta
 NameError: name 'ABCMeta' is not defined
 
@@ -2035,20 +2035,20 @@ In your program, no object with the name `ABCMeta` exists.
 selectors, typing, abc, numbers.
 Perhaps you forgot to import `ABCMeta` from one of these modules.
 
-Exception raised on line `149` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `153` of file 'TESTS:\runtime\test_name_error.py'.
 
-   147| def test_missing_import2():
-   148|     try:
---&gt;149|         ABCMeta
+   151| def test_missing_import2():
+   152|     try:
+--&gt;153|         ABCMeta
                 ^^^^^^^
-   150|     except NameError as e:
+   154|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="missing-import3">
 <h3>missing import3<a class="headerlink" href="#missing-import3" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 163, in test_missing_import3
+  File "TESTS:\runtime\test_name_error.py", line 168, in test_missing_import3
     AF_APPLETALK
 NameError: name 'AF_APPLETALK' is not defined
 
@@ -2064,51 +2064,20 @@ Perhaps you forgot to write
 
     from socket import AF_APPLETALK
 
-Exception raised on line `163` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `168` of file 'TESTS:\runtime\test_name_error.py'.
 
-   161| def test_missing_import3():
-   162|     try:
---&gt;163|         AF_APPLETALK
+   166| def test_missing_import3():
+   167|     try:
+--&gt;168|         AF_APPLETALK
                 ^^^^^^^^^^^^
-   164|     except NameError as e:
+   169|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="missing-import-from-other-1">
 <h3>missing import from other 1<a class="headerlink" href="#missing-import-from-other-1" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 177, in test_missing_import_from_other_1
-    fake_module_name.something()
-NameError: name 'fake_module_name' is not defined
-
-    Did you forget to import `fake_module_name`?
-
-A `NameError` exception indicates that a variable or
-function name is not known to Python.
-Most often, this is because there is a spelling mistake.
-However, sometimes it is because the name is used
-before being defined or given a value.
-
-
-The name `fake_module_name` is not defined in your program.
-Perhaps you forgot to import `fake_module_name` which is a known library.
-
-
-Exception raised on line `177` of file 'TESTS:\runtime\test_name_error.py'.
-
-   174| def test_missing_import_from_other_1():
-   175|     friendly_traceback.add_other_module_names(["fake_module_name"])
-   176|     try:
---&gt;177|         fake_module_name.something()
-                ^^^^^^^^^^^^^^^^
-   178|     except NameError as e:
-</pre></div>
-</div>
-</section>
-<section id="missing-import-from-other-2">
-<h3>missing import from other 2<a class="headerlink" href="#missing-import-from-other-2" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 191, in test_missing_import_from_other_2
+  File "TESTS:\runtime\test_name_error.py", line 183, in test_missing_import_from_other_1
     plt.something
 NameError: name 'plt' is not defined
 
@@ -2124,24 +2093,24 @@ before being defined or given a value.
 The name `plt` is not defined in your program.
 Perhaps you forgot to write
 
-   import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
 
 
-Exception raised on line `191` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `183` of file 'TESTS:\runtime\test_name_error.py'.
 
-   188| def test_missing_import_from_other_2():
-   189|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
-   190|     try:
---&gt;191|         plt.something
+   180| def test_missing_import_from_other_1():
+   181|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+   182|     try:
+--&gt;183|         plt.something
                 ^^^
-   192|     except NameError as e:
+   184|     except NameError as e:
 </pre></div>
 </div>
 </section>
-<section id="missing-import-from-other-3">
-<h3>missing import from other 3<a class="headerlink" href="#missing-import-from-other-3" title="Permalink to this heading">¶</a></h3>
+<section id="missing-import-from-other-2">
+<h3>missing import from other 2<a class="headerlink" href="#missing-import-from-other-2" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 204, in test_missing_import_from_other_3
+  File "TESTS:\runtime\test_name_error.py", line 197, in test_missing_import_from_other_2
     show()
 NameError: name 'show' is not defined
 
@@ -2156,21 +2125,21 @@ In your program, no object with the name `show` exists.
 mailcap, matplotlib.pyplot, funny.
 Perhaps you forgot to import `show` from one of these modules.
 
-Exception raised on line `204` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `197` of file 'TESTS:\runtime\test_name_error.py'.
 
-   201| def test_missing_import_from_other_3():
-   202|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
-   203|     try:
---&gt;204|         show()
+   194| def test_missing_import_from_other_2():
+   195|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+   196|     try:
+--&gt;197|         show()
                 ^^^^
-   205|     except NameError as e:
+   198|     except NameError as e:
 </pre></div>
 </div>
 </section>
 <section id="special-keyword">
 <h3>special keyword<a class="headerlink" href="#special-keyword" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_name_error.py", line 353, in test_special_keyword
+  File "TESTS:\runtime\test_name_error.py", line 352, in test_special_keyword
     brek
 NameError: name 'brek' is not defined
 
@@ -2184,14 +2153,14 @@ before being defined or given a value.
 
 I suspect you meant to write the keyword `break` and made a typo.
 
-Exception raised on line `353` of file 'TESTS:\runtime\test_name_error.py'.
+Exception raised on line `352` of file 'TESTS:\runtime\test_name_error.py'.
 
-   350| if friendly_traceback.get_lang() == "en":
-   351|     assert "Did you mean `continue`" in result
-   352| try:
---&gt;353|     brek
+   349| if friendly_traceback.get_lang() == "en":
+   350|     assert "Did you mean `continue`" in result
+   351| try:
+--&gt;352|     brek
             ^^^^
-   354| except NameError as e:
+   353| except NameError as e:
 </pre></div>
 </div>
 </section>
@@ -2247,7 +2216,7 @@ Exception raised on line `10` of file 'TESTS:\runtime\test_os_error.py'.
 <section id="invalid-argument">
 <h3>invalid argument<a class="headerlink" href="#invalid-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 48, in test_invalid_argument
+  File "TESTS:\runtime\test_os_error.py", line 50, in test_invalid_argument
     open("c:\test.txt")
 OSError: [Errno 22] Invalid argument: 'c:\test.txt'
 
@@ -2266,14 +2235,14 @@ by adding the letter `r` as a prefix in
 front of the filename or path, or replace all single backslash
 characters, `\`, by double ones: `\\`.
 
-Exception raised on line `48` of file 'TESTS:\runtime\test_os_error.py'.
+Exception raised on line `50` of file 'TESTS:\runtime\test_os_error.py'.
 
-   45| if os.name != "nt":
-   46|     return "Windows test only", "No result"
-   47| try:
---&gt;48|     open("c:\test.txt")
+   47| if os.name != "nt":
+   48|     return "Windows test only", "No result"
+   49| try:
+--&gt;50|     open("c:\test.txt")
            ^^^^^^^^^^^^^^^^^^^
-   49| except OSError as e:
+   51| except OSError as e:
 
         open:  &lt;builtin function open&gt;
 </pre></div>
@@ -2282,7 +2251,7 @@ Exception raised on line `48` of file 'TESTS:\runtime\test_os_error.py'.
 <section id="no-information">
 <h3>no information<a class="headerlink" href="#no-information" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_os_error.py", line 29, in test_no_information
+  File "TESTS:\runtime\test_os_error.py", line 30, in test_no_information
     raise OSError("Some unknown message")
 OSError: Some unknown message
 
@@ -2300,13 +2269,13 @@ If you are using a REPL, use `www('bug')` to do so.
 If you are using the Friendly console, use `www()` to
 do an Internet search for this particular case.
 
-Exception raised on line `29` of file 'TESTS:\runtime\test_os_error.py'.
+Exception raised on line `30` of file 'TESTS:\runtime\test_os_error.py'.
 
-   26| old_debug = friendly_traceback.debug_helper.DEBUG
-   27| friendly_traceback.debug_helper.DEBUG = False
-   28| try:
---&gt;29|     raise OSError("Some unknown message")
-   30| except OSError as e:
+   27| old_debug = friendly_traceback.debug_helper.DEBUG
+   28| friendly_traceback.debug_helper.DEBUG = False
+   29| try:
+--&gt;30|     raise OSError("Some unknown message")
+   31| except OSError as e:
 
         OSError:  &lt;class OSError&gt;
 </pre></div>
@@ -2338,21 +2307,21 @@ Exception raised on line `6` of file 'TESTS:\runtime\test_overflow_error.py'.
 <section id="huge-lenght">
 <h3>Huge lenght<a class="headerlink" href="#huge-lenght" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_overflow_error.py", line 24, in test_Huge_lenght
+  File "TESTS:\runtime\test_overflow_error.py", line 25, in test_Huge_lenght
     len(huge)
 OverflowError: Python int too large to convert to C ssize_t
 
 An `OverflowError` is raised when the result of an arithmetic operation
 is too large to be handled by the computer's processor.
 
-Exception raised on line `24` of file 'TESTS:\runtime\test_overflow_error.py'.
+Exception raised on line `25` of file 'TESTS:\runtime\test_overflow_error.py'.
 
-   21| def test_Huge_lenght():
-   22|     huge = range(1&lt;&lt;10000)
-   23|     try:
---&gt;24|         len(huge)
+   22| def test_Huge_lenght():
+   23|     huge = range(1&lt;&lt;10000)
+   24|     try:
+--&gt;25|         len(huge)
                ^^^^^^^^^
-   25|     except OverflowError as e:
+   26|     except OverflowError as e:
 
         huge:  range(0, ...)
                len(huge): Object too large to be processed by Python.
@@ -2408,7 +2377,7 @@ Exception raised on line `6` of file 'TESTS:\runtime\test_recursion_error.py'.
 <section id="argument-of-object-is-not-iterable">
 <h3>Argument of object is not iterable<a class="headerlink" href="#argument-of-object-is-not-iterable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 825, in test_Argument_of_object_is_not_iterable
+  File "TESTS:\runtime\test_type_error.py", line 843, in test_Argument_of_object_is_not_iterable
     a in b
 TypeError: argument of type 'object' is not iterable
 
@@ -2421,14 +2390,14 @@ An iterable is an object capable of returning its members one at a time.
 Python containers (`list, tuple, dict`, etc.) are iterables.
 'b' is not a container. A container is required here.
 
-Exception raised on line `825` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `843` of file 'TESTS:\runtime\test_type_error.py'.
 
-   822| a = object()
-   823| b = object()
-   824| try:
---&gt;825|     a in b
+   840| a = object()
+   841| b = object()
+   842| try:
+--&gt;843|     a in b
             ^^^^^^
-   826| except TypeError as e:
+   844| except TypeError as e:
 
         a:  &lt;object object&gt;
         b:  &lt;object object&gt;
@@ -2438,7 +2407,7 @@ Exception raised on line `825` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="bad-type-for-unary-operator">
 <h3>Bad type for unary operator<a class="headerlink" href="#bad-type-for-unary-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 422, in test_Bad_type_for_unary_operator
+  File "TESTS:\runtime\test_type_error.py", line 427, in test_Bad_type_for_unary_operator
     a =+ "def"
 TypeError: bad operand type for unary +: 'str'
 
@@ -2454,23 +2423,23 @@ This operation is not defined for this type of object.
 
 Perhaps you meant to write `+=` instead of `=+`
 
-Exception raised on line `422` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `427` of file 'TESTS:\runtime\test_type_error.py'.
 
-   417|     assert "You tried to use the unary operator '~'" in result
-   418|
-   419| try:
-   420|     # fmt: off
-   421|     a = "abc"
---&gt;422|     a =+ "def"
+   422|     assert "You tried to use the unary operator '~'" in result
+   423|
+   424| try:
+   425|     # fmt: off
+   426|     a = "abc"
+--&gt;427|     a =+ "def"
                ^^^^^^^
-   423|     # fmt: on
+   428|     # fmt: on
 </pre></div>
 </div>
 </section>
 <section id="builtin-has-no-len">
 <h3>Builtin has no len<a class="headerlink" href="#builtin-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 880, in test_Builtin_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 901, in test_Builtin_has_no_len
     len("Hello world".split)
 TypeError: object of type 'builtin_function_or_method' has no len()
 
@@ -2485,13 +2454,13 @@ I suspect that you forgot to add parentheses to call `"Hello world".split`.
 You might have meant to write:
 `len("Hello world".split())`
 
-Exception raised on line `880` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `901` of file 'TESTS:\runtime\test_type_error.py'.
 
-   878| def test_Builtin_has_no_len():
-   879|     try:
---&gt;880|         len("Hello world".split)
+   899| def test_Builtin_has_no_len():
+   900|     try:
+--&gt;901|         len("Hello world".split)
                 ^^^^^^^^^^^^^^^^^^^^^^^^
-   881|     except TypeError as e:
+   902|     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
         "Hello world".split:  &lt;builtin method split of str object&gt;
@@ -2530,7 +2499,7 @@ Exception raised on line `39` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="cannot-convert-dictionary-update-sequence">
 <h3>Cannot convert dictionary update sequence<a class="headerlink" href="#cannot-convert-dictionary-update-sequence" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 866, in test_Cannot_convert_dictionary_update_sequence
+  File "TESTS:\runtime\test_type_error.py", line 886, in test_Cannot_convert_dictionary_update_sequence
     dd.update([1, 2, 3])
 TypeError: cannot convert dictionary update sequence element #0 to a sequence
 
@@ -2545,15 +2514,15 @@ or by trying to do an operation not allowed on a given type of object.
 Instead of writing `dd.update([1, 2, 3])`
 perhaps you should use the `dict.fromkeys()` method: `dd.update( dict.fromkeys([1, 2, 3]) )`.
 
-Exception raised on line `866` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `886` of file 'TESTS:\runtime\test_type_error.py'.
 
-   862|     assert "you should use the `dict.fromkeys()`" in result
-   863|
-   864| dd = {"a": "a"}
-   865| try:
---&gt;866|     dd.update([1, 2, 3])
+   882|     assert "you should use the `dict.fromkeys()`" in result
+   883|
+   884| dd = {"a": "a"}
+   885| try:
+--&gt;886|     dd.update([1, 2, 3])
             ^^^^^^^^^^^^^^^^^^^^
-   867| except TypeError as e:
+   887| except TypeError as e:
 
         dd:  {'a': 'a'}
         dd.update:  &lt;builtin method update of dict object&gt;
@@ -2563,7 +2532,7 @@ Exception raised on line `866` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="cannot-multiply-by-non-int">
 <h3>Cannot multiply by non int<a class="headerlink" href="#cannot-multiply-by-non-int" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 641, in test_Cannot_multiply_by_non_int
+  File "TESTS:\runtime\test_type_error.py", line 652, in test_Cannot_multiply_by_non_int
     "a" * "2"
 TypeError: can't multiply sequence by non-int of type 'str'
 
@@ -2578,22 +2547,22 @@ You can only multiply sequences, such as list, tuples,
  strings, etc., by integers.
 Perhaps you forgot to convert `"2"` into an integer.
 
-Exception raised on line `641` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `652` of file 'TESTS:\runtime\test_type_error.py'.
 
-   637| if friendly_traceback.get_lang() == "en":
-   638|     assert "Did you forget to convert `c` into an integer?" in result
-   639|
-   640| try:
---&gt;641|     "a" * "2"
+   648| if friendly_traceback.get_lang() == "en":
+   649|     assert "Did you forget to convert `c` into an integer?" in result
+   650|
+   651| try:
+--&gt;652|     "a" * "2"
             ^^^^^^^^^
-   642| except TypeError as e:
+   653| except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="cannot-unpack-non-iterable-object">
 <h3>Cannot unpack non iterable object<a class="headerlink" href="#cannot-unpack-non-iterable-object" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 838, in test_Cannot_unpack_non_iterable_object
+  File "TESTS:\runtime\test_type_error.py", line 857, in test_Cannot_unpack_non_iterable_object
     a, b = 42.0
 TypeError: cannot unpack non-iterable float object
 
@@ -2608,19 +2577,19 @@ An iterable is an object capable of returning its members one at a time.
 Python containers (`list, tuple, dict`, etc.) are iterables,
 but not objects of type `float`.
 
-Exception raised on line `838` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `857` of file 'TESTS:\runtime\test_type_error.py'.
 
-   836| def test_Cannot_unpack_non_iterable_object():
-   837|     try:
---&gt;838|         a, b = 42.0
-   839|     except TypeError as e:
+   855| def test_Cannot_unpack_non_iterable_object():
+   856|     try:
+--&gt;857|         a, b = 42.0
+   858|     except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="cant-mod-complex-numbers">
 <h3>Cant mod complex numbers<a class="headerlink" href="#cant-mod-complex-numbers" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 53, in test_Cant_mod_complex_numbers
+  File "TESTS:\runtime\test_type_error.py", line 54, in test_Cant_mod_complex_numbers
     3 + 3j % 2
 TypeError: can't mod complex numbers.
 
@@ -2631,20 +2600,20 @@ or by trying to do an operation not allowed on a given type of object.
 
 You cannot use complex numbers with the modulo operator `%`.
 
-Exception raised on line `53` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `54` of file 'TESTS:\runtime\test_type_error.py'.
 
-   51| def test_Cant_mod_complex_numbers():
-   52|     try:
---&gt;53|         3 + 3j % 2
+   52| def test_Cant_mod_complex_numbers():
+   53|     try:
+--&gt;54|         3 + 3j % 2
                    ^^^^^^
-   54|     except TypeError as e:
+   55|     except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="comparison-not-supported">
 <h3>Comparison not supported<a class="headerlink" href="#comparison-not-supported" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 371, in test_Comparison_not_supported
+  File "TESTS:\runtime\test_type_error.py", line 375, in test_Comparison_not_supported
     b &gt;= a
 TypeError: '&gt;=' not supported between instances of 'int' and 'str'
 
@@ -2660,14 +2629,14 @@ between two incompatible types of objects:
 an integer (`int`) and a string (`str`).
 Perhaps you forgot to convert the string `a` into an integer (`int`).
 
-Exception raised on line `371` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `375` of file 'TESTS:\runtime\test_type_error.py'.
 
-   368| try:
-   369|     a = "2"
-   370|     b = 42
---&gt;371|     b &gt;= a
+   372| try:
+   373|     a = "2"
+   374|     b = 42
+--&gt;375|     b &gt;= a
             ^^^^^^
-   372| except TypeError as e:
+   376| except TypeError as e:
 
         a:  '2'
         b:  42
@@ -2677,7 +2646,7 @@ Exception raised on line `371` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="derive-from-baseexception">
 <h3>Derive from BaseException<a class="headerlink" href="#derive-from-baseexception" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 584, in test_Derive_from_BaseException
+  File "TESTS:\runtime\test_type_error.py", line 594, in test_Derive_from_BaseException
     raise "exception"  # noqa
 TypeError: exceptions must derive from BaseException
 
@@ -2690,21 +2659,21 @@ Exceptions must be derived from `BaseException`.
 It is recommended that user-defined exceptions derive from
 `Exception`, a subclass of `BaseException`.
 
-Exception raised on line `584` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `594` of file 'TESTS:\runtime\test_type_error.py'.
 
-   580| if friendly_traceback.get_lang() == "en":
-   581|     assert "you must only have classes that derive from `BaseException`" in result
-   582|
-   583| try:
---&gt;584|     raise "exception"  # noqa
-   585| except TypeError as e:
+   590| if friendly_traceback.get_lang() == "en":
+   591|     assert "you must only have classes that derive from `BaseException`" in result
+   592|
+   593| try:
+--&gt;594|     raise "exception"  # noqa
+   595| except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="generator-has-no-len">
 <h3>Generator has no len<a class="headerlink" href="#generator-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 1036, in test_Generator_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 1063, in test_Generator_has_no_len
     for letter in "word")
 TypeError: object of type 'generator' has no len()
 
@@ -2721,15 +2690,15 @@ in a list:
 
     len([letter                 for letter in "word"])
 
-Exception raised on line `1036` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `1063` of file 'TESTS:\runtime\test_type_error.py'.
 
-   1033| def test_Generator_has_no_len():
-   1034|     try:
-   1035|         nb = len(letter
+   1060| def test_Generator_has_no_len():
+   1061|     try:
+   1062|         nb = len(letter
                       ^^^^^^^^^^
---&gt;1036|                  for letter in "word")
+--&gt;1063|                  for letter in "word")
                           ^^^^^^^^^^^^^^^^^^^^^
-   1037|     except TypeError as e:
+   1064|     except TypeError as e:
 
         len:  &lt;builtin function len&gt;
 </pre></div>
@@ -2738,7 +2707,7 @@ Exception raised on line `1036` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="indices-must-be-integers-or-slices">
 <h3>Indices must be integers or slices<a class="headerlink" href="#indices-must-be-integers-or-slices" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 723, in test_Indices_must_be_integers_or_slices
+  File "TESTS:\runtime\test_type_error.py", line 736, in test_Indices_must_be_integers_or_slices
     [1, 2, 3]["2"]
 TypeError: list indices must be integers or slices, not str
 
@@ -2757,22 +2726,22 @@ and you have used a string (`str`) instead.
 
 Perhaps you forgot to convert `"2"` into an integer.
 
-Exception raised on line `723` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `736` of file 'TESTS:\runtime\test_type_error.py'.
 
-   719| if friendly_traceback.get_lang() == "en":
-   720|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
-   721|
-   722| try:
---&gt;723|     [1, 2, 3]["2"]
+   732| if friendly_traceback.get_lang() == "en":
+   733|     assert "Perhaps you forgot to convert `2.0` into an integer." in result
+   734|
+   735| try:
+--&gt;736|     [1, 2, 3]["2"]
             ^^^^^^^^^^^^^^
-   724| except TypeError as e:
+   737| except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="not-an-integer">
 <h3>Not an integer<a class="headerlink" href="#not-an-integer" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 686, in test_Not_an_integer
+  File "TESTS:\runtime\test_type_error.py", line 698, in test_Not_an_integer
     range(c, d)
 TypeError: 'str' object cannot be interpreted as an integer
 
@@ -2785,15 +2754,15 @@ or by trying to do an operation not allowed on a given type of object.
 
 You wrote an object of type `str` where an integer was expected.
 Perhaps you forgot to convert `c, d` into integers.
-Exception raised on line `686` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `698` of file 'TESTS:\runtime\test_type_error.py'.
 
-   682|     assert "Perhaps you forgot to convert `1.0" in result
-   683|
-   684| c, d = "2", "3"
-   685| try:
---&gt;686|     range(c, d)
+   694|     assert "Perhaps you forgot to convert `1.0" in result
+   695|
+   696| c, d = "2", "3"
+   697| try:
+--&gt;698|     range(c, d)
             ^^^^^^^^^^^
-   687| except TypeError as e:
+   699| except TypeError as e:
 
         c:  '2'
         d:  '3'
@@ -2804,7 +2773,7 @@ Exception raised on line `686` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="not-callable">
 <h3>Not callable<a class="headerlink" href="#not-callable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 552, in test_Not_callable
+  File "TESTS:\runtime\test_type_error.py", line 561, in test_Not_callable
     _ = [1, 2](a + b)
 TypeError: 'list' object is not callable
 
@@ -2824,15 +2793,15 @@ However, `[1, 2]` is a sequence.
 Perhaps you meant to use `[]` instead of `()` and write
 `[1, 2][a + b]`
 
-Exception raised on line `552` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `561` of file 'TESTS:\runtime\test_type_error.py'.
 
-   548|     assert "b.a_list[3]" in result
-   549|
-   550| try:
-   551|     a, b = 3, 7
---&gt;552|     _ = [1, 2](a + b)
+   557|     assert "b.a_list[3]" in result
+   558|
+   559| try:
+   560|     a, b = 3, 7
+--&gt;561|     _ = [1, 2](a + b)
                 ^^^^^^^^^^^^^
-   553| except TypeError as e:
+   562| except TypeError as e:
 
         a:  3
         b:  7
@@ -2843,7 +2812,7 @@ Exception raised on line `552` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="object-is-not-iterable">
 <h3>Object is not iterable<a class="headerlink" href="#object-is-not-iterable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 809, in test_Object_is_not_iterable
+  File "TESTS:\runtime\test_type_error.py", line 826, in test_Object_is_not_iterable
     list(42)
 TypeError: 'int' object is not iterable
 
@@ -2856,13 +2825,13 @@ An iterable is an object capable of returning its members one at a time.
 Python containers (`list, tuple, dict`, etc.) are iterables.
 An iterable is required here.
 
-Exception raised on line `809` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `826` of file 'TESTS:\runtime\test_type_error.py'.
 
-   807| def test_Object_is_not_iterable():
-   808|     try:
---&gt;809|         list(42)
+   824| def test_Object_is_not_iterable():
+   825|     try:
+--&gt;826|         list(42)
                 ^^^^^^^^
-   810|     except TypeError as e:
+   827|     except TypeError as e:
 
         list:  &lt;class list&gt;
 </pre></div>
@@ -2871,7 +2840,7 @@ Exception raised on line `809` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="object-is-not-subscriptable">
 <h3>Object is not subscriptable<a class="headerlink" href="#object-is-not-subscriptable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 795, in test_Object_is_not_subscriptable
+  File "TESTS:\runtime\test_type_error.py", line 811, in test_Object_is_not_subscriptable
     a = f[1]
 TypeError: 'function' object is not subscriptable
 
@@ -2887,15 +2856,15 @@ you can retrieve item using the notation `[...]`.
 
 Perhaps you meant to write `f(1)`.
 
-Exception raised on line `795` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `811` of file 'TESTS:\runtime\test_type_error.py'.
 
-   791| def f():
-   792|     pass
-   793|
-   794| try:
---&gt;795|     a = f[1]
+   807| def f():
+   808|     pass
+   809|
+   810| try:
+--&gt;811|     a = f[1]
                 ^^^^
-   796| except TypeError as e:
+   812| except TypeError as e:
 
         f:  &lt;function f&gt;
             defined in &lt;function test_Object_is_not_subscriptable&gt;
@@ -2905,7 +2874,7 @@ Exception raised on line `795` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="slice-indices-must-be-integers-or-none">
 <h3>Slice indices must be integers or None<a class="headerlink" href="#slice-indices-must-be-integers-or-none" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 737, in test_Slice_indices_must_be_integers_or_None
+  File "TESTS:\runtime\test_type_error.py", line 751, in test_Slice_indices_must_be_integers_or_None
     [1, 2, 3][1.0:2.0]
 TypeError: slice indices must be integers or None or have an __index__ method
 
@@ -2920,20 +2889,20 @@ from a sequence, that is something like
 each of `start`, `stop`, `step` must be either an integer, `None`,
 or possibly some other object having an `__index__` method.
 
-Exception raised on line `737` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `751` of file 'TESTS:\runtime\test_type_error.py'.
 
-   735| def test_Slice_indices_must_be_integers_or_None():
-   736|     try:
---&gt;737|         [1, 2, 3][1.0:2.0]
+   749| def test_Slice_indices_must_be_integers_or_None():
+   750|     try:
+--&gt;751|         [1, 2, 3][1.0:2.0]
                 ^^^^^^^^^^^^^^^^^^
-   738|     except TypeError as e:
+   752|     except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="too-few-positional-argument">
 <h3>Too few positional argument<a class="headerlink" href="#too-few-positional-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 492, in test_Too_few_positional_argument
+  File "TESTS:\runtime\test_type_error.py", line 500, in test_Too_few_positional_argument
     fn(1)
 TypeError: fn() missing 2 required positional arguments: 'b' and 'c'
 
@@ -2945,15 +2914,15 @@ or by trying to do an operation not allowed on a given type of object.
 You apparently have called the function 'fn()' with
 fewer positional arguments than it requires (2 missing).
 
-Exception raised on line `492` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `500` of file 'TESTS:\runtime\test_type_error.py'.
 
-   488| def fn(a, b, c):
-   489|     pass
-   490|
-   491| try:
---&gt;492|     fn(1)
+   496| def fn(a, b, c):
+   497|     pass
+   498|
+   499| try:
+--&gt;500|     fn(1)
             ^^^^^
-   493| except TypeError as e:
+   501| except TypeError as e:
 
         fn:  &lt;function fn&gt;
             defined in &lt;function test_Too_few_positional_argument&gt;
@@ -2963,7 +2932,7 @@ Exception raised on line `492` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="too-many-positional-argument">
 <h3>Too many positional argument<a class="headerlink" href="#too-many-positional-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 473, in test_Too_many_positional_argument
+  File "TESTS:\runtime\test_type_error.py", line 480, in test_Too_many_positional_argument
     A().f(1)
 TypeError: f() takes 1 positional argument but 2 were given
 
@@ -2979,15 +2948,15 @@ You apparently have called the function `f` with
 such positional argument(s).
 Perhaps you forgot `self` when defining `f`.
 
-Exception raised on line `473` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `480` of file 'TESTS:\runtime\test_type_error.py'.
 
-   469|     def f(x):
-   470|         pass
-   471|
-   472| try:
---&gt;473|     A().f(1)
+   476|     def f(x):
+   477|         pass
+   478|
+   479| try:
+--&gt;480|     A().f(1)
             ^^^^^^^^
-   474| except TypeError as e:
+   481| except TypeError as e:
 
         A:  &lt;class A&gt;
             defined in &lt;function test_type_error.test_Too_many_positional_argument&gt;
@@ -2997,7 +2966,7 @@ Exception raised on line `473` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="tuple-no-item-assignment">
 <h3>Tuple no item assignment<a class="headerlink" href="#tuple-no-item-assignment" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 440, in test_Tuple_no_item_assignment
+  File "TESTS:\runtime\test_type_error.py", line 446, in test_Tuple_no_item_assignment
     a[0] = 0
 TypeError: 'tuple' object does not support item assignment
 
@@ -3014,14 +2983,14 @@ You tried change part of such an immutable object: a `tuple`,
 most likely by using an indexing operation.
 Perhaps you meant to use a list instead.
 
-Exception raised on line `440` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `446` of file 'TESTS:\runtime\test_type_error.py'.
 
-   437| def test_Tuple_no_item_assignment():
-   438|     a = (1, 2, 3)
-   439|     try:
---&gt;440|         a[0] = 0
+   443| def test_Tuple_no_item_assignment():
+   444|     a = (1, 2, 3)
+   445|     try:
+--&gt;446|         a[0] = 0
                 ^^^^
-   441|     except TypeError as e:
+   447|     except TypeError as e:
 
         a:  (1, 2, 3)
         a[0]:  1
@@ -3031,7 +3000,7 @@ Exception raised on line `440` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="unhachable-type">
 <h3>Unhachable type<a class="headerlink" href="#unhachable-type" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 754, in test_Unhachable_type
+  File "TESTS:\runtime\test_type_error.py", line 769, in test_Unhachable_type
     {[1, 2]: 1}
 TypeError: unhashable type: 'list'
 
@@ -3045,19 +3014,19 @@ as elements of `set` or keys of `dict`.
 Hashable objects are objects that do not change value
 once they have been created.Instead of using a `list`, consider using a `tuple`.
 
-Exception raised on line `754` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `769` of file 'TESTS:\runtime\test_type_error.py'.
 
-   752| def test_Unhachable_type():
-   753|     try:
---&gt;754|         {[1, 2]: 1}
-   755|     except TypeError as e:
+   767| def test_Unhachable_type():
+   768|     try:
+--&gt;769|         {[1, 2]: 1}
+   770|     except TypeError as e:
 </pre></div>
 </div>
 </section>
 <section id="unsupported-operand-types">
 <h3>Unsupported operand types<a class="headerlink" href="#unsupported-operand-types" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 322, in test_Unsupported_operand_types
+  File "TESTS:\runtime\test_type_error.py", line 325, in test_Unsupported_operand_types
     a @= b
 TypeError: unsupported operand type(s) for @=: 'str' and 'int'
 
@@ -3072,13 +3041,13 @@ a string (`str`) and an integer (`int`).
 This operator is normally used only
 for multiplication of matrices.
 
-Exception raised on line `322` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `325` of file 'TESTS:\runtime\test_type_error.py'.
 
-   319| try:
-   320|     a = "a"
-   321|     b = 2
---&gt;322|     a @= b
-   323| except TypeError as e:
+   322| try:
+   323|     a = "a"
+   324|     b = 2
+--&gt;325|     a @= b
+   326| except TypeError as e:
 
         a:  'a'
         b:  2
@@ -3088,7 +3057,7 @@ Exception raised on line `322` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="divmod">
 <h3>divmod<a class="headerlink" href="#divmod" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 67, in test_divmod
+  File "TESTS:\runtime\test_type_error.py", line 69, in test_divmod
     result = divmod(a, b)
 TypeError: can't take floor or mod of complex number.
 
@@ -3100,14 +3069,14 @@ or by trying to do an operation not allowed on a given type of object.
 The arguments of `divmod` must be integers (`int`) or real (`float`) numbers.
 At least one of the arguments was a complex number.
 
-Exception raised on line `67` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `69` of file 'TESTS:\runtime\test_type_error.py'.
 
-   64| a = 2
-   65| b = 3 + 2j
-   66| try:
---&gt;67|     result = divmod(a, b)
+   66| a = 2
+   67| b = 3 + 2j
+   68| try:
+--&gt;69|     result = divmod(a, b)
                     ^^^^^^^^^^^^
-   68| except TypeError as e:
+   70| except TypeError as e:
 
         a:  2
         b:  (3+2j)
@@ -3118,7 +3087,7 @@ Exception raised on line `67` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="function-got-multiple-argument">
 <h3>function got multiple argument<a class="headerlink" href="#function-got-multiple-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 972, in test_function_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 996, in test_function_got_multiple_argument
     fn2(0, a=1)
 TypeError: fn2() got multiple values for argument 'a'
 
@@ -3132,15 +3101,15 @@ when calling the function named `fn2`.
 This function has the following arguments:
 `a, b=1`
 
-Exception raised on line `972` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `996` of file 'TESTS:\runtime\test_type_error.py'.
 
-   968| def fn2(a, b=1):
-   969|     pass
-   970|
-   971| try:
---&gt;972|     fn2(0, a=1)
+   992| def fn2(a, b=1):
+   993|     pass
+   994|
+   995| try:
+--&gt;996|     fn2(0, a=1)
             ^^^^^^^^^^^
-   973| except TypeError as e:
+   997| except TypeError as e:
 
         fn2:  &lt;function fn2&gt;
             defined in &lt;function test_function_got_multiple_argument&gt;
@@ -3150,7 +3119,7 @@ Exception raised on line `972` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="function-has-no-len">
 <h3>function has no len<a class="headerlink" href="#function-has-no-len" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 897, in test_function_has_no_len
+  File "TESTS:\runtime\test_type_error.py", line 919, in test_function_has_no_len
     len(bad)
 TypeError: object of type 'function' has no len()
 
@@ -3165,15 +3134,15 @@ I suspect that you forgot to add parentheses to call `bad`.
 You might have meant to write:
 `len(bad())`
 
-Exception raised on line `897` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `919` of file 'TESTS:\runtime\test_type_error.py'.
 
-   893| def bad():
-   894|     pass
-   895|
-   896| try:
---&gt;897|     len(bad)
+   915| def bad():
+   916|     pass
+   917|
+   918| try:
+--&gt;919|     len(bad)
             ^^^^^^^^
-   898| except TypeError as e:
+   920| except TypeError as e:
 
         bad:  &lt;function bad&gt; defined in &lt;function test_function_has_no_len&gt;
         len:  &lt;builtin function len&gt;
@@ -3183,7 +3152,7 @@ Exception raised on line `897` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="getattr-attribute-name-must-be-string">
 <h3>getattr attribute name must be string<a class="headerlink" href="#getattr-attribute-name-must-be-string" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 1018, in test_getattr_attribute_name_must_be_string
+  File "TESTS:\runtime\test_type_error.py", line 1044, in test_getattr_attribute_name_must_be_string
     getattr("__repr__", 1)  # as reported in issue #77
 TypeError: getattr(): attribute name must be string
 
@@ -3194,18 +3163,18 @@ or by trying to do an operation not allowed on a given type of object.
 
 The second argument of the function `getattr()` must be a string.
 
-Exception raised on line `1018` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `1044` of file 'TESTS:\runtime\test_type_error.py'.
 
-   1011| if friendly_traceback.get_lang() == "en":
-   1012|     assert (
-   1013|         "The second argument of the function `hasattr()` must be a string."
-   1014|         in result
-   1015|     )
-   1016|
-   1017| try:
---&gt;1018|     getattr("__repr__", 1)  # as reported in issue #77
+   1037| if friendly_traceback.get_lang() == "en":
+   1038|     assert (
+   1039|         "The second argument of the function `hasattr()` must be a string."
+   1040|         in result
+   1041|     )
+   1042|
+   1043| try:
+--&gt;1044|     getattr("__repr__", 1)  # as reported in issue #77
              ^^^^^^^^^^^^^^^^^^^^^^
-   1019| except TypeError as e:
+   1045| except TypeError as e:
 
         getattr:  &lt;builtin function getattr&gt;
 </pre></div>
@@ -3214,7 +3183,7 @@ Exception raised on line `1018` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="method-got-multiple-argument">
 <h3>method got multiple argument<a class="headerlink" href="#method-got-multiple-argument" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 991, in test_method_got_multiple_argument
+  File "TESTS:\runtime\test_type_error.py", line 1016, in test_method_got_multiple_argument
     t.some_method(0, a=1)
 TypeError: some_method() got multiple values for argument 'a'
 
@@ -3227,15 +3196,15 @@ You have specified the value of argument `a` more than once
 when calling the function named `t.some_method`.
 This function has only one argument: `a`
 
-Exception raised on line `991` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `1016` of file 'TESTS:\runtime\test_type_error.py'.
 
-   987|         pass
-   988|
-   989| t = T()
-   990| try:
---&gt;991|     t.some_method(0, a=1)
-            ^^^^^^^^^^^^^^^^^^^^^
-   992| except TypeError as e:
+   1012|         pass
+   1013|
+   1014| t = T()
+   1015| try:
+--&gt;1016|     t.some_method(0, a=1)
+             ^^^^^^^^^^^^^^^^^^^^^
+   1017| except TypeError as e:
 
         t:  &lt;T object&gt;
             defined in &lt;function test_type_error.test_method_got_multiple_argument&gt;
@@ -3248,7 +3217,7 @@ Exception raised on line `991` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="vars-arg-must-have-dict">
 <h3>vars arg must have dict<a class="headerlink" href="#vars-arg-must-have-dict" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_type_error.py", line 941, in test_vars_arg_must_have_dict
+  File "TESTS:\runtime\test_type_error.py", line 964, in test_vars_arg_must_have_dict
     vars(f)
 TypeError: vars() argument must have __dict__ attribute
 
@@ -3261,15 +3230,15 @@ The function `vars` is used to list the content of the
 `__dict__` attribute of an object.
 Object `f` uses `__slots__` instead of `__dict__`.
 
-Exception raised on line `941` of file 'TESTS:\runtime\test_type_error.py'.
+Exception raised on line `964` of file 'TESTS:\runtime\test_type_error.py'.
 
-   937|     assert no_slots not in result
-   938|     assert use_slots not in result
-   939|
-   940| try:
---&gt;941|     vars(f)
+   960|     assert no_slots not in result
+   961|     assert use_slots not in result
+   962|
+   963| try:
+--&gt;964|     vars(f)
             ^^^^^^^
-   942| except TypeError as e:
+   965| except TypeError as e:
 
         f:  &lt;F object&gt;
             defined in &lt;function test_type_error.test_vars_arg_must_have_dict&gt;
@@ -3283,7 +3252,7 @@ Exception raised on line `941` of file 'TESTS:\runtime\test_type_error.py'.
 <section id="missing-both">
 <h3>Missing both<a class="headerlink" href="#missing-both" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_unbound_local_error.py", line 63, in test_Missing_both
+  File "TESTS:\runtime\test_unbound_local_error.py", line 65, in test_Missing_both
     outer_missing_both()
   File "TESTS:\runtime\test_unbound_local_error.py", line 22, in outer_missing_both
     inner()
@@ -3318,13 +3287,13 @@ or
 
 as the first line inside your function.
 
-Execution stopped on line `63` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Execution stopped on line `65` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-   61| def test_Missing_both():
-   62|     try:
---&gt;63|         outer_missing_both()
+   63| def test_Missing_both():
+   64|     try:
+--&gt;65|         outer_missing_both()
                ^^^^^^^^^^^^^^^^^^^^
-   64|     except UnboundLocalError as e:
+   66|     except UnboundLocalError as e:
 
         global outer_missing_both:  &lt;function outer_missing_both&gt;
 
@@ -3391,7 +3360,7 @@ Exception raised on line `9` of file 'TESTS:\runtime\test_unbound_local_error.py
 <section id="missing-nonlocal">
 <h3>Missing nonlocal<a class="headerlink" href="#missing-nonlocal" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_unbound_local_error.py", line 45, in test_Missing_nonlocal
+  File "TESTS:\runtime\test_unbound_local_error.py", line 46, in test_Missing_nonlocal
     outer_missing_nonlocal()
   File "TESTS:\runtime\test_unbound_local_error.py", line 16, in outer_missing_nonlocal
     inner()
@@ -3420,13 +3389,13 @@ Perhaps the statement
 
 should have been included as the first line inside your function.
 
-Execution stopped on line `45` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Execution stopped on line `46` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-   43| def test_Missing_nonlocal():
-   44|     try:
---&gt;45|         outer_missing_nonlocal()
+   44| def test_Missing_nonlocal():
+   45|     try:
+--&gt;46|         outer_missing_nonlocal()
                ^^^^^^^^^^^^^^^^^^^^^^^^
-   46|     except UnboundLocalError as e:
+   47|     except UnboundLocalError as e:
 
         global outer_missing_nonlocal:  &lt;function outer_missing_nonlocal&gt;
 
@@ -3440,9 +3409,9 @@ Exception raised on line `15` of file 'TESTS:\runtime\test_unbound_local_error.p
 <section id="typo-in-local">
 <h3>Typo in local<a class="headerlink" href="#typo-in-local" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test_Typo_in_local
+  File "TESTS:\runtime\test_unbound_local_error.py", line 104, in test_Typo_in_local
     test2()
-  File "TESTS:\runtime\test_unbound_local_error.py", line 98, in test2
+  File "TESTS:\runtime\test_unbound_local_error.py", line 101, in test2
     alpha3 += 1
 UnboundLocalError: local variable 'alpha3' referenced before assignment
 
@@ -3460,33 +3429,33 @@ an `UnboundLocalError`.
 Instead of writing `alpha3`, perhaps you meant one of the following:
 *   Local scope: `alpha1`, `alpha2`
 
-Execution stopped on line `101` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Execution stopped on line `104` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-    97|     alpha2 = 1
-    98|     alpha3 += 1
-    99|
-   100| try:
---&gt;101|     test2()
+   100|     alpha2 = 1
+   101|     alpha3 += 1
+   102|
+   103| try:
+--&gt;104|     test2()
             ^^^^^^^
-   102| except UnboundLocalError as e:
+   105| except UnboundLocalError as e:
 
         test2:  &lt;function test2&gt; defined in &lt;function test_Typo_in_local&gt;
 
-Exception raised on line `98` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Exception raised on line `101` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-   95| def test2():
-   96|     alpha1 = 1
-   97|     alpha2 = 1
---&gt;98|     alpha3 += 1
+    98| def test2():
+    99|     alpha1 = 1
+   100|     alpha2 = 1
+--&gt;101|     alpha3 += 1
 </pre></div>
 </div>
 </section>
 <section id="using-name-of-builtin">
 <h3>Using name of builtin<a class="headerlink" href="#using-name-of-builtin" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_unbound_local_error.py", line 121, in test_Using_name_of_builtin
+  File "TESTS:\runtime\test_unbound_local_error.py", line 125, in test_Using_name_of_builtin
     dist([])
-  File "TESTS:\runtime\test_unbound_local_error.py", line 117, in dist
+  File "TESTS:\runtime\test_unbound_local_error.py", line 121, in dist
     max = max(points)
 UnboundLocalError: local variable 'max' referenced before assignment
 
@@ -3506,23 +3475,23 @@ while also using its original meaning in the function.
 Note that it is generally not a good idea to give a local variable
 the same name as a Python builtin function (like `max`).
 
-Execution stopped on line `121` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Execution stopped on line `125` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-   118|     min = min(points)
-   119|     return max - min
-   120| try:
---&gt;121|     dist([])
+   122|     min = min(points)
+   123|     return max - min
+   124| try:
+--&gt;125|     dist([])
             ^^^^^^^^
-   122| except UnboundLocalError as e:
+   126| except UnboundLocalError as e:
 
         dist:  &lt;function dist&gt; defined in &lt;function test_Using_name_of_builtin&gt;
 
-Exception raised on line `117` of file 'TESTS:\runtime\test_unbound_local_error.py'.
+Exception raised on line `121` of file 'TESTS:\runtime\test_unbound_local_error.py'.
 
-   116| def dist(points):
---&gt;117|     max = max(points)
+   120| def dist(points):
+--&gt;121|     max = max(points)
                   ^^^
-   118|     min = min(points)
+   122|     min = min(points)
 
         max:  &lt;builtin function max&gt;
 </pre></div>
@@ -3563,7 +3532,7 @@ Exception raised on line `24` of file 'TESTS:\runtime\test_unknown_error.py'.
 <section id="convert-to-int">
 <h3>Convert to int<a class="headerlink" href="#convert-to-int" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 187, in test_Convert_to_int
+  File "TESTS:\runtime\test_value_error.py", line 194, in test_Convert_to_int
     int('13a')
 ValueError: invalid literal for int() with base 10: '13a'
 
@@ -3575,15 +3544,15 @@ In base `10`, `int()` is most often use to convert a string
 containing the digits `0` to `9` into an integer.
 The following characters are not allowed: `a`.
 
-Exception raised on line `187` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `194` of file 'TESTS:\runtime\test_value_error.py'.
 
-   183| if english:
-   184|     assert "needs to be first converted using `float()`" in result
-   185|
-   186| try:
---&gt;187|     int('13a')
+   190| if english:
+   191|     assert "needs to be first converted using `float()`" in result
+   192|
+   193| try:
+--&gt;194|     int('13a')
             ^^^^^^^^^^
-   188| except ValueError as e:
+   195| except ValueError as e:
 
         int:  &lt;class int&gt;
 </pre></div>
@@ -3592,7 +3561,7 @@ Exception raised on line `187` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="could-not-convert-to-float">
 <h3>Could not convert to float<a class="headerlink" href="#could-not-convert-to-float" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 88, in test_Could_not_convert_to_float
+  File "TESTS:\runtime\test_value_error.py", line 92, in test_Could_not_convert_to_float
     float("42b")
 ValueError: could not convert string to float: '42b'
 
@@ -3602,13 +3571,13 @@ received an argument of the right type, but an inappropriate value.
 The string `42b` cannot be converted to a `float`
 as it does not represent a number.
 
-Exception raised on line `88` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `92` of file 'TESTS:\runtime\test_value_error.py'.
 
-   86| def test_Could_not_convert_to_float():
-   87|     try:
---&gt;88|         float("42b")
+   90| def test_Could_not_convert_to_float():
+   91|     try:
+--&gt;92|         float("42b")
                ^^^^^^^^^^^^
-   89|     except ValueError as e:
+   93|     except ValueError as e:
 
         float:  &lt;class float&gt;
 </pre></div>
@@ -3617,7 +3586,7 @@ Exception raised on line `88` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="date-invalid-month">
 <h3>Date invalid month<a class="headerlink" href="#date-invalid-month" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 58, in test_Date_invalid_month
+  File "TESTS:\runtime\test_value_error.py", line 60, in test_Date_invalid_month
     d = date(2021, 13, 1)
 ValueError: month must be in 1..12
 
@@ -3629,14 +3598,14 @@ received an argument of the right type, but an inappropriate value.
 I am guessing that you specify an invalid value for a month
 in a `date` object. Valid values are integers, from 1 to 12.
 
-Exception raised on line `58` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `60` of file 'TESTS:\runtime\test_value_error.py'.
 
-   55| def test_Date_invalid_month():
-   56|     from datetime import date
-   57|     try:
---&gt;58|         d = date(2021, 13, 1)
+   57| def test_Date_invalid_month():
+   58|     from datetime import date
+   59|     try:
+--&gt;60|         d = date(2021, 13, 1)
                    ^^^^^^^^^^^^^^^^^
-   59|     except ValueError as e:
+   61|     except ValueError as e:
 
         date:  &lt;class datetime.date&gt;
 </pre></div>
@@ -3673,7 +3642,7 @@ Exception raised on line `28` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="pow-third-arg-cannot-be-zero">
 <h3>Pow third arg cannot be zero<a class="headerlink" href="#pow-third-arg-cannot-be-zero" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 103, in test_Pow_third_arg_cannot_be_zero
+  File "TESTS:\runtime\test_value_error.py", line 108, in test_Pow_third_arg_cannot_be_zero
     pow(2, 4, a)
 ValueError: pow() 3rd argument cannot be 0
 
@@ -3682,14 +3651,14 @@ received an argument of the right type, but an inappropriate value.
 
 The third argument of the function `pow()` cannot be zero.
 
-Exception raised on line `103` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `108` of file 'TESTS:\runtime\test_value_error.py'.
 
-   100| def test_Pow_third_arg_cannot_be_zero():
-   101|     a = 0
-   102|     try:
---&gt;103|         pow(2, 4, a)
+   105| def test_Pow_third_arg_cannot_be_zero():
+   106|     a = 0
+   107|     try:
+--&gt;108|         pow(2, 4, a)
                 ^^^^^^^^^^^^
-   104|     except ValueError as e:
+   109|     except ValueError as e:
 
         a:  0
         pow:  &lt;builtin function pow&gt;
@@ -3699,7 +3668,7 @@ Exception raised on line `103` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="slots-conflicts-with-class-variable">
 <h3>Slots conflicts with class variable<a class="headerlink" href="#slots-conflicts-with-class-variable" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 72, in test_Slots_conflicts_with_class_variable
+  File "TESTS:\runtime\test_value_error.py", line 75, in test_Slots_conflicts_with_class_variable
     class F:
 ValueError: 'a' in __slots__ conflicts with class variable
 
@@ -3710,19 +3679,19 @@ The name `a` is used both as the name of a class variable
 and as a string item in the class `__slots__`;
 this is not allowed.
 
-Exception raised on line `72` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `75` of file 'TESTS:\runtime\test_value_error.py'.
 
-   70| def test_Slots_conflicts_with_class_variable():
-   71|     try:
---&gt;72|         class F:
-   73|             __slots__ = ["a", "b"]
+   73| def test_Slots_conflicts_with_class_variable():
+   74|     try:
+--&gt;75|         class F:
+   76|             __slots__ = ["a", "b"]
 </pre></div>
 </div>
 </section>
 <section id="too-many-values-to-unpack">
 <h3>Too many values to unpack<a class="headerlink" href="#too-many-values-to-unpack" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 43, in test_Too_many_values_to_unpack
+  File "TESTS:\runtime\test_value_error.py", line 44, in test_Too_many_values_to_unpack
     a, b = c
 ValueError: too many values to unpack (expected 2)
 
@@ -3734,13 +3703,13 @@ to each item of an iterable.
 In this instance, there are fewer names (2)
 than the length of the iterable, a `list` of length 3.
 
-Exception raised on line `43` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `44` of file 'TESTS:\runtime\test_value_error.py'.
 
-   40| def test_Too_many_values_to_unpack():
-   41|     c = [1, 2, 3]
-   42|     try:
---&gt;43|         a, b = c
-   44|     except ValueError as e:
+   41| def test_Too_many_values_to_unpack():
+   42|     c = [1, 2, 3]
+   43|     try:
+--&gt;44|         a, b = c
+   45|     except ValueError as e:
 
         c:  [1, 2, 3]
 </pre></div>
@@ -3749,7 +3718,7 @@ Exception raised on line `43` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="int-base-not-in-range">
 <h3>int base not in range<a class="headerlink" href="#int-base-not-in-range" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 201, in test_int_base_not_in_range
+  File "TESTS:\runtime\test_value_error.py", line 209, in test_int_base_not_in_range
     int('18', base=37)
 ValueError: int() base must be &gt;= 2 and &lt;= 36, or 0
 
@@ -3760,13 +3729,13 @@ The argument `base` of `int()` must be either zero
 or any integer from 2 to 36.
 You wrote 37 which is not allowed.
 
-Exception raised on line `201` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `209` of file 'TESTS:\runtime\test_value_error.py'.
 
-   199| def test_int_base_not_in_range():
-   200|     try:
---&gt;201|         int('18', base=37)
+   207| def test_int_base_not_in_range():
+   208|     try:
+--&gt;209|         int('18', base=37)
                 ^^^^^^^^^^^^^^^^^^
-   202|     except ValueError as e:
+   210|     except ValueError as e:
 
         int:  &lt;class int&gt;
 </pre></div>
@@ -3775,7 +3744,7 @@ Exception raised on line `201` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="remove-item-not-in-list">
 <h3>remove item not in list<a class="headerlink" href="#remove-item-not-in-list" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 227, in test_remove_item_not_in_list
+  File "TESTS:\runtime\test_value_error.py", line 236, in test_remove_item_not_in_list
     a_list.remove(b)
 ValueError: list.remove(x): x not in list
 
@@ -3785,14 +3754,14 @@ received an argument of the right type, but an inappropriate value.
 You have attempted to remove `b` from the list `a_list`.
 However, `a_list` does not contain `b`.
 
-Exception raised on line `227` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `236` of file 'TESTS:\runtime\test_value_error.py'.
 
-   224| a_list = [1, 2, 3]
-   225| b = 4
-   226| try:
---&gt;227|     a_list.remove(b)
+   233| a_list = [1, 2, 3]
+   234| b = 4
+   235| try:
+--&gt;236|     a_list.remove(b)
             ^^^^^^^^^^^^^^^^
-   228| except ValueError as e:
+   237| except ValueError as e:
 
         a_list:  [1, 2, 3]
         b:  4
@@ -3803,7 +3772,7 @@ Exception raised on line `227` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="time-strptime-incorrect-format">
 <h3>time strptime incorrect format<a class="headerlink" href="#time-strptime-incorrect-format" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_value_error.py", line 127, in test_time_strptime_incorrect_format
+  File "TESTS:\runtime\test_value_error.py", line 133, in test_time_strptime_incorrect_format
     time.strptime("2020-01-01", "%d %m %Y")
 ValueError: time data '2020-01-01' does not match format '%d %m %Y'
 
@@ -3818,15 +3787,15 @@ The following table might be useful:
 https://docs.python.org/3/library/time.html#time.strftime
 The following site might also be useful: https://www.strfti.me/
 
-Exception raised on line `127` of file 'TESTS:\runtime\test_value_error.py'.
+Exception raised on line `133` of file 'TESTS:\runtime\test_value_error.py'.
 
-   123|     return
-   124|
-   125| import time
-   126| try:
---&gt;127|     time.strptime("2020-01-01", "%d %m %Y")
+   129|     return
+   130|
+   131| import time
+   132| try:
+--&gt;133|     time.strptime("2020-01-01", "%d %m %Y")
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   128| except ValueError as e:
+   134| except ValueError as e:
 
         time:  &lt;module time (builtin)&gt;
         time.strptime:  &lt;builtin function strptime&gt;
@@ -3839,7 +3808,7 @@ Exception raised on line `127` of file 'TESTS:\runtime\test_value_error.py'.
 <section id="complex-division">
 <h3>Complex division<a class="headerlink" href="#complex-division" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 173, in test_Complex_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 180, in test_Complex_division
     1 / zero
 ZeroDivisionError: complex division by zero
 
@@ -3852,14 +3821,14 @@ You are dividing by the following term
 
 which is equal to zero.
 
-Exception raised on line `173` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `180` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   170| def test_Complex_division():
-   171|     zero = 0j
-   172|     try:
---&gt;173|         1 / zero
+   177| def test_Complex_division():
+   178|     zero = 0j
+   179|     try:
+--&gt;180|         1 / zero
                 ^^^^^^^^
-   174|     except ZeroDivisionError as e:
+   181|     except ZeroDivisionError as e:
 
         zero:  0j
 </pre></div>
@@ -3868,7 +3837,7 @@ Exception raised on line `173` of file 'TESTS:\runtime\test_zero_division_error.
 <section id="division-by-zero-literal">
 <h3>Division by zero literal<a class="headerlink" href="#division-by-zero-literal" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 220, in test_Division_by_zero_literal
+  File "TESTS:\runtime\test_zero_division_error.py", line 229, in test_Division_by_zero_literal
     1.0 / 0
 ZeroDivisionError: float division by zero
 
@@ -3877,15 +3846,15 @@ by zero either directly or by using some other mathematical operation.
 
 You are dividing by zero.
 
-Exception raised on line `220` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `229` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   216| if friendly_traceback.get_lang() == "en":
-   217|     assert "Using the modulo operator, `%`, you are dividing by zero" in result
-   218|
-   219| try:
---&gt;220|     1.0 / 0
+   225| if friendly_traceback.get_lang() == "en":
+   226|     assert "Using the modulo operator, `%`, you are dividing by zero" in result
+   227|
+   228| try:
+--&gt;229|     1.0 / 0
             ^^^^^^^
-   221| except ZeroDivisionError as e:
+   230| except ZeroDivisionError as e:
 </pre></div>
 </div>
 </section>
@@ -3925,7 +3894,7 @@ Exception raised on line `20` of file 'TESTS:\runtime\test_zero_division_error.p
 <section id="id8">
 <h3>Divmod<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 97, in test_Divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 100, in test_Divmod
     divmod(1, zero)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -3934,14 +3903,14 @@ by zero either directly or by using some other mathematical operation.
 
 The second argument of the `divmod()` function is zero.
 
-Exception raised on line `97` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `100` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   94| def test_Divmod():
-   95|     zero = 0
-   96|     try:
---&gt;97|         divmod(1, zero)
-               ^^^^^^^^^^^^^^^
-   98|     except ZeroDivisionError as e:
+    97| def test_Divmod():
+    98|     zero = 0
+    99|     try:
+--&gt;100|         divmod(1, zero)
+                ^^^^^^^^^^^^^^^
+   101|     except ZeroDivisionError as e:
 
         zero:  0
         divmod:  &lt;builtin function divmod&gt;
@@ -3951,7 +3920,7 @@ Exception raised on line `97` of file 'TESTS:\runtime\test_zero_division_error.p
 <section id="float-division">
 <h3>Float division<a class="headerlink" href="#float-division" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 143, in test_Float_division
+  File "TESTS:\runtime\test_zero_division_error.py", line 148, in test_Float_division
     1 / zero
 ZeroDivisionError: float division by zero
 
@@ -3964,14 +3933,14 @@ You are dividing by the following term
 
 which is equal to zero.
 
-Exception raised on line `143` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `148` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   140| def test_Float_division():
-   141|     zero = 0.0
-   142|     try:
---&gt;143|         1 / zero
+   145| def test_Float_division():
+   146|     zero = 0.0
+   147|     try:
+--&gt;148|         1 / zero
                 ^^^^^^^^
-   144|     except ZeroDivisionError as e:
+   149|     except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -3980,7 +3949,7 @@ Exception raised on line `143` of file 'TESTS:\runtime\test_zero_division_error.
 <section id="float-divmod">
 <h3>Float divmod<a class="headerlink" href="#float-divmod" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 158, in test_Float_divmod
+  File "TESTS:\runtime\test_zero_division_error.py", line 164, in test_Float_divmod
     divmod(1, zero)
 ZeroDivisionError: float divmod()
 
@@ -3989,14 +3958,14 @@ by zero either directly or by using some other mathematical operation.
 
 The second argument of the `divmod()` function is equal to zero.
 
-Exception raised on line `158` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `164` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   155| def test_Float_divmod():
-   156|     zero = 0.0
-   157|     try:
---&gt;158|         divmod(1, zero)
+   161| def test_Float_divmod():
+   162|     zero = 0.0
+   163|     try:
+--&gt;164|         divmod(1, zero)
                 ^^^^^^^^^^^^^^^
-   159|     except ZeroDivisionError as e:
+   165|     except ZeroDivisionError as e:
 
         zero:  0.0
         divmod:  &lt;builtin function divmod&gt;
@@ -4006,7 +3975,7 @@ Exception raised on line `158` of file 'TESTS:\runtime\test_zero_division_error.
 <section id="float-modulo">
 <h3>Float modulo<a class="headerlink" href="#float-modulo" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 128, in test_Float_modulo
+  File "TESTS:\runtime\test_zero_division_error.py", line 132, in test_Float_modulo
     1 % zero
 ZeroDivisionError: float modulo
 
@@ -4019,18 +3988,18 @@ Using the modulo operator, `%`, you are dividing by the following term
 
 which is equal to zero.
 
-Exception raised on line `128` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `132` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   121|     assert (
-   122|         "The following mathematical expression includes a division by zero"
-   123|         in result
-   124|     )
-   125|     assert "done using the modulo operator" in result
-   126|
-   127| try:
---&gt;128|     1 % zero
+   125|     assert (
+   126|         "The following mathematical expression includes a division by zero"
+   127|         in result
+   128|     )
+   129|     assert "done using the modulo operator" in result
+   130|
+   131| try:
+--&gt;132|     1 % zero
             ^^^^^^^^
-   129| except ZeroDivisionError as e:
+   133| except ZeroDivisionError as e:
 
         zero:  0.0
 </pre></div>
@@ -4039,7 +4008,7 @@ Exception raised on line `128` of file 'TESTS:\runtime\test_zero_division_error.
 <section id="integer-division-operator">
 <h3>Integer division operator<a class="headerlink" href="#integer-division-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 48, in test_Integer_division_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 49, in test_Integer_division_operator
     1 // zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -4052,18 +4021,18 @@ You are dividing by the following term
 
 which is equal to zero.
 
-Exception raised on line `48` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `49` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   41| if friendly_traceback.get_lang() == "en":
-   42|     assert (
-   43|         "The following mathematical expression includes a division by zero"
-   44|         in result
-   45|     )
-   46|
-   47| try:
---&gt;48|     1 // zero
+   42| if friendly_traceback.get_lang() == "en":
+   43|     assert (
+   44|         "The following mathematical expression includes a division by zero"
+   45|         in result
+   46|     )
+   47|
+   48| try:
+--&gt;49|     1 // zero
            ^^^^^^^^^
-   49| except ZeroDivisionError as e:
+   50| except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -4072,7 +4041,7 @@ Exception raised on line `48` of file 'TESTS:\runtime\test_zero_division_error.p
 <section id="mixed-operations">
 <h3>Mixed operations<a class="headerlink" href="#mixed-operations" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 233, in test_Mixed_operations
+  File "TESTS:\runtime\test_zero_division_error.py", line 243, in test_Mixed_operations
     a = divmod(8, 1 // 2)
 ZeroDivisionError: integer division or modulo by zero
 
@@ -4083,13 +4052,13 @@ The following mathematical expression includes a division by zero:
 
     divmod(8, 1 // 2)
 
-Exception raised on line `233` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `243` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   231| def test_Mixed_operations():
-   232|     try:
---&gt;233|         a = divmod(8, 1 // 2)
+   241| def test_Mixed_operations():
+   242|     try:
+--&gt;243|         a = divmod(8, 1 // 2)
                     ^^^^^^^^^^^^^^^^^
-   234|     except ZeroDivisionError as e:
+   244|     except ZeroDivisionError as e:
 
         divmod:  &lt;builtin function divmod&gt;
         1 // 2:  0
@@ -4099,7 +4068,7 @@ Exception raised on line `233` of file 'TESTS:\runtime\test_zero_division_error.
 <section id="modulo-operator">
 <h3>Modulo operator<a class="headerlink" href="#modulo-operator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 79, in test_Modulo_operator
+  File "TESTS:\runtime\test_zero_division_error.py", line 81, in test_Modulo_operator
     1 % zero
 ZeroDivisionError: integer division or modulo by zero
 
@@ -4112,18 +4081,18 @@ Using the modulo operator, `%`, you are dividing by the following term
 
 which is equal to zero.
 
-Exception raised on line `79` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `81` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   72| if friendly_traceback.get_lang() == "en":
-   73|     assert (
-   74|         "The following mathematical expression includes a division by zero"
-   75|         in result
-   76|     )
-   77|
-   78| try:
---&gt;79|     1 % zero
+   74| if friendly_traceback.get_lang() == "en":
+   75|     assert (
+   76|         "The following mathematical expression includes a division by zero"
+   77|         in result
+   78|     )
+   79|
+   80| try:
+--&gt;81|     1 % zero
            ^^^^^^^^
-   80| except ZeroDivisionError as e:
+   82| except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -4132,7 +4101,7 @@ Exception raised on line `79` of file 'TESTS:\runtime\test_zero_division_error.p
 <section id="raise-zero-negative-power">
 <h3>Raise zero negative power<a class="headerlink" href="#raise-zero-negative-power" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "TESTS:\runtime\test_zero_division_error.py", line 188, in test_Raise_zero_negative_power
+  File "TESTS:\runtime\test_zero_division_error.py", line 196, in test_Raise_zero_negative_power
     zero**-1
 ZeroDivisionError: 0.0 cannot be raised to a negative power
 
@@ -4142,14 +4111,14 @@ by zero either directly or by using some other mathematical operation.
 You are attempting to raise the number 0 to a negative power
 which is equivalent to dividing by zero.
 
-Exception raised on line `188` of file 'TESTS:\runtime\test_zero_division_error.py'.
+Exception raised on line `196` of file 'TESTS:\runtime\test_zero_division_error.py'.
 
-   185| def test_Raise_zero_negative_power():
-   186|     zero = 0
-   187|     try:
---&gt;188|         zero**-1
+   193| def test_Raise_zero_negative_power():
+   194|     zero = 0
+   195|     try:
+--&gt;196|         zero**-1
                 ^^^^^^^^
-   189|     except ZeroDivisionError as e:
+   197|     except ZeroDivisionError as e:
 
         zero:  0
 </pre></div>
@@ -4296,7 +4265,6 @@ Exception raised on line `188` of file 'TESTS:\runtime\test_zero_division_error.
 <li><a class="reference internal" href="#missing-import3">missing import3</a></li>
 <li><a class="reference internal" href="#missing-import-from-other-1">missing import from other 1</a></li>
 <li><a class="reference internal" href="#missing-import-from-other-2">missing import from other 2</a></li>
-<li><a class="reference internal" href="#missing-import-from-other-3">missing import from other 3</a></li>
 <li><a class="reference internal" href="#special-keyword">special keyword</a></li>
 </ul>
 </li>

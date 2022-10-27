@@ -15,7 +15,7 @@ Not all cases handled by friendly are included here.
      This needs to be done explicitly, independently of updating the
      documentation using Sphinx.
 
-Friendly-traceback version: 0.7.50
+Friendly-traceback version: 0.7.53
 Python version: 3.10.6
 
 
@@ -1608,7 +1608,7 @@ Custom name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 249, in test_Custom_name
+      File "TESTS:\runtime\test_name_error.py", line 234, in test_Custom_name
         python
     NameError: name 'python' is not defined
     
@@ -1620,13 +1620,13 @@ Custom name
     before being defined or given a value.
     
     You are already using Python!
-    Exception raised on line `249` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `234` of file 'TESTS:\runtime\test_name_error.py'.
     
-       247| def test_Custom_name():
-       248|     try:
-    -->249|         python
+       232| def test_Custom_name():
+       233|     try:
+    -->234|         python
                     ^^^^^^
-       250|     except NameError as e:
+       235|     except NameError as e:
 
 
 Free variable referenced
@@ -1636,11 +1636,11 @@ Free variable referenced
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 232, in test_Free_variable_referenced
+      File "TESTS:\runtime\test_name_error.py", line 217, in test_Free_variable_referenced
         outer()
-      File "TESTS:\runtime\test_name_error.py", line 228, in outer
+      File "TESTS:\runtime\test_name_error.py", line 213, in outer
         inner()
-      File "TESTS:\runtime\test_name_error.py", line 227, in inner
+      File "TESTS:\runtime\test_name_error.py", line 212, in inner
         return var
     NameError: free variable 'var' referenced before assignment in enclosing scope. Did you mean: 'vars'?
     
@@ -1654,23 +1654,23 @@ Free variable referenced
     that exists in an enclosing scope,
     but has not yet been assigned a value.
     
-    Execution stopped on line `232` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `217` of file 'TESTS:\runtime\test_name_error.py'.
     
-       228|     inner()
-       229|     var = 4
-       230| 
-       231| try:
-    -->232|     outer()
+       213|     inner()
+       214|     var = 4
+       215| 
+       216| try:
+    -->217|     outer()
                 ^^^^^^^
-       233| except NameError as e:
+       218| except NameError as e:
 
             outer:  <function outer>
                 defined in <function test_Free_variable_referenced>
         
-    Exception raised on line `227` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `212` of file 'TESTS:\runtime\test_name_error.py'.
     
-       226| def inner():
-    -->227|     return var
+       211| def inner():
+    -->212|     return var
                        ^^^
 
 
@@ -1746,7 +1746,7 @@ Missing module name
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 335, in test_Missing_module_name
+      File "TESTS:\runtime\test_name_error.py", line 320, in test_Missing_module_name
         frame = Frame()
     NameError: name 'Frame' is not defined. Did you mean: 'frame'?
     
@@ -1769,14 +1769,14 @@ Missing module name
     tkinter, tracemalloc.
     Perhaps you forgot to import `Frame` from one of these modules.
     
-    Exception raised on line `335` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `320` of file 'TESTS:\runtime\test_name_error.py'.
     
-       332| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
-       333| def test_Missing_module_name():
-       334|     try:
-    -->335|         frame = Frame()
+       317| @pytest.mark.skipif(not tkinter, reason="tkinter not present; likely MacOS")
+       318| def test_Missing_module_name():
+       319|     try:
+    -->320|         frame = Frame()
                             ^^^^^
-       336|     except NameError as e:
+       321|     except NameError as e:
 
 
 Missing self 1
@@ -1786,9 +1786,9 @@ Missing self 1
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 285, in test_Missing_self_1
+      File "TESTS:\runtime\test_name_error.py", line 270, in test_Missing_self_1
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 276, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 261, in __str__
         toys_list = add_toy(  # ensure that it can see 'self' on following line
     NameError: name 'add_toy' is not defined
     
@@ -1807,28 +1807,28 @@ Missing self 1
     Perhaps you should have written `self.add_toy(...`
     instead of `add_toy(self, ...`.
     
-    Execution stopped on line `285` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `270` of file 'TESTS:\runtime\test_name_error.py'.
     
-       281|             return "{} has no toys".format(self.name)
-       282| 
-       283| a = Pet('Fido')
-       284| try:
-    -->285|     str(a)
+       266|             return "{} has no toys".format(self.name)
+       267| 
+       268| a = Pet('Fido')
+       269| try:
+    -->270|     str(a)
                 ^^^^^^
-       286| except NameError as e:
+       271| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_1>
             str:  <class str>
         
-    Exception raised on line `276` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `261` of file 'TESTS:\runtime\test_name_error.py'.
     
-       274| def __str__(self):
-       275|     # self at the wrong place
-    -->276|     toys_list = add_toy(  # ensure that it can see 'self' on following line
+       259| def __str__(self):
+       260|     # self at the wrong place
+    -->261|     toys_list = add_toy(  # ensure that it can see 'self' on following line
                             ^^^^^^^
-       277|                         self, 'something')
-       278|     if self.toys:
+       262|                         self, 'something')
+       263|     if self.toys:
 
 
 Missing self 2
@@ -1838,9 +1838,9 @@ Missing self 2
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 320, in test_Missing_self_2
+      File "TESTS:\runtime\test_name_error.py", line 305, in test_Missing_self_2
         str(a)
-      File "TESTS:\runtime\test_name_error.py", line 312, in __str__
+      File "TESTS:\runtime\test_name_error.py", line 297, in __str__
         toys_list = add_toy('something')
     NameError: name 'add_toy' is not defined
     
@@ -1859,27 +1859,27 @@ Missing self 2
     Perhaps you should have written `self.add_toy`
     instead of `add_toy`.
     
-    Execution stopped on line `320` of file 'TESTS:\runtime\test_name_error.py'.
+    Execution stopped on line `305` of file 'TESTS:\runtime\test_name_error.py'.
     
-       316|             return "{} has no toys".format(self.name)
-       317| 
-       318| a = Pet('Fido')
-       319| try:
-    -->320|     str(a)
+       301|             return "{} has no toys".format(self.name)
+       302| 
+       303| a = Pet('Fido')
+       304| try:
+    -->305|     str(a)
                 ^^^^^^
-       321| except NameError as e:
+       306| except NameError as e:
 
             a:  <Pet object>
                 defined in <function test_name_error.test_Missing_self_2>
             str:  <class str>
         
-    Exception raised on line `312` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `297` of file 'TESTS:\runtime\test_name_error.py'.
     
-       310| def __str__(self):
-       311|     # Missing self.
-    -->312|     toys_list = add_toy('something')
+       295| def __str__(self):
+       296|     # Missing self.
+    -->297|     toys_list = add_toy('something')
                             ^^^^^^^
-       313|     if self.toys:
+       298|     if self.toys:
 
 
 Synonym
@@ -1987,40 +1987,6 @@ missing import from other 1
 
     Traceback (most recent call last):
       File "TESTS:\runtime\test_name_error.py", line 183, in test_missing_import_from_other_1
-        fake_module_name.something()
-    NameError: name 'fake_module_name' is not defined
-    
-        Did you forget to import `fake_module_name`?
-        
-    A `NameError` exception indicates that a variable or
-    function name is not known to Python.
-    Most often, this is because there is a spelling mistake.
-    However, sometimes it is because the name is used
-    before being defined or given a value.
-    
-    
-    The name `fake_module_name` is not defined in your program.
-    Perhaps you forgot to import `fake_module_name` which is a known library.
-    
-    
-    Exception raised on line `183` of file 'TESTS:\runtime\test_name_error.py'.
-    
-       180| def test_missing_import_from_other_1():
-       181|     friendly_traceback.add_other_module_names(["fake_module_name"])
-       182|     try:
-    -->183|         fake_module_name.something()
-                    ^^^^^^^^^^^^^^^^
-       184|     except NameError as e:
-
-
-missing import from other 2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: none
-
-
-    Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 198, in test_missing_import_from_other_2
         plt.something
     NameError: name 'plt' is not defined
     
@@ -2036,27 +2002,27 @@ missing import from other 2
     The name `plt` is not defined in your program.
     Perhaps you forgot to write
     
-       import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
     
     
-    Exception raised on line `198` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `183` of file 'TESTS:\runtime\test_name_error.py'.
     
-       195| def test_missing_import_from_other_2():
-       196|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
-       197|     try:
-    -->198|         plt.something
+       180| def test_missing_import_from_other_1():
+       181|     friendly_traceback.add_other_module_names_synonyms({"plt": "matplotlib.pyplot"})
+       182|     try:
+    -->183|         plt.something
                     ^^^
-       199|     except NameError as e:
+       184|     except NameError as e:
 
 
-missing import from other 3
+missing import from other 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 212, in test_missing_import_from_other_3
+      File "TESTS:\runtime\test_name_error.py", line 197, in test_missing_import_from_other_2
         show()
     NameError: name 'show' is not defined
     
@@ -2071,14 +2037,14 @@ missing import from other 3
     mailcap, matplotlib.pyplot, funny.
     Perhaps you forgot to import `show` from one of these modules.
     
-    Exception raised on line `212` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `197` of file 'TESTS:\runtime\test_name_error.py'.
     
-       209| def test_missing_import_from_other_3():
-       210|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
-       211|     try:
-    -->212|         show()
+       194| def test_missing_import_from_other_2():
+       195|     friendly_traceback.add_other_attribute_names({"show": ["matplotlib.pyplot", "funny"] })
+       196|     try:
+    -->197|         show()
                     ^^^^
-       213|     except NameError as e:
+       198|     except NameError as e:
 
 
 special keyword
@@ -2088,7 +2054,7 @@ special keyword
 
 
     Traceback (most recent call last):
-      File "TESTS:\runtime\test_name_error.py", line 367, in test_special_keyword
+      File "TESTS:\runtime\test_name_error.py", line 352, in test_special_keyword
         brek
     NameError: name 'brek' is not defined
     
@@ -2102,14 +2068,14 @@ special keyword
     
     I suspect you meant to write the keyword `break` and made a typo.
     
-    Exception raised on line `367` of file 'TESTS:\runtime\test_name_error.py'.
+    Exception raised on line `352` of file 'TESTS:\runtime\test_name_error.py'.
     
-       364| if friendly_traceback.get_lang() == "en":
-       365|     assert "Did you mean `continue`" in result
-       366| try:
-    -->367|     brek
+       349| if friendly_traceback.get_lang() == "en":
+       350|     assert "Did you mean `continue`" in result
+       351| try:
+    -->352|     brek
                 ^^^^
-       368| except NameError as e:
+       353| except NameError as e:
 
 
 OsError

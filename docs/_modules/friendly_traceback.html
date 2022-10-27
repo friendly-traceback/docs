@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <meta name="generator" content="sphinx-5.2.3, furo 2021.11.23"/>
-        <title>friendly_traceback - friendly-traceback 0.7.50</title>
+        <title>friendly_traceback - friendly-traceback 0.7.53</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">friendly-traceback 0.7.50</div></a>
+      <a href="../index.html"><div class="brand">friendly-traceback 0.7.53</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +151,7 @@
     <img class="sidebar-logo" src="../_static/friendly_logo.png" alt="Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">friendly-traceback 0.7.50</span>
+  <span class="sidebar-brand-text">friendly-traceback 0.7.53</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -167,7 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage_adv.html">Other details for advanced users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../confidential.html">Logging and keeping confidential information secret</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">friendly console</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interactive usage</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../repl.html">Interactive mode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">history()</a></li>
@@ -342,7 +342,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Python 3.6 or newer is required."</span><span class="p">)</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.50"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.7.53"</span>
 
 <span class="c1"># ===========================================</span>
 
@@ -394,19 +394,6 @@
             <span class="n">attr_names</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">attr_names</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">]))</span></div>
-
-
-<div class="viewcode-block" id="add_other_module_names"><a class="viewcode-back" href="../api.html#friendly_traceback.add_other_module_names">[docs]</a><span class="k">def</span> <span class="nf">add_other_module_names</span><span class="p">(</span><span class="n">names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">"""Intended for extension to friendly_traceback that provide support for</span>
-<span class="sd">    some other modules. An example is friendly_pandas.  These names can be</span>
-<span class="sd">    used as suggestion in case of a NameError, suggesting that a given</span>
-<span class="sd">    module (name) should perhaps be imported.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        names: a sequence of module names. For example:</span>
-<span class="sd">               ``names = ['pandas', 'numpy', 'matplotlib']``</span>
-<span class="sd">    """</span>
-    <span class="n">third_party_names</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">names</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="add_other_module_names_synonyms"><a class="viewcode-back" href="../api.html#friendly_traceback.add_other_module_names_synonyms">[docs]</a><span class="k">def</span> <span class="nf">add_other_module_names_synonyms</span><span class="p">(</span><span class="n">synonyms</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

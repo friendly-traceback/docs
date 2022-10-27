@@ -289,7 +289,7 @@ a traceback.
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: friendly console
+   :caption: Interactive usage
 
    repl
    history
